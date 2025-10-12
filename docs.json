@@ -50,12 +50,25 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Harga & Paket",
+        "groups": [
+          {
+            "group": "AI tools",
+            "pages": [
+              "ai-tools/cursor",
+              "ai-tools/claude-code",
+              "ai-tools/windsurf"
+            ]
+          }
+        ]
       }
     ],
     "global": {
       "anchors": [
         {
-          "anchor": "Komunitas",
+          "anchor": "Gabung Komunitas",
           "href": "https://community.indolat.com",
           "icon": "book-open-cover"
         }
