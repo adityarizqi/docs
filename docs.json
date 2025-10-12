@@ -55,10 +55,8 @@
         "tab": "Dokumentasi API",
         "groups": [
           {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
+            "group": "Dokumentasi API",
+            "openapi": "api-reference/openapi.json"
           }
         ]
       }
