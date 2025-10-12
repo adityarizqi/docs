@@ -1,217 +1,725 @@
 {
-  "openapi": "3.1.0",
+  "swagger": "2.0",
   "info": {
-    "title": "OpenAPI Plant Store",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
-    "license": {
-      "name": "MIT"
-    },
-    "version": "1.0.0"
+    "description": "This is the API endpoint documentation for the Indolat Computer-Based Test (CBT) system. This documentation provides all the information you need to interact with our services programmatically. To use this API, you will need an API key which can be included in the `X-Client-Key` header. You can obtain your API key from the settings section in your Indolat account dashboard.",
+    "version": "v1",
+    "title": "Indolat CBT API Documentation",
+    "contact": {
+      "email": "support@indolat.com"
+    }
   },
-  "servers": [
+  "host": "app.indolat.com",
+  "basePath": "/api/v1",
+  "tags": [
     {
-      "url": "http://sandbox.mintlify.com"
+      "name": "Participant",
+      "description": "Operations related to managing participant data, both individually and in bulk."
+    },
+    {
+      "name": "Exam",
+      "description": "Manages master data for all exams available in the system."
+    },
+    {
+      "name": "Exam Participant",
+      "description": "Manages the assignment of participants to specific exams and their participation status."
+    },
+    {
+      "name": "Exam Result",
+      "description": "Accesses and manages the results of exams completed by participants."
     }
   ],
-  "security": [
-    {
-      "bearerAuth": []
-    }
+  "schemes": [
+    "https"
   ],
   "paths": {
-    "/plants": {
+    "/participants": {
       "get": {
-        "description": "Returns all plants from the system that the user has access to",
+        "tags": [
+          "Participant"
+        ],
+        "summary": "Get a list of participants",
+        "description": "Retrieves a list of participants registered in the system. The results are paginated for efficient data management.",
+        "operationId": "Participant",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "name": "limit",
             "in": "query",
-            "description": "The maximum number of results to return",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
+            "name": "limit",
+            "type": "integer",
+            "description": "Specifies the maximum number of participant records to return per page. Minimum value is 1, maximum is 100, and the default is 10 if not specified."
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "type": "integer",
+            "description": "Specifies the page number of the participant list to access. Minimum value is 1, and the default is 1 if not specified."
           }
         ],
         "responses": {
           "200": {
-            "description": "Plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Plant"
-                  }
-                }
-              }
-            }
+            "description": "Successfully retrieved the list of participants."
           },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
+          "401": {
+            "description": "Authorization failed. Ensure the `X-Client-Key` sent is valid and active."
+          },
+          "403": {
+            "description": "Invalid or inactive client. The API key may be incorrect, expired, or your account does not have permission to access this resource."
           }
-        }
+        },
+        "security": [
+          {
+            "X-Client-Key": []
+          }
+        ]
       },
       "post": {
-        "description": "Creates a new plant in the store",
-        "requestBody": {
-          "description": "Plant to add to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Plant"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
+        "tags": [
+          "Participant"
+        ],
+        "summary": "Create a new participant",
+        "description": "Registers a new participant into the system by providing the necessary details.",
+        "operationId": "postParticipant",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "JSON object containing the details of the participant to be added. Email must be unique.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Participant"
             }
           }
-        }
+        ],
+        "responses": {
+          "201": {
+            "description": "Participant successfully created and added to the system."
+          },
+          "400": {
+            "description": "Total number of participants exceeds the limit allowed by your service plan."
+          },
+          "401": {
+            "description": "Authorization failed. Ensure the `X-Client-Key` sent is valid and active."
+          },
+          "403": {
+            "description": "Invalid or inactive client. The API key may be incorrect, expired, or your account does not have permission."
+          },
+          "422": {
+            "description": "Validation error occurred on the submitted data. Please check the format and completeness of the data."
+          },
+          "500": {
+            "description": "An internal server error occurred. Please try again shortly or contact support."
+          }
+        },
+        "security": [
+          {
+            "X-Client-Key": []
+          }
+        ]
       }
     },
-    "/plants/{id}": {
-      "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
+    "/participants/{id}": {
+      "get": {
+        "tags": [
+          "Participant"
+        ],
+        "summary": "Find and display participant details",
+        "description": "Retrieves detailed information of a participant based on their unique ID.",
+        "operationId": "detailParticipant",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "ID of plant to delete",
+            "description": "Unique ID of the participant to find.",
             "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
+            "type": "integer",
+            "format": "int64"
           }
         ],
-        "responses": {
-          "204": {
-            "description": "Plant deleted",
-            "content": {}
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "webhooks": {
-    "/plant/webhook": {
-      "post": {
-        "description": "Information about a new plant added to the store",
-        "requestBody": {
-          "description": "Plant added to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
-            "description": "Return a 200 status to indicate that the data was received successfully"
-          }
-        }
-      }
-    }
-  },
-  "components": {
-    "schemas": {
-      "Plant": {
-        "required": [
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "The name of the plant",
-            "type": "string"
+            "description": "Participant data successfully found and displayed."
           },
-          "tag": {
-            "description": "Tag to specify the type",
-            "type": "string"
-          }
-        }
-      },
-      "NewPlant": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Plant"
+          "401": {
+            "description": "Authorization failed. Ensure the `X-Client-Key` sent is valid and active."
           },
+          "403": {
+            "description": "Invalid or inactive client. The API key may be incorrect, expired, or your account does not have permission."
+          },
+          "404": {
+            "description": "Participant data with the given ID was not found in the system."
+          }
+        },
+        "security": [
           {
-            "required": [
-              "id"
-            ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the plant",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
+            "X-Client-Key": []
           }
         ]
       },
-      "Error": {
-        "required": [
-          "error",
-          "message"
+      "put": {
+        "tags": [
+          "Participant"
         ],
-        "type": "object",
-        "properties": {
-          "error": {
+        "summary": "Update an existing participant's data",
+        "description": "Modifies the detailed information of a registered participant based on their unique ID.",
+        "operationId": "putParticipant",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique ID of the participant whose data will be updated.",
+            "required": true,
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
-          "message": {
-            "type": "string"
+          {
+            "in": "body",
+            "name": "body",
+            "description": "JSON object containing the participant data to be updated. Only provided fields will be changed.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ParticipantPut"
+            }
           }
-        }
+        ],
+        "responses": {
+          "200": {
+            "description": "Participant data successfully updated."
+          },
+          "401": {
+            "description": "Authorization failed. Ensure the `X-Client-Key` sent is valid and active."
+          },
+          "403": {
+            "description": "Invalid or inactive client. The API key may be incorrect, expired, or your account does not have permission."
+          },
+          "404": {
+            "description": "Participant data with the given ID was not found and thus cannot be updated."
+          },
+          "422": {
+            "description": "Validation error occurred on the data submitted for update. Please check the format and completeness of the data."
+          },
+          "500": {
+            "description": "An internal server error occurred. Please try again shortly or contact support."
+          }
+        },
+        "security": [
+          {
+            "X-Client-Key": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Participant"
+        ],
+        "summary": "Delete a participant from the system",
+        "description": "Permanently removes a participant's data from the system based on their unique ID.",
+        "operationId": "deleteParticipant",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique ID of the participant to be deleted.",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Participant successfully deleted from the system."
+          },
+          "401": {
+            "description": "Authorization failed. Ensure the `X-Client-Key` sent is valid and active."
+          },
+          "403": {
+            "description": "Invalid or inactive client. The API key may be incorrect, expired, or your account does not have permission."
+          },
+          "404": {
+            "description": "Participant data with the given ID was not found and thus cannot be deleted."
+          },
+          "500": {
+            "description": "An internal server error occurred. Please try again shortly or contact support."
+          }
+        },
+        "security": [
+          {
+            "X-Client-Key": []
+          }
+        ]
       }
     },
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer"
+    "/participants/import": {
+      "post": {
+        "tags": [
+          "Participant"
+        ],
+        "summary": "Import participant data in bulk",
+        "description": "Imports a list of participants in large quantities. If a participant's email is already registered, their data will be updated. Otherwise, a new participant will be created.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "JSON object containing an array of participant data to be imported.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ParticipantImport"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Participant data successfully imported or updated."
+          },
+          "400": {
+            "description": "Invalid JSON format or the total number of participants after import will exceed the allowed limit."
+          },
+          "401": {
+            "description": "Authorization failed. Ensure the `X-Client-Key` sent is valid and active."
+          },
+          "403": {
+            "description": "Invalid or inactive client. The API key may be incorrect, expired, or your account does not have permission."
+          },
+          "422": {
+            "description": "Validation error occurred on one or more imported participant data. Please check the format and completeness of the data."
+          },
+          "500": {
+            "description": "An internal server error occurred. Please try again shortly or contact support."
+          }
+        },
+        "security": [
+          {
+            "X-Client-Key": []
+          }
+        ]
       }
+    },
+    "/exams": {
+      "get": {
+        "tags": [
+          "Exam"
+        ],
+        "summary": "Get a list of exams",
+        "description": "Retrieves a list of all exams available in the system. The results are paginated.",
+        "operationId": "Exam",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "description": "Specifies the maximum number of exam records to return per page. (min: 1, max: 100, default: 10)"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "type": "integer",
+            "description": "Specifies the page number of the exam list to access. (min: 1, default: 1)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the list of exams."
+          },
+          "401": {
+            "description": "Authorization failed. Ensure the `X-Client-Key` sent is valid and active."
+          },
+          "403": {
+            "description": "Invalid or inactive client. The API key may be incorrect, expired, or your account does not have permission."
+          }
+        },
+        "security": [
+          {
+            "X-Client-Key": []
+          }
+        ]
+      }
+    },
+    "/exams/{id}": {
+      "get": {
+        "tags": [
+          "Exam"
+        ],
+        "summary": "Find and display exam details",
+        "description": "Retrieves detailed information about an exam based on its unique ID.",
+        "operationId": "detailExam",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique ID of the exam to find.",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Exam data successfully found and displayed."
+          },
+          "401": {
+            "description": "Authorization failed. Ensure the `X-Client-Key` sent is valid and active."
+          },
+          "403": {
+            "description": "Invalid or inactive client. The API key may be incorrect, expired, or your account does not have permission."
+          },
+          "404": {
+            "description": "Exam data with the given ID was not found in the system."
+          }
+        },
+        "security": [
+          {
+            "X-Client-Key": []
+          }
+        ]
+      }
+    },
+    "/exam-participants/assign": {
+      "post": {
+        "tags": [
+          "Exam Participant"
+        ],
+        "summary": "Assign a participant to an exam",
+        "description": "Registers or assigns a participant to a specific exam. The participant must be active and have verified their email.",
+        "operationId": "assignExamParticipant",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "JSON object containing the participant ID and exam ID for the assignment process.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExamParticipant"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Participant successfully registered or assigned to the exam."
+          },
+          "400": {
+            "description": "Failed to assign: Participant is not active or has not verified email / Number of exam participants exceeds limit / Participant is already registered for this exam."
+          },
+          "401": {
+            "description": "Authorization failed. Ensure the `X-Client-Key` sent is valid and active."
+          },
+          "403": {
+            "description": "Invalid or inactive client. The API key may be incorrect, expired, or your account does not have permission."
+          },
+          "404": {
+            "description": "Participant or Exam data with the given ID was not found."
+          },
+          "422": {
+            "description": "Validation error occurred on the submitted participant ID or exam ID."
+          },
+          "500": {
+            "description": "An internal server error occurred. Please try again shortly or contact support."
+          }
+        },
+        "security": [
+          {
+            "X-Client-Key": []
+          }
+        ]
+      }
+    },
+    "/exam-participants/unassign": {
+      "post": {
+        "tags": [
+          "Exam Participant"
+        ],
+        "summary": "Unassign a participant from an exam",
+        "description": "Removes or cancels a participant's assignment from a specific exam, as long as the participant has not started the exam.",
+        "operationId": "unassignExamParticipant",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "JSON object containing the participant ID and exam ID for the unassignment process.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExamParticipant"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Participant's assignment from the exam successfully canceled."
+          },
+          "400": {
+            "description": "Failed to unassign: Participant is not registered for this exam or participant has already started the exam."
+          },
+          "401": {
+            "description": "Authorization failed. Ensure the `X-Client-Key` sent is valid and active."
+          },
+          "403": {
+            "description": "Invalid or inactive client. The API key may be incorrect, expired, or your account does not have permission."
+          },
+          "404": {
+            "description": "Participant or Exam data with the given ID was not found."
+          },
+          "422": {
+            "description": "Validation error occurred on the submitted participant ID or exam ID."
+          },
+          "500": {
+            "description": "An internal server error occurred. Please try again shortly or contact support."
+          }
+        },
+        "security": [
+          {
+            "X-Client-Key": []
+          }
+        ]
+      }
+    },
+    "/exam-participants/link": {
+      "get": {
+        "tags": [
+          "Exam Participant"
+        ],
+        "summary": "Get the exam taking link for a participant",
+        "description": "Generates and retrieves a unique link that a participant can use to access and take an assigned exam.",
+        "operationId": "linkExamParticipant",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "participant_id",
+            "type": "integer",
+            "description": "Unique ID of the participant.",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "exam_id",
+            "type": "integer",
+            "description": "Unique ID of the exam.",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Exam taking link successfully generated and returned."
+          },
+          "401": {
+            "description": "Authorization failed. Ensure the `X-Client-Key` sent is valid and active."
+          },
+          "403": {
+            "description": "Invalid or inactive client. The API key may be incorrect, expired, or your account does not have permission."
+          },
+          "404": {
+            "description": "Participant is not assigned to this exam, or participant/exam data not found."
+          }
+        },
+        "security": [
+          {
+            "X-Client-Key": []
+          }
+        ]
+      }
+    },
+    "/exam-results": {
+      "get": {
+        "tags": [
+          "Exam Result"
+        ],
+        "summary": "Get a list of participant exam results",
+        "description": "Retrieves a list of exam results. Can be filtered by participant ID and/or exam ID. The results are paginated.",
+        "operationId": "ExamResult",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "description": "Specifies the maximum number of exam result records to return per page. (min: 1, max: 100, default: 10)"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "type": "integer",
+            "description": "Specifies the page number of the exam result list to access. (min: 1, default: 1)"
+          },
+          {
+            "in": "query",
+            "name": "participant_id",
+            "type": "integer",
+            "description": "Unique ID of the Participant to filter exam results. Optional."
+          },
+          {
+            "in": "query",
+            "name": "exam_id",
+            "type": "integer",
+            "description": "Unique ID of the Exam to filter exam results. Optional."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the list of exam results."
+          },
+          "401": {
+            "description": "Authorization failed. Ensure the `X-Client-Key` sent is valid and active."
+          },
+          "403": {
+            "description": "Invalid or inactive client. The API key may be incorrect, expired, or your account does not have permission."
+          }
+        },
+        "security": [
+          {
+            "X-Client-Key": []
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "X-Client-Key": {
+      "type": "apiKey",
+      "name": "X-Client-Key",
+      "in": "header",
+      "description": "Unique API key used for authorizing every request to the server. Obtainable from the user dashboard."
+    }
+  },
+  "definitions": {
+    "Participant": {
+      "type": "object",
+      "required": [
+        "email",
+        "name",
+        "password"
+      ],
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "Unique email address for the participant. Also used as the username for login.",
+          "example": "participant@example.com"
+        },
+        "name": {
+          "type": "string",
+          "description": "Full name of the participant.",
+          "example": "John Doe"
+        },
+        "password": {
+          "type": "string",
+          "description": "Password for participant login. Ensure to send a strong and secure password.",
+          "example": "StrongPassword123!"
+        }
+      },
+      "description": "Represents a participant's data."
+    },
+    "ParticipantPut": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Participant's new full name. Optional, leave empty if no change to name is desired.",
+          "example": "John Doe Updated"
+        },
+        "password": {
+          "type": "string",
+          "description": "Participant's new password. Optional, leave empty if no change to password is desired. If provided, ensure it meets security standards.",
+          "example": "NewSecurePassword321#"
+        }
+      },
+      "description": "Represents participant data for updates. Only fields relevant for update are included."
+    },
+    "ParticipantImport": {
+      "type": "object",
+      "required": [
+        "participants"
+      ],
+      "properties": {
+        "participants": {
+          "type": "array",
+          "xml": {
+            "name": "participant_item",
+            "wrapped": true
+          },
+          "items": {
+            "$ref": "#/definitions/Participant"
+          },
+          "description": "An array containing one or more participant data objects to be imported."
+        }
+      },
+      "description": "Data structure for importing multiple participants at once."
+    },
+    "ExamParticipant": {
+      "type": "object",
+      "required": [
+        "participant_id",
+        "exam_id"
+      ],
+      "properties": {
+        "participant_id": {
+          "type": "integer",
+          "description": "Unique ID of the participant to be assigned to or unassigned from an exam.",
+          "example": 101
+        },
+        "exam_id": {
+          "type": "integer",
+          "description": "Unique ID of the exam related to the assignment or unassignment operation.",
+          "example": 202
+        }
+      },
+      "description": "Data structure linking a participant and an exam for assignment or unassignment operations."
     }
   }
 }
