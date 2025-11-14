@@ -16,7 +16,7 @@ Siap? Mari kita mulai.
 
 ## I. Membuat Bank Soal
 
-Sebelum membuat acara ujian, kamu harus punya dulu bank soal terlebih dahulu. Setiap bank soal disimpan dalam sebuah **"Paket Soal"**
+Sebelum membuat acara ujian, kamu harus punya dulu bank soal terlebih dahulu. Setiap bank soal disimpan dalam sebuah **"Paket Soal". Tentukan Tipe soalnya apakag CBT/CAT atau Soal Esai/File.**
 
 <Accordion title="CBT/CAT" icon="sparkles">
   <Steps>
@@ -81,3 +81,82 @@ Sebelum membuat acara ujian, kamu harus punya dulu bank soal terlebih dahulu. Se
 </Accordion>
 
 ## II. Membuat Acara Ujian
+
+Setelah bank soal siap, saatnya membuat "wadah" atau acara tryout-nya.
+
+<AccordionGroup>
+  <Accordion title="Buat Acara Ujian Baru " description="cth: Tryout Akbar SNBT#1, Uji Coba TKA" icon="sparkles">
+    <Steps>
+      <Step title="Buka menu Manajemen Ujian > Data Ujian">
+        
+      </Step>
+      <Step title="Klik + Tambah Ujian">
+        
+      </Step>
+      <Step title="Isi informasi umum acara ujian-mu">
+        - **Kode Ujian:** Contoh: `TOAKBR1`
+        - **Apakah Ujian Multi-Level?** : \*\*Ya \*\*jika ujian akan berbabak (Penyisihan, Semifinal, Final)
+
+          <Note>
+            Klik di sini untuk panduan detail ujian Multi-Level
+          </Note>
+        - Apakah Ujian Berbayar?
+
+          | Gratis                             | Peserta tidak perlu membayar.                                                |
+          | ---------------------------------- | ---------------------------------------------------------------------------- |
+          | Sekali Bayar                       | Peserta cukup membayar satu kali untuk mendapatkan keseluruhan subtes ujian. |
+          | Berbayar per tes ujian             | Peserta perlu membayar setiap tes ujian.                                     |
+          | Berbayar per Level   (Multi-Level) | Peserta perlu membayar setiap babak ujian.                                   |
+
+          <Note>
+            Klik di sini untuk mempelajari lebih lanjut skema ujian berbayar
+          </Note>
+        - **Nama Ujian:** Contoh: `Tryout Akbar UTBK #1`.
+        - **Pendaftaran Sedang Aktif:** Pilih `"Aktif"` untuk membuka pendaftaran.
+        - **Biaya Ujian:** Isi nominal jika berbayar, atau **kosongkan (atau isi 0)** jika gratis.
+        - **Tanggal Mulai & Selesai:** Tentukan periode keseluruhan acara.
+      </Step>
+      <Step title="Sesuaikan Pengaturan Ujian">
+        - \*\*Apakah Tes Ujian Harus Dikerjakan Secara Berurutan? : \*\*Jika diaktifkan peserta harus mengerjakan tes ujian ini secara berurutan sesuai dengan urutan yang telah ditentukan.
+        - \*\*Apakah Tes Ujian Harus Dikerjakan Secara Langsung? : \*\*Jika diaktifkan peserta harus menyelesaikan tes ujian ini tanpa jeda sebelum melanjutkan ke level berikutnya.
+        - \*\*Apakah Pendaftaran Ujian Dibuka?\*\*Jika diaktifkan peserta dapat mendaftar ujian secara mandiri. Pastikan Anda sudah mengaktifkan setting **"Tampilkan tombol pendaftaran ujian"** pada halaman <u>Pengaturan Admin</u>.
+        - \*\*Apakah Tampilkan Skor Akhir Ujian?\*\*Jika diaktifkan peserta dapat melihat skor akhir ujian. Pastikan ditampilkan hanya jika skor akhir sudah dihitung dengan benar.
+      </Step>
+      <Step title="Simpan">
+        
+      </Step>
+    </Steps>
+  </Accordion>
+  <Accordion title="Tambahkan Subtes ke Dalam Ujian" icon="sparkles">
+    <Steps>
+      <Step title='Setelah menyimpan, buka kembali ujian yang baru kamu buat, lalu gulir ke bawah ke bagian "Daftar Tes Ujian"'>
+        
+      </Step>
+      <Step title='Klik + Tambah Tes Ujian. Di sinilah kamu "memasang" bank soal yang sudah dibuat sebelumnya.'>
+        
+      </Step>
+      <Step title="Sesuaikan Pengaturan">
+        - Sesuaikan **Pengaturan Skor dan Hasil Tes Ujian**
+        - Sesuaikan**Pengaturan Pengawasan Peserta Ujian** 
+        - Sesuaikan**Pengaturan Audio dan Visual** 
+      </Step>
+      <Step title="Ulangi langkah ini untuk menambahkan semua subtes yang diperlukan (misalnya Bahasa Indonesia, Matematika, dll.).">
+        
+      </Step>
+    </Steps>
+  </Accordion>
+  <Accordion title="(Opsional) Atur Formulir Pendaftaran:" description="Jika anda ingin membuat formulir pendaftaran untuk peserta di mana peserta harus mengisinya terlabih dahulu sebelum mendaftar termasuk melakukan pembayaran. Jika tidak menggunakan opsi ii maka peserta harus diinputkan secara manual">
+    <Steps>
+      <Step title='Masih di halaman detail ujian, pindah ke tab "Formulir Pendaftaran".'>
+        Selanjunya, pengisian ini akan menghasilkan butir-butir pertanyaan yang akan diisi peserta. cth: nama, email, asal sekolah.
+      </Step>
+      <Step title="Template Input">
+        Akan muncul template Qris jika ujian berbayar. Jika gratis akan kosong
+      </Step>
+      <Step title="Apakah butir pertanyaan ini selalu ditampilkan pada formulir pendaftaran?">
+        Ya jika akan selalu ditampilkan. Tidak jika butir pertanyaan harus memenuhi kondisi tertentu.  Contoh pada butir pertanyaan sebelumnya (cth: Jalur Pembayaran? Berbayar atau SS Follow IG) yang berisi 'SS Follow IG'  akan muncul butir pertanyaan untuk mengupload bukti SS Follow IG 
+      </Step>
+    </Steps>
+    Tambahkan kolom-kolom yang perlu diisi peserta saat mendaftar, seperti "Asal Sekolah" atau "Upload Bukti Follow Instagram" (gunakan tipe input **File/Berkas**)
+  </Accordion>
+</AccordionGroup>
