@@ -18,11 +18,10 @@
         "tab": "Panduan Penggunaan",
         "groups": [
           {
-            "group": "Jagoan",
+            "group": "Panduan",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "ujian/welcome",
+              "ujian/BuatUjian"
             ]
           },
           {
