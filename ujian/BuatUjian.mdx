@@ -160,3 +160,165 @@ Setelah bank soal siap, saatnya membuat "wadah" atau acara tryout-nya.
     Tambahkan kolom-kolom yang perlu diisi peserta saat mendaftar, seperti "Asal Sekolah" atau "Upload Bukti Follow Instagram" (gunakan tipe input **File/Berkas**)
   </Accordion>
 </AccordionGroup>
+
+## III. Mengelola Akun Peserta
+
+Kini ujianmu sudah siap. Pertanyaannya, bagaimana cara pesertanya masuk ke sistem?
+
+<Tabs>
+  <Tab title="Ujian terbuka (Peserta Mendaftar Mandiri)">
+    <Steps>
+      <Step title='Pergi ke menu Pengaturan Admin, tombol "Izinkan peserta mendaftar akun mandiri" dalam keadaan Aktif'>
+        Jika aktif, peserta dapat membuat akun sendiri di halaman login. Untuk mempermudah peserta mendaftar dapat juga mengaktifkan Autentikasi dengan Google.
+      </Step>
+      <Step title='Salin dan Bagikan tautan pendaftaran ujianmu yang tertulis pada Kode Siste CBT dengan keterangan "tautan sistem CBT Anda".'>
+        
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Ujian Internal">
+    <Steps>
+      <Step title='Pergi ke menu Pengaturan Admin, matikan tombol "Izinkan peserta mendaftar akun mandiri".'>
+        
+      </Step>
+      <Step title='Buka Manajemen Akun > Data Akun, lalu klik "Import Akun".'>
+        
+      </Step>
+      <Step title="Unduh template Excel, isi data siswa (nama, email, password), lalu unggah kembali filenya.">
+        Tungguu sekitar 5 menit untuk sistem memproses data peserta. Akan muncul notifikasi apabila semua akun berhasil diimport.
+      </Step>
+      <Step title='Cek ke menu "Manajemen Akun" > "Data Akun"  untuk melihat apakah semua peserta berhasil terimpor'>
+        
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+Setelah peserta terdaftar pada sistem pada "Manajemen Akun" \> "Data Akun" maka selanjutnya perlu memasangkan akun peserta dengan ujian yang sudah dibuat.
+
+<Accordion title="Menugaskan Peserta ke Ujian" defaultOpen icon="sparkles">
+  <Warning>
+    Jika peserta mendaftar sendiri melalui Formulir Ujian, mereka otomatis terdaftar di acara ujian itu. \*\*WAJIB Dilakukan, \*\*Jika kamu mendaftarkan peserta memakai **"Import Akun"**  atau jika pendaftaran ditutup, kamu **wajib** melakukan langkah ini.
+  </Warning>
+  <Steps>
+    <Step title="Pilih Peserta">
+      - Buka menu `Manajemen Akun > Data Akun`.
+      - Pilih satu atau lebih peserta dengan **mencentang kotak** di sebelah kiri nama mereka. Kamu bisa memilih semua dengan mencentang kotak di header tabel.
+    </Step>
+    <Step title="Tambahkan ke Ujian">
+      Setelah kamu memilih peserta, pencet tombol "Tindakan". Tombol `+ Tambahkan ke Ujian` akan muncul. Klik tombol itu.
+    </Step>
+    <Step title="Pilih Acara Ujian">
+      - Sebuah pop-up akan muncul. Pilih nama ujian yang relevan (misal: `Tryout Akbar UTBK Gelombang 1`).
+      - Klik `Konfirmasi`
+
+      <Warning>
+        Selesai! Peserta-peserta itu kini resmi terdaftar di acaramu dan akan melihatnya di dasbor mereka (tapi belum bisa mengerjakan sampai **Sesi Ujian** dibuat)
+      </Warning>
+    </Step>
+  </Steps>
+</Accordion>
+
+## V. Membuat Sesi (Jadwal) Ujian
+
+Sesi adalah jadwal spesifik yang menghubungkan peserta, paket soal, dan waktu pengerjaan.
+
+<Accordion title="Membuat Sesi Ujian" defaultOpen icon="sparkles">
+  <Steps>
+    <Step title="Buka Manajemen Ujian > Data Ujian, lalu klik acara ujianmu">
+      misal Tryout UM UGM #1
+    </Step>
+    <Step title='Gulir ke bawah ke "Daftar Tes Ujian", lalu klik pada salah satu Nama Tes'>
+      misal Bahasa Indonesia
+    </Step>
+    <Step title="Klik tombol + Tambah Sesi Ujian">
+      si detail sesi:
+
+      - **Nama Sesi:** Contoh: "Sesi Susulan Pagi".
+      - **Paket Soal:** Pilih bank soal yang akan digunakan.
+      - **Tanggal Mulai & Selesai:** Tentukan jadwal spesifiknya
+    </Step>
+    <Step title="Selanjutnya memasangkan peserta ke sesi">
+      
+    </Step>
+  </Steps>
+</Accordion>
+
+Selanjutnya adalah memasangkan peserta yang sudah terdaftar pada ujian ke sesi ujian.
+
+<Tabs>
+  <Tab title="Otomatis">
+    Ini adalah cara paling efisien untuk menjadwalkan **semua peserta** di acaramu secara serentak.
+
+    <Steps>
+      <Step title="Buka Manajemen Ujian > Data Ujian.">
+        
+      </Step>
+      <Step title="Klik pada acara ujian yang relevan">
+        misal: `Tryout Akbar UM UGM #1`
+      </Step>
+      <Step title="Scroll ke bawah Pilih Salah Satu Daftar Tes Ujian yang akan dibuat sesi/jadwal ujiannya">
+        misal : Matematika
+      </Step>
+      <Step title='Masuk ke tab "Daftar Peserta Ujian"'>
+        Kamu akan lihat semua peserta yang terdaftar di sana
+      </Step>
+      <Step title='Klik tombol oranye "Set Sesi Ujian Otomatis" di pojok kanan atas'>
+        
+      </Step>
+      <Step title="Sebuah pop-up akan muncul untuk konfirmasi">
+        <Danger>
+          Sesi ujian akan diatur berdasarkan jumlah sesi ujian yang tersedia dan jumlah peserta ujian yang terdaftar. Pastikan kamu sudah membuat sesi ujian terlebih dahulu.
+        </Danger>
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Manual">
+    Metode ini cocok untuk membuat sesi susulan atau sesi khusus untuk kelompok kecil.
+
+    <Steps>
+      <Step title="Buka Manajemen Ujian > Data Ujian, lalu klik acara ujianmu">
+        misal Tryout UM UGM #1
+      </Step>
+      <Step title='Gulir ke bawah ke "Daftar Tes Ujian", lalu klik pada salah satu Nama Tes'>
+        misal Bahasa Indonesia
+      </Step>
+      <Step title='Gulir ke bawah pilih "Daftar Pesera Ujian"  kemudian pilih peserta yang akan dipasangkan ke sesi ujian dengan cara ceklis.'>
+        
+      </Step>
+      <Step title='Pilih tombol "Tindakan" pada kiri atas, kemudian pilih "Set Sesi Ujian Kolektif"'>
+        Akan muncul pop-up kemudian pilih sesi ujian
+      </Step>
+      <Step title="Set Sesi Ujian Kolektif">
+        
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## VII. Pelaksanaan & Laporan
+
+Setelah sesi dibuat dan peserta ditugaskan, ujian siap dilaksanakan!
+
+<AccordionGroup>
+  <Accordion title="Pantau Ujian Secara Langsung" icon="sparkles">
+    - Selama ujian berlangsung, buka `Ujian > Monitoring Ujian (Live)`.
+    - Di sini kamu bisa memantau siapa saja yang sedang mengerjakan, sisa waktu mereka, dan statusnya secara _real-time_.
+  </Accordion>
+  <Accordion title="Melihat dan Menganilisis Hasil Ujian" icon="sparkles">
+    - Setelah tes selesai, semua data akan tercatat di `Ujian > Hasil & Riwayat Ujian`.
+    - Gunakan halaman ini untuk melihat skor, riwayat pengerjaan, dan detail jawaban per peserta.
+  </Accordion>
+  <Accordion title="Generate Skor (Khusus Penilaian IRT)">
+    <Warning>
+      **Penting!** Jika kamu menggunakan metode penilaian IRT, skor tidak akan muncul otomatis.
+    </Warning>
+    - Setelah _semua_ peserta selesai, kembali ke `Data Ujian > (Pilih Ujianmu)`.
+    - Klik tombol **"Generate Skor IRT"** untuk memulai proses kalkulasi skor.
+  </Accordion>
+  <Accordion title="Ekspor Laporan Hasil">
+    Dari halaman `Hasil & Riwayat Ujian`, kamu bisa menggunakan tombol **"Ekspor Riwayat Ujian"** untuk mengunduh semua laporan dalam format Excel.
+  </Accordion>
+</AccordionGroup>
+
+/

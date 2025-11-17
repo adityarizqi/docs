@@ -3,7 +3,7 @@
   "theme": "mint",
   "name": "Pusat Bantuan",
   "colors": {
-    "primary": "#16A34A",
+    "primary": "#f67f31",
     "light": "#07C983",
     "dark": "#15803D"
   },
@@ -11,18 +11,17 @@
     "default": "light",
     "strict": true
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/logoindolatfavnobg.png",
   "navigation": {
     "tabs": [
       {
         "tab": "Panduan Penggunaan",
         "groups": [
           {
-            "group": "Jagoan",
+            "group": "Panduan",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "ujian/welcome",
+              "ujian/BuatUjian"
             ]
           },
           {
@@ -30,36 +29,6 @@
             "pages": [
               "essentials/settings",
               "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Paket & Ketentuan",
-        "groups": [
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
             ]
           }
         ]
@@ -76,39 +45,21 @@
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/logoindolatnobg.png",
+    "dark": "/logo/logoindolat.png"
   },
   "navbar": {
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@indolat.com"
       }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
-  },
-  "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
     ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "instagram": "https://www.instagram.com/cbt.indolat/",
+      "linkedin": "https://www.linkedin.com/company/indolat"
     }
   }
 }
