@@ -18,17 +18,10 @@
         "tab": "Panduan Penggunaan",
         "groups": [
           {
-            "group": "Panduan",
+            "group": "Mulai Cepat",
             "pages": [
               "ujian/welcome",
               "ujian/BuatUjian"
-            ]
-          },
-          {
-            "group": "Indolat",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
             ]
           }
         ]
@@ -45,13 +38,13 @@
     }
   },
   "logo": {
-    "light": "/logo/logoindolatnobg.png",
-    "dark": "/logo/logoindolat.png"
+    "light": "/logo/logoindolat.svg",
+    "dark": "/logo/logoindolat.svg"
   },
   "navbar": {
     "links": [
       {
-        "label": "Support",
+        "label": "Dukungan",
         "href": "mailto:support@indolat.com"
       }
     ]
