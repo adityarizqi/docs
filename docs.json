@@ -4,12 +4,8 @@
   "name": "Pusat Bantuan",
   "colors": {
     "primary": "#f67f31",
-    "light": "#07C983",
-    "dark": "#15803D"
-  },
-  "appearance": {
-    "default": "light",
-    "strict": true
+    "light": "#f67f31",
+    "dark": "#D65A0A"
   },
   "favicon": "/logo/favicon.png",
   "navigation": {
