@@ -11,7 +11,7 @@
     "default": "light",
     "strict": true
   },
-  "favicon": "/logoindolatfavnobg.png",
+  "favicon": "/logo/favicon.png",
   "navigation": {
     "tabs": [
       {
@@ -20,15 +20,7 @@
           {
             "group": "Panduan",
             "pages": [
-              "ujian/welcome",
-              "ujian/BuatUjian"
-            ]
-          },
-          {
-            "group": "Indolat",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "ujian/buat-ujian"
             ]
           }
         ]
@@ -45,8 +37,8 @@
     }
   },
   "logo": {
-    "light": "/logo/logoindolatnobg.png",
-    "dark": "/logo/logoindolat.png"
+    "light": "/logo/logo_simple.webp",
+    "dark": "/logo/logo_simple_dark.webp"
   },
   "navbar": {
     "links": [

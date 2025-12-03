@@ -1,15 +1,324 @@
 ---
-title: "Panduan Dasbor: Memahami Pusat Kontrol Tryout Anda"
-description: "Panduan alur membuat ujan ada pada di akhir penjelasan setiap fitur"
+title: "📚 Membuat Ujian Pertamamu (5 Menit)"
+description: "Halo! Selamat datang di panduan utama Indolat."
 ---
 
-Selamat datang di dasbor CBT Indolat! Anggap saja halaman ini sebagai "pusat kendali" Anda. Setiap kali Anda masuk, Anda akan langsung disajikan ringkasan dari semua aktivitas penting yang terjadi di platform tryout Anda.
+Tujuan kita di halaman ini sangat jelas yaitu  membuat ujian pertamamu aktif dan siap digunakan secepat mungkin. Kita akan lewati semua pengaturan rumit dan fokus pada 4 langkah inti.
 
-Mari kita bedah setiap bagiannya agar Anda dapat memanfaatkannya secara maksimal.
+Anggap saja membuat ujian itu seperti merencanakan sebuah acara konser:
 
-#### **1. Ringkasan Aktivitas Utama**
+1. **Acara Ujian**  (Misal: "Tryout Akbar SNBT 2025")
+2. **Tes Ujian** (Misal: "Tes Biologi", "Tes Matematika")
+3. **Bank Soal** (PaketSoal)
+4. **Sesi Ujian** ("Sesi Pagi, 10.00 - 12.00")
 
-Di bagian atas dasbor, Anda akan menemukan tiga panel utama yang memberikan data real-time:
+Siap? Mari kita mulai.
 
-- **Total Peserta Ujian:** Panel ini menunjukkan berapa banyak total peserta yang sudah terdaftar di semua ujian Anda. Angka ini akan terus bertambah seiring berjalannya waktu, memberikan Anda gambaran tentang jangkauan tryout Anda.
-- **Total Transaksi (Sukses):** Jika Anda menyelenggarakan ujian berbayar, panel ini sangat penting. Angka di sini menunjukkan jumlah transaksi pembayaran yang telah berhasil diselesaikan oleh peserta.
+## I. Membuat Bank Soal
+
+Sebelum membuat acara ujian, kamu harus punya dulu bank soal terlebih dahulu. Setiap bank soal disimpan dalam sebuah **"Paket Soal". Tentukan Tipe soalnya apakag CBT/CAT atau Soal Esai/File.**
+
+<Accordion title="CBT/CAT" icon="sparkles">
+  <Steps>
+    <Step title="Buka menu Manajemen Ujian > Data Paket Soal" stepNumber={0}>
+      
+    </Step>
+    <Step title="Klik tombol + Tambah Paket Soal">
+      ![image.png](/images/image.png)
+    </Step>
+    <Step title="Pilih Jenis Paket Soal : CBT/CAT">
+      - **Nama Paket Soal:** Beri nama yang jelas, contoh: `Pengetahuan Kuantitatif Paket A`.
+      - **Kode Paket Soal:** Buat kode unik, contoh: `PK-A`.
+      - **Deskripsi Paket Soal** : Penjelasan mengenai paket soal.
+      - **Pengaturan Paket Soal:** Aktifkan **"Acak Soal"** dan **"Acak Jawaban"**. Ini sangat disarankan untuk menjaga integritas ujian.
+    </Step>
+    <Step title='Selesaikan dengan "Buat"'>
+      
+    </Step>
+    <Step title="Tambahkan Soal CBT/CAT">
+      - Setelah paket dibuat, kamu akan masuk ke halaman `Daftar Soal`.
+      - Klik tombol `+ Tambah Soal`.
+      - Pada jendela yang muncul, isi detail soalnya.
+
+        <Tip>
+          **Tips Terbaik:** Siapkan soalmu dalam format **gambar (PNG/JPG)**. Kemudian, pada bagian "Tipe Soal" pilih "Gambar", kamu cukup mengunggah gambar tersebut. Ini adalah cara tercepat dan paling aman untuk memastikan soal dengan format kompleks (rumus, tabel) tampil sempurna.
+        </Tip>
+      - Lengkapi pilihan jawaban dan tandai kunci jawaban yang benar.
+      - Ulangi langkah ini hingga semua soal masuk ke dalam paket
+
+      <Note>
+        Klik di sini untuk enjelasan mendetail tentang cara membuat soal yang kompleks
+      </Note>
+    </Step>
+  </Steps>
+</Accordion>
+
+<Accordion title="Soal Esai/File" icon="sparkles">
+  <Steps>
+    <Step title="Buka menu Manajemen Ujian > Data Paket Soal" stepNumber={0}>
+      
+    </Step>
+    <Step title="Klik tombol + Tambah Paket Soal">
+      ![image.png](/images/image.png)
+    </Step>
+    <Step title="Pilih Jenis Paket Soal : Esai/Upload File (Jawaban Manual)">
+      
+    </Step>
+    <Step title='Selesaikan dengan "Buat"'>
+      
+    </Step>
+    <Step title="Tambahkan Soal Esai/Upload File">
+      - **Pilih Tipe Soal:** Pilih dari pilihan yang ada dari Teks, Gambar, File, atau Gabungan diantaranya.
+      - **Pilih Tipe Jawaban:** Pilih dari pilihan yang ada apakah peerta mengetik jawabannya atau mengupload file.
+      - **(Opsional) Menambahkan Panduan Pengerjaan**: Panduan mengenai paket soal.
+      - Ulangi langkah ini hingga semua soal masuk ke dalam paket
+
+      <Note>
+        Klik di sini untuk enjelasan mendetail tentang cara membuat soal yang kompleks
+      </Note>
+    </Step>
+  </Steps>
+</Accordion>
+
+## II. Membuat Acara Ujian
+
+Setelah bank soal siap, saatnya membuat "wadah" atau acara tryout-nya.
+
+<AccordionGroup>
+  <Accordion title="Buat Acara Ujian Baru " description="cth: Tryout Akbar SNBT#1, Uji Coba TKA" icon="sparkles">
+    <Steps>
+      <Step title="Buka menu Manajemen Ujian > Data Ujian">
+        
+      </Step>
+      <Step title="Klik + Tambah Ujian">
+        
+      </Step>
+      <Step title="Isi informasi umum acara ujian-mu">
+        - **Kode Ujian:** Contoh: `TOAKBR1`
+        - **Apakah Ujian Multi-Level?** : \*\*Ya \*\*jika ujian akan berbabak (Penyisihan, Semifinal, Final)
+
+          <Note>
+            Klik di sini untuk panduan detail ujian Multi-Level
+          </Note>
+        - Apakah Ujian Berbayar?
+
+          | Gratis                             | Peserta tidak perlu membayar.                                                |
+          | ---------------------------------- | ---------------------------------------------------------------------------- |
+          | Sekali Bayar                       | Peserta cukup membayar satu kali untuk mendapatkan keseluruhan subtes ujian. |
+          | Berbayar per tes ujian             | Peserta perlu membayar setiap tes ujian.                                     |
+          | Berbayar per Level   (Multi-Level) | Peserta perlu membayar setiap babak ujian.                                   |
+
+          <Note>
+            Klik di sini untuk mempelajari lebih lanjut skema ujian berbayar
+          </Note>
+        - **Nama Ujian:** Contoh: `Tryout Akbar UTBK #1`.
+        - **Pendaftaran Sedang Aktif:** Pilih `"Aktif"` untuk membuka pendaftaran.
+        - **Biaya Ujian:** Isi nominal jika berbayar, atau **kosongkan (atau isi 0)** jika gratis.
+        - **Tanggal Mulai & Selesai:** Tentukan periode keseluruhan acara.
+      </Step>
+      <Step title="Sesuaikan Pengaturan Ujian">
+        - \*\*Apakah Tes Ujian Harus Dikerjakan Secara Berurutan? : \*\*Jika diaktifkan peserta harus mengerjakan tes ujian ini secara berurutan sesuai dengan urutan yang telah ditentukan.
+        - \*\*Apakah Tes Ujian Harus Dikerjakan Secara Langsung? : \*\*Jika diaktifkan peserta harus menyelesaikan tes ujian ini tanpa jeda sebelum melanjutkan ke level berikutnya.
+        - \*\*Apakah Pendaftaran Ujian Dibuka?\*\*Jika diaktifkan peserta dapat mendaftar ujian secara mandiri. Pastikan Anda sudah mengaktifkan setting **"Tampilkan tombol pendaftaran ujian"** pada halaman <u>Pengaturan Admin</u>.
+        - \*\*Apakah Tampilkan Skor Akhir Ujian?\*\*Jika diaktifkan peserta dapat melihat skor akhir ujian. Pastikan ditampilkan hanya jika skor akhir sudah dihitung dengan benar.
+      </Step>
+      <Step title="Simpan">
+        
+      </Step>
+    </Steps>
+  </Accordion>
+  <Accordion title="Tambahkan Subtes ke Dalam Ujian" icon="sparkles">
+    <Steps>
+      <Step title='Setelah menyimpan, buka kembali ujian yang baru kamu buat, lalu gulir ke bawah ke bagian "Daftar Tes Ujian"'>
+        
+      </Step>
+      <Step title='Klik + Tambah Tes Ujian. Di sinilah kamu "memasang" bank soal yang sudah dibuat sebelumnya.'>
+        
+      </Step>
+      <Step title="Sesuaikan Pengaturan">
+        - Sesuaikan **Pengaturan Skor dan Hasil Tes Ujian**
+        - Sesuaikan**Pengaturan Pengawasan Peserta Ujian** 
+        - Sesuaikan**Pengaturan Audio dan Visual** 
+      </Step>
+      <Step title="Ulangi langkah ini untuk menambahkan semua subtes yang diperlukan (misalnya Bahasa Indonesia, Matematika, dll.).">
+        
+      </Step>
+    </Steps>
+  </Accordion>
+  <Accordion title="(Opsional) Atur Formulir Pendaftaran:" description="Jika anda ingin membuat formulir pendaftaran untuk peserta di mana peserta harus mengisinya terlabih dahulu sebelum mendaftar termasuk melakukan pembayaran. Jika tidak menggunakan opsi ii maka peserta harus diinputkan secara manual">
+    <Steps>
+      <Step title='Masih di halaman detail ujian, pindah ke tab "Formulir Pendaftaran".'>
+        Selanjunya, pengisian ini akan menghasilkan butir-butir pertanyaan yang akan diisi peserta. cth: nama, email, asal sekolah.
+      </Step>
+      <Step title="Template Input">
+        Akan muncul template Qris jika ujian berbayar. Jika gratis akan kosong
+      </Step>
+      <Step title="Apakah butir pertanyaan ini selalu ditampilkan pada formulir pendaftaran?">
+        Ya jika akan selalu ditampilkan. Tidak jika butir pertanyaan harus memenuhi kondisi tertentu.  Contoh pada butir pertanyaan sebelumnya (cth: Jalur Pembayaran? Berbayar atau SS Follow IG) yang berisi 'SS Follow IG'  akan muncul butir pertanyaan untuk mengupload bukti SS Follow IG 
+      </Step>
+    </Steps>
+    Tambahkan kolom-kolom yang perlu diisi peserta saat mendaftar, seperti "Asal Sekolah" atau "Upload Bukti Follow Instagram" (gunakan tipe input **File/Berkas**)
+  </Accordion>
+</AccordionGroup>
+
+## III. Mengelola Akun Peserta
+
+Kini ujianmu sudah siap. Pertanyaannya, bagaimana cara pesertanya masuk ke sistem?
+
+<Tabs>
+  <Tab title="Ujian terbuka (Peserta Mendaftar Mandiri)">
+    <Steps>
+      <Step title='Pergi ke menu Pengaturan Admin, tombol "Izinkan peserta mendaftar akun mandiri" dalam keadaan Aktif'>
+        Jika aktif, peserta dapat membuat akun sendiri di halaman login. Untuk mempermudah peserta mendaftar dapat juga mengaktifkan Autentikasi dengan Google.
+      </Step>
+      <Step title='Salin dan Bagikan tautan pendaftaran ujianmu yang tertulis pada Kode Siste CBT dengan keterangan "tautan sistem CBT Anda".'>
+        
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Ujian Internal">
+    <Steps>
+      <Step title='Pergi ke menu Pengaturan Admin, matikan tombol "Izinkan peserta mendaftar akun mandiri".'>
+        
+      </Step>
+      <Step title='Buka Manajemen Akun > Data Akun, lalu klik "Import Akun".'>
+        
+      </Step>
+      <Step title="Unduh template Excel, isi data siswa (nama, email, password), lalu unggah kembali filenya.">
+        Tungguu sekitar 5 menit untuk sistem memproses data peserta. Akan muncul notifikasi apabila semua akun berhasil diimport.
+      </Step>
+      <Step title='Cek ke menu "Manajemen Akun" > "Data Akun"  untuk melihat apakah semua peserta berhasil terimpor'>
+        
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+Setelah peserta terdaftar pada sistem pada "Manajemen Akun" \> "Data Akun" maka selanjutnya perlu memasangkan akun peserta dengan ujian yang sudah dibuat.
+
+<Accordion title="Menugaskan Peserta ke Ujian" defaultOpen icon="sparkles">
+  <Warning>
+    Jika peserta mendaftar sendiri melalui Formulir Ujian, mereka otomatis terdaftar di acara ujian itu. \*\*WAJIB Dilakukan, \*\*Jika kamu mendaftarkan peserta memakai **"Import Akun"**  atau jika pendaftaran ditutup, kamu **wajib** melakukan langkah ini.
+  </Warning>
+  <Steps>
+    <Step title="Pilih Peserta">
+      - Buka menu `Manajemen Akun > Data Akun`.
+      - Pilih satu atau lebih peserta dengan **mencentang kotak** di sebelah kiri nama mereka. Kamu bisa memilih semua dengan mencentang kotak di header tabel.
+    </Step>
+    <Step title="Tambahkan ke Ujian">
+      Setelah kamu memilih peserta, pencet tombol "Tindakan". Tombol `+ Tambahkan ke Ujian` akan muncul. Klik tombol itu.
+    </Step>
+    <Step title="Pilih Acara Ujian">
+      - Sebuah pop-up akan muncul. Pilih nama ujian yang relevan (misal: `Tryout Akbar UTBK Gelombang 1`).
+      - Klik `Konfirmasi`
+
+      <Warning>
+        Selesai! Peserta-peserta itu kini resmi terdaftar di acaramu dan akan melihatnya di dasbor mereka (tapi belum bisa mengerjakan sampai **Sesi Ujian** dibuat)
+      </Warning>
+    </Step>
+  </Steps>
+</Accordion>
+
+## V. Membuat Sesi (Jadwal) Ujian
+
+Sesi adalah jadwal spesifik yang menghubungkan peserta, paket soal, dan waktu pengerjaan.
+
+<Accordion title="Membuat Sesi Ujian" defaultOpen icon="sparkles">
+  <Steps>
+    <Step title="Buka Manajemen Ujian > Data Ujian, lalu klik acara ujianmu">
+      misal Tryout UM UGM #1
+    </Step>
+    <Step title='Gulir ke bawah ke "Daftar Tes Ujian", lalu klik pada salah satu Nama Tes'>
+      misal Bahasa Indonesia
+    </Step>
+    <Step title="Klik tombol + Tambah Sesi Ujian">
+      si detail sesi:
+
+      - **Nama Sesi:** Contoh: "Sesi Susulan Pagi".
+      - **Paket Soal:** Pilih bank soal yang akan digunakan.
+      - **Tanggal Mulai & Selesai:** Tentukan jadwal spesifiknya
+    </Step>
+    <Step title="Selanjutnya memasangkan peserta ke sesi">
+      
+    </Step>
+  </Steps>
+</Accordion>
+
+Selanjutnya adalah memasangkan peserta yang sudah terdaftar pada ujian ke sesi ujian.
+
+<Tabs>
+  <Tab title="Otomatis">
+    Ini adalah cara paling efisien untuk menjadwalkan **semua peserta** di acaramu secara serentak.
+
+    <Steps>
+      <Step title="Buka Manajemen Ujian > Data Ujian.">
+        
+      </Step>
+      <Step title="Klik pada acara ujian yang relevan">
+        misal: `Tryout Akbar UM UGM #1`
+      </Step>
+      <Step title="Scroll ke bawah Pilih Salah Satu Daftar Tes Ujian yang akan dibuat sesi/jadwal ujiannya">
+        misal : Matematika
+      </Step>
+      <Step title='Masuk ke tab "Daftar Peserta Ujian"'>
+        Kamu akan lihat semua peserta yang terdaftar di sana
+      </Step>
+      <Step title='Klik tombol oranye "Set Sesi Ujian Otomatis" di pojok kanan atas'>
+        
+      </Step>
+      <Step title="Sebuah pop-up akan muncul untuk konfirmasi">
+        <Danger>
+          Sesi ujian akan diatur berdasarkan jumlah sesi ujian yang tersedia dan jumlah peserta ujian yang terdaftar. Pastikan kamu sudah membuat sesi ujian terlebih dahulu.
+        </Danger>
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Manual">
+    Metode ini cocok untuk membuat sesi susulan atau sesi khusus untuk kelompok kecil.
+
+    <Steps>
+      <Step title="Buka Manajemen Ujian > Data Ujian, lalu klik acara ujianmu">
+        misal Tryout UM UGM #1
+      </Step>
+      <Step title='Gulir ke bawah ke "Daftar Tes Ujian", lalu klik pada salah satu Nama Tes'>
+        misal Bahasa Indonesia
+      </Step>
+      <Step title='Gulir ke bawah pilih "Daftar Pesera Ujian"  kemudian pilih peserta yang akan dipasangkan ke sesi ujian dengan cara ceklis.'>
+        
+      </Step>
+      <Step title='Pilih tombol "Tindakan" pada kiri atas, kemudian pilih "Set Sesi Ujian Kolektif"'>
+        Akan muncul pop-up kemudian pilih sesi ujian
+      </Step>
+      <Step title="Set Sesi Ujian Kolektif">
+        
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## VII. Pelaksanaan & Laporan
+
+Setelah sesi dibuat dan peserta ditugaskan, ujian siap dilaksanakan!
+
+<AccordionGroup>
+  <Accordion title="Pantau Ujian Secara Langsung" icon="sparkles">
+    - Selama ujian berlangsung, buka `Ujian > Monitoring Ujian (Live)`.
+    - Di sini kamu bisa memantau siapa saja yang sedang mengerjakan, sisa waktu mereka, dan statusnya secara _real-time_.
+  </Accordion>
+  <Accordion title="Melihat dan Menganilisis Hasil Ujian" icon="sparkles">
+    - Setelah tes selesai, semua data akan tercatat di `Ujian > Hasil & Riwayat Ujian`.
+    - Gunakan halaman ini untuk melihat skor, riwayat pengerjaan, dan detail jawaban per peserta.
+  </Accordion>
+  <Accordion title="Generate Skor (Khusus Penilaian IRT)">
+    <Warning>
+      **Penting!** Jika kamu menggunakan metode penilaian IRT, skor tidak akan muncul otomatis.
+    </Warning>
+    - Setelah _semua_ peserta selesai, kembali ke `Data Ujian > (Pilih Ujianmu)`.
+    - Klik tombol **"Generate Skor IRT"** untuk memulai proses kalkulasi skor.
+  </Accordion>
+  <Accordion title="Ekspor Laporan Hasil">
+    Dari halaman `Hasil & Riwayat Ujian`, kamu bisa menggunakan tombol **"Ekspor Riwayat Ujian"** untuk mengunduh semua laporan dalam format Excel.
+  </Accordion>
+</AccordionGroup>
+
+/
