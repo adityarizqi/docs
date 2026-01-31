@@ -29,6 +29,8 @@
           {
             "group": "Panduan",
             "pages": [
+              "panduan-penggunaan/panduan/membuat-sesi-ujian",
+              "panduan-penggunaan/panduan/membuat-sub",
               "panduan-penggunaan/panduan/membuat-ujian",
               "ujian/welcome",
               "ujian/BuatUjian"
