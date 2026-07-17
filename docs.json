@@ -26,6 +26,14 @@
           {
             "group": "Paket Soal",
             "pages": []
+          },
+          {
+            "group": "Ujian",
+            "pages": []
+          },
+          {
+            "group": "Paket Soal",
+            "pages": []
           }
         ]
       }
