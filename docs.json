@@ -16,7 +16,31 @@
           {
             "group": "Mulai Cepat",
             "pages": [
-              "ujian/buat-ujian"
+              "ujian/membuat-ujian-pertama-anda-dalam-5-menit"
+            ]
+          },
+          {
+            "group": "Data Ujian",
+            "pages": [
+              "untitled-page",
+              "cara-membuat-ujian-berjenjang-multi-level",
+              "cara-membuat-tes-ujian-cbt-cat-esai-atau-upload-file",
+              "cara-membuat-sesi-ujian-and-menghubungkan-peserta-pada-sesi-ujian",
+              "cara-membuat-formulir-pendaftaran",
+              "cara-menambahkan-peserta-ke-dalam-ujian"
+            ]
+          },
+          {
+            "group": "Data Akun",
+            "pages": [
+              "cara-menambahkan-data"
+            ]
+          },
+          {
+            "group": "Lainnya",
+            "pages": [
+              "pengaturan-dan-cara-login-peserta",
+              "mengatur-tampilan-melalui-kustomisasi-branding"
             ]
           }
         ]
