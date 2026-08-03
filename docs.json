@@ -16,31 +16,31 @@
           {
             "group": "Mulai Cepat",
             "pages": [
-              "ujian/membuat-ujian-pertama-anda-dalam-5-menit"
+              "mulai-cepat/membuat-ujian-pertama-anda-dalam-5-menit"
             ]
           },
           {
             "group": "Data Ujian",
             "pages": [
-              "cara-membuat-atau-menambahkan-ujian",
-              "cara-membuat-ujian-berjenjang-multi-level",
-              "cara-membuat-tes-ujian-cbt-cat-esai-atau-upload-file",
+              "ujian/cara-membuat-atau-menambahkan-ujian",
+              "ujian/cara-membuat-ujian-berjenjang-multi-level",
+              "ujian/cara-membuat-tes-ujian-cbt-cat-esai-atau-upload-file",
               "cara-membuat-sesi-ujian-and-menghubungkan-peserta-pada-sesi-ujian",
-              "cara-membuat-formulir-pendaftaran",
-              "cara-menambahkan-peserta-ke-dalam-ujian"
+              "ujian/cara-membuat-formulir-pendaftaran",
+              "ujian/cara-menambahkan-peserta-ke-dalam-ujian"
             ]
           },
           {
             "group": "Data Akun",
             "pages": [
-              "cara-menambahkan-data"
+              "akun/cara-menambahkan-data"
             ]
           },
           {
             "group": "Lainnya",
             "pages": [
-              "pengaturan-dan-cara-login-peserta",
-              "mengatur-tampilan-melalui-kustomisasi-branding"
+              "lainnya/pengaturan-dan-cara-login-peserta",
+              "lainnya/mengatur-tampilan-melalui-kustomisasi-branding"
             ]
           }
         ]
