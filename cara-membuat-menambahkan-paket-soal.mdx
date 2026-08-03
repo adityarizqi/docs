@@ -1,0 +1,782 @@
+---
+title: "Cara Membuat Paket Soal serta Menambahkan Soal dan Jawaban"
+---
+
+Sebelum ujian dapat dikerjakan oleh peserta, Anda perlu menyiapkan paket soal beserta seluruh butir soal dan jawabannya.
+
+**Paket Soal** digunakan sebagai <u>tempat menyimpan kumpulan soal</u>. Di dalam satu paket soal, Anda dapat menambahkan beberapa butir soal sesuai kebutuhan ujian.
+
+> 💡 **Sebagai contoh**, Anda adalah Admin Bimbingan Belajar yang akan menyelenggarakan:
+>
+> **Tryout Matematika Persiapan SNBT 2027**
+>
+> Untuk ujian tersebut, Anda membuat satu paket soal bernama:
+>
+> **Paket Penalaran Matematika**
+>
+> Paket tersebut kemudian diisi dengan 40 butir soal pilihan ganda beserta jawaban yang benar.
+
+<Tip>
+  Secara sederhana, prosesnya terdiri dari dua bagian:
+
+  1. Membuat atau menambahkan **Paket Soal**
+  2. Membuat **butir soal dan jawaban** di dalam paket tersebut
+</Tip>
+
+# 1. Mengenal Halaman Paket Soal
+
+<Frame>
+  ![2026 07 31 00 57](/images/2026-07-31_00-57.png "2026 07 31 00 57")
+</Frame>
+
+Buka menu **Data Paket Soal**.
+
+Pada halaman ini, Anda dapat melihat seluruh paket soal yang sudah dibuat. Informasi yang ditampilkan dapat mencakup nama paket, jenis soal, jumlah soal, serta tindakan untuk melihat, mengubah, atau menghapus paket.
+
+<Tip>
+  Anda dapat membuat paket soal melalui beberapa cara:
+
+  - menambahkan secara manual, pilih tombol '**Tambah Paket Soal'**
+  - menggunakan template soal, pilih tombol '**Template Paket Soal'**
+  - atau menggunakan Generate AI, pilih tombol **'Template Paket Soal'**
+</Tip>
+
+1. **Menambahkan Paket Soal Secara Manual**
+   Gunakan cara ini jika Anda ingin membuat paket soal dari awal dan mengatur seluruh isinya sendiri.
+   Dengan cara manual, Anda terlebih dahulu membuat nama dan informasi paket soal. Setelah paket berhasil dibuat, soal dan jawabannya ditambahkan satu per satu ke dalam paket tersebut.
+   > 💡 Contoh kasus:
+   >
+   > Anda akan membuat Paket Penalaran Matematika untuk Tryout SNBT 2027. Soal sudah disiapkan oleh tim pengajar dan hanya berjumlah 10 butir.
+   >
+   > Karena jumlah soal tidak terlalu banyak dan setiap soal perlu diperiksa dengan teliti, Anda dapat membuat paket secara manual, lalu memasukkan soal dan jawabannya satu per satu.
+   Cara ini cocok digunakan jika:
+   - jumlah soal tidak terlalu banyak
+   - soal sudah tersedia
+   - atau Anda ingin mengatur setiap soal secara lebih rinci.
+2. **Menggunakan Template Soal**
+   Gunakan template jika Anda ingin membuat paket soal lebih cepat dengan susunan awal yang sudah disediakan oleh sistem.
+   Template membantu Anda memulai tanpa harus mengatur seluruh bagian dari awal. Setelah template digunakan, nama paket, isi soal, atau pengaturannya masih dapat disesuaikan kembali.
+   > 💡 Contoh kasus:
+   >
+   > Anda akan membuat Paket Tryout SNBT yang memiliki susunan umum seperti paket tryout sebelumnya.
+   >
+   > Daripada membuat seluruh pengaturan dari awal, Anda memilih template yang paling sesuai. Setelah paket terbentuk, Anda cukup mengganti nama paket, menyesuaikan soal, dan memeriksa kembali jawabannya.
+   Cara ini cocok digunakan jika:
+   - Kebutuhan ujian mirip dengan contoh yang sudah tersedia;
+   - Anda ingin mempercepat pembuatan paket;
+   <Tip>
+     Template digunakan sebagai susunan awal. Tetap periksa kembali isi dan pengaturannya sebelum digunakan dalam ujian.
+   </Tip>
+3. **Menggunakan Generate AI**
+   Gunakan Generate AI jika Anda ingin sistem membantu membuat paket soal sekaligus menghasilkan butir soal dan jawabannya.
+   Anda cukup memberikan arahan mengenai materi, jumlah soal, bentuk soal, dan tingkat kesulitan yang diinginkan.
+   > 💡 Contoh kasus:
+   >
+   > Anda membutuhkan 20 soal pilihan ganda Matematika Dasar untuk latihan tambahan, tetapi belum memiliki kumpulan soal.
+   >
+   > Berikan arahan seperti:
+   >
+   > Buat 20 soal pilihan ganda Matematika Dasar untuk persiapan SNBT. Setiap soal memiliki lima pilihan jawaban dan satu jawaban benar.
+   >
+   > Sistem akan membuat paket soal, butir pertanyaan, pilihan jawaban, dan jawaban benar secara otomatis.
+   Cara ini cocok digunakan jika:
+   - Anda belum memiliki soal
+   - membutuhkan banyak soal dalam waktu singkat
+   <Tip>
+     Soal dan jawaban hasil AI tetap perlu diperiksa sebelum digunakan. Pastikan materi, pilihan jawaban, tingkat kesulitan, dan jawaban benar sudah sesuai.
+   </Tip>
+
+# 2. Cara Membuat atau Menambahkan Paket Soal
+
+<Accordion title="Membuat Paket Soal secara Manual">
+  Gunakan cara ini jika Anda ingin menentukan sendiri seluruh informasi paket soal.
+
+  <Tip>
+    **Catatan**
+
+    Paket soal **CBT/CAT** dan **Esai/Upload File** <u>tidak dapat digabungkan</u> dalam satu paket soal. Jika ujian membutuhkan kedua jenis soal tersebut, buat dua paket soal yang berbeda, lalu tambahkan sebagai tes ujian yang terpisah.
+
+    Contoh:
+
+    - Paket Soal 1: **Pilihan Ganda Matematika** — jenis CBT/CAT
+    - Paket Soal 2: **Esai Matematika** — jenis Esai/Upload File
+
+    Dengan begitu, setiap paket soal memiliki jenis pengerjaan dan penilaian yang jelas.
+  </Tip>
+
+  <Accordion title="CBT / CAT" icon="sparkles">
+    <Steps>
+      <Step title="Buka menu 'Data Paket Soal'">
+        <Frame>
+          <img
+            src="/images/data-paket-ujian.png"
+            alt="Data Paket Ujian"
+            title="Data Paket Ujian"
+            style={{ width:"NaN%" }}
+          />
+        </Frame>
+      </Step>
+      <Step title="Pilih tombol (+ Tambah Paket Soal)">
+        <Frame>
+          ![Tambah Paket Soal](/images/tambah-paket-soal.png "Tambah Paket Soal")
+        </Frame>
+      </Step>
+      <Step title="Lengkapi Informasi Paket Soal">
+        <Frame>
+          ![Informasi Paket Soal](/images/informasi-paket-soal.png "Informasi Paket Soal")
+
+           
+        </Frame>
+
+        Pada tahap ini, Anda akan mengisikan informasi dan pengaturan dasar paket soal.
+
+        1. **Nama Paket Soal**<br />Masukkan nama yang mudah dikenali, misalnya **Penalaran Matematika**.
+        2. **Kode Paket Soal**<br />Masukkan kode unik untuk membedakan setiap paket soal, misalnya **MTK-UJIAN**.
+        3. **Deskripsi Paket Soal**<br />Tambahkan penjelasan singkat mengenai isi atau tujuan paket soal.
+        4. **Jenis Paket Soal**<br />Pilih **CBT/CAT** jika peserta akan mengerjakan dan menjawab soal secara langsung melalui sistem.
+        5. **Acak Soal**<br />Aktifkan apabila urutan soal ingin dibuat berbeda untuk setiap peserta.
+        6. **Acak Jawaban**<br />Aktifkan apabila urutan pilihan jawaban ingin dibuat berbeda untuk setiap peserta. Pengaturan ini berlaku untuk soal pilihan ganda.
+        7. **Simpan Paket Soal**<br />Klik **Buat** untuk menyimpan paket soal dan melanjutkan ke proses penambahan butir soal.
+
+        <Tip>
+          <Frame>
+            ![Jenis Paket Soal](/images/jenis-paket-soal.png "Jenis Paket Soal")
+          </Frame>
+
+          -  Pilih **CBT/CAT** jika peserta akan melihat soal di layar dan mengisikan jawaban langsung melalui platform ujian. Jenis ini **cocok digunakan** **untuk tryout UTBK-SNBT, olimpiade**, atau ujian berbasis komputer lainnya.
+          - Pilih **Upload File** jika soal sudah dibuat dalam satu berkas, misalnya PDF. Peserta akan membuka berkas tersebut untuk membaca soal, lalu mengirimkan jawaban sesuai petunjuk ujian.
+        </Tip>
+      </Step>
+      <Step title="Simpan Paket Soal">
+        <Frame>
+          ![Download 1](/images/download-1.png "Download 1")
+        </Frame>
+
+        Klik tombol '**Buat**' setelah mengisikan informasi paket soal.  Selanjutnya, Anda dapat menambahkan butir soal ke dalam paket tersebut.
+      </Step>
+    </Steps>
+  </Accordion>
+
+  <Accordion title="Soal Esai/File" icon="sparkles">
+    <Steps>
+      <Step title="Buka menu 'Data Paket Soal'">
+        <Frame>
+          <img
+            src="/images/data-paket-ujian.png"
+            alt="Data Paket Ujian"
+            title="Data Paket Ujian"
+            style={{ width:"NaN%" }}
+          />
+        </Frame>
+      </Step>
+      <Step title="Pilih tombol (+ Tambah Paket Soal)">
+        <Frame>
+          ![Tambah Paket Soal](/images/tambah-paket-soal.png "Tambah Paket Soal")
+        </Frame>
+      </Step>
+      <Step title="Lengkapi Informasi Paket Soal">
+        <Frame>
+           
+        </Frame>
+
+        <Frame>
+          ![Esai 1](/images/esai-1.png "Esai 1")
+        </Frame>
+
+        Gunakan jenis paket soal ini jika peserta akan **menjawab dengan uraian atau mengunggah berkas jawaban**.
+
+        1. **Nama Paket Soal : **Isi nama paket soal agar mudah dikenali.<br />Contoh: **Literasi Bahasa Indonesia**.
+        2. **Kode Paket Soal : **Isi kode singkat dan unik.<br />Contoh: **LBI-UJIAN**.
+        3. **Deskripsi Paket Soal : **Tuliskan penjelasan singkat mengenai isi paket soal.<br />Contoh: _Kumpulan soal Literasi Bahasa Indonesia untuk persiapan SNBT 2027._
+        4. **Jenis Paket Soal : **Pilih **Esai/Upload File (Jawaban Manual)**.
+           Gunakan pilihan ini jika peserta:
+           - menulis jawaban panjang langsung di sistem, atau
+           - mengunggah file jawaban, seperti PDF, Word, atau foto lembar jawaban.
+           Jawaban peserta nantinya perlu diperiksa dan dinilai secara manual oleh penilai.
+        5. **Buat**<br />Setelah semua data terisi, klik **Buat** untuk menyimpan paket soal.
+
+        > Paket soal jenis ini tidak dapat digunakan untuk ujian CBT atau CAT karena jawabannya tidak diperiksa otomatis oleh sistem.
+
+        <Tip>
+          <Frame>
+            ![Esai 2](/images/esai-2.png "Esai 2")
+          </Frame>
+
+          -  Pilih **CBT/CAT** jika peserta akan melihat soal di layar dan mengisikan jawaban langsung melalui platform ujian. Jenis ini **cocok digunakan** **untuk tryout UTBK-SNBT, olimpiade**, atau ujian berbasis komputer lainnya.
+          - Pilih **Upload File** jika soal sudah dibuat dalam satu berkas, misalnya PDF. Peserta akan membuka berkas tersebut untuk membaca soal, lalu mengirimkan jawaban sesuai petunjuk ujian.
+        </Tip>
+      </Step>
+      <Step title="Simpan Paket Soal">
+        <Frame>
+          ![Simpan Paket Esai](/images/simpan-paket-esai.png "Simpan Paket Esai")
+        </Frame>
+
+        Klik tombol '**Buat** setelah mengisikan informasi paket soal.  Selanjutnya, Anda dapat menambahkan butir soal ke dalam paket tersebut.
+      </Step>
+    </Steps>
+  </Accordion>
+</Accordion>
+
+<Accordion title="Membuat Paket Soal beserta Butir Soal dan Jawaban Menggunakan Template">
+  Gunakan template jika Anda ingin membuat paket soal dengan susunan awal yang sudah disediakan oleh sistem.
+
+  <Steps>
+    <Step title="Buka menu 'Data Paket Soal' kemudian pilih tombol 'Template Paket Soal'">
+      <Frame>
+        ![2026 07 31 01 54](/images/2026-07-31_01-54.png "2026 07 31 01 54")
+      </Frame>
+    </Step>
+    <Step title="Centang salah satu Template kemudian pilih tombol 'Gunakan Template'">
+      <Frame>
+        ![2026 07 31 01 54 1 1](/images/2026-07-31_01-54_1-1.png "2026 07 31 01 54 1 1")
+      </Frame>
+
+      Sistem akan menampilkan daftar template yang tersedia. Perhatikan informasi berikut:
+
+      - **Nama Template**, yaitu nama paket yang tersedia
+      - **Jenis Soal**, yaitu bentuk paket soal yang digunakan
+      - **Jumlah Soal**, yaitu jumlah soal yang akan ikut disalin ke paket baru
+
+      Tunggu hingga muncul pemberitahuan bahwa template paket soal berhasil ditambahkan. Pada contoh ini, sistem membuat paket bernama **Latihan Try Out.**
+
+      <Frame>
+        ![2026 07 31 01 55](/images/2026-07-31_01-55.png "2026 07 31 01 55")
+      </Frame>
+    </Step>
+    <Step title="Pilih tombol 'Ubah' untuk membuka dan memeriksa paket soal tersebut">
+      <Frame>
+        ![2026 07 31 01 55 1](/images/2026-07-31_01-55_1.png "2026 07 31 01 55 1")
+      </Frame>
+
+      <Frame>
+        ![2026 07 31 01 56](/images/2026-07-31_01-56.png "2026 07 31 01 56")
+      </Frame>
+
+      Periksa kembali informasi paket serta seluruh soal dan jawabannya. Anda masih dapat:
+
+      - mengubah nama atau deskripsi paket
+      - memperbaiki pertanyaan
+      - mengganti pilihan jawaban
+      - mengubah jawaban yang benar
+      - serta menambah atau menghapus soal.
+
+      <Tip>
+        Template sudah menyertakan <u>paket soal beserta soal-soalnya</u>. Namun, **tetap periksa** kembali pertanyaan dan jawabannya sebelum paket digunakan dalam sesi ujian.
+      </Tip>
+    </Step>
+  </Steps>
+</Accordion>
+
+<Accordion title="Membuat Paket Soal beserta Butir Soal dan Jawaban Menggunakan Generate AI">
+  Generate AI juga dapat digunakan dari halaman paket soal untuk menambahkan butir soal beserta jawabannya.
+
+  <Steps>
+    <Step title="Buka menu 'Data Paket Soal' kemudian pilih tombol 'Buat Paket Soal AI'">
+      <Frame>
+        ![2026 07 31 02 12](/images/2026-07-31_02-12.png "2026 07 31 02 12")
+      </Frame>
+    </Step>
+    <Step title="Isikan Informasi Paket Soal ">
+      <Frame>
+        ![2026 07 31 02 14](/images/2026-07-31_02-14.png "2026 07 31 02 14")
+      </Frame>
+
+      1. Isi **Nama Paket Soal**.
+
+      Contoh: **Try Out SNBT 2027**
+
+      2. Isi **Jumlah Soal** yang ingin dibuat.
+
+      Contoh: **10 soal**
+
+      <Tip>
+        Jumlah soal yang dibuat akan mengurangi kuota AI sesuai jumlah yang Anda masukkan.
+      </Tip>
+
+      3. Pada bagian **Catatan**, tuliskan arahan mengenai soal yang dibutuhkan. Anda dapat menjelaskan materi, jenjang, bentuk soal, atau tingkat kesulitannya.
+
+      Contoh: **Buatkan soal Matematika, Bahasa Indonesia, serta Bahasa Inggris untuk persiapan SNBT 2027.**
+
+      <Tip>
+        Semakin jelas arahan yang diberikan, semakin sesuai pula soal yang dihasilkan.
+      </Tip>
+
+      4. Pilih tombol **'Generate**'. Sistem akan mulai membuat paket soal. Tunggu hingga proses selesai.
+
+      <Frame>
+        ![2026 07 31 02 17](/images/2026-07-31_02-17.png "2026 07 31 02 17")
+      </Frame>
+    </Step>
+    <Step title="Pilih tombol 'Ubah' untuk membuka dan memeriksa paket soal tersebut">
+      <Frame>
+        ![2026 07 31 02 17 1](/images/2026-07-31_02-17_1.png "2026 07 31 02 17 1")
+      </Frame>
+
+      <Frame>
+        ![2026 07 31 02 18](/images/2026-07-31_02-18.png "2026 07 31 02 18")
+      </Frame>
+
+      Periksa kembali informasi paket serta seluruh soal dan jawabannya. Anda masih dapat:
+
+      - mengubah nama atau deskripsi paket
+      - memperbaiki pertanyaan
+      - mengganti pilihan jawaban
+      - mengubah jawaban yang benar
+      - serta menambah atau menghapus soal.
+
+      <Tip>
+        **Penting:** Hasil Generate AI tetap perlu diperiksa sebelum digunakan dalam ujian. Pastikan soal, pilihan jawaban, dan jawaban yang benar sudah sesuai dengan materi serta tingkat kesulitan yang diinginkan.
+      </Tip>
+    </Step>
+  </Steps>
+</Accordion>
+
+# 3. Mengenal Halaman Daftar Soal
+
+Setelah paket soal berhasil dibuat, pilih tombol **Ubah** pada paket yang ingin dikelola. 
+
+<Frame>
+  ![2026 07 31 02 36](/images/2026-07-31_02-36.png "2026 07 31 02 36")
+</Frame>
+
+Sistem akan membuka halaman detail paket soal.
+
+<Frame>
+  ![2026 07 31 02 35](/images/2026-07-31_02-35.png "2026 07 31 02 35")
+</Frame>
+
+> 💡 **Sebagai contoh**, Anda membuka paket **Penalaran Matematika** yang digunakan untuk persiapan SNBT 2027. Pada bagian Daftar Soal, Anda dapat memeriksa soal yang sudah tersedia, menambahkan soal baru, mengimpor soal dari Excel, serta memperbaiki soal yang masih perlu disesuaikan.
+
+1. **Daftar Soal**
+
+Bagian ini menampilkan seluruh soal yang sudah dimasukkan ke dalam paket. Informasi yang dapat dilihat antara lain:
+
+- nomor urut soal
+- kelompok soal
+- media pendukung, jika ada
+- isi pertanyaan
+- dan jenis soal.
+
+<Tip>
+  Melalui daftar ini, Anda dapat memastikan jumlah serta isi soal sudah sesuai sebelum paket digunakan pada sesi ujian.
+</Tip>
+
+2. **Import Soal (Excel)**
+
+Gunakan tombol **Import Soal (Excel)** jika Anda sudah memiliki banyak soal dan ingin memasukkannya sekaligus.
+
+<Tip>
+  Cara ini lebih praktis daripada menambahkan soal satu per satu. Pastikan file Excel mengikuti format template yang disediakan oleh sistem agar proses impor dapat berjalan dengan baik.
+</Tip>
+
+3. **Tambah Soal**
+
+Gunakan tombol **Tambah Soal** untuk menambahkan soal secara manual.
+
+<Tip>
+  Cara ini cocok digunakan jika:
+
+  - jumlah soal yang ditambahkan tidak banyak
+  - Anda ingin menulis soal langsung melalui sistem
+  - atau hanya perlu menambahkan beberapa soal tambahan.
+</Tip>
+
+Setelah tombol dipilih, Anda dapat mengisi pertanyaan, jenis soal, pilihan jawaban, jawaban benar, serta pengaturan lainnya.
+
+4. **Ubah Urutan Soal**
+
+Gunakan tombol **Ubah Urutan Soal** jika Anda ingin mengatur kembali susunan soal.
+
+💡 **Contoh:** Anda ingin soal yang lebih mudah ditempatkan di bagian awal, kemudian dilanjutkan dengan soal yang lebih sulit. Gunakan fitur ini untuk menyusun soal sesuai urutan yang diinginkan.
+
+<Tip>
+  Pengaturan ini tetap dapat digunakan meskipun fitur **Acak Soal** tidak diaktifkan.
+</Tip>
+
+5. **Ubah**
+
+Pilih tombol '**Ubah'** pada soal tertentu untuk memperbaiki atau menyesuaikan isinya. Anda dapat mengubah:
+
+- pertanyaan
+- pilihan jawaban
+- jawaban benar
+- media pendukung
+- kelompok soal
+- dan pengaturan lainnya.
+
+<Tip>
+  Gunakan fitur ini jika ditemukan kesalahan penulisan, jawaban kurang tepat, atau materi soal perlu diperbarui.
+</Tip>
+
+6. **Lainnya** 
+
+<Frame>
+  ![2026 07 31 02 49](/images/2026-07-31_02-49.png "2026 07 31 02 49")
+</Frame>
+
+Digunakan untuk membuka tindakan tambahan pada soal. Pilihan yang tersedia meliputi:
+
+- **Duplikat Soal**<br />Digunakan untuk menyalin soal yang sudah ada. Cara ini cocok apabila Anda ingin membuat soal baru dengan bentuk atau susunan yang hampir sama, sehingga tidak perlu menulis ulang dari awal.
+- **Preview Soal**<br />Digunakan untuk melihat tampilan soal dari sisi peserta. Melalui fitur ini, Anda dapat memastikan pertanyaan, pilihan jawaban, dan susunan tampilan sudah sesuai sebelum ujian dilaksanakan.
+  <Frame>
+    <img
+      src="/images/2026-07-31_02-49_1.png"
+      alt="2026 07 31 02 49 1"
+      title="2026 07 31 02 49 1"
+      style={{ width:"91%" }}
+    />
+  </Frame>
+- **Hapus**<br />Digunakan untuk menghapus soal yang tidak lagi diperlukan. Pastikan soal yang dipilih sudah benar sebelum melakukan penghapusan.
+
+# 4. Cara Membuat Butir-Butir Soal dan Jawaban
+
+Setelah paket soal berhasil dibuat, langkah berikutnya adalah menambahkan butir soal ke dalam paket tersebut.
+
+<Accordion title="Membuat Soal dan Jawaban secara Manual">
+  <Steps>
+    <Step title="Klik tombol (+ Tambah Soal)">
+      <Frame>
+        ![Tambah Soal](/images/tambah-soal.png "Tambah Soal")
+      </Frame>
+
+      Pada bagian **Daftar Soal**, klik **\+ Tambah Soal** untuk memasukkan soal satu per satu.   Anda juga dapat menggunakan **Import Soal (Excel)** apabila sudah memiliki banyak soal dan ingin memasukkannya sekaligus.
+
+      <Tip>
+        **Tips**
+
+        Jika butir soal **<u>terlewat</u>** belum ditambahkan pada Paket Soal, Anda dapat menambahkan kembali melalui langkah-langkah berikut : 
+
+        1. Pilih menu '**Data Paket Soal**'
+        2. Pilih Paket Soal yang terlewat penambahan butir-butir soal
+        3. Kemudian pilih tombol '**Ubah**' pada paket soal tersebut
+        4. Anda dapat menambahkan butir-butir soal pada bagian **Daftar Soal** melalui tombol (**\+ Tambah Soal**)
+
+        <Frame>
+          ![Image](/images/image-17.png "Image")
+        </Frame>
+
+        <Frame>
+          ![Image](/images/image-18.png "Image")
+        </Frame>
+      </Tip>
+    </Step>
+    <Step title="Lengkapi Informasi Soal">
+      <Frame>
+        ![Lengkapi Informasi Soal](/images/Lengkapi-informasi-soal.png "Lengkapi Informasi Soal")
+      </Frame>
+
+      Setelah memilih tombol (**\+ Tambah Soal)**, sistem secara otomatis akan menampilkan kolom isian untuk menambahkan soal ke dalam paket.
+
+      Mulailah dari bagian **Soal**, kemudian tentukan:
+
+      - **Jenis Soal** : untuk menentukan bentuk soal yang akan dikerjakan peserta:
+        <Frame>
+          <img
+            src="/images/image-19.png"
+            alt="Image"
+            title="Image"
+            style={{ width:"62%" }}
+          />
+        </Frame>
+        1. **Pilihan Ganda**<br />Peserta memilih satu jawaban yang benar.<br />Contoh: _Ibu kota Indonesia adalah ..._<br />A. Bandung<br />B. Jakarta<br />C. Surabaya
+        2. **Isian Numerik**<br />Peserta mengisi jawaban berupa angka.<br />Contoh: _Hasil dari 10 × 5 adalah ..._<br />Jawaban: **50**
+        3. **Majemuk Kompleks (Benar/Salah)**<br />Peserta menentukan benar atau salah untuk setiap pernyataan.<br />Contoh:
+           - Matahari terbit dari timur — **Benar**
+           - Air membeku pada suhu 100°C — **Salah**
+        4. **Menjodohkan (Drag & Drop)**<br />Peserta memasangkan dua pilihan yang sesuai.<br />Contoh:
+           - Indonesia → Jakarta
+           - Jepang → Tokyo
+
+      - **Kelompok Soal** : digunakan untuk mengelompokkan beberapa soal yang memiliki bahan atau topik yang sama.
+        <Frame>
+          <img
+            src="/images/image-21.png"
+            alt="Image"
+            title="Image"
+            style={{ width:"61%" }}
+          />
+        </Frame>
+        Contoh:
+        Ada satu bacaan berjudul **“Lingkungan Sekolah”**, lalu dari bacaan tersebut dibuat 3 soal. Ketiga soal itu dapat dimasukkan ke kelompok soal **Lingkungan Sekolah**.
+        Jadi peserta membaca bahan yang sama, lalu menjawab beberapa soal yang berkaitan.
+        Contoh lain:
+        - Kelompok Soal: **Teks Bacaan 1**
+        - Soal 1: Apa gagasan utama bacaan?
+        - Soal 2: Siapa tokoh dalam bacaan?
+        - Soal 3: Apa kesimpulan bacaan?
+        > Apabila setiap soal berdiri sendiri dan tidak memakai bahan yang sama, bagian **Kelompok Soal** boleh dikosongkan.
+
+      - **Jawaban Lebih dari Satu** : digunakan jika satu soal memiliki lebih dari satu jawaban yang benar.
+        <Frame>
+          <img
+            src="/images/image-23.png"
+            alt="Image"
+            title="Image"
+            style={{ width:"58%" }}
+          />
+        </Frame>
+        Contoh:
+        **Pilih hewan yang termasuk mamalia:**
+        - Kucing ✅
+        - Sapi ✅
+        - Ayam
+        - Ikan
+        Pada contoh tersebut, peserta harus memilih **Kucing** dan **Sapi**.
+        > Aktifkan pengaturan ini hanya jika peserta memang boleh memilih beberapa jawaban. Jika hanya ada satu jawaban benar, biarkan tetap nonaktif.
+      - **Media Soal** : digunakan untuk menentukan bentuk soal yang akan dilihat atau didengar oleh peserta.
+        <Frame>
+          <img
+            src="/images/image-24.png"
+            alt="Image"
+            title="Image"
+            style={{ width:"61%" }}
+          />
+        </Frame>
+        **Media Soal** dapat dipilih lebih dari satu dalam satu butir soal.
+        <Frame>
+          <img
+            src="/images/image-25.png"
+            alt="Image"
+            title="Image"
+            style={{ width:"94%" }}
+          />
+        </Frame>
+        Artinya, satu butir soal dapat menggunakan gabungan **teks, gambar, dan audio** sekaligus.
+        Contoh:
+        - **Teks** untuk menuliskan pertanyaan.
+        - **Gambar** untuk menampilkan grafik atau ilustrasi.
+        - **Audio** untuk bahan soal listening.
+        > Pilih  media yang diperlukan sesuai bentuk soal yang akan dibuat.
+    </Step>
+    <Step title="Isikan Soal">
+      <Frame>
+        ![Isikan Soal](/images/isikan-soal.png "Isikan Soal")
+      </Frame>
+
+      Pada bagian **Teks Soal**, tuliskan pertanyaan yang akan dibaca oleh peserta.
+
+      Contoh:
+
+      > Sebuah toko memberikan diskon 20% untuk sebuah tas. Setelah diskon, harga tas menjadi Rp240.000. Harga tas sebelum diskon adalah ....
+
+      Gunakan tombol pada bagian atas kolom apabila ingin mengatur tulisan, membuat daftar, menambahkan tabel, atau menulis rumus matematika.
+
+      <Tip>
+        LaTeX digunakan untuk menulis rumus matematika agar tampil lebih rapi. Cara menggunakannya:
+
+        1. Klik **Tampilkan Input LaTeX**.
+        2. Ketik rumus pada kolom yang tersedia.
+        3. Klik **Salin**.
+        4. Tempelkan rumus ke bagian **Teks Soal**.
+
+        <Frame>
+          ![Latex 1 2](/images/latex-1-2.png "Latex 1 2")
+
+          ![Latex 2](/images/latex-2.png "Latex 2")
+
+          ![Latex 3](/images/Latex-3.png "Latex 3")
+        </Frame>
+      </Tip>
+    </Step>
+    <Step title="Tambahkan Pilihan Jawaban > pilih tombol ( + Tambah Jawaban )">
+      <Frame>
+        ![Image](/images/image-7.png "Image")
+      </Frame>
+
+      Setelah soal selesai ditambahkan, buka bagian **Jawaban** kemudian pilih tombol (**\+Tambah Jawaban**)** **untuk menambahkan pilihan jawaban dan menentukan jawaban yang benar.
+
+      Sistem secara otomatis akan menampilkan kolom isian daftar jawaban.
+
+      <Frame>
+        ![Image](/images/image-9.png "Image")
+      </Frame>
+
+      Lengkapi setiap pilihan jawaban sebagai berikut:
+
+      1. **Media Jawaban : **Pilih bentuk jawaban, misalnya teks, gambar, atau audio.
+      2. **Kunci Jawaban : **Aktifkan hanya pada pilihan yang benar.<br />Misalnya jawaban yang benar adalah **Rp300.000**, sehingga tombol **Kunci Jawaban** hanya diaktifkan pada pilihan tersebut. Pilihan jawaban lainnya tetap dinonaktifkan.
+         <Frame>
+           <img
+             src="/images/image-11.png"
+             alt="Image"
+             title="Image"
+             className="mx-auto"
+             style={{ width:"52%" }}
+           />
+         </Frame>
+      3. **Skor Jawaban : **Isi nilai untuk pilihan tersebut. <br />Untuk soal pilihan ganda biasa, jawaban salah dapat diberi skor **0**.
+      4. **Kelompok Jawaban : **Digunakan khusus untuk tes psikotes. Jika tidak digunakan, bagian ini dapat dikosongkan.
+      5. **Teks Jawaban : **Tulis pilihan jawaban yang akan dilihat peserta.
+      6. **Tambah Jawaban : **Klik **\+ Tambah Jawaban** untuk membuat pilihan jawaban berikutnya. 
+
+      <Tooltip tip="Add tooltip text">Ulangi langkah tersebut sampai seluruh butir soal dan jawaban selesai ditambahkan.</Tooltip>
+
+      <Frame>
+        ![Image](/images/image-13.png "Image")
+      </Frame>
+    </Step>
+  </Steps>
+</Accordion>
+
+<Accordion title="Membuat Soal dan Jawaban melalui Import ">
+  <Steps>
+    <Step title="Buka menu 'Data Paket Soal' kemudian pilih tombol 'Ubah'">
+      <Frame>
+        ![2026 07 31 02 58](/images/2026-07-31_02-58.png "2026 07 31 02 58")
+      </Frame>
+
+      Anda dapat mengetahui apakah data Paket Soal sudah terisi butir-butir soal atau masih kosong melalui kolom 'Jumlah Soal'.
+    </Step>
+    <Step title="Pilih tombol 'Import Soal (Excel)'">
+      <Frame>
+        ![2026 07 31 02 59](/images/2026-07-31_02-59.png "2026 07 31 02 59")
+      </Frame>
+    </Step>
+    <Step title="Pilih tombol 'Unduh Template'">
+      <Frame>
+        ![2026 07 31 02 59 1](/images/2026-07-31_02-59_1.png "2026 07 31 02 59 1")
+      </Frame>
+    </Step>
+    <Step title="Buka file template yang sudah diunduh">
+      Template excel terdiri dari tiga bagian:
+
+      - **Panduan**
+      - **Data Soal**
+      - **Data Jawaban**
+
+      1. **Sheet Panduan**
+
+      <Frame>
+        ![2026 07 31 03 00](/images/2026-07-31_03-00.png "2026 07 31 03 00")
+      </Frame>
+
+      Sheet **Panduan** berisi petunjuk pengisian, kode yang dapat digunakan, dan kolom yang wajib atau opsional.
+
+      <Tip>
+        Perhatikan beberapa ketentuan berikut:
+
+        - Import hanya tersedia untuk paket soal **CBT/CAT**.
+        - Jangan mengubah nama kolom atau susunan template.
+        - Media berupa gambar, audio, atau video tidak dapat dimasukkan melalui Excel dan perlu ditambahkan setelah proses import.
+        - Gunakan kode yang tersedia pada panduan untuk mengisi jenis dan tipe soal.
+      </Tip>
+
+      2. **Sheet Data Soal**
+
+      <Frame>
+        ![2026 07 31 03 00 1](/images/2026-07-31_03-00_1.png "2026 07 31 03 00 1")
+      </Frame>
+
+      Sheet **Data Soal** digunakan untuk mengisi pertanyaan dan pengaturan setiap soal. Isian utamanya meliputi:
+
+      - **No Soal**<br />Isi nomor urut soal, misalnya 1, 2, 3, dan seterusnya.
+      - **Jenis Soal**<br />Isi bentuk soal menggunakan kode:
+        - **PG** untuk Pilihan Ganda
+        - **MK** untuk Majemuk Kompleks
+        - **IN** untuk Input Numerik
+      - **Tipe Soal**<br />Isi jenis tampilan soal menggunakan kode:
+        - **T** untuk Teks
+        - **G** untuk Gambar
+        - **A** untuk Audio
+
+      <Tip>
+        Jika menggunakan lebih dari satu tipe, pisahkan dengan koma. Contoh: **T,G**.
+      </Tip>
+
+      - **Soal Uraian**<br />Isi pertanyaan yang akan dikerjakan peserta.
+      - **Kelompok Soal**<br />Isi nama kelompok soal yang sudah tersedia di sistem. Contoh:
+        - Geografi Dasar
+        - Biologi
+        - Matematika
+      - **Tingkat Kesulitan**<br />Isi tingkat kesulitan soal, misalnya:
+        - Sangat Mudah
+        - Mudah
+        - Sedang
+        - Sulit
+        - Sangat Sulit
+      - **Jawaban Lebih dari Satu**<br />Isi **Ya** jika soal memiliki lebih dari satu jawaban benar. Isi **Tidak** jika hanya memiliki satu jawaban benar.
+      - **Jawaban Benar untuk Input Numerik**<br />Khusus soal jenis **IN**, isi jawaban angka yang benar.
+      - **Skor CBT dan CAT**<br />Isi nilai untuk jawaban benar, salah, atau tidak dijawab sesuai aturan penilaian yang digunakan.
+      - **Pembahasan**<br />Isi penjelasan jawaban jika diperlukan.
+
+      <Tip>
+        💡 **Contoh:**
+
+        Untuk soal:
+
+        > Berapa hasil dari 10 \+ 15?
+
+        Isian sederhananya:
+
+        - No Soal: 4
+        - Jenis Soal: IN
+        - Tipe Soal: T
+        - Kelompok Soal: Matematika
+        - Jawaban Benar: 25
+      </Tip>
+
+      3. **Sheet Data Jawaban**
+
+      <Frame>
+        ![2026 07 31 03 01](/images/2026-07-31_03-01.png "2026 07 31 03 01")
+      </Frame>
+
+      Sheet **Data Jawaban** digunakan untuk mengisi pilihan jawaban bagi soal Pilihan Ganda dan Majemuk Kompleks. Isian utamanya meliputi:
+
+      - **No Soal**<br />Isi nomor yang sama dengan nomor pada sheet **Data Soal**.
+      - **Jawaban A sampai Jawaban E**<br />Isi pilihan jawaban yang akan ditampilkan kepada peserta.
+
+      <Tip>
+        Minimal **<u>harus ada</u>** dua pilihan jawaban.
+      </Tip>
+
+      - **Kunci Jawaban**<br />Isi huruf jawaban yang benar. Contoh:
+        - Isi **A** jika hanya Jawaban A yang benar.
+        - Isi **B,C,D** jika terdapat lebih dari satu jawaban benar.
+
+      <Tip>
+        💡 **Contoh:**
+
+        Untuk soal:
+
+        > Apa ibu kota Indonesia?
+
+        Isi jawabannya:
+
+        - Jawaban A: Jakarta
+        - Jawaban B: Bandung
+        - Jawaban C: Surabaya
+        - Jawaban D: Medan
+        - Jawaban E: Yogyakarta
+        - Kunci Jawaban: A
+      </Tip>
+    </Step>
+    <Step title="Mengunggah Template">
+      <Frame>
+        ![2026 07 31 03 01 1](/images/2026-07-31_03-01_1.png "2026 07 31 03 01 1")
+      </Frame>
+
+      Setelah seluruh soal dan jawaban selesai diisi:
+
+      1. Simpan file Excel.
+      2. Kembali ke halaman **Import Soal (Excel)**.
+      3. Unggah file yang sudah diisi.
+      4. Pilih tombol '**Import'**.
+      5. Tunggu hingga proses selesai.
+
+      <Frame>
+        ![2026 07 31 03 02](/images/2026-07-31_03-02.png "2026 07 31 03 02")
+      </Frame>
+
+      Setelah import berhasil, soal akan tampil pada bagian **Daftar Soal** beserta kelompok soal, isi pertanyaan, dan jenis soalnya.
+
+      <Frame>
+        ![2026 07 31 03 02 1](/images/2026-07-31_03-02_1.png "2026 07 31 03 02 1")
+      </Frame>
+
+      <Tip>
+        Periksa kembali hasil import sebelum paket digunakan. Pastikan nomor soal pada sheet **Data Soal** dan **Data Jawaban** sesuai agar jawaban tidak masuk ke soal yang salah.
+      </Tip>
+    </Step>
+  </Steps>
+</Accordion>

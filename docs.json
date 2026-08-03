@@ -44,6 +44,12 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Dokumentasi API",
+        "pages": [
+          "untitled-page-2"
+        ]
       }
     ],
     "global": {

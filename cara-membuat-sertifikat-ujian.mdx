@@ -1,0 +1,128 @@
+---
+title: "Cara Membuat Sertifikat Ujian"
+---
+
+Fitur **Sertifikat Ujian** digunakan untuk membuat sertifikat yang dapat diberikan kepada peserta setelah menyelesaikan ujian.
+
+Anda dapat menentukan ujian yang menggunakan sertifikat, syarat peserta menerimanya, tampilan sertifikat, serta pihak yang menandatangani.
+
+💡 **Sebagai contoh:** Anda menyelenggarakan **Try Out SNBT 2027**. Peserta yang menyelesaikan ujian dan memperoleh nilai minimal 70 akan mendapatkan sertifikat secara otomatis.
+
+<Steps>
+  <Step title="Buka menu 'Sertifikat Ujian' kemudian pilih tombol ( + Tambah Sertifikat)">
+    <Frame>
+      ![2026 07 31 19 33 1](/images/2026-07-31_19-33-1.png "2026 07 31 19 33 1")
+    </Frame>
+
+    Pengaturan sertifikat terdiri dari empat bagian:
+
+    1. **Umum**
+    2. **Template & Desain**
+    3. **Penandatangan**
+    4. **Desainer**
+
+    <Frame>
+      ![2026 07 31 19 35](/images/2026-07-31_19-35.png "2026 07 31 19 35")
+    </Frame>
+  </Step>
+  <Step title="Mengisi Informasi Umum">
+    Bagian **Umum** digunakan untuk menentukan nama sertifikat, ujian yang menggunakan sertifikat, nomor sertifikat, serta syarat penerbitannya.<br />
+
+    <Frame>
+      ![2026 07 31 19 50](/images/2026-07-31_19-50.png "2026 07 31 19 50")
+    </Frame>
+
+    1. **Nama Template **digunakan untuk membedakan sertifikat dengan template lainnya.
+
+    Isi nama yang mudah dikenali oleh Admin.
+
+    > Contoh: 
+    >
+    > **Sertifikat Kelulusan Try Out SNBT 2027**
+
+    2. **Ujian **
+
+     
+
+    Pilih ujian yang akan menggunakan sertifikat tersebut. Satu template sertifikat dihubungkan ke satu ujian.
+
+    <Frame>
+      <img
+        src="/images/2026-07-31_19-43.png"
+        alt="2026 07 31 19 43"
+        title="2026 07 31 19 43"
+        className="mx-auto"
+        style={{ width:"85%" }}
+      />
+    </Frame>
+
+    > Contoh:
+    >
+    > **Try Out Matematika Persiapan SNBT 2027**
+
+    3. **Status** digunakan untuk menentukan kondisi template.
+
+    - **Draft**: sertifikat masih disiapkan dan belum digunakan.
+    - **Dipublikasikan**: sertifikat sudah siap digunakan pada Ujian.
+
+    <Tip>
+      Sebaiknya gunakan status **Draft** selama sertifikat masih perlu disesuikan.
+    </Tip>
+
+    4. **Template Aktif**
+
+    Aktifkan jika template ini akan digunakan sebagai sertifikat utama pada ujian tersebut.
+
+    5. **Format Nomor Sertifikat** digunakan untuk mengatur susunan nomor sertifikat yang dibuat otomatis oleh sistem.
+
+    <Tip>
+      **Keterangan penanda:**
+
+      - `{YYYY}`: tahun, misalnya 2027
+      - `{YY}`: dua angka tahun, misalnya 27
+      - `{MM}`: bulan
+      - `{DD}`: tanggal
+      - `{SEQ}`: nomor urut sertifikat
+      - `{EXAM}`: kode ujian
+    </Tip>
+
+    > 💡 Contoh format :
+    >
+    > `INDOLAT/{YYYY}/{EXAM}/{SEQ}`
+    >
+    > Hasil:
+    >
+    > `INDOLAT/2026/0001 `
+
+    6. **Skor Minimum**
+
+    Isi nilai minimal yang harus diperoleh Peserta agar berhak menerima sertifikat.
+
+    Misalnya 70, artinya peserta dengan nilai akhir 70 atau lebih dapat menerima sertifikat.
+
+    <Tip>
+      Kosongkan isian Skor Minimum jika semua Peserta tetap boleh menerima sertifikat tanpa batas nilai minimum.
+    </Tip>
+
+    7. **Wajib Selesai Ujian**
+
+    Aktifkan agar sertifikat hanya dapat diterbitkan setelah peserta menyelesaikan ujian.
+
+    > Contoh:
+    >
+    > Peserta memperoleh nilai sementara 80, tetapi belum menekan tombol selesai. Sertifikat belum dapat diterbitkan sampai ujian benar-benar selesai.
+
+    8. **Butuh Review Manual**
+
+    Aktifkan jika sertifikat harus disetujui terlebih dahulu oleh Admin. Pengaturan ini cocok untuk ujian resmi atau sertifikat penghargaan yang perlu diperiksa sebelum diterbitkan.
+
+    9. **Tampilkan ke Peserta**
+
+    - Aktifkan agar Peserta dapat melihat dan mengunduh sertifikat dari halaman hasil ujian.
+    - Nonaktifkan jika sertifikat hanya akan dikelola atau dicetak oleh Admin.
+
+    10. Setelah isian telah Anda sesuaikan, silakan pilih tombol '**Buat**' untuk menyimpan pengaturan.
+  </Step>
+  <Step>
+  </Step>
+</Steps>

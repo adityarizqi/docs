@@ -1,0 +1,170 @@
+---
+title: "Cara Import Soal melalui Template Excel"
+---
+
+Gunakan fitur **Import Soal (Excel)** jika Anda sudah memiliki banyak soal dan ingin memasukkannya sekaligus ke dalam paket soal.
+
+Cara ini lebih cepat dibandingkan menambahkan soal satu per satu. Anda cukup mengunduh template, mengisi data soal dan jawabannya, lalu mengunggah kembali file tersebut ke sistem.
+
+> 💡 **Sebagai contoh**, Anda akan membuat **Try Out** yang berisi beberapa jenis soal. Soal sudah disiapkan oleh tim pengajar dalam Excel. Agar tidak perlu memasukkannya satu per satu, seluruh soal dapat diimpor menggunakan template.
+
+<Steps>
+  <Step title="Buka menu 'Data Paket Soal' kemudian pilih tombol 'Ubah'">
+    <Frame>
+      ![2026 07 31 02 58](/images/2026-07-31_02-58.png "2026 07 31 02 58")
+    </Frame>
+
+    Anda dapat mengetahui apakah data Paket Soal sudah terisi butir-butir soal atau masih kosong melalui kolom 'Jumlah Soal'.
+  </Step>
+  <Step title="Pilih tombol 'Import Soal (Excel)'">
+    <Frame>
+      ![2026 07 31 02 59](/images/2026-07-31_02-59.png "2026 07 31 02 59")
+    </Frame>
+  </Step>
+  <Step title="Pilih tombol 'Unduh Template'">
+    <Frame>
+      ![2026 07 31 02 59 1](/images/2026-07-31_02-59_1.png "2026 07 31 02 59 1")
+    </Frame>
+  </Step>
+  <Step title="Buka file template yang sudah diunduh">
+    Template excel terdiri dari tiga bagian:
+
+    - **Panduan**
+    - **Data Soal**
+    - **Data Jawaban**
+
+    1. **Sheet Panduan**
+
+    <Frame>
+      ![2026 07 31 03 00](/images/2026-07-31_03-00.png "2026 07 31 03 00")
+    </Frame>
+
+    Sheet **Panduan** berisi petunjuk pengisian, kode yang dapat digunakan, dan kolom yang wajib atau opsional.
+
+    <Tip>
+      Perhatikan beberapa ketentuan berikut:
+
+      - Import hanya tersedia untuk paket soal **CBT/CAT**.
+      - Jangan mengubah nama kolom atau susunan template.
+      - Media berupa gambar, audio, atau video tidak dapat dimasukkan melalui Excel dan perlu ditambahkan setelah proses import.
+      - Gunakan kode yang tersedia pada panduan untuk mengisi jenis dan tipe soal.
+    </Tip>
+
+    2. **Sheet Data Soal**
+
+    <Frame>
+      ![2026 07 31 03 00 1](/images/2026-07-31_03-00_1.png "2026 07 31 03 00 1")
+    </Frame>
+
+    Sheet **Data Soal** digunakan untuk mengisi pertanyaan dan pengaturan setiap soal. Isian utamanya meliputi:
+
+    - **No Soal**<br />Isi nomor urut soal, misalnya 1, 2, 3, dan seterusnya.
+    - **Jenis Soal**<br />Isi bentuk soal menggunakan kode:
+      - **PG** untuk Pilihan Ganda
+      - **MK** untuk Majemuk Kompleks
+      - **IN** untuk Input Numerik
+    - **Tipe Soal**<br />Isi jenis tampilan soal menggunakan kode:
+      - **T** untuk Teks
+      - **G** untuk Gambar
+      - **A** untuk Audio
+
+    <Tip>
+      Jika menggunakan lebih dari satu tipe, pisahkan dengan koma. Contoh: **T,G**.
+    </Tip>
+
+    - **Soal Uraian**<br />Isi pertanyaan yang akan dikerjakan peserta.
+    - **Kelompok Soal**<br />Isi nama kelompok soal yang sudah tersedia di sistem. Contoh:
+      - Geografi Dasar
+      - Biologi
+      - Matematika
+    - **Tingkat Kesulitan**<br />Isi tingkat kesulitan soal, misalnya:
+      - Sangat Mudah
+      - Mudah
+      - Sedang
+      - Sulit
+      - Sangat Sulit
+    - **Jawaban Lebih dari Satu**<br />Isi **Ya** jika soal memiliki lebih dari satu jawaban benar. Isi **Tidak** jika hanya memiliki satu jawaban benar.
+    - **Jawaban Benar untuk Input Numerik**<br />Khusus soal jenis **IN**, isi jawaban angka yang benar.
+    - **Skor CBT dan CAT**<br />Isi nilai untuk jawaban benar, salah, atau tidak dijawab sesuai aturan penilaian yang digunakan.
+    - **Pembahasan**<br />Isi penjelasan jawaban jika diperlukan.
+
+    <Tip>
+      💡 **Contoh:**
+
+      Untuk soal:
+
+      > Berapa hasil dari 10 \+ 15?
+
+      Isian sederhananya:
+
+      - No Soal: 4
+      - Jenis Soal: IN
+      - Tipe Soal: T
+      - Kelompok Soal: Matematika
+      - Jawaban Benar: 25
+    </Tip>
+
+    3. **Sheet Data Jawaban**
+
+    <Frame>
+      ![2026 07 31 03 01](/images/2026-07-31_03-01.png "2026 07 31 03 01")
+    </Frame>
+
+    Sheet **Data Jawaban** digunakan untuk mengisi pilihan jawaban bagi soal Pilihan Ganda dan Majemuk Kompleks. Isian utamanya meliputi:
+
+    - **No Soal**<br />Isi nomor yang sama dengan nomor pada sheet **Data Soal**.
+    - **Jawaban A sampai Jawaban E**<br />Isi pilihan jawaban yang akan ditampilkan kepada peserta.
+
+    <Tip>
+      Minimal **<u>harus ada</u>** dua pilihan jawaban.
+    </Tip>
+
+    - **Kunci Jawaban**<br />Isi huruf jawaban yang benar. Contoh:
+      - Isi **A** jika hanya Jawaban A yang benar.
+      - Isi **B,C,D** jika terdapat lebih dari satu jawaban benar.
+
+    <Tip>
+      💡 **Contoh:**
+
+      Untuk soal:
+
+      > Apa ibu kota Indonesia?
+
+      Isi jawabannya:
+
+      - Jawaban A: Jakarta
+      - Jawaban B: Bandung
+      - Jawaban C: Surabaya
+      - Jawaban D: Medan
+      - Jawaban E: Yogyakarta
+      - Kunci Jawaban: A
+    </Tip>
+  </Step>
+  <Step title="Mengunggah Template">
+    <Frame>
+      ![2026 07 31 03 01 1](/images/2026-07-31_03-01_1.png "2026 07 31 03 01 1")
+    </Frame>
+
+    Setelah seluruh soal dan jawaban selesai diisi:
+
+    1. Simpan file Excel.
+    2. Kembali ke halaman **Import Soal (Excel)**.
+    3. Unggah file yang sudah diisi.
+    4. Pilih tombol '**Import'**.
+    5. Tunggu hingga proses selesai.
+
+    <Frame>
+      ![2026 07 31 03 02](/images/2026-07-31_03-02.png "2026 07 31 03 02")
+    </Frame>
+
+    Setelah import berhasil, soal akan tampil pada bagian **Daftar Soal** beserta kelompok soal, isi pertanyaan, dan jenis soalnya.
+
+    <Frame>
+      ![2026 07 31 03 02 1](/images/2026-07-31_03-02_1.png "2026 07 31 03 02 1")
+    </Frame>
+
+    <Tip>
+      Periksa kembali hasil import sebelum paket digunakan. Pastikan nomor soal pada sheet **Data Soal** dan **Data Jawaban** sesuai agar jawaban tidak masuk ke soal yang salah.
+    </Tip>
+  </Step>
+</Steps>

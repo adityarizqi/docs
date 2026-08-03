@@ -1,3 +1,218 @@
 ---
 title: "Cara Membuat Sesi Ujian & Menghubungkan Peserta pada Sesi Ujian"
 ---
+
+Setelah tes ujian selesai dibuat, langkah berikutnya adalah membuat **Sesi Ujian**.
+
+Sesi Ujian digunakan untuk menentukan **kapan tes dapat dikerjakan**, **paket soal yang digunakan**, **cara hasil ujian ditampilkan**, serta **pengawasan selama ujian berlangsung**.
+
+💡 **Sebagai contoh**, Anda adalah Admin Bimbingan Belajar yang akan menyelenggarakan:
+
+> **Tryout Akbar Persiapan SNBT 2027**
+
+Tes Matematika sudah dibuat. Selanjutnya, Anda ingin membagi peserta ke dalam **Sesi Pagi** dan **Sesi Siang** agar pelaksanaan ujian lebih teratur.
+
+Secara sederhana:
+
+- **Tes Ujian** menentukan kegiatan yang dikerjakan peserta.
+- **Sesi Ujian** menentukan jadwal pelaksanaan dan paket soal yang digunakan.
+- **Peserta Sesi Ujian** menentukan peserta yang mengikuti jadwal tersebut.
+
+<Tip>
+  Peserta tidak dapat mulai mengerjakan tes jika sesi ujian belum dibuat, paket soal belum dipilih, atau peserta belum dimasukkan ke dalam sesi.
+</Tip>
+
+# 1. Membuat Sesi Ujian
+
+<Steps>
+  <Step title="Buka Tes Ujian yang Sudah Dibuat">
+    <Frame>
+      ![Buka Tes Ujian](/images/buka-tes-ujian.png "Buka Tes Ujian")
+    </Frame>
+
+    Setelah tes ujian berhasil dibuat, tes ujian tersebut akan tampil pada bagian **Daftar Tes Ujian**. 
+
+    <Tip>
+      Perhatikan keterangan '**Tes belum memiliki sesi ujian'**. 
+
+      Artinya, tes sudah tersimpan, tetapi belum memiliki jadwal pelaksanaan sehingga belum dapat dikerjakan oleh peserta. Pilih tombol **Ubah** pada tes yang ingin dilanjutkan.
+    </Tip>
+  </Step>
+  <Step title="Pilih tombol ( + Tambah Sesi Ujian )">
+    <Frame>
+      ![Tambah Sesi Ujian](/images/tambah-sesi-ujian.png "Tambah Sesi Ujian")
+    </Frame>
+
+    Setelah pengaturan tes ujian selesai ditambahkan, _scroll_ / geser halaman ke bawah ke tombol **\+ Tambah Sesi Ujian**.
+
+    Sesi ujian adalah jadwal pelaksanaan tes. Di dalam sesi ini, Anda akan menentukan paket soal yang digunakan serta waktu mulai dan selesai ujian.
+
+    <Tip>
+      Tes tidak dapat dikerjakan peserta sebelum sesi ujian dibuat dan paket soal dipilih. Pastikan setiap tes ujian telah ditambahkan sesi ujian
+    </Tip>
+
+    >  
+  </Step>
+  <Step title="Isikan Informasi Sesi Ujian">
+    <Frame>
+      ![Informasi Sesi Ujian](/images/Informasi-sesi-ujian.png "Informasi Sesi Ujian")
+    </Frame>
+
+    Pada tahap ini, Anda akan menentukan **jadwal tes** sekaligus memilih **paket soal** yang akan dikerjakan peserta.
+
+    1. **Nama Sesi : **Isi nama yang mudah dikenali.<br />Contoh: **Sesi Pagi** atau **Sesi 1**.
+    2. **Paket Soal : **Pilih paket soal yang sudah dibuat.<br />Pastikan paket soal dipilih, <u>karena sesi tanpa paket soal tidak dapat dimulai oleh Peserta</u>.
+
+    <Tip>
+      **Satu Paket Soal dapat digunakan pada lebih dari satu sesi.** Anda tidak perlu membuat paket soal baru jika isi soal yang dikerjakan peserta tetap sama dan hanya jadwalnya yang berbeda.
+
+      💡 **Sebagai contoh:**
+
+      Anda memiliki satu paket soal bernama **Paket Penalaran Matematika**. Karena jumlah peserta cukup banyak, ujian dibagi menjadi dua sesi:
+
+      - **Sesi Pagi**, pukul 08.00–10.00 WIB
+      - **Sesi Siang**, pukul 13.00–15.00 WIB
+
+      Kedua sesi tersebut dapat menggunakan **Paket Penalaran Matematika** yang sama. Dengan begitu, peserta mengerjakan soal yang sama, tetapi pada waktu pelaksanaan yang berbeda.
+    </Tip>
+
+    3. **Tanggal Mulai Sesi : **Tentukan tanggal dan waktu peserta mulai dapat mengerjakan tes.
+    4. **Tanggal Selesai Sesi : **Tentukan batas akhir peserta dapat mengerjakan tes.
+
+    <Tip>
+      Perhatikan bahwa tanggal sesi **<u>harus berada di dalam rentang tanggal ujian utama</u>** yang sudah ditentukan.
+
+      Contoh:
+
+      > Ujian berlangsung pada 18–25 Juli 2026.<br />Maka sesi tidak dapat dijadwalkan pada kurang dari 18 Juli maupun lebih dari 25 Juli 2026.
+    </Tip>
+
+     
+
+    5. Setelah semua data terisi, klik **Buat**. Pilih **Buat & buat lainnya** jika ingin langsung menambahkan sesi berikutnya.
+  </Step>
+</Steps>
+
+# 2. Menghubungkan Peserta pada Sesi Ujian
+
+<Steps>
+  <Step title="Buka 'Peserta Sesi Ujian'">
+    <Frame>
+      ![1 2 1](/images/1-2-1.png "1 2 1")
+    </Frame>
+
+    <Frame>
+      ![Sesi 3 4](/images/sesi-3-4.png "Sesi 3 4")
+    </Frame>
+
+    <Frame>
+      ![Sesi 5](/images/sesi-5.png "Sesi 5")
+    </Frame>
+
+    Peserta yang sudah terdaftar pada ujian tetap harus dipasangkan ke **sesi ujian**. Jika belum memiliki sesi, peserta tidak dapat mulai mengerjakan.
+
+    1. Buka menu **Data Ujian**
+    2. Pilih Data Ujian yang akan diikuti peserta
+    3. Lalu pilih tombol '**Detail**'
+    4. Sistem akan membuka halaman detail, kemudian pilih bagian **Daftar Tes Ujian**
+    5. Pilih tombol '**Ubah**'
+    6. Sistem akan membuka halaman detail** Daftar Tes Ujian**
+    7. Kemudian pilih '**Sesi Peserta Ujian**'
+  </Step>
+  <Step title="Tambahkan Peserta ke Sesi Ujian">
+    <Frame>
+      ![Mapping Sesi 1](/images/mapping-sesi-1.png "Mapping Sesi 1")
+    </Frame>
+
+    <Tip>
+      Penambahan Sesi Ujian pada Peserta Ujian dapat dilakukan   kolektif maupun otomatis.
+    </Tip>
+
+    - **Penambahan Peserta Ujian pada Sesi Ujian secara<u> kolektif.</u>**
+
+    <Frame>
+      ![Kolektif](/images/kolektif.png "Kolektif")
+    </Frame>
+
+    <Frame>
+      ![Set](/images/set.png "Set")
+    </Frame>
+
+    1. Centang peserta yang masih memiliki keterangan **Tidak ada sesi ujian**.<br />Untuk memilih seluruh peserta, klik **Pilih semua**.
+    2. Pilih tombol **Tindakan** kemudian pilih **Set Sesi Ujian Kolektif**.
+    3. Pilih sesi yang akan diikuti peserta, misalnya **Sesi Pagi**.
+    4. Simpan perubahan.
+
+    - **Penambahan Peserta Ujian pada Sesi Ujian secara<u> Otomatis.</u>**
+
+    <Frame>
+      ![2026 07 30 23 41](/images/2026-07-30_23-41.png "2026 07 30 23 41")
+    </Frame>
+
+    <Frame>
+      ![2026 07 30 23 42](/images/2026-07-30_23-42.png "2026 07 30 23 42")
+    </Frame>
+
+    <Frame>
+      ![2026 07 30 23 36](/images/2026-07-30_23-36.png "2026 07 30 23 36")
+    </Frame>
+
+    1. Pilih tombol '**Set Sesi Ujian Otomatis'**.
+    2. Sistem akan menampilkan halaman konfirmasi, Anda dapat pilih tombol 'Set Sesi Ujian Otomatis'.
+    3. Tunggu hingga muncul informasi bahwa pengaturan sesi berhasil. Setelah proses selesai, nama sesi akan tampil pada masing-masing peserta.
+
+    <Tip>
+      Sistem hanya akan membagi peserta yang memenuhi ketentuan dan belum memiliki sesi ujian.
+    </Tip>
+  </Step>
+  <Step title="Setelah peserta dipasangkan ke sesi, Peserta dapat mulai mengerjakan sesuai jadwal sesi yang telah ditentukan.">
+  </Step>
+</Steps>
+
+# 3. (Opsional) Mengganti atau Memindahkan Peserta ke Sesi Lain
+
+Peserta yang sudah memiliki sesi dapat dipindahkan ke sesi lain apabila terdapat perubahan jadwal atau kebutuhan pembagian peserta.
+
+💡 **Sebagai contoh**, beberapa peserta awalnya terdaftar pada **Sesi Pagi**, tetapi perlu dipindahkan ke **Sesi Sore** karena tidak dapat mengikuti jadwal sebelumnya.
+
+<Steps>
+  <Step title="Buka bagian 'Sesi Peserta Ujian' ">
+    <Frame>
+      ![2026 07 30 23 49](/images/2026-07-30_23-49.png "2026 07 30 23 49")
+    </Frame>
+
+    1. Centang peserta yang ingin dipindahkan ke sesi lain. Anda dapat memilih satu peserta atau beberapa peserta sekaligus.
+    2. Pilih tombol **Tindakan**.
+    3. Pilih **Set Sesi Ujian Kolektif**.
+  </Step>
+  <Step title="Pilih Sesi Ujian ">
+    <Frame>
+      ![2026 07 30 23 49 1](/images/2026-07-30_23-49_1.png "2026 07 30 23 49 1")
+    </Frame>
+
+    <Frame>
+      ![2026 07 30 23 49 2](/images/2026-07-30_23-49_2.png "2026 07 30 23 49 2")
+    </Frame>
+
+    Pada kolom **Pilih Sesi Ujian**, pilih sesi pengganti.
+
+    Contoh:
+
+    > **Anda ingin memindahkan Peserta dari Sesi Pagi ke Sesi Sore.**
+  </Step>
+  <Step title="Pilih 'Set Sesi Ujian Kolektif'">
+    <Frame>
+      ![2026 07 30 23 50](/images/2026-07-30_23-50.png "2026 07 30 23 50")
+    </Frame>
+
+    Tunggu hingga muncul pemberitahuan bahwa sesi ujian berhasil diperbarui. Setelah proses selesai, nama sesi peserta akan berubah dari **Sesi Pagi** menjadi **Sesi Sore**.
+
+    <Frame>
+      ![2026 07 30 23 50 1](/images/2026-07-30_23-50_1.png "2026 07 30 23 50 1")
+    </Frame>
+
+    <Tip>
+      Pastikan sesi tujuan masih tersedia dan jadwalnya belum berakhir sebelum memindahkan peserta. Perpindahan sebaiknya dilakukan sebelum peserta mulai mengerjakan ujian.
+    </Tip>
+  </Step>
+</Steps>
