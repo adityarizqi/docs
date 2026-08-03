@@ -1,0 +1,319 @@
+---
+title: "API Webhook"
+description: "Kelola endpoint webhook, periksa delivery, kirim pengujian, dan verifikasi signature."
+sidebarTitle: "Webhook"
+---
+
+Seluruh request pengelolaan webhook membutuhkan [Bearer API Key](/api/autentikasi).
+
+## Endpoint webhook
+
+Event yang tersedia:
+
+- `exam_participant.registered` — peserta didaftarkan ke ujian
+- `exam_participant.unregistered` — pendaftaran peserta dibatalkan
+- `exam_result.completed` — peserta selesai mengerjakan tes
+- `exam_result.scored` — nilai tes terbit atau berubah
+
+<Accordion title="GET /webhooks — Daftar endpoint webhook">
+  ### Parameter
+
+  Tidak ada parameter endpoint.
+
+  ### Contoh request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/webhooks" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": [
+      {
+        "id": 5,
+        "url": "https://integrasi.example.com/webhooks/cbt",
+        "description": "Webhook hasil ujian",
+        "events": ["exam_result.completed", "exam_result.scored"],
+        "is_active": true,
+        "is_disabled_by_system": false,
+        "disabled_at": null,
+        "consecutive_failures": 0,
+        "last_success_at": "2026-08-02T12:00:00+07:00",
+        "last_failure_at": null,
+        "created_at": "2026-07-01T08:00:00+07:00"
+      }
+    ],
+    "meta": {
+      "available_events": {
+        "exam_participant.registered": "Peserta didaftarkan ke ujian",
+        "exam_participant.unregistered": "Peserta dibatalkan dari ujian",
+        "exam_result.completed": "Peserta selesai mengerjakan tes",
+        "exam_result.scored": "Nilai tes terbit atau berubah"
+      }
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="POST /webhooks — Mendaftarkan endpoint webhook">
+  Maksimal lima endpoint webhook per projek. Signing secret hanya dikembalikan saat endpoint dibuat atau secret dirotasi.
+
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `url` | Body | Ya | URL | URL HTTP/HTTPS penerima webhook, maksimal 2.048 karakter. HTTPS direkomendasikan. |
+  | `events` | Body | Ya | string\[\] | Minimal satu event yang tersedia. |
+  | `events.*` | Body | Ya | enum | Nama event webhook yang valid. |
+  | `description` | Body | Tidak | string/null | Deskripsi, maksimal 255 karakter. |
+  | `is_active` | Body | Tidak | boolean | Default `true`. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X POST "https://app.indolat.com/api/v1/webhooks" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "url": "https://integrasi.example.com/webhooks/cbt",
+      "description": "Webhook hasil ujian",
+      "events": ["exam_result.completed", "exam_result.scored"],
+      "is_active": true
+    }'
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": "Endpoint webhook berhasil dibuat. Simpan secret ini — nilainya tidak dapat dilihat kembali.",
+    "data": {
+      "id": 5,
+      "url": "https://integrasi.example.com/webhooks/cbt",
+      "description": "Webhook hasil ujian",
+      "events": ["exam_result.completed", "exam_result.scored"],
+      "is_active": true,
+      "is_disabled_by_system": false,
+      "disabled_at": null,
+      "consecutive_failures": 0,
+      "last_success_at": null,
+      "last_failure_at": null,
+      "created_at": "2026-08-03T10:00:00+07:00",
+      "secret": "whsec_a1b2c3d4e5f6..."
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="PATCH /webhooks/{id} — Memperbarui endpoint webhook">
+  Endpoint juga menerima metode `PUT`. Secret baru hanya dikembalikan jika `rotate_secret` bernilai `true`.
+
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `id` | Path | Ya | integer | ID endpoint webhook. |
+  | `url` | Body | Tidak | URL | URL HTTP/HTTPS baru, maksimal 2.048 karakter. |
+  | `events` | Body | Tidak | string\[\] | Minimal satu event jika field dikirim. |
+  | `events.*` | Body | Kondisional | enum | Wajib pada setiap item `events`. |
+  | `description` | Body | Tidak | string/null | Deskripsi baru, maksimal 255 karakter. |
+  | `is_active` | Body | Tidak | boolean | Aktif/nonaktifkan endpoint. |
+  | `rotate_secret` | Body | Tidak | boolean | Buat signing secret baru. Default `false`. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X PATCH "https://app.indolat.com/api/v1/webhooks/5" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "events": ["exam_result.completed"],
+      "is_active": true,
+      "rotate_secret": true
+    }'
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": "Endpoint diperbarui. Simpan secret baru ini — nilainya tidak dapat dilihat kembali.",
+    "data": {
+      "id": 5,
+      "url": "https://integrasi.example.com/webhooks/cbt",
+      "description": "Webhook hasil ujian",
+      "events": ["exam_result.completed"],
+      "is_active": true,
+      "is_disabled_by_system": false,
+      "disabled_at": null,
+      "consecutive_failures": 0,
+      "last_success_at": "2026-08-02T12:00:00+07:00",
+      "last_failure_at": null,
+      "created_at": "2026-07-01T08:00:00+07:00",
+      "secret": "whsec_secret_baru..."
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="DELETE /webhooks/{id} — Menghapus endpoint webhook">
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `id` | Path | Ya | integer | ID endpoint webhook. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X DELETE "https://app.indolat.com/api/v1/webhooks/5" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": "Endpoint webhook berhasil dihapus.",
+    "data": null
+  }
+  ```
+</Accordion>
+
+<Accordion title="GET /webhooks/{id}/deliveries — Riwayat pengiriman webhook">
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `id` | Path | Ya | integer | ID endpoint webhook. |
+  | `event` | Query | Tidak | enum | Filter nama event. |
+  | `status` | Query | Tidak | string | Filter status delivery. |
+  | `page` | Query | Tidak | integer | Nomor halaman. Default `1`. |
+  | `per_page` | Query | Tidak | integer | Data per halaman, `1–100`. Default `25`. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/webhooks/5/deliveries?event=exam_result.completed&status=delivered&page=1&per_page=25" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": [
+      {
+        "id": "9f48da6d-39b8-4cf2-b4dd-b62d9592b7e4",
+        "event": "exam_result.completed",
+        "status": "delivered",
+        "attempts": 1,
+        "response_code": 200,
+        "response_body": "OK",
+        "error_message": null,
+        "payload": {
+          "event": "exam_result.completed",
+          "created_at": "2026-08-10T09:20:00+07:00",
+          "data": { "exam_result_id": 9812, "participant_code": "TPA0000021", "score": 82.5 }
+        },
+        "delivered_at": "2026-08-10T09:20:02+07:00",
+        "created_at": "2026-08-10T09:20:00+07:00"
+      }
+    ],
+    "meta": {
+      "pagination": { "total": 1, "per_page": 25, "current_page": 1, "last_page": 1, "from": 1, "to": 1 }
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="POST /webhooks/{id}/test — Mengirim webhook percobaan">
+  Jika `event` tidak dikirim atau tidak dikenali, event default adalah `exam_result.completed`.
+
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `id` | Path | Ya | integer | ID endpoint webhook yang aktif. |
+  | `event` | Body | Tidak | enum | Event yang akan disimulasikan. Default `exam_result.completed`. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X POST "https://app.indolat.com/api/v1/webhooks/5/test" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{ "event": "exam_result.completed" }'
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": "Pengiriman uji coba telah diantrekan.",
+    "data": { "queued": true }
+  }
+  ```
+</Accordion>
+
+## Payload dan Signature Webhook
+
+Contoh payload webhook:
+
+```json
+{
+  "event": "exam_result.completed",
+  "created_at": "2026-08-10T09:20:00+07:00",
+  "data": {
+    "exam_result_id": 9812,
+    "user_exam_id": 4410,
+    "participant_code": "TPA0000021",
+    "exam": { "id": 12, "name": "Tes Masuk 2026", "name_short": "TPA" },
+    "exam_quiz": { "id": 45, "name": "Tes Potensi Akademik" },
+    "participant": { "id": 340, "name": "Budi Santoso", "email": "budi@sekolah.sch.id" },
+    "status": 2,
+    "status_label": "Selesai Ujian",
+    "score": 82.5,
+    "start_at": "2026-08-10T08:05:00+07:00",
+    "end_at": "2026-08-10T09:20:00+07:00"
+  }
+}
+```
+
+Setiap request webhook membawa header `X-Cbt-Signature` dengan format `t=<unix>,v1=<hex>`. `v1` adalah HMAC-SHA256 dari `<t>.<raw body>` menggunakan signing secret endpoint.
+
+```php
+[$timestamp, $signature] = sscanf(
+    $request->header('X-Cbt-Signature'),
+    't=%d,v1=%s',
+);
+
+$expected = hash_hmac(
+    'sha256',
+    $timestamp.'.'.$request->getContent(),
+    $secret,
+);
+
+if (! hash_equals($expected, $signature) || abs(time() - $timestamp) > 300) {
+    abort(400);
+}
+```
+
+Balas webhook dengan status `2xx`. Respons selain `2xx` akan dicoba ulang dengan jeda yang bertambah. Endpoint yang gagal terus-menerus dapat dinonaktifkan otomatis.

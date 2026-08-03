@@ -1,0 +1,30 @@
+---
+title: "Dokumentasi API"
+description: "Referensi Client Integration API v1 untuk autentikasi, peserta, ujian, hasil, dan webhook."
+sidebarTitle: "Dokumentasi API"
+---
+
+Client Integration API memungkinkan sistem eksternal mengelola peserta, membaca ujian, mendaftarkan peserta, mengambil hasil, serta menerima notifikasi webhook.
+
+## Mulai menggunakan API
+
+1. Siapkan koneksi dan API Key melalui halaman [Autentikasi API](/api/autentikasi).
+2. Validasi API Key dengan memanggil `GET /me`.
+3. Buka halaman grup endpoint sesuai kebutuhan integrasi.
+
+## Referensi endpoint
+
+- [Autentikasi API](/api/autentikasi) — header autentikasi, format response, `GET /me`, dan keamanan.
+- [API Peserta](/api/peserta) — akun peserta, batch peserta, dan label.
+- [API Ujian](/api/ujian) — daftar, detail, tes, sesi, dan link pendaftaran.
+- [Pendaftaran dan Link Ujian](/api/pendaftaran-ujian) — registrasi peserta serta link akses.
+- [API Hasil Ujian](/api/hasil-ujian) — daftar dan detail hasil ujian.
+- [API Webhook](/api/webhook) — endpoint webhook, delivery, testing, payload, dan signature.
+
+## Base URL
+
+```text
+https://app.indolat.com/api/v1
+```
+
+Semua endpoint mengembalikan JSON dan menggunakan autentikasi Bearer API Key.

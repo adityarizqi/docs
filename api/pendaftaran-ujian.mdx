@@ -1,0 +1,234 @@
+---
+title: "Pendaftaran dan Link Ujian"
+description: "Daftarkan peserta, periksa status pendaftaran, batalkan pendaftaran, dan buat link akses ujian."
+sidebarTitle: "Pendaftaran Ujian"
+---
+
+Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
+
+## Endpoint pendaftaran
+
+<Accordion title="GET /exams/{exam}/participants — Daftar peserta terdaftar">
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `exam` | Path | Ya | integer | ID ujian. |
+  | `status` | Query | Tidak | integer | Status pendaftaran: `0` perlu diverifikasi, `1` aktif, `2` ditangguhkan, `3` perlu ditinjau, `4` selesai. |
+  | `search` | Query | Tidak | string | Mencari kode peserta atau nama peserta. |
+  | `page` | Query | Tidak | integer | Nomor halaman. Default `1`. |
+  | `per_page` | Query | Tidak | integer | Data per halaman, `1–100`. Default `25`. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/exams/12/participants?status=1&search=Budi&page=1&per_page=25" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": [
+      {
+        "user_exam_id": 4410,
+        "participant_id": 340,
+        "exam_id": 12,
+        "participant_code": "TPA0000021",
+        "status": 1,
+        "status_label": "Aktif",
+        "participant": {
+          "id": 340,
+          "name": "Budi Santoso",
+          "email": "budi@sekolah.sch.id",
+          "is_active": true,
+          "is_verified": true,
+          "verified_at": "2026-07-30T09:00:00+07:00",
+          "label": { "id": 8, "name": "Kelas XII IPA" }
+        },
+        "registered_at": "2026-07-30T10:00:00+07:00"
+      }
+    ],
+    "meta": {
+      "pagination": { "total": 1, "per_page": 25, "current_page": 1, "last_page": 1, "from": 1, "to": 1 }
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="POST /exams/{exam}/participants — Mendaftarkan peserta ke ujian">
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `exam` | Path | Ya | integer | ID ujian. |
+  | `participant_ids` | Body | Ya | integer\[\] | Berisi 1–500 ID peserta. |
+  | `participant_ids.*` | Body | Ya | integer | ID peserta. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X POST "https://app.indolat.com/api/v1/exams/12/participants" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{ "participant_ids": [340, 341, 342] }'
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": "2 peserta didaftarkan, 1 sudah terdaftar, 0 ditolak.",
+    "data": {
+      "registered": [
+        {
+          "user_exam_id": 4410,
+          "participant_id": 340,
+          "exam_id": 12,
+          "participant_code": "TPA0000021",
+          "status": 1,
+          "status_label": "Aktif",
+          "registered_at": "2026-08-03T10:00:00+07:00"
+        },
+        {
+          "user_exam_id": 4411,
+          "participant_id": 341,
+          "exam_id": 12,
+          "participant_code": "TPA0000022",
+          "status": 1,
+          "status_label": "Aktif",
+          "registered_at": "2026-08-03T10:00:00+07:00"
+        }
+      ],
+      "already_registered": [342],
+      "rejected": []
+    },
+    "meta": {
+      "summary": { "registered": 2, "already_registered": 1, "rejected": 0 }
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="GET /exams/{exam}/participants/{participant} — Status pendaftaran peserta">
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `exam` | Path | Ya | integer | ID ujian. |
+  | `participant` | Path | Ya | integer | ID peserta. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/exams/12/participants/340" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": {
+      "user_exam_id": 4410,
+      "participant_id": 340,
+      "exam_id": 12,
+      "participant_code": "TPA0000021",
+      "status": 1,
+      "status_label": "Aktif",
+      "participant": {
+        "id": 340,
+        "name": "Budi Santoso",
+        "email": "budi@sekolah.sch.id",
+        "is_active": true,
+        "is_verified": true
+      },
+      "results": [],
+      "registered_at": "2026-07-30T10:00:00+07:00"
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="DELETE /exams/{exam}/participants/{participant} — Membatalkan pendaftaran">
+  Permintaan ditolak apabila peserta sudah mulai mengerjakan ujian.
+
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `exam` | Path | Ya | integer | ID ujian. |
+  | `participant` | Path | Ya | integer | ID peserta. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X DELETE "https://app.indolat.com/api/v1/exams/12/participants/340" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": "Pendaftaran peserta pada ujian berhasil dibatalkan.",
+    "data": null
+  }
+  ```
+</Accordion>
+
+<Accordion title="POST /exams/{exam}/participants/{participant}/access-links — Membuat link akses ujian">
+  Link berlaku 1.440 menit secara default, maksimal 10.080 menit, dan hanya dapat dipakai satu kali.
+
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `exam` | Path | Ya | integer | ID ujian. |
+  | `participant` | Path | Ya | integer | ID peserta yang telah terdaftar. |
+  | `expires_in_minutes` | Body | Tidak | integer | Masa berlaku link, `1–10080`. Default `1440`. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X POST "https://app.indolat.com/api/v1/exams/12/participants/340/access-links" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{ "expires_in_minutes": 1440 }'
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": {
+      "participant_id": 340,
+      "exam_id": 12,
+      "links": [
+        {
+          "exam_quiz_id": 45,
+          "exam_quiz_name": "Tes Potensi Akademik",
+          "user_result_exam_uuid": "9f1c2a2d-9739-4c2f-9a94-312a9cc1b4ad",
+          "status": 1,
+          "exam_url": "https://smanusantara.cbt.example.com/auth/ssologin?payload=...",
+          "expires_at": "2026-08-04T10:00:00+07:00"
+        }
+      ]
+    }
+  }
+  ```
+</Accordion>

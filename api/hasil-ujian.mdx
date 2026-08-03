@@ -1,0 +1,149 @@
+---
+title: "API Hasil Ujian"
+description: "Ambil daftar dan detail hasil ujian peserta beserta nilai dan durasi pengerjaan."
+sidebarTitle: "Hasil Ujian"
+---
+
+Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
+
+## Endpoint hasil ujian
+
+<Accordion title="GET /exam-results — Daftar hasil ujian">
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `exam_id` | Query | Tidak | integer | Filter ID ujian. |
+  | `participant_id` | Query | Tidak | integer | Filter ID peserta. |
+  | `email` | Query | Tidak | email | Filter email peserta secara persis. |
+  | `exam_quiz_id` | Query | Tidak | integer | Filter ID tes. |
+  | `status` | Query | Tidak | integer | `0` pending, `1` aktif, `2` selesai, `3` ditolak. |
+  | `min_score` | Query | Tidak | numeric | Nilai minimum. |
+  | `max_score` | Query | Tidak | numeric | Nilai maksimum. |
+  | `finished_from` | Query | Tidak | datetime | Waktu selesai minimum dalam ISO 8601 dan harus di-URL-encode. |
+  | `finished_until` | Query | Tidak | datetime | Waktu selesai maksimum dalam ISO 8601 dan harus di-URL-encode. |
+  | `updated_since` | Query | Tidak | datetime | Hanya hasil yang berubah sejak waktu ini; ISO 8601 dan harus di-URL-encode. |
+  | `page` | Query | Tidak | integer | Nomor halaman. Default `1`. |
+  | `per_page` | Query | Tidak | integer | Data per halaman, `1–100`. Default `25`. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/exam-results?exam_id=12&status=2&min_score=70&page=1&per_page=25" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": [
+      {
+        "id": 9812,
+        "uuid": "9f1c2a2d-9739-4c2f-9a94-312a9cc1b4ad",
+        "user_exam_id": 4410,
+        "exam_quiz_id": 45,
+        "exam_quiz_name": "Tes Potensi Akademik",
+        "status": 2,
+        "status_label": "Selesai Ujian",
+        "score": 82.5,
+        "meta_score": { "correct": 33, "wrong": 7, "unanswered": 0 },
+        "session": {
+          "id": 91,
+          "exam_quiz_id": 45,
+          "name": "Sesi Pagi",
+          "start_at": "2026-08-10T08:00:00+07:00",
+          "end_at": "2026-08-10T10:00:00+07:00"
+        },
+        "start_at": "2026-08-10T08:05:00+07:00",
+        "end_at": "2026-08-10T09:20:00+07:00",
+        "duration_seconds": 4500,
+        "participant_code": "TPA0000021",
+        "participant": {
+          "id": 340,
+          "name": "Budi Santoso",
+          "email": "budi@sekolah.sch.id",
+          "is_active": true,
+          "is_verified": true
+        },
+        "exam": {
+          "id": 12,
+          "name": "Tes Masuk 2026",
+          "name_short": "TPA",
+          "slug": "tes-masuk-2026"
+        },
+        "created_at": "2026-08-10T08:00:00+07:00",
+        "updated_at": "2026-08-10T09:20:00+07:00"
+      }
+    ],
+    "meta": {
+      "pagination": { "total": 1, "per_page": 25, "current_page": 1, "last_page": 1, "from": 1, "to": 1 }
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="GET /exam-results/{id} — Detail hasil ujian">
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `id` | Path | Ya | integer | ID hasil ujian. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/exam-results/9812" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": {
+      "id": 9812,
+      "uuid": "9f1c2a2d-9739-4c2f-9a94-312a9cc1b4ad",
+      "user_exam_id": 4410,
+      "exam_quiz_id": 45,
+      "exam_quiz_name": "Tes Potensi Akademik",
+      "status": 2,
+      "status_label": "Selesai Ujian",
+      "score": 82.5,
+      "meta_score": { "correct": 33, "wrong": 7, "unanswered": 0 },
+      "session": {
+        "id": 91,
+        "exam_quiz_id": 45,
+        "name": "Sesi Pagi",
+        "start_at": "2026-08-10T08:00:00+07:00",
+        "end_at": "2026-08-10T10:00:00+07:00"
+      },
+      "start_at": "2026-08-10T08:05:00+07:00",
+      "end_at": "2026-08-10T09:20:00+07:00",
+      "duration_seconds": 4500,
+      "participant_code": "TPA0000021",
+      "participant": {
+        "id": 340,
+        "name": "Budi Santoso",
+        "email": "budi@sekolah.sch.id",
+        "is_active": true,
+        "is_verified": true
+      },
+      "exam": {
+        "id": 12,
+        "name": "Tes Masuk 2026",
+        "name_short": "TPA",
+        "slug": "tes-masuk-2026"
+      },
+      "created_at": "2026-08-10T08:00:00+07:00",
+      "updated_at": "2026-08-10T09:20:00+07:00"
+    }
+  }
+  ```
+</Accordion>

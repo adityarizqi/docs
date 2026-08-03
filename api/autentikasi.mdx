@@ -1,0 +1,108 @@
+---
+title: "Autentikasi API"
+description: "Cara mengautentikasi request, memvalidasi API Key, memahami format response, dan mengamankan integrasi."
+sidebarTitle: "Autentikasi"
+---
+
+Gunakan halaman ini untuk menyiapkan koneksi awal sebelum memanggil endpoint lainnya.
+
+## Konfigurasi umum
+
+- Base URL: `https://app.indolat.com/api/v1`
+- Autentikasi: `Authorization: Bearer <API_KEY>`
+- Format request/response: `application/json`
+- Rate limit default: 120 request per menit per projek; nilai aktif tersedia pada `GET /me`
+- Pagination default: 25 data per halaman, maksimal 100
+- Maksimal operasi batch: 500 peserta per request
+
+Header yang wajib dikirim pada seluruh endpoint:
+
+```http
+Authorization: Bearer <API_KEY>
+Accept: application/json
+```
+
+Untuk request yang mempunyai body, tambahkan:
+
+```http
+Content-Type: application/json
+```
+
+### Format response
+
+Response berhasil:
+
+```json
+{
+  "success": true,
+  "message": null,
+  "data": {}
+}
+```
+
+Response validasi gagal:
+
+```json
+{
+  "success": false,
+  "message": "Data yang dikirim tidak valid.",
+  "errors": {
+    "email": ["Format alamat email tidak valid."]
+  }
+}
+```
+
+Kode status utama: `200` berhasil, `201` dibuat, `401` API Key tidak valid, `403` akses/add-on ditolak, `404` data tidak ditemukan, `409` konflik aturan bisnis, `422` validasi gagal, dan `429` rate limit terlampaui.
+
+## Validasi API Key
+
+<Accordion title="GET /me — Profil projek dan batas penggunaan">
+  ### Parameter
+
+  Tidak ada parameter endpoint.
+
+  ### Contoh request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/me" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": {
+      "client": {
+        "id": 3,
+        "name": "SMA Nusantara",
+        "code": "smanusantara",
+        "app_url": "https://smanusantara.cbt.example.com"
+      },
+      "addons": {
+        "api_integration": true,
+        "registration_page": true,
+        "exam_certificate": false,
+        "custom_domain": false
+      },
+      "exam_credits": { "professional": 250, "free": 25 },
+      "limits": {
+        "rate_limit_per_minute": 120,
+        "max_batch_rows": 500,
+        "max_page_size": 100
+      }
+    }
+  }
+  ```
+</Accordion>
+
+## Catatan Keamanan
+
+- Simpan API Key hanya di server, jangan di frontend atau aplikasi mobile.
+- Gunakan whitelist IP pada Pengaturan → Integrasi API bila memungkinkan.
+- Regenerasi API Key segera jika key diduga bocor; key lama langsung tidak berlaku.
+- Link ujian berisi sesi login peserta. Bagikan hanya kepada peserta terkait dan gunakan masa berlaku sesingkat mungkin.
+- Gunakan HTTPS untuk endpoint webhook dan verifikasi signature dari raw request body sebelum memproses payload.

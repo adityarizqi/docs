@@ -48,7 +48,13 @@
       {
         "tab": "Dokumentasi API",
         "pages": [
-          "untitled-page-2"
+          "api/autentikasi",
+          "api/dokumentasi",
+          "api/pendaftaran-ujian",
+          "api/hasil-ujian",
+          "api/ujian",
+          "api/peserta",
+          "api/webhook"
         ]
       }
     ],

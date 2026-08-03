@@ -1,0 +1,409 @@
+---
+title: "API Peserta"
+description: "Kelola akun peserta dan label peserta melalui Client Integration API."
+sidebarTitle: "Peserta"
+---
+
+Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
+
+## Endpoint peserta
+
+<Accordion title="GET /participants — Daftar peserta">
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `search` | Query | Tidak | string | Mencari nama atau email. |
+  | `email` | Query | Tidak | email | Mencocokkan email secara persis. |
+  | `label_id` | Query | Tidak | integer | Filter berdasarkan ID label. |
+  | `is_active` | Query | Tidak | boolean | Filter status aktif. |
+  | `is_verified` | Query | Tidak | boolean | Filter status verifikasi akun. |
+  | `sort_by` | Query | Tidak | enum | `name`, `created_at`, `updated_at`, atau `id`. Default `name`. |
+  | `sort_dir` | Query | Tidak | enum | `asc` atau `desc`. Default `asc`. |
+  | `page` | Query | Tidak | integer | Nomor halaman. Default `1`. |
+  | `per_page` | Query | Tidak | integer | Data per halaman, `1–100`. Default `25`. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/participants?search=Budi&is_active=true&page=1&per_page=25" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": [
+      {
+        "id": 340,
+        "name": "Budi Santoso",
+        "email": "budi@sekolah.sch.id",
+        "is_active": true,
+        "is_verified": true,
+        "verified_at": "2026-07-30T09:00:00+07:00",
+        "label": { "id": 8, "name": "Kelas XII IPA" },
+        "created_at": "2026-07-30T09:00:00+07:00",
+        "updated_at": "2026-07-30T09:00:00+07:00"
+      }
+    ],
+    "meta": {
+      "pagination": {
+        "total": 1,
+        "per_page": 25,
+        "current_page": 1,
+        "last_page": 1,
+        "from": 1,
+        "to": 1
+      }
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="POST /participants — Membuat peserta">
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `email` | Body | Ya | email | Harus unik pada projek, maksimal 255 karakter. |
+  | `name` | Body | Ya | string | Nama peserta, maksimal 255 karakter. |
+  | `password` | Body | Ya | string | Panjang 6–255 karakter. |
+  | `label_id` | Body | Tidak | integer/null | ID label milik projek. |
+  | `is_active` | Body | Tidak | boolean | Default `true`. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X POST "https://app.indolat.com/api/v1/participants" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "email": "budi@sekolah.sch.id",
+      "name": "Budi Santoso",
+      "password": "rahasia123",
+      "label_id": 8,
+      "is_active": true
+    }'
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": "Peserta berhasil dibuat.",
+    "data": {
+      "id": 340,
+      "name": "Budi Santoso",
+      "email": "budi@sekolah.sch.id",
+      "is_active": true,
+      "is_verified": true,
+      "verified_at": "2026-07-30T09:00:00+07:00",
+      "label": { "id": 8, "name": "Kelas XII IPA" },
+      "created_at": "2026-07-30T09:00:00+07:00",
+      "updated_at": "2026-07-30T09:00:00+07:00"
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="POST /participants/batch — Membuat atau memperbarui peserta secara batch">
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `participants` | Body | Ya | array | Berisi 1–500 peserta. |
+  | `participants.*.email` | Body | Ya | email | Email peserta, maksimal 255 karakter. |
+  | `participants.*.name` | Body | Ya | string | Nama peserta, maksimal 255 karakter. |
+  | `participants.*.password` | Body | Ya | string | Panjang 6–255 karakter. |
+  | `participants.*.label_id` | Body | Tidak | integer/null | ID label milik projek. |
+  | `update_existing` | Body | Tidak | boolean | Jika `true`, data peserta yang sudah ada diperbarui. Default `false`. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X POST "https://app.indolat.com/api/v1/participants/batch" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "participants": [
+        {
+          "email": "budi@sekolah.sch.id",
+          "name": "Budi Santoso",
+          "password": "rahasia123",
+          "label_id": 8
+        },
+        {
+          "email": "siti@sekolah.sch.id",
+          "name": "Siti Aminah",
+          "password": "rahasia456",
+          "label_id": 8
+        }
+      ],
+      "update_existing": false
+    }'
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": "2 peserta dibuat, 0 diperbarui, 0 dilewati, 0 gagal.",
+    "data": {
+      "created": [
+        { "index": 0, "email": "budi@sekolah.sch.id", "participant_id": 340 },
+        { "index": 1, "email": "siti@sekolah.sch.id", "participant_id": 341 }
+      ],
+      "updated": [],
+      "skipped": [],
+      "failed": []
+    },
+    "meta": {
+      "summary": { "total": 2, "created": 2, "updated": 0, "skipped": 0, "failed": 0 }
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="GET /participants/{id} — Detail peserta">
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `id` | Path | Ya | integer | ID peserta. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/participants/340" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": {
+      "id": 340,
+      "name": "Budi Santoso",
+      "email": "budi@sekolah.sch.id",
+      "is_active": true,
+      "is_verified": true,
+      "verified_at": "2026-07-30T09:00:00+07:00",
+      "label": { "id": 8, "name": "Kelas XII IPA" },
+      "created_at": "2026-07-30T09:00:00+07:00",
+      "updated_at": "2026-07-30T09:00:00+07:00"
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="PATCH /participants/{id} — Memperbarui peserta">
+  Endpoint juga menerima metode `PUT`.
+
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `id` | Path | Ya | integer | ID peserta. |
+  | `name` | Body | Tidak | string | Nama baru, maksimal 255 karakter. |
+  | `password` | Body | Tidak | string | Kata sandi baru, 6–255 karakter. |
+  | `label_id` | Body | Tidak | integer/null | ID label baru atau `null` untuk melepas label. |
+  | `is_active` | Body | Tidak | boolean | Status aktif baru. |
+
+  Minimal kirim satu field yang ingin diperbarui.
+
+  ### Contoh request
+
+  ```bash
+  curl -X PATCH "https://app.indolat.com/api/v1/participants/340" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "name": "Budi Santoso Putra",
+      "label_id": 9,
+      "is_active": true
+    }'
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": "Peserta berhasil diperbarui.",
+    "data": {
+      "id": 340,
+      "name": "Budi Santoso Putra",
+      "email": "budi@sekolah.sch.id",
+      "is_active": true,
+      "is_verified": true,
+      "verified_at": "2026-07-30T09:00:00+07:00",
+      "label": { "id": 9, "name": "Kelas XII" },
+      "created_at": "2026-07-30T09:00:00+07:00",
+      "updated_at": "2026-08-03T10:15:00+07:00"
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="DELETE /participants/{id} — Menghapus peserta">
+  Peserta tidak dapat dihapus jika masih terdaftar pada ujian.
+
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `id` | Path | Ya | integer | ID peserta. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X DELETE "https://app.indolat.com/api/v1/participants/340" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": "Peserta berhasil dihapus.",
+    "data": null
+  }
+  ```
+</Accordion>
+
+<Accordion title="GET /participants/{id}/exams — Daftar ujian peserta">
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `id` | Path | Ya | integer | ID peserta. |
+  | `page` | Query | Tidak | integer | Nomor halaman. Default `1`. |
+  | `per_page` | Query | Tidak | integer | Data per halaman, `1–100`. Default `25`. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/participants/340/exams?page=1&per_page=25" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": [
+      {
+        "user_exam_id": 4410,
+        "participant_id": 340,
+        "exam_id": 12,
+        "participant_code": "TPA0000021",
+        "status": 1,
+        "status_label": "Aktif",
+        "exam": {
+          "id": 12,
+          "name": "Tes Masuk 2026",
+          "name_short": "TPA",
+          "slug": "tes-masuk-2026",
+          "start_at": "2026-08-10T08:00:00+07:00",
+          "end_at": "2026-08-10T12:00:00+07:00",
+          "is_active": true
+        },
+        "results": [],
+        "registered_at": "2026-07-30T10:00:00+07:00"
+      }
+    ],
+    "meta": {
+      "pagination": { "total": 1, "per_page": 25, "current_page": 1, "last_page": 1, "from": 1, "to": 1 }
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="GET /participant-labels — Daftar label peserta">
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `page` | Query | Tidak | integer | Nomor halaman. Default `1`. |
+  | `per_page` | Query | Tidak | integer | Data per halaman, `1–100`. Default `25`. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/participant-labels?page=1&per_page=25" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": [
+      {
+        "id": 8,
+        "name": "Kelas XII IPA",
+        "participants_count": 32,
+        "created_at": "2026-07-01T08:00:00+07:00",
+        "updated_at": "2026-07-01T08:00:00+07:00"
+      }
+    ],
+    "meta": {
+      "pagination": { "total": 1, "per_page": 25, "current_page": 1, "last_page": 1, "from": 1, "to": 1 }
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="POST /participant-labels — Membuat label peserta">
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `name` | Body | Ya | string | Nama unik pada projek, maksimal 255 karakter. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X POST "https://app.indolat.com/api/v1/participant-labels" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{ "name": "Kelas XII IPA" }'
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": "Label berhasil dibuat.",
+    "data": {
+      "id": 8,
+      "name": "Kelas XII IPA",
+      "created_at": "2026-08-03T10:00:00+07:00",
+      "updated_at": "2026-08-03T10:00:00+07:00"
+    }
+  }
+  ```
+</Accordion>

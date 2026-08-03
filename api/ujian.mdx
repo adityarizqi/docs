@@ -1,0 +1,252 @@
+---
+title: "API Ujian"
+description: "Baca daftar, detail, tes, sesi, dan link pendaftaran ujian."
+sidebarTitle: "Ujian"
+---
+
+Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
+
+## Endpoint ujian
+
+Endpoint ujian bersifat read-only. Pembuatan ujian, tes, dan soal tetap dilakukan melalui panel.
+
+<Accordion title="GET /exams — Daftar ujian">
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `search` | Query | Tidak | string | Mencari nama atau nama singkat ujian. |
+  | `is_active` | Query | Tidak | boolean | Filter status aktif. |
+  | `is_tiered` | Query | Tidak | boolean | Filter ujian bertingkat. |
+  | `start_from` | Query | Tidak | datetime | Waktu mulai minimum dalam format ISO 8601 dan harus di-URL-encode. |
+  | `start_until` | Query | Tidak | datetime | Waktu mulai maksimum dalam format ISO 8601 dan harus di-URL-encode. |
+  | `page` | Query | Tidak | integer | Nomor halaman. Default `1`. |
+  | `per_page` | Query | Tidak | integer | Data per halaman, `1–100`. Default `25`. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/exams?search=Tes%20Masuk&is_active=true&page=1&per_page=25" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": [
+      {
+        "id": 12,
+        "name": "Tes Masuk 2026",
+        "name_short": "TPA",
+        "slug": "tes-masuk-2026",
+        "description": "Seleksi penerimaan peserta didik baru.",
+        "price": 0,
+        "start_at": "2026-08-10T08:00:00+07:00",
+        "end_at": "2026-08-10T12:00:00+07:00",
+        "is_active": true,
+        "is_locked": false,
+        "is_hidden": false,
+        "is_tiered": false,
+        "is_auto_assign_session": true,
+        "is_show_score": true,
+        "paid_type": 1,
+        "paid_type_label": "Gratis",
+        "registration_quota": 500,
+        "participants_count": 120,
+        "created_at": "2026-07-01T08:00:00+07:00",
+        "updated_at": "2026-07-30T08:00:00+07:00"
+      }
+    ],
+    "meta": {
+      "pagination": { "total": 1, "per_page": 25, "current_page": 1, "last_page": 1, "from": 1, "to": 1 }
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="GET /exams/{exam} — Detail ujian">
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `exam` | Path | Ya | integer | ID ujian. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/exams/12" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": {
+      "id": 12,
+      "name": "Tes Masuk 2026",
+      "name_short": "TPA",
+      "slug": "tes-masuk-2026",
+      "description": "Seleksi penerimaan peserta didik baru.",
+      "price": 0,
+      "start_at": "2026-08-10T08:00:00+07:00",
+      "end_at": "2026-08-10T12:00:00+07:00",
+      "is_active": true,
+      "is_locked": false,
+      "is_hidden": false,
+      "is_tiered": false,
+      "is_auto_assign_session": true,
+      "is_show_score": true,
+      "paid_type": 1,
+      "paid_type_label": "Gratis",
+      "registration_quota": 500,
+      "exam_quizzes": [
+        {
+          "id": 45,
+          "exam_id": 12,
+          "name": "Tes Potensi Akademik",
+          "level": 1,
+          "duration_minutes": 90,
+          "exam_type": "cbt",
+          "exam_type_label": "Computer Based Test (CBT)",
+          "price": 0,
+          "description": null,
+          "sessions": [
+            {
+              "id": 91,
+              "exam_quiz_id": 45,
+              "name": "Sesi Pagi",
+              "start_at": "2026-08-10T08:00:00+07:00",
+              "end_at": "2026-08-10T10:00:00+07:00"
+            }
+          ]
+        }
+      ],
+      "participants_count": 120,
+      "created_at": "2026-07-01T08:00:00+07:00",
+      "updated_at": "2026-07-30T08:00:00+07:00"
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="GET /exams/{exam}/quizzes — Daftar tes dalam ujian">
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `exam` | Path | Ya | integer | ID ujian. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/exams/12/quizzes" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": [
+      {
+        "id": 45,
+        "exam_id": 12,
+        "name": "Tes Potensi Akademik",
+        "level": 1,
+        "duration_minutes": 90,
+        "exam_type": "cbt",
+        "exam_type_label": "Computer Based Test (CBT)",
+        "price": 0,
+        "description": null,
+        "sessions": [
+          {
+            "id": 91,
+            "exam_quiz_id": 45,
+            "name": "Sesi Pagi",
+            "start_at": "2026-08-10T08:00:00+07:00",
+            "end_at": "2026-08-10T10:00:00+07:00"
+          }
+        ],
+        "created_at": "2026-07-01T08:00:00+07:00",
+        "updated_at": "2026-07-01T08:00:00+07:00"
+      }
+    ]
+  }
+  ```
+</Accordion>
+
+<Accordion title="GET /exams/{exam}/sessions — Daftar sesi ujian">
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `exam` | Path | Ya | integer | ID ujian. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/exams/12/sessions" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": [
+      {
+        "id": 91,
+        "exam_quiz_id": 45,
+        "name": "Sesi Pagi",
+        "start_at": "2026-08-10T08:00:00+07:00",
+        "end_at": "2026-08-10T10:00:00+07:00"
+      }
+    ]
+  }
+  ```
+</Accordion>
+
+<Accordion title="GET /exams/{exam}/registration-link — Link pendaftaran mandiri">
+  Membutuhkan add-on **Halaman Pendaftaran Ujian**.
+
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `exam` | Path | Ya | integer | ID ujian. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/exams/12/registration-link" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": {
+      "exam_id": 12,
+      "registration_url": "https://smanusantara.cbt.example.com/r/tes-masuk-2026"
+    }
+  }
+  ```
+</Accordion>
