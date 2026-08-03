@@ -62,7 +62,7 @@
       "anchors": [
         {
           "anchor": "Gabung Komunitas",
-          "href": "https://community.indolat.com",
+          "href": "https://t.me/cbtindolatcommunity",
           "icon": "book-open-cover"
         }
       ]
@@ -75,8 +75,8 @@
   "navbar": {
     "links": [
       {
-        "label": "Dukungan",
-        "href": "mailto:support@indolat.com"
+        "href": "https://community.indolat.com",
+        "label": "Berikan Feedback"
       }
     ]
   },
