@@ -42,8 +42,15 @@
             ]
           },
           {
+            "group": "Penarikan Saldo",
+            "pages": [
+              "keuangan/cara-memantau-transaksi-keuangan-dan-melakukan-penarikan-saldo"
+            ]
+          },
+          {
             "group": "Lainnya",
             "pages": [
+              "manajemen-akses/cara-memberi-akses-kepada-admin-lain",
               "lainnya/pengaturan-dan-cara-login-peserta",
               "lainnya/mengatur-tampilan-melalui-kustomisasi-branding",
               "sertifikat/cara-membuat-sertifikat-ujian"
