@@ -8,41 +8,52 @@ Anda dapat menentukan ujian yang menggunakan sertifikat, syarat peserta menerima
 
 💡 **Sebagai contoh:** Anda menyelenggarakan **Try Out SNBT 2027**. Peserta yang menyelesaikan ujian dan memperoleh nilai minimal 70 akan mendapatkan sertifikat secara otomatis.
 
+# 1. Pengaturan Sertifikat oleh Admin
+
+Bagian ini menjelaskan cara membuat sertifikat dari awal, meliputi:
+
+- Membuka menu Sertifikat Ujian
+- Mengisi bagian Umum
+- Mengatur Template & Desain
+- Menambahkan Penandatangan
+- Menyesuaikan tampilan melalui Desainer
+- Menyimpan dan mengaktifkan sertifikat
+
+## A. Buka menu Sertifikat Ujian
+
 <Steps>
   <Step title="Buka menu 'Sertifikat Ujian' kemudian pilih tombol ( + Tambah Sertifikat)">
     <Frame>
       ![2026 07 31 19 33 1](/images/2026-07-31_19-33-1.png "2026 07 31 19 33 1")
     </Frame>
-
-    Pengaturan sertifikat terdiri dari empat bagian:
-
+  </Step>
+  <Step title="Sistem akan menampilkan 4 bagian ">
     1. **Umum**
     2. **Template & Desain**
     3. **Penandatangan**
     4. **Desainer**
 
     <Frame>
-      ![2026 07 31 19 35](/images/2026-07-31_19-35.png "2026 07 31 19 35")
+      ![2026 07 31 19 35 1](/images/2026-07-31_19-35-1.png "2026 07 31 19 35 1")
     </Frame>
   </Step>
+</Steps>
+
+## B. Mengisi Bagian Umum
+
+<Steps>
   <Step title="Mengisi Informasi Umum">
     Bagian **Umum** digunakan untuk menentukan nama sertifikat, ujian yang menggunakan sertifikat, nomor sertifikat, serta syarat penerbitannya.<br />
 
     <Frame>
-      ![2026 07 31 19 50](/images/2026-07-31_19-50.png "2026 07 31 19 50")
+      ![2026 08 05 19 02](/images/2026-08-05_19-02.png "2026 08 05 19 02")
     </Frame>
 
-    1. **Nama Template **digunakan untuk membedakan sertifikat dengan template lainnya.
+    1. **Nama Template** digunakan untuk membedakan sertifikat dengan template lainnya.
 
-    Isi nama yang mudah dikenali oleh Admin.
+    Isi nama yang mudah dikenali oleh Admin.<br />Contoh: **Sertifikat Kelulusan Try Out SNBT 2027**<br />
 
-    > Contoh: 
-    >
-    > **Sertifikat Kelulusan Try Out SNBT 2027**
-
-    2. **Ujian **
-
-     
+    2. **Ujian**
 
     Pilih ujian yang akan menggunakan sertifikat tersebut. Satu template sertifikat dihubungkan ke satu ujian.
 
@@ -56,24 +67,18 @@ Anda dapat menentukan ujian yang menggunakan sertifikat, syarat peserta menerima
       />
     </Frame>
 
-    > Contoh:
-    >
-    > **Try Out Matematika Persiapan SNBT 2027**
+    Contoh: **Try Out Matematika Persiapan SNBT 2027**
 
-    3. **Status** digunakan untuk menentukan kondisi template.
+    <br />   3. **Status** digunakan untuk menentukan kondisi template.
 
-    - **Draft**: sertifikat masih disiapkan dan belum digunakan.
     - **Dipublikasikan**: sertifikat sudah siap digunakan pada Ujian.
+    - **Draft: **sertifikat masih perlu diperiksa dan disesuaikan oleh Admin.
 
     <Tip>
       Sebaiknya gunakan status **Draft** selama sertifikat masih perlu disesuikan.
     </Tip>
 
-    4. **Template Aktif**
-
-    Aktifkan jika template ini akan digunakan sebagai sertifikat utama pada ujian tersebut.
-
-    5. **Format Nomor Sertifikat** digunakan untuk mengatur susunan nomor sertifikat yang dibuat otomatis oleh sistem.
+    4. **Format Nomor Sertifikat** digunakan untuk mengatur susunan nomor sertifikat yang dibuat otomatis oleh sistem.
 
     <Tip>
       **Keterangan penanda:**
@@ -86,15 +91,9 @@ Anda dapat menentukan ujian yang menggunakan sertifikat, syarat peserta menerima
       - `{EXAM}`: kode ujian
     </Tip>
 
-    > 💡 Contoh format :
-    >
-    > `INDOLAT/{YYYY}/{EXAM}/{SEQ}`
-    >
-    > Hasil:
-    >
-    > `INDOLAT/2026/0001 `
+    💡 Contoh format : `INDOLAT/{YYYY}/{EXAM}/{SEQ}`<br />     Hasil:`INDOLAT/2026/TOSN/0001 `<br />
 
-    6. **Skor Minimum**
+    5. **Skor Minimum**
 
     Isi nilai minimal yang harus diperoleh Peserta agar berhak menerima sertifikat.
 
@@ -104,25 +103,372 @@ Anda dapat menentukan ujian yang menggunakan sertifikat, syarat peserta menerima
       Kosongkan isian Skor Minimum jika semua Peserta tetap boleh menerima sertifikat tanpa batas nilai minimum.
     </Tip>
 
-    7. **Wajib Selesai Ujian**
+    6. **Wajib Selesai Ujian**
 
-    Aktifkan agar sertifikat hanya dapat diterbitkan setelah peserta menyelesaikan ujian.
+    Aktifkan agar sertifikat hanya dapat diterbitkan setelah peserta menyelesaikan ujian.<br />Contoh: Peserta memperoleh nilai sementara 80, tetapi belum menekan tombol selesai. Sertifikat belum dapat diterbitkan sampai ujian benar-benar selesai.<br />
 
-    > Contoh:
-    >
-    > Peserta memperoleh nilai sementara 80, tetapi belum menekan tombol selesai. Sertifikat belum dapat diterbitkan sampai ujian benar-benar selesai.
+    7. **Butuh Review Manual**
 
-    8. **Butuh Review Manual**
+    Aktifkan jika sertifikat harus disetujui terlebih dahulu oleh Admin. Pengaturan ini cocok untuk ujian resmi atau sertifikat penghargaan yang perlu diperiksa sebelum diterbitkan.<br />
 
-    Aktifkan jika sertifikat harus disetujui terlebih dahulu oleh Admin. Pengaturan ini cocok untuk ujian resmi atau sertifikat penghargaan yang perlu diperiksa sebelum diterbitkan.
-
-    9. **Tampilkan ke Peserta**
+    8. **Tampilkan ke Peserta**
 
     - Aktifkan agar Peserta dapat melihat dan mengunduh sertifikat dari halaman hasil ujian.
-    - Nonaktifkan jika sertifikat hanya akan dikelola atau dicetak oleh Admin.
+    - Nonaktifkan jika sertifikat hanya akan dikelola atau dicetak oleh Admin.<br />
+
+    9. **Catatan**
+
+    Bagian ini dapat digunakan untuk menyimpan keterangan tambahan mengenai sertifikat.<br />Contoh: Sertifikat diberikan kepada peserta yang telah menyelesaikan ujian dan memperoleh nilai minimal 60.<br />
 
     10. Setelah isian telah Anda sesuaikan, silakan pilih tombol '**Buat**' untuk menyimpan pengaturan.
   </Step>
-  <Step>
+</Steps>
+
+## C. Mengatur Template dan Desain
+
+<Steps>
+  <Step title="Menyesuaikan Template dan Desain">
+    Bagian ini digunakan untuk menentukan susunan, ukuran, dan tampilan sertifikat.
+
+    <Frame>
+      ![2026 08 05 20 00](/images/2026-08-05_20-00.png "2026 08 05 20 00")
+    </Frame>
+
+    1. **Layout Template**
+
+    Pilih susunan sertifikat sesuai kebutuhan.<br />Contoh: **Layout Tengah 1 TTD**
+
+    <Tip>
+      Pilihan layout lain dapat digunakan sesuai jumlah penandatanganan dan posisi isi sertifikat.
+    </Tip>
+
+    2. **Ukuran Halaman**
+
+    Pilih ukuran sertifikat.<br /> 
+
+    <Frame>
+      ![2026 08 04 21 49 1](/images/2026-08-04_21-49-1.png "2026 08 04 21 49 1")
+    </Frame>
+
+    Contoh: **A4**<br />Ukuran A4 sesuai untuk sertifikat yang akan dicetak atau diunduh dalam bentuk PDF.<br />
+
+    3. **Orientasi**
+
+    Pilih arah halaman:
+
+    - **Landscape** untuk posisi mendatar
+    - **Portrait** untuk posisi berdiri
+
+    <Tip>
+      Sertifikat umumnya menggunkan **Landscape** agar ruang untuk nama peserta dan tanda tangan lebih luas dan proporsional.
+    </Tip>
+
+    4. **Template Desain**
+
+    Pilih desain yang akan digunakan:
+
+    - **Template A** untuk desain sederhana
+    - **Template B** untuk desain lebih formal
+    - **Template Custom** jika lembaga memiliki desain sendiri
+
+    5. **Tema Warna**
+
+    <Frame>
+      ![2026 08 05 20 52](/images/2026-08-05_20-52.png "2026 08 05 20 52")
+    </Frame>
+
+    Walaupun telah memilih template desain, Anda dapat menyesuaikan kembali Tema Warna sertifikat. Bagian yang dapat diatur meliputi:
+
+    - warna  halaman
+    - aksen utama
+    - aksen kedua
+
+    <Frame>
+      ![2026 08 05 21 07](/images/2026-08-05_21-07.png "2026 08 05 21 07")
+    </Frame>
+
+    6. **Safe Area**
+
+    Safe Area merupakan batas aman agar tulisan dan tanda tangan tidak terlalu dekat dengan pinggir sertifikat.
+
+    <Tip>
+      Gunakan nilai bawaan jika tidak memiliki kebutuhan desain khusus.
+    </Tip>
+  </Step>
+</Steps>
+
+## D. Menambahkan Penandatangan
+
+<Steps>
+  <Step title="Buka bagian 'Penandatanganan' kemudian pilih tombol 'Tambah Penandatanganan'">
+    <Frame>
+      ![2026 08 04 23 17](/images/2026-08-04_23-17.png "2026 08 04 23 17")
+    </Frame>
+  </Step>
+  <Step title="Tambahkan pihak yang akan menandatangani sertifikat">
+    <Frame>
+      ![2026 08 04 23 23](/images/2026-08-04_23-23.png "2026 08 04 23 23")
+    </Frame>
+
+    Isikan kolom isian penandatanganan
+
+    1. **Slot**
+
+    Pilih posisi tanda tangan. Contoh:
+
+    - **Slot 1** untuk penandatangan pertama
+    - **Slot 2** untuk penandatangan kedua
+
+    <Tip>
+      Jumlah slot yang digunakan perlu disesuaikan dengan layout sertifikat.
+    </Tip>
+
+    2. **Nama**
+
+    Isi nama lengkap penandatangan.  Contoh: **Diana Valerie**
+
+    3. **Jabatan**
+
+    Isi jabatan penandatangan. Contoh: **Ketua Panitia**
+
+    4. **Gambar Tanda Tangan**
+
+    Unggah gambar tanda tangan. 
+
+    <Tip>
+      Gunakan format PNG dengan latar belakang transparan.
+
+      Format ini akan memeberikan hasil yang lebih rapi dan jelas.
+    </Tip>
+
+    5. **(Opsional) Tambah Penandatanganan**
+
+    Jika jumlah pihak yang berwewenang untuk menandatangani sertifikat lebih dari satu, maka Anda dapat pilih tombol 'Tambah Penandatanganan' dan mengisikan data penandatanganan pihak kedua.
+  </Step>
+</Steps>
+
+## E. Menyesuaikan Tampilan melalui Desainer
+
+Buka bagian **Desainer** untuk mengatur posisi dan isi bagian-bagian pada sertifikat.
+
+<Frame>
+  ![2026 08 07 22 47](/images/2026-08-07_22-47.png "2026 08 07 22 47")
+</Frame>
+
+<Frame>
+  ![2026 08 07 22 48](/images/2026-08-07_22-48.png "2026 08 07 22 48")
+</Frame>
+
+Pada halaman ini, Anda dapat menyesuaikan elemen seperti:
+
+- Judul Sertifikat
+- Subjudul
+- Nama Peserta
+- Nama Ujian
+- Nilai Akhir
+- Tanggal Selesai
+- Nomor Sertifikat
+- Teks Tambahan
+- Area Tanda Tangan
+- Nama Penandatangan
+- Jabatan Penandatangan
+
+<Tip>
+  **Cara Menggunakan :** 
+
+  1. Pilih bagian yang ingin diubah, misalnya **Judul Sertifikat**.
+  2. Ubah isi tulisan pada kolom **Konten** jika diperlukan.
+     Contoh: **SERTIFIKAT UJIAN**
+  3. Atur posisi tulisan agar sesuai dengan tampilan yang diinginkan.
+     Anda dapat memindahkan elemen langsung pada tampilan sertifikat dengan cara **klik dan geser** ke posisi yang diinginkan.
+  4. Atur ukuran tulisan atau area jika terlihat terlalu kecil, terlalu besar, atau terpotong.
+  5. Ulangi langkah yang sama untuk bagian lain, seperti nama peserta, nomor sertifikat, dan tanda tangan.
+  6. Periksa hasilnya pada bagian **Preview Interaktif**.
+</Tip>
+
+> 💡 **Contoh:**
+>
+> Nama peserta terlihat terlalu dekat dengan judul sertifikat. Pilih **Nama Peserta**, kemudian geser sedikit ke bawah sampai jaraknya terlihat lebih rapi.
+>
+> Jika judul sertifikat terlihat terlalu kecil, pilih **Judul Sertifikat**, kemudian perbesar ukuran tulisannya.
+
+**Preview Interaktif :** 
+
+Bagian **Preview Interaktif** digunakan untuk melihat gambaran hasil sertifikat sebelum digunakan oleh peserta.
+
+Periksa kembali:
+
+- posisi judul;
+- nama peserta;
+- nama ujian;
+- nilai;
+- nomor sertifikat;
+- dan posisi tanda tangan.
+
+Pastikan tidak ada tulisan yang bertumpuk, terpotong, atau terlalu dekat dengan pinggir sertifikat.
+
+# 2. Pengajuan dan Unduh Sertifikat oleh Peserta
+
+Sertifikat tersedia pada bagian **Skor Akhir** di halaman **Riwayat Ujian**.
+
+## A. Membuka Riwayat Ujian
+
+<Steps>
+  <Step title="Peserta masuk ke halaman CBT">
+    <Frame>
+      <img
+        src="/images/2026-08-07_23-01.png"
+        alt="2026 08 07 23 01"
+        title="2026 08 07 23 01"
+        style={{ width:"49%" }}
+      />
+    </Frame>
+  </Step>
+  <Step title="Buka menu Riwayat Ujian">
+    <Frame>
+      ![2026 08 07 23 04](/images/2026-08-07_23-04.png "2026 08 07 23 04")
+    </Frame>
+
+    Lihat bagian **Skor Akhir**.
+  </Step>
+</Steps>
+
+## B. Tanpa Persetujuan Admin
+
+Jika sertifikat tidak membutuhkan pemeriksaan Admin dan seluruh syarat sudah terpenuhi, tombol **Unduh Sertifikat** akan tampil.
+
+<Steps>
+  <Step title="Admin menonaktifkan tombol 'Butuh Review Manual'">
+    <Frame>
+      ![Image](/images/image-26.png "Image")
+    </Frame>
+  </Step>
+  <Step title="Tombol 'Unduh Sertifikat' akan tampil pada Peserta Ujian">
+    <Frame>
+      ![Image](/images/image-27.png "Image")
+    </Frame>
+  </Step>
+  <Step title="Peserta pilih tombol 'Unduh Sertifikat'">
+    <Frame>
+      ![2026 08 07 23 12](/images/2026-08-07_23-12.png "2026 08 07 23 12")
+    </Frame>
+
+    Sistem akan mengunduh sertifikat dalam bentuk PDF.
+
+    <Frame>
+      ![2026 08 10 18 26 1](/images/2026-08-10_18-26-1.png "2026 08 10 18 26 1")
+    </Frame>
+  </Step>
+</Steps>
+
+## C. Perlu Persetujuan Admin
+
+Jika sertifikat membutuhkan pemeriksaan Admin, prosesnya sebagai berikut:
+
+<Steps>
+  <Step title="Admin mengaktifkan tombol 'Butuh Review Manual'">
+    <Frame>
+      ![2026 08 07 23 08 1](/images/2026-08-07_23-08_1.png "2026 08 07 23 08 1")
+    </Frame>
+  </Step>
+  <Step title="Tombol 'Ajukan Sertifikat' akan tampil pada Peserta Ujian">
+    <Frame>
+      ![2026 08 07 23 29](/images/2026-08-07_23-29.png "2026 08 07 23 29")
+    </Frame>
+  </Step>
+  <Step title="Peserta pilih tombol 'Ajukan Sertifikan'">
+    Tombol berubah menjadi **Menunggu Persetujuan**. 
+
+    <Frame>
+      ![2026 08 10 18 18](/images/2026-08-10_18-18.png "2026 08 10 18 18")
+    </Frame>
+
+    Sistem akan mengirimkan pengajuan kepada Admin
+  </Step>
+  <Step title=" Admin Menyetujui Pengajuan">
+    Apabila Sertifikat telah disetujui oleh Admin, maka tombol** Menunggu Persetujuan** akan berubah menjadi **Unduh Sertifikat.**
+  </Step>
+  <Step title="Tombol 'Unduh Sertifikat' akan tampil pada Peserta Ujian">
+    <Frame>
+      ![Image](/images/image-27.png "Image")
+    </Frame>
+  </Step>
+  <Step title="Peserta pilih tombol 'Unduh Sertifikat'">
+    <Frame>
+      ![2026 08 07 23 12](/images/2026-08-07_23-12.png "2026 08 07 23 12")
+    </Frame>
+
+    Sistem akan mengunduh sertifikat dalam bentuk PDF.
+
+    <Frame>
+      ![2026 08 10 18 26](/images/2026-08-10_18-26.png "2026 08 10 18 26")
+    </Frame>
+  </Step>
+</Steps>
+
+<Tip>
+  Alur tombolnya:
+
+  - **Ajukan Sertifikat**: peserta belum mengajukan.
+  - **Menunggu Persetujuan**: pengajuan sedang diperiksa Admin.
+  - **Unduh Sertifikat**: pengajuan sudah disetujui.
+</Tip>
+
+# 3. Admin Menyetujui Pengajuan Sertifikat
+
+Bagian ini digunakan ketika pada pengaturan sertifikat, **Butuh Review Manual** diaktifkan.
+
+Artinya, peserta yang sudah memenuhi syarat belum dapat langsung mengunduh sertifikat. Peserta perlu mengajukan sertifikat terlebih dahulu, kemudian Admin menyetujuinya.
+
+> 💡 **Contoh :**
+>
+> Adipati Wisnu telah menyelesaikan **Try Out Matematika Persiapan SNBT 2027** dengan nilai 100. Karena sertifikat membutuhkan persetujuan Admin, Adipati terlebih dahulu memilih **Ajukan Sertifikat**.
+>
+> Setelah pengajuan berhasil, pada halaman peserta akan tampil status:
+>
+> **Menunggu Persetujuan**
+>
+> <Frame>
+>   ![2026 08 10 18 27](/images/2026-08-10_18-27.png "2026 08 10 18 27")
+> </Frame>
+
+Selama status tersebut masih tampil, peserta belum dapat mengunduh sertifikat.
+
+<Steps>
+  <Step title="Buka menu 'Sertifikat Ujian' kemudian pilih tombol 'Ubah'">
+    <Frame>
+      ![2026 08 10 18 21](/images/2026-08-10_18-21.png "2026 08 10 18 21")
+    </Frame>
+
+    Pilih sesuai dengan data Sertifikat yang telah Anda buat.
+  </Step>
+  <Step title="Masuk ke bagian 'Sertifikat Terbit' kemudian pilih tombol 'Setujui'">
+    <Frame>
+      ![2026 08 10 18 25](/images/2026-08-10_18-25.png "2026 08 10 18 25")
+    </Frame>
+
+    Sistem akan menampilkan daftar peserta yang sudah mengajukan sertifikat, beserta informasi seperti:
+
+    - Nomor Sertifikat
+    - Nama Peserta
+    - Nilai
+    - Tanggal Terbit
+
+    Cari peserta yang pengajuannya akan disetujui. Pilih tombol **Setujui** pada baris peserta.
+  </Step>
+  <Step title="Sistem akan menampilkan konfirmasi persetujuan sertifikat">
+    <Frame>
+      ![2026 08 10 18 25 1](/images/2026-08-10_18-25_1.png "2026 08 10 18 25 1")
+    </Frame>
+
+    Pastikan nama peserta dan nomor sertifikat sudah benar, kemudian pilih tombol '**Konfirmasi'**.
+
+    <Tip>
+      Setelah disetujui, peserta perlu membuka kembali atau memuat ulang halaman **Riwayat Tes**. Tombol **Menunggu Persetujuan** akan berubah menjadi **Unduh Sertifikat**.
+
+      <Frame>
+        ![2026 08 10 18 25 2](/images/2026-08-10_18-25_2.png "2026 08 10 18 25 2")
+      </Frame>
+    </Tip>
   </Step>
 </Steps>
