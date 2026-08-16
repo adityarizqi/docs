@@ -33,6 +33,14 @@
             ]
           },
           {
+            "group": "Paket Soal",
+            "pages": [
+              "paket-soal/cara-membuat-menambahkan-paket-soal",
+              "paket-soal/cara-import-paket-soal",
+              "paket-soal/cara-generate-soal-ai"
+            ]
+          },
+          {
             "group": "Data Akun",
             "pages": [
               "akun/cara-menambahkan-data"
@@ -43,14 +51,6 @@
             "pages": [
               "lainnya/pengaturan-dan-cara-login-peserta",
               "lainnya/mengatur-tampilan-melalui-kustomisasi-branding"
-            ]
-          },
-          {
-            "group": "Paket Soal",
-            "pages": [
-              "paket-soal/cara-membuat-menambahkan-paket-soal",
-              "paket-soal/cara-import-paket-soal",
-              "paket-soal/cara-generate-soal-ai"
             ]
           }
         ]
