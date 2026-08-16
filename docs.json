@@ -14,6 +14,7 @@
         "tab": "Panduan Penggunaan",
         "pages": [
           "index",
+          "glosarium",
           {
             "group": "Mulai Cepat",
             "pages": [
@@ -41,8 +42,7 @@
             "group": "Lainnya",
             "pages": [
               "lainnya/pengaturan-dan-cara-login-peserta",
-              "lainnya/mengatur-tampilan-melalui-kustomisasi-branding",
-              "glosarium"
+              "lainnya/mengatur-tampilan-melalui-kustomisasi-branding"
             ]
           },
           {
