@@ -14,13 +14,8 @@
         "tab": "Panduan Penggunaan",
         "pages": [
           "index",
+          "mulai-cepat/membuat-ujian-pertama-anda-dalam-5-menit",
           "glosarium",
-          {
-            "group": "Mulai Cepat",
-            "pages": [
-              "mulai-cepat/membuat-ujian-pertama-anda-dalam-5-menit"
-            ]
-          },
           {
             "group": "Data Ujian",
             "pages": [
