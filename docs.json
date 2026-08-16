@@ -44,6 +44,14 @@
               "lainnya/mengatur-tampilan-melalui-kustomisasi-branding",
               "glosarium"
             ]
+          },
+          {
+            "group": "Paket Soal",
+            "pages": [
+              "paket-soal/cara-membuat-menambahkan-paket-soal",
+              "paket-soal/cara-import-paket-soal",
+              "paket-soal/cara-generate-soal-ai"
+            ]
           }
         ]
       },
