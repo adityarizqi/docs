@@ -19,41 +19,36 @@
           {
             "group": "Data Ujian",
             "pages": [
-              "ujian/membuat-ujian",
-              "ujian/membuat-tes-ujian",
-              "ujian/membuat-ujian-berjenjang",
-              "ujian/membuat-sesi-ujian",
-              "ujian/membuat-formulir-pendaftaran",
-              "ujian/menambahkan-peserta-ujian"
+              "data-ujian/membuat-ujian",
+              "data-ujian/membuat-tes-ujian",
+              "data-ujian/membuat-ujian-berjenjang",
+              "data-ujian/membuat-sesi-ujian",
+              "data-ujian/membuat-formulir-pendaftaran",
+              "data-ujian/menambahkan-peserta-ujian"
             ]
           },
           {
             "group": "Paket Soal",
             "pages": [
-              "paket-soal/cara-membuat-menambahkan-paket-soal",
-              "paket-soal/cara-import-paket-soal",
-              "paket-soal/cara-generate-soal-ai"
+              "paket-soal/membuat-paket-soal",
+              "paket-soal/import-paket-soal",
+              "paket-soal/generate-soal-ai"
             ]
           },
           {
             "group": "Data Akun",
             "pages": [
-              "akun/cara-menambahkan-data"
-            ]
-          },
-          {
-            "group": "Penarikan Saldo",
-            "pages": [
-              "keuangan/cara-memantau-transaksi-keuangan-dan-melakukan-penarikan-saldo"
+              "data-akun/menambahkan-akun-peserta"
             ]
           },
           {
             "group": "Lainnya",
             "pages": [
-              "manajemen-akses/cara-memberi-akses-kepada-admin-lain",
-              "lainnya/pengaturan-dan-cara-login-peserta",
-              "lainnya/mengatur-tampilan-melalui-kustomisasi-branding",
-              "sertifikat/cara-membuat-sertifikat-ujian"
+              "lainnya/transaksi-dan-penarikan-saldo",
+              "lainnya/manajemen-akses-admin",
+              "lainnya/login-peserta",
+              "lainnya/kustomisasi-tampilan-website",
+              "lainnya/sertifikat-ujian"
             ]
           }
         ]
