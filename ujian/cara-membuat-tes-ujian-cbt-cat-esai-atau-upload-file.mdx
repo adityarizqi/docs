@@ -64,55 +64,62 @@ Setelah memilih tombol **\+ Tambah Tes Ujian**, sistem secara otomatis akan mena
     Untuk tryout SNBT biasa, pilih **Computer Based Test (CBT)**.
   </Tip>
 - **Metode Penilaian** : Tentukan cara sistem menghitung nilai peserta.
-  <Frame>
-    ![Metode Penilaian](/images/Metode-Penilaian.png "Metode Penilaian")
-  </Frame>
-  **1. Perhitungan Skor Soal (Akumulasi Benar/Salah)**<br />Nilai dihitung dari jumlah soal yang dijawab benar.
-  > Contoh:
-  >
-  > - Jawaban benar: 10 poin
-  > - Jawaban salah: 0 poin
-  > - Peserta menjawab benar 8 dari 10 soal
-  > - Nilai peserta: **80**
-  >
-  > Cocok untuk tryout atau ujian pilihan ganda biasa. **2. Perhitungan Skor Jawaban (Akumulasi Skor Jawaban)**<br />Setiap pilihan jawaban dapat memiliki skor yang berbeda. Contoh:
-  >
-  > Pertanyaan: _Seberapa sering Anda belajar dalam seminggu?_
-  >
-  > - Setiap hari: 4 poin
-  > - 3–4 kali: 3 poin
-  > - 1–2 kali: 2 poin
-  > - Tidak pernah: 1 poin
-  >
-  > Nilai akhir dihitung dari jumlah skor semua jawaban peserta. **3. Psikotes (Pengelompokan Jawaban)**<br />Jawaban peserta dikelompokkan untuk melihat kecenderungan atau karakter tertentu. Contoh:
-  >
-  > Pertanyaan: _Saat bekerja dalam kelompok, Anda lebih suka..._
-  >
-  > - Mengatur pembagian tugas → Kelompok **Kepemimpinan**
-  > - Membantu anggota lain → Kelompok **Kerja Sama**
-  > - Mengerjakan bagian sendiri → Kelompok **Mandiri**
-  >
-  > Hasilnya bukan sekadar benar atau salah, tetapi menunjukkan kelompok karakter peserta. **4. Item Response Theory (IRT)**<br />Nilai tidak hanya melihat jumlah jawaban benar, tetapi juga mempertimbangkan tingkat kesulitan soal.
-  >
-  > Contoh:
-  >
-  > - Soal mudah dijawab benar oleh banyak peserta.
-  > - Soal sulit hanya dijawab benar oleh sedikit peserta.
-  > - Peserta yang mampu menjawab soal sulit dapat memperoleh nilai kemampuan yang lebih tinggi.
-  >
-  > Metode ini cocok untuk ujian berskala besar atau analisis kemampuan peserta yang lebih mendalam.
-  <Tip>
-    Untuk tryout SNBT sederhana, pilih **Perhitungan Skor Soal (Akumulasi Benar/Salah)**.
-  </Tip>
-- **Nama Tes** : Masukkan nama tes yang mudah dikenali.<br />Contoh: **Penalaran Matematika**.
-- **Durasi Pengerjaan** : Masukkan lama waktu pengerjaan dalam menit.<br />Contoh: **60 menit**.
-- **Instruksi Pengerjaan Tes Ujian** : Tuliskan petunjuk yang akan dibaca peserta sebelum mulai mengerjakan.
 
-Pada instruksi, Anda dapat menggunakan penanda berikut:
+<Frame>
+  ![Metode Penilaian](/images/Metode-Penilaian.png "Metode Penilaian")
+</Frame>
 
-- `{{NAMA_TES}}` untuk menampilkan nama tes.
-- `{{JUMLAH_SOAL}}` untuk menampilkan jumlah soal.
-- `{{DURASI_TES}}` untuk menampilkan durasi pengerjaan.
+1. **Perhitungan Skor Soal (Akumulasi Benar/Salah)**<br />Nilai dihitung dari jumlah soal yang dijawab benar.
+   > Contoh:
+   >
+   > - Jawaban benar: 10 poin
+   >
+   > - Jawaban salah: 0 poin
+   > - Peserta menjawab benar 8 dari 10 soal
+   > - Nilai peserta: **80**
+   Cocok untuk tryout atau ujian pilihan ganda biasa.
+2. **Perhitungan Skor Jawaban (Akumulasi Skor Jawaban)**<br />Setiap pilihan jawaban dapat memiliki skor yang berbeda.
+
+> Contoh:
+>
+> Pertanyaan: _Seberapa sering Anda belajar dalam seminggu?_
+>
+> - Setiap hari: 4 poin
+> - 3–4 kali: 3 poin
+> - 1–2 kali: 2 poin
+> - Tidak pernah: 1 poin
+
+Nilai akhir dihitung dari jumlah skor semua jawaban peserta.
+
+3. **Psikotes (Pengelompokan Jawaban)**
+
+Jawaban peserta dikelompokkan untuk melihat kecenderungan atau karakter tertentu.
+
+> Contoh:
+>
+> Pertanyaan: _Saat bekerja dalam kelompok, Anda lebih suka..._
+>
+> - Mengatur pembagian tugas → Kelompok **Kepemimpinan**
+> - Membantu anggota lain → Kelompok **Kerja Sama**
+> - Mengerjakan bagian sendiri → Kelompok **Mandiri**
+
+Hasilnya bukan sekadar benar atau salah, tetapi menunjukkan kelompok karakter peserta.<br />
+
+4. **Item Response Theory (IRT)**
+
+Nilai tidak hanya melihat jumlah jawaban benar, tetapi juga mempertimbangkan tingkat kesulitan soal.
+
+> Contoh:
+>
+> - Soal mudah dijawab benar oleh banyak peserta.
+> - Soal sulit hanya dijawab benar oleh sedikit peserta.
+> - Peserta yang mampu menjawab soal sulit dapat memperoleh nilai kemampuan yang lebih tinggi.
+
+Metode ini cocok untuk ujian berskala besar atau analisis kemampuan peserta yang lebih mendalam.
+
+<Tip>
+  Untuk tryout SNBT sederhana, pilih **Perhitungan Skor Soal (Akumulasi Benar/Salah)**.
+</Tip>
 
 # 3. Buka Tes Ujian yang Sudah Dibuat
 
