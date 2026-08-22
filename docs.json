@@ -14,8 +14,8 @@
         "tab": "Panduan Penggunaan",
         "pages": [
           "index",
-          "mulai-cepat/membuat-ujian-pertama-anda-dalam-5-menit",
-          "glosarium",
+          "membuat-ujian-pertama-anda-dalam-5-menit",
+          "glosarium-cbt-indolat",
           {
             "group": "Data Ujian",
             "pages": [
@@ -44,11 +44,11 @@
           {
             "group": "Lainnya",
             "pages": [
-              "lainnya/transaksi-dan-penarikan-saldo",
-              "lainnya/manajemen-akses-admin",
               "lainnya/login-peserta",
               "lainnya/kustomisasi-tampilan-website",
-              "lainnya/sertifikat-ujian"
+              "lainnya/transaksi-dan-penarikan-saldo",
+              "lainnya/sertifikat-ujian",
+              "lainnya/manajemen-akses-admin"
             ]
           }
         ]
