@@ -37,7 +37,7 @@ Menampilkan kondisi pembayaran peserta.
 
 Contoh pada halaman: `Sukses (Verifikasi Manual)`
 
-Artinya, pembayaran peserta sudah dinyatakan berhasil melalui proses verifikasi.
+Artinya, transaksi ditandai lunas secara manual oleh admin melalui tombol **Tandai Lunas** (tersedia pada transaksi berstatus **Pending**). Akses ujian peserta diaktifkan, tetapi saldo lembaga tidak bertambah. Pembayaran yang berhasil melalui sistem pembayaran ditampilkan dengan status `Sukses`.
 
 Di bawah status juga ditampilkan nama ujian yang dibayar.
 
@@ -69,27 +69,27 @@ Contoh:
 </Frame>
 
 <Info>
-  Pada bagian bawah halaman tersedia rangkuman nilai transaksi.
+  Pada bagian bawah tabel tersedia **Rangkuman** untuk kolom **Total Pembayaran**. Nilai **Total Dibayar** hanya menjumlahkan transaksi yang sudah lunas, yaitu yang berstatus **Sukses** atau **Sukses (Verifikasi Manual)**. Transaksi berstatus **Pending**, **Gagal**, dan **Kedaluwarsa** tidak ikut dijumlahkan.
 
-  - **Halaman ini** menunjukkan total pembayaran dari data yang sedang tampil pada halaman.
-  - **Semua transaksi** menunjukkan total pembayaran dari seluruh transaksi yang tercatat, termasuk data pada halaman lainnya.
+  - **Halaman ini** menunjukkan **Total Dibayar** dari transaksi yang sedang tampil pada halaman. Baris ini hanya muncul jika data terbagi ke lebih dari satu halaman.
+  - **Semua transaksi** menunjukkan **Total Dibayar** dari seluruh transaksi yang sesuai dengan filter dan pencarian yang sedang aktif, termasuk data pada halaman lainnya.
 
   💡 **Contoh:**
 
-  Pada halaman tampil 10 peserta, masing-masing melakukan pembayaran **Rp50.000**.
+  Pada halaman tampil 10 transaksi berstatus **Sukses**, masing-masing sebesar **Rp50.000**.
 
-  Maka total pada **Halaman ini** adalah:
+  Maka **Total Dibayar** pada **Halaman ini** adalah:
 
   > **Rp500.000**
 
-  Sedangkan jika seluruh transaksi yang tercatat berjumlah lebih banyak, bagian **Semua transaksi** akan menampilkan jumlah keseluruhannya.
+  Sedangkan **Semua transaksi** menampilkan jumlah seluruh transaksi yang sudah lunas, termasuk yang tampil di halaman lain.
 </Info>
 
 Gunakan menu **Riwayat Transaksi** untuk memeriksa pembayaran yang masuk. Untuk mencairkan dana yang sudah dapat ditarik, lanjutkan melalui menu **Penarikan Saldo**.
 
 ## 2. Mengisi Data Rekening untuk Proses Penarikan Saldo
 
-Sebelum melakukan penarikan saldo untuk pertama kali, admin perlu melengkapi **Informasi Rekening**.
+Sebelum melakukan penarikan saldo untuk pertama kali, pemilik projek perlu melengkapi **Informasi Rekening** pada profil akunnya. Saldo selalu ditarik ke rekening pemilik projek; jika Anda anggota **Tim Admin**, minta pemilik projek untuk mengisinya.
 
 <Warning>
   Apabila informasi data rekening belum diisikan, penarikan saldo **tidak dapat dilakukan**.
@@ -107,15 +107,15 @@ Sebelum melakukan penarikan saldo untuk pertama kali, admin perlu melengkapi **I
       ![Nama akun di pojok kiri bawah panel admin](/images/2026-08-10_20-31.png)
     </Frame>
 
-    Sistem akan menampilkan menu:
+    Sistem akan menampilkan menu akun, antara lain:
 
     - Profil
-    - Promo & Update
     - Changelog
+    - pilihan bahasa (misalnya Bahasa Indonesia)
     - Keluar
 
     <Frame>
-      ![Menu akun berisi Profil, Promo & Update, Changelog, dan Keluar](/images/2026-08-10_20-31_1.png)
+      ![Menu akun yang terbuka di pojok kiri bawah](/images/2026-08-10_20-31_1.png)
     </Frame>
   </Step>
   <Step title="Pilih Profil">
@@ -219,10 +219,10 @@ Setelah memilih **Buat Penarikan**, status awal menjadi **Pending**. Setelah pro
   <Step title="Periksa dan konfirmasi penarikan">
     Setelah klik **Selanjutnya**, sistem menampilkan kembali:
 
-    - jenis bank
-    - rekening tujuan
-    - nama pemilik rekening
-    - dan jumlah penarikan
+    - **Jenis Bank**
+    - **Rekening Tujuan**
+    - **Atas Nama**
+    - **Jumlah Penarikan**
 
     <Frame>
       ![Konfirmasi rekening tujuan dan jumlah penarikan](/images/2026-08-11_15-39.png)
@@ -262,6 +262,7 @@ Setelah memilih **Buat Penarikan**, status awal menjadi **Pending**. Setelah pro
       - Penarikan di luar jam tersebut akan diproses pada **hari kerja berikutnya**.
       - Penarikan ke bank selain **BNI** dikenakan biaya admin **Rp3.000**.
       - Minimal penarikan adalah **Rp10.000**.
+      - Penarikan baru tidak dapat dibuat selama masih ada penarikan berstatus **Pending**.
 
       💡 **Contoh biaya admin:**
 

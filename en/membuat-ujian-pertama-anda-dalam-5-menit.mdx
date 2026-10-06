@@ -187,11 +187,11 @@ Once the question package is created, the next step is to add questions to it.
         />
       </Frame>
       1. **Multiple Choice**<br />Participants choose the one correct answer.<br />Example: _The capital of Indonesia is ..._<br />A. Bandung<br />B. Jakarta<br />C. Surabaya
-      2. **Short Answer**<br />Participants type a short answer, either a number or text. You can set more than one answer that counts as correct.<br />Example: _The capital of Indonesia is ..._<br />Correct answers: **DKI Jakarta** or **Jakarta**
-      3. **Complex Multiple Response (True/False, Fact/Opinion, etc.)**<br />For each statement, participants choose one of two labels. The labels can be True/False, Fact/Opinion, Matches/Does Not Match, Agree/Disagree, Yes/No or any other labels you set.<br />Example:
+      2. **Short Answer**<br />Participants type a short answer, either a number or text. You can set more than one answer that counts as correct. Set the key in the **Answer Key** section that appears when you choose this type: **Answer Format** (**Text** or **Number**), **Main Answer Key** and **Other Accepted Answers**.<br />Example: _The capital of Indonesia is ..._<br />Correct answers: **DKI Jakarta** or **Jakarta**
+      3. **Complex Multiple Response (True/False, Fact/Opinion, etc.)**<br />For each statement, participants choose one of two labels. The labels can be True/False, Fact/Opinion, Matches/Does Not Match, Agree/Disagree, Yes/No or any other labels you set. Choose them in **Label Pair** under **Statement Column Labels**; choose **Other labels (type your own)** to write your own.<br />Example:
          - The sun rises in the east — **True**
          - Water freezes at 100°C — **False**
-      4. **Matching (Drag & Drop)**<br />Participants pair up the options that belong together.<br />Example:
+      4. **Matching (Drag & Drop)**<br />Participants pair up the options that belong together. Fill in the pairs in the **Matching Pairs** section (**Statement (Left)** and **Answer (Right)**); the right-hand side is shuffled during the exam.<br />Example:
          - Indonesia → Jakarta
          - Japan → Tokyo
     - **Question Group**: groups several questions that share the same material or topic.
@@ -208,7 +208,8 @@ Once the question package is created, the next step is to add questions to it.
       - Question 2: Who are the characters in the text?
       - Question 3: What is the conclusion of the text?
       > If each question stands on its own and doesn't use shared material, you can leave **Question Group** empty.
-    - **More Than One Answer**: use this when a question has more than one correct answer.
+    - **Passages**: choose a shared reading text to show next to the question. The list of passages comes from the **Passages** tab of the question package (see the **Create Passages (Shared Reading Texts)** section on the [Create a Question Package](/en/paket-soal/membuat-paket-soal) page). Leave it empty if the question doesn't use a reading text.
+    - **More Than One Answer**: use this when a question has more than one correct answer. This setting only appears for **Multiple Choice** questions.
       <Frame>
         <img
           src="/images/image-23.png"
@@ -257,7 +258,7 @@ Once the question package is created, the next step is to add questions to it.
 
     > A shop gives a 20% discount on a bag. After the discount, the bag costs Rp240,000. The price of the bag before the discount is ....
 
-    Use the buttons at the top of the field to format text, create lists, add tables or write maths formulas.
+    Use the buttons at the top of the field to format text, create lists, add tables or write maths formulas. The question text can be up to 5,000 characters.
 
     <Tip>
       LaTeX is used to write maths formulas so they display neatly. To use it:
@@ -292,7 +293,7 @@ Once the question package is created, the next step is to add questions to it.
     Fill in each answer option as follows:
 
     1. **Answer Media**: Choose the form of the answer, for example text, image or audio.
-    2. **Answer Key**: Turn this on only for the correct option.<br />For example, if the correct answer is **Rp300,000**, turn on **Answer Key** only for that option. Leave it off for the other options.
+    2. **Answer Key**: Turn this on only for the correct option. If **More Than One Answer** is on, turn it on for every correct option.<br />For example, if the correct answer is **Rp300,000**, turn on **Answer Key** only for that option. Leave it off for the other options.
        <Frame>
          <img
            src="/images/image-11.png"
@@ -301,10 +302,14 @@ Once the question package is created, the next step is to add questions to it.
            style={{ width:"52%" }}
          />
        </Frame>
-    3. **Answer Score**: Enter the score for that option.<br />For a regular multiple-choice question, a wrong answer can be given a score of **0**.
-    4. **Answer Group**: Used only for psychometric tests. If you don't use it, you can leave this empty.
+    3. **Answer Score**: Enter the score for that option. This field is only used by the **Answer Score Calculation (Sum of Answer Scores)** scoring method.<br />For example, a wrong answer can be given a score of **0**.
+    4. **Answer Group**: Used only by the **Psychometric (Answer Grouping)** scoring method. If you don't use it, you can leave this empty.
     5. **Answer Text**: Write the answer option participants will see.
     6. **Add Answer**: Click **Add Answer** to create the next answer option.
+
+    <Note>
+      The **Answer** tab only appears for **Multiple Choice** and **Complex Multiple Response** questions. For **Complex Multiple Response**, each answer holds one statement, and the **Answer Key** toggle is replaced by a **Correct Answer** field where you choose the right label. The key for **Short Answer** and the pairs for **Matching** are filled in on the **Question** tab.
+    </Note>
 
     Repeat these steps until all the questions and answers have been added.
 
@@ -367,7 +372,7 @@ Once the questions and answers are created, the next step is to prepare the exam
     3. **Start Date**<br />Set the date and time the exam starts.
     4. **End Date**<br />Set the date and time the exam ends.
     5. **Exam Description**<br />Give a short description of the exam's purpose or content.<br />Example: _A tryout with a set of Mathematics questions to help participants prepare for SNBT 2027._
-    6. **Exam Image/Cover**<br />Upload an image to use as the exam cover. This helps participants recognise the exam.
+    6. **Exam Image/Cover**<br />Upload an image to use as the exam cover (PNG format, up to 1 MB). This helps participants recognise the exam.
     7. **Exam Type**<br />Choose the exam type you need. This example uses **Standard Exam (Free Plan)**. Check the limits the system shows before you continue.
        <Frame>
          ![Exam Type options](/images/tipe-ujian.png)
@@ -389,31 +394,42 @@ Once the questions and answers are created, the next step is to prepare the exam
       ![Standard Exam and Professional Exam options](/images/image-30.png)
     </Frame>
 
-    **A. Standard — Free**
+    Exam credits are consumed when a participant takes an exam.
+
+    **A. Standard Exam (Free Plan)**
 
     Suitable for simple exams or regular practice.
 
-    **Main features:**
+    **Main terms:**
 
-    1. Up to 50 participants per exam
-    2. Up to 4 tests per exam
+    1. Credits are reset automatically every month.
+    2. Up to **4 Tests (Subtests)** per exam.
+    3. Up to **50 participants taking the exam at once** (at the same time).
+    4. Camera, screen and dual monitor proctoring is not available.
+    5. **Computer Adaptive Test (CAT)** is not available.
 
-    **B. Professional — Rp500 per Exam Credit**
+    **B. Professional Exam (Paid Plan) — Rp500 per Exam Credit**
 
     Suitable for exams with more participants and more complete requirements.
 
-    **Main features:**
+    **Main terms:**
 
-    1. Supports both **CBT** and **CAT**.
-    2. Scoring methods: standard scoring and IRT.
-    3. Up to **1,000 participants** per exam.
-    4. Up to **30 tests** per exam.
-    5. Supports tab switch detection and dual-monitor detection; camera and screen proctoring are available as add-ons.
+    1. Credits are reset every month according to your subscription period.
+    2. Up to **30 Tests (Subtests)** per exam.
+    3. Up to **1,000 participants taking the exam at once**.
+    4. Camera, screen and dual monitor proctoring is available.
+    5. **Computer Adaptive Test (CAT)** is available.
+
+    With either exam type, CBT tests can use every scoring method, including IRT, and the **Tab Switch Detection** setting is still available.
+
+    <Warning>
+      If you choose **Professional Exam (Paid Plan)** but have no professional exam credits, the system shows a warning and participants can't start the exam until credits are available.
+    </Warning>
 
     <Tip>
-      Choose **Standard** if the exam is simple, has no more than 50 participants and no more than 4 tests.
+      Choose **Standard Exam (Free Plan)** if the exam is simple, needs no more than 4 tests and no more than 50 participants take it at the same time.
 
-      Choose **Professional** if you have more participants or tests, or you need CAT and more complete proctoring.
+      Choose **Professional Exam (Paid Plan)** if you need more tests or more participants at once, CAT, or camera, screen and dual monitor proctoring.
     </Tip>
   </Step>
   <Step title="Open the Registration & Payment section">
@@ -423,7 +439,7 @@ Once the questions and answers are created, the next step is to prepare the exam
 
     Once the exam is created, the system shows extra sections such as **Registration & Payment**. Here you decide whether participants can register themselves and whether the exam is free or paid.
 
-    1. **Is Exam Registration Open?**<br />When this is on, participants can register for the exam themselves. This setting needs the **Exam Registration Page** add-on. If the add-on isn't active, the setting's label shows **(Add-on Inactive)** and the setting can't be turned on.
+    1. **Is Exam Registration Open?**<br />When this is on, participants can register for the exam themselves. This setting needs the **Exam Registration Page and Automatic Payment** add-on. If the add-on isn't active, the setting's label shows **(Add-on Inactive)** and the setting can't be turned on.
     2. **Payment Type**<br />Choose **Free** if participants don't need to pay. If the exam is paid, choose the matching payment type.
 
        <Frame>
@@ -469,8 +485,8 @@ Once the questions and answers are created, the next step is to prepare the exam
          >
          > Participants pay the fee for the next round **only if they qualify**.
     3. **One-time Exam Fee (IDR)**<br />The fee participants pay to take the exam. This field appears when the **One-time Payment** payment type is selected.
-    4. **Assign the Session Automatically After Registration**<br />Turn this on if participants who register successfully should be put into an exam session automatically. For paid exams, this setting is called **Assign the Session Automatically After Payment**.
-    5. When you're done, click **Save**.
+    4. **Assign the Session Automatically After Registration**<br />Turn this on if participants who register successfully should be put into an exam session automatically. If the **Payment Type** is **One-time Payment** or **Paid per Test**, this setting is called **Assign the Session Automatically After Payment**.
+    5. When you're done, click **Save changes**.
   </Step>
   <Step title="Open the Exam Settings section">
     <Frame>
@@ -486,16 +502,23 @@ Once the questions and answers are created, the next step is to prepare the exam
     3. **Must the Tests Be Taken in One Sitting?**
        - Turn this on if participants must finish all the tests without stopping or taking a break.
        - If it's off, participants can leave and continue with the next test later, according to the schedule.
-    4. **Show the Final Exam Score?**
+    4. **Final Score Type**<br />Choose how a participant's final score is derived from the scores of every test:
+       - **Accumulated Exam Test Scores**: adds up the score of each test.
+       - **Averaged Exam Test Scores**: divides the total by the number of tests already scored. This option is used by default.
+    5. **Show the Final Exam Score?**
        - Turn this on if participants may see their score after finishing the exam.
        - Turn it off if the scores still need checking or will be announced later.
+
+    The **Must the Tests Be Taken in Order?** and **Must the Tests Be Taken in One Sitting?** settings only appear when the exam isn't a multi-level exam. In a multi-level exam, you set both of them for each exam level.
   </Step>
   <Step title="Save the Exam">
     <Frame>
       ![Save button on the exam details](/images/simpan-data-ujiannn-1.png)
     </Frame>
 
-    Once you've checked all the settings in **General Information**, **Exam Type & Plan**, **Registration & Payment** and **Exam Settings**, click **Save**.
+    Once you've checked all the settings in **General Information**, **Exam Type & Plan**, **Registration & Payment** and **Exam Settings**, click **Save changes**.
+
+    The **Additional Information** section is optional. Use it if you want to show exam-specific information, such as a WhatsApp group link, on the dashboard of participants who have registered.
 
     If the **Saved** notification appears, your exam settings have been saved.
   </Step>
@@ -539,7 +562,7 @@ Once the questions and answers are created, the next step is to prepare the exam
          > Example:<br />A participant sees the question: 10 × 5 = ...
          >
          > Then selects the answer **50** on screen.
-      2. **Computer Adaptive Test (CAT)**<br />The next question adapts to the participant's ability.
+      2. **Computer Adaptive Test (CAT)**<br />The next question adapts to the participant's ability. You can only choose this option for a **Professional Exam (Paid Plan)**.
          > Example:<br />A participant answers the first question correctly. The system then gives a slightly harder question. If the participant answers incorrectly, the system can give an easier or similar question.<br />**CAT is like an exam that “follows the participant's ability”. The more correct answers, the harder the next questions can get.**
       3. **Essay / File Upload (Manual Grading)**<br />Participants don't choose an answer as they would in a multiple-choice question. They write a long answer or upload a file.
          > Examples:
@@ -550,7 +573,7 @@ Once the questions and answers are created, the next step is to prepare the exam
       <Tip>
         For a regular SNBT tryout, choose **Computer Based Test (CBT)**.
       </Tip>
-    - **Scoring Method**: Decide how the system calculates participants' scores.
+    - **Scoring Method**: Decide how the system calculates participants' scores. Every method below is available for **Computer Based Test (CBT)**. A **Computer Adaptive Test (CAT)** test can only use **Question Score Calculation (Sum of Correct/Wrong)**, and an **Essay / File Upload (Manual Grading)** test uses **Manual Scoring**.
       <Frame>
         ![Scoring Method options](/images/Metode-Penilaian.png)
       </Frame>
@@ -601,7 +624,7 @@ Once the questions and answers are created, the next step is to prepare the exam
         For a simple SNBT tryout, choose **Question Score Calculation (Sum of Correct/Wrong)**.
       </Tip>
     - **Test Name**: Enter a test name that's easy to recognise.<br />Example: **Mathematical Reasoning**.
-    - **Working Time (minutes)**: Enter how long participants have, in minutes.<br />Example: **60 minutes**.
+    - **Working Time (minutes)**: Enter how long participants have, in minutes.<br />Example: **60 minutes**. This field doesn't appear for an **Essay / File Upload (Manual Grading)** test.
     - **Test Instructions**: Write the instructions participants read before they start.
 
     In the instructions, you can use these placeholders:
@@ -609,6 +632,8 @@ Once the questions and answers are created, the next step is to prepare the exam
     - `{{NAMA_TES}}` to show the test name.
     - `{{JUMLAH_SOAL}}` to show the number of questions.
     - `{{DURASI_TES}}` to show the working time.
+
+    Once everything is filled in, click **Create**. Choose **Create & create another** if you want to add the next test straight away.
   </Step>
   <Step title="Open the Test You Created">
     <Frame>
@@ -627,10 +652,10 @@ Once the questions and answers are created, the next step is to prepare the exam
     Open the **Score & Results** section, then decide what participants may see after finishing the test.
 
     1. **Show Score**<br />Turn this on if participants may see their score as soon as they finish.
-    2. **Show the Test Explanation (PDF)**<br />Turn this on if you want to share one PDF file with explanations for all the questions.
-    3. **Show Summary**<br />Turn this on if participants may see how many answers they got right and wrong.
-    4. **Show the Explanation per Question**<br />Turn this on if participants may see the explanation for each question. Make sure the explanation has been filled in for each question in the question package.
-    5. **Save**<br />When you're done, click **Save**.
+    2. **Show Summary**<br />Turn this on if participants may see how many answers they got right and wrong.
+    3. **Show the Test Explanation (PDF)**<br />Turn this on if you want to share one PDF file with explanations for all the questions. Once it's on, upload the file in the **Test Explanation File (PDF)** field.
+    4. **Show the Explanation per Question**<br />Turn this on if participants may see the explanation for each question. Make sure the explanation has been filled in for each question in the question package. This setting can't be on at the same time as **Show the Test Explanation (PDF)**.
+    5. **Save changes**<br />When you're done, click **Save changes**.
 
     <Tip>
       For a tryout where participants should see their results straight away, turn on **Show Score**.
@@ -644,16 +669,16 @@ Once the questions and answers are created, the next step is to prepare the exam
     In the **Proctoring** section, you decide how the system monitors participants during the exam.
 
     1. **Camera Proctoring**<br />Turn this on if participants must keep their camera on while taking the exam.<br />Example: so proctors can make sure participants are doing the exam themselves.
-    2. **Tab Switch Detection**<br />Turn this on if the system should record when participants open another tab or page during the exam.<br />Example: a participant switches from the exam page to a search engine.
-    3. **Screen Proctoring (Screen Share)**<br />Turn this on if participants must share their screen during the exam.<br />Example: proctors can see which apps or pages participants have open.
-    4. **Allow Only One Screen**<br />Turn this on if participants may only use one monitor.<br />This setting suits paid exams or exams that need stricter proctoring.
+    2. **Screen Proctoring (Screen Share)**<br />Turn this on if participants must share their screen during the exam.<br />Example: proctors can see which apps or pages participants have open.
+    3. **Tab Switch Detection**<br />Turn this on if the system should record when participants open another tab or page during the exam.<br />Example: a participant switches from the exam page to a search engine.
+    4. **Allow Only One Screen**<br />Turn this on if participants may only use one monitor.<br />This setting suits exams that need stricter proctoring.
     5. **Play the Audio Question Once**<br />Turn this on if the audio in a question may only be played once.<br />Example: English listening questions.
     6. **Play the Audio Answer Once**<br />Turn this on if the audio in the answer options may only be played once.
 
-    When you're done, click **Save**.
+    When you're done, click **Save changes**.
 
     <Note>
-      The note **(Feature inactive)** means the feature isn't available for the exam type you are using, for example **Standard Exam (Free Plan)**.
+      The note **(Feature inactive)** means the feature isn't available for the exam type you are using. For a **Standard Exam (Free Plan)**, it appears on **Camera Proctoring**, **Screen Proctoring (Screen Share)** and **Allow Only One Screen**.
 
       <Frame>
         ![Feature inactive notes in the Proctoring settings](/images/fitur-standar.png)
@@ -704,7 +729,7 @@ Once the questions and answers are created, the next step is to prepare the exam
 
 ## 4. (Optional) Create Registration Form Rules
 
-Registration form rules can only be added to a **Professional Exam (Paid Plan)**.
+You can add registration form rules to both a **Standard Exam (Free Plan)** and a **Professional Exam (Paid Plan)**, as long as the **Exam Registration Page and Automatic Payment** add-on is active. If the add-on isn't active, the **Registration Form** section shows the **Enable the Registration Form Add-on** button instead of **Add Registration Form**.
 
 <Steps>
   <Step title="Click Add Registration Form">
@@ -719,7 +744,7 @@ Registration form rules can only be added to a **Professional Exam (Paid Plan)**
       ![Registration question rule form](/images/2026-07-23_19-56.png)
     </Frame>
 
-    1. **Question Template (Optional)**: Choose a template if you want to use a ready-made question.<br />Example: **Payment Method**.<br />If you don't use a template, you can leave this empty.
+    1. **Question Template (Optional)**: Choose a template if you want to use a ready-made question.<br />Example: **Payment Method** (only available when the **Payment Type** is **One-time Payment**).<br />If you don't use a template, you can leave this empty.
     2. **Is it always shown on the registration form?**<br />Choose **Yes, always shown** if the question must always appear on the registration form.<br />Choose **Show it under certain conditions** if the question should only appear in certain situations.
     3. **Is It Required?**<br />Turn this on if participants can't continue registering until they answer the question.
     4. **Question Label**<br />Write the name of the information you are asking participants for.<br />Example: **School**, **WhatsApp Number** or **Full Name**.
@@ -742,7 +767,7 @@ Registration form rules can only be added to a **Professional Exam (Paid Plan)**
     The form rule is saved.
 
     <Tip>
-      If your exam type is **Standard Exam (Free Plan)**, you **may** skip this registration form step.
+      You **may** skip this registration form step for any exam type. If the exam has a registration form, participants who register themselves get the **Awaiting Verification** status until an admin verifies them, unless you turn off **Does the Registration Form Need Verification?** under the settings (cog) icon in the **Registration Form** section. Without a registration form, participants are registered straight away without verification.
     </Tip>
   </Step>
 </Steps>
@@ -798,7 +823,7 @@ There are two ways to add participants:
   Every exam participant, whether they registered themselves or were added by an admin, **must be connected to an exam session** before they can start answering questions.
 </Warning>
 
-This is what participants see when they haven't been connected to an exam session yet.
+On the participant's side, a test that has no exam session yet shows a **Locked** button, so it can't be taken yet. If the participant's registration is still awaiting admin verification, the exam shows a **Verification in Progress** button, as in the example below.
 
 <Frame>
   ![Verification in Progress status on the participant's exam list](/images/verifikasi.png)
@@ -821,8 +846,8 @@ This is what participants see when they haven't been connected to an exam sessio
 
         Here you set the name and web address of the CBT system that participants will open.
 
-        1. **CBT System Name**<br />Enter the system name participants will see.<br />Example: **Try Out Indolat**.
-        2. **CBT System Code**<br />Enter a short code that becomes your CBT system's address.<br />Example: **tryout-lembaga-indolat**.
+        1. **CBT System Name**<br />Enter the system name participants will see. Enter just the institution name, without the word **CBT**, because the system adds it automatically.<br />Example: **Try Out Indolat** appears as **CBT Try Out Indolat** in the participant app.
+        2. **CBT System Code**<br />Enter a short code that becomes your CBT system's address. It must be at least 4 characters long and contain only lowercase letters, numbers or hyphens (-).<br />Example: **tryout-lembaga-indolat**.
            <Info>
              Once the code is filled in, the system creates a login link such as `https://tryout-lembaga-indolat.indolat.web.id/auth/login`. This is the link **you share with participants** so they can open the login page.
            </Info>
@@ -846,12 +871,13 @@ This is what participants see when they haven't been connected to an exam sessio
         1. You can share the link with exam participants through WhatsApp groups or your social media.
         2. Once the CBT system link is shared, participants can open it in a browser, for example `https://tryout-lembaga-indolat.indolat.web.id/auth/login`.
         3. On this page, participants have two ways to log in:
-           1. Click **Continue with Google** to use a Google or Gmail account.
+           1. Click **Continue with Google** to use a Google or Gmail account. This button only appears if **Authenticate with Google** is turned on.
            2. Enter their **Email Address** and **Password**, then click **Login** if they already have an account.
         4. If participants don't have an account yet, they click **Register** at the bottom of the page.
+        5. Once logged in, participants register for the exam with the **New Exam Registration** button.
 
         <Note>
-          The **Register** button only appears if the admin has turned on **Allow self-service account registration**.
+          The **Register** button only appears if the admin has turned on **Allow self-service account registration**. An exam only appears under **New Exam Registration** if **Is Exam Registration Open?** is turned on in the **Registration & Payment** section and the exam is between its **Start Date** and **End Date**.
         </Note>
       </Step>
       <Step title="Connect Participants to an Exam Session">
@@ -862,10 +888,10 @@ This is what participants see when they haven't been connected to an exam sessio
           ![Verify Participant button in the Exam Participant List](/images/veri.png)
         </Frame>
 
-        In the **Exam Participant List** section, click **Verify Participant** for participants with the **Awaiting Verification** status.
+        In the **Exam Participant List** section, click **Verify Participant** for participants with the **Awaiting Verification** status, then click **Verify** in the window that opens.
 
         <Warning>
-          For participants who **registered themselves**, you, as the exam organiser's admin, **must** verify them to confirm they are allowed to take the exam.
+          Participants who **registered themselves** through a registration form get the **Awaiting Verification** status while **Does the Registration Form Need Verification?** is on (the default). You, as the exam organiser's admin, **must** verify them to confirm they are allowed to take the exam. Until they are verified, they can't take the exam.
         </Warning>
       </Step>
     </Steps>
@@ -913,7 +939,7 @@ This is what participants see when they haven't been connected to an exam sessio
       </Step>
       <Step title="Enter Participant Data in the Import Template">
         <Frame>
-          ![Participant import template with Name, Email Address and Password columns](/images/template-impor.png)
+          ![Participant import template with Name, Email Address, Password and Label columns](/images/template-impor.png)
         </Frame>
 
         1. **Name**: Enter the name of the participant taking the exam.
@@ -951,7 +977,7 @@ This is what participants see when they haven't been connected to an exam sessio
 
         1. Make sure the file name is shown along with the note **Upload complete**.
         2. Click **Import**.
-        3. The system creates the participant accounts and adds them to the **Exam Participant List**.
+        3. The system creates the participant accounts and adds them to the **Exam Participant List**. The import runs in the background, and you get a notification when it's finished.
 
         <Frame>
           ![Imported participants in the Exam Participant List](/images/berhasil-impor.png)
@@ -998,7 +1024,7 @@ This is what participants see when they haven't been connected to an exam sessio
     💡 You can assign exam sessions to participants one at a time or in bulk.
 
     <Frame>
-      ![Participants selected and the bulk actions menu opened](/images/kolektif.png)
+      ![Participants without a session ticked and the Bulk actions button](/images/kolektif.png)
     </Frame>
 
     <Frame>
@@ -1007,8 +1033,8 @@ This is what participants see when they haven't been connected to an exam sessio
 
     1. Tick the participants who still show **No exam sessions**.<br />To select every participant, click **Select all**.
     2. Click **Bulk actions**, then choose **Assign Exam Sessions in Bulk**.
-    3. Choose the session participants will take, for example **Morning Session**.
-    4. Save your changes.
+    3. In the **Select an Exam Session** field, choose the session participants will take, for example **Morning Session**.
+    4. Click **Assign Exam Sessions in Bulk** to save your changes.
   </Step>
   <Step title="Participants Are Ready to Take the Exam">
     Once participants are assigned to a session, they can start the exam according to the session's schedule.
@@ -1044,11 +1070,10 @@ Open the **Test History** menu.
   ![Test History page](/images/riwayat-tes-ujian.png)
 </Frame>
 
-On that page, you can see:
+This page lists the tests participants have finished. On that page, you can see:
 
-- participants' scores,
-- how long they took,
-- whether they completed the exam,
+- participants' scores (**Test Score**),
+- when they started and finished,
 - and the answers each participant chose, by clicking **View**.
   <Frame>
     <img
@@ -1090,6 +1115,10 @@ Once all participants have finished:
 3. Click **Calculate Score** → **IRT Calculation**, then confirm.
 4. Wait until the calculation is finished. The system sends a notification when it's done.
 
+<Note>
+  You can only click **IRT Calculation** once at least one participant has finished a test, nobody is still taking it and no other IRT calculation is running. This option isn't available for multi-level exams.
+</Note>
+
 <Tip>
   If you don't use an IRT scoring method, you can skip this step.
 </Tip>
@@ -1110,7 +1139,8 @@ Once the exam is over, you can save participants' results as an Excel file.
 
     1. Choose the exam whose results you want to export.
     2. Click **Details**.
-    3. In the top-right corner, click **Export Data**, then choose **Test Results**.
+    3. In the top-right corner, click **Export Data**, then choose **Test Results** and confirm.
+    4. The system prepares the Excel file in the background and sends a notification when it's ready.
   </Step>
   <Step title="Open the Download Export Results menu">
     <Frame>
@@ -1126,7 +1156,7 @@ Once the exam is over, you can save participants' results as an Excel file.
       />
     </Frame>
 
-    Once you've reviewed the exam results, you can download the report as an Excel file by clicking **Download File** next to the export. You can use the downloaded file to:
+    Once the file is ready, open the **Download Export Results** menu, then click **Download File** next to the export to download the report as an Excel file. You can use the downloaded file to:
 
     - compile a score summary,
     - keep an archive of the exam,

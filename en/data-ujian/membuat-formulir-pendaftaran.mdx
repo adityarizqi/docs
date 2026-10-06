@@ -32,11 +32,17 @@ With a registration form, you can collect all of this neatly before participants
     </Frame>
 
     If you skipped this, follow the guide [Create an Exam](/en/data-ujian/membuat-ujian).
+
+    The **Payment Method** question template can only be chosen when **Payment Type** is set to **One-time Payment**.
   </Step>
   <Step title="Open Registration Form and click Add Registration Form">
     <Frame>
       ![Add Registration Form button in the Registration Form section](/images/2026-07-20_22-52.png)
     </Frame>
+
+    <Note>
+      The **Add Registration Form** and **Voucher Code** buttons and the ⚙️ icon only appear when the **Exam Registration Page and Automatic Payment** add-on is active. If it isn't, this section shows an **Enable the Registration Form Add-on** button instead.
+    </Note>
 
     Here you create the questions that will appear on the participant registration page. Think of this form as the **sign-up sheet participants fill in at an event**.
 
@@ -58,7 +64,7 @@ When you create the form, you decide what information to collect from participan
       ![Payment Method question template in the Add Registration Form form](/images/2026-07-23_19-52.png)
     </Frame>
 
-    1. **Question Template**<br />If you want to build a payment form quickly without setting up every part by hand, and you don't need any extra data from participants, use the **Payment Method** question template.
+    1. **Question Template (Optional)**<br />If you want to build a payment form quickly without setting up every part by hand, and you don't need any extra data from participants, use the **Payment Method** question template.
 
        Here's how that form looks to participants:
 
@@ -80,7 +86,7 @@ When you create the form, you decide what information to collect from participan
 
         Here you are creating a question that participants answer when they register for the exam. Example: **Institution Branch**. The goal is for participants to choose one of the available branches: **Surabaya** or **Jakarta**.
 
-        1. **Question Template**<br />Leave it empty, because you are creating your own question. If you pick one of the templates from the list, the form settings fill in automatically and the **Question Label** and **Question Type** fields are hidden.
+        1. **Question Template (Optional)**<br />Leave it empty, because you are creating your own question. If you pick one of the templates from the list, the form settings fill in automatically and the **Question Label** and **Question Type** fields are hidden.
         2. **Is it always shown on the registration form?**<br />Choose **Yes, always shown** so every participant sees this question.
         3. **Is It Required?**<br />Switch it on so participants can't continue registering until they choose a branch.
         4. **Question Label**<br />Enter the question name participants will see.<br />Example: **Institution Branch**.
@@ -132,7 +138,7 @@ When you create the form, you decide what information to collect from participan
 
         Besides showing a question to every participant, you can also make a question **appear only when the participant chooses a particular answer**.
 
-        1. **Question Template**: choose **Payment Method**.
+        1. **Question Template (Optional)**: choose **Payment Method**.
         2. **Is it always shown on the registration form?**<br />Choose **Show it under certain conditions**.
         3. **Question Option** lists the questions you created earlier; the one you choose is what the condition is based on.
            <Frame>
@@ -274,7 +280,7 @@ Participants fill in the form first, then complete the payment before they can t
 
     On this page, the participant can see:
 
-    - Payment status
+    - Payment deadline
     - Payment method
     - Payment code
     - Total payment
@@ -402,22 +408,23 @@ Participants who enter that code when they register get the discount set in the 
            >
            > The participant gets Rp5,000 off
        </Info>
-    4. **Maximum Voucher Recipients**: Limits how many participants can use the voucher.
+    4. **Deduction Amount** or **Discount Percentage**: Enter how much to take off. The **Deduction Amount** field (in Rp) appears when you choose **Flat / Fixed Amount**; the **Discount Percentage** field (1–100%) appears when you choose **Percent**.
+    5. **Maximum Voucher Recipients**: Limits how many participants can use the voucher.
 
        Example: the voucher is only for the first 100 participants.
 
        <Tip>
          If **Maximum Voucher Recipients** is left empty, any number of participants can use the voucher.
        </Tip>
-    5. **Active From** and **Active Until**: Set the period when the voucher can be used.
+    6. **Active From** and **Active Until**: Set the period when the voucher can be used.
 
        Example: the voucher is valid from 22 July 2026 to 31 July 2026.
 
        Outside that period, the voucher can't be used.
-    6. **Voucher Notes**: Add a note to help admins recognise what the voucher is for.
+    7. **Voucher Notes**: Add a note to help admins recognise what the voucher is for.
 
        Example: Indolat referral voucher.
-    7. When everything is filled in, click **Save Voucher**.
+    8. When everything is filled in, click **Save Voucher**.
 
     <Frame>
       ![The REFF-INDOLAT voucher saved in the Registration Voucher Code list](/images/2026-07-22_21-30.png)
@@ -427,7 +434,7 @@ Participants who enter that code when they register get the discount set in the 
 
 ## 5. Participants Use a Voucher for Payment
 
-Once the voucher has been created, participants see a **Coupon Code** field on the registration page.
+Once the voucher has been created, participants see a **Coupon Code** field on the registration page, as long as the **Payment Method** question is shown on the form.
 
 <Steps>
   <Step title="Participant logs in to the CBT">
@@ -470,7 +477,7 @@ Once the voucher has been created, participants see a **Coupon Code** field on t
 
     After using the voucher:
 
-    > Coupon discount: Rp5,000<br />Total payment: Rp45,000
+    > Coupon discount: Rp5,000<br />Payment total: Rp45,000
 
     If the code is wrong or no longer valid, the system doesn't apply a discount.
   </Step>
@@ -507,12 +514,12 @@ In short:
         2. Choose the exam that has a registration form.
         3. Then click **Details**.
       </Step>
-      <Step title="Make sure the payment type and registration fee are set">
+      <Step title="Check the payment type and fee for a paid exam">
         <Frame>
           ![Payment Type and One-time Exam Fee on the Registration & Payment tab](/images/2026-07-20_23-05.png)
         </Frame>
 
-        If you skipped this, follow the guide [Create an Exam](/en/data-ujian/membuat-ujian).
+        If the exam is paid, make sure the payment type and registration fee are set. If you skipped this, follow the guide [Create an Exam](/en/data-ujian/membuat-ujian). For a free exam you can skip this step, because verification still applies as long as the exam has a registration form.
       </Step>
       <Step title="Click the ⚙️ icon in the Registration Form section">
         <Frame>
@@ -527,7 +534,7 @@ In short:
         Switch on **Does the Registration Form Need Verification?**, then click **Update Settings**.
       </Step>
       <Step title="Verify participants">
-        You need to **verify participants** whenever a participant has completed the registration form payment.
+        You need to **verify participants** whenever a participant has submitted the registration form (and, for a paid exam, completed the payment).
 
         <Frame>
           ![Participant with Awaiting Verification status in the Exam Participant List](/images/2026-07-22_22-30-1.png)

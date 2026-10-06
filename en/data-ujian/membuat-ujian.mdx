@@ -73,6 +73,8 @@ The exam is where you set the name and schedule, add tests, decide how participa
         <Note>
           You still need to set up **exam sessions** and link each test to a **question package**.
 
+          An exam created from a template is a **Professional Exam (Paid Plan)**. You can change this in the **Exam Type & Plan** section.
+
           In short, a template only helps you **get started faster**. The system prepares the framework; you fill in the content.
         </Note>
       </Step>
@@ -99,7 +101,7 @@ The exam is where you set the name and schedule, add tests, decide how participa
           ![General Information form for a new exam](/images/2026-07-19_18-05.png)
         </Frame>
 
-        Fill in the exam information according to your institution's policies.
+        Fill in the exam information according to your institution's policies, then click **Create**. The system opens the exam details page straight away.
       </Step>
     </Steps>
   </Accordion>
@@ -109,7 +111,7 @@ The exam is where you set the name and schedule, add tests, decide how participa
 
 <Steps>
   <Step title="Click Details">
-    On the **Exam Data** page, click **Details** on the exam you've just created.
+    On the **Exam Data** page, click **Details** on the exam you've just created. If you created the exam with **Add Exam**, the exam details page is already open after you click **Create**, so you can skip this step.
 
     <Frame>
       ![Details button on the Template Tryout SNBT exam](/images/detail-template.png)
@@ -127,8 +129,8 @@ The exam is where you set the name and schedule, add tests, decide how participa
     3. **Start Date**<br />Set the date and time the exam event starts.
     4. **End Date**<br />Set the date and time the exam event ends.
     5. **Exam Description**<br />Give a short explanation of the exam's purpose or content.<br />Example: _This template suits academic tryouts with several literacy and reasoning subtests, ready to adapt to your programme's needs._
-    6. **Exam Image/Cover**<br />Upload an image to use as the exam cover. It makes the exam easier for participants to recognise.
-    7. Once you've checked that all the information is correct, click **Save** to save the exam event.
+    6. **Exam Image/Cover**<br />Upload an image to use as the exam cover. It makes the exam easier for participants to recognise. The file must be a PNG of up to 1MB.
+    7. Once you've checked that all the information is correct, click **Save changes** to save the exam event.
   </Step>
 </Steps>
 
@@ -149,6 +151,7 @@ Once the exam has been created, the system shows several settings sections:
 2. **Exam Type & Plan**
 3. **Registration & Payment**
 4. **Exam Settings**
+5. **Additional Information**
 
 Let's go through them one by one.
 
@@ -169,7 +172,7 @@ Let's go through them one by one.
 
     > The SNBT Grand Tryout was originally scheduled for 20–25 July. If the schedule changes, you can update it in the General Information section.
 
-    After making changes, click **Save**.
+    After making changes, click **Save changes**.
   </Step>
   <Step title="Review Exam Type & Plan">
     <Frame>
@@ -180,7 +183,7 @@ Let's go through them one by one.
       />
     </Frame>
 
-    The **Exam Type & Plan** section shows the service type or plan the exam uses.
+    The **Exam Type & Plan** section shows the service type or plan the exam uses. Credits are consumed when a participant takes an exam.
 
     <Frame>
       ![Exam Type options: Standard Exam and Professional Exam](/images/image-30.png)
@@ -188,25 +191,32 @@ Let's go through them one by one.
 
     - **Standard Exam (Free Plan)**
 
-      Suitable for simple exams or regular practice. Main features:
+      Suitable for simple exams or regular practice. Its terms:
 
-      1. Up to 50 participants per exam.
-      2. Up to 4 tests per exam.
+      1. Credits are reset automatically every month.
+      2. Up to **4 Tests (Subtests)** per exam.
+      3. Up to **50 participants** taking the exam at once (participants working on the exam at the same time).
+      4. **Camera, Screen and Dual Monitor Proctoring** is not available.
+      5. **Computer Adaptive Test (CAT)** is not available.
 
     - **Professional Exam (Paid Plan)**: Rp500 per exam credit
 
-      Suitable for exams with more participants and more advanced needs. Main features:
+      Suitable for exams with more participants and more advanced needs. Its terms:
 
-      1. Supports both **CBT** and **CAT**.
-      2. Scoring methods: standard scoring and IRT.
-      3. Up to **1,000 participants** per exam.
-      4. Up to **30 tests** per exam.
-      5. Detects tab switching and the use of a second monitor. Camera and screen proctoring are available as add-ons.
+      1. Credits are reset every month according to your subscription period.
+      2. Up to **30 Tests (Subtests)** per exam.
+      3. Up to **1,000 participants** taking the exam at once.
+      4. **Camera, Screen and Dual Monitor Proctoring** is available. Camera and screen proctoring also use their own proctoring credits (an add-on).
+      5. **Computer Adaptive Test (CAT)** is available.
+
+      If you have no professional exam credits, the system shows a warning and participants can't start the exam until credits are available.
+
+    On both exam types, CBT tests can use every scoring method, including IRT, and **Tab Switch Detection** is still available.
 
     <Tip>
-      Choose the **Standard Exam** if the exam is simple, with no more than 50 participants and no more than 4 tests.
+      Choose the **Standard Exam** if the exam is simple, no more than 50 participants take it at the same time and it has no more than 4 tests.
 
-      Choose the **Professional Exam** if you have more participants or tests, or you need CAT and more complete proctoring.
+      Choose the **Professional Exam** if more participants take it at the same time or it has more tests, or you need CAT or camera, screen and dual monitor proctoring.
     </Tip>
   </Step>
   <Step title="Set up Registration & Payment">
@@ -216,8 +226,8 @@ Let's go through them one by one.
 
     In this section, you decide whether participants can register themselves and whether the exam is free or paid.
 
-    1. **Is Exam Registration Open?**<br />When this is on, participants can register for the exam themselves. This setting needs the **Exam Registration Page** add-on. If the add-on isn't active, the label shows "(Add-on Inactive)" and the toggle can't be turned on.
-    2. **Payment Type**<br />Choose **Free** if participants don't need to pay. If the exam is paid, choose the matching payment type.
+    1. **Is Exam Registration Open?**<br />When this is on, participants can register for the exam themselves. This setting needs the **Exam Registration Page and Automatic Payment** add-on. If the add-on isn't active, the label shows "(Add-on Inactive)" and the toggle can't be turned on.
+    2. **Payment Type**<br />Choose **Free** if participants don't need to pay. If the exam is paid, choose the matching payment type. Paid payment types need the same add-on; without it, a paid exam can't be saved.
 
     <Frame>
       <img
@@ -266,8 +276,8 @@ Let's go through them one by one.
       > Participants pay for the next round only if they pass.
 
     3. **One-time Exam Fee (IDR)**<br />The fee participants pay to take the exam. This field appears when you choose **One-time Payment**.
-    4. **Assign the Session Automatically After Registration**<br />Turn this on if you want participants who register successfully to be placed in an exam session automatically. With **One-time Payment** and **Paid per Test**, this setting is called **Assign the Session Automatically After Payment** and takes effect once the participant has paid.
-    5. When you've finished, click **Save**.
+    4. **Assign the Session Automatically After Registration**<br />Turn this on if you want participants who register successfully to be placed in an exam session automatically. With **One-time Payment** and **Paid per Test**, this setting is called **Assign the Session Automatically After Payment** and takes effect once the participant has paid. With **Paid per Level (Multi-Level)**, this setting isn't shown. It also needs the **Exam Registration Page and Automatic Payment** add-on.
+    5. When you've finished, click **Save changes**.
 
     <Tip>
       If you **often forget** to put participants into exam sessions, we recommend turning on **Assign the Session Automatically After Registration**.
@@ -310,7 +320,18 @@ Let's go through them one by one.
 
        If it's off, participants can stop after finishing one test and come back for the next one while the schedule is still open.
 
-    4. **Show the Final Exam Score?**
+    4. **Final Score Type**
+
+       Choose how a participant's final score is derived from the scores of all the tests:
+
+       - **Accumulated Exam Test Scores**: the scores of each test are added up.
+       - **Averaged Exam Test Scores**: the total is divided by the number of tests already scored. This option is selected by default.
+
+       > Example: a participant scores 80 on the Mathematics Test and 70 on the Indonesian Language Test. With **Accumulated Exam Test Scores**, the final score is 150; with **Averaged Exam Test Scores**, it's 75.
+
+       If the exam already has participants, every participant's final score is recalculated once you save the change.
+
+    5. **Show the Final Exam Score?**
 
        Turn this on if participants may see their final result once they finish.
 
@@ -320,7 +341,16 @@ Let's go through them one by one.
 
        > Example: selection scores are checked first and announced by the committee the next day.
 
-    5. When you've finished, click **Save**.
+    6. When you've finished, click **Save changes**.
+  </Step>
+  <Step title="Set up Additional Information">
+    The **Additional Information** section is optional. Use it to show specific information on the dashboard of participants registered for this exam, such as a WhatsApp group link, technical guidance or the committee's contact details. Participants in other exams don't see it.
+
+    1. **Show Additional Information to Participants?**<br />Turn this on to show the additional information on participants' dashboards.
+    2. **Information Title**<br />Enter a title of up to 100 characters.<br />Example: **Join the Participants' WhatsApp Group**
+    3. **Information Content**<br />Enter the information itself, up to 1,000 characters.
+    4. **Button Label (Optional)** and **Button Link (Optional)**<br />Fill in both if you want to show a button, such as **Join Group**. Use a full link starting with `http://` or `https://`. The button only appears when both its label and link are filled in.
+    5. When you've finished, click **Save changes**.
   </Step>
 </Steps>
 

@@ -136,6 +136,8 @@ Tentukan cara sistem menghitung nilai peserta.
 
    Ketiga pilihan memakai perhitungan kemampuan (theta) yang sama; yang berbeda hanya rentang nilai laporannya. Rentang UTBK dan TKA tersebut adalah referensi skala, bukan hasil equating resmi.
 
+   Skor IRT dihitung setelah Anda menjalankan **Hitung Skor** → **Perhitungan IRT** pada halaman detail ujian. Menu ini tidak dapat digunakan pada ujian multi-level.
+
 <Tip>
   Untuk tryout SNBT sederhana, pilih **Perhitungan Skor Soal (Akumulasi Benar/Salah)**.
 </Tip>
@@ -171,12 +173,12 @@ Setelah tes ujian berhasil dibuat, tes ujian tersebut akan tampil pada bagian **
   ![Pengaturan pada tab Skor & Hasil tes ujian](/images/skor-dan-hasil.png)
 </Frame>
 
-Pilih bagian **Skor & Hasil**, tentukan informasi apa saja yang boleh dilihat peserta setelah menyelesaikan tes.
+Pilih bagian **Skor & Hasil**, tentukan informasi apa saja yang boleh dilihat peserta setelah menyelesaikan tes. Bagian ini hanya tersedia untuk tes berjenis CBT dan CAT.
 
 1. **Tampilkan Skor**<br />Aktifkan jika peserta boleh langsung melihat nilai setelah selesai mengerjakan.
-2. **Tampilkan Pembahasan Tes (PDF)**<br />Aktifkan jika Anda ingin membagikan satu file PDF yang berisi pembahasan seluruh soal.
-3. **Tampilkan Ringkasan**<br />Aktifkan jika peserta boleh melihat jumlah jawaban benar dan salah.
-4. **Tampilkan Pembahasan Per Soal**<br />Aktifkan jika peserta boleh melihat pembahasan pada setiap soal. Pastikan pembahasan sudah diisi pada masing-masing soal di paket soal.
+2. **Tampilkan Ringkasan**<br />Aktifkan jika peserta boleh melihat jumlah jawaban benar dan salah.
+3. **Tampilkan Pembahasan Tes (PDF)**<br />Aktifkan jika Anda ingin membagikan satu file PDF yang berisi pembahasan seluruh soal. Setelah diaktifkan, unggah file tersebut pada kolom **File Pembahasan Tes (PDF)**.
+4. **Tampilkan Pembahasan Per Soal**<br />Aktifkan jika peserta boleh melihat pembahasan pada setiap soal. Pastikan pembahasan sudah diisi pada masing-masing soal di paket soal. Pengaturan ini tidak dapat aktif bersamaan dengan **Tampilkan Pembahasan Tes (PDF)**.
 
 Setelah pengaturan selesai, klik **Simpan**.
 
@@ -190,7 +192,7 @@ Setelah pengaturan selesai, klik **Simpan**.
   ![Pengaturan pada tab Pengawasan tes ujian](/images/pengawasan.png)
 </Frame>
 
-Pada bagian **Pengawasan**, Anda dapat menentukan cara sistem mengawasi peserta selama ujian berlangsung.
+Pada bagian **Pengawasan**, Anda dapat menentukan cara sistem mengawasi peserta selama ujian berlangsung. Bagian ini hanya tersedia untuk tes berjenis CBT dan CAT.
 
 1. **Pengawasan Kamera**<br />Aktifkan jika peserta wajib menyalakan kamera selama mengerjakan ujian.<br />Contoh: digunakan agar pengawas dapat memastikan peserta mengerjakan ujian sendiri.
 2. **Deteksi Pindah Tab**<br />Aktifkan jika sistem perlu mencatat saat peserta membuka tab atau halaman lain selama ujian.<br />Contoh: peserta berpindah dari halaman ujian ke mesin pencarian.
@@ -200,6 +202,10 @@ Pada bagian **Pengawasan**, Anda dapat menentukan cara sistem mengawasi peserta 
 6. **Jawaban Audio Sekali Putar**<br />Aktifkan jika audio pada pilihan jawaban hanya boleh didengarkan satu kali.
 
 Setelah pengaturan selesai, klik **Simpan**.
+
+<Warning>
+  **Pengawasan Kamera** dan **Pengawasan Layar (Share Screen)** memakai kredit proctoring tersendiri (add-on). Setiap kali peserta memulai tes, 1 kredit untuk setiap jenis pengawasan yang aktif terpakai. Jika kreditnya habis, peserta tidak dapat memulai tes.
+</Warning>
 
 <Note>
   Keterangan **(Fitur tidak aktif)** berarti fitur tersebut tidak tersedia dalam tipe ujian yang digunakan, misalnya **Ujian Standard (Paket Gratis)**.

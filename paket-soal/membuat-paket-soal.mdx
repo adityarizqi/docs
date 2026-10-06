@@ -32,7 +32,7 @@ Sebelum ujian dapat dikerjakan oleh peserta, Anda perlu menyiapkan paket soal be
 
 Buka menu **Data Paket Soal**.
 
-Pada halaman ini, Anda dapat melihat seluruh paket soal yang sudah dibuat. Informasi yang ditampilkan dapat mencakup nama paket, jenis soal, jumlah soal, serta tindakan untuk melihat, mengubah, atau menghapus paket.
+Pada halaman ini, Anda dapat melihat seluruh paket soal yang sudah dibuat. Informasi yang ditampilkan mencakup nama, kode, dan jenis paket soal, jumlah soal, serta tanggal dibuat. Setiap paket memiliki tombol **Ubah** dan menu **Lainnya** yang berisi **Duplikat Paket Soal** dan **Hapus**.
 
 <Info>
   Anda dapat membuat paket soal melalui beberapa cara:
@@ -311,7 +311,7 @@ Cara ini cocok digunakan jika:
           Semakin jelas arahan yang diberikan, semakin sesuai pula soal yang dihasilkan.
         </Tip>
 
-        4. Klik **Generate**. Sistem akan mulai membuat paket soal. Tunggu hingga proses selesai.
+        4. Klik **Generate**. Sistem akan mulai membuat paket soal; selama proses berjalan, tombol tersebut menampilkan progres pembuatan soal. Tunggu hingga muncul notifikasi bahwa soal berhasil dibuat.
 
         <Frame>
           ![Notifikasi soal berhasil dibuat dan paket baru pada daftar paket soal](/images/2026-07-31_02-17.png)
@@ -364,6 +364,7 @@ Bagian ini menampilkan seluruh soal yang sudah dimasukkan ke dalam paket. Inform
 
 - nomor urut soal
 - kelompok soal
+- wacana, jika soal memakai bacaan bersama
 - media pendukung, jika ada
 - isi pertanyaan
 - dan jenis soal.
@@ -371,6 +372,10 @@ Bagian ini menampilkan seluruh soal yang sudah dimasukkan ke dalam paket. Inform
 <Tip>
   Melalui daftar ini, Anda dapat memastikan jumlah serta isi soal sudah sesuai sebelum paket digunakan pada sesi ujian.
 </Tip>
+
+### Tambah Soal dengan Jasper AI
+
+Gunakan tombol **Tambah Soal dengan Jasper AI** untuk menambahkan soal buatan Jasper AI ke paket soal yang sedang dibuka. Isi **Jumlah Soal Tambahan** dan, bila perlu, **Catatan Tambahan**, lalu klik **Generate**. Tombol ini hanya tersedia untuk paket soal **CBT/CAT**, dan kuota Jasper AI berkurang sesuai jumlah soal yang dibuat.
 
 ### Import Soal (Excel)
 
@@ -396,13 +401,13 @@ Setelah tombol dipilih, Anda dapat mengisi pertanyaan, jenis soal, pilihan jawab
 
 ### Ubah Urutan Soal
 
-Gunakan tombol **Ubah Urutan Soal** jika Anda ingin mengatur kembali susunan soal.
+Gunakan tombol **Ubah Urutan Soal** jika Anda ingin mengatur kembali susunan soal. Seret soal ke posisi yang diinginkan, lalu klik **Selesai Mengurutkan**.
 
 💡 **Contoh:** Anda ingin soal yang lebih mudah ditempatkan di bagian awal, kemudian dilanjutkan dengan soal yang lebih sulit. Gunakan fitur ini untuk menyusun soal sesuai urutan yang diinginkan.
 
-<Tip>
-  Pengaturan ini tetap dapat digunakan meskipun fitur **Acak Soal** tidak diaktifkan.
-</Tip>
+<Note>
+  Urutan ini dipakai saat ujian jika **Acak Soal** tidak diaktifkan. Jika **Acak Soal** aktif, soal diacak untuk setiap peserta; hanya soal yang memakai wacana yang sama yang tetap mengikuti urutan ini.
+</Note>
 
 ### Ubah
 
@@ -428,7 +433,7 @@ Klik **Ubah** pada soal tertentu untuk memperbaiki atau menyesuaikan isinya. And
 Digunakan untuk membuka tindakan tambahan pada soal. Pilihan yang tersedia meliputi:
 
 - **Duplikat Soal**<br />Digunakan untuk menyalin soal yang sudah ada. Cara ini cocok apabila Anda ingin membuat soal baru dengan bentuk atau susunan yang hampir sama, sehingga tidak perlu menulis ulang dari awal.
-- **Preview Soal**<br />Digunakan untuk melihat tampilan soal dari sisi peserta. Melalui fitur ini, Anda dapat memastikan pertanyaan, pilihan jawaban, dan susunan tampilan sudah sesuai sebelum ujian dilaksanakan.
+- **Preview Soal**<br />Digunakan untuk melihat tampilan soal dari sisi peserta (khusus paket soal CBT/CAT). Melalui fitur ini, Anda dapat memastikan pertanyaan, pilihan jawaban, dan susunan tampilan sudah sesuai sebelum ujian dilaksanakan.
   <Frame>
     <img
       src="/images/2026-07-31_02-49_1.png"
@@ -487,11 +492,11 @@ Setelah paket soal berhasil dibuat, langkah berikutnya adalah menambahkan butir 
             />
           </Frame>
           1. **Pilihan Ganda**<br />Peserta memilih satu jawaban yang benar.<br />Contoh: _Ibu kota Indonesia adalah ..._<br />A. Bandung<br />B. Jakarta<br />C. Surabaya
-          2. **Jawaban Singkat**<br />Peserta mengetik jawaban singkat berupa angka atau teks. Anda dapat menentukan lebih dari satu jawaban yang dianggap benar.<br />Contoh: _Ibu kota Indonesia adalah ..._<br />Jawaban benar: **DKI Jakarta** atau **Jakarta**
-          3. **Majemuk Kompleks (Benar/Salah, Fakta/Opini, dll.)**<br />Peserta memilih salah satu dari dua label untuk setiap pernyataan. Labelnya dapat berupa Benar/Salah, Fakta/Opini, Sesuai/Tidak Sesuai, Setuju/Tidak Setuju, Ya/Tidak, atau label lain yang Anda tentukan.<br />Contoh:
+          2. **Jawaban Singkat**<br />Peserta mengetik jawaban singkat berupa angka atau teks. Anda dapat menentukan lebih dari satu jawaban yang dianggap benar. Isi kuncinya pada bagian **Kunci Jawaban** yang muncul setelah jenis ini dipilih: **Format Jawaban** (**Teks** atau **Angka**), **Kunci Jawaban Utama**, dan **Jawaban Benar Lainnya**.<br />Contoh: _Ibu kota Indonesia adalah ..._<br />Jawaban benar: **DKI Jakarta** atau **Jakarta**
+          3. **Majemuk Kompleks (Benar/Salah, Fakta/Opini, dll.)**<br />Peserta memilih salah satu dari dua label untuk setiap pernyataan. Labelnya dapat berupa Benar/Salah, Fakta/Opini, Sesuai/Tidak Sesuai, Setuju/Tidak Setuju, Ya/Tidak, atau label lain yang Anda tentukan. Pilih labelnya pada kolom **Pasangan Label** di bagian **Label Kolom Pernyataan**; pilih **Label lain (isi sendiri)** untuk menulis label sendiri.<br />Contoh:
              - Matahari terbit dari timur — **Benar**
              - Air membeku pada suhu 100°C — **Salah**
-          4. **Menjodohkan (Drag & Drop)**<br />Peserta memasangkan dua pilihan yang sesuai.<br />Contoh:
+          4. **Menjodohkan (Drag & Drop)**<br />Peserta memasangkan dua pilihan yang sesuai. Isi pasangannya pada bagian **Pasangan Menjodohkan** (**Pernyataan (Kiri)** dan **Jawaban (Kanan)**); sisi kanan diacak saat ujian.<br />Contoh:
              - Indonesia → Jakarta
              - Jepang → Tokyo
         - **Kelompok Soal**: digunakan untuk mengelompokkan beberapa soal yang memiliki bahan atau topik yang sama.
@@ -526,7 +531,7 @@ Setelah paket soal berhasil dibuat, langkah berikutnya adalah menambahkan butir 
 
           Pada contoh tersebut, peserta harus memilih **Kucing** dan **Sapi**.
 
-          Aktifkan pengaturan ini hanya jika peserta memang boleh memilih beberapa jawaban. Jika hanya ada satu jawaban benar, biarkan tetap nonaktif.
+          Aktifkan pengaturan ini hanya jika peserta memang boleh memilih beberapa jawaban. Jika hanya ada satu jawaban benar, biarkan tetap nonaktif. Pengaturan ini hanya muncul untuk soal **Pilihan Ganda**.
         - **Media Soal**: digunakan untuk menentukan bentuk soal yang akan dilihat atau didengar oleh peserta.
           <Frame>
             <img
@@ -561,7 +566,7 @@ Setelah paket soal berhasil dibuat, langkah berikutnya adalah menambahkan butir 
 
         > Sebuah toko memberikan diskon 20% untuk sebuah tas. Setelah diskon, harga tas menjadi Rp240.000. Harga tas sebelum diskon adalah ....
 
-        Gunakan tombol pada bagian atas kolom apabila ingin mengatur tulisan, membuat daftar, menambahkan tabel, atau menulis rumus matematika.
+        Gunakan tombol pada bagian atas kolom apabila ingin mengatur tulisan, membuat daftar, menambahkan tabel, atau menulis rumus matematika. Teks soal maksimal 5.000 karakter.
 
         <Tip>
           LaTeX digunakan untuk menulis rumus matematika agar tampil lebih rapi. Cara menggunakannya:
@@ -596,7 +601,7 @@ Setelah paket soal berhasil dibuat, langkah berikutnya adalah menambahkan butir 
         Lengkapi setiap pilihan jawaban sebagai berikut:
 
         1. **Media Jawaban**: Pilih bentuk jawaban, misalnya teks, gambar, atau audio.
-        2. **Kunci Jawaban**: Aktifkan hanya pada pilihan yang benar.<br />Misalnya jawaban yang benar adalah **Rp300.000**, sehingga tombol **Kunci Jawaban** hanya diaktifkan pada pilihan tersebut. Pilihan jawaban lainnya tetap dinonaktifkan.
+        2. **Kunci Jawaban**: Aktifkan hanya pada pilihan yang benar. Jika **Jawaban Lebih dari Satu** aktif, aktifkan pada setiap pilihan yang benar.<br />Misalnya jawaban yang benar adalah **Rp300.000**, sehingga tombol **Kunci Jawaban** hanya diaktifkan pada pilihan tersebut. Pilihan jawaban lainnya tetap dinonaktifkan.
            <Frame>
              <img
                src="/images/image-11.png"
@@ -605,10 +610,14 @@ Setelah paket soal berhasil dibuat, langkah berikutnya adalah menambahkan butir 
                style={{ width:"52%" }}
              />
            </Frame>
-        3. **Skor Jawaban**: Isi nilai untuk pilihan tersebut.<br />Untuk soal pilihan ganda biasa, jawaban salah dapat diberi skor **0**.
-        4. **Kelompok Jawaban**: Digunakan khusus untuk tes psikotes. Jika tidak digunakan, bagian ini dapat dikosongkan.
+        3. **Skor Jawaban**: Isi nilai untuk pilihan tersebut.<br />Untuk soal pilihan ganda biasa, jawaban salah dapat diberi skor **0**. Skor ini hanya dipakai pada metode penilaian **Perhitungan Skor Jawaban (Akumulasi Skor Jawaban)**.
+        4. **Kelompok Jawaban**: Digunakan khusus untuk metode penilaian **Psikotes (Pengelompokan Jawaban)**. Jika tidak digunakan, bagian ini dapat dikosongkan.
         5. **Teks Jawaban**: Tulis pilihan jawaban yang akan dilihat peserta.
         6. **Tambah Jawaban**: Klik **Tambah Jawaban** untuk membuat pilihan jawaban berikutnya.
+
+        <Note>
+          Tab **Jawaban** hanya muncul untuk soal **Pilihan Ganda** dan **Majemuk Kompleks**. Pada **Majemuk Kompleks**, setiap jawaban berisi satu pernyataan, dan tombol **Kunci Jawaban** diganti kolom **Jawaban Benar** untuk memilih label yang benar. Kunci **Jawaban Singkat** dan pasangan **Menjodohkan** diisi di tab **Soal**.
+        </Note>
 
         Ulangi langkah tersebut sampai seluruh butir soal dan jawaban selesai ditambahkan.
 
@@ -624,7 +633,7 @@ Setelah paket soal berhasil dibuat, langkah berikutnya adalah menambahkan butir 
 
     <Steps>
       <Step title="Buka tab Wacana pada paket soal">
-        Klik **Ubah** pada paket soal tipe CBT/CAT, lalu buka tab **Wacana** di bawah daftar soal.
+        Klik **Ubah** pada paket soal tipe CBT/CAT, lalu buka tab **Wacana** di samping tab **Daftar Soal**.
       </Step>
       <Step title="Klik Tambah Wacana dan lengkapi isinya">
         Klik **Tambah Wacana**, lalu lengkapi isian berikut:
@@ -709,7 +718,7 @@ Setelah paket soal berhasil dibuat, langkah berikutnya adalah menambahkan butir 
           - **T** untuk Teks
           - **G** untuk Gambar
           - **A** untuk Audio
-        - **Soal Uraian**<br />Isi pertanyaan yang akan dikerjakan peserta.
+        - **Soal Uraian**<br />Isi pertanyaan yang akan dikerjakan peserta, maksimal 5.000 karakter. Kolom ini boleh kosong jika soal hanya berupa gambar dari **Link Gambar Soal**.
         - **Kelompok Soal**<br />Isi nama kelompok soal. Jika kelompok soal dengan nama tersebut belum ada di sistem, kelompok soal akan dibuat otomatis. Kosongkan jika soal tidak perlu dikelompokkan. Contoh:
           - Geografi Dasar
           - Biologi
@@ -721,7 +730,7 @@ Setelah paket soal berhasil dibuat, langkah berikutnya adalah menambahkan butir 
           - Sulit
           - Sangat Sulit
         - **Jawaban Lebih dari Satu**<br />Isi **Ya** jika soal memiliki lebih dari satu jawaban benar. Isi **Tidak** jika hanya memiliki satu jawaban benar.
-        - **Jawaban Benar hanya untuk IN**<br />Khusus soal jenis **IN** (Jawaban Singkat), isi jawaban yang benar berupa angka atau teks. Jika ada beberapa jawaban yang dianggap benar, pisahkan dengan tanda **|**, misalnya `DKI Jakarta | Jakarta` atau `0,5 | 1/2`. Jika semua jawaban berupa angka, peserta hanya dapat mengetik angka saat ujian.
+        - **Jawaban Benar hanya untuk IN**<br />Khusus soal jenis **IN** (Jawaban Singkat), isi jawaban yang benar berupa angka atau teks. Jika ada beberapa jawaban yang dianggap benar, pisahkan dengan tanda **|**, misalnya `DKI Jakarta | Jakarta` atau `0,5 | 1/2`. Jika semua jawaban berupa angka, peserta hanya dapat mengetik angka saat ujian. Kosongkan kolom ini untuk jenis soal lain.
         - **Skor CBT dan CAT**<br />Isi nilai untuk jawaban benar, salah, atau tidak dijawab pada kolom **Skor Benar CBT**, **Skor Salah CBT**, **Skor Tidak Dijawab CBT**, **Skor Benar CAT**, dan **Skor Salah CAT** sesuai aturan penilaian yang digunakan.
         - **Pembahasan**<br />Isi penjelasan jawaban jika diperlukan.
         - **Link Gambar Soal**<br />Opsional. Isi link gambar untuk soal ini. Jika soal memiliki beberapa gambar, tulis satu link per baris di dalam sel yang sama (maksimal 10 gambar).
@@ -789,7 +798,7 @@ Setelah paket soal berhasil dibuat, langkah berikutnya adalah menambahkan butir 
 
         - **Kode Wacana**<br />Kode unik untuk setiap wacana, misalnya `W1`, `W2`. Kode ini ditulis di kolom **Kode Wacana** sheet **Data Soal** untuk setiap soal yang memakai wacana tersebut.
         - **Judul Wacana**<br />Opsional, hanya terlihat oleh admin. Jika kosong, judulnya diambil dari kode.
-        - **Teks Wacana**<br />Teks bacaan, maksimal 20.000 karakter.
+        - **Teks Wacana**<br />Teks bacaan, maksimal 20.000 karakter. Boleh kosong jika wacana diisi dengan **Link Gambar Wacana**.
         - **Link Gambar Wacana**<br />Opsional. Link gambar dengan ketentuan yang sama seperti link gambar soal; beberapa gambar ditulis satu link per baris.
 
         <Tip>

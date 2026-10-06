@@ -68,6 +68,8 @@ Kompetisi tersebut terdiri dari tiga babak:
         <Note>
           Anda masih perlu melengkapi **sesi ujian** dan menghubungkan setiap tes ujian dengan **paket soal**.
 
+          Ujian dari template dibuat sebagai **Ujian Professional (Paket Berbayar)**. Anda dapat mengubahnya pada bagian **Tipe & Paket Ujian**.
+
           Singkatnya, template hanya membantu Anda untuk **memulai lebih cepat**. Sistem menyiapkan kerangkanya, lalu Anda tinggal melengkapi isinya.
         </Note>
       </Step>
@@ -94,7 +96,7 @@ Kompetisi tersebut terdiri dari tiga babak:
           ![Formulir Informasi Umum untuk ujian baru](/images/2026-07-19_18-05.png)
         </Frame>
 
-        Lanjutkan pengisian informasi ujian sesuai dengan kebijakan lembaga penyelenggara ujian.
+        Lanjutkan pengisian informasi ujian sesuai dengan kebijakan lembaga penyelenggara ujian, lalu klik **Buat**. Sistem langsung membuka halaman detail ujian.
 
         <Frame>
           ![Formulir ujian baru yang diisi untuk Kompetisi Matematika 2027](/images/2026-07-26_23-08.png)
@@ -108,7 +110,7 @@ Kompetisi tersebut terdiri dari tiga babak:
 
 <Steps>
   <Step title="Klik Detail">
-    Pada halaman **Data Ujian**, klik **Detail** pada ujian yang baru dibuat.
+    Pada halaman **Data Ujian**, klik **Detail** pada ujian yang baru dibuat. Jika Anda membuat ujian melalui **Tambah Ujian**, halaman detail ujian sudah terbuka setelah Anda klik **Buat**, sehingga langkah ini dapat dilewati.
 
     <Frame>
       ![Tombol Detail pada ujian Kompetisi Matematika 2027](/images/2026-07-26_23-09.png)
@@ -126,7 +128,7 @@ Kompetisi tersebut terdiri dari tiga babak:
     3. **Tanggal Mulai**<br />Tentukan tanggal dan waktu mulai acara ujian.
     4. **Tanggal Selesai**<br />Tentukan tanggal dan waktu berakhirnya acara ujian.
     5. **Deskripsi Ujian**<br />Berikan penjelasan singkat mengenai tujuan atau isi ujian.<br />Contoh: _Ujian berjenjang untuk Kompetisi Matematika 2027_
-    6. **Gambar/Sampul Ujian**<br />Unggah gambar yang akan digunakan sebagai sampul ujian. Bagian ini dapat digunakan agar ujian lebih mudah dikenali oleh peserta.
+    6. **Gambar/Sampul Ujian**<br />Unggah gambar yang akan digunakan sebagai sampul ujian. Bagian ini dapat digunakan agar ujian lebih mudah dikenali oleh peserta. Format file PNG, maksimal 1MB.
     7. Setelah semua informasi diperiksa dan sudah sesuai, klik **Simpan** untuk menyimpan acara ujian.
   </Step>
 </Steps>
@@ -143,6 +145,7 @@ Setelah ujian berhasil dibuat, sistem akan menampilkan beberapa bagian pengatura
 2. **Tipe & Paket Ujian**
 3. **Pendaftaran & Pembayaran**
 4. **Pengaturan Ujian**
+5. **Informasi Tambahan**
 
 Mari kita bahas satu per satu.
 
@@ -174,7 +177,7 @@ Mari kita bahas satu per satu.
       />
     </Frame>
 
-    Bagian **Tipe & Paket Ujian** digunakan untuk melihat tipe layanan atau paket yang dipakai pada ujian.
+    Bagian **Tipe & Paket Ujian** digunakan untuk melihat tipe layanan atau paket yang dipakai pada ujian. Kredit ujian berkurang ketika peserta mengikuti ujian.
 
     <Frame>
       ![Pilihan Tipe Ujian: Ujian Standard dan Ujian Professional](/images/tipe-ujian.png)
@@ -182,25 +185,32 @@ Mari kita bahas satu per satu.
 
     - **Ujian Standard (Paket Gratis)**
 
-      Cocok untuk ujian sederhana atau latihan rutin. Fasilitas utamanya:
+      Cocok untuk ujian sederhana atau latihan rutin. Ketentuannya:
 
-      1. Maksimal 50 peserta dalam satu ujian.
-      2. Maksimal 4 subtes dalam satu ujian.
+      1. Kredit di-reset otomatis setiap bulan.
+      2. Maksimal **4 Tes Ujian (Subtes)** per ujian.
+      3. Maksimal **50 peserta** ujian serentak (peserta yang mengerjakan ujian pada waktu yang sama).
+      4. Fitur **Proctoring Kamera, Layar, dan Dual Monitor** tidak tersedia.
+      5. Fitur **Computer Adaptive Test (CAT)** tidak tersedia.
 
     - **Ujian Professional (Paket Berbayar)**: Rp500 per kredit ujian
 
-      Cocok untuk ujian dengan peserta lebih banyak dan kebutuhan yang lebih lengkap. Fasilitas utamanya:
+      Cocok untuk ujian dengan peserta lebih banyak dan kebutuhan yang lebih lengkap. Ketentuannya:
 
-      1. Mendukung **CBT** maupun **CAT**.
-      2. Metode penilaian: skor biasa dan IRT.
-      3. Maksimal **1.000 peserta** dalam satu ujian.
-      4. Maksimal **30 subtes** dalam satu ujian.
-      5. Mendukung deteksi pindah tab dan penggunaan dua monitor. Pengawasan kamera dan layar tersedia sebagai add-on.
+      1. Kredit di-reset setiap bulan sesuai periode langganan Anda.
+      2. Maksimal **30 Tes Ujian (Subtes)** per ujian.
+      3. Maksimal **1.000 peserta** ujian serentak.
+      4. Fitur **Proctoring Kamera, Layar, dan Dual Monitor** tersedia. Proctoring kamera dan layar juga memakai kredit proctoring tersendiri (add-on).
+      5. Fitur **Computer Adaptive Test (CAT)** tersedia.
+
+      Jika Anda tidak memiliki kredit ujian profesional, sistem menampilkan peringatan dan peserta tidak dapat memulai ujian sampai kredit tersedia.
+
+    Pada kedua tipe ujian, tes CBT dapat menggunakan semua metode penilaian, termasuk IRT, dan pengaturan **Deteksi Pindah Tab** tetap tersedia.
 
     <Tip>
-      Pilih **Ujian Standard** jika ujian sederhana, jumlah peserta tidak lebih dari 50 orang, dan jumlah subtes tidak lebih dari 4.
+      Pilih **Ujian Standard** jika ujian sederhana, peserta yang mengerjakan ujian secara serentak tidak lebih dari 50 orang, dan jumlah tes ujian tidak lebih dari 4.
 
-      Pilih **Ujian Professional** jika peserta atau subtes lebih banyak, atau Anda membutuhkan CAT dan pengawasan yang lebih lengkap.
+      Pilih **Ujian Professional** jika peserta serentak atau tes ujian lebih banyak, atau Anda membutuhkan CAT atau proctoring kamera, layar, dan dual monitor.
     </Tip>
   </Step>
   <Step title="Atur Pendaftaran & Pembayaran">
@@ -210,8 +220,8 @@ Mari kita bahas satu per satu.
 
     Pada bagian ini, Anda dapat menentukan apakah peserta boleh mendaftar sendiri dan apakah ujian tersebut gratis atau berbayar.
 
-    1. **Apakah Pendaftaran Ujian Dibuka?**<br />Jika diaktifkan, peserta dapat mendaftar ujian secara mandiri. Pengaturan ini memerlukan add-on **Halaman Pendaftaran Ujian**. Jika add-on belum aktif, label pengaturan ini menampilkan "(Add-on Tidak Aktif)" dan tombolnya tidak dapat diaktifkan.
-    2. **Tipe Pembayaran**<br />Pilih **Gratis** jika peserta tidak perlu membayar. Jika ujian berjenjang Anda berbayar, disarankan memilih **Berbayar per Level (Multi-Level)**.
+    1. **Apakah Pendaftaran Ujian Dibuka?**<br />Jika diaktifkan, peserta dapat mendaftar ujian secara mandiri. Pengaturan ini memerlukan add-on **Halaman Pendaftaran Ujian dan Pembayaran Otomatis**. Jika add-on belum aktif, label pengaturan ini menampilkan "(Add-on Tidak Aktif)" dan tombolnya tidak dapat diaktifkan.
+    2. **Tipe Pembayaran**<br />Pilih **Gratis** jika peserta tidak perlu membayar. Jika ujian berjenjang Anda berbayar, disarankan memilih **Berbayar per Level (Multi-Level)**. Saat tipe ini dipilih, pengaturan **Apakah Ujian Multi-Level?** otomatis berubah menjadi **Ya (Multi-Level)**. Tipe pembayaran berbayar juga memerlukan add-on tersebut; tanpa add-on, ujian berbayar tidak dapat disimpan.
 
     <Frame>
       <img
@@ -280,7 +290,18 @@ Mari kita bahas satu per satu.
 
        Karena ujian diatur sebagai multi-level, pengaturan urutan pengerjaan dan pengerjaan secara langsung diatur pada setiap level ujian (lihat bagian **5. Mengatur Struktur Ujian Berjenjang** di bawah).
 
-    2. **Apakah Tampilkan Skor Akhir Ujian?**
+    2. **Jenis Skor Akhir**
+
+       Tentukan cara skor akhir peserta dihitung dari skor seluruh tes ujian:
+
+       - **Akumulasi Tes Ujian**: skor setiap tes dijumlahkan.
+       - **Rata-Rata Tes Ujian**: jumlah skor dibagi dengan jumlah tes yang sudah dinilai. Pilihan ini terpilih secara bawaan.
+
+       > Contoh: Peserta mendapat skor 80 pada Babak Penyisihan dan 70 pada Babak Semifinal. Dengan **Akumulasi Tes Ujian**, skor akhirnya 150; dengan **Rata-Rata Tes Ujian**, skor akhirnya 75.
+
+       Jika ujian sudah memiliki peserta, skor akhir seluruh peserta dihitung ulang setelah perubahan disimpan.
+
+    3. **Apakah Tampilkan Skor Akhir Ujian?**
 
        Aktifkan jika peserta boleh melihat hasil akhir setelah selesai mengerjakan.
 
@@ -290,7 +311,16 @@ Mari kita bahas satu per satu.
 
        > Contoh: Nilai seleksi akan diperiksa terlebih dahulu dan diumumkan oleh panitia pada hari berikutnya.
 
-    3. Setelah pengaturan selesai, klik **Simpan**.
+    4. Setelah pengaturan selesai, klik **Simpan**.
+  </Step>
+  <Step title="Atur Informasi Tambahan">
+    Bagian **Informasi Tambahan** bersifat opsional. Gunakan bagian ini untuk menampilkan informasi khusus di dashboard peserta yang sudah terdaftar pada ujian ini, misalnya tautan grup WhatsApp, panduan teknis, atau kontak panitia. Peserta ujian lain tidak melihat informasi ini.
+
+    1. **Apakah Tampilkan Informasi Tambahan untuk Peserta?**<br />Aktifkan agar informasi tambahan muncul di dashboard peserta.
+    2. **Judul Informasi**<br />Tuliskan judul informasi, maksimal 100 karakter.<br />Contoh: **Gabung Grup WhatsApp Peserta**
+    3. **Isi Informasi**<br />Tuliskan isi informasi, maksimal 1.000 karakter.
+    4. **Label Tombol (Opsional)** dan **Tautan Tombol (Opsional)**<br />Isi keduanya jika Anda ingin menampilkan tombol, misalnya **Gabung Grup**. Gunakan tautan lengkap yang diawali `http://` atau `https://`. Tombol hanya muncul jika label dan tautan tombol sama-sama diisi.
+    5. Setelah pengaturan selesai, klik **Simpan**.
   </Step>
 </Steps>
 
@@ -401,12 +431,16 @@ Mari kita bahas satu per satu.
          >
          > Metode ini cocok untuk ujian berskala besar atau analisis kemampuan peserta yang lebih mendalam.
 
+       <Warning>
+         Skor IRT dihitung melalui **Hitung Skor** → **Perhitungan IRT** pada halaman detail ujian, dan menu tersebut tidak dapat digunakan pada ujian multi-level. Untuk ujian berjenjang, pilih metode penilaian selain IRT.
+       </Warning>
+
        <Tip>
          Untuk tryout SNBT sederhana, pilih **Perhitungan Skor Soal (Akumulasi Benar/Salah)**.
        </Tip>
 
     3. **Nama Tes**: Isi nama tes sesuai babak yang sedang dibuat.<br />Contoh: **Babak Penyisihan**
-    4. **Durasi Pengerjaan (menit)**: Masukkan lama waktu pengerjaan dalam menit.<br />Contoh: **120**
+    4. **Durasi Pengerjaan (menit)**: Masukkan lama waktu pengerjaan dalam menit.<br />Contoh: **120**. Kolom ini tidak muncul untuk jenis **Esai / Upload File (Jawaban Manual)**.
     5. **Instruksi Pengerjaan Tes Ujian**: Tuliskan petunjuk yang akan dibaca peserta sebelum mulai mengerjakan.
 
        Pada instruksi, Anda dapat menggunakan penanda berikut:
@@ -457,7 +491,7 @@ Struktur ini digunakan agar sistem mengetahui urutan perjalanan peserta, mulai d
   </Step>
   <Step title="Buat level ujian">
     <Frame>
-      ![Kolom bernomor pada formulir level ujian](/images/2026-07-29_20-31.png)
+      ![Kolom bernomor pada jendela Edit level ujian](/images/2026-07-29_20-31.png)
     </Frame>
 
     1. **Nama Level**

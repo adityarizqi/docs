@@ -37,7 +37,7 @@ Shows the participant's payment status.
 
 Example on the page: `Success (Manual Verification)`
 
-This means the participant's payment has been confirmed as successful through verification.
+This means an admin marked the transaction as paid manually with the **Mark as Paid** button (available on transactions with the **Pending** status). The participant's exam access is activated, but the institution's balance doesn't increase. Payments completed through the payment system show the `Success` status.
 
 The name of the exam that was paid for is also shown under the status.
 
@@ -69,27 +69,27 @@ Example:
 </Frame>
 
 <Info>
-  A summary of transaction values is shown at the bottom of the page.
+  A **Summary** for the **Payment Total** column is shown at the bottom of the table. Its **Total Paid** value only adds up transactions that have been paid, that is, those with the **Success** or **Success (Manual Verification)** status. Transactions with the **Pending**, **Failed** or **Expired** status aren't counted.
 
-  - **This page** shows the total payments for the rows currently displayed on the page.
-  - **All transactions** shows the total payments for every recorded transaction, including those on other pages.
+  - **This page** shows the **Total Paid** for the transactions currently displayed on the page. This row only appears when the data spans more than one page.
+  - **All transactions** shows the **Total Paid** for every transaction that matches the active filters and search, including those on other pages.
 
   💡 **Example:**
 
-  The page shows 10 participants who each paid **Rp50,000**.
+  The page shows 10 transactions with the **Success** status, each for **Rp50,000**.
 
-  The total for **This page** is then:
+  The **Total Paid** for **This page** is then:
 
   > **Rp500,000**
 
-  If more transactions have been recorded in total, **All transactions** shows the overall amount.
+  **All transactions**, on the other hand, shows the total of every paid transaction, including those on other pages.
 </Info>
 
 Use the **Transaction History** menu to check incoming payments. To cash out funds that can already be withdrawn, continue in the **Balance Withdrawal** menu.
 
 ## 2. Add Your Bank Account Details for Withdrawals
 
-Before you withdraw your balance for the first time, you need to complete your **Bank Account Details**.
+Before you withdraw your balance for the first time, the project owner needs to complete the **Bank Account Details** in their account profile. The balance is always withdrawn to the project owner's bank account; if you're a member of the **Admin Team**, ask the project owner to fill them in.
 
 <Warning>
   If the bank account details haven't been filled in, you **can't withdraw your balance**.
@@ -107,15 +107,15 @@ Before you withdraw your balance for the first time, you need to complete your *
       ![Account name in the bottom-left corner of the admin panel](/images/2026-08-10_20-31.png)
     </Frame>
 
-    The system shows a menu with:
+    The system shows the account menu, which includes:
 
     - Profile
-    - Promo & Update
     - Changelog
-    - Sign Out
+    - the language option (for example, English)
+    - Sign out
 
     <Frame>
-      ![Account menu with Profile, Promo & Update, Changelog and Sign Out](/images/2026-08-10_20-31_1.png)
+      ![Account menu opened in the bottom-left corner](/images/2026-08-10_20-31_1.png)
     </Frame>
   </Step>
   <Step title="Select Profile">
@@ -219,10 +219,10 @@ After they select **Create Withdrawal**, the status starts as **Pending**. Once 
   <Step title="Review and confirm the withdrawal">
     After you click **Next**, the system shows again:
 
-    - the bank
-    - the destination account
-    - the account holder name
-    - and the withdrawal amount
+    - **Bank**
+    - **Destination Account**
+    - **Account Holder**
+    - **Withdrawal Amount**
 
     <Frame>
       ![Confirmation of the destination account and withdrawal amount](/images/2026-08-11_15-39.png)
@@ -262,6 +262,7 @@ After they select **Create Withdrawal**, the status starts as **Pending**. Once 
       - Withdrawals made outside these hours are processed on the **next working day**.
       - Withdrawals to banks other than **BNI** incur an admin fee of **Rp3,000**.
       - The minimum withdrawal is **Rp10,000**.
+      - You can't create a new withdrawal while another one still has the **Pending** status.
 
       💡 **Admin fee example:**
 

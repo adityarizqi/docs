@@ -136,6 +136,8 @@ Decide how the system calculates participants' scores.
 
    All three options estimate ability (theta) in the same way; only the reported score range differs. The UTBK and TKA ranges are reference scales, not official equating results.
 
+   IRT scores are calculated once you run **Calculate Score** → **IRT Calculation** on the exam details page. This option can't be used on a multi-level exam.
+
 <Tip>
   For a simple SNBT tryout, choose **Question Score Calculation (Sum of Correct/Wrong)**.
 </Tip>
@@ -171,14 +173,14 @@ Once the test has been created, it appears in the **Test List** section.
   ![Settings on the test's Score & Results tab](/images/skor-dan-hasil.png)
 </Frame>
 
-Open the **Score & Results** section and decide what participants may see after they finish the test.
+Open the **Score & Results** section and decide what participants may see after they finish the test. This section is only available for CBT and CAT tests.
 
 1. **Show Score**<br />Turn this on if participants may see their score as soon as they finish.
-2. **Show the Test Explanation (PDF)**<br />Turn this on if you want to share a single PDF file with the explanations for all the questions.
-3. **Show Summary**<br />Turn this on if participants may see how many answers they got right and wrong.
-4. **Show the Explanation per Question**<br />Turn this on if participants may see the explanation for each question. Make sure each question in the question package has an explanation.
+2. **Show Summary**<br />Turn this on if participants may see how many answers they got right and wrong.
+3. **Show the Test Explanation (PDF)**<br />Turn this on if you want to share a single PDF file with the explanations for all the questions. Once it's on, upload the file in the **Test Explanation File (PDF)** field.
+4. **Show the Explanation per Question**<br />Turn this on if participants may see the explanation for each question. Make sure each question in the question package has an explanation. This setting can't be on at the same time as **Show the Test Explanation (PDF)**.
 
-When you've finished, click **Save**.
+When you've finished, click **Save changes**.
 
 <Tip>
   For a tryout where participants should see their results straight away, turn on **Show Score**.
@@ -190,7 +192,7 @@ When you've finished, click **Save**.
   ![Settings on the test's Proctoring tab](/images/pengawasan.png)
 </Frame>
 
-In the **Proctoring** section, you decide how the system monitors participants during the exam.
+In the **Proctoring** section, you decide how the system monitors participants during the exam. This section is only available for CBT and CAT tests.
 
 1. **Camera Proctoring**<br />Turn this on if participants must keep their camera on while taking the exam.<br />Example: so proctors can make sure participants are working on their own.
 2. **Tab Switch Detection**<br />Turn this on if the system should record when a participant opens another tab or page during the exam.<br />Example: a participant switches from the exam page to a search engine.
@@ -199,7 +201,11 @@ In the **Proctoring** section, you decide how the system monitors participants d
 5. **Play the Audio Question Once**<br />Turn this on if the audio in a question may only be played once.<br />Example: English listening questions.
 6. **Play the Audio Answer Once**<br />Turn this on if the audio in the answer options may only be played once.
 
-When you've finished, click **Save**.
+When you've finished, click **Save changes**.
+
+<Warning>
+  **Camera Proctoring** and **Screen Proctoring (Screen Share)** use their own proctoring credits (an add-on). Each time a participant starts the test, 1 credit is used for each type of proctoring that is on. If the credits run out, participants can't start the test.
+</Warning>
 
 <Note>
   The label **(Feature inactive)** means the feature isn't available for the exam type you're using, for example a **Standard Exam (Free Plan)**.

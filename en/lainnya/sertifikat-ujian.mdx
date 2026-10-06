@@ -7,6 +7,10 @@ The **Exam Certificate** feature lets you create certificates that participants 
 
 You can choose which exam uses the certificate, the requirements participants must meet to receive it, how the certificate looks and who signs it.
 
+<Note>
+  **Exam Certificate** is an add-on. While the add-on is inactive, you can still prepare templates, but **Status** can only be **Draft** and **Show to participants** can't be turned on, so certificates can't be issued to participants yet. To activate it, click **Enable the Exam Certificate Add-on** on the **Exam Certificate** page.
+</Note>
+
 💡 **For example:** you run the **SNBT 2027 Tryout** (a practice exam for SNBT, Indonesia's national university entrance test). Participants who finish the exam with a score of at least 70 receive a certificate automatically.
 
 ## 1. Certificate Setup by the Admin
@@ -66,7 +70,7 @@ This section explains how to create a certificate from scratch, covering:
     3. **Status**<br />Sets the state of the template.
 
        - **Published**: the certificate is ready to be used in the exam.
-       - **Draft**: the certificate still needs to be checked and adjusted by the admin.
+       - **Draft**: the certificate still needs to be checked and adjusted by the admin, and isn't shown to participants yet.
 
        <Tip>
          Keep the status at **Draft** while the certificate still needs adjusting.
@@ -80,11 +84,11 @@ This section explains how to create a certificate from scratch, covering:
          - `{YY}`: two-digit year, e.g. 27
          - `{MM}`: month
          - `{DD}`: day
-         - `{SEQ}`: certificate sequence number
-         - `{EXAM}`: exam code
+         - `{SEQ}`: certificate sequence number (6 digits, e.g. 000001)
+         - `{EXAM}`: exam code (letters and numbers only, up to 6 characters)
        </Info>
 
-       💡 Example format: `INDOLAT/{YYYY}/{EXAM}/{SEQ}`<br />Result: `INDOLAT/2026/TOSN/0001`
+       💡 Example format: `INDOLAT/{YYYY}/{EXAM}/{SEQ}` for an exam with the code `TO-MAT-SNBT`<br />Result: `INDOLAT/2026/TOMATS/000001`
     5. **Minimum Score**<br />Enter the minimum score a participant needs to receive the certificate. For example, 70 means participants with a final score of 70 or higher can receive the certificate.
 
        <Tip>
@@ -96,7 +100,7 @@ This section explains how to create a certificate from scratch, covering:
 
        - Turn this on so participants can view and download the certificate from their exam results page.
        - Turn it off if the certificate will only be managed or printed by the admin.
-    9. **Notes**<br />Use this to keep extra information about the certificate.<br />Example: The certificate is awarded to participants who have finished the exam with a score of at least 60.
+    9. **Notes**<br />Expand this section and fill in **Template Notes** with extra information about the certificate. These notes are for admins only.<br />Example: The certificate is awarded to participants who have finished the exam with a score of at least 60.
 
     Once you have adjusted the fields, click **Create** to save the settings.
   </Step>
@@ -136,8 +140,9 @@ This section explains how to create a certificate from scratch, covering:
 
        - **Template A** for a simple design
        - **Template B** for a more formal design
-       - **Custom Template** if your institution has its own design
-    5. **Colour Theme**
+       - **Custom Template** if your institution has its own design. Upload that design in the **Custom Template Background** field that appears (PNG, JPG or WEBP, up to 2 MB).
+    5. **Institution Logo** (optional)<br />Upload your institution's logo in the **Logo File** field (PNG, JPG or WEBP, up to 1 MB). The logo becomes available as the **Institution Logo** element in the **Designer** section, where you set its position and size.
+    6. **Colour Theme**
 
        <Frame>
          ![Colour Theme fields for the certificate](/images/2026-08-05_20-52.png)
@@ -152,7 +157,7 @@ This section explains how to create a certificate from scratch, covering:
        <Frame>
          ![Where the primary accent, page colour and secondary accent appear](/images/2026-08-05_21-07.png)
        </Frame>
-    6. **Safe Area**<br />The Safe Area is a margin that keeps text and signatures from sitting too close to the edge of the certificate.
+    7. **Safe Area**<br />The Safe Area is a margin that keeps text and signatures from sitting too close to the edge of the certificate.
 
        <Tip>
          Use the default values if you have no special design needs.
@@ -188,7 +193,7 @@ This section explains how to create a certificate from scratch, covering:
     4. **Signature Image**<br />Upload the signature image.
 
        <Tip>
-         Use a PNG with a transparent background. It gives a neater, clearer result.
+         Use a PNG with a transparent background. It gives a neater, clearer result. The file can be up to 1 MB.
        </Tip>
     5. **+ Add Signatory** (optional)<br />If more than one authorised person signs the certificate, click **+ Add Signatory** and fill in the second signatory's details.
   </Step>
@@ -215,6 +220,7 @@ On this page, you can adjust elements such as:
 - Final Score
 - End Date
 - Certificate Number
+- Institution Logo
 - Free Text
 - Signature Area
 - Signatory Name

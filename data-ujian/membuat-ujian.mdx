@@ -73,6 +73,8 @@ Di dalam ujian inilah Anda akan mengatur nama dan jadwal pelaksanaan, menambahka
         <Note>
           Anda masih perlu melengkapi **sesi ujian** dan menghubungkan setiap tes ujian dengan **paket soal**.
 
+          Ujian dari template dibuat sebagai **Ujian Professional (Paket Berbayar)**. Anda dapat mengubahnya pada bagian **Tipe & Paket Ujian**.
+
           Singkatnya, template hanya membantu Anda untuk **memulai lebih cepat**. Sistem menyiapkan kerangkanya, lalu Anda tinggal melengkapi isinya.
         </Note>
       </Step>
@@ -99,7 +101,7 @@ Di dalam ujian inilah Anda akan mengatur nama dan jadwal pelaksanaan, menambahka
           ![Formulir Informasi Umum untuk ujian baru](/images/2026-07-19_18-05.png)
         </Frame>
 
-        Lanjutkan pengisian informasi ujian sesuai dengan kebijakan lembaga penyelenggara ujian.
+        Lanjutkan pengisian informasi ujian sesuai dengan kebijakan lembaga penyelenggara ujian, lalu klik **Buat**. Sistem langsung membuka halaman detail ujian.
       </Step>
     </Steps>
   </Accordion>
@@ -109,7 +111,7 @@ Di dalam ujian inilah Anda akan mengatur nama dan jadwal pelaksanaan, menambahka
 
 <Steps>
   <Step title="Klik Detail">
-    Pada halaman **Data Ujian**, klik **Detail** pada ujian yang baru dibuat.
+    Pada halaman **Data Ujian**, klik **Detail** pada ujian yang baru dibuat. Jika Anda membuat ujian melalui **Tambah Ujian**, halaman detail ujian sudah terbuka setelah Anda klik **Buat**, sehingga langkah ini dapat dilewati.
 
     <Frame>
       ![Tombol Detail pada ujian Template Tryout SNBT](/images/detail-template.png)
@@ -127,7 +129,7 @@ Di dalam ujian inilah Anda akan mengatur nama dan jadwal pelaksanaan, menambahka
     3. **Tanggal Mulai**<br />Tentukan tanggal dan waktu mulai acara ujian.
     4. **Tanggal Selesai**<br />Tentukan tanggal dan waktu berakhirnya acara ujian.
     5. **Deskripsi Ujian**<br />Berikan penjelasan singkat mengenai tujuan atau isi ujian.<br />Contoh: _Template ini cocok digunakan untuk tryout akademik dengan beberapa subtes literasi dan penalaran yang siap disesuaikan kembali sesuai kebutuhan program Anda._
-    6. **Gambar/Sampul Ujian**<br />Unggah gambar yang akan digunakan sebagai sampul ujian. Bagian ini dapat digunakan agar ujian lebih mudah dikenali oleh peserta.
+    6. **Gambar/Sampul Ujian**<br />Unggah gambar yang akan digunakan sebagai sampul ujian. Bagian ini dapat digunakan agar ujian lebih mudah dikenali oleh peserta. Format file PNG, maksimal 1MB.
     7. Setelah semua informasi diperiksa dan sudah sesuai, klik **Simpan** untuk menyimpan acara ujian.
   </Step>
 </Steps>
@@ -149,6 +151,7 @@ Setelah ujian berhasil dibuat, sistem akan menampilkan beberapa bagian pengatura
 2. **Tipe & Paket Ujian**
 3. **Pendaftaran & Pembayaran**
 4. **Pengaturan Ujian**
+5. **Informasi Tambahan**
 
 Mari kita bahas satu per satu.
 
@@ -180,7 +183,7 @@ Mari kita bahas satu per satu.
       />
     </Frame>
 
-    Bagian **Tipe & Paket Ujian** digunakan untuk melihat tipe layanan atau paket yang dipakai pada ujian.
+    Bagian **Tipe & Paket Ujian** digunakan untuk melihat tipe layanan atau paket yang dipakai pada ujian. Kredit ujian berkurang ketika peserta mengikuti ujian.
 
     <Frame>
       ![Pilihan Tipe Ujian: Ujian Standard dan Ujian Professional](/images/image-30.png)
@@ -188,25 +191,32 @@ Mari kita bahas satu per satu.
 
     - **Ujian Standard (Paket Gratis)**
 
-      Cocok untuk ujian sederhana atau latihan rutin. Fasilitas utamanya:
+      Cocok untuk ujian sederhana atau latihan rutin. Ketentuannya:
 
-      1. Maksimal 50 peserta dalam satu ujian.
-      2. Maksimal 4 subtes dalam satu ujian.
+      1. Kredit di-reset otomatis setiap bulan.
+      2. Maksimal **4 Tes Ujian (Subtes)** per ujian.
+      3. Maksimal **50 peserta** ujian serentak (peserta yang mengerjakan ujian pada waktu yang sama).
+      4. Fitur **Proctoring Kamera, Layar, dan Dual Monitor** tidak tersedia.
+      5. Fitur **Computer Adaptive Test (CAT)** tidak tersedia.
 
     - **Ujian Professional (Paket Berbayar)**: Rp500 per kredit ujian
 
-      Cocok untuk ujian dengan peserta lebih banyak dan kebutuhan yang lebih lengkap. Fasilitas utamanya:
+      Cocok untuk ujian dengan peserta lebih banyak dan kebutuhan yang lebih lengkap. Ketentuannya:
 
-      1. Mendukung **CBT** maupun **CAT**.
-      2. Metode penilaian: skor biasa dan IRT.
-      3. Maksimal **1.000 peserta** dalam satu ujian.
-      4. Maksimal **30 subtes** dalam satu ujian.
-      5. Mendukung deteksi pindah tab dan penggunaan dua monitor. Pengawasan kamera dan layar tersedia sebagai add-on.
+      1. Kredit di-reset setiap bulan sesuai periode langganan Anda.
+      2. Maksimal **30 Tes Ujian (Subtes)** per ujian.
+      3. Maksimal **1.000 peserta** ujian serentak.
+      4. Fitur **Proctoring Kamera, Layar, dan Dual Monitor** tersedia. Proctoring kamera dan layar juga memakai kredit proctoring tersendiri (add-on).
+      5. Fitur **Computer Adaptive Test (CAT)** tersedia.
+
+      Jika Anda tidak memiliki kredit ujian profesional, sistem menampilkan peringatan dan peserta tidak dapat memulai ujian sampai kredit tersedia.
+
+    Pada kedua tipe ujian, tes CBT dapat menggunakan semua metode penilaian, termasuk IRT, dan pengaturan **Deteksi Pindah Tab** tetap tersedia.
 
     <Tip>
-      Pilih **Ujian Standard** jika ujian sederhana, jumlah peserta tidak lebih dari 50 orang, dan jumlah subtes tidak lebih dari 4.
+      Pilih **Ujian Standard** jika ujian sederhana, peserta yang mengerjakan ujian secara serentak tidak lebih dari 50 orang, dan jumlah tes ujian tidak lebih dari 4.
 
-      Pilih **Ujian Professional** jika peserta atau subtes lebih banyak, atau Anda membutuhkan CAT dan pengawasan yang lebih lengkap.
+      Pilih **Ujian Professional** jika peserta serentak atau tes ujian lebih banyak, atau Anda membutuhkan CAT atau proctoring kamera, layar, dan dual monitor.
     </Tip>
   </Step>
   <Step title="Atur Pendaftaran & Pembayaran">
@@ -216,8 +226,8 @@ Mari kita bahas satu per satu.
 
     Pada bagian ini, Anda dapat menentukan apakah peserta boleh mendaftar sendiri dan apakah ujian tersebut gratis atau berbayar.
 
-    1. **Apakah Pendaftaran Ujian Dibuka?**<br />Jika diaktifkan, peserta dapat mendaftar ujian secara mandiri. Pengaturan ini memerlukan add-on **Halaman Pendaftaran Ujian**. Jika add-on belum aktif, label pengaturan ini menampilkan "(Add-on Tidak Aktif)" dan tombolnya tidak dapat diaktifkan.
-    2. **Tipe Pembayaran**<br />Pilih **Gratis** jika peserta tidak perlu membayar. Jika ujian berbayar, pilih jenis pembayaran yang sesuai.
+    1. **Apakah Pendaftaran Ujian Dibuka?**<br />Jika diaktifkan, peserta dapat mendaftar ujian secara mandiri. Pengaturan ini memerlukan add-on **Halaman Pendaftaran Ujian dan Pembayaran Otomatis**. Jika add-on belum aktif, label pengaturan ini menampilkan "(Add-on Tidak Aktif)" dan tombolnya tidak dapat diaktifkan.
+    2. **Tipe Pembayaran**<br />Pilih **Gratis** jika peserta tidak perlu membayar. Jika ujian berbayar, pilih jenis pembayaran yang sesuai. Tipe pembayaran berbayar juga memerlukan add-on tersebut; tanpa add-on, ujian berbayar tidak dapat disimpan.
 
     <Frame>
       <img
@@ -266,7 +276,7 @@ Mari kita bahas satu per satu.
       > Peserta membayar biaya babak berikutnya hanya jika berhasil lolos.
 
     3. **Biaya Ujian Sekali Bayar (IDR)**<br />Biaya yang harus dibayar oleh peserta untuk mengikuti ujian. Kolom ini muncul jika Anda memilih **Sekali Bayar**.
-    4. **Set Sesi Otomatis Setelah Pendaftaran**<br />Aktifkan jika Anda ingin peserta yang berhasil mendaftar langsung dimasukkan ke sesi ujian secara otomatis. Pada tipe **Sekali Bayar** dan **Berbayar per Tes Ujian**, pengaturan ini bernama **Set Sesi Otomatis Setelah Pembayaran** dan berjalan setelah peserta membayar.
+    4. **Set Sesi Otomatis Setelah Pendaftaran**<br />Aktifkan jika Anda ingin peserta yang berhasil mendaftar langsung dimasukkan ke sesi ujian secara otomatis. Pada tipe **Sekali Bayar** dan **Berbayar per Tes Ujian**, pengaturan ini bernama **Set Sesi Otomatis Setelah Pembayaran** dan berjalan setelah peserta membayar. Pada tipe **Berbayar per Level (Multi-Level)**, pengaturan ini tidak ditampilkan. Pengaturan ini juga memerlukan add-on **Halaman Pendaftaran Ujian dan Pembayaran Otomatis**.
     5. Setelah pengaturan selesai, klik **Simpan**.
 
     <Tip>
@@ -310,7 +320,18 @@ Mari kita bahas satu per satu.
 
        Jika dinonaktifkan, peserta dapat berhenti setelah menyelesaikan satu tes dan kembali mengerjakan tes berikutnya selama jadwal masih tersedia.
 
-    4. **Apakah Tampilkan Skor Akhir Ujian?**
+    4. **Jenis Skor Akhir**
+
+       Tentukan cara skor akhir peserta dihitung dari skor seluruh tes ujian:
+
+       - **Akumulasi Tes Ujian**: skor setiap tes dijumlahkan.
+       - **Rata-Rata Tes Ujian**: jumlah skor dibagi dengan jumlah tes yang sudah dinilai. Pilihan ini terpilih secara bawaan.
+
+       > Contoh: Peserta mendapat skor 80 pada Tes Matematika dan 70 pada Tes Bahasa Indonesia. Dengan **Akumulasi Tes Ujian**, skor akhirnya 150; dengan **Rata-Rata Tes Ujian**, skor akhirnya 75.
+
+       Jika ujian sudah memiliki peserta, skor akhir seluruh peserta dihitung ulang setelah perubahan disimpan.
+
+    5. **Apakah Tampilkan Skor Akhir Ujian?**
 
        Aktifkan jika peserta boleh melihat hasil akhir setelah selesai mengerjakan.
 
@@ -320,6 +341,15 @@ Mari kita bahas satu per satu.
 
        > Contoh: Nilai seleksi akan diperiksa terlebih dahulu dan diumumkan oleh panitia pada hari berikutnya.
 
+    6. Setelah pengaturan selesai, klik **Simpan**.
+  </Step>
+  <Step title="Atur Informasi Tambahan">
+    Bagian **Informasi Tambahan** bersifat opsional. Gunakan bagian ini untuk menampilkan informasi khusus di dashboard peserta yang sudah terdaftar pada ujian ini, misalnya tautan grup WhatsApp, panduan teknis, atau kontak panitia. Peserta ujian lain tidak melihat informasi ini.
+
+    1. **Apakah Tampilkan Informasi Tambahan untuk Peserta?**<br />Aktifkan agar informasi tambahan muncul di dashboard peserta.
+    2. **Judul Informasi**<br />Tuliskan judul informasi, maksimal 100 karakter.<br />Contoh: **Gabung Grup WhatsApp Peserta**
+    3. **Isi Informasi**<br />Tuliskan isi informasi, maksimal 1.000 karakter.
+    4. **Label Tombol (Opsional)** dan **Tautan Tombol (Opsional)**<br />Isi keduanya jika Anda ingin menampilkan tombol, misalnya **Gabung Grup**. Gunakan tautan lengkap yang diawali `http://` atau `https://`. Tombol hanya muncul jika label dan tautan tombol sama-sama diisi.
     5. Setelah pengaturan selesai, klik **Simpan**.
   </Step>
 </Steps>

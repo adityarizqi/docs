@@ -1,19 +1,21 @@
 ---
 title: "Menambahkan Akun Peserta"
-description: "Cara menambahkan akun peserta melalui pendaftaran mandiri atau Import Akun, serta mengelola akun dan label pada halaman Data Akun."
+description: "Cara menambahkan akun peserta melalui pendaftaran mandiri, Tambah Akun, atau Import Akun, serta mengelola akun dan label pada halaman Data Akun."
 ---
 
 Sebelum peserta dapat masuk dan menggunakan sistem CBT Indolat, **setiap peserta perlu memiliki akun**. Akun tersebut digunakan peserta untuk masuk ke sistem, melihat ujian yang tersedia, dan mengikuti ujian yang telah ditentukan.
 
-Akun peserta dapat ditambahkan melalui dua cara, yaitu:
+Akun peserta dapat ditambahkan melalui tiga cara, yaitu:
 
 1. **Peserta membuat akun secara mandiri** melalui halaman pendaftaran akun.
-2. **Admin menambahkan akun melalui Import Akun** menggunakan file Excel.
+2. **Admin menambahkan akun satu per satu** melalui tombol **Tambah Akun**.
+3. **Admin menambahkan akun melalui Import Akun** menggunakan file Excel.
 
 <Tip>
   Pilih cara yang paling sesuai dengan kebutuhan Anda:
 
   - **Pendaftaran mandiri** cocok digunakan jika peserta diperbolehkan membuat akun sendiri.
+  - **Tambah Akun** cocok digunakan jika Anda hanya perlu menambahkan sedikit akun.
   - **Import Akun** cocok digunakan jika data peserta sudah disiapkan oleh sekolah, lembaga, atau penyelenggara.
 </Tip>
 
@@ -34,9 +36,9 @@ Seluruh akun tersebut dapat dilihat dan dikelola melalui menu **Data Akun**.
   ![Halaman Data Akun berisi daftar akun peserta](/images/2026-07-26_21-04.png)
 </Frame>
 
-Setelah membuka menu **Data Akun**, Anda akan melihat seluruh akun peserta yang sudah terdaftar pada sistem.
+Setelah membuka menu **Data Akun**, Anda akan melihat seluruh akun peserta yang sudah terdaftar pada sistem. Halaman ini memiliki dua tab: **Akun** berisi daftar akun peserta, dan **Label** untuk mengelola label.
 
-Setiap baris pada tabel mewakili satu akun peserta. Dari halaman ini, Anda dapat mencari akun, mengelompokkan peserta, mengatur label, serta memasukkan banyak akun sekaligus.
+Setiap baris pada tabel di tab **Akun** mewakili satu akun peserta. Dari halaman ini, Anda dapat mencari akun, mengelompokkan peserta, mengatur label, menambahkan akun satu per satu, serta memasukkan banyak akun sekaligus.
 
 ### 1. Kelompokkan Berdasarkan
 
@@ -44,7 +46,7 @@ Setiap baris pada tabel mewakili satu akun peserta. Dari halaman ini, Anda dapat
   ![Pilihan Kelompokkan berdasar pada halaman Data Akun](/images/2026-07-26_21-12.png)
 </Frame>
 
-Bagian **Kelompokkan berdasar** digunakan untuk mengatur tampilan daftar akun agar lebih mudah dibaca.
+Bagian **Kelompokkan berdasar** digunakan untuk mengatur tampilan daftar akun agar lebih mudah dibaca. Secara bawaan, daftar akun dikelompokkan berdasarkan **Label**; akun tanpa label masuk ke grup **Tanpa Label**.
 
 - Pilih **Label** jika Anda ingin peserta dengan kelompok yang sama ditampilkan berdekatan.
 
@@ -60,7 +62,7 @@ Bagian **Kelompokkan berdasar** digunakan untuk mengatur tampilan daftar akun ag
 
 ### 2. Tambah Label
 
-Digunakan untuk membuat kelompok peserta baru.
+Digunakan untuk membuat kelompok peserta baru. Buka tab **Label**, klik **Tambah Label**, isi **Nama Label**, lalu klik **Simpan**.
 
 <Frame>
   ![Membuat label baru melalui tombol Tambah Label](/images/2026-07-25_01-37.png)
@@ -93,13 +95,15 @@ Contohnya, label **Promo Member** ingin diubah menjadi **Promo Member Indolat** 
 
 Cara mengubah label:
 
-1. Pilih tombol **Ubah Label**.
-2. Centang label yang ingin Anda ubah.
-3. Isikan nama label baru.
+1. Buka tab **Label**.
+2. Klik **Ubah** pada baris label yang ingin Anda ubah.
+3. Isikan nama label baru pada kolom **Nama Label**.
 4. Pilih tombol **Simpan** untuk menyimpan perubahan nama label.
 
 <Tip>
   Perubahan nama label akan mengikuti akun-akun yang sudah menggunakan label tersebut.
+
+  Untuk memasang atau mengganti label pada beberapa akun sekaligus, buka tab **Akun**, centang akun yang diinginkan, klik **Tindakan**, lalu pilih **Ubah Label**.
 </Tip>
 
 ### 4. Hapus Label
@@ -116,22 +120,33 @@ Digunakan untuk menghapus label yang tidak lagi diperlukan.
 
 Cara menghapus label:
 
-1. Pilih tombol **Hapus Label**.
-2. Centang label yang akan dihapus.
-3. Pilih tombol **Hapus** untuk menghapus label yang telah dipilih.
+1. Buka tab **Label**.
+2. Klik **Hapus** pada baris label yang akan dihapus.
+3. Pilih tombol **Hapus** pada jendela konfirmasi.
 
 <Note>
   Menghapus label hanya menghilangkan kelompoknya.
 
-  Akun peserta **tetap tersimpan** pada halaman **Data Akun**.
+  Akun peserta **tetap tersimpan** pada halaman **Data Akun** dan menjadi **Tanpa Label**.
 </Note>
 
-### 5. Import Akun
+### 5. Tambah Akun
+
+Digunakan untuk menambahkan akun peserta satu per satu tanpa file Excel.
+
+1. Pada tab **Akun**, klik **Tambah Akun**.
+2. Isi **Nama**, **Alamat Email**, dan **Kata Sandi**. Kolom **Label** boleh dikosongkan.
+3. Biarkan **Status Aktif** menyala agar akun dapat langsung digunakan.
+4. Klik **Buat**.
+
+Akun yang ditambahkan dengan cara ini langsung terverifikasi, sehingga peserta tidak perlu memverifikasi email.
+
+### 6. Import Akun
 
 Digunakan untuk memasukkan banyak akun peserta sekaligus menggunakan file Excel.
 
 <Frame>
-  ![Tombol Import Akun pada halaman Data Akun](/images/2026-07-25_01-48.png)
+  ![Tombol dan jendela Import Akun pada halaman Data Akun](/images/2026-07-25_01-48.png)
 </Frame>
 
 Cara ini cocok jika data peserta sudah tersedia dari sekolah, cabang lembaga, atau daftar peserta internal. Setelah proses impor selesai, seluruh akun akan muncul pada halaman **Data Akun**.
@@ -140,7 +155,7 @@ Cara ini cocok jika data peserta sudah tersedia dari sekolah, cabang lembaga, at
   Akun yang diimpor belum otomatis masuk ke ujian tertentu. Peserta masih perlu ditambahkan melalui bagian **Daftar Peserta Ujian**.
 </Warning>
 
-### 6. Cari
+### 7. Cari
 
 Gunakan kolom **Cari** untuk menemukan akun tertentu tanpa memeriksa daftar satu per satu. Contohnya, ketik **Rosa Adinda** untuk menampilkan akun peserta tersebut.
 
@@ -148,7 +163,7 @@ Gunakan kolom **Cari** untuk menemukan akun tertentu tanpa memeriksa daftar satu
   ![Pencarian akun peserta melalui kolom Cari](/images/2026-07-25_01-52.png)
 </Frame>
 
-### 7. Filter
+### 8. Filter
 
 Pilih tombol **Filter** jika Anda ingin menyaring daftar akun berdasarkan ketentuan tertentu. Contohnya, Anda hanya ingin melihat:
 
@@ -159,21 +174,22 @@ Pilih tombol **Filter** jika Anda ingin menyaring daftar akun berdasarkan ketent
   ![Pilihan filter pada daftar akun peserta](/images/2026-07-25_01-54.png)
 </Frame>
 
-Setelah memilih ketentuan yang dibutuhkan, klik **Terapkan Filter**. Daftar akun akan menampilkan peserta yang sesuai dengan pilihan tersebut.
+Setelah memilih ketentuan yang dibutuhkan, klik **Terapkan filter**. Daftar akun akan menampilkan peserta yang sesuai dengan pilihan tersebut.
 
-### 8. Ikon Penanda
+### 9. Ikon Penanda
 
 Pada kolom **Alamat Email**, terdapat ikon yang menunjukkan dari mana akun peserta berasal:
 
-- **Ikon orang berwarna biru**<br />Menandakan akun dibuat sendiri oleh peserta melalui halaman pendaftaran akun.
-- **Ikon panah ke bawah**<br />Menandakan akun ditambahkan oleh admin melalui proses **Import Akun**.
+- **Ikon orang berwarna biru**<br />Menandakan akun tidak berasal dari impor, yaitu dibuat sendiri oleh peserta melalui halaman pendaftaran akun atau ditambahkan admin melalui **Tambah Akun**.
+- **Ikon panah ke bawah**<br />Menandakan akun ditambahkan melalui impor, misalnya **Import Akun** di halaman ini atau **Import Peserta** pada ujian.
+- **Ikon Google**<br />Menandakan akun dibuat dengan mendaftar menggunakan akun Google. Ikon ini tampil di samping salah satu ikon di atas.
 
 <Frame>
   ![Ikon penanda asal akun pada kolom Alamat Email](/images/2026-07-25_01-07_1.png)
 </Frame>
 
 <Tip>
-  Dengan ikon ini, Anda dapat mengetahui apakah akun peserta dibuat secara mandiri atau dimasukkan oleh admin tanpa perlu membuka detail akun satu per satu.
+  Dengan ikon ini, Anda dapat mengetahui asal akun peserta tanpa perlu membuka detail akun satu per satu.
 </Tip>
 
 ## 2. Peserta Membuat Akun Secara Mandiri
@@ -252,7 +268,7 @@ Gunakan cara ini jika peserta diperbolehkan membuat akun secara mandiri.
     Setelah verifikasi berhasil, peserta akan masuk ke halaman utama dan dapat melanjutkan dengan memilih **Pendaftaran Tes Baru** untuk mencari ujian yang akan diikuti.
 
     <Info>
-      Verifikasi email hanya diperlukan bagi peserta yang membuat akun secara mandiri. Akun yang ditambahkan oleh admin melalui **Import Akun** tidak perlu melalui proses ini.
+      Verifikasi email hanya diperlukan bagi peserta yang membuat akun secara mandiri. Akun yang ditambahkan oleh admin melalui **Tambah Akun** atau **Import Akun** tidak perlu melalui proses ini.
     </Info>
   </Step>
 </Steps>
@@ -288,7 +304,7 @@ Gunakan cara ini jika Anda ingin menyiapkan data peserta terlebih dahulu, tetapi
        <Note>
          **Catatan tentang Alamat Email**
 
-         Pada proses impor, sistem **tidak memeriksa** apakah alamat email tersebut benar-benar aktif dan valid. Karena itu, admin dapat menggunakan email khusus yang dibuat untuk kebutuhan ujian, misalnya:
+         Pada proses impor, sistem **tidak memeriksa** apakah alamat email tersebut benar-benar aktif; sistem hanya memeriksa format penulisannya. Karena itu, admin dapat menggunakan email khusus yang dibuat untuk kebutuhan ujian, misalnya:
 
          - `peserta001@indolat.com`
          - `peserta002@indolat.com`

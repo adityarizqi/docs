@@ -7,6 +7,10 @@ Fitur **Sertifikat Ujian** digunakan untuk membuat sertifikat yang dapat diberik
 
 Anda dapat menentukan ujian yang menggunakan sertifikat, syarat peserta menerimanya, tampilan sertifikat, serta pihak yang menandatangani.
 
+<Note>
+  **Sertifikat Ujian** merupakan fitur add-on. Selama add-on ini belum aktif, Anda tetap dapat menyiapkan template, tetapi **Status** hanya dapat berupa **Draft** dan **Tampilkan ke peserta** tidak dapat diaktifkan, sehingga sertifikat belum dapat diterbitkan untuk peserta. Untuk mengaktifkannya, klik **Aktifkan Add-on Sertifikat Ujian** pada halaman **Sertifikat Ujian**.
+</Note>
+
 💡 **Sebagai contoh:** Anda menyelenggarakan **Tryout SNBT 2027**. Peserta yang menyelesaikan ujian dan memperoleh nilai minimal 70 akan mendapatkan sertifikat secara otomatis.
 
 ## 1. Pengaturan Sertifikat oleh Admin
@@ -66,7 +70,7 @@ Bagian ini menjelaskan cara membuat sertifikat dari awal, meliputi:
     3. **Status**<br />Digunakan untuk menentukan kondisi template.
 
        - **Dipublikasikan**: sertifikat sudah siap digunakan pada ujian.
-       - **Draft**: sertifikat masih perlu diperiksa dan disesuaikan oleh admin.
+       - **Draft**: sertifikat masih perlu diperiksa dan disesuaikan oleh admin, dan belum tampil ke peserta.
 
        <Tip>
          Sebaiknya gunakan status **Draft** selama sertifikat masih perlu disesuaikan.
@@ -80,11 +84,11 @@ Bagian ini menjelaskan cara membuat sertifikat dari awal, meliputi:
          - `{YY}`: dua angka tahun, misalnya 27
          - `{MM}`: bulan
          - `{DD}`: tanggal
-         - `{SEQ}`: nomor urut sertifikat
-         - `{EXAM}`: kode ujian
+         - `{SEQ}`: nomor urut sertifikat (6 angka, misalnya 000001)
+         - `{EXAM}`: kode ujian (huruf dan angka saja, maksimal 6 karakter)
        </Info>
 
-       💡 Contoh format: `INDOLAT/{YYYY}/{EXAM}/{SEQ}`<br />Hasil: `INDOLAT/2026/TOSN/0001`
+       💡 Contoh format: `INDOLAT/{YYYY}/{EXAM}/{SEQ}` pada ujian dengan kode `TO-MAT-SNBT`<br />Hasil: `INDOLAT/2026/TOMATS/000001`
     5. **Skor Minimum**<br />Isi nilai minimal yang harus diperoleh peserta agar berhak menerima sertifikat. Misalnya 70, artinya peserta dengan nilai akhir 70 atau lebih dapat menerima sertifikat.
 
        <Tip>
@@ -96,7 +100,7 @@ Bagian ini menjelaskan cara membuat sertifikat dari awal, meliputi:
 
        - Aktifkan agar peserta dapat melihat dan mengunduh sertifikat dari halaman hasil ujian.
        - Nonaktifkan jika sertifikat hanya akan dikelola atau dicetak oleh admin.
-    9. **Catatan**<br />Bagian ini dapat digunakan untuk menyimpan keterangan tambahan mengenai sertifikat.<br />Contoh: Sertifikat diberikan kepada peserta yang telah menyelesaikan ujian dan memperoleh nilai minimal 60.
+    9. **Catatan**<br />Buka bagian ini, lalu isi kolom **Catatan Template** dengan keterangan tambahan mengenai sertifikat. Catatan ini hanya untuk admin.<br />Contoh: Sertifikat diberikan kepada peserta yang telah menyelesaikan ujian dan memperoleh nilai minimal 60.
 
     Setelah isian Anda sesuaikan, klik **Buat** untuk menyimpan pengaturan.
   </Step>
@@ -136,8 +140,9 @@ Bagian ini menjelaskan cara membuat sertifikat dari awal, meliputi:
 
        - **Template A** untuk desain sederhana
        - **Template B** untuk desain lebih formal
-       - **Template Custom** jika lembaga memiliki desain sendiri
-    5. **Tema Warna**
+       - **Template Custom** jika lembaga memiliki desain sendiri. Unggah desain tersebut pada kolom **Background Template Custom** yang muncul (PNG, JPG, atau WEBP, maksimal 2 MB).
+    5. **Logo Lembaga** (opsional)<br />Unggah logo lembaga pada kolom **File Logo** (PNG, JPG, atau WEBP, maksimal 1 MB). Logo ini tersedia sebagai elemen **Logo Lembaga** di bagian **Desainer**, tempat Anda mengatur posisi dan ukurannya.
+    6. **Tema Warna**
 
        <Frame>
          ![Isian Tema Warna sertifikat](/images/2026-08-05_20-52.png)
@@ -152,7 +157,7 @@ Bagian ini menjelaskan cara membuat sertifikat dari awal, meliputi:
        <Frame>
          ![Posisi aksen utama, warna halaman, dan aksen kedua pada sertifikat](/images/2026-08-05_21-07.png)
        </Frame>
-    6. **Safe Area**<br />Safe Area merupakan batas aman agar tulisan dan tanda tangan tidak terlalu dekat dengan pinggir sertifikat.
+    7. **Safe Area**<br />Safe Area merupakan batas aman agar tulisan dan tanda tangan tidak terlalu dekat dengan pinggir sertifikat.
 
        <Tip>
          Gunakan nilai bawaan jika tidak memiliki kebutuhan desain khusus.
@@ -188,7 +193,7 @@ Bagian ini menjelaskan cara membuat sertifikat dari awal, meliputi:
     4. **Gambar Tanda Tangan**<br />Unggah gambar tanda tangan.
 
        <Tip>
-         Gunakan format PNG dengan latar belakang transparan. Format ini akan memberikan hasil yang lebih rapi dan jelas.
+         Gunakan format PNG dengan latar belakang transparan. Format ini akan memberikan hasil yang lebih rapi dan jelas. Ukuran file maksimal 1 MB.
        </Tip>
     5. **+ Tambah Penandatangan** (opsional)<br />Jika jumlah pihak yang berwenang untuk menandatangani sertifikat lebih dari satu, klik **+ Tambah Penandatangan** dan isi data penandatangan pihak kedua.
   </Step>
@@ -215,6 +220,7 @@ Pada halaman ini, Anda dapat menyesuaikan elemen seperti:
 - Nilai Akhir
 - Tanggal Selesai
 - Nomor Sertifikat
+- Logo Lembaga
 - Teks Bebas
 - Area Tanda Tangan
 - Nama Penandatangan

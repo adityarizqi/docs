@@ -84,6 +84,8 @@ In short:
       Example:
 
       > The exam runs from 18 to 25 July 2026. So a session can't be scheduled before 18 July or after 25 July 2026.
+
+      Also, the session's time window (from **Session Start Date** to **Session End Date**) can't be shorter than the test's **Working Time (minutes)**.
     </Note>
   </Step>
 </Steps>
@@ -151,18 +153,18 @@ In short:
     </Frame>
 
     <Frame>
-      ![Success notification and session name shown for each participant](/images/2026-07-30_23-36.png)
+      ![Success notification and session name shown for participants with Active status](/images/2026-07-30_23-36.png)
     </Frame>
 
     1. Click **Assign Exam Sessions Automatically**.
     2. The system shows a confirmation dialog. Click **Assign Exam Sessions Automatically**.
-    3. Wait for the message saying the sessions were assigned. When it's done, the session name appears for each participant.
+    3. Wait for the message saying the sessions were assigned. When it's done, the session name appears for every participant with the **Active** status.
 
-    <Warning>
-      The system spreads all participants with the **Active** status evenly across all the available exam sessions, in order of session start time. Participants who already have a session are redistributed too, while participants with the **Pending** status aren't put in a session. If you've already assigned some participants yourself, use the bulk method so their sessions don't change.
+    <Info>
+      The system spreads every participant whose status is still **Active** (not started yet) evenly across this test's exam sessions, in order of session start time. Participants with the **Active** status who already have a session are included too, so any session you assigned to them earlier is replaced. Participants who are taking the test or have finished it are never moved, and participants with any other status (such as **Pending**) aren't put in a session. To put specific participants in a specific session, use the bulk method.
 
-      The **Assign Exam Sessions Automatically** button only appears when the test already has an exam session, some participants still have no session, and no participant is currently taking the test.
-    </Warning>
+      The **Assign Exam Sessions Automatically** button only appears when the test has at least one exam session, at least one participant still has no session, and no participant is currently taking the test.
+    </Info>
   </Step>
   <Step title="Check Participants' Sessions">
     Make sure no participant is still marked **No exam sessions**. Once participants have been put in a session, they can start the test according to the session schedule.
@@ -211,8 +213,8 @@ Participants who already have a session can be moved to another one if the sched
       ![Success notification and participants moved to the Evening Session](/images/2026-07-30_23-50_1.png)
     </Frame>
 
-    <Tip>
-      Before moving participants, make sure the target session is still available and hasn't ended yet. It's best to move participants before they start the exam.
-    </Tip>
+    <Note>
+      Before moving participants, make sure the target session is still available and hasn't ended yet. Participants who have already started the test can't be moved to another session unless their exam is reset first with the **Reset Exam** button (the answers they've saved are deleted).
+    </Note>
   </Step>
 </Steps>

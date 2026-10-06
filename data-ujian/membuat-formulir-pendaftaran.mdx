@@ -32,11 +32,17 @@ Dengan formulir pendaftaran, seluruh data tersebut dapat dikumpulkan secara rapi
     </Frame>
 
     Jika terlewat, Anda bisa mengikuti panduan [Cara Membuat atau Menambahkan Ujian](/data-ujian/membuat-ujian).
+
+    Template pertanyaan **Metode Pembayaran** hanya dapat dipilih jika **Tipe Pembayaran** diatur ke **Sekali Bayar**.
   </Step>
   <Step title="Buka Formulir Pendaftaran lalu klik Tambah Formulir Pendaftaran">
     <Frame>
       ![Tombol Tambah Formulir Pendaftaran pada bagian Formulir Pendaftaran](/images/2026-07-20_22-52.png)
     </Frame>
+
+    <Note>
+      Tombol **Tambah Formulir Pendaftaran**, **Kode Voucher**, dan ikon ⚙️ hanya muncul jika add-on **Halaman Pendaftaran Ujian dan Pembayaran Otomatis** aktif. Jika belum aktif, bagian ini menampilkan tombol **Aktifkan Add-on Formulir Pendaftaran**.
+    </Note>
 
     Pada bagian ini, Anda dapat membuat pertanyaan yang nantinya akan tampil pada halaman pendaftaran peserta. Anggap saja formulir ini seperti **lembar pendaftaran ketika peserta mengikuti sebuah acara**.
 
@@ -58,7 +64,7 @@ Saat membuat formulir, Anda dapat menentukan informasi yang ingin dikumpulkan da
       ![Template pertanyaan Metode Pembayaran pada form Tambah Formulir Pendaftaran](/images/2026-07-23_19-52.png)
     </Frame>
 
-    1. **Template Pertanyaan**<br />Apabila Anda ingin membuat formulir pembayaran dengan lebih cepat tanpa perlu mengatur setiap bagian secara manual, serta tidak membutuhkan data tambahan dari peserta ujian, gunakan template pertanyaan **Metode Pembayaran**.
+    1. **Template Pertanyaan (Opsional)**<br />Apabila Anda ingin membuat formulir pembayaran dengan lebih cepat tanpa perlu mengatur setiap bagian secara manual, serta tidak membutuhkan data tambahan dari peserta ujian, gunakan template pertanyaan **Metode Pembayaran**.
 
        Berikut tampilan formulir tersebut dari sisi peserta ujian:
 
@@ -80,7 +86,7 @@ Saat membuat formulir, Anda dapat menentukan informasi yang ingin dikumpulkan da
 
         Pada bagian ini, Anda sedang membuat pertanyaan untuk diisi oleh peserta saat mendaftar ujian. Contoh: **Asal Cabang Lembaga**. Tujuannya adalah agar peserta memilih salah satu cabang yang tersedia, yaitu **Surabaya** atau **Jakarta**.
 
-        1. **Template Pertanyaan**<br />Biarkan kosong karena Anda membuat pertanyaan sendiri. Jika Anda memilih salah satu template dari daftar yang disediakan, pengaturan formulir akan terisi otomatis dan kolom **Label Pertanyaan** serta **Tipe Pertanyaan** tidak ditampilkan.
+        1. **Template Pertanyaan (Opsional)**<br />Biarkan kosong karena Anda membuat pertanyaan sendiri. Jika Anda memilih salah satu template dari daftar yang disediakan, pengaturan formulir akan terisi otomatis dan kolom **Label Pertanyaan** serta **Tipe Pertanyaan** tidak ditampilkan.
         2. **Apakah selalu ditampilkan pada formulir pendaftaran?**<br />Pilih **Ya, selalu ditampilkan** agar pertanyaan ini muncul kepada semua peserta.
         3. **Apakah Wajib Diisi?**<br />Aktifkan agar peserta tidak dapat melanjutkan pendaftaran sebelum memilih cabang.
         4. **Label Pertanyaan**<br />Isi dengan nama pertanyaan yang akan dilihat peserta.<br />Contoh: **Asal Cabang Lembaga**.
@@ -132,7 +138,7 @@ Saat membuat formulir, Anda dapat menentukan informasi yang ingin dikumpulkan da
 
         Selain menampilkan pertanyaan untuk semua peserta, Anda juga dapat mengatur agar pertanyaan tertentu **hanya muncul jika peserta memilih jawaban tertentu**.
 
-        1. **Template Pertanyaan**: pilih **Metode Pembayaran**.
+        1. **Template Pertanyaan (Opsional)**: pilih **Metode Pembayaran**.
         2. **Apakah selalu ditampilkan pada formulir pendaftaran?**<br />Pilih **Tampilkan berdasarkan kondisi tertentu**.
         3. **Opsi Pertanyaan** menampilkan pertanyaan yang sudah Anda buat sebelumnya, yang akan digunakan sebagai dasar kondisi.
            <Frame>
@@ -274,7 +280,7 @@ Peserta perlu mengisi formulir terlebih dahulu, kemudian menyelesaikan pembayara
 
     Pada halaman ini, peserta dapat melihat:
 
-    - Status pembayaran
+    - Batas waktu pembayaran
     - Metode pembayaran
     - Kode pembayaran
     - Total pembayaran
@@ -402,22 +408,23 @@ Peserta yang memasukkan kode tersebut saat mendaftar akan mendapatkan potongan s
            >
            > Peserta mendapatkan potongan Rp5.000
        </Info>
-    4. **Maksimal Penerima Voucher**: Digunakan untuk membatasi jumlah peserta yang dapat menggunakan voucher.
+    4. **Nominal Potongan** atau **Persentase Potongan**: Isi besar potongan. Kolom **Nominal Potongan** (dalam Rp) muncul jika Anda memilih **Flat / Nominal**, sedangkan **Persentase Potongan** (1–100%) muncul jika Anda memilih **Persen**.
+    5. **Maksimal Penerima Voucher**: Digunakan untuk membatasi jumlah peserta yang dapat menggunakan voucher.
 
        Contoh: Voucher hanya tersedia untuk 100 peserta pertama.
 
        <Tip>
          Jika **Maksimal Penerima Voucher** dikosongkan, voucher dapat digunakan tanpa batas jumlah pengguna.
        </Tip>
-    5. **Tanggal Mulai Aktif** dan **Tanggal Selesai Aktif**: Atur periode penggunaan voucher.
+    6. **Tanggal Mulai Aktif** dan **Tanggal Selesai Aktif**: Atur periode penggunaan voucher.
 
        Contoh: Voucher berlaku mulai 22 Juli 2026 sampai 31 Juli 2026.
 
        Di luar periode tersebut, voucher tidak dapat digunakan.
-    6. **Catatan Voucher**: Tambahkan keterangan untuk membantu admin mengenali fungsi voucher.
+    7. **Catatan Voucher**: Tambahkan keterangan untuk membantu admin mengenali fungsi voucher.
 
        Contoh: Voucher referral Indolat.
-    7. Jika semua data selesai diisikan, pilih tombol **Simpan Voucher**.
+    8. Jika semua data selesai diisikan, pilih tombol **Simpan Voucher**.
 
     <Frame>
       ![Voucher REFF-INDOLAT tersimpan pada daftar Kode Voucher Pendaftaran](/images/2026-07-22_21-30.png)
@@ -427,7 +434,7 @@ Peserta yang memasukkan kode tersebut saat mendaftar akan mendapatkan potongan s
 
 ## 5. Peserta Ujian Menggunakan Voucher Pembayaran
 
-Setelah voucher dibuat, peserta akan melihat kolom **Kode Voucher** pada halaman pendaftaran.
+Setelah voucher dibuat, peserta akan melihat kolom **Kode Voucher** pada halaman pendaftaran selama pertanyaan **Metode Pembayaran** tampil pada formulir.
 
 <Steps>
   <Step title="Peserta login ke CBT">
@@ -507,12 +514,12 @@ Jadi secara sederhana:
         2. Pilih ujian yang memiliki formulir pendaftaran.
         3. Kemudian pilih tombol **Detail**.
       </Step>
-      <Step title="Pastikan tipe pembayaran dan biaya pendaftaran sudah ditentukan">
+      <Step title="Periksa tipe pembayaran dan biaya untuk ujian berbayar">
         <Frame>
           ![Tipe Pembayaran dan Biaya Ujian Sekali Bayar pada tab Pendaftaran & Pembayaran](/images/2026-07-20_23-05.png)
         </Frame>
 
-        Jika terlewat, Anda bisa mengikuti panduan [Cara Membuat atau Menambahkan Ujian](/data-ujian/membuat-ujian).
+        Jika ujian berbayar, pastikan tipe pembayaran dan biaya pendaftaran sudah ditentukan. Jika terlewat, Anda bisa mengikuti panduan [Cara Membuat atau Menambahkan Ujian](/data-ujian/membuat-ujian). Untuk ujian gratis, langkah ini dapat dilewati karena verifikasi tetap berlaku selama ujian memiliki formulir pendaftaran.
       </Step>
       <Step title="Klik ikon ⚙️ pada bagian Formulir Pendaftaran">
         <Frame>
@@ -527,7 +534,7 @@ Jadi secara sederhana:
         Aktifkan **Apakah Formulir Pendaftaran Perlu Diverifikasi?**, kemudian pilih tombol **Perbarui Pengaturan**.
       </Step>
       <Step title="Verifikasi peserta">
-        Anda harus melakukan **verifikasi peserta** apabila terdapat peserta yang telah berhasil melakukan proses pembayaran formulir.
+        Anda harus melakukan **verifikasi peserta** apabila terdapat peserta yang sudah mengirim formulir pendaftaran (dan, untuk ujian berbayar, sudah menyelesaikan pembayaran).
 
         <Frame>
           ![Peserta berstatus Menunggu Verifikasi pada Daftar Peserta Ujian](/images/2026-07-22_22-30-1.png)

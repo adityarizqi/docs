@@ -1,19 +1,21 @@
 ---
 title: "Add Participant Accounts"
-description: "How to add participant accounts through self-registration or Import Accounts, and manage accounts and labels on the Account Data page."
+description: "How to add participant accounts through self-registration, Add Account or Import Accounts, and manage accounts and labels on the Account Data page."
 ---
 
 Before participants can log in and use the CBT Indolat system, **every participant needs an account**. Participants use the account to log in to the system, see the available exams and take the exams assigned to them.
 
-Participant accounts can be added in two ways:
+Participant accounts can be added in three ways:
 
 1. **Participants create their own account** on the account registration page.
-2. **The admin adds accounts with Import Accounts** using an Excel file.
+2. **The admin adds accounts one by one** with the **Add Account** button.
+3. **The admin adds accounts with Import Accounts** using an Excel file.
 
 <Tip>
   Choose the method that best fits your needs:
 
   - **Self-registration** suits cases where participants are allowed to create their own accounts.
+  - **Add Account** suits cases where you only need to add a few accounts.
   - **Import Accounts** suits cases where the participant data has already been prepared by a school, institution or organiser.
 </Tip>
 
@@ -34,9 +36,9 @@ You can view and manage all of these accounts from the **Account Data** menu.
   ![Account Data page listing participant accounts](/images/2026-07-26_21-04.png)
 </Frame>
 
-When you open the **Account Data** menu, you'll see every participant account registered in the system.
+When you open the **Account Data** menu, you'll see every participant account registered in the system. The page has two tabs: **Account**, which lists the participant accounts, and **Label**, where you manage labels.
 
-Each row in the table is one participant account. From this page you can search for accounts, group participants, manage labels and add many accounts at once.
+Each row in the table on the **Account** tab is one participant account. From this page you can search for accounts, group participants, manage labels, add accounts one by one and add many accounts at once.
 
 ### 1. Group By
 
@@ -44,7 +46,7 @@ Each row in the table is one participant account. From this page you can search 
   ![Group by options on the Account Data page](/images/2026-07-26_21-12.png)
 </Frame>
 
-The **Group by** control changes how the account list is laid out so it is easier to read.
+The **Group by** control changes how the account list is laid out so it is easier to read. By default, the list is grouped by **Label**; accounts without a label go into the **No Label** group.
 
 - Choose **Label** if you want participants in the same group to be shown together.
 
@@ -60,7 +62,7 @@ The **Group by** control changes how the account list is laid out so it is easie
 
 ### 2. Add Label
 
-Use it to create a new participant group.
+Use it to create a new participant group. Open the **Label** tab, click **Add Label**, fill in **Label Name**, then click **Save**.
 
 <Frame>
   ![Creating a new label with the Add Label button](/images/2026-07-25_01-37.png)
@@ -93,13 +95,15 @@ For example, you want to rename the **Promo Member** label to **Promo Member Ind
 
 To rename a label:
 
-1. Click **Edit Label**.
-2. Tick the label you want to rename.
-3. Enter the new label name.
+1. Open the **Label** tab.
+2. Click **Edit** on the row of the label you want to rename.
+3. Enter the new name in the **Label Name** field.
 4. Click **Save** to save the new name.
 
 <Tip>
   Renaming a label also updates every account that already uses it.
+
+  To set or change the label on several accounts at once, open the **Account** tab, tick the accounts you want, click **Action**, then choose **Edit Label**.
 </Tip>
 
 ### 4. Delete Label
@@ -116,22 +120,33 @@ Use it to delete labels you no longer need.
 
 To delete a label:
 
-1. Click **Delete Label**.
-2. Tick the label you want to delete.
-3. Click **Delete** to delete the selected label.
+1. Open the **Label** tab.
+2. Click **Delete** on the row of the label you want to delete.
+3. Click **Delete** in the confirmation window.
 
 <Note>
   Deleting a label only removes the group.
 
-  The participant accounts **stay saved** on the **Account Data** page.
+  The participant accounts **stay saved** on the **Account Data** page and move to **No Label**.
 </Note>
 
-### 5. Import Accounts
+### 5. Add Account
+
+Use it to add participant accounts one at a time, without an Excel file.
+
+1. On the **Account** tab, click **Add Account**.
+2. Fill in **Name**, **Email Address** and **Password**. You can leave the **Label** field empty.
+3. Leave **Active Status** switched on so the account can be used straight away.
+4. Click **Create**.
+
+Accounts added this way are verified straight away, so participants don't need to verify their email.
+
+### 6. Import Accounts
 
 Use it to add many participant accounts at once from an Excel file.
 
 <Frame>
-  ![Import Accounts button on the Account Data page](/images/2026-07-25_01-48.png)
+  ![Import Accounts button and window on the Account Data page](/images/2026-07-25_01-48.png)
 </Frame>
 
 This suits cases where the participant data already comes from a school, an institution branch or an internal participant list. Once the import finishes, all the accounts appear on the **Account Data** page.
@@ -140,7 +155,7 @@ This suits cases where the participant data already comes from a school, an inst
   Imported accounts are not added to any exam automatically. You still need to add the participants in the **Exam Participant List** section.
 </Warning>
 
-### 6. Search
+### 7. Search
 
 Use the **Search** field to find a specific account without going through the list one by one. For example, type **Rosa Adinda** to show that participant's account.
 
@@ -148,7 +163,7 @@ Use the **Search** field to find a specific account without going through the li
   ![Searching for a participant account with the Search field](/images/2026-07-25_01-52.png)
 </Frame>
 
-### 7. Filter
+### 8. Filter
 
 Click **Filter** if you want to narrow the account list down by certain criteria. For example, you only want to see:
 
@@ -161,19 +176,20 @@ Click **Filter** if you want to narrow the account list down by certain criteria
 
 After choosing the criteria you need, click **Apply filters**. The account list then shows the participants that match.
 
-### 8. Marker Icons
+### 9. Marker Icons
 
 In the **Email Address** column, an icon shows where each participant account came from:
 
-- **Blue person icon**<br />The participant created the account themselves on the account registration page.
-- **Down arrow icon**<br />The admin added the account through **Import Accounts**.
+- **Blue person icon**<br />The account wasn't imported: the participant created it on the account registration page, or an admin added it with **Add Account**.
+- **Down arrow icon**<br />The account was added by import, for example with **Import Accounts** on this page or **Import Participants** in an exam.
+- **Google icon**<br />The account was created by registering with a Google account. This icon appears next to one of the icons above.
 
 <Frame>
   ![Icons showing the account source in the Email Address column](/images/2026-07-25_01-07_1.png)
 </Frame>
 
 <Tip>
-  These icons tell you whether a participant account was created by the participant or added by an admin, without opening each account's details.
+  These icons tell you where a participant account came from, without opening each account's details.
 </Tip>
 
 ## 2. Participants Create Their Own Accounts
@@ -252,7 +268,7 @@ Use this method if participants are allowed to create their own accounts.
     After verification, the participant lands on the home page and can continue by choosing **New Exam Registration** to find an exam to take.
 
     <Info>
-      Email verification is only needed for participants who create their own accounts. Accounts added by an admin through **Import Accounts** skip this step.
+      Email verification is only needed for participants who create their own accounts. Accounts added by an admin through **Add Account** or **Import Accounts** skip this step.
     </Info>
   </Step>
 </Steps>
@@ -288,7 +304,7 @@ Use this method if you want to prepare participant data first, before deciding w
        <Note>
          **About email addresses**
 
-         During the import, the system **doesn't check** whether an email address is real and active. So admins can use email addresses created just for the exam, for example:
+         During the import, the system **doesn't check** whether an email address is real and active; it only checks that it is written in a valid format. So admins can use email addresses created just for the exam, for example:
 
          - `peserta001@indolat.com`
          - `peserta002@indolat.com`

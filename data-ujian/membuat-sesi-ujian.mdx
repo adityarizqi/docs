@@ -84,6 +84,8 @@ Secara sederhana:
       Contoh:
 
       > Ujian berlangsung pada 18–25 Juli 2026. Maka sesi tidak dapat dijadwalkan sebelum 18 Juli atau setelah 25 Juli 2026.
+
+      Selain itu, rentang waktu sesi (dari **Tanggal Mulai Sesi** sampai **Tanggal Selesai Sesi**) tidak boleh lebih pendek dari **Durasi Pengerjaan (menit)** tes ujian.
     </Note>
   </Step>
 </Steps>
@@ -151,18 +153,18 @@ Secara sederhana:
     </Frame>
 
     <Frame>
-      ![Notifikasi berhasil dan nama sesi tampil pada setiap peserta](/images/2026-07-30_23-36.png)
+      ![Notifikasi berhasil dan nama sesi tampil pada peserta berstatus Aktif](/images/2026-07-30_23-36.png)
     </Frame>
 
     1. Pilih tombol **Set Sesi Ujian Otomatis**.
     2. Sistem akan menampilkan jendela konfirmasi, lalu pilih tombol **Set Sesi Ujian Otomatis**.
-    3. Tunggu hingga muncul informasi bahwa pengaturan sesi berhasil. Setelah proses selesai, nama sesi akan tampil pada masing-masing peserta.
+    3. Tunggu hingga muncul informasi bahwa pengaturan sesi berhasil. Setelah proses selesai, nama sesi akan tampil pada setiap peserta berstatus **Aktif**.
 
-    <Warning>
-      Sistem membagi rata seluruh peserta berstatus **Aktif** ke semua sesi ujian yang tersedia, sesuai urutan waktu mulai sesi. Peserta yang sudah memiliki sesi juga ikut dibagi ulang, sedangkan peserta berstatus **Pending** tidak dimasukkan ke sesi. Jika sebagian peserta sudah Anda atur sendiri, gunakan cara kolektif agar pembagiannya tidak berubah.
+    <Info>
+      Sistem membagi rata semua peserta yang masih berstatus **Aktif** (belum mulai mengerjakan) ke sesi-sesi ujian pada tes ini, sesuai urutan waktu mulai sesi. Peserta berstatus **Aktif** yang sudah memiliki sesi juga ikut dibagi, sehingga sesi yang sebelumnya Anda atur untuk peserta tersebut akan diganti. Peserta yang sedang mengerjakan atau sudah selesai mengerjakan tes tidak pernah dipindahkan, dan peserta dengan status lain (misalnya **Pending**) tidak dimasukkan ke sesi. Untuk menempatkan peserta tertentu di sesi tertentu, gunakan cara kolektif.
 
-      Tombol **Set Sesi Ujian Otomatis** hanya muncul jika tes sudah memiliki sesi ujian, masih ada peserta tanpa sesi, dan tidak ada peserta yang sedang mengerjakan tes.
-    </Warning>
+      Tombol **Set Sesi Ujian Otomatis** hanya muncul jika tes sudah memiliki minimal satu sesi ujian, masih ada minimal satu peserta tanpa sesi, dan tidak ada peserta yang sedang mengerjakan tes.
+    </Info>
   </Step>
   <Step title="Periksa Sesi Peserta">
     Pastikan tidak ada lagi peserta berketerangan **Tidak ada sesi ujian**. Setelah peserta dipasangkan ke sesi, peserta dapat mulai mengerjakan sesuai jadwal sesi yang telah ditentukan.
@@ -211,8 +213,8 @@ Peserta yang sudah memiliki sesi dapat dipindahkan ke sesi lain apabila terdapat
       ![Notifikasi berhasil dan peserta pindah ke Sesi Sore](/images/2026-07-30_23-50_1.png)
     </Frame>
 
-    <Tip>
-      Pastikan sesi tujuan masih tersedia dan jadwalnya belum berakhir sebelum memindahkan peserta. Perpindahan sebaiknya dilakukan sebelum peserta mulai mengerjakan ujian.
-    </Tip>
+    <Note>
+      Pastikan sesi tujuan masih tersedia dan jadwalnya belum berakhir sebelum memindahkan peserta. Peserta yang sudah mulai mengerjakan tes tidak dapat dipindahkan ke sesi lain, kecuali ujiannya di-reset terlebih dahulu melalui tombol **Reset Ujian** (jawaban peserta yang sudah tersimpan akan terhapus).
+    </Note>
   </Step>
 </Steps>

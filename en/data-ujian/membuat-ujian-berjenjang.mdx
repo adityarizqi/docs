@@ -68,6 +68,8 @@ The competition has three rounds:
         <Note>
           You still need to set up **exam sessions** and link each test to a **question package**.
 
+          An exam created from a template is a **Professional Exam (Paid Plan)**. You can change this in the **Exam Type & Plan** section.
+
           In short, a template only helps you **get started faster**. The system prepares the framework; you fill in the content.
         </Note>
       </Step>
@@ -94,7 +96,7 @@ The competition has three rounds:
           ![General Information form for a new exam](/images/2026-07-19_18-05.png)
         </Frame>
 
-        Fill in the exam information according to your institution's policies.
+        Fill in the exam information according to your institution's policies, then click **Create**. The system opens the exam details page straight away.
 
         <Frame>
           ![New exam form filled in for the 2027 Mathematics Competition](/images/2026-07-26_23-08.png)
@@ -108,7 +110,7 @@ The competition has three rounds:
 
 <Steps>
   <Step title="Click Details">
-    On the **Exam Data** page, click **Details** on the exam you've just created.
+    On the **Exam Data** page, click **Details** on the exam you've just created. If you created the exam with **Add Exam**, the exam details page is already open after you click **Create**, so you can skip this step.
 
     <Frame>
       ![Details button on the 2027 Mathematics Competition exam](/images/2026-07-26_23-09.png)
@@ -126,8 +128,8 @@ The competition has three rounds:
     3. **Start Date**<br />Set the date and time the exam event starts.
     4. **End Date**<br />Set the date and time the exam event ends.
     5. **Exam Description**<br />Give a short explanation of the exam's purpose or content.<br />Example: _A multi-level exam for the 2027 Mathematics Competition_
-    6. **Exam Image/Cover**<br />Upload an image to use as the exam cover. It makes the exam easier for participants to recognise.
-    7. Once you've checked that all the information is correct, click **Save** to save the exam event.
+    6. **Exam Image/Cover**<br />Upload an image to use as the exam cover. It makes the exam easier for participants to recognise. The file must be a PNG of up to 1MB.
+    7. Once you've checked that all the information is correct, click **Save changes** to save the exam event.
   </Step>
 </Steps>
 
@@ -143,6 +145,7 @@ Once the exam has been created, the system shows several settings sections:
 2. **Exam Type & Plan**
 3. **Registration & Payment**
 4. **Exam Settings**
+5. **Additional Information**
 
 Let's go through them one by one.
 
@@ -163,7 +166,7 @@ Let's go through them one by one.
 
     > The 2027 Mathematics Competition was originally scheduled for 26–31 July. If the schedule changes, you can update it in the General Information section.
 
-    After making changes, click **Save**.
+    After making changes, click **Save changes**.
   </Step>
   <Step title="Review Exam Type & Plan">
     <Frame>
@@ -174,7 +177,7 @@ Let's go through them one by one.
       />
     </Frame>
 
-    The **Exam Type & Plan** section shows the service type or plan the exam uses.
+    The **Exam Type & Plan** section shows the service type or plan the exam uses. Credits are consumed when a participant takes an exam.
 
     <Frame>
       ![Exam Type options: Standard Exam and Professional Exam](/images/tipe-ujian.png)
@@ -182,25 +185,32 @@ Let's go through them one by one.
 
     - **Standard Exam (Free Plan)**
 
-      Suitable for simple exams or regular practice. Main features:
+      Suitable for simple exams or regular practice. Its terms:
 
-      1. Up to 50 participants per exam.
-      2. Up to 4 tests per exam.
+      1. Credits are reset automatically every month.
+      2. Up to **4 Tests (Subtests)** per exam.
+      3. Up to **50 participants** taking the exam at once (participants working on the exam at the same time).
+      4. **Camera, Screen and Dual Monitor Proctoring** is not available.
+      5. **Computer Adaptive Test (CAT)** is not available.
 
     - **Professional Exam (Paid Plan)**: Rp500 per exam credit
 
-      Suitable for exams with more participants and more advanced needs. Main features:
+      Suitable for exams with more participants and more advanced needs. Its terms:
 
-      1. Supports both **CBT** and **CAT**.
-      2. Scoring methods: standard scoring and IRT.
-      3. Up to **1,000 participants** per exam.
-      4. Up to **30 tests** per exam.
-      5. Detects tab switching and the use of a second monitor. Camera and screen proctoring are available as add-ons.
+      1. Credits are reset every month according to your subscription period.
+      2. Up to **30 Tests (Subtests)** per exam.
+      3. Up to **1,000 participants** taking the exam at once.
+      4. **Camera, Screen and Dual Monitor Proctoring** is available. Camera and screen proctoring also use their own proctoring credits (an add-on).
+      5. **Computer Adaptive Test (CAT)** is available.
+
+      If you have no professional exam credits, the system shows a warning and participants can't start the exam until credits are available.
+
+    On both exam types, CBT tests can use every scoring method, including IRT, and **Tab Switch Detection** is still available.
 
     <Tip>
-      Choose the **Standard Exam** if the exam is simple, with no more than 50 participants and no more than 4 tests.
+      Choose the **Standard Exam** if the exam is simple, no more than 50 participants take it at the same time and it has no more than 4 tests.
 
-      Choose the **Professional Exam** if you have more participants or tests, or you need CAT and more complete proctoring.
+      Choose the **Professional Exam** if more participants take it at the same time or it has more tests, or you need CAT or camera, screen and dual monitor proctoring.
     </Tip>
   </Step>
   <Step title="Set up Registration & Payment">
@@ -210,8 +220,8 @@ Let's go through them one by one.
 
     In this section, you decide whether participants can register themselves and whether the exam is free or paid.
 
-    1. **Is Exam Registration Open?**<br />When this is on, participants can register for the exam themselves. This setting needs the **Exam Registration Page** add-on. If the add-on isn't active, the label shows "(Add-on Inactive)" and the toggle can't be turned on.
-    2. **Payment Type**<br />Choose **Free** if participants don't need to pay. If your multi-level exam is paid, we recommend choosing **Paid per Level (Multi-Level)**.
+    1. **Is Exam Registration Open?**<br />When this is on, participants can register for the exam themselves. This setting needs the **Exam Registration Page and Automatic Payment** add-on. If the add-on isn't active, the label shows "(Add-on Inactive)" and the toggle can't be turned on.
+    2. **Payment Type**<br />Choose **Free** if participants don't need to pay. If your multi-level exam is paid, we recommend choosing **Paid per Level (Multi-Level)**. When you choose this type, **Is This a Multi-Level Exam?** switches to **Yes (Multi-Level)** automatically. Paid payment types need the same add-on; without it, a paid exam can't be saved.
 
     <Frame>
       <img
@@ -259,7 +269,7 @@ Let's go through them one by one.
       >
       > Participants pay for the next round only if they pass.
 
-    3. When you've finished, click **Save**.
+    3. When you've finished, click **Save changes**.
   </Step>
   <Step title="Complete the Exam Settings">
     <Frame>
@@ -280,7 +290,18 @@ Let's go through them one by one.
 
        Because the exam is set up as multi-level, the rules on taking tests in order and in one sitting are set on each exam level instead (see section **5. Set Up the Multi-Level Exam Structure** below).
 
-    2. **Show the Final Exam Score?**
+    2. **Final Score Type**
+
+       Choose how a participant's final score is derived from the scores of all the tests:
+
+       - **Accumulated Exam Test Scores**: the scores of each test are added up.
+       - **Averaged Exam Test Scores**: the total is divided by the number of tests already scored. This option is selected by default.
+
+       > Example: a participant scores 80 in the Preliminary Round and 70 in the Semifinal. With **Accumulated Exam Test Scores**, the final score is 150; with **Averaged Exam Test Scores**, it's 75.
+
+       If the exam already has participants, every participant's final score is recalculated once you save the change.
+
+    3. **Show the Final Exam Score?**
 
        Turn this on if participants may see their final result once they finish.
 
@@ -290,7 +311,16 @@ Let's go through them one by one.
 
        > Example: selection scores are checked first and announced by the committee the next day.
 
-    3. When you've finished, click **Save**.
+    4. When you've finished, click **Save changes**.
+  </Step>
+  <Step title="Set up Additional Information">
+    The **Additional Information** section is optional. Use it to show specific information on the dashboard of participants registered for this exam, such as a WhatsApp group link, technical guidance or the committee's contact details. Participants in other exams don't see it.
+
+    1. **Show Additional Information to Participants?**<br />Turn this on to show the additional information on participants' dashboards.
+    2. **Information Title**<br />Enter a title of up to 100 characters.<br />Example: **Join the Participants' WhatsApp Group**
+    3. **Information Content**<br />Enter the information itself, up to 1,000 characters.
+    4. **Button Label (Optional)** and **Button Link (Optional)**<br />Fill in both if you want to show a button, such as **Join Group**. Use a full link starting with `http://` or `https://`. The button only appears when both its label and link are filled in.
+    5. When you've finished, click **Save changes**.
   </Step>
 </Steps>
 
@@ -401,12 +431,16 @@ Let's go through them one by one.
          >
          > This method suits large-scale exams or a deeper analysis of participants' ability.
 
+       <Warning>
+         IRT scores are calculated with **Calculate Score** → **IRT Calculation** on the exam details page, and that option can't be used on a multi-level exam. For a multi-level exam, choose a scoring method other than IRT.
+       </Warning>
+
        <Tip>
          For a simple SNBT tryout, choose **Question Score Calculation (Sum of Correct/Wrong)**.
        </Tip>
 
     3. **Test Name**: Enter a test name that matches the round you're creating.<br />Example: **Preliminary Round**
-    4. **Working Time (minutes)**: Enter how long participants have to work on the test, in minutes.<br />Example: **120**
+    4. **Working Time (minutes)**: Enter how long participants have to work on the test, in minutes.<br />Example: **120**. This field doesn't appear for the **Essay / File Upload (Manual Grading)** type.
     5. **Test Instructions**: Write the instructions participants read before they start.
 
        You can use these placeholders in the instructions:
@@ -457,7 +491,7 @@ This structure tells the system the path participants follow, from the first rou
   </Step>
   <Step title="Create an exam level">
     <Frame>
-      ![Numbered fields on the exam level form](/images/2026-07-29_20-31.png)
+      ![Numbered fields in the Edit window of an exam level](/images/2026-07-29_20-31.png)
     </Frame>
 
     1. **Level Name**
@@ -698,7 +732,7 @@ This is what participants see while you haven't yet verified whether they've pas
   </Step>
   <Step title="Set the payment deadline">
     <Frame>
-      ![Move on to the next test window with a payment deadline](/images/2026-07-29_21-16_1.png)
+      ![Continue to the Next Test window with a payment deadline](/images/2026-07-29_21-16_1.png)
     </Frame>
 
     If you click **Yes, Move On to the Next Test** and the next level has a fee, you need to:
