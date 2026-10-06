@@ -1,0 +1,184 @@
+---
+title: "Import Questions from Excel"
+description: "How to import questions and answers into a question package using the Excel template."
+---
+
+Use **Import Questions (Excel)** when you already have many questions and want to add them to a question package in one go.
+
+This is faster than adding questions one by one. Download the template, fill in the questions and their answers, then upload the file back to the system.
+
+> 💡 **For example**, you're preparing a **tryout** (practice exam) with several question types. The teaching team has already written the questions in Excel. Instead of entering them one by one, you can import all of them using the template.
+
+<Steps>
+  <Step title="Click Edit on the question package">
+    <Frame>
+      ![Number of Questions column and Edit button on the Question Package Data page](/images/2026-07-31_02-58.png)
+    </Frame>
+
+    Open the **Question Package Data** menu, then click **Edit** on the question package you want to fill. The **Number of Questions** column shows whether a question package already contains questions or is still empty.
+  </Step>
+  <Step title="Click Import Questions (Excel)">
+    <Frame>
+      ![Import Questions (Excel) button in the Question List section](/images/2026-07-31_02-59.png)
+    </Frame>
+  </Step>
+  <Step title="Click Download Template">
+    <Frame>
+      ![Download Template link in the Import Questions (Excel) window](/images/2026-07-31_02-59_1.png)
+    </Frame>
+  </Step>
+  <Step title="Open the downloaded template">
+    The Excel template has four sheets:
+
+    - **Panduan** (the instructions sheet; its name is not translated)
+    - **Question Data**
+    - **Answer Data**
+    - **Passage Data** (optional)
+
+    <Frame>
+      ![Panduan sheet in the Excel template](/images/2026-07-31_03-00.png)
+    </Frame>
+
+    The **Panduan** sheet explains how to fill in the template, which codes you can use and which columns are required or optional.
+
+    <Note>
+      Keep the following rules in mind:
+
+      - Import is only available for **CBT/CAT** question packages.
+      - Don't change the column names or the layout of the template.
+      - Question images and answer images can be added through **image links** (see **Image link rules** below). Audio and video are still added after the import.
+      - Use the codes listed in the instructions to fill in the question type and content type.
+      - Use the latest template (version 1.2.0) so that the image link columns and the passage sheet are available. Files made from earlier template versions can still be imported.
+    </Note>
+  </Step>
+  <Step title="Fill in the Question Data sheet">
+    <Frame>
+      ![Question Data sheet in the Excel template](/images/2026-07-31_03-00_1.png)
+    </Frame>
+
+    Use the **Question Data** sheet to enter each question and its settings. The main columns are:
+
+    - **Question No**<br />Enter the question's sequence number, for example 1, 2, 3 and so on.
+    - **Question Type**<br />Enter the question type using a code:
+      - **PG** for Multiple Choice
+      - **MK** for Complex Multiple Response
+      - **IN** for Short Answer
+    - **Content Type**<br />Enter how the question is presented using the codes below. To use more than one type, separate them with commas, for example **T,G**.
+      - **T** for Text
+      - **G** for Image
+      - **A** for Audio
+    - **Essay Question**<br />Enter the question participants will answer.
+    - **Question Group**<br />Enter the name of the question group. If no question group with that name exists yet, it is created automatically. Leave it empty if the question doesn't need to be grouped. Examples:
+      - Basic Geography
+      - Biology
+      - Mathematics
+    - **Difficulty Level**<br />Enter the question's difficulty level (the Indonesian values, such as Mudah or Sulit, are also accepted), for example:
+      - Very Easy
+      - Easy
+      - Medium
+      - Hard
+      - Very Hard
+    - **More Than One Answer**<br />Enter **Yes** if the question has more than one correct answer, or **No** if it has only one correct answer. **Ya** and **Tidak** are also accepted.
+    - **Correct Answer applies to IN only**<br />For **IN** (Short Answer) questions only, enter the correct answer as a number or text. If several answers count as correct, separate them with **|**, for example `DKI Jakarta | Jakarta` or `0.5 | 1/2`. If all the answers are numbers, participants can only type numbers during the exam.
+    - **CBT and CAT scores**<br />Enter the score for a correct, wrong or unanswered question in the **CBT Score for Correct**, **CBT Score for Wrong**, **CBT Score for Unanswered**, **CAT Score for Correct** and **CAT Score for Wrong** columns, according to the scoring rules you use.
+    - **Explanation**<br />Enter an explanation of the answer if needed.
+    - **Question Image Links**<br />Optional. Enter the image link(s) for this question. If the question has several images, put one link per line in the same cell (up to 10 images).
+    - **Passage Code**<br />Optional. Enter a passage code from the **Passage Data** sheet (for example `W1`) if the question uses a shared reading text.
+
+    <Tip>
+      **Example:**
+
+      For the question:
+
+      > What is 10 + 15?
+
+      A simple entry looks like this:
+
+      - Question No: 4
+      - Question Type: IN
+      - Content Type: T
+      - Question Group: Mathematics
+      - Correct Answer: 25
+    </Tip>
+  </Step>
+  <Step title="Fill in the Answer Data sheet">
+    <Frame>
+      ![Answer Data sheet in the Excel template](/images/2026-07-31_03-01.png)
+    </Frame>
+
+    Use the **Answer Data** sheet to enter the answer options for Multiple Choice and Complex Multiple Response questions. The main columns are:
+
+    - **Question No**<br />Enter the same number as in the **Question Data** sheet.
+    - **Answer A to Answer E**<br />Enter the answer options participants will see. There **must be** at least two answer options (Answer A and Answer B), as text or as an image link.
+    - **Answer Key**<br />Enter the letter of the correct answer. For example:
+      - Enter **A** if only Answer A is correct.
+      - Enter **B,C,D** (separated by commas, without spaces) if there is more than one correct answer.
+    - **Image Link A to Image Link E**<br />Optional. Enter one image link for the matching answer option. An answer option can be text, an image or both.
+
+    <Note>
+      **Image link rules**
+
+      - Use a full link that starts with `https://` and points directly at a **JPG, PNG, GIF or WebP** image file of up to **5 MB**. An easy check: when you open the link in a browser, only the image is shown.
+      - Page links, such as a Google Drive sharing page or a web page that contains the image, are not image links and will be rejected.
+      - Images are **downloaded and stored in your project's storage**, not linked to the original address. The question stays intact even if the original link later changes or is deleted, and the image size counts towards your storage quota.
+      - For security, the system only downloads from public servers on the internet and checks that the file really is an image.
+      - If one image fails to download, **the whole import is cancelled** and the notification names the rows to fix. A file can contain up to 300 image links.
+    </Note>
+
+    <Tip>
+      **Example:**
+
+      For the question:
+
+      > What is the capital of Indonesia?
+
+      Fill in the answers:
+
+      - Answer A: Jakarta
+      - Answer B: Bandung
+      - Answer C: Surabaya
+      - Answer D: Medan
+      - Answer E: Yogyakarta
+      - Answer Key: A
+    </Tip>
+  </Step>
+  <Step title="Fill in the Passage Data sheet (optional)">
+    Fill in the **Passage Data** sheet only if several questions share the same reading text. Its columns are:
+
+    - **Passage Code**<br />A unique code for each passage, for example `W1`, `W2`. Write this code in the **Passage Code** column of the **Question Data** sheet for every question that uses the passage.
+    - **Passage Title**<br />Optional and only visible to admins. If left empty, the code is used as the title.
+    - **Passage Text**<br />The reading text, up to 20,000 characters.
+    - **Passage Image Links**<br />Optional. Image links follow the same rules as question image links; put one link per line for several images.
+
+    <Tip>
+      **Example:** passage `W1` contains attendance data for a reading club. Questions 6 and 7 in the **Question Data** sheet have `W1` in the **Passage Code** column, so both show the same reading text during the exam.
+    </Tip>
+  </Step>
+  <Step title="Upload the template">
+    <Frame>
+      ![Uploaded file and Import button in the Import Questions (Excel) window](/images/2026-07-31_03-01_1.png)
+    </Frame>
+
+    Once all the questions and answers are filled in:
+
+    1. Save the Excel file.
+    2. Click **Import Questions (Excel)** again on the question package.
+    3. Upload the completed file.
+    4. Click **Import**.
+    5. Wait until the process is finished. The import runs in the background, and you'll get a notification when it's done.
+
+    <Frame>
+      ![Question Import In Progress notification](/images/2026-07-31_03-02.png)
+    </Frame>
+
+    After a successful import, the questions appear in the **Question List** section with their question group, question text and question type.
+
+    <Frame>
+      ![Imported questions in the Question List section](/images/2026-07-31_03-02_1.png)
+    </Frame>
+
+    <Tip>
+      Check the import results before using the package. Make sure the question numbers in the **Question Data** and **Answer Data** sheets match, so answers don't end up on the wrong question.
+    </Tip>
+  </Step>
+</Steps>

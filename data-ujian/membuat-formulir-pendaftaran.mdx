@@ -1,9 +1,9 @@
 ---
 title: "Formulir Pendaftaran Peserta"
-description: "Cara Membuat Formulir Pendaftaran Peserta"
+description: "Cara membuat formulir pendaftaran ujian, mengatur pembayaran dan kode voucher, memverifikasi peserta, serta membatasi kuota pendaftaran."
 ---
 
-Panduan ini menjelaskan cara membuat **formulir pendaftaran ujian** hingga siap digunakan oleh Peserta. Anda akan mempelajari cara menambahkan pertanyaan pendaftaran, mengatur jenis jawaban, melihat tampilan formulir dari sisi peserta, mengatur pembayaran, menambahkan kode voucher, hingga proses verifikasi peserta.
+Panduan ini menjelaskan cara membuat **formulir pendaftaran ujian** hingga siap digunakan oleh peserta. Anda akan mempelajari cara menambahkan pertanyaan pendaftaran, mengatur jenis jawaban, melihat tampilan formulir dari sisi peserta, mengatur pembayaran, menambahkan kode voucher, hingga proses verifikasi peserta.
 
 💡 Sebagai contoh, Anda adalah **Admin Penyelenggara Tryout Akbar Persiapan SNBT 2027**.
 
@@ -15,253 +15,262 @@ Sebelum peserta dapat mengikuti tryout, Anda ingin mengetahui data peserta terle
 
 Dengan formulir pendaftaran, seluruh data tersebut dapat dikumpulkan secara rapi sebelum peserta masuk ke tahap ujian.
 
-# 1. Membuat Formulir Pendaftaran
+## 1. Membuat Formulir Pendaftaran
 
 <Steps>
-  <Step title="Buka data Ujian yang telah dibuat">
+  <Step title="Buka ujian yang telah dibuat">
     <Frame>
-      ![2026 07 20 22 49](/images/2026-07-20_22-49.png "2026 07 20 22 49")
+      ![Tombol Detail pada daftar ujian di menu Data Ujian](/images/2026-07-20_22-49.png)
     </Frame>
 
-    1. Buka menu '**Data Ujian**', pilih Data Ujian yang akan ditambahkan Formulir Pendaftaran
-    2. Kemudian pilih tombol **'Detail**'
+    1. Buka menu **Data Ujian**, lalu pilih ujian yang akan ditambahkan formulir pendaftaran.
+    2. Kemudian pilih tombol **Detail**.
   </Step>
-  <Step title="Pastikan Anda telah Menentukan Tipe Pembayaran dan Biaya Pendaftaran">
+  <Step title="Pastikan tipe pembayaran dan biaya pendaftaran sudah ditentukan">
     <Frame>
-      ![2026 07 20 23 05](/images/2026-07-20_23-05.png "2026 07 20 23 05")
+      ![Tipe Pembayaran dan Biaya Ujian Sekali Bayar pada tab Pendaftaran & Pembayaran](/images/2026-07-20_23-05.png)
     </Frame>
 
-    Jika terlewat, Anda bisa mengikuti tutorial melalui _link_ berikut ini [Cara Membuat atau Menambahkan Ujian](/untitled-page)
+    Jika terlewat, Anda bisa mengikuti panduan [Cara Membuat atau Menambahkan Ujian](/data-ujian/membuat-ujian).
   </Step>
-  <Step title="Pilih 'Formulir Pendaftaran' kemudian pilih tombol ( + Tambah Formulir Pendaftaran)">
+  <Step title="Buka Formulir Pendaftaran lalu klik Tambah Formulir Pendaftaran">
     <Frame>
-      ![2026 07 20 22 52](/images/2026-07-20_22-52.png "2026 07 20 22 52")
+      ![Tombol Tambah Formulir Pendaftaran pada bagian Formulir Pendaftaran](/images/2026-07-20_22-52.png)
     </Frame>
 
-    Pada bagian ini, Anda dapat membuat pertanyaan yang nantinya akan tampil pada halaman pendaftaran peserta. Anggap saja formulir ini seperti **lembar pendaftaran ketika peserta mengikuti sebuah acara**.
+    Pada bagian ini, Anda dapat membuat pertanyaan yang nantinya akan tampil pada halaman pendaftaran peserta. Anggap saja formulir ini seperti **lembar pendaftaran ketika peserta mengikuti sebuah acara**.
 
     Jika pada formulir kertas Anda biasanya meminta:
 
-    > Cabang Lembaga : \_\_\_\_\_\_\_\_\_<br />Nomor WhatsApp: \_\_\_\_\_\_\_\_\_\_
+    > Cabang Lembaga: \_\_\_\_\_\_\_\_\_<br />Nomor WhatsApp: \_\_\_\_\_\_\_\_\_
 
-    Maka pada sistem, pertanyaan tersebut dibuat melalui menu **Tambah Formulir Pendaftaran**.
+    Maka pada sistem, pertanyaan tersebut dibuat melalui tombol **Tambah Formulir Pendaftaran**.
   </Step>
 </Steps>
 
-# 2. Mengisi Detail Formulir Pendaftaran
+## 2. Mengisi Detail Formulir Pendaftaran
 
 Saat membuat formulir, Anda dapat menentukan informasi yang ingin dikumpulkan dari peserta.
 
-<Accordion title="Menggunakan Template Pertanyaan">
-  <Frame>
-    ![2026 07 23 19 52](/images/2026-07-23_19-52.png "2026 07 23 19 52")
-  </Frame>
+<AccordionGroup>
+  <Accordion title="Menggunakan Template Pertanyaan">
+    <Frame>
+      ![Template pertanyaan Metode Pembayaran pada form Tambah Formulir Pendaftaran](/images/2026-07-23_19-52.png)
+    </Frame>
 
-  1. **Template Pertanyaan**<br />Apabila Anda ingin membuat formulir pembayaran dengan lebih cepat tanpa perlu mengatur setiap bagian secara manual, serta tidak membutuhkan data tambahan dari Peserta Ujian, gunakan **Template Pertanyaan Metode Pembayaran**.
-     <Tip>
-       Berikut tampilan dari Peserta Ujian<br />
+    1. **Template Pertanyaan**<br />Apabila Anda ingin membuat formulir pembayaran dengan lebih cepat tanpa perlu mengatur setiap bagian secara manual, serta tidak membutuhkan data tambahan dari peserta ujian, gunakan template pertanyaan **Metode Pembayaran**.
+
+       Berikut tampilan formulir tersebut dari sisi peserta ujian:
+
        <Frame>
-         ![2026 07 20 23 20 3](/images/2026-07-20_23-20-3.png "2026 07 20 23 20 3")
+         ![Kolom Metode Pembayaran pada formulir pendaftaran sisi peserta](/images/2026-07-20_23-20-3.png)
        </Frame>
-     </Tip>
-  2. **Apakah Selalu Ditampilkan?** Pengaturan ini menentukan apakah pertanyaan akan selalu muncul pada formulir peserta. Pilih '**Ya, selalu ditampilkan**'.
-  3. Pilih tombol '\*\*Buat' \*\*untuk menyimpan data.
-</Accordion>
+    2. **Apakah selalu ditampilkan pada formulir pendaftaran?**<br />Pengaturan ini menentukan apakah pertanyaan akan selalu muncul pada formulir peserta. Pilih **Ya, selalu ditampilkan**.
+    3. Pilih tombol **Buat** untuk menyimpan data.
+  </Accordion>
 
-<Accordion title="Menyesuaikan Template Pertanyaan">
-  Apabila Anda membutuhkan data-data tambahan dari Peserta Ujian, serta terdapat kebutuhan aturan terkait pembayaran Formulir Pendaftaran, maka ikuti langkah-langkah berikut ini.
+  <Accordion title="Menyesuaikan Template Pertanyaan">
+    Apabila Anda membutuhkan data-data tambahan dari peserta ujian, serta terdapat kebutuhan aturan terkait pembayaran formulir pendaftaran, maka ikuti langkah-langkah berikut ini.
 
-  <Steps>
-    <Step title="Buat kolom isian terlebih dahulu ">
-      <Frame>
-        ![2026 07 23 19 56](/images/2026-07-23_19-56.png "2026 07 23 19 56")
-      </Frame>
+    <Steps>
+      <Step title="Buat kolom isian terlebih dahulu">
+        <Frame>
+          ![Pengisian pertanyaan Asal Cabang Lembaga dengan tipe Select (Dropdown)](/images/2026-07-23_19-56.png)
+        </Frame>
 
-      Pada bagian ini, Anda sedang membuat pertanyaan untuk diisi oleh peserta saat mendaftar ujian. Contoh :  **Asal Cabang Lembaga**. Tujuannya adalah agar peserta memilih salah satu cabang yang tersedia, yaitu **Surabaya** atau **Jakarta**.
+        Pada bagian ini, Anda sedang membuat pertanyaan untuk diisi oleh peserta saat mendaftar ujian. Contoh: **Asal Cabang Lembaga**. Tujuannya adalah agar peserta memilih salah satu cabang yang tersedia, yaitu **Surabaya** atau **Jakarta**.
 
-      1. **Template Pertanyaan**<br />Pilih template pertanyaan dari daftar yang telah disediakan.
-      2. **Apakah selalu ditampilkan pada formulir pendaftaran?**<br />Pilih **Ya, selalu ditampilkan** agar pertanyaan ini muncul kepada semua peserta.
-      3. **Apakah Wajib Diisi?**<br />Aktifkan agar peserta tidak dapat melanjutkan pendaftaran sebelum memilih cabang.
-      4. **Label Pertanyaan**<br />Isi dengan nama pertanyaan yang akan dilihat peserta.<br />Contoh: **Asal Cabang Lembaga**.
-      5. **Tipe Pertanyaan: Select (Dropdown)**<br />Digunakan untuk menentukan cara peserta mengisi jawaban pada formulir pendaftaran. Untuk pertanyaan **Asal Cabang Lembaga**, gunakan **Select (Dropdown)** karena peserta hanya perlu memilih satu cabang dari daftar yang tersedia.
-         <Tip>
-           <Frame>
-             ![2026 07 23 19 57](/images/2026-07-23_19-57.png "2026 07 23 19 57")
-           </Frame>
-           **Tipe Input** digunakan untuk menentukan cara peserta mengisi jawaban pada formulir pendaftaran.
-           - **Text (Input Biasa)**<br />Digunakan untuk jawaban singkat.<br />Contoh: nama lengkap, nomor WhatsApp, atau asal sekolah.
-           - **Textarea (Paragraf)**<br />Digunakan untuk jawaban yang lebih panjang.<br />Contoh: alasan mengikuti ujian atau alamat lengkap.
-           - **Select (Dropdown)**<br />Digunakan jika peserta hanya boleh memilih satu jawaban dari daftar. Pilihan akan muncul saat kolom dibuka.<br />Contoh: memilih cabang **Surabaya** atau **Jakarta**.
-           - **Radio (Pilihan Tunggal)**<br />Digunakan jika peserta hanya boleh memilih satu jawaban dan seluruh pilihan ingin langsung ditampilkan.<br />Contoh: **Laki-laki** atau **Perempuan**.
-           - **Checkbox (Pilihan Ganda)**<br />Digunakan jika peserta boleh memilih lebih dari satu jawaban.<br />Contoh: memilih beberapa mata pelajaran yang diminati.
-           - **File (Berkas)**<br />Digunakan jika peserta perlu mengunggah dokumen.<br />Contoh: bukti pembayaran, kartu pelajar, atau foto.
-           - **Date (Tanggal)**<br />Digunakan untuk memilih tanggal saja.<br />Contoh: tanggal lahir.
-           - **Datetime (Tanggal & Waktu)**<br />Digunakan untuk memilih tanggal sekaligus jam.<br />Contoh: jadwal konsultasi pada **25 Juli 2026 pukul 10.00**.
-         </Tip>
-      6. **Opsi Pilihan**<br />Isi pilihan cabang yang dapat dipilih peserta, contoh :
-         - Surabaya
-         - Jakarta Klik **Tambah Opsi** jika ingin menambahkan cabang lainnya.
-      7. **Petunjuk Pengisian**<br />Isi dengan arahan singkat agar peserta tidak bingung.<br />Contoh:
-         > Pilih cabang tempat Anda terdaftar.
-      8. Setelah pengaturan selesai, klik **Buat** untuk menyimpan pertanyaan.
+        1. **Template Pertanyaan**<br />Biarkan kosong karena Anda membuat pertanyaan sendiri. Jika Anda memilih salah satu template dari daftar yang disediakan, pengaturan formulir akan terisi otomatis dan kolom **Label Pertanyaan** serta **Tipe Pertanyaan** tidak ditampilkan.
+        2. **Apakah selalu ditampilkan pada formulir pendaftaran?**<br />Pilih **Ya, selalu ditampilkan** agar pertanyaan ini muncul kepada semua peserta.
+        3. **Apakah Wajib Diisi?**<br />Aktifkan agar peserta tidak dapat melanjutkan pendaftaran sebelum memilih cabang.
+        4. **Label Pertanyaan**<br />Isi dengan nama pertanyaan yang akan dilihat peserta.<br />Contoh: **Asal Cabang Lembaga**.
+        5. **Tipe Pertanyaan**: **Select (Dropdown)**<br />Digunakan untuk menentukan cara peserta mengisi jawaban pada formulir pendaftaran. Untuk pertanyaan **Asal Cabang Lembaga**, gunakan **Select (Dropdown)** karena peserta hanya perlu memilih satu cabang dari daftar yang tersedia.
 
-      <Tip>
-        Berikut tampilan dari login Peserta Ujian : 
+           <Info>
+             <Frame>
+               ![Pilihan Tipe Pertanyaan pada form Tambah Formulir Pendaftaran](/images/2026-07-23_19-57.png)
+             </Frame>
+
+             **Tipe Pertanyaan** digunakan untuk menentukan cara peserta mengisi jawaban pada formulir pendaftaran.
+
+             - **Text (Input Biasa)**<br />Digunakan untuk jawaban singkat.<br />Contoh: nama lengkap, nomor WhatsApp, atau asal sekolah.
+             - **Textarea (Paragraf)**<br />Digunakan untuk jawaban yang lebih panjang.<br />Contoh: alasan mengikuti ujian atau alamat lengkap.
+             - **Select (Dropdown)**<br />Digunakan jika peserta hanya boleh memilih satu jawaban dari daftar. Pilihan akan muncul saat kolom dibuka.<br />Contoh: memilih cabang **Surabaya** atau **Jakarta**.
+             - **Radio (Pilihan Tunggal)**<br />Digunakan jika peserta hanya boleh memilih satu jawaban dan seluruh pilihan ingin langsung ditampilkan.<br />Contoh: **Laki-laki** atau **Perempuan**.
+             - **Checkbox (Pilihan Ganda)**<br />Digunakan jika peserta boleh memilih lebih dari satu jawaban.<br />Contoh: memilih beberapa mata pelajaran yang diminati.
+             - **File (Berkas)**<br />Digunakan jika peserta perlu mengunggah dokumen.<br />Contoh: bukti pembayaran, kartu pelajar, atau foto.
+             - **Date (Tanggal)**<br />Digunakan untuk memilih tanggal saja.<br />Contoh: tanggal lahir.
+             - **Datetime (Tanggal & Waktu)**<br />Digunakan untuk memilih tanggal sekaligus jam.<br />Contoh: jadwal konsultasi pada **25 Juli 2026 pukul 10.00**.
+           </Info>
+        6. **Opsi Pilihan**<br />Isi pilihan cabang yang dapat dipilih peserta, contoh:
+           - Surabaya
+           - Jakarta
+
+           Klik **Tambah Opsi** jika ingin menambahkan cabang lainnya.
+        7. **Petunjuk Pengisian**<br />Isi dengan arahan singkat agar peserta tidak bingung.<br />Contoh:
+
+           > Pilih cabang tempat Anda terdaftar.
+        8. Setelah pengaturan selesai, klik **Buat** untuk menyimpan pertanyaan.
+
+        Berikut tampilan pertanyaan tersebut dari sisi peserta ujian:
 
         <Frame>
-          ![2026 07 22 19 52](/images/2026-07-22_19-52.png "2026 07 22 19 52")
+          ![Pertanyaan Asal Cabang Lembaga pada formulir pendaftaran sisi peserta](/images/2026-07-22_19-52.png)
         </Frame>
-      </Tip>
-    </Step>
-    <Step title="Menampilkan Formulir Berdasarkan Kondisi">
-      💡 Contoh: Anda memiliki dua cabang lembaga:
+      </Step>
+      <Step title="Tampilkan formulir berdasarkan kondisi">
+        💡 Contoh: Anda memiliki dua cabang lembaga:
 
-      - Surabaya → Gratis
-      - Jakarta → Berbayar
+        - Surabaya → Gratis
+        - Jakarta → Berbayar
 
-      Anda ingin peserta dari Jakarta melakukan pembayaran, sedangkan peserta dari Surabaya tidak perlu membayar.
+        Anda ingin peserta dari Jakarta melakukan pembayaran, sedangkan peserta dari Surabaya tidak perlu membayar.
 
-      <Frame>
-        ![2026 07 23 19 38](/images/2026-07-23_19-38.png "2026 07 23 19 38")
-      </Frame>
+        <Frame>
+          ![Opsi Tampilkan berdasarkan kondisi tertentu pada form Tambah Formulir Pendaftaran](/images/2026-07-23_19-38.png)
+        </Frame>
 
-      Selain menampilkan pertanyaan untuk semua peserta, Anda juga dapat mengatur agar pertanyaan tertentu **hanya muncul jika peserta memilih jawaban tertentu**.
+        Selain menampilkan pertanyaan untuk semua peserta, Anda juga dapat mengatur agar pertanyaan tertentu **hanya muncul jika peserta memilih jawaban tertentu**.
 
-      1. **Template Pertanyaan** diisikan 'Metode Pembayaran'.
-      2. **Apakah selalu ditampilkan pada formulir pendaftaran?** pilih 'Tampilkan berdasarkan kondisi tertentu'.
-      3. **Opsi Pertanyaan** menampilkan pertanyaan yang sudah Anda buat sebelumnya, yang akan digunakan sebagai dasar kondisi.
-         <Frame>
-           ![2026 07 23 19 39](/images/2026-07-23_19-39.png "2026 07 23 19 39")
-         </Frame>
-      4. **Aturan atau Syarat** menentukan aturan pengecekan jawaban.
-         <Frame>
-           ![2026 07 23 19 40](/images/2026-07-23_19-40.png "2026 07 23 19 40")
-         </Frame>
+        1. **Template Pertanyaan**: pilih **Metode Pembayaran**.
+        2. **Apakah selalu ditampilkan pada formulir pendaftaran?**<br />Pilih **Tampilkan berdasarkan kondisi tertentu**.
+        3. **Opsi Pertanyaan** menampilkan pertanyaan yang sudah Anda buat sebelumnya, yang akan digunakan sebagai dasar kondisi.
+           <Frame>
+             ![Pilihan Opsi Pertanyaan sebagai dasar kondisi](/images/2026-07-23_19-39.png)
+           </Frame>
+        4. **Aturan atau Syarat** menentukan aturan pengecekan jawaban.
+           <Frame>
+             ![Pilihan Aturan atau Syarat pada kondisi formulir](/images/2026-07-23_19-40.png)
+           </Frame>
 
-      <Tip>
-        Pilihan yang tersedia:
+        <Info>
+          Pilihan yang tersedia:
 
-        - **Sama Dengan**<br />Digunakan jika jawaban harus sama dengan pilihan tertentu. Contoh:
-          > Asal Cabang Lembaga **Sama Dengan** Jakarta Artinya formulir akan muncul hanya jika peserta memilih Jakarta.
-        - **Bukan**<br />Digunakan jika jawaban bukan pilihan tertentu. Contoh:
-          > Asal Cabang Lembaga **Tidak Sama Dengan** Jakarta Artinya formulir muncul untuk semua cabang selain Jakarta.
-        - **Kurang Dari / Lebih Dari**<br />Digunakan untuk nilai berupa angka. Contoh:
-          > Jumlah Peserta Lebih Dari 100
-        - **Salah Satu Dari**<br />Digunakan jika jawaban dapat berupa beberapa pilihan. Contoh:
-          > Kota Dalam Jakarta, Surabaya
-        - **Bukan Salah Satu Dari**<br />Digunakan jika jawaban tidak termasuk dalam pilihan tertentu.
-      </Tip>
+          - **Sama Dengan**<br />Digunakan jika jawaban harus sama dengan pilihan tertentu. Contoh:
 
-      5. **Acuan** menentukan jawaban yang menjadi pemicu munculnya formulir.
-         <Frame>
-           ![2026 07 23 19 41](/images/2026-07-23_19-41.png "2026 07 23 19 41")
-         </Frame>
-      6. Setelah pengaturan selesai, klik **Buat** untuk menyimpan pertanyaan.
+            > Asal Cabang Lembaga **Sama Dengan** Jakarta
 
-      <Tip>
+            Artinya formulir akan muncul hanya jika peserta memilih Jakarta.
+          - **Bukan**<br />Digunakan jika jawaban bukan pilihan tertentu. Contoh:
+
+            > Asal Cabang Lembaga **Bukan** Jakarta
+
+            Artinya formulir muncul untuk semua cabang selain Jakarta.
+          - **Kurang Dari**, **Lebih Dari**, **Kurang Dari Sama Dengan**, dan **Lebih Dari Sama Dengan**<br />Digunakan untuk nilai berupa angka. Contoh:
+
+            > Jumlah Peserta **Lebih Dari** 100
+          - **Salah Satu dari**<br />Digunakan jika jawaban dapat berupa beberapa pilihan. Contoh:
+
+            > Kota **Salah Satu dari** Jakarta, Surabaya
+          - **Bukan Salah Satu dari**<br />Digunakan jika jawaban tidak termasuk dalam pilihan tertentu.
+        </Info>
+
+        5. **Acuan** menentukan jawaban yang menjadi pemicu munculnya formulir.
+           <Frame>
+             ![Pilihan Acuan sebagai pemicu munculnya formulir](/images/2026-07-23_19-41.png)
+           </Frame>
+        6. Setelah pengaturan selesai, klik **Buat** untuk menyimpan pertanyaan.
+
         Dengan perkondisian, Anda dapat mengatur:
 
-        > Jika peserta memilih **Asal Cabang Lembaga = Jakarta**, maka metode pembayaran akan ditampilkan. _Berikut tampilan login Peserta :_
-        >
-        > <Frame>
-        >   ![2026 07 22 19 48](/images/2026-07-22_19-48.png "2026 07 22 19 48")
-        > </Frame>
+        > Jika peserta memilih **Asal Cabang Lembaga = Jakarta**, maka metode pembayaran akan ditampilkan.
+
+        Berikut tampilan dari sisi peserta:
+
+        <Frame>
+          ![Metode pembayaran tampil untuk peserta cabang Jakarta](/images/2026-07-22_19-48.png)
+        </Frame>
 
         Sedangkan:
 
-        > Jika peserta memilih **Asal Cabang Lembaga = Surabaya**, metode pembayaran tidak akan ditampilkan. _Berikut tampilan login Peserta :_
-        >
-        > <Frame>
-        >   ![2026 07 22 19 48 1](/images/2026-07-22_19-48_1.png "2026 07 22 19 48 1")
-        > </Frame>
-      </Tip>
-    </Step>
-  </Steps>
-</Accordion>
+        > Jika peserta memilih **Asal Cabang Lembaga = Surabaya**, metode pembayaran tidak akan ditampilkan.
 
-<Accordion title="Memantau Informasi Isian Formulir Pendaftaran para Peserta Ujian">
-  Apabila Anda mengatur Formulir Pendaftaran dengan menambahkan beberapa pertanyaan, maka informasi isian  Peserta dapat Anda lihat pada menu : 
+        Berikut tampilan dari sisi peserta:
 
-  <Tip>
-    **Data Ujian \> Pilih detail data ujian \> Pilih bagian 'Daftar Peserta Ujian'**<br />
+        <Frame>
+          ![Metode pembayaran tidak tampil untuk peserta cabang Surabaya](/images/2026-07-22_19-48_1.png)
+        </Frame>
+      </Step>
+    </Steps>
+  </Accordion>
+
+  <Accordion title="Memantau Informasi Isian Formulir Pendaftaran para Peserta Ujian">
+    Apabila Anda mengatur formulir pendaftaran dengan menambahkan beberapa pertanyaan, maka informasi isian peserta dapat Anda lihat melalui **Data Ujian** → pilih **Detail** pada ujian → pilih bagian **Daftar Peserta Ujian**.
 
     <Frame>
-      ![2026 07 22 22 11](/images/2026-07-22_22-11.png "2026 07 22 22 11")
+      ![Bagian Daftar Peserta Ujian pada detail ujian](/images/2026-07-22_22-11.png)
     </Frame>
-  </Tip>
 
-  Informasi isian formulir pendaftaran  akan tampil ketika Anda melakukan **Verifikasi Peserta**.
+    Informasi isian formulir pendaftaran akan tampil ketika Anda melakukan **Verifikasi Peserta**.
 
-  <Frame>
-    ![2026 07 22 22 00](/images/2026-07-22_22-00.png "2026 07 22 22 00")
-  </Frame>
+    <Frame>
+      ![Isian formulir pendaftaran pada jendela Verifikasi Peserta](/images/2026-07-22_22-00.png)
+    </Frame>
 
-  Apabila Peserta telah dilakukan verifikasi, maka isian formulir pendaftaran dapat dilihat kembali dengan cara pilih tombol **'Lihat**'.
+    Apabila peserta telah diverifikasi, maka isian formulir pendaftaran dapat dilihat kembali dengan memilih tombol **Lihat**.
 
-  <Frame>
-    ![2026 07 22 22 01](/images/2026-07-22_22-01.png "2026 07 22 22 01")
-  </Frame>
+    <Frame>
+      ![Tombol Lihat pada peserta yang sudah diverifikasi](/images/2026-07-22_22-01.png)
+    </Frame>
 
-  <Frame>
-    ![2026 07 22 22 01 1](/images/2026-07-22_22-01_1.png "2026 07 22 22 01 1")
-  </Frame>
-</Accordion>
+    <Frame>
+      ![Isian formulir pendaftaran pada halaman detail peserta](/images/2026-07-22_22-01_1.png)
+    </Frame>
+  </Accordion>
+</AccordionGroup>
 
-# 3. Peserta Ujian Melakukan Pembayaran Formulir
+## 3. Peserta Ujian Melakukan Pembayaran Formulir
 
 Setelah formulir pendaftaran selesai dibuat, peserta dapat mulai melakukan pendaftaran ujian.
 
-💡 Sebagai contoh, peserta ingin mengikuti: **Try Out Matematika Persiapan SNBT 2027**
+💡 Sebagai contoh, peserta ingin mengikuti **Try Out Matematika Persiapan SNBT 2027**.
 
 Peserta perlu mengisi formulir terlebih dahulu, kemudian menyelesaikan pembayaran sebelum dapat mengikuti ujian.
 
 <Steps>
-  <Step title="Peserta Login CBT">
+  <Step title="Peserta login ke CBT">
     <Frame>
-      ![2026 07 22 20 29](/images/2026-07-22_20-29.png "2026 07 22 20 29")
+      ![Halaman login CBT dari sisi peserta](/images/2026-07-22_20-29.png)
     </Frame>
 
-    Peserta Ujian dapat login melalui _link_ ujian yang telah Anda bagikan. Panduan untuk mengatur _link_ ujian dapat Anda akses melalui [Pengaturan dan Cara Login Peserta](/pengaturan-dan-cara-login-peserta)
+    Peserta ujian dapat login melalui _link_ ujian yang telah Anda bagikan. Panduan untuk mengatur _link_ ujian dapat Anda akses melalui [Pengaturan dan Cara Login Peserta](/lainnya/login-peserta).
   </Step>
-  <Step title="Peserta dapat pilih tombol 'Pendaftaran Tes Baru'">
+  <Step title="Peserta memilih Pendaftaran Tes Baru">
     <Frame>
-      ![2026 07 22 20 29 1](/images/2026-07-22_20-29_1.png "2026 07 22 20 29 1")
-    </Frame>
-  </Step>
-  <Step title="Peserta dapat pilih Ujian yang akan diikuti, kemudian pilih tombol 'Selanjutnya'">
-    <Frame>
-      ![2026 07 22 20 30](/images/2026-07-22_20-30.png "2026 07 22 20 30")
+      ![Tombol Pendaftaran Tes Baru pada halaman Daftar Tes](/images/2026-07-22_20-29_1.png)
     </Frame>
   </Step>
-  <Step title="Peserta Mengisi Formulir Pendaftaran">
+  <Step title="Peserta memilih ujian lalu klik Selanjutnya">
     <Frame>
-      ![2026 07 22 20 31](/images/2026-07-22_20-31.png "2026 07 22 20 31")
+      ![Pilihan ujian dan tombol Selanjutnya](/images/2026-07-22_20-30.png)
     </Frame>
-
-    1. Dari sisi peserta, halaman pendaftaran akan menampilkan informasi ujian dan pertanyaan yang sudah dibuat oleh Admin.
-
-    Contoh:
-
-    > **Try Out Matematika Persiapan SNBT 2027**<br />Silakan isi formulir pendaftaran di bawah ini untuk melanjutkan.
-
-    Peserta kemudian mengisi data yang diminta.
-
-    2. Langkah selanjutnya pilih **Metode Pembayaran 'QRIS'**
-    3. Kemudian pilih tombol '**Daftar Tes**'
   </Step>
-  <Step title="Pilih tombol konfirmasi 'Ya, Daftar'">
+  <Step title="Peserta mengisi formulir pendaftaran">
     <Frame>
-      ![2026 07 22 20 31 1](/images/2026-07-22_20-31_1.png "2026 07 22 20 31 1")
+      ![Formulir pendaftaran dengan Metode Pembayaran QRIS](/images/2026-07-22_20-31.png)
     </Frame>
 
-    Peserta perlu memastikan data yang diisikan sudah benar, kemudian pilih tombol konfirmasi **'Ya, Daftar'.**
+    1. Dari sisi peserta, halaman pendaftaran akan menampilkan informasi ujian dan pertanyaan yang sudah dibuat oleh admin. Contoh:
+
+       > **Try Out Matematika Persiapan SNBT 2027**<br />Silakan isi formulir pendaftaran di bawah ini untuk melanjutkan.
+
+       Peserta kemudian mengisi data yang diminta.
+    2. Langkah selanjutnya, pilih **QRIS** pada **Metode Pembayaran**.
+    3. Kemudian pilih tombol **Daftar Tes**.
   </Step>
-  <Step title="Sistem Menampilkan QRIS ">
+  <Step title="Peserta mengonfirmasi dengan Ya, Daftar">
     <Frame>
-      ![2026 07 22 20 31 2](/images/2026-07-22_20-31_2.png "2026 07 22 20 31 2")
+      ![Konfirmasi pendaftaran dengan tombol Ya, Daftar](/images/2026-07-22_20-31_1.png)
     </Frame>
 
-    Setelah peserta mengonfirmasi pendaftaran, sistem akan membuat tagihan pembayaran. Peserta akan diarahkan ke halaman **Detail Pembayaran**.
+    Peserta perlu memastikan data yang diisikan sudah benar, kemudian pilih tombol konfirmasi **Ya, Daftar**.
+  </Step>
+  <Step title="Sistem menampilkan QRIS">
+    <Frame>
+      ![Halaman Detail Pembayaran dengan kode QRIS](/images/2026-07-22_20-31_2.png)
+    </Frame>
+
+    Setelah peserta mengonfirmasi pendaftaran, sistem akan membuat tagihan pembayaran. Peserta akan diarahkan ke halaman **Detail Pembayaran**.
 
     Pada halaman ini, peserta dapat melihat:
 
@@ -275,24 +284,23 @@ Peserta perlu mengisi formulir terlebih dahulu, kemudian menyelesaikan pembayara
     > Metode Pembayaran: QRIS<br />Total Pembayaran: Rp50.000
 
     <Tip>
-      Pilih tombol '**Unduh Kode QR**' untuk menyimpan _barcode._
+      Pilih tombol **Unduh Kode QR** untuk menyimpan _barcode_.
     </Tip>
   </Step>
-  <Step title="Peserta Melakukan Pembayaran">
+  <Step title="Peserta melakukan pembayaran">
     Langkah peserta:
 
-    1. Buka aplikasi pembayaran (_mobile banking_) yang mendukung QRIS
-    2. Pilih menu pembayaran QR
-    3. Pindai kode QR yang sudah diunduh
-    4. Selesaikan pembayaran sesuai nominal yang tertera
+    1. Buka aplikasi pembayaran (_mobile banking_) yang mendukung QRIS.
+    2. Pilih menu pembayaran QR.
+    3. Pindai kode QR yang sudah diunduh.
+    4. Selesaikan pembayaran sesuai nominal yang tertera.
 
-    Berikut contoh **<u>jika</u>** melakukan pembayaran melalui _mobile banking_ Mandiri.
+    Berikut contoh jika melakukan pembayaran melalui _mobile banking_ Mandiri.
 
     <Frame>
       <img
         src="/images/2026-07-22_21-07.png"
-        alt="2026 07 22 21 07"
-        title="2026 07 22 21 07"
+        alt="Pembayaran QRIS melalui mobile banking Mandiri"
         className="mx-auto"
         style={{ width:"56%" }}
       />
@@ -304,9 +312,9 @@ Peserta perlu mengisi formulir terlebih dahulu, kemudian menyelesaikan pembayara
 
     Setelah pembayaran berhasil, peserta dapat melakukan pengecekan kembali pada halaman pembayaran.
   </Step>
-  <Step title="Pembayaran Berhasil">
+  <Step title="Pembayaran berhasil">
     <Frame>
-      ![2026 07 22 20 32](/images/2026-07-22_20-32.png "2026 07 22 20 32")
+      ![Halaman pembayaran dengan status berhasil](/images/2026-07-22_20-32.png)
     </Frame>
 
     Jika pembayaran sudah berhasil, halaman pembayaran akan berubah menjadi status berhasil.
@@ -315,154 +323,146 @@ Peserta perlu mengisi formulir terlebih dahulu, kemudian menyelesaikan pembayara
 
     > Pembayaran Anda telah diterima dengan sukses. Terima kasih!
 
-    Peserta dapat menunggu proses verifikasi atau langsung melihat status ujian pada menu **'Daftar Tes'**.
+    Peserta dapat menunggu proses verifikasi atau langsung melihat status ujian pada menu **Daftar Tes**.
   </Step>
 </Steps>
 
-# 4. Cara Menambahkan Kode Voucher
+## 4. Cara Menambahkan Kode Voucher
 
-Kode voucher digunakan untuk memberikan **potongan harga khusus** kepada Peserta tertentu.
+Kode voucher digunakan untuk memberikan **potongan harga khusus** kepada peserta tertentu.
 
-💡 Contoh : **Anda** menyelenggarakan Tryout SNBT dengan biaya Rp50.000.<br />Namun, Anda ingin memberikan potongan 10% kepada Peserta yang mendapatkan kode promo dari lembaga.
+💡 Contoh: Anda menyelenggarakan tryout SNBT dengan biaya Rp50.000. Namun, Anda ingin memberikan potongan 10% kepada peserta yang mendapatkan kode promo dari lembaga.
 
-> Anda dapat membuat kode voucher, misalnya **REFF-INDOLAT**.
+> Anda dapat membuat kode voucher, misalnya `REFF-INDOLAT`.
 
 Peserta yang memasukkan kode tersebut saat mendaftar akan mendapatkan potongan sesuai pengaturan voucher.
 
 <Tip>
-  Dengan kode voucher, Anda dapat membuat promo, memberikan potongan khusus, atau memberikan akses gratis kepada Peserta tertentu tanpa perlu mengubah biaya formulir pendaftaran.
+  Dengan kode voucher, Anda dapat membuat promo, memberikan potongan khusus, atau memberikan akses gratis kepada peserta tertentu tanpa perlu mengubah biaya formulir pendaftaran.
 </Tip>
 
 <Steps>
-  <Step title="Buka data Ujian yang telah dibuat">
+  <Step title="Buka ujian yang telah dibuat">
     <Frame>
-      ![2026 07 20 22 49](/images/2026-07-20_22-49.png "2026 07 20 22 49")
+      ![Tombol Detail pada daftar ujian di menu Data Ujian](/images/2026-07-20_22-49.png)
     </Frame>
 
-    1. Buka menu '**Data Ujian**', pilih Data Ujian yang akan ditambahkan Formulir Pendaftaran
-    2. Kemudian pilih tombol **'Detail**'
+    1. Buka menu **Data Ujian**, lalu pilih ujian yang akan ditambahkan kode voucher.
+    2. Kemudian pilih tombol **Detail**.
   </Step>
   <Step title="Pastikan Anda telah menambahkan biaya pendaftaran">
     <Frame>
-      ![2026 07 20 23 05](/images/2026-07-20_23-05.png "2026 07 20 23 05")
+      ![Tipe Pembayaran dan Biaya Ujian Sekali Bayar pada tab Pendaftaran & Pembayaran](/images/2026-07-20_23-05.png)
     </Frame>
 
-    Jika terlewat, Anda bisa mengikuti tutorial melalui _link_ berikut ini [Cara Membuat atau Menambahkan Ujian](/untitled-page)
+    Jika terlewat, Anda bisa mengikuti panduan [Cara Membuat atau Menambahkan Ujian](/data-ujian/membuat-ujian).
   </Step>
-  <Step title="Pilih 'Formulir Pendaftaran' kemudian pilih tombol 'Kode Voucher'">
+  <Step title="Buka Formulir Pendaftaran lalu klik Kode Voucher">
     <Frame>
-      ![2026 07 22 21 26](/images/2026-07-22_21-26.png "2026 07 22 21 26")
+      ![Tombol Kode Voucher pada bagian Formulir Pendaftaran](/images/2026-07-22_21-26.png)
     </Frame>
   </Step>
-  <Step title="Pilih tombol ( + Tambah Voucher )">
+  <Step title="Klik Tambah Voucher">
     <Frame>
-      ![2026 07 22 21 26 1](/images/2026-07-22_21-26_1.png "2026 07 22 21 26 1")
+      ![Tombol Tambah Voucher pada jendela Kode Voucher Pendaftaran](/images/2026-07-22_21-26_1.png)
     </Frame>
   </Step>
-  <Step title="Mengisi Informasi Voucher">
+  <Step title="Isi informasi voucher">
     <Frame>
-      ![2026 07 22 21 29](/images/2026-07-22_21-29.png "2026 07 22 21 29")
+      ![Form Tambah Kode Voucher](/images/2026-07-22_21-29.png)
     </Frame>
 
     Isi informasi voucher sesuai kebutuhan Anda.
 
-    1. **Kode Voucher** : Masukkan kode yang akan digunakan oleh peserta.
+    1. **Kode Voucher**: Masukkan kode yang akan digunakan oleh peserta.
 
-    Contoh:` REFF-INDOLAT`
+       Contoh: `REFF-INDOLAT`
 
-    Kode ini nantinya diberikan kepada Peserta yang berhak mendapatkan potongan.
+       Kode ini nantinya diberikan kepada peserta yang berhak mendapatkan potongan.
+    2. **Apakah Voucher Aktif?**
+       - Aktifkan jika voucher dapat langsung digunakan oleh peserta.
+       - Jika dinonaktifkan, voucher tidak dapat digunakan meskipun kode sudah diketahui peserta.
+    3. **Jenis Potongan**: Tentukan bentuk potongan yang diberikan.
 
-    2. **Apakah Voucher Aktif**? : <br />- Aktifkan jika voucher dapat langsung digunakan oleh Peserta.<br />- Jika dinonaktifkan, voucher tidak dapat digunakan meskipun kode sudah diketahui Peserta.
-    3. **Jenis Potongan** : Tentukan bentuk potongan yang diberikan. 
+       <Info>
+         Tersedia dua pilihan **Jenis Potongan**:
 
-    <Tip>
-      Tersedia dua pilihan **Jenis Potongan**:<br />
+         <Frame>
+           ![Pilihan Jenis Potongan Flat / Nominal dan Persen](/images/2026-07-22_21-29_1-2.png)
+         </Frame>
 
-      <Frame>
-        ![2026 07 22 21 29 1 2](/images/2026-07-22_21-29_1-2.png "2026 07 22 21 29 1 2")
-      </Frame>
+         - **Flat / Nominal**: Potongan berupa jumlah uang tertentu. Contoh:
 
-      - **Flat / Nominal** : Potongan berupa jumlah uang tertentu.
+           > Biaya ujian Rp50.000<br />Voucher Rp5.000
+           >
+           > Total pembayaran menjadi Rp45.000
+         - **Persen**: Potongan berdasarkan persentase. Contoh:
 
-      Contoh:
+           > Biaya ujian Rp50.000<br />Voucher diskon 10%
+           >
+           > Peserta mendapatkan potongan Rp5.000
+       </Info>
+    4. **Maksimal Penerima Voucher**: Digunakan untuk membatasi jumlah peserta yang dapat menggunakan voucher.
 
-      > Biaya ujian Rp50.000<br />Voucher Rp5.000
-      >
-      > Total pembayaran menjadi Rp45.000
+       Contoh: Voucher hanya tersedia untuk 100 peserta pertama.
 
-      - **Persen** : Potongan berdasarkan persentase.
+       <Tip>
+         Jika **Maksimal Penerima Voucher** dikosongkan, voucher dapat digunakan tanpa batas jumlah pengguna.
+       </Tip>
+    5. **Tanggal Mulai Aktif** dan **Tanggal Selesai Aktif**: Atur periode penggunaan voucher.
 
-      Contoh:
+       Contoh: Voucher berlaku mulai 22 Juli 2026 sampai 31 Juli 2026.
 
-      > Biaya ujian Rp50.000<br />Voucher diskon 10%
-      >
-      > Peserta mendapatkan potongan Rp5.000
-    </Tip>
+       Di luar periode tersebut, voucher tidak dapat digunakan.
+    6. **Catatan Voucher**: Tambahkan keterangan untuk membantu admin mengenali fungsi voucher.
 
-    4. **Maksimal Penerima Voucher** : Digunakan untuk membatasi jumlah peserta yang dapat menggunakan voucher.
-
-    Contoh: Voucher hanya tersedia untuk 100 peserta pertama.
-
-    <Tip>
-      Jika **Maksimal Penerima Voucher** <u>dikosongkan</u>, voucher dapat digunakan tanpa batas jumlah pengguna.
-    </Tip>
-
-    5. **Tanggal Mulai dan Selesai Aktif** : Atur periode penggunaan voucher.
-
-    Contoh: Voucher berlaku mulai 22 Juli 2026 sampai 31 Juli 2026.
-
-    Di luar periode tersebut, voucher tidak dapat digunakan.
-
-    6. **Catatan Voucher** : Tambahkan keterangan untuk membantu Admin mengenali fungsi voucher.
-
-    Contoh: Voucher referral Indolat.
-
-    7. Jika semua data selesai diisikan, pilih tombol '**Simpan Voucher**'
+       Contoh: Voucher referral Indolat.
+    7. Jika semua data selesai diisikan, pilih tombol **Simpan Voucher**.
 
     <Frame>
-      ![2026 07 22 21 30](/images/2026-07-22_21-30.png "2026 07 22 21 30")
+      ![Voucher REFF-INDOLAT tersimpan pada daftar Kode Voucher Pendaftaran](/images/2026-07-22_21-30.png)
     </Frame>
   </Step>
 </Steps>
 
-# 5. Peserta Ujian Menggunakan Voucher Pembayaran
+## 5. Peserta Ujian Menggunakan Voucher Pembayaran
 
 Setelah voucher dibuat, peserta akan melihat kolom **Kode Voucher** pada halaman pendaftaran.
 
 <Steps>
-  <Step title="Peserta Login CBT">
+  <Step title="Peserta login ke CBT">
     <Frame>
-      ![2026 07 22 21 51](/images/2026-07-22_21-51.png "2026 07 22 21 51")
+      ![Halaman login CBT dari sisi peserta](/images/2026-07-22_21-51.png)
     </Frame>
 
-    Peserta Ujian dapat login melalui _link_ ujian yang telah Anda bagikan. Panduan untuk mengatur _link_ ujian dapat Anda akses melalui [Pengaturan dan Cara Login Peserta](/pengaturan-dan-cara-login-peserta)
+    Peserta ujian dapat login melalui _link_ ujian yang telah Anda bagikan. Panduan untuk mengatur _link_ ujian dapat Anda akses melalui [Pengaturan dan Cara Login Peserta](/lainnya/login-peserta).
   </Step>
-  <Step title="Peserta dapat pilih tombol 'Pendaftaran Tes Baru'">
+  <Step title="Peserta memilih Pendaftaran Tes Baru">
     <Frame>
-      ![2026 07 22 21 52](/images/2026-07-22_21-52.png "2026 07 22 21 52")
+      ![Tombol Pendaftaran Tes Baru pada halaman Daftar Tes](/images/2026-07-22_21-52.png)
     </Frame>
   </Step>
-  <Step title="Peserta dapat pilih Ujian yang akan diikuti, kemudian pilih tombol 'Selanjutnya'">
+  <Step title="Peserta memilih ujian lalu klik Selanjutnya">
     <Frame>
-      ![2026 07 22 21 52 1](/images/2026-07-22_21-52_1.png "2026 07 22 21 52 1")
+      ![Pilihan ujian dan tombol Selanjutnya](/images/2026-07-22_21-52_1.png)
     </Frame>
   </Step>
-  <Step title="Sistem menampilkan kolom isian 'Kode Voucher'">
+  <Step title="Sistem menampilkan kolom Kode Voucher">
     <Frame>
-      ![2026 07 22 21 31](/images/2026-07-22_21-31.png "2026 07 22 21 31")
+      ![Kolom Kode Voucher pada formulir pendaftaran sisi peserta](/images/2026-07-22_21-31.png)
     </Frame>
   </Step>
-  <Step title="Peserta dapat mengisikan Kode Voucher kemudian pilih tombol 'Terapkan'">
+  <Step title="Peserta mengisi kode voucher lalu klik Terapkan">
     <Frame>
-      ![2026 07 22 21 31 1](/images/2026-07-22_21-31_1.png "2026 07 22 21 31 1")
+      ![Kode voucher diisi pada kolom Kode Voucher beserta tombol Terapkan](/images/2026-07-22_21-31_1.png)
     </Frame>
   </Step>
-  <Step title="Sistem akan menghitung ulang biaya pembayaran.">
+  <Step title="Sistem menghitung ulang biaya pembayaran">
     <Frame>
-      ![2026 07 22 21 32](/images/2026-07-22_21-32.png "2026 07 22 21 32")
+      ![Total pembayaran setelah potongan voucher](/images/2026-07-22_21-32.png)
     </Frame>
 
-    Contoh: 
+    Contoh:
 
     Sebelum menggunakan voucher:
 
@@ -476,179 +476,182 @@ Setelah voucher dibuat, peserta akan melihat kolom **Kode Voucher** pada halaman
   </Step>
 </Steps>
 
-# 6. Mengatur Verifikasi Pendaftaran Peserta Ujian
+## 6. Mengatur Verifikasi Pendaftaran Peserta Ujian
 
-Setelah formulir pendaftaran dibuat, Anda dapat menentukan apakah Peserta yang mendaftar perlu diperiksa terlebih dahulu atau dapat langsung diterima sebagai Peserta ujian.
+Setelah formulir pendaftaran dibuat, Anda dapat menentukan apakah peserta yang mendaftar perlu diperiksa terlebih dahulu atau dapat langsung diterima sebagai peserta ujian.
 
 Pengaturan verifikasi ini bersifat **opsional / tidak wajib**. Anda dapat mengaktifkan atau menonaktifkannya sesuai kebutuhan penyelenggaraan ujian.
 
 Jadi secara sederhana:
 
-- **Aktifkan verifikasi** → jika Anda masih perlu Verifikasi Peserta sebelum Peserta dapat mengikuti ujian
-- **Nonaktifkan verifikasi** → jika Peserta dapat langsung mengikuti ujian setelah pembayaran formulir berhasil
+- **Aktifkan verifikasi** → jika Anda masih perlu memverifikasi peserta sebelum peserta dapat mengikuti ujian
+- **Nonaktifkan verifikasi** → jika peserta dapat langsung mengikuti ujian setelah mendaftar (dan setelah pembayaran berhasil, untuk ujian berbayar)
 
-<Tip>
-  **Catatan:** Pengaturan verifikasi peserta hanya berlaku jika:
+<Note>
+  Pengaturan verifikasi peserta hanya berlaku jika ujian memiliki **formulir pendaftaran** yang diisi peserta saat mendaftar, baik untuk ujian gratis maupun berbayar. Pengaturan ini aktif secara bawaan.
 
-  - ujian menggunakan **tipe pembayaran berbayar**; dan
-  - ujian memiliki **formulir pendaftaran**.
+  Jika ujian **tidak memiliki** formulir pendaftaran, pengaturan verifikasi **tidak akan memberikan dampak** dan peserta langsung aktif setelah mendaftar.
+</Note>
 
-  > Jika salah satu kondisi tersebut **<u>tidak terpenuhi</u>**, maka pengaturan verifikasi **<u>tidak akan memberikan dampak</u>** pada proses pendaftaran Peserta.
-</Tip>
+<AccordionGroup>
+  <Accordion title="Mengaktifkan Verifikasi Peserta">
+    Aktifkan pengaturan ini jika Anda ingin memeriksa peserta terlebih dahulu sebelum peserta resmi terdaftar sebagai peserta aktif.
 
-<Accordion title="Mengaktifkan Verifikasi Peserta">
-  Aktifkan pengaturan ini jika Anda ingin memeriksa Peserta terlebih dahulu sebelum Peserta resmi terdaftar sebagai Peserta aktif.
+    <Steps>
+      <Step title="Buka ujian yang telah dibuat">
+        <Frame>
+          ![Tombol Detail pada daftar ujian di menu Data Ujian](/images/2026-07-20_22-49.png)
+        </Frame>
 
-  <Steps>
-    <Step title="Buka data Ujian yang telah dibuat">
-      <Frame>
-        ![2026 07 20 22 49](/images/2026-07-20_22-49.png "2026 07 20 22 49")
-      </Frame>
+        1. Buka menu **Data Ujian**.
+        2. Pilih ujian yang memiliki formulir pendaftaran.
+        3. Kemudian pilih tombol **Detail**.
+      </Step>
+      <Step title="Pastikan tipe pembayaran dan biaya pendaftaran sudah ditentukan">
+        <Frame>
+          ![Tipe Pembayaran dan Biaya Ujian Sekali Bayar pada tab Pendaftaran & Pembayaran](/images/2026-07-20_23-05.png)
+        </Frame>
 
-      1. Buka menu '**Data Ujian**'
-      2. Pilih Data Ujian yang akan ditambahkan Formulir Pendaftaran
-      3. Kemudian pilih tombol **'Detail**'
-    </Step>
-    <Step title="Pastikan Anda telah Menentukan Tipe Pembayaran dan Biaya Pendaftaran">
-      <Frame>
-        ![2026 07 20 23 05](/images/2026-07-20_23-05.png "2026 07 20 23 05")
-      </Frame>
+        Jika terlewat, Anda bisa mengikuti panduan [Cara Membuat atau Menambahkan Ujian](/data-ujian/membuat-ujian).
+      </Step>
+      <Step title="Klik ikon ⚙️ pada bagian Formulir Pendaftaran">
+        <Frame>
+          ![Ikon pengaturan pada bagian Formulir Pendaftaran](/images/2026-07-22_22-14.png)
+        </Frame>
+      </Step>
+      <Step title="Aktifkan verifikasi lalu klik Perbarui Pengaturan">
+        <Frame>
+          ![Pengaturan Apakah Formulir Pendaftaran Perlu Diverifikasi diaktifkan](/images/2026-07-22_22-16.png)
+        </Frame>
 
-      Jika terlewat, Anda bisa mengikuti tutorial melalui _link_ berikut ini [Cara Membuat atau Menambahkan Ujian](/untitled-page)
-    </Step>
-    <Step title="Pilih tombol simbol ⚙️">
-      <Frame>
-        ![2026 07 22 22 14](/images/2026-07-22_22-14.png "2026 07 22 22 14")
-      </Frame>
-    </Step>
-    <Step title="Aktifkan kemudian pilih tombol 'Perbarui Pengaturan'">
-      <Frame>
-        ![2026 07 22 22 16](/images/2026-07-22_22-16.png "2026 07 22 22 16")
-      </Frame>
-    </Step>
-    <Step title="Verifikasi Peserta">
-      Anda harus melakukan **verifikasi peserta** apabila terdapat Peserta yang telah berhasil melakukan proses pembayaran formulir.<br />
+        Aktifkan **Apakah Formulir Pendaftaran Perlu Diverifikasi?**, kemudian pilih tombol **Perbarui Pengaturan**.
+      </Step>
+      <Step title="Verifikasi peserta">
+        Anda harus melakukan **verifikasi peserta** apabila terdapat peserta yang telah berhasil melakukan proses pembayaran formulir.
 
-      <Frame>
-        ![2026 07 22 22 30 1](/images/2026-07-22_22-30-1.png "2026 07 22 22 30 1")
-      </Frame>
+        <Frame>
+          ![Peserta berstatus Menunggu Verifikasi pada Daftar Peserta Ujian](/images/2026-07-22_22-30-1.png)
+        </Frame>
 
-      <Tip>
-        Alur :
+        <Info>
+          Alur:
 
-        Peserta mendaftar → Peserta menunggu verifikasi → Admin memeriksa → Peserta aktif
-      </Tip>
-    </Step>
-  </Steps>
-</Accordion>
+          Peserta mendaftar → Peserta menunggu verifikasi → Admin memeriksa → Peserta aktif
+        </Info>
+      </Step>
+    </Steps>
+  </Accordion>
 
-<Accordion title="Menonaktifkan Verifikasi Peserta">
-  Nonaktifkan pengaturan ini jika Anda ingin Peserta dapat langsung mengikuti ujian setelah memenuhi proses pembayaran formulir.
+  <Accordion title="Menonaktifkan Verifikasi Peserta">
+    Nonaktifkan pengaturan ini jika Anda ingin peserta dapat langsung mengikuti ujian setelah memenuhi proses pembayaran formulir.
 
-  <Steps>
-    <Step title="Buka data Ujian yang telah dibuat">
-      <Frame>
-        ![2026 07 20 22 49](/images/2026-07-20_22-49.png "2026 07 20 22 49")
-      </Frame>
+    <Steps>
+      <Step title="Buka ujian yang telah dibuat">
+        <Frame>
+          ![Tombol Detail pada daftar ujian di menu Data Ujian](/images/2026-07-20_22-49.png)
+        </Frame>
 
-      1. Buka menu '**Data Ujian**'
-      2. Pilih Data Ujian yang akan ditambahkan Formulir Pendaftaran
-      3. Kemudian pilih tombol **'Detail**'
-    </Step>
-    <Step title="Pilih bagian 'Formulir Pendaftaran', lalu Pilih tombol simbol ⚙️">
-      <Frame>
-        ![2026 07 22 23 02](/images/2026-07-22_23-02.png "2026 07 22 23 02")
-      </Frame>
-    </Step>
-    <Step title="Nonaktifkan kemudian pilih tombol 'Perbarui Pengaturan'">
-      <Frame>
-        ![2026 07 22 23 04](/images/2026-07-22_23-04.png "2026 07 22 23 04")
-      </Frame>
-    </Step>
-    <Step title="Anda tidak perlu melakukan Verifikasi Peserta">
-      Peserta yang berhasil melakukan pembayaran formulir pendaftaran, akan otomatis terdata 'Aktif'<br />
+        1. Buka menu **Data Ujian**.
+        2. Pilih ujian yang memiliki formulir pendaftaran.
+        3. Kemudian pilih tombol **Detail**.
+      </Step>
+      <Step title="Klik ikon ⚙️ pada bagian Formulir Pendaftaran">
+        <Frame>
+          ![Ikon pengaturan pada bagian Formulir Pendaftaran](/images/2026-07-22_23-02.png)
+        </Frame>
+      </Step>
+      <Step title="Nonaktifkan verifikasi lalu klik Perbarui Pengaturan">
+        <Frame>
+          ![Pengaturan Apakah Formulir Pendaftaran Perlu Diverifikasi dinonaktifkan](/images/2026-07-22_23-04.png)
+        </Frame>
 
-      <Frame>
-        ![2026 07 22 23 08](/images/2026-07-22_23-08.png "2026 07 22 23 08")
-      </Frame>
+        Nonaktifkan **Apakah Formulir Pendaftaran Perlu Diverifikasi?**, kemudian pilih tombol **Perbarui Pengaturan**.
+      </Step>
+      <Step title="Tidak perlu memverifikasi peserta">
+        Peserta yang berhasil melakukan pembayaran formulir pendaftaran akan otomatis berstatus **Aktif**.
 
-      <Tip>
-        Alur :
+        <Frame>
+          ![Peserta langsung berstatus Aktif pada Daftar Peserta Ujian](/images/2026-07-22_23-08.png)
+        </Frame>
 
-        Peserta mendaftar → Sistem memproses pendaftaran → Peserta aktif
-      </Tip>
-    </Step>
-  </Steps>
-</Accordion>
+        <Info>
+          Alur:
 
-<Accordion title="Cara Verifikasi Peserta">
-  <Steps>
-    <Step title="Buka data Ujian yang telah dibuat">
-      <Frame>
-        ![2026 07 20 22 49](/images/2026-07-20_22-49.png "2026 07 20 22 49")
-      </Frame>
+          Peserta mendaftar → Sistem memproses pendaftaran → Peserta aktif
+        </Info>
+      </Step>
+    </Steps>
+  </Accordion>
 
-      1. Buka menu '**Data Ujian**'
-      2. Pilih Data Ujian yang akan ditambahkan Formulir Pendaftaran
-      3. Kemudian pilih tombol **'Detail**'
-    </Step>
-    <Step title="Pilih bagian 'Daftar Peserta Ujian' kemudian pilih tombol 'Verifikasi Peserta'">
-      <Frame>
-        ![2026 07 22 22 30 2](/images/2026-07-22_22-30-2.png "2026 07 22 22 30 2")
-      </Frame>
-    </Step>
-    <Step title="Pilih tombol 'Verifikasi'">
-      <Frame>
-        ![2026 07 22 22 30 1](/images/2026-07-22_22-30_1.png "2026 07 22 22 30 1")
-      </Frame>
-    </Step>
-    <Step title="Peserta berhasil Aktif">
-      <Frame>
-        ![2026 07 22 22 31](/images/2026-07-22_22-31.png "2026 07 22 22 31")
+  <Accordion title="Cara Verifikasi Peserta">
+    <Steps>
+      <Step title="Buka ujian yang telah dibuat">
+        <Frame>
+          ![Tombol Detail pada daftar ujian di menu Data Ujian](/images/2026-07-20_22-49.png)
+        </Frame>
 
-        <Danger>
-          Apabila Anda belum melakukan verifikasi peserta,<br /><br />
+        1. Buka menu **Data Ujian**.
+        2. Pilih ujian yang memiliki formulir pendaftaran.
+        3. Kemudian pilih tombol **Detail**.
+      </Step>
+      <Step title="Buka Daftar Peserta Ujian lalu klik Verifikasi Peserta">
+        <Frame>
+          ![Tombol Verifikasi Peserta pada Daftar Peserta Ujian](/images/2026-07-22_22-30-2.png)
+        </Frame>
+      </Step>
+      <Step title="Klik Verifikasi">
+        <Frame>
+          ![Tombol Verifikasi pada jendela Verifikasi Peserta](/images/2026-07-22_22-30_1.png)
+        </Frame>
+      </Step>
+      <Step title="Peserta berhasil aktif">
+        <Frame>
+          ![Notifikasi Berhasil Verifikasi Peserta dan status peserta Aktif](/images/2026-07-22_22-31.png)
+        </Frame>
+
+        <Warning>
+          Apabila Anda belum melakukan verifikasi peserta, status peserta tetap **Menunggu Verifikasi**:
 
           <Frame>
-            ![2026 07 22 23 21](/images/2026-07-22_23-21.png "2026 07 22 23 21")
+            ![Peserta berstatus Menunggu Verifikasi pada Daftar Peserta Ujian](/images/2026-07-22_23-21.png)
           </Frame>
 
-          maka tampilan dari sisi Peserta akan seperti berikut ini<br />
+          Dari sisi peserta, ujian tersebut ditandai **Proses Verifikasi** dan belum dapat diikuti:
 
-          ![2026 07 22 23 20](/images/2026-07-22_23-20.png "2026 07 22 23 20")
-        </Danger>
-      </Frame>
-    </Step>
-  </Steps>
-</Accordion>
+          <Frame>
+            ![Ujian berstatus Proses Verifikasi pada halaman Daftar Tes peserta](/images/2026-07-22_23-20.png)
+          </Frame>
+        </Warning>
+      </Step>
+    </Steps>
+  </Accordion>
+</AccordionGroup>
 
-# 5. Mengatur Kuota Peserta Ujian
+## 7. Mengatur Kuota Peserta Ujian
 
 Isi jumlah peserta yang diperbolehkan mendaftar pada ujian tersebut.
 
-💡 **Sebagai contoh:**
-
-Anda hanya menyediakan **200 tempat** untuk Kompetisi Matematika 2027. Maka setelah jumlah pendaftar mencapai 200 peserta, peserta berikutnya tidak dapat melanjutkan pendaftaran.
+💡 Sebagai contoh, Anda hanya menyediakan **200 tempat** untuk Kompetisi Matematika 2027. Maka setelah jumlah pendaftar mencapai 200 peserta, peserta berikutnya tidak dapat melanjutkan pendaftaran.
 
 <Steps>
-  <Step title="Buka menu 'Data Ujian' kemudian pilih tombol 'Detail'">
+  <Step title="Buka menu Data Ujian lalu klik Detail">
     <Frame>
-      ![2026 07 27 20 42](/images/2026-07-27_20-42.png "2026 07 27 20 42")
+      ![Tombol Detail pada daftar ujian di menu Data Ujian](/images/2026-07-27_20-42.png)
     </Frame>
 
     Pilih ujian sesuai yang telah Anda buat.
   </Step>
-  <Step title="Pilih ke bagian 'Formulir Pendaftaran' kemudian pilih tombol ikon pengaturan">
+  <Step title="Klik ikon ⚙️ pada bagian Formulir Pendaftaran">
     <Frame>
-      ![2026 07 27 20 34](/images/2026-07-27_20-34.png "2026 07 27 20 34")
+      ![Ikon pengaturan pada bagian Formulir Pendaftaran](/images/2026-07-27_20-34.png)
     </Frame>
   </Step>
-  <Step title="Isi kolom 'Kuota Maksimal Pendaftaran'">
+  <Step title="Isi Kuota Maksimal Pendaftaran">
     <Frame>
-      ![2026 07 27 20 35](/images/2026-07-27_20-35.png "2026 07 27 20 35")
+      ![Kolom Kuota Maksimal Pendaftaran pada Pengaturan Formulir Pendaftaran](/images/2026-07-27_20-35.png)
     </Frame>
 
-    Jumlah isian dapat Anda sesuaikan sesuai dengan kebutuhan. Apabila pendaftar telah mencapai kuota maksimal, maka  peserta berikutnya tidak dapat melanjutkan pendaftaran.
+    Jumlah isian dapat Anda sesuaikan sesuai dengan kebutuhan. Apabila pendaftar telah mencapai kuota maksimal, maka peserta berikutnya tidak dapat melanjutkan pendaftaran.
 
     <Tip>
       Silakan kosongkan kolom ini jika Anda ingin jumlah peserta tidak dibatasi.

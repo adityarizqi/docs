@@ -99,10 +99,10 @@ Kode status utama: `200` berhasil, `201` dibuat, `401` API Key tidak valid, `403
   ```
 </Accordion>
 
-## Catatan Keamanan
+## Catatan keamanan
 
 - Simpan API Key hanya di server, jangan di frontend atau aplikasi mobile.
-- Gunakan whitelist IP pada Pengaturan → Integrasi API bila memungkinkan.
-- Regenerasi API Key segera jika key diduga bocor; key lama langsung tidak berlaku.
-- Link ujian berisi sesi login peserta. Bagikan hanya kepada peserta terkait dan gunakan masa berlaku sesingkat mungkin.
+- Gunakan whitelist IP pada **Pengaturan Aplikasi → Integrasi API** bila memungkinkan.
+- Buat ulang API Key (**Buat Ulang API Key**) segera jika key diduga bocor; key lama langsung tidak berlaku.
+- Link akses ujian berfungsi sebagai login peserta dan hanya dapat dipakai satu kali. Buat link saat peserta akan masuk, langsung redirect peserta, dan gunakan masa berlaku sesingkat mungkin.
 - Gunakan HTTPS untuk endpoint webhook dan verifikasi signature dari raw request body sebelum memproses payload.

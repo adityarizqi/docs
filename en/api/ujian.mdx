@@ -1,44 +1,44 @@
 ---
-title: "API Ujian"
-description: "Baca daftar, detail, tes, sesi, dan link pendaftaran ujian."
-sidebarTitle: "Ujian"
+title: "Exams API"
+description: "Read exam lists, exam details, tests, sessions and exam registration links."
+sidebarTitle: "Exams"
 ---
 
-Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
+Every request on this page requires a [Bearer API key](/en/api/autentikasi).
 
-## Endpoint ujian
+## Exam endpoints
 
-Endpoint ujian bersifat read-only. Pembuatan ujian, tes, dan soal tetap dilakukan melalui panel.
+The exam endpoints are read-only. Exams, tests and questions are still created in the admin panel.
 
-### Field penting pada ujian
+### Key exam fields
 
-| Field | Keterangan |
+| Field | Description |
 | --- | --- |
-| `is_active` | Pendaftaran ujian dibuka. |
-| `is_locked` | Ujian dikunci (misalnya karena diarsipkan). Ujian yang dikunci menolak pendaftaran peserta melalui API. |
-| `is_hidden` | Ujian diarsipkan dan tidak tampil bagi peserta. |
-| `is_tiered` | Ujian berjenjang: tes pada jenjang berikutnya terbuka setelah jenjang sebelumnya selesai. |
-| `is_auto_assign_session` | Peserta yang didaftarkan otomatis ditempatkan pada sesi yang paling awal dibuat untuk setiap tes. Jika `false`, sesi ditentukan admin melalui panel. |
-| `is_show_score` | Nilai akhir ditampilkan kepada peserta di CBT. Tidak membatasi nilai yang tersedia melalui API. |
-| `final_score_type` | Cara menghitung nilai akhir ujian dari nilai tes: `1` akumulasi, `2` rata-rata. |
-| `paid_type` | `1` gratis, `2` sekali bayar, `3` berbayar per tes, `4` berbayar per jenjang. |
+| `is_active` | Exam registration is open. |
+| `is_locked` | The exam is locked (for example because it has been archived). A locked exam rejects participant registration through the API. |
+| `is_hidden` | The exam is archived and hidden from participants. |
+| `is_tiered` | Multi-level exam: tests in the next level open once the previous level is finished. |
+| `is_auto_assign_session` | Registered participants are automatically placed in the earliest-created session of each test. If `false`, an admin assigns sessions in the admin panel. |
+| `is_show_score` | The final score is shown to participants in the CBT. It does not limit the scores available through the API. |
+| `final_score_type` | How the exam's final score is calculated from the test scores: `1` sum, `2` average. |
+| `paid_type` | `1` free, `2` one-time payment, `3` paid per test, `4` paid per level. |
 
-Pada tes (`exam_quizzes`), `exam_type` bernilai `cbt`, `cat`, atau `manual`, dan `duration_minutes` adalah durasi pengerjaan tes.
+For tests (`exam_quizzes`), `exam_type` is `cbt`, `cat` or `manual`, and `duration_minutes` is the test's working time.
 
-<Accordion title="GET /exams — Daftar ujian">
-  ### Parameter
+<Accordion title="GET /exams — List exams">
+  ### Parameters
 
-  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | Name | Location | Required | Type | Description |
   | --- | --- | --: | --- | --- |
-  | `search` | Query | Tidak | string | Mencari nama atau nama singkat ujian. |
-  | `is_active` | Query | Tidak | boolean | Filter status aktif. |
-  | `is_tiered` | Query | Tidak | boolean | Filter ujian berjenjang. |
-  | `start_from` | Query | Tidak | datetime | Waktu mulai minimum dalam format ISO 8601 dan harus di-URL-encode. |
-  | `start_until` | Query | Tidak | datetime | Waktu mulai maksimum dalam format ISO 8601 dan harus di-URL-encode. |
-  | `page` | Query | Tidak | integer | Nomor halaman. Default `1`. |
-  | `per_page` | Query | Tidak | integer | Data per halaman, `1–100`. Default `25`. |
+  | `search` | Query | No | string | Searches the exam name or short name. |
+  | `is_active` | Query | No | boolean | Filters by active status. |
+  | `is_tiered` | Query | No | boolean | Filters multi-level exams. |
+  | `start_from` | Query | No | datetime | Earliest start time, in ISO 8601 format; must be URL-encoded. |
+  | `start_until` | Query | No | datetime | Latest start time, in ISO 8601 format; must be URL-encoded. |
+  | `page` | Query | No | integer | Page number. Default `1`. |
+  | `per_page` | Query | No | integer | Items per page, `1–100`. Default `25`. |
 
-  ### Contoh request
+  ### Example request
 
   ```bash
   curl -X GET "https://app.indolat.com/api/v1/exams?search=Tes%20Masuk&is_active=true&page=1&per_page=25" \
@@ -46,7 +46,7 @@ Pada tes (`exam_quizzes`), `exam_type` bernilai `cbt`, `cat`, atau `manual`, dan
     -H "Accept: application/json"
   ```
 
-  ### Contoh response
+  ### Example response
 
   ```json
   {
@@ -85,14 +85,14 @@ Pada tes (`exam_quizzes`), `exam_type` bernilai `cbt`, `cat`, atau `manual`, dan
   ```
 </Accordion>
 
-<Accordion title="GET /exams/{exam} — Detail ujian">
-  ### Parameter
+<Accordion title="GET /exams/{exam} — Exam details">
+  ### Parameters
 
-  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | Name | Location | Required | Type | Description |
   | --- | --- | --: | --- | --- |
-  | `exam` | Path | Ya | integer | ID ujian. |
+  | `exam` | Path | Yes | integer | Exam ID. |
 
-  ### Contoh request
+  ### Example request
 
   ```bash
   curl -X GET "https://app.indolat.com/api/v1/exams/12" \
@@ -100,7 +100,7 @@ Pada tes (`exam_quizzes`), `exam_type` bernilai `cbt`, `cat`, atau `manual`, dan
     -H "Accept: application/json"
   ```
 
-  ### Contoh response
+  ### Example response
 
   ```json
   {
@@ -158,16 +158,16 @@ Pada tes (`exam_quizzes`), `exam_type` bernilai `cbt`, `cat`, atau `manual`, dan
   ```
 </Accordion>
 
-<Accordion title="GET /exams/{exam}/quizzes — Daftar tes dalam ujian">
-  Tes diurutkan berdasarkan `level`, lalu ID.
+<Accordion title="GET /exams/{exam}/quizzes — List the tests in an exam">
+  Tests are sorted by `level`, then by ID.
 
-  ### Parameter
+  ### Parameters
 
-  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | Name | Location | Required | Type | Description |
   | --- | --- | --: | --- | --- |
-  | `exam` | Path | Ya | integer | ID ujian. |
+  | `exam` | Path | Yes | integer | Exam ID. |
 
-  ### Contoh request
+  ### Example request
 
   ```bash
   curl -X GET "https://app.indolat.com/api/v1/exams/12/quizzes" \
@@ -175,7 +175,7 @@ Pada tes (`exam_quizzes`), `exam_type` bernilai `cbt`, `cat`, atau `manual`, dan
     -H "Accept: application/json"
   ```
 
-  ### Contoh response
+  ### Example response
 
   ```json
   {
@@ -209,16 +209,16 @@ Pada tes (`exam_quizzes`), `exam_type` bernilai `cbt`, `cat`, atau `manual`, dan
   ```
 </Accordion>
 
-<Accordion title="GET /exams/{exam}/sessions — Daftar sesi ujian">
-  Berisi sesi dari seluruh tes dalam ujian, diurutkan berdasarkan waktu mulai.
+<Accordion title="GET /exams/{exam}/sessions — List exam sessions">
+  Contains the sessions of every test in the exam, sorted by start time.
 
-  ### Parameter
+  ### Parameters
 
-  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | Name | Location | Required | Type | Description |
   | --- | --- | --: | --- | --- |
-  | `exam` | Path | Ya | integer | ID ujian. |
+  | `exam` | Path | Yes | integer | Exam ID. |
 
-  ### Contoh request
+  ### Example request
 
   ```bash
   curl -X GET "https://app.indolat.com/api/v1/exams/12/sessions" \
@@ -226,7 +226,7 @@ Pada tes (`exam_quizzes`), `exam_type` bernilai `cbt`, `cat`, atau `manual`, dan
     -H "Accept: application/json"
   ```
 
-  ### Contoh response
+  ### Example response
 
   ```json
   {
@@ -245,16 +245,16 @@ Pada tes (`exam_quizzes`), `exam_type` bernilai `cbt`, `cat`, atau `manual`, dan
   ```
 </Accordion>
 
-<Accordion title="GET /exams/{exam}/registration-link — Link pendaftaran mandiri">
-  Membutuhkan add-on **Halaman Pendaftaran Ujian**. Jika add-on tidak aktif, permintaan ditolak dengan status `403`. Link yang dikembalikan adalah link pendek yang mengarah ke halaman pendaftaran mandiri ujian.
+<Accordion title="GET /exams/{exam}/registration-link — Self-registration link">
+  Requires the **Exam Registration Page** add-on. If the add-on is not active, the request is rejected with status `403`. The returned link is a short link to the exam's self-registration page.
 
-  ### Parameter
+  ### Parameters
 
-  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | Name | Location | Required | Type | Description |
   | --- | --- | --: | --- | --- |
-  | `exam` | Path | Ya | integer | ID ujian. |
+  | `exam` | Path | Yes | integer | Exam ID. |
 
-  ### Contoh request
+  ### Example request
 
   ```bash
   curl -X GET "https://app.indolat.com/api/v1/exams/12/registration-link" \
@@ -262,7 +262,7 @@ Pada tes (`exam_quizzes`), `exam_type` bernilai `cbt`, `cat`, atau `manual`, dan
     -H "Accept: application/json"
   ```
 
-  ### Contoh response
+  ### Example response
 
   ```json
   {

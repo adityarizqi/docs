@@ -1,70 +1,75 @@
 ---
-title: "Generate Soal dengan AI"
-description: "Cara Generate Soal melalui Fitur AI "
+title: "Generate Soal dengan Jasper AI"
+description: "Cara membuat paket soal beserta butir soal dan jawabannya secara otomatis dengan Jasper AI."
 ---
 
-Fitur **Buat Paket Soal AI** dapat digunakan untuk membuat paket soal beserta butir soal dan jawabannya secara otomatis. Anda cukup menentukan nama paket, jumlah soal, serta memberikan arahan mengenai materi yang dibutuhkan.
+Fitur **Buat Paket Soal Jasper AI** dapat digunakan untuk membuat paket soal beserta butir soal dan jawabannya secara otomatis. Anda cukup menentukan nama paket, jumlah soal, serta memberikan arahan mengenai materi yang dibutuhkan.
 
 Cara ini cocok digunakan ketika Anda membutuhkan bahan soal dalam waktu singkat atau belum memiliki soal yang siap dimasukkan satu per satu.
 
 > 💡 **Sebagai contoh:** Anda akan menyiapkan **Try Out SNBT 2027** yang berisi soal Matematika, Bahasa Indonesia, dan Bahasa Inggris. Daripada membuat seluruh soal secara manual, Anda dapat meminta sistem membuatkan 10 soal sebagai bahan awal.
 
 <Steps>
-  <Step title="Buka menu 'Data Paket Soal' kemudian pilih tombol 'Buat Paket Soal AI'">
+  <Step title="Klik Buat Paket Soal Jasper AI">
+    Buka menu **Data Paket Soal**, lalu klik **Buat Paket Soal Jasper AI**.
+
     <Frame>
-      ![2026 07 31 02 12](/images/2026-07-31_02-12.png "2026 07 31 02 12")
+      ![Tombol Buat Paket Soal Jasper AI pada halaman Data Paket Soal](/images/2026-07-31_02-12.png)
     </Frame>
   </Step>
-  <Step title="Isikan Informasi Paket Soal ">
+  <Step title="Isi informasi paket soal">
     <Frame>
-      ![2026 07 31 02 14](/images/2026-07-31_02-14.png "2026 07 31 02 14")
+      ![Formulir Buat Paket Soal Jasper AI yang sudah diisi](/images/2026-07-31_02-14.png)
     </Frame>
 
     1. Isi **Nama Paket Soal**.
 
-    Contoh: **Try Out SNBT 2027**
-
+       Contoh: **Try Out SNBT 2027**
     2. Isi **Jumlah Soal** yang ingin dibuat.
 
-    Contoh: **10 soal**
+       Contoh: **10 soal**
 
-    <Tip>
-      Jumlah soal yang dibuat akan mengurangi kuota AI sesuai jumlah yang Anda masukkan.
-    </Tip>
+    <Note>
+      Jumlah soal yang dibuat akan mengurangi kuota Jasper AI sesuai jumlah yang Anda masukkan.
+    </Note>
 
-    3. Pada bagian **Catatan**, tuliskan arahan mengenai soal yang dibutuhkan. Anda dapat menjelaskan materi, jenjang, bentuk soal, atau tingkat kesulitannya.
+    3. Pada bagian **Catatan**, tuliskan arahan mengenai soal yang dibutuhkan. Anda dapat menjelaskan materi, jenjang, bentuk soal, atau tingkat kesulitannya.
 
-    Contoh: **Buatkan soal Matematika, Bahasa Indonesia, serta Bahasa Inggris untuk persiapan SNBT 2027.**
+       Contoh: **Buatkan soal Matematika, Bahasa Indonesia, serta Bahasa Inggris untuk persiapan SNBT 2027.**
 
     <Tip>
       Semakin jelas arahan yang diberikan, semakin sesuai pula soal yang dihasilkan.
     </Tip>
 
-    4. Pilih tombol **'Generate**'. Sistem akan mulai membuat paket soal. Tunggu hingga proses selesai.
+    <Note>
+      Jika beberapa soal memakai bacaan, tabel, atau kasus yang sama (misalnya soal literasi atau penalaran berbasis data), Jasper AI menuliskan bahan tersebut **satu kali sebagai wacana**, bukan mengulangnya di setiap soal. Wacana muncul di tab **Wacana** pada paket soal dan tampil berdampingan dengan soal-soalnya saat ujian. Anda dapat meminta soal berbasis bacaan secara khusus di **Catatan**, misalnya: _Buatkan 3 bacaan, masing-masing dengan 4 soal pemahaman._
+    </Note>
+
+    4. Klik **Generate**. Sistem akan mulai membuat paket soal. Tunggu hingga proses selesai.
 
     <Frame>
-      ![2026 07 31 02 17](/images/2026-07-31_02-17.png "2026 07 31 02 17")
+      ![Notifikasi soal berhasil dibuat dan paket baru pada daftar paket soal](/images/2026-07-31_02-17.png)
     </Frame>
   </Step>
-  <Step title="Pilih tombol 'Ubah' untuk membuka dan memeriksa paket soal tersebut">
+  <Step title="Klik Ubah untuk memeriksa paket soal">
     <Frame>
-      ![2026 07 31 02 17 1](/images/2026-07-31_02-17_1.png "2026 07 31 02 17 1")
+      ![Tombol Ubah pada paket soal hasil Jasper AI](/images/2026-07-31_02-17_1.png)
     </Frame>
 
     <Frame>
-      ![2026 07 31 02 18](/images/2026-07-31_02-18.png "2026 07 31 02 18")
+      ![Detail paket soal hasil Jasper AI beserta daftar soalnya](/images/2026-07-31_02-18.png)
     </Frame>
 
     Periksa kembali informasi paket serta seluruh soal dan jawabannya. Anda masih dapat:
 
     - mengubah nama atau deskripsi paket
-    - memperbaiki pertanyaan
+    - memperbaiki pertanyaan atau isi wacana di tab **Wacana**
     - mengganti pilihan jawaban
     - mengubah jawaban yang benar
     - serta menambah atau menghapus soal.
 
-    <Tip>
-      **Penting:** Hasil Generate AI tetap perlu diperiksa sebelum digunakan dalam ujian. Pastikan soal, pilihan jawaban, dan jawaban yang benar sudah sesuai dengan materi serta tingkat kesulitan yang diinginkan.
-    </Tip>
+    <Warning>
+      Hasil Jasper AI tetap perlu diperiksa sebelum digunakan dalam ujian. Pastikan soal, pilihan jawaban, dan jawaban yang benar sudah sesuai dengan materi serta tingkat kesulitan yang diinginkan.
+    </Warning>
   </Step>
 </Steps>

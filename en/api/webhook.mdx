@@ -1,0 +1,383 @@
+---
+title: "Webhooks API"
+description: "Manage webhook endpoints, check deliveries, send test deliveries and verify signatures."
+sidebarTitle: "Webhooks"
+---
+
+Every webhook management request requires a [Bearer API key](/en/api/autentikasi).
+
+## Webhook endpoints
+
+Available events:
+
+- `exam_participant.registered` — a participant was registered for an exam
+- `exam_participant.unregistered` — a participant's registration was cancelled
+- `exam_result.completed` — a participant finished a test
+- `exam_result.scored` — a test score was published or changed
+
+Webhooks are sent only while the **API Integration** add-on is active and the endpoint is enabled.
+
+### When events are sent
+
+- `exam_participant.registered` is sent for registrations made through the API and in the admin panel. Participants who register themselves through the exam registration page don't trigger this event.
+- `exam_participant.unregistered` is sent when a registration is cancelled through the API.
+- `exam_result.completed` and `exam_result.scored` come from a scan of exam results that runs every minute, so an event may arrive about 1–2 minutes after the participant finishes.
+- `exam_result.completed` may carry `score: null` for tests scored with IRT or manually. `exam_result.scored` follows once the score has been calculated.
+- `exam_result.scored` is sent again every time `score` or `meta_score` changes, for example after an IRT recalculation or a score recalculation. The same score is never sent twice.
+- Events are not guaranteed to arrive in order. Use `updated_at` from the [Exam Results API](/en/api/hasil-ujian) to determine the latest data, and resync regularly with `GET /exam-results?updated_since=...` so that missed events are still handled.
+
+<Accordion title="GET /webhooks — List webhook endpoints">
+  ### Parameters
+
+  This endpoint has no parameters.
+
+  ### Example request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/webhooks" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Example response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": [
+      {
+        "id": 5,
+        "url": "https://integrasi.example.com/webhooks/cbt",
+        "description": "Webhook hasil ujian",
+        "events": ["exam_result.completed", "exam_result.scored"],
+        "is_active": true,
+        "is_disabled_by_system": false,
+        "disabled_at": null,
+        "consecutive_failures": 0,
+        "last_success_at": "2026-08-02T12:00:00+07:00",
+        "last_failure_at": null,
+        "created_at": "2026-07-01T08:00:00+07:00"
+      }
+    ],
+    "meta": {
+      "available_events": {
+        "exam_participant.registered": "Peserta didaftarkan ke ujian",
+        "exam_participant.unregistered": "Peserta dibatalkan dari ujian",
+        "exam_result.completed": "Peserta selesai mengerjakan tes",
+        "exam_result.scored": "Nilai tes terbit atau berubah"
+      }
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="POST /webhooks — Register a webhook endpoint">
+  Up to five webhook endpoints per project; a sixth endpoint is rejected with status `409`. The signing secret is returned only when the endpoint is created or the secret is rotated.
+
+  ### Parameters
+
+  | Name | Location | Required | Type | Description |
+  | --- | --- | --: | --- | --- |
+  | `url` | Body | Yes | URL | HTTP/HTTPS URL that receives the webhook, up to 2,048 characters. HTTPS is recommended. |
+  | `events` | Body | Yes | string\[\] | At least one available event. |
+  | `events.*` | Body | Yes | enum | A valid webhook event name. |
+  | `description` | Body | No | string/null | Description, up to 255 characters. |
+  | `is_active` | Body | No | boolean | Default `true`. |
+
+  ### Example request
+
+  ```bash
+  curl -X POST "https://app.indolat.com/api/v1/webhooks" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "url": "https://integrasi.example.com/webhooks/cbt",
+      "description": "Webhook hasil ujian",
+      "events": ["exam_result.completed", "exam_result.scored"],
+      "is_active": true
+    }'
+  ```
+
+  ### Example response
+
+  ```json
+  {
+    "success": true,
+    "message": "Endpoint webhook berhasil dibuat. Simpan secret ini — nilainya tidak dapat dilihat kembali.",
+    "data": {
+      "id": 5,
+      "url": "https://integrasi.example.com/webhooks/cbt",
+      "description": "Webhook hasil ujian",
+      "events": ["exam_result.completed", "exam_result.scored"],
+      "is_active": true,
+      "is_disabled_by_system": false,
+      "disabled_at": null,
+      "consecutive_failures": 0,
+      "last_success_at": null,
+      "last_failure_at": null,
+      "created_at": "2026-08-03T10:00:00+07:00",
+      "secret": "whsec_a1b2c3d4e5f6..."
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="PATCH /webhooks/{id} — Update a webhook endpoint">
+  This endpoint also accepts the `PUT` method. A new secret is returned only when `rotate_secret` is `true`. Sending `is_active: true` also re-enables an endpoint that the system disabled automatically, and resets `consecutive_failures` to `0`.
+
+  ### Parameters
+
+  | Name | Location | Required | Type | Description |
+  | --- | --- | --: | --- | --- |
+  | `id` | Path | Yes | integer | Webhook endpoint ID. |
+  | `url` | Body | No | URL | New HTTP/HTTPS URL, up to 2,048 characters. |
+  | `events` | Body | No | string\[\] | At least one event if the field is sent. |
+  | `events.*` | Body | Conditional | enum | Required for every item in `events`. |
+  | `description` | Body | No | string/null | New description, up to 255 characters. |
+  | `is_active` | Body | No | boolean | Enables or disables the endpoint. |
+  | `rotate_secret` | Body | No | boolean | Generates a new signing secret. Default `false`. |
+
+  ### Example request
+
+  ```bash
+  curl -X PATCH "https://app.indolat.com/api/v1/webhooks/5" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "events": ["exam_result.completed"],
+      "is_active": true,
+      "rotate_secret": true
+    }'
+  ```
+
+  ### Example response
+
+  ```json
+  {
+    "success": true,
+    "message": "Endpoint diperbarui. Simpan secret baru ini — nilainya tidak dapat dilihat kembali.",
+    "data": {
+      "id": 5,
+      "url": "https://integrasi.example.com/webhooks/cbt",
+      "description": "Webhook hasil ujian",
+      "events": ["exam_result.completed"],
+      "is_active": true,
+      "is_disabled_by_system": false,
+      "disabled_at": null,
+      "consecutive_failures": 0,
+      "last_success_at": "2026-08-02T12:00:00+07:00",
+      "last_failure_at": null,
+      "created_at": "2026-07-01T08:00:00+07:00",
+      "secret": "whsec_secret_baru..."
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="DELETE /webhooks/{id} — Delete a webhook endpoint">
+  ### Parameters
+
+  | Name | Location | Required | Type | Description |
+  | --- | --- | --: | --- | --- |
+  | `id` | Path | Yes | integer | Webhook endpoint ID. |
+
+  ### Example request
+
+  ```bash
+  curl -X DELETE "https://app.indolat.com/api/v1/webhooks/5" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Example response
+
+  ```json
+  {
+    "success": true,
+    "message": "Endpoint webhook berhasil dihapus.",
+    "data": null
+  }
+  ```
+</Accordion>
+
+<Accordion title="GET /webhooks/{id}/deliveries — Webhook delivery history">
+  ### Parameters
+
+  | Name | Location | Required | Type | Description |
+  | --- | --- | --: | --- | --- |
+  | `id` | Path | Yes | integer | Webhook endpoint ID. |
+  | `event` | Query | No | enum | Filters by event name. |
+  | `status` | Query | No | enum | Filters by delivery status: `pending` (waiting or being retried), `delivered` or `failed`. |
+  | `page` | Query | No | integer | Page number. Default `1`. |
+  | `per_page` | Query | No | integer | Items per page, `1–100`. Default `25`. |
+
+  ### Example request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/webhooks/5/deliveries?event=exam_result.completed&status=delivered&page=1&per_page=25" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Example response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": [
+      {
+        "id": "9f48da6d-39b8-4cf2-b4dd-b62d9592b7e4",
+        "event": "exam_result.completed",
+        "status": "delivered",
+        "attempts": 1,
+        "response_code": 200,
+        "response_body": "OK",
+        "error_message": null,
+        "payload": {
+          "event": "exam_result.completed",
+          "created_at": "2026-08-10T09:20:00+07:00",
+          "data": { "exam_result_id": 9812, "participant_code": "TPA0000021", "score": 82.5 }
+        },
+        "delivered_at": "2026-08-10T09:20:02+07:00",
+        "created_at": "2026-08-10T09:20:00+07:00"
+      }
+    ],
+    "meta": {
+      "pagination": { "total": 1, "per_page": 25, "current_page": 1, "last_page": 1, "from": 1, "to": 1 }
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="POST /webhooks/{id}/test — Send a test webhook">
+  If `event` is not sent or not recognised, the default event is `exam_result.completed`. A test delivery uses the selected event name and the same signature as a real delivery, but `data` contains a test message: `{ "message": "...", "sent_at": "..." }`. An inactive endpoint is rejected with status `409`.
+
+  ### Parameters
+
+  | Name | Location | Required | Type | Description |
+  | --- | --- | --: | --- | --- |
+  | `id` | Path | Yes | integer | ID of an active webhook endpoint. |
+  | `event` | Body | No | enum | The event to simulate. Default `exam_result.completed`. |
+
+  ### Example request
+
+  ```bash
+  curl -X POST "https://app.indolat.com/api/v1/webhooks/5/test" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{ "event": "exam_result.completed" }'
+  ```
+
+  ### Example response
+
+  ```json
+  {
+    "success": true,
+    "message": "Pengiriman uji coba telah diantrekan.",
+    "data": { "queued": true }
+  }
+  ```
+</Accordion>
+
+## Webhook payloads and signatures
+
+Every webhook is sent as a `POST` with a JSON body containing `event`, `created_at` (when the event was queued) and `data`. The same body is resent unchanged on every retry.
+
+### Headers
+
+| Header | Description |
+| --- | --- |
+| `Content-Type` | `application/json`. |
+| `X-Cbt-Event` | Event name, for example `exam_result.completed`. |
+| `X-Cbt-Delivery` | Delivery ID (UUID). The value stays the same on every retry and matches the `id` in the delivery history. Use it to ignore duplicate deliveries. |
+| `X-Cbt-Signature` | Signature in the format `t=<unix>,v1=<hex>`. |
+
+### `exam_result.completed` and `exam_result.scored` payload
+
+Both events use the same `data` structure. The contents of `meta_score` for each scoring method are described in the **`meta_score` structure** section of the [Exam Results API](/en/api/hasil-ujian).
+
+```json
+{
+  "event": "exam_result.completed",
+  "created_at": "2026-08-10T09:21:00+07:00",
+  "data": {
+    "exam_result_id": 9812,
+    "user_result_exam_uuid": "9f1c2a2d-9739-4c2f-9a94-312a9cc1b4ad",
+    "user_exam_id": 4410,
+    "participant_code": "TPA0000021",
+    "exam": { "id": 12, "name": "Tes Masuk 2026", "name_short": "TPA" },
+    "exam_quiz": { "id": 45, "name": "Tes Potensi Akademik" },
+    "participant": { "id": 340, "name": "Budi Santoso", "email": "budi@sekolah.sch.id" },
+    "status": 2,
+    "status_label": "Selesai Ujian",
+    "score": 82.5,
+    "meta_score": { "correct": 33, "incorrect": 7, "unanswered": 0 },
+    "start_at": "2026-08-10T08:05:00+07:00",
+    "end_at": "2026-08-10T09:20:00+07:00"
+  }
+}
+```
+
+### `exam_participant.registered` payload
+
+```json
+{
+  "event": "exam_participant.registered",
+  "created_at": "2026-08-03T10:00:00+07:00",
+  "data": {
+    "user_exam_id": 4410,
+    "participant_code": "TPA0000021",
+    "exam": { "id": 12, "name": "Tes Masuk 2026", "name_short": "TPA" },
+    "participant": { "id": 340, "name": "Budi Santoso", "email": "budi@sekolah.sch.id" },
+    "registered_at": "2026-08-03T10:00:00+07:00"
+  }
+}
+```
+
+### `exam_participant.unregistered` payload
+
+```json
+{
+  "event": "exam_participant.unregistered",
+  "created_at": "2026-08-04T09:00:00+07:00",
+  "data": {
+    "user_exam_id": 4410,
+    "participant_id": 340,
+    "exam": { "id": 12, "name": "Tes Masuk 2026", "name_short": "TPA" },
+    "unregistered_at": "2026-08-04T09:00:00+07:00"
+  }
+}
+```
+
+### Verify the signature
+
+`v1` is the HMAC-SHA256 of `<t>.<raw body>` using the endpoint's signing secret. The `t` value is regenerated on every delivery attempt. Reject requests whose signature doesn't match or whose `t` differs from your server time by more than 300 seconds.
+
+```php
+[$timestamp, $signature] = sscanf(
+    $request->header('X-Cbt-Signature'),
+    't=%d,v1=%s',
+);
+
+$expected = hash_hmac(
+    'sha256',
+    $timestamp.'.'.$request->getContent(),
+    $secret,
+);
+
+if (! hash_equals($expected, $signature) || abs(time() - $timestamp) > 300) {
+    abort(400);
+}
+```
+
+### Retries
+
+- Respond to the webhook with a `2xx` status within 10 seconds. Store the event first, then process it in the background.
+- Non-`2xx` responses, timeouts and connection failures are retried up to 4 attempts in total, with delays of 1 minute, 5 minutes, then 30 minutes. If the last attempt fails, the delivery status becomes `failed`.
+- An endpoint that fails 10 times in a row is disabled automatically (`is_disabled_by_system: true`), and the project owner is notified in the admin panel. Once the endpoint is fixed, re-enable it with `PATCH /webhooks/{id}` containing `is_active: true`.
+- Deliveries that are already `failed` are not resent. Use `GET /exam-results?updated_since=...` to fetch the results you missed.

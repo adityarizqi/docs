@@ -1,61 +1,61 @@
 ---
-title: "API Hasil Ujian"
-description: "Ambil daftar dan detail hasil ujian peserta beserta nilai dan durasi pengerjaan."
-sidebarTitle: "Hasil Ujian"
+title: "Exam Results API"
+description: "Retrieve the list and details of participants' exam results, including scores and time spent."
+sidebarTitle: "Exam Results"
 ---
 
-Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
+Every request on this page requires a [Bearer API key](/en/api/autentikasi).
 
-Satu hasil ujian mewakili satu tes milik satu peserta. Data hasil dibuat saat peserta didaftarkan ke ujian, lalu diperbarui saat peserta mengerjakan tes dan saat nilainya dihitung. Hasil milik peserta yang sudah dihapus dari projek tidak ditampilkan.
+One exam result represents one test taken by one participant. The result record is created when the participant is registered for the exam, then updated as the participant takes the test and when the score is calculated. Results that belong to participants deleted from the project are not shown.
 
-## Kapan nilai tersedia
+## When scores are available
 
-`score` bernilai `null` sampai nilai tes dihitung. Waktu perhitungannya bergantung pada metode penilaian tes:
+`score` is `null` until the test score is calculated. When that happens depends on the test's scoring method:
 
-| Metode penilaian | Kapan `score` terisi |
+| Scoring method | When `score` is filled in |
 | --- | --- |
-| Perhitungan Skor Soal (Akumulasi Benar/Salah) | Otomatis saat peserta selesai mengerjakan tes. |
-| Perhitungan Skor Jawaban (Akumulasi Skor Jawaban) | Otomatis saat peserta selesai mengerjakan tes. |
-| Psikotes (Pengelompokan Jawaban) | Otomatis saat peserta selesai. `score` selalu `0`; hasil per kelompok jawaban tidak tersedia melalui API. |
-| IRT (Referensi UTBK 0-1000, TKA SMA/SMK 200-800, TKA SD/SMP 0-100) | Setelah admin menjalankan **Hitung Skor** → **Perhitungan IRT** pada panel. Sebelum itu `score` bernilai `null`. |
-| Penilaian Manual | Setelah admin menilai jawaban peserta pada panel. |
+| Question Score Calculation (Sum of Correct/Wrong) | Automatically when the participant finishes the test. |
+| Answer Score Calculation (Sum of Answer Scores) | Automatically when the participant finishes the test. |
+| Psychometric (Answer Grouping) | Automatically when the participant finishes. `score` is always `0`; results per answer group are not available through the API. |
+| IRT (UTBK reference, 0-1000), IRT TKA for SMA/SMK (200-800), IRT TKA for SD/SMP (0-100) | After an admin runs **Calculate Score** → **IRT Calculation** in the admin panel. Until then, `score` is `null`. |
+| Manual Scoring | After an admin grades the participant's answers in the admin panel. |
 
-Nilai dapat berubah setelah pertama kali terbit, misalnya saat admin menjalankan ulang **Perhitungan IRT** atau perhitungan ulang skor. Setiap perubahan memperbarui `updated_at` dan mengirim webhook `exam_result.scored`. Gunakan `updated_since` untuk menyinkronkan ulang hasil yang berubah.
+A score can change after it is first published, for example when an admin runs **IRT Calculation** again or recalculates scores. Every change updates `updated_at` and sends an `exam_result.scored` webhook. Use `updated_since` to resync results that have changed.
 
-### Struktur `meta_score`
+### `meta_score` structure
 
-`meta_score` bernilai `null` sebelum nilai pertama kali dihitung. Isinya bergantung pada metode penilaian:
+`meta_score` is `null` until the score is first calculated. Its contents depend on the scoring method:
 
-| Metode penilaian | Isi `meta_score` |
+| Scoring method | `meta_score` contents |
 | --- | --- |
-| Akumulasi Benar/Salah | `correct`, `incorrect`, `unanswered` (jumlah soal). |
-| Akumulasi Skor Jawaban | `correct`, `incorrect`, `unanswered`, dan `answer_scores` berupa objek `{ "<id soal>": skor }`. |
-| Psikotes | `total_answered`, `total_unanswered`. |
-| IRT | `correct`, `incorrect`, `unanswered`, `irt_theta` (kemampuan peserta), `irt_scale` (skala yang dipakai: `irt`, `irt_tka_sma`, atau `irt_tka_sd_smp`), dan `difficulty_map` berupa objek `{ "<id soal>": tingkat kesulitan }`. |
+| Sum of Correct/Wrong | `correct`, `incorrect`, `unanswered` (number of questions). |
+| Sum of Answer Scores | `correct`, `incorrect`, `unanswered`, and `answer_scores` as an object `{ "<question id>": score }`. |
+| Psychometric | `total_answered`, `total_unanswered`. |
+| IRT | `correct`, `incorrect`, `unanswered`, `irt_theta` (the participant's ability), `irt_scale` (the scale used: `irt`, `irt_tka_sma` or `irt_tka_sd_smp`), and `difficulty_map` as an object `{ "<question id>": difficulty }`. |
 
-## Endpoint hasil ujian
+## Exam result endpoints
 
-<Accordion title="GET /exam-results — Daftar hasil ujian">
-  Data diurutkan dari hasil terbaru.
+<Accordion title="GET /exam-results — List exam results">
+  Sorted from the most recent result.
 
-  ### Parameter
+  ### Parameters
 
-  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | Name | Location | Required | Type | Description |
   | --- | --- | --: | --- | --- |
-  | `exam_id` | Query | Tidak | integer | Filter ID ujian. |
-  | `participant_id` | Query | Tidak | integer | Filter ID peserta. |
-  | `email` | Query | Tidak | email | Filter email peserta secara persis. |
-  | `exam_quiz_id` | Query | Tidak | integer | Filter ID tes. |
-  | `status` | Query | Tidak | integer | `0` pending, `1` aktif (belum atau sedang dikerjakan), `2` selesai, `3` ditolak. |
-  | `min_score` | Query | Tidak | numeric | Nilai minimum. |
-  | `max_score` | Query | Tidak | numeric | Nilai maksimum. |
-  | `finished_from` | Query | Tidak | datetime | Waktu selesai minimum dalam ISO 8601 dan harus di-URL-encode. |
-  | `finished_until` | Query | Tidak | datetime | Waktu selesai maksimum dalam ISO 8601 dan harus di-URL-encode. |
-  | `updated_since` | Query | Tidak | datetime | Hanya hasil yang berubah sejak waktu ini; ISO 8601 dan harus di-URL-encode. |
-  | `page` | Query | Tidak | integer | Nomor halaman. Default `1`. |
-  | `per_page` | Query | Tidak | integer | Data per halaman, `1–100`. Default `25`. |
+  | `exam_id` | Query | No | integer | Filters by exam ID. |
+  | `participant_id` | Query | No | integer | Filters by participant ID. |
+  | `email` | Query | No | email | Filters by participant email (exact match). |
+  | `exam_quiz_id` | Query | No | integer | Filters by test ID. |
+  | `status` | Query | No | integer | `0` pending, `1` active (not started yet or in progress), `2` finished, `3` rejected. |
+  | `min_score` | Query | No | numeric | Minimum score. |
+  | `max_score` | Query | No | numeric | Maximum score. |
+  | `finished_from` | Query | No | datetime | Earliest finish time, in ISO 8601; must be URL-encoded. |
+  | `finished_until` | Query | No | datetime | Latest finish time, in ISO 8601; must be URL-encoded. |
+  | `updated_since` | Query | No | datetime | Only results changed since this time; ISO 8601, must be URL-encoded. |
+  | `page` | Query | No | integer | Page number. Default `1`. |
+  | `per_page` | Query | No | integer | Items per page, `1–100`. Default `25`. |
 
-  ### Contoh request
+  ### Example request
 
   ```bash
   curl -X GET "https://app.indolat.com/api/v1/exam-results?exam_id=12&status=2&min_score=70&page=1&per_page=25" \
@@ -63,7 +63,7 @@ Nilai dapat berubah setelah pertama kali terbit, misalnya saat admin menjalankan
     -H "Accept: application/json"
   ```
 
-  ### Contoh response
+  ### Example response
 
   ```json
   {
@@ -135,14 +135,14 @@ Nilai dapat berubah setelah pertama kali terbit, misalnya saat admin menjalankan
   ```
 </Accordion>
 
-<Accordion title="GET /exam-results/{id} — Detail hasil ujian">
-  ### Parameter
+<Accordion title="GET /exam-results/{id} — Exam result details">
+  ### Parameters
 
-  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | Name | Location | Required | Type | Description |
   | --- | --- | --: | --- | --- |
-  | `id` | Path | Ya | integer | ID hasil ujian. |
+  | `id` | Path | Yes | integer | Exam result ID. |
 
-  ### Contoh request
+  ### Example request
 
   ```bash
   curl -X GET "https://app.indolat.com/api/v1/exam-results/9813" \
@@ -150,9 +150,9 @@ Nilai dapat berubah setelah pertama kali terbit, misalnya saat admin menjalankan
     -H "Accept: application/json"
   ```
 
-  ### Contoh response
+  ### Example response
 
-  Contoh berikut adalah tes dengan penilaian IRT yang nilainya sudah dihitung. Objek `exam` dipersingkat; isinya sama dengan contoh pada daftar hasil ujian.
+  The example below is a test scored with IRT whose score has already been calculated. The `exam` object is shortened; its contents are the same as in the exam result list example.
 
   ```json
   {

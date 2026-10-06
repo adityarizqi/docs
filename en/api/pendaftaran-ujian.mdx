@@ -1,0 +1,355 @@
+---
+title: "Exam Registration and Access Links"
+description: "Register participants, check registration status, cancel registrations and create exam access links."
+sidebarTitle: "Exam Registration"
+---
+
+Every request on this page requires a [Bearer API key](/en/api/autentikasi).
+
+## Registration endpoints
+
+<Accordion title="GET /exams/{exam}/participants — List registered participants">
+  ### Parameters
+
+  | Name | Location | Required | Type | Description |
+  | --- | --- | --: | --- | --- |
+  | `exam` | Path | Yes | integer | Exam ID. |
+  | `status` | Query | No | integer | Registration status: `0` needs verification, `1` active, `2` suspended, `3` needs review, `4` finished. |
+  | `search` | Query | No | string | Searches by participant code or participant name. |
+  | `page` | Query | No | integer | Page number. Default `1`. |
+  | `per_page` | Query | No | integer | Items per page, `1–100`. Default `25`. |
+
+  ### Example request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/exams/12/participants?status=1&search=Budi&page=1&per_page=25" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Example response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": [
+      {
+        "user_exam_id": 4410,
+        "participant_id": 340,
+        "exam_id": 12,
+        "participant_code": "TPA0000021",
+        "status": 1,
+        "status_label": "Aktif",
+        "participant": {
+          "id": 340,
+          "name": "Budi Santoso",
+          "email": "budi@sekolah.sch.id",
+          "is_active": true,
+          "is_verified": true,
+          "verified_at": "2026-07-30T09:00:00+07:00",
+          "label": { "id": 8, "name": "Kelas XII IPA" },
+          "created_at": "2026-07-30T09:00:00+07:00",
+          "updated_at": "2026-07-30T09:00:00+07:00"
+        },
+        "registered_at": "2026-07-30T10:00:00+07:00"
+      }
+    ],
+    "meta": {
+      "pagination": { "total": 1, "per_page": 25, "current_page": 1, "last_page": 1, "from": 1, "to": 1 }
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="POST /exams/{exam}/participants — Register participants for an exam">
+  This request is safe to retry. Participants who are already registered are not registered twice; they are reported in `already_registered` instead. Every new registration sends an `exam_participant.registered` webhook.
+
+  When a participant is registered:
+
+  - The participant gets a participant code (`participant_code`) and one result record for each test in the exam.
+  - In a multi-level exam, only the tests in the first level are active straight away. Tests in later levels open once the previous level is finished.
+  - If the exam uses automatic session assignment (`is_auto_assign_session: true`), the participant is placed in the earliest-created session of each test. Otherwise, an admin must assign the participant to a session in the admin panel before the participant can take the test. Until then, the access link reports `locked_reason: "no_session"`.
+
+  An exam that is already locked (`is_locked: true`) rejects registration with status `409`. Participant IDs that are not found in the project are reported in `rejected`, for example `{ "participant_id": 999, "reason": "Peserta tidak ditemukan pada projek ini." }`.
+
+  ### Parameters
+
+  | Name | Location | Required | Type | Description |
+  | --- | --- | --: | --- | --- |
+  | `exam` | Path | Yes | integer | Exam ID. |
+  | `participant_ids` | Body | Yes | integer\[\] | Contains 1–500 participant IDs. |
+  | `participant_ids.*` | Body | Yes | integer | Participant ID. |
+
+  ### Example request
+
+  ```bash
+  curl -X POST "https://app.indolat.com/api/v1/exams/12/participants" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{ "participant_ids": [340, 341, 342] }'
+  ```
+
+  ### Example response
+
+  Status `201`.
+
+  ```json
+  {
+    "success": true,
+    "message": "2 peserta didaftarkan, 1 sudah terdaftar, 0 ditolak.",
+    "data": {
+      "registered": [
+        {
+          "user_exam_id": 4410,
+          "participant_id": 340,
+          "exam_id": 12,
+          "participant_code": "TPA0000021",
+          "status": 1,
+          "status_label": "Aktif",
+          "participant": {
+            "id": 340,
+            "name": "Budi Santoso",
+            "email": "budi@sekolah.sch.id",
+            "is_active": true,
+            "is_verified": true,
+            "verified_at": "2026-07-30T09:00:00+07:00",
+            "created_at": "2026-07-30T09:00:00+07:00",
+            "updated_at": "2026-07-30T09:00:00+07:00"
+          },
+          "registered_at": "2026-08-03T10:00:00+07:00"
+        },
+        {
+          "user_exam_id": 4411,
+          "participant_id": 341,
+          "exam_id": 12,
+          "participant_code": "TPA0000022",
+          "status": 1,
+          "status_label": "Aktif",
+          "participant": {
+            "id": 341,
+            "name": "Siti Aminah",
+            "email": "siti@sekolah.sch.id",
+            "is_active": true,
+            "is_verified": true,
+            "verified_at": "2026-07-30T09:00:00+07:00",
+            "created_at": "2026-07-30T09:00:00+07:00",
+            "updated_at": "2026-07-30T09:00:00+07:00"
+          },
+          "registered_at": "2026-08-03T10:00:00+07:00"
+        }
+      ],
+      "already_registered": [342],
+      "rejected": []
+    },
+    "meta": {
+      "summary": { "registered": 2, "already_registered": 1, "rejected": 0 }
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="GET /exams/{exam}/participants/{participant} — Participant registration status">
+  The response includes `results`: one result record for each test in the exam. Each item has the same structure as in the [Exam Results API](/en/api/hasil-ujian).
+
+  ### Parameters
+
+  | Name | Location | Required | Type | Description |
+  | --- | --- | --: | --- | --- |
+  | `exam` | Path | Yes | integer | Exam ID. |
+  | `participant` | Path | Yes | integer | Participant ID. |
+
+  ### Example request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/exams/12/participants/340" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Example response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": {
+      "user_exam_id": 4410,
+      "participant_id": 340,
+      "exam_id": 12,
+      "participant_code": "TPA0000021",
+      "status": 1,
+      "status_label": "Aktif",
+      "participant": {
+        "id": 340,
+        "name": "Budi Santoso",
+        "email": "budi@sekolah.sch.id",
+        "is_active": true,
+        "is_verified": true,
+        "verified_at": "2026-07-30T09:00:00+07:00",
+        "created_at": "2026-07-30T09:00:00+07:00",
+        "updated_at": "2026-07-30T09:00:00+07:00"
+      },
+      "results": [
+        {
+          "id": 9812,
+          "uuid": "9f1c2a2d-9739-4c2f-9a94-312a9cc1b4ad",
+          "user_exam_id": 4410,
+          "exam_quiz_id": 45,
+          "exam_quiz_name": "Tes Potensi Akademik",
+          "status": 1,
+          "status_label": "Aktif",
+          "score": null,
+          "meta_score": null,
+          "start_at": null,
+          "end_at": null,
+          "duration_seconds": null,
+          "created_at": "2026-07-30T10:00:00+07:00",
+          "updated_at": "2026-07-30T10:00:00+07:00"
+        }
+      ],
+      "registered_at": "2026-07-30T10:00:00+07:00"
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="DELETE /exams/{exam}/participants/{participant} — Cancel a registration">
+  The request is rejected with status `409` if the participant has already finished one of the tests or already has a score in this exam. Cancelling deletes the participant code and all of the participant's test data for that exam, then sends an `exam_participant.unregistered` webhook.
+
+  ### Parameters
+
+  | Name | Location | Required | Type | Description |
+  | --- | --- | --: | --- | --- |
+  | `exam` | Path | Yes | integer | Exam ID. |
+  | `participant` | Path | Yes | integer | Participant ID. |
+
+  ### Example request
+
+  ```bash
+  curl -X DELETE "https://app.indolat.com/api/v1/exams/12/participants/340" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Example response
+
+  ```json
+  {
+    "success": true,
+    "message": "Pendaftaran peserta pada ujian berhasil dibatalkan.",
+    "data": null
+  }
+  ```
+</Accordion>
+
+<Accordion title="POST /exams/{exam}/participants/{participant}/access-links — Create exam access links">
+  Generates one link for each test in the exam. The link signs the participant in directly, without typing a password, and then opens the test preparation page.
+
+  Link behaviour:
+
+  - **Each link can be used only once**, and must be used before `expires_at`. The default validity is 1,440 minutes (24 hours), up to 10,080 minutes (7 days). A link that has already been used or has expired shows a message saying the link is no longer valid.
+  - If the participant needs to sign in again, for example after closing the tab, switching devices or losing the connection, create a new link. A new link for a test in progress resumes the same attempt instead of starting over.
+  - Links created earlier remain valid until they are used or expire.
+  - `exam_url` is returned even when the test can't be taken yet. Check `can_start` before redirecting the participant. A link for a test with `can_start: false` doesn't open the test; the participant is sent to the CBT dashboard or gets a not-found page.
+  - A participant can have only one active login session. Opening a link on another device ends the session on the previous device.
+  - Inactive participants cannot sign in through a link. The link is still created, and the `message` in the response explains that the participant is inactive.
+
+  <Tip>
+    Access links are designed for a redirect flow from your application, for example a "Start Exam" button. Create the link at the moment the participant clicks the button, with a short `expires_in_minutes` (for example 5–15 minutes), then redirect the participant straight away. Don't store links or send them by email or chat: some chat and email apps open links automatically to generate a preview, so the link is used up before the participant clicks it.
+  </Tip>
+
+  ### Parameters
+
+  | Name | Location | Required | Type | Description |
+  | --- | --- | --: | --- | --- |
+  | `exam` | Path | Yes | integer | Exam ID. |
+  | `participant` | Path | Yes | integer | ID of a registered participant. |
+  | `expires_in_minutes` | Body | No | integer | Link validity, `1–10080`. Default `1440`. |
+
+  ### Response fields per link
+
+  | Field | Description |
+  | --- | --- |
+  | `exam_quiz_id`, `exam_quiz_name` | The test the link opens. |
+  | `user_result_exam_uuid` | ID of the participant's test attempt, the same as `uuid` in the Exam Results API. |
+  | `status` | Test result status: `0` pending, `1` active, `2` finished, `3` rejected. |
+  | `progress` | `not_started`, `in_progress` or `finished`. |
+  | `has_session` | `true` if the participant has been assigned to a session. |
+  | `session` | The session schedule (`start_at`, `end_at`), or `null` if there is no session yet. |
+  | `can_start` | `true` if the participant can start or resume this test now. |
+  | `locked_reason` | Why the test can't be taken yet, or `null` when `can_start` is `true`. |
+  | `exam_url` | The test access link. |
+  | `expires_at` | When the link expires. |
+
+  `locked_reason` values:
+
+  - `finished` — the test has already been completed.
+  - `unavailable` — the exam is outside its schedule or archived, the participant's registration is suspended or finished, or the test was rejected.
+  - `payment` — the test is awaiting payment.
+  - `pending` — the test's level isn't open yet, or the registration is still awaiting verification.
+  - `order` — the tests must be taken in order and the previous test isn't finished yet.
+  - `no_session` — the participant hasn't been assigned to a session yet, or the session has no question package.
+  - `no_questions` — the session's question package has no questions yet.
+  - `outside_session` — the current time is outside the session schedule.
+
+  Status `404` is returned if the exam or participant is not found, or if the participant isn't registered for the exam. Status `422` is returned if the exam has no tests yet.
+
+  ### Example request
+
+  ```bash
+  curl -X POST "https://app.indolat.com/api/v1/exams/12/participants/340/access-links" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{ "expires_in_minutes": 10 }'
+  ```
+
+  ### Example response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": {
+      "participant_id": 340,
+      "exam_id": 12,
+      "links": [
+        {
+          "exam_quiz_id": 45,
+          "exam_quiz_name": "Tes Potensi Akademik",
+          "user_result_exam_uuid": "9f1c2a2d-9739-4c2f-9a94-312a9cc1b4ad",
+          "status": 1,
+          "progress": "not_started",
+          "has_session": true,
+          "session": {
+            "start_at": "2026-08-10T08:00:00+07:00",
+            "end_at": "2026-08-10T10:00:00+07:00"
+          },
+          "can_start": true,
+          "locked_reason": null,
+          "exam_url": "https://smanusantara.cbt.example.com/auth/ssologin?payload=...",
+          "expires_at": "2026-08-10T08:15:00+07:00"
+        },
+        {
+          "exam_quiz_id": 46,
+          "exam_quiz_name": "Tes Bahasa Inggris",
+          "user_result_exam_uuid": "3b7e5d10-1c2f-4a8e-b0e4-6a2f1d9c7e21",
+          "status": 1,
+          "progress": "not_started",
+          "has_session": true,
+          "session": {
+            "start_at": "2026-08-10T08:00:00+07:00",
+            "end_at": "2026-08-10T10:00:00+07:00"
+          },
+          "can_start": false,
+          "locked_reason": "order",
+          "exam_url": "https://smanusantara.cbt.example.com/auth/ssologin?payload=...",
+          "expires_at": "2026-08-10T08:15:00+07:00"
+        }
+      ]
+    }
+  }
+  ```
+</Accordion>

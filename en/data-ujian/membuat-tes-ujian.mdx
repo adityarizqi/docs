@@ -1,0 +1,210 @@
+---
+title: "Create a Test"
+description: "How to create a CBT, CAT or essay/file-upload test inside an exam, then set up its scores, results and proctoring."
+---
+
+A **test** is a **test section** inside an exam.
+
+💡 For example, an **SNBT 2027 Grand Tryout** (a practice exam for SNBT, Indonesia's national university entrance test) contains:
+
+- Mathematical Reasoning
+- Indonesian Literacy
+- English Literacy
+
+Each test has its own exam type, duration, scoring method and settings.
+
+## 1. Add a Test
+
+Click **Add Test** in the **Test List** section.
+
+<Frame>
+  ![Add Test button in the Test List section](/images/tambah-tes-ujian.png)
+</Frame>
+
+<Tip>
+  If a test was missed and not added to the exam, you can go back and add it with these steps:
+
+  1. Open the **Exam Data** menu.
+  2. Choose the exam that doesn't have the test yet.
+  3. Click **Details** on that exam.
+  4. Add the test in the **Test List** section with the **Add Test** button.
+
+  <Frame>
+    ![Exam Data menu and Details button in the exam list](/images/sub-data-ujian.png)
+  </Frame>
+</Tip>
+
+## 2. Fill In the Test Information
+
+<Frame>
+  ![Add Test form with numbered fields](/images/image-28.png)
+</Frame>
+
+After you click **Add Test**, the system shows the fields for the test that participants will take.
+
+### Exam Type
+
+Choose the type of test you are running.
+
+<Frame>
+  ![Exam Type options on the Add Test form](/images/jenis-ujian.png)
+</Frame>
+
+1. **Computer Based Test (CBT)**<br />Participants see the questions on screen and choose or type their answers directly in the system.
+
+   > Example: a participant sees the question _10 × 5 = ..._ and selects the answer **50** on screen.
+
+2. **Computer Adaptive Test (CAT)**<br />The next question adapts to the participant's ability. This type can only be chosen for a **Professional Exam (Paid Plan)**.
+
+   > Example: a participant answers the first question correctly. The system then gives a slightly harder question. If the participant answers incorrectly, the system can give an easier or similar question.
+
+   CAT is like an exam that "follows the participant's ability". The more correct answers, the harder the next questions can get.
+
+3. **Essay / File Upload (Manual Grading)**<br />Participants don't choose an answer as they would in a multiple-choice question. They write a long answer or upload a file.
+
+   > Examples:
+   >
+   > - Writing an essay answer directly in the system.
+   > - Uploading a photo of an answer sheet.
+   > - Uploading a PDF or Word file.
+
+<Tip>
+  For a regular SNBT tryout, choose **Computer Based Test (CBT)**.
+</Tip>
+
+### Scoring Method
+
+Decide how the system calculates participants' scores.
+
+<Frame>
+  ![Scoring Method options on the Add Test form](/images/Metode-Penilaian.png)
+</Frame>
+
+<Note>
+  The scoring methods on offer depend on the **Exam Type**. All the methods below are available for **CBT**. **CAT** only offers **Question Score Calculation (Sum of Correct/Wrong)**, and **Essay / File Upload (Manual Grading)** uses **Manual Scoring**.
+</Note>
+
+1. **Question Score Calculation (Sum of Correct/Wrong)**<br />The score is calculated from the number of questions answered correctly.
+
+   > Example:
+   >
+   > - Correct answer: 10 points
+   > - Wrong answer: 0 points
+   > - The participant answers 8 out of 10 questions correctly
+   > - Participant's score: **80**
+
+   Suitable for tryouts or regular multiple-choice exams.
+
+2. **Answer Score Calculation (Sum of Answer Scores)**<br />Each answer option can carry a different score.
+
+   > Example:
+   >
+   > Question: _How often do you study in a week?_
+   >
+   > - Every day: 4 points
+   > - 3–4 times: 3 points
+   > - 1–2 times: 2 points
+   > - Never: 1 point
+
+   The final score is the sum of the scores of all the participant's answers.
+
+3. **Psychometric (Answer Grouping)**<br />The participant's answers are grouped to reveal certain tendencies or traits.
+
+   > Example:
+   >
+   > Question: _When working in a group, you prefer to..._
+   >
+   > - Organise how the tasks are shared → **Leadership** group
+   > - Help the other members → **Teamwork** group
+   > - Work on your own part → **Independent** group
+
+   The result isn't simply right or wrong; it shows which trait group the participant belongs to.
+
+4. **Item Response Theory (IRT)**<br />The score doesn't just count correct answers; it also takes the difficulty of each question into account.
+
+   > Example:
+   >
+   > - Many participants answer the easy questions correctly.
+   > - Only a few participants answer the hard questions correctly.
+   > - Participants who can answer the hard questions can get a higher ability score.
+
+   This method suits large-scale exams or a deeper analysis of participants' ability. IRT comes in three options:
+
+   - **IRT (UTBK reference, 0-1000)**: scores are reported on a 0–1,000 range, based on the UTBK scale.
+   - **IRT TKA for SMA/SMK (200-800)**: scores are reported on a 200–800 range, based on the scale of TKA (Indonesia's academic ability test) for SMA/SMK (senior and vocational high school).
+   - **IRT TKA for SD/SMP (0-100)**: scores are reported on a 0–100 range, based on the TKA scale for SD/SMP (primary and junior high school).
+
+   All three options estimate ability (theta) in the same way; only the reported score range differs. The UTBK and TKA ranges are reference scales, not official equating results.
+
+<Tip>
+  For a simple SNBT tryout, choose **Question Score Calculation (Sum of Correct/Wrong)**.
+</Tip>
+
+### Test Name, Working Time and Instructions
+
+- **Test Name**: enter a name that's easy to recognise.<br />Example: **Mathematical Reasoning**.
+- **Working Time (minutes)**: enter how long participants have to work on the test, in minutes.<br />Example: **60**. This field doesn't appear for the **Essay / File Upload (Manual Grading)** type.
+- **Test Fee**: only appears when the exam's **Payment Type** is **Paid per Test**. Enter the fee participants pay to take this test.
+- **Test Instructions**: write the instructions participants read before they start.
+
+You can use these placeholders in the instructions:
+
+- `{{NAMA_TES}}` shows the test name.
+- `{{JUMLAH_SOAL}}` shows the number of questions.
+- `{{DURASI_TES}}` shows the working time.
+
+When all the fields are filled in, click **Create**. Choose **Create & create another** if you want to add the next test straight away.
+
+## 3. Open the Test You Created
+
+<Frame>
+  ![New test marked as having no exam session yet](/images/buka-tes-ujian.png)
+</Frame>
+
+Once the test has been created, it appears in the **Test List** section.
+
+💡 Look out for the label **This test has no exam session yet**. It means the test is saved but has no schedule yet, so participants can't take it. Click **Edit** on the test you want to continue with. Creating its sessions is explained on the [Create Exam Sessions](/en/data-ujian/membuat-sesi-ujian) page.
+
+## 4. Set Up Scores and Results
+
+<Frame>
+  ![Settings on the test's Score & Results tab](/images/skor-dan-hasil.png)
+</Frame>
+
+Open the **Score & Results** section and decide what participants may see after they finish the test.
+
+1. **Show Score**<br />Turn this on if participants may see their score as soon as they finish.
+2. **Show the Test Explanation (PDF)**<br />Turn this on if you want to share a single PDF file with the explanations for all the questions.
+3. **Show Summary**<br />Turn this on if participants may see how many answers they got right and wrong.
+4. **Show the Explanation per Question**<br />Turn this on if participants may see the explanation for each question. Make sure each question in the question package has an explanation.
+
+When you've finished, click **Save**.
+
+<Tip>
+  For a tryout where participants should see their results straight away, turn on **Show Score**.
+</Tip>
+
+## 5. Set Up Participant Proctoring
+
+<Frame>
+  ![Settings on the test's Proctoring tab](/images/pengawasan.png)
+</Frame>
+
+In the **Proctoring** section, you decide how the system monitors participants during the exam.
+
+1. **Camera Proctoring**<br />Turn this on if participants must keep their camera on while taking the exam.<br />Example: so proctors can make sure participants are working on their own.
+2. **Tab Switch Detection**<br />Turn this on if the system should record when a participant opens another tab or page during the exam.<br />Example: a participant switches from the exam page to a search engine.
+3. **Screen Proctoring (Screen Share)**<br />Turn this on if participants must share their screen during the exam.<br />Example: proctors can see which apps or pages a participant has open.
+4. **Allow Only One Screen**<br />Turn this on if participants may only use one monitor.<br />This setting suits paid exams or exams that need stricter proctoring.
+5. **Play the Audio Question Once**<br />Turn this on if the audio in a question may only be played once.<br />Example: English listening questions.
+6. **Play the Audio Answer Once**<br />Turn this on if the audio in the answer options may only be played once.
+
+When you've finished, click **Save**.
+
+<Note>
+  The label **(Feature inactive)** means the feature isn't available for the exam type you're using, for example a **Standard Exam (Free Plan)**.
+
+  <Frame>
+    ![Proctoring settings labelled Feature inactive on a Standard Exam](/images/fitur-standar.png)
+  </Frame>
+</Note>

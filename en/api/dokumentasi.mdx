@@ -1,0 +1,34 @@
+---
+title: "API Documentation"
+description: "Reference for the Client Integration API v1 covering authentication, participants, exams, results and webhooks."
+sidebarTitle: "API Documentation"
+---
+
+The Client Integration API lets external systems manage participants, read exams, register participants, retrieve results and receive webhook notifications.
+
+## Getting started with the API
+
+1. Set up the connection and API key as described on the [API Authentication](/en/api/autentikasi) page.
+2. Validate the API key by calling `GET /me`.
+3. Open the endpoint group page your integration needs.
+
+## Endpoint reference
+
+- [API Authentication](/en/api/autentikasi) — authentication headers, response format, `GET /me` and security.
+- [Participants API](/en/api/peserta) — participant accounts, participant batches and labels.
+- [Exams API](/en/api/ujian) — list, details, tests, sessions and registration links.
+- [Exam Registration and Access Links](/en/api/pendaftaran-ujian) — participant registration and access links.
+- [Exam Results API](/en/api/hasil-ujian) — list and details of exam results.
+- [Webhooks API](/en/api/webhook) — webhook endpoints, deliveries, testing, payloads and signatures.
+
+## Base URL
+
+```text
+https://app.indolat.com/api/v1
+```
+
+All endpoints return JSON and use Bearer API key authentication.
+
+<Note>
+  Human-readable strings in responses are always in Indonesian: `message`, validation `errors`, `status_label` and the other `*_label` fields, and the event descriptions in the webhook `available_events`. Base your integration logic on the machine-readable fields instead: `success`, the HTTP status code, numeric and enum values, and the error keys.
+</Note>

@@ -1,0 +1,218 @@
+---
+title: "Create Exam Sessions"
+description: "How to create exam sessions, link participants to an exam session and move participants to another session."
+---
+
+Once your test has been created, the next step is to create an **exam session**.
+
+An exam session sets **when the test can be taken** and **which question package is used**. Scores, results and proctoring are set on the test, not on the session.
+
+💡 **For example**, you are the admin of a tutoring centre running a tryout (practice exam) for SNBT, Indonesia's national university entrance test:
+
+> **SNBT 2027 Grand Tryout**
+
+The Mathematics test is ready. Next, you want to split participants into a **Morning Session** and an **Afternoon Session** so the exam runs more smoothly.
+
+In short:
+
+- The **test** defines what participants work on.
+- The **exam session** defines the schedule and the question package used.
+- The **Participant Exam Session** defines which participants follow that schedule.
+
+<Warning>
+  Participants can't start a test if no exam session has been created, no question package has been chosen, or they haven't been put in a session.
+</Warning>
+
+## 1. Create an Exam Session
+
+<Steps>
+  <Step title="Open the Test You Created">
+    <Frame>
+      ![New test marked as having no exam session yet](/images/buka-tes-ujian.png)
+    </Frame>
+
+    Once the test has been created, it appears in the **Test List** section.
+
+    <Info>
+      Look out for the label **This test has no exam session yet**.
+
+      It means the test is saved but has no schedule yet, so participants can't take it. Click **Edit** on the test you want to continue with.
+    </Info>
+  </Step>
+  <Step title="Click Add Exam Session">
+    <Frame>
+      ![Add Exam Session button in the Exam Session List section](/images/tambah-sesi-ujian.png)
+    </Frame>
+
+    Once the test settings are done, _scroll_ down the page to the **Add Exam Session** button.
+
+    An exam session is the schedule for a test. In it, you choose the question package to use and the exam's start and end times.
+
+    <Warning>
+      Participants can't take the test until an exam session has been created and a question package chosen. Make sure every test has an exam session.
+    </Warning>
+  </Step>
+  <Step title="Fill In the Exam Session Details">
+    <Frame>
+      ![Add Exam Session form with numbered fields](/images/Informasi-sesi-ujian.png)
+    </Frame>
+
+    At this stage, you set the **test schedule** and choose the **question package** participants will work on.
+
+    1. **Session Name**: enter a name that's easy to recognise.<br />Example: **Morning Session** or **Session 1**.
+    2. **Question Package**: choose a question package you've already created.<br />Make sure you choose one, **because participants can't start a session without a question package**.
+    3. **Session Start Date**: set the date and time from which participants can start the test.
+    4. **Session End Date**: set the deadline by which participants must finish the test.
+    5. When everything is filled in, click **Create**. Choose **Create & create another** if you want to add the next session straight away.
+
+    <Tip>
+      **One question package can be used in more than one session.** You don't need a new question package if participants work on the same questions and only the schedule differs.
+
+      💡 **For example:**
+
+      You have one question package called **Mathematical Reasoning Package**. Because there are many participants, the exam is split into two sessions:
+
+      - **Morning Session**, 08:00–10:00 WIB (UTC+7)
+      - **Afternoon Session**, 13:00–15:00 WIB
+
+      Both sessions can use the same **Mathematical Reasoning Package**. That way, participants work on the same questions, but at different times.
+    </Tip>
+
+    <Note>
+      Keep in mind that session dates **must fall within the date range of the main exam** you've already set.
+
+      Example:
+
+      > The exam runs from 18 to 25 July 2026. So a session can't be scheduled before 18 July or after 25 July 2026.
+    </Note>
+  </Step>
+</Steps>
+
+## 2. Link Participants to an Exam Session
+
+<Steps>
+  <Step title="Open Participant Exam Session">
+    <Frame>
+      ![Exam Data menu and Details button in the exam list](/images/1-2-1.png)
+    </Frame>
+
+    <Frame>
+      ![Test List section and Edit button on a test](/images/sesi-3-4.png)
+    </Frame>
+
+    <Frame>
+      ![Participant Exam Session section on the test page](/images/sesi-5.png)
+    </Frame>
+
+    Participants who are already registered for the exam still have to be put in an **exam session**. Without a session, they can't start the test.
+
+    1. Open the **Exam Data** menu.
+    2. Choose the exam the participants will take.
+    3. Click **Details**.
+    4. The system opens the details page. Go to the **Test List** section.
+    5. Click **Edit** on the test.
+    6. The system opens the test details page.
+    7. Choose **Participant Exam Session**.
+  </Step>
+  <Step title="Add Participants to the Exam Session">
+    <Frame>
+      ![Assigning one participant's session with the Edit button](/images/mapping-sesi-1.png)
+    </Frame>
+
+    For a single participant, click **Edit** on the row of a participant still marked **No exam sessions**, choose the **Exam Session**, make sure the **Participant Status** is **Active**, then click **Save**.
+
+    <Tip>
+      You can also assign exam sessions to participants in bulk or automatically.
+    </Tip>
+
+    **Adding participants to an exam session in bulk**
+
+    <Frame>
+      ![Participants without a session ticked and the Bulk actions button](/images/kolektif.png)
+    </Frame>
+
+    <Frame>
+      ![Assign Exam Sessions in Bulk option in the Bulk actions menu](/images/set.png)
+    </Frame>
+
+    1. Tick the participants still marked **No exam sessions**.<br />To select every participant, click **Select all**.
+    2. Click **Bulk actions**, then choose **Assign Exam Sessions in Bulk**.
+    3. Choose the session the participants will take, for example **Morning Session**.
+    4. Click **Assign Exam Sessions in Bulk** to save the change.
+
+    **Adding participants to an exam session automatically**
+
+    <Frame>
+      ![Assign Exam Sessions Automatically button in the Participant Exam Session section](/images/2026-07-30_23-41.png)
+    </Frame>
+
+    <Frame>
+      ![Assign Exam Sessions Automatically confirmation dialog](/images/2026-07-30_23-42.png)
+    </Frame>
+
+    <Frame>
+      ![Success notification and session name shown for each participant](/images/2026-07-30_23-36.png)
+    </Frame>
+
+    1. Click **Assign Exam Sessions Automatically**.
+    2. The system shows a confirmation dialog. Click **Assign Exam Sessions Automatically**.
+    3. Wait for the message saying the sessions were assigned. When it's done, the session name appears for each participant.
+
+    <Warning>
+      The system spreads all participants with the **Active** status evenly across all the available exam sessions, in order of session start time. Participants who already have a session are redistributed too, while participants with the **Pending** status aren't put in a session. If you've already assigned some participants yourself, use the bulk method so their sessions don't change.
+
+      The **Assign Exam Sessions Automatically** button only appears when the test already has an exam session, some participants still have no session, and no participant is currently taking the test.
+    </Warning>
+  </Step>
+  <Step title="Check Participants' Sessions">
+    Make sure no participant is still marked **No exam sessions**. Once participants have been put in a session, they can start the test according to the session schedule.
+  </Step>
+</Steps>
+
+## 3. (Optional) Change or Move Participants to Another Session
+
+Participants who already have a session can be moved to another one if the schedule changes or you need to split participants differently.
+
+💡 **For example**, some participants were first registered in the **Morning Session** but need to move to the **Evening Session** because they can't make the original time.
+
+<Steps>
+  <Step title="Open Participant Exam Session">
+    <Frame>
+      ![Ticked participants and Assign Exam Sessions in Bulk in the Bulk actions menu](/images/2026-07-30_23-49.png)
+    </Frame>
+
+    1. Tick the participants you want to move to another session. You can select one participant or several at once.
+    2. Click **Bulk actions**.
+    3. Choose **Assign Exam Sessions in Bulk**.
+  </Step>
+  <Step title="Select an Exam Session">
+    <Frame>
+      ![Assign Exam Sessions in Bulk dialog with the Select an Exam Session field](/images/2026-07-30_23-49_1.png)
+    </Frame>
+
+    <Frame>
+      ![List of sessions in the Select an Exam Session field](/images/2026-07-30_23-49_2.png)
+    </Frame>
+
+    In the **Select an Exam Session** field, choose the new session.
+
+    Example:
+
+    > You want to move participants from the **Morning Session** to the **Evening Session**.
+  </Step>
+  <Step title="Click Assign Exam Sessions in Bulk">
+    <Frame>
+      ![Assign Exam Sessions in Bulk button with the Evening Session selected](/images/2026-07-30_23-50.png)
+    </Frame>
+
+    Wait for the notification saying the exam session was updated. When it's done, the participants' session changes from **Morning Session** to **Evening Session**.
+
+    <Frame>
+      ![Success notification and participants moved to the Evening Session](/images/2026-07-30_23-50_1.png)
+    </Frame>
+
+    <Tip>
+      Before moving participants, make sure the target session is still available and hasn't ended yet. It's best to move participants before they start the exam.
+    </Tip>
+  </Step>
+</Steps>

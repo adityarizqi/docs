@@ -15,6 +15,17 @@ Event yang tersedia:
 - `exam_result.completed` — peserta selesai mengerjakan tes
 - `exam_result.scored` — nilai tes terbit atau berubah
 
+Webhook hanya dikirim selama add-on **Integrasi API** aktif dan endpoint dalam keadaan aktif.
+
+### Kapan event dikirim
+
+- `exam_participant.registered` dikirim untuk pendaftaran melalui API dan melalui panel. Pendaftaran mandiri peserta lewat halaman pendaftaran ujian tidak mengirim event ini.
+- `exam_participant.unregistered` dikirim saat pendaftaran dibatalkan melalui API.
+- `exam_result.completed` dan `exam_result.scored` berasal dari pemindaian hasil ujian yang berjalan setiap menit, sehingga event dapat tiba sekitar 1–2 menit setelah peserta selesai.
+- `exam_result.completed` dapat membawa `score: null` untuk tes yang dinilai dengan IRT atau secara manual. `exam_result.scored` menyusul setelah nilainya dihitung.
+- `exam_result.scored` dikirim lagi setiap kali `score` atau `meta_score` berubah, misalnya setelah perhitungan ulang IRT atau perhitungan ulang skor. Nilai yang sama tidak dikirim dua kali.
+- Urutan kedatangan event tidak dijamin. Gunakan `updated_at` dari [API Hasil Ujian](/api/hasil-ujian) untuk menentukan data terbaru, dan sinkronkan ulang secara berkala dengan `GET /exam-results?updated_since=...` agar event yang terlewat tetap tertangani.
+
 <Accordion title="GET /webhooks — Daftar endpoint webhook">
   ### Parameter
 
@@ -62,7 +73,7 @@ Event yang tersedia:
 </Accordion>
 
 <Accordion title="POST /webhooks — Mendaftarkan endpoint webhook">
-  Maksimal lima endpoint webhook per projek. Signing secret hanya dikembalikan saat endpoint dibuat atau secret dirotasi.
+  Maksimal lima endpoint webhook per projek; endpoint keenam ditolak dengan status `409`. Signing secret hanya dikembalikan saat endpoint dibuat atau secret dirotasi.
 
   ### Parameter
 
@@ -114,7 +125,7 @@ Event yang tersedia:
 </Accordion>
 
 <Accordion title="PATCH /webhooks/{id} — Memperbarui endpoint webhook">
-  Endpoint juga menerima metode `PUT`. Secret baru hanya dikembalikan jika `rotate_secret` bernilai `true`.
+  Endpoint juga menerima metode `PUT`. Secret baru hanya dikembalikan jika `rotate_secret` bernilai `true`. Mengirim `is_active: true` juga mengaktifkan kembali endpoint yang dinonaktifkan otomatis oleh sistem dan mengatur ulang `consecutive_failures` ke `0`.
 
   ### Parameter
 
@@ -199,7 +210,7 @@ Event yang tersedia:
   | --- | --- | --: | --- | --- |
   | `id` | Path | Ya | integer | ID endpoint webhook. |
   | `event` | Query | Tidak | enum | Filter nama event. |
-  | `status` | Query | Tidak | string | Filter status delivery. |
+  | `status` | Query | Tidak | enum | Filter status delivery: `pending` (menunggu atau sedang dicoba ulang), `delivered`, atau `failed`. |
   | `page` | Query | Tidak | integer | Nomor halaman. Default `1`. |
   | `per_page` | Query | Tidak | integer | Data per halaman, `1–100`. Default `25`. |
 
@@ -243,7 +254,7 @@ Event yang tersedia:
 </Accordion>
 
 <Accordion title="POST /webhooks/{id}/test — Mengirim webhook percobaan">
-  Jika `event` tidak dikirim atau tidak dikenali, event default adalah `exam_result.completed`.
+  Jika `event` tidak dikirim atau tidak dikenali, event default adalah `exam_result.completed`. Pengiriman uji coba memakai nama event yang dipilih dan signature yang sama dengan pengiriman asli, tetapi isi `data` berupa pesan uji coba: `{ "message": "...", "sent_at": "..." }`. Endpoint yang sedang nonaktif ditolak dengan status `409`.
 
   ### Parameter
 
@@ -273,16 +284,30 @@ Event yang tersedia:
   ```
 </Accordion>
 
-## Payload dan Signature Webhook
+## Payload dan signature webhook
 
-Contoh payload webhook:
+Setiap webhook dikirim sebagai `POST` dengan body JSON berisi `event`, `created_at` (waktu event diantrekan), dan `data`. Body yang sama dikirim ulang apa adanya pada setiap percobaan ulang.
+
+### Header
+
+| Header | Keterangan |
+| --- | --- |
+| `Content-Type` | `application/json`. |
+| `X-Cbt-Event` | Nama event, misalnya `exam_result.completed`. |
+| `X-Cbt-Delivery` | ID pengiriman (UUID). Nilainya sama pada setiap percobaan ulang dan sama dengan `id` pada riwayat pengiriman. Gunakan untuk mengabaikan pengiriman ganda. |
+| `X-Cbt-Signature` | Signature dengan format `t=<unix>,v1=<hex>`. |
+
+### Payload `exam_result.completed` dan `exam_result.scored`
+
+Kedua event memakai struktur `data` yang sama. Isi `meta_score` pada setiap metode penilaian dijelaskan pada bagian **Struktur `meta_score`** di [API Hasil Ujian](/api/hasil-ujian).
 
 ```json
 {
   "event": "exam_result.completed",
-  "created_at": "2026-08-10T09:20:00+07:00",
+  "created_at": "2026-08-10T09:21:00+07:00",
   "data": {
     "exam_result_id": 9812,
+    "user_result_exam_uuid": "9f1c2a2d-9739-4c2f-9a94-312a9cc1b4ad",
     "user_exam_id": 4410,
     "participant_code": "TPA0000021",
     "exam": { "id": 12, "name": "Tes Masuk 2026", "name_short": "TPA" },
@@ -291,13 +316,47 @@ Contoh payload webhook:
     "status": 2,
     "status_label": "Selesai Ujian",
     "score": 82.5,
+    "meta_score": { "correct": 33, "incorrect": 7, "unanswered": 0 },
     "start_at": "2026-08-10T08:05:00+07:00",
     "end_at": "2026-08-10T09:20:00+07:00"
   }
 }
 ```
 
-Setiap request webhook membawa header `X-Cbt-Signature` dengan format `t=<unix>,v1=<hex>`. `v1` adalah HMAC-SHA256 dari `<t>.<raw body>` menggunakan signing secret endpoint.
+### Payload `exam_participant.registered`
+
+```json
+{
+  "event": "exam_participant.registered",
+  "created_at": "2026-08-03T10:00:00+07:00",
+  "data": {
+    "user_exam_id": 4410,
+    "participant_code": "TPA0000021",
+    "exam": { "id": 12, "name": "Tes Masuk 2026", "name_short": "TPA" },
+    "participant": { "id": 340, "name": "Budi Santoso", "email": "budi@sekolah.sch.id" },
+    "registered_at": "2026-08-03T10:00:00+07:00"
+  }
+}
+```
+
+### Payload `exam_participant.unregistered`
+
+```json
+{
+  "event": "exam_participant.unregistered",
+  "created_at": "2026-08-04T09:00:00+07:00",
+  "data": {
+    "user_exam_id": 4410,
+    "participant_id": 340,
+    "exam": { "id": 12, "name": "Tes Masuk 2026", "name_short": "TPA" },
+    "unregistered_at": "2026-08-04T09:00:00+07:00"
+  }
+}
+```
+
+### Verifikasi signature
+
+`v1` adalah HMAC-SHA256 dari `<t>.<raw body>` menggunakan signing secret endpoint. Nilai `t` dibuat ulang pada setiap percobaan pengiriman. Tolak request yang signature-nya tidak cocok atau yang `t`-nya berselisih lebih dari 300 detik dari waktu server Anda.
 
 ```php
 [$timestamp, $signature] = sscanf(
@@ -316,4 +375,9 @@ if (! hash_equals($expected, $signature) || abs(time() - $timestamp) > 300) {
 }
 ```
 
-Balas webhook dengan status `2xx`. Respons selain `2xx` akan dicoba ulang dengan jeda yang bertambah. Endpoint yang gagal terus-menerus dapat dinonaktifkan otomatis.
+### Percobaan ulang
+
+- Balas webhook dengan status `2xx` dalam 10 detik. Simpan event terlebih dahulu, lalu proses di latar belakang.
+- Respons selain `2xx`, timeout, atau kegagalan koneksi dicoba ulang sampai total 4 kali percobaan, dengan jeda 1 menit, 5 menit, lalu 30 menit. Setelah percobaan terakhir gagal, status pengiriman menjadi `failed`.
+- Endpoint yang gagal 10 kali berturut-turut dinonaktifkan otomatis (`is_disabled_by_system: true`), dan pemilik projek menerima notifikasi di panel. Aktifkan kembali dengan `PATCH /webhooks/{id}` berisi `is_active: true` setelah endpoint diperbaiki.
+- Pengiriman yang sudah berstatus `failed` tidak dikirim ulang. Gunakan `GET /exam-results?updated_since=...` untuk mengambil hasil yang terlewat.

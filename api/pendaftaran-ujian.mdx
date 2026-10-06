@@ -48,7 +48,9 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
           "is_active": true,
           "is_verified": true,
           "verified_at": "2026-07-30T09:00:00+07:00",
-          "label": { "id": 8, "name": "Kelas XII IPA" }
+          "label": { "id": 8, "name": "Kelas XII IPA" },
+          "created_at": "2026-07-30T09:00:00+07:00",
+          "updated_at": "2026-07-30T09:00:00+07:00"
         },
         "registered_at": "2026-07-30T10:00:00+07:00"
       }
@@ -61,6 +63,16 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
 </Accordion>
 
 <Accordion title="POST /exams/{exam}/participants — Mendaftarkan peserta ke ujian">
+  Request ini aman untuk diulang. Peserta yang sudah terdaftar tidak didaftarkan dua kali, tetapi dilaporkan pada `already_registered`. Setiap pendaftaran baru mengirim webhook `exam_participant.registered`.
+
+  Saat peserta didaftarkan:
+
+  - Peserta mendapat kode peserta (`participant_code`) dan satu data hasil untuk setiap tes dalam ujian.
+  - Pada ujian berjenjang, hanya tes pada jenjang pertama yang langsung aktif. Tes pada jenjang berikutnya terbuka setelah jenjang sebelumnya selesai.
+  - Jika ujian memakai pembagian sesi otomatis (`is_auto_assign_session: true`), peserta ditempatkan pada sesi yang paling awal dibuat untuk setiap tes. Jika tidak, admin perlu menempatkan peserta ke sesi melalui panel sebelum peserta dapat mengerjakan tes. Sampai saat itu, link akses melaporkan `locked_reason: "no_session"`.
+
+  Ujian yang sudah dikunci (`is_locked: true`) menolak pendaftaran dengan status `409`. ID peserta yang tidak ditemukan pada projek dilaporkan pada `rejected`, misalnya `{ "participant_id": 999, "reason": "Peserta tidak ditemukan pada projek ini." }`.
+
   ### Parameter
 
   | Nama | Lokasi | Wajib | Tipe | Keterangan |
@@ -81,6 +93,8 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
 
   ### Contoh response
 
+  Status `201`.
+
   ```json
   {
     "success": true,
@@ -94,6 +108,16 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
           "participant_code": "TPA0000021",
           "status": 1,
           "status_label": "Aktif",
+          "participant": {
+            "id": 340,
+            "name": "Budi Santoso",
+            "email": "budi@sekolah.sch.id",
+            "is_active": true,
+            "is_verified": true,
+            "verified_at": "2026-07-30T09:00:00+07:00",
+            "created_at": "2026-07-30T09:00:00+07:00",
+            "updated_at": "2026-07-30T09:00:00+07:00"
+          },
           "registered_at": "2026-08-03T10:00:00+07:00"
         },
         {
@@ -103,6 +127,16 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
           "participant_code": "TPA0000022",
           "status": 1,
           "status_label": "Aktif",
+          "participant": {
+            "id": 341,
+            "name": "Siti Aminah",
+            "email": "siti@sekolah.sch.id",
+            "is_active": true,
+            "is_verified": true,
+            "verified_at": "2026-07-30T09:00:00+07:00",
+            "created_at": "2026-07-30T09:00:00+07:00",
+            "updated_at": "2026-07-30T09:00:00+07:00"
+          },
           "registered_at": "2026-08-03T10:00:00+07:00"
         }
       ],
@@ -117,6 +151,8 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
 </Accordion>
 
 <Accordion title="GET /exams/{exam}/participants/{participant} — Status pendaftaran peserta">
+  Respons memuat `results`, yaitu satu data hasil untuk setiap tes dalam ujian. Struktur setiap item sama dengan [API Hasil Ujian](/api/hasil-ujian).
+
   ### Parameter
 
   | Nama | Lokasi | Wajib | Tipe | Keterangan |
@@ -150,9 +186,29 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
         "name": "Budi Santoso",
         "email": "budi@sekolah.sch.id",
         "is_active": true,
-        "is_verified": true
+        "is_verified": true,
+        "verified_at": "2026-07-30T09:00:00+07:00",
+        "created_at": "2026-07-30T09:00:00+07:00",
+        "updated_at": "2026-07-30T09:00:00+07:00"
       },
-      "results": [],
+      "results": [
+        {
+          "id": 9812,
+          "uuid": "9f1c2a2d-9739-4c2f-9a94-312a9cc1b4ad",
+          "user_exam_id": 4410,
+          "exam_quiz_id": 45,
+          "exam_quiz_name": "Tes Potensi Akademik",
+          "status": 1,
+          "status_label": "Aktif",
+          "score": null,
+          "meta_score": null,
+          "start_at": null,
+          "end_at": null,
+          "duration_seconds": null,
+          "created_at": "2026-07-30T10:00:00+07:00",
+          "updated_at": "2026-07-30T10:00:00+07:00"
+        }
+      ],
       "registered_at": "2026-07-30T10:00:00+07:00"
     }
   }
@@ -160,7 +216,7 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
 </Accordion>
 
 <Accordion title="DELETE /exams/{exam}/participants/{participant} — Membatalkan pendaftaran">
-  Permintaan ditolak apabila peserta sudah mulai mengerjakan ujian.
+  Permintaan ditolak dengan status `409` apabila peserta sudah menyelesaikan salah satu tes atau sudah memiliki nilai pada ujian ini. Pembatalan menghapus kode peserta beserta seluruh data tes peserta pada ujian tersebut, lalu mengirim webhook `exam_participant.unregistered`.
 
   ### Parameter
 
@@ -189,7 +245,20 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
 </Accordion>
 
 <Accordion title="POST /exams/{exam}/participants/{participant}/access-links — Membuat link akses ujian">
-  Link berlaku 1.440 menit secara default, maksimal 10.080 menit, dan hanya dapat dipakai satu kali.
+  Menghasilkan satu link untuk setiap tes dalam ujian. Link tersebut membuat peserta langsung masuk tanpa mengetik kata sandi, lalu membuka halaman persiapan tes.
+
+  Perilaku link:
+
+  - **Setiap link hanya dapat dipakai satu kali**, dan harus dipakai sebelum `expires_at`. Masa berlaku default 1.440 menit (24 jam), maksimal 10.080 menit (7 hari). Link yang sudah dipakai atau sudah kedaluwarsa menampilkan pesan bahwa link tidak berlaku lagi.
+  - Jika peserta perlu masuk kembali, misalnya setelah menutup tab, berpindah perangkat, atau koneksi terputus, buat link baru. Link baru untuk tes yang sedang dikerjakan melanjutkan pengerjaan yang sama, bukan memulai ulang.
+  - Link yang dibuat sebelumnya tetap berlaku sampai dipakai atau kedaluwarsa.
+  - `exam_url` tetap dikembalikan walaupun tes belum dapat dikerjakan. Periksa `can_start` sebelum mengarahkan peserta. Link untuk tes dengan `can_start: false` tidak membuka tes; peserta diarahkan ke dashboard CBT atau mendapat halaman tidak ditemukan.
+  - Satu peserta hanya dapat memiliki satu sesi login aktif. Membuka link di perangkat lain mengakhiri sesi di perangkat sebelumnya.
+  - Peserta nonaktif tidak dapat masuk melalui link. Link tetap dibuat, dan `message` pada respons menjelaskan bahwa peserta sedang nonaktif.
+
+  <Tip>
+    Link akses dirancang untuk alur redirect dari aplikasi Anda, misalnya tombol "Mulai Ujian". Buat link tepat saat peserta menekan tombol dengan `expires_in_minutes` yang singkat (misalnya 5–15 menit), lalu langsung redirect peserta. Jangan menyimpan link atau mengirimkannya melalui email atau chat: beberapa aplikasi chat dan email membuka link secara otomatis untuk pratinjau, sehingga link sudah terpakai sebelum peserta mengkliknya.
+  </Tip>
 
   ### Parameter
 
@@ -199,6 +268,34 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
   | `participant` | Path | Ya | integer | ID peserta yang telah terdaftar. |
   | `expires_in_minutes` | Body | Tidak | integer | Masa berlaku link, `1–10080`. Default `1440`. |
 
+  ### Field respons per link
+
+  | Field | Keterangan |
+  | --- | --- |
+  | `exam_quiz_id`, `exam_quiz_name` | Tes yang dibuka oleh link. |
+  | `user_result_exam_uuid` | ID pengerjaan tes peserta, sama dengan `uuid` pada API Hasil Ujian. |
+  | `status` | Status hasil tes: `0` pending, `1` aktif, `2` selesai, `3` ditolak. |
+  | `progress` | `not_started`, `in_progress`, atau `finished`. |
+  | `has_session` | `true` jika peserta sudah ditempatkan pada sesi. |
+  | `session` | Jadwal sesi (`start_at`, `end_at`), atau `null` jika belum ada sesi. |
+  | `can_start` | `true` jika peserta dapat memulai atau melanjutkan tes ini sekarang. |
+  | `locked_reason` | Penyebab tes belum dapat dikerjakan, atau `null` jika `can_start` bernilai `true`. |
+  | `exam_url` | Link akses tes. |
+  | `expires_at` | Waktu kedaluwarsa link. |
+
+  Nilai `locked_reason`:
+
+  - `finished` — tes sudah selesai dikerjakan.
+  - `unavailable` — ujian di luar jadwal atau diarsipkan, pendaftaran peserta ditangguhkan atau sudah selesai, atau tes ditolak.
+  - `payment` — tes menunggu pembayaran.
+  - `pending` — jenjang tes belum terbuka, atau pendaftaran masih menunggu verifikasi.
+  - `order` — tes harus dikerjakan berurutan dan tes sebelumnya belum selesai.
+  - `no_session` — peserta belum ditempatkan pada sesi, atau sesinya belum memiliki paket soal.
+  - `no_questions` — paket soal pada sesi belum berisi soal.
+  - `outside_session` — waktu saat ini berada di luar jadwal sesi.
+
+  Status `404` dikembalikan jika ujian atau peserta tidak ditemukan, atau peserta belum terdaftar pada ujian. Status `422` dikembalikan jika ujian belum memiliki tes.
+
   ### Contoh request
 
   ```bash
@@ -206,7 +303,7 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
     -H "Authorization: Bearer <API_KEY>" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{ "expires_in_minutes": 1440 }'
+    -d '{ "expires_in_minutes": 10 }'
   ```
 
   ### Contoh response
@@ -224,8 +321,32 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
           "exam_quiz_name": "Tes Potensi Akademik",
           "user_result_exam_uuid": "9f1c2a2d-9739-4c2f-9a94-312a9cc1b4ad",
           "status": 1,
+          "progress": "not_started",
+          "has_session": true,
+          "session": {
+            "start_at": "2026-08-10T08:00:00+07:00",
+            "end_at": "2026-08-10T10:00:00+07:00"
+          },
+          "can_start": true,
+          "locked_reason": null,
           "exam_url": "https://smanusantara.cbt.example.com/auth/ssologin?payload=...",
-          "expires_at": "2026-08-04T10:00:00+07:00"
+          "expires_at": "2026-08-10T08:15:00+07:00"
+        },
+        {
+          "exam_quiz_id": 46,
+          "exam_quiz_name": "Tes Bahasa Inggris",
+          "user_result_exam_uuid": "3b7e5d10-1c2f-4a8e-b0e4-6a2f1d9c7e21",
+          "status": 1,
+          "progress": "not_started",
+          "has_session": true,
+          "session": {
+            "start_at": "2026-08-10T08:00:00+07:00",
+            "end_at": "2026-08-10T10:00:00+07:00"
+          },
+          "can_start": false,
+          "locked_reason": "order",
+          "exam_url": "https://smanusantara.cbt.example.com/auth/ssologin?payload=...",
+          "expires_at": "2026-08-10T08:15:00+07:00"
         }
       ]
     }

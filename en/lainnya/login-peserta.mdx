@@ -1,0 +1,238 @@
+---
+title: "Participant Login"
+description: "How to set up your CBT system details and participant login options, and how participants create an account and log in."
+---
+
+Before participants can log in to the CBT Indolat system, you need to set up the system's front page. Here you can decide:
+
+- The exam organiser name participants will see
+- The link (_URL_) that opens the participant _login_ page
+- Whether participants may log in with Google or create their own account
+
+<Info>
+  These settings are in the **Application Settings** menu.
+</Info>
+
+💡 For example, you are the **Indolat Tutoring Centre Admin** and you want to give participants access to this tryout (practice exam) for SNBT (Indonesia's national university entrance test):
+
+> **SNBT 2027 Grand Tryout**
+
+To let participants open the login page, you first need to set up the CBT system address. You can then share that link on WhatsApp, social media or any other channel.
+
+## 1. Set Up the CBT System's General Information
+
+<Steps>
+  <Step title="Open Application Settings, then select General Information">
+    <Frame caption="Here you can set the name, website address and language that participants will see.">
+      ![General Information tab in the Application Settings menu](/images/2026-07-25_02-51.png)
+    </Frame>
+  </Step>
+  <Step title="Enter the Basic Information for Your CBT System">
+    <Frame>
+      ![CBT System Name, Code and Language fields on the General Information tab](/images/2026-07-25_02-55.png)
+    </Frame>
+
+    1. **CBT System Name**<br />Enter the system name shown on the participant pages.<br />Example: **Try Out Indolat**
+
+       <Tip>
+         Use a name that is easy to recognise so participants know they have opened the right page.
+       </Tip>
+
+       Here is how the **CBT System Name** looks to participants:
+
+       <Frame>
+         <img
+           src="/images/2026-07-25_02-57.png"
+           alt="CBT System Name shown on the participant login page"
+           className="mx-auto"
+           style={{ width:"69%" }}
+         />
+       </Frame>
+    2. **CBT System Code**<br />Enter a short code that becomes your CBT system's web address.<br />Example: `tryout-lembaga-indolat`
+
+       Once the code is saved, the system creates a login link like this:
+
+       > `https://tryout-lembaga-indolat.indolat.web.id/auth/login`
+
+       This is the address participants open to log in to the CBT system.
+
+       <Frame>
+         <img
+           src="/images/2026-07-25_03-01.png"
+           alt="CBT system login link in the browser address bar"
+           className="mx-auto"
+           style={{ width:"81%" }}
+         />
+       </Frame>
+    3. **CBT System Language**<br />Choose the language used in the system interface.<br />Example: **Bahasa Indonesia**
+  </Step>
+  <Step title="Click Save">
+    Once you have checked all the information, click **Save**.
+
+    <Frame>
+      ![Save button on the General Information tab](/images/2026-07-25_03-42.png)
+    </Frame>
+  </Step>
+</Steps>
+
+## 2. Set How Participants Create an Account
+
+In this section, you choose which login options are available to participants and who pays the transaction fee for exam payments.
+
+<Steps>
+  <Step title="Open Application Settings, then select Other Settings">
+    <Frame>
+      ![Other Settings tab in the Application Settings menu](/images/2026-07-25_03-07.png)
+    </Frame>
+  </Step>
+  <Step title="Choose Who Pays the Transaction Fee (Optional)">
+    <Frame>
+      ![Charge the Transaction Fee to the Admin toggle in Other Settings](/images/2026-07-25_03-24.png)
+    </Frame>
+
+    Set the **Charge the Transaction Fee to the Admin** option. This setting only applies to paid exams.
+
+    - Turn this option on if you, as the organiser, want to cover the _admin fee_ for payment transactions.
+    - If it is turned off, the transaction _admin fee_ is added to the participant's bill.
+
+    💡 Example: the exam fee is **Rp50,000** and the transaction _admin fee_ is **Rp2,000**.
+
+    **If Charge the Transaction Fee to the Admin is turned on:**
+
+    - The participant pays **Rp50,000**
+    - The **Rp2,000** transaction fee is deducted from the payment
+    - The admin receives **Rp48,000**
+
+    **If the setting is turned off:**
+
+    - The participant pays **Rp52,000**
+    - This is the **Rp50,000** exam fee plus the **Rp2,000** transaction fee
+    - The admin still receives **Rp50,000**
+
+    <Frame>
+      ![Table comparing what the participant pays and the admin receives](/images/2026-07-25_03-28.png)
+    </Frame>
+  </Step>
+  <Step title="Configure Authenticate with Google (Optional)">
+    <Frame>
+      ![Authenticate with Google toggle in Other Settings](/images/2026-07-25_03-25.png)
+    </Frame>
+
+    - Turn this option on if participants may log in with an existing Google or Gmail account. Once it is on, the **Continue with Google** button appears on the participant login page.
+
+      <Frame>
+        ![Continue with Google button on the participant login page](/images/2026-07-25_03-33-1.png)
+      </Frame>
+
+      <Tip>
+        This **makes it easier** for participants, as they don't need to create and remember a new password.
+      </Tip>
+
+    - If it is turned off, the **Continue with Google** button does not appear on the participant login page.
+
+      <Frame>
+        ![Participant login page without the Continue with Google button](/images/2026-07-25_03-36.png)
+      </Frame>
+  </Step>
+  <Step title="Allow Self-Service Account Registration (Optional)">
+    <Frame>
+      ![Allow self-service account registration toggle in Other Settings](/images/2026-07-25_03-25_1.png)
+    </Frame>
+
+    - Turn this option on if participants may create their own account from the login page. Once it is on, the **Register** button appears on the participant login page.
+
+      <Frame>
+        ![Register button shown on the participant login page](/images/2026-07-25_03-39.png)
+      </Frame>
+
+    - If it is turned off, participants can only log in with accounts the admin has prepared.
+
+      <Frame>
+        ![Participant login page without the Register button](/images/2026-07-25_03-40.png)
+      </Frame>
+  </Step>
+  <Step title="Click Save">
+    Once everything is set as you want, click **Save**.
+
+    <Frame>
+      ![Save button on the Other Settings tab](/images/2026-07-25_03-43.png)
+    </Frame>
+  </Step>
+</Steps>
+
+## 3. How Participants Log In
+
+<Steps>
+  <Step title="The Participant Opens the Exam Link">
+    <Frame>
+      ![CBT login page opened by the participant](/images/2026-07-25_02-09.png)
+    </Frame>
+
+    Participants can log in or create an account in two ways: by choosing **Continue with Google** or by clicking **Register**. As the exam organiser, you decide which of these options are available.
+
+    For the setup steps, see section **2. Set How Participants Create an Account** above.
+  </Step>
+  <Step title="Click Register">
+    <Frame>
+      ![Register button on the participant login page](/images/2026-07-25_02-14.png)
+    </Frame>
+  </Step>
+  <Step title="The Participant Fills In Their Account Details">
+    <Frame>
+      ![Participant account registration form](/images/2026-07-25_02-16.png)
+    </Frame>
+
+    1. **Full Name**<br />Enter the participant's name as it will be used in the system.
+    2. **Email Address**<br />Enter an email address that is still in use. The system sends the verification code to this address.
+    3. **Password**<br />Create a password that is easy to remember but hard for others to guess.
+    4. **Confirm Password**<br />Enter the same password again to make sure there are no typos.
+    5. **Agreement to the Terms of Service and Privacy Policy**<br />Tick this box to confirm that the participant has read and agrees to the terms.
+    6. **Register**<br />Once everything is filled in, click **Register** to create the account.
+  </Step>
+  <Step title="The Participant Verifies Their Email">
+    <Frame>
+      ![Verify Your Email page after successful registration](/images/2026-07-25_02-19.png)
+    </Frame>
+
+    Once the participant has created an account, the system sends a verification code to the registered email address.
+
+    This verification makes sure the email address is correct and can be used by the participant.
+
+    💡 For example, the participant registers with the email `sintamhs0215@yopmail.com`.
+
+    What the participant needs to do:
+
+    1. Open the inbox of the registered email address.
+    2. Look for the email from **CBT Indolat**.
+    3. Copy the 6-digit verification code.
+    4. Enter the code on the verification page.
+    5. Click **Verify Account**.
+
+    <Frame>
+      ![Email from CBT Indolat with the 6-digit verification code](/images/2026-07-25_02-20.png)
+    </Frame>
+
+    <Frame>
+      ![Verification code entered and Verify Account clicked](/images/2026-07-25_02-20_1.png)
+    </Frame>
+
+    <Note>
+      The verification code is only valid for **5 minutes**. If the code hasn't arrived or no longer works, choose **Resend Code** to get a new one.
+    </Note>
+
+    <Frame>
+      ![Resend Code link on the email verification page](/images/2026-07-25_02-26.png)
+    </Frame>
+  </Step>
+  <Step title="The Participant Is Logged In to the CBT Page">
+    <Frame>
+      ![Exam List page with the New Exam Registration button](/images/2026-07-25_02-21.png)
+    </Frame>
+
+    After verification, the participant lands on the home page and can continue by choosing **New Exam Registration** to find an exam to take.
+
+    <Info>
+      Email verification is only needed for participants who create their own account. Accounts that the admin adds through **Import Accounts** skip this step.
+    </Info>
+  </Step>
+</Steps>

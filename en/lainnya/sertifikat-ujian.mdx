@@ -1,0 +1,412 @@
+---
+title: "Exam Certificates"
+description: "How to create an exam certificate, set its requirements and design, and handle participant certificate requests and approvals."
+---
+
+The **Exam Certificate** feature lets you create certificates that participants can receive after finishing an exam.
+
+You can choose which exam uses the certificate, the requirements participants must meet to receive it, how the certificate looks and who signs it.
+
+💡 **For example:** you run the **SNBT 2027 Tryout** (a practice exam for SNBT, Indonesia's national university entrance test). Participants who finish the exam with a score of at least 70 receive a certificate automatically.
+
+## 1. Certificate Setup by the Admin
+
+This section explains how to create a certificate from scratch, covering:
+
+- Opening the Exam Certificate menu
+- Filling in the General section
+- Setting up the Template & Design
+- Adding signatories
+- Adjusting the layout in the Designer
+- Saving and activating the certificate
+
+### A. Open the Exam Certificate Menu
+
+<Steps>
+  <Step title="Open Exam Certificate, then click Add Certificate">
+    <Frame>
+      ![Add Certificate button on the Exam Certificate page](/images/2026-07-31_19-33-1.png)
+    </Frame>
+  </Step>
+  <Step title="The system shows 4 sections">
+    1. **General**
+    2. **Template & Design**
+    3. **Signatory**
+    4. **Designer**
+
+    <Frame>
+      ![Four certificate form sections: General, Template & Design, Signatory, Designer](/images/2026-07-31_19-35-1.png)
+    </Frame>
+  </Step>
+</Steps>
+
+### B. Fill In the General Section
+
+<Steps>
+  <Step title="Fill In the General Information">
+    The **General** section is where you set the certificate name, the exam that uses it, the certificate number and the requirements for issuing it.
+
+    <Frame>
+      ![Fields in the General section of the certificate form](/images/2026-08-05_19-02.png)
+    </Frame>
+
+    1. **Template Name**<br />Used to tell this certificate apart from other templates. Enter a name the admin can recognise easily.<br />Example: **SNBT 2027 Tryout Completion Certificate**
+    2. **Exam**<br />Choose the exam that will use this certificate. One certificate template is linked to one exam.
+
+       <Frame>
+         <img
+           src="/images/2026-07-31_19-43.png"
+           alt="Exam options in the Exam field"
+           className="mx-auto"
+           style={{ width:"85%" }}
+         />
+       </Frame>
+
+       Example: **Try Out Matematika Persiapan SNBT 2027** (an SNBT 2027 maths tryout)
+    3. **Status**<br />Sets the state of the template.
+
+       - **Published**: the certificate is ready to be used in the exam.
+       - **Draft**: the certificate still needs to be checked and adjusted by the admin.
+
+       <Tip>
+         Keep the status at **Draft** while the certificate still needs adjusting.
+       </Tip>
+    4. **Certificate Number Format**<br />Sets how the certificate numbers that the system generates automatically are put together.
+
+       <Info>
+         **Placeholder key:**
+
+         - `{YYYY}`: year, e.g. 2027
+         - `{YY}`: two-digit year, e.g. 27
+         - `{MM}`: month
+         - `{DD}`: day
+         - `{SEQ}`: certificate sequence number
+         - `{EXAM}`: exam code
+       </Info>
+
+       💡 Example format: `INDOLAT/{YYYY}/{EXAM}/{SEQ}`<br />Result: `INDOLAT/2026/TOSN/0001`
+    5. **Minimum Score**<br />Enter the minimum score a participant needs to receive the certificate. For example, 70 means participants with a final score of 70 or higher can receive the certificate.
+
+       <Tip>
+         Leave **Minimum Score** empty if every participant may receive the certificate regardless of their score.
+       </Tip>
+    6. **The exam must be completed**<br />Turn this on so the certificate can only be issued once the participant has finished the exam.<br />Example: a participant has a provisional score of 80 but hasn't pressed the finish button yet. The certificate can't be issued until the exam is actually finished.
+    7. **Needs manual review**<br />Turn this on if the admin must approve the certificate first. This suits official exams or award certificates that need checking before they are issued.
+    8. **Show to participants**
+
+       - Turn this on so participants can view and download the certificate from their exam results page.
+       - Turn it off if the certificate will only be managed or printed by the admin.
+    9. **Notes**<br />Use this to keep extra information about the certificate.<br />Example: The certificate is awarded to participants who have finished the exam with a score of at least 60.
+
+    Once you have adjusted the fields, click **Create** to save the settings.
+  </Step>
+</Steps>
+
+### C. Set Up the Template and Design
+
+<Steps>
+  <Step title="Adjust the Template and Design">
+    This section sets the layout, size and look of the certificate.
+
+    <Frame>
+      ![Fields in the Template & Design section](/images/2026-08-05_20-00.png)
+    </Frame>
+
+    1. **Template Layout**<br />Choose the certificate layout you need.<br />Example: **Centre Layout, 1 Signature**
+
+       <Tip>
+         Other layouts can be used depending on the number of signatories and where the certificate content goes.
+       </Tip>
+    2. **Page Size**<br />Choose the certificate size.
+
+       <Frame>
+         ![A4 and Letter page size options](/images/2026-08-04_21-49-1.png)
+       </Frame>
+
+       Example: **A4**<br />A4 suits certificates that will be printed or downloaded as a PDF.
+    3. **Orientation**<br />Choose the page direction:
+
+       - **Landscape** for a horizontal page
+       - **Portrait** for an upright page
+
+       <Tip>
+         Certificates usually use **Landscape**, which gives more room for the participant name and signatures and keeps them well proportioned.
+       </Tip>
+    4. **Design Template**<br />Choose the design to use:
+
+       - **Template A** for a simple design
+       - **Template B** for a more formal design
+       - **Custom Template** if your institution has its own design
+    5. **Colour Theme**
+
+       <Frame>
+         ![Colour Theme fields for the certificate](/images/2026-08-05_20-52.png)
+       </Frame>
+
+       Even after choosing a design template, you can still adjust the certificate's **Colour Theme**. You can set:
+
+       - **Page Colour**
+       - **Primary Accent**
+       - **Secondary Accent**
+
+       <Frame>
+         ![Where the primary accent, page colour and secondary accent appear](/images/2026-08-05_21-07.png)
+       </Frame>
+    6. **Safe Area**<br />The Safe Area is a margin that keeps text and signatures from sitting too close to the edge of the certificate.
+
+       <Tip>
+         Use the default values if you have no special design needs.
+       </Tip>
+  </Step>
+</Steps>
+
+### D. Add Signatories
+
+<Steps>
+  <Step title="Open Signatory, then click Add Signatory">
+    <Frame>
+      ![Signatory section and the + Add Signatory button](/images/2026-08-04_23-17.png)
+    </Frame>
+  </Step>
+  <Step title="Add the people who will sign the certificate">
+    <Frame>
+      ![Signatory details fields for the certificate](/images/2026-08-04_23-23.png)
+    </Frame>
+
+    Fill in the following signatory fields:
+
+    1. **Slot**<br />Choose the signature position. For example:
+
+       - **Slot 1** for the first signatory
+       - **Slot 2** for the second signatory
+
+       <Tip>
+         Match the number of slots you use to the certificate layout.
+       </Tip>
+    2. **Name**<br />Enter the signatory's full name.<br />Example: **Diana Valerie**
+    3. **Position**<br />Enter the signatory's position.<br />Example: **Committee Chair**
+    4. **Signature Image**<br />Upload the signature image.
+
+       <Tip>
+         Use a PNG with a transparent background. It gives a neater, clearer result.
+       </Tip>
+    5. **+ Add Signatory** (optional)<br />If more than one authorised person signs the certificate, click **+ Add Signatory** and fill in the second signatory's details.
+  </Step>
+</Steps>
+
+### E. Adjust the Layout in the Designer
+
+Open the **Designer** section to set the position and content of each part of the certificate.
+
+<Frame>
+  ![Designer section listing the certificate elements](/images/2026-08-07_22-47.png)
+</Frame>
+
+<Frame>
+  ![Certificate Interactive Preview and the Create button](/images/2026-08-07_22-48.png)
+</Frame>
+
+On this page, you can adjust elements such as:
+
+- Certificate Title
+- Subtitle
+- Participant Name
+- Exam Name
+- Final Score
+- End Date
+- Certificate Number
+- Free Text
+- Signature Area
+- Signatory Name
+- Signatory Position
+
+How to use the **Designer**:
+
+1. Select the part you want to change, for example **Certificate Title**.
+2. Change the text in the **Content** field if needed. Example: **EXAM CERTIFICATE**
+3. Position the text the way you want. You can move elements directly on the certificate by **clicking and dragging** them into place.
+4. Adjust the text or area size if it looks too small, too large or cut off.
+5. Repeat these steps for other parts, such as the participant name, certificate number and signature.
+6. Check the result in the **Interactive Preview** section.
+
+> 💡 **Example:**
+>
+> The participant name looks too close to the certificate title. Select **Participant Name**, then drag it down a little until the spacing looks neater.
+>
+> If the certificate title looks too small, select **Certificate Title**, then increase its font size.
+
+The **Interactive Preview** section shows what the certificate will look like before participants use it.
+
+Check again:
+
+- the title position;
+- the participant name;
+- the exam name;
+- the score;
+- the certificate number;
+- and the signature position.
+
+Make sure no text overlaps, is cut off or sits too close to the edge of the certificate. When everything looks right, click **Create** to save the certificate.
+
+## 2. Participant Certificate Requests and Downloads
+
+The certificate is available in the **Final Score** section of the **Exam History** page.
+
+### A. Open Exam History
+
+<Steps>
+  <Step title="The participant logs in to the CBT page">
+    <Frame>
+      <img
+        src="/images/2026-08-07_23-01.png"
+        alt="Participant logging in on the CBT login page"
+        style={{ width:"49%" }}
+      />
+    </Frame>
+  </Step>
+  <Step title="Open Exam History">
+    <Frame>
+      ![Exam History menu and Final Score section on the participant page](/images/2026-08-07_23-04.png)
+    </Frame>
+
+    Look at the **Final Score** section.
+  </Step>
+</Steps>
+
+### B. Without Admin Approval
+
+If the certificate doesn't need an admin check and all the requirements are met, the **Download Certificate** button appears.
+
+<Steps>
+  <Step title="The admin turns off Needs manual review">
+    <Frame>
+      ![Needs manual review turned off](/images/image-26.png)
+    </Frame>
+  </Step>
+  <Step title="The Download Certificate button appears for the participant">
+    <Frame>
+      ![Download Certificate button on the Exam History page](/images/image-27.png)
+    </Frame>
+  </Step>
+  <Step title="The participant clicks Download Certificate">
+    <Frame>
+      ![Certificate PDF downloaded in the participant's browser](/images/2026-08-07_23-12.png)
+    </Frame>
+
+    The system downloads the certificate as a PDF.
+
+    <Frame>
+      ![Example of the certificate PDF downloaded by the participant](/images/2026-08-10_18-26-1.png)
+    </Frame>
+  </Step>
+</Steps>
+
+### C. Admin Approval Required
+
+If the certificate needs an admin check, the process is as follows:
+
+<Steps>
+  <Step title="The admin turns on Needs manual review">
+    <Frame>
+      ![Needs manual review turned on](/images/2026-08-07_23-08_1.png)
+    </Frame>
+  </Step>
+  <Step title="The Request Certificate button appears for the participant">
+    <Frame>
+      ![Request Certificate button on the Exam History page](/images/2026-08-07_23-29.png)
+    </Frame>
+  </Step>
+  <Step title="The participant clicks Request Certificate">
+    The button changes to **Waiting for Approval**.
+
+    <Frame>
+      ![Waiting for Approval button after the request is sent](/images/2026-08-10_18-18.png)
+    </Frame>
+
+    The system sends the request to the admin.
+  </Step>
+  <Step title="The admin approves the request">
+    Once the admin has approved the certificate, the **Waiting for Approval** button changes to **Download Certificate**. The approval steps are explained in section **3. The Admin Approves Certificate Requests** below.
+  </Step>
+  <Step title="The Download Certificate button appears for the participant">
+    <Frame>
+      ![Download Certificate button on the Exam History page](/images/image-27.png)
+    </Frame>
+  </Step>
+  <Step title="The participant clicks Download Certificate">
+    <Frame>
+      ![Certificate PDF downloaded in the participant's browser](/images/2026-08-07_23-12.png)
+    </Frame>
+
+    The system downloads the certificate as a PDF.
+
+    <Frame>
+      ![Example of the certificate PDF downloaded by the participant](/images/2026-08-10_18-26.png)
+    </Frame>
+  </Step>
+</Steps>
+
+<Info>
+  The button flow on the participant page:
+
+  - **Request Certificate**: the participant hasn't requested the certificate yet.
+  - **Waiting for Approval**: the admin is reviewing the request.
+  - **Download Certificate**: the request has been approved.
+</Info>
+
+## 3. The Admin Approves Certificate Requests
+
+This section applies when **Needs manual review** is turned on in the certificate settings.
+
+This means participants who meet the requirements can't download the certificate straight away. They need to request it first, and then the admin approves it.
+
+> 💡 **Example:**
+>
+> Adipati Wisnu has finished **Try Out Matematika Persiapan SNBT 2027** with a score of 100. Because the certificate needs admin approval, Adipati first chooses **Request Certificate**.
+>
+> Once the request is sent, the participant page shows the status **Waiting for Approval**.
+
+<Frame>
+  ![Waiting for Approval status on the participant's Exam History page](/images/2026-08-10_18-27.png)
+</Frame>
+
+While this status is shown, the participant can't download the certificate.
+
+<Steps>
+  <Step title="Open Exam Certificate, then click Edit">
+    <Frame>
+      ![Edit button in the Exam Certificate list](/images/2026-08-10_18-21.png)
+    </Frame>
+
+    Choose the certificate you created.
+  </Step>
+  <Step title="Open Certificate Issued, then click Approve">
+    <Frame>
+      ![Approve button in the Certificate Issued section](/images/2026-08-10_18-25.png)
+    </Frame>
+
+    The system shows a list of participants who have requested a certificate, with details such as:
+
+    - Certificate Number
+    - Participant Name
+    - Score
+    - Issue Date
+
+    Find the participant whose request you want to approve and click **Approve** on their row.
+  </Step>
+  <Step title="Confirm the certificate approval">
+    <Frame>
+      ![Approve Certificate confirmation dialog](/images/2026-08-10_18-25_1.png)
+    </Frame>
+
+    The system shows a confirmation for approving the certificate. Make sure the participant name and certificate number are correct, then click **Confirm**.
+
+    <Note>
+      After approval, the participant needs to reopen or reload the **Exam History** page. The **Waiting for Approval** button then changes to **Download Certificate**.
+    </Note>
+
+    <Frame>
+      ![Download Certificate button after the request is approved](/images/2026-08-10_18-25_2.png)
+    </Frame>
+  </Step>
+</Steps>

@@ -1,29 +1,29 @@
 ---
-title: "API Peserta"
-description: "Kelola akun peserta dan label peserta melalui Client Integration API."
-sidebarTitle: "Peserta"
+title: "Participants API"
+description: "Manage participant accounts and participant labels through the Client Integration API."
+sidebarTitle: "Participants"
 ---
 
-Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
+Every request on this page requires a [Bearer API key](/en/api/autentikasi).
 
-## Endpoint peserta
+## Participant endpoints
 
-<Accordion title="GET /participants — Daftar peserta">
-  ### Parameter
+<Accordion title="GET /participants — List participants">
+  ### Parameters
 
-  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | Name | Location | Required | Type | Description |
   | --- | --- | --: | --- | --- |
-  | `search` | Query | Tidak | string | Mencari nama atau email. |
-  | `email` | Query | Tidak | email | Mencocokkan email secara persis. |
-  | `label_id` | Query | Tidak | integer | Filter berdasarkan ID label. |
-  | `is_active` | Query | Tidak | boolean | Filter status aktif. |
-  | `is_verified` | Query | Tidak | boolean | Filter status verifikasi akun. |
-  | `sort_by` | Query | Tidak | enum | `name`, `created_at`, `updated_at`, atau `id`. Default `name`. |
-  | `sort_dir` | Query | Tidak | enum | `asc` atau `desc`. Default `asc`. |
-  | `page` | Query | Tidak | integer | Nomor halaman. Default `1`. |
-  | `per_page` | Query | Tidak | integer | Data per halaman, `1–100`. Default `25`. |
+  | `search` | Query | No | string | Searches by name or email. |
+  | `email` | Query | No | email | Matches the email exactly. |
+  | `label_id` | Query | No | integer | Filters by label ID. |
+  | `is_active` | Query | No | boolean | Filters by active status. |
+  | `is_verified` | Query | No | boolean | Filters by account verification status. |
+  | `sort_by` | Query | No | enum | `name`, `created_at`, `updated_at` or `id`. Default `name`. |
+  | `sort_dir` | Query | No | enum | `asc` or `desc`. Default `asc`. |
+  | `page` | Query | No | integer | Page number. Default `1`. |
+  | `per_page` | Query | No | integer | Items per page, `1–100`. Default `25`. |
 
-  ### Contoh request
+  ### Example request
 
   ```bash
   curl -X GET "https://app.indolat.com/api/v1/participants?search=Budi&is_active=true&page=1&per_page=25" \
@@ -31,7 +31,7 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
     -H "Accept: application/json"
   ```
 
-  ### Contoh response
+  ### Example response
 
   ```json
   {
@@ -64,20 +64,20 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
   ```
 </Accordion>
 
-<Accordion title="POST /participants — Membuat peserta">
-  Peserta yang dibuat melalui API langsung berstatus terverifikasi. Email disimpan dalam huruf kecil. Jika peserta dengan email yang sama pernah dihapus dari projek, akun tersebut dipulihkan dan diperbarui dengan data yang dikirim.
+<Accordion title="POST /participants — Create a participant">
+  Participants created through the API are verified straight away. The email is stored in lowercase. If a participant with the same email was previously deleted from the project, that account is restored and updated with the data you send.
 
-  ### Parameter
+  ### Parameters
 
-  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | Name | Location | Required | Type | Description |
   | --- | --- | --: | --- | --- |
-  | `email` | Body | Ya | email | Harus unik pada projek, maksimal 255 karakter. |
-  | `name` | Body | Ya | string | Nama peserta, maksimal 255 karakter. |
-  | `password` | Body | Ya | string | Panjang 6–255 karakter. |
-  | `label_id` | Body | Tidak | integer/null | ID label milik projek. |
-  | `is_active` | Body | Tidak | boolean | Default `true`. |
+  | `email` | Body | Yes | email | Must be unique within the project, up to 255 characters. |
+  | `name` | Body | Yes | string | Participant name, up to 255 characters. |
+  | `password` | Body | Yes | string | 6–255 characters long. |
+  | `label_id` | Body | No | integer/null | ID of a label that belongs to the project. |
+  | `is_active` | Body | No | boolean | Default `true`. |
 
-  ### Contoh request
+  ### Example request
 
   ```bash
   curl -X POST "https://app.indolat.com/api/v1/participants" \
@@ -93,7 +93,7 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
     }'
   ```
 
-  ### Contoh response
+  ### Example response
 
   Status `201`.
 
@@ -116,30 +116,30 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
   ```
 </Accordion>
 
-<Accordion title="POST /participants/batch — Membuat atau memperbarui peserta secara batch">
-  Peserta dicocokkan berdasarkan email. Format seluruh baris divalidasi lebih dulu: satu baris yang tidak valid membuat seluruh request ditolak dengan status `422`, dan kunci error menunjuk ke baris tersebut (misalnya `participants.3.email`). Setelah lolos validasi, setiap baris diproses terpisah dan hasilnya dilaporkan per baris:
+<Accordion title="POST /participants/batch — Create or update participants in batch">
+  Participants are matched by email. The format of every row is validated first: a single invalid row rejects the whole request with status `422`, and the error key points to that row (for example `participants.3.email`). Once validation passes, each row is processed separately and the outcome is reported per row:
 
-  - `created` — peserta baru dibuat, atau peserta yang pernah dihapus dipulihkan.
-  - `updated` — peserta sudah ada dan `update_existing` bernilai `true`.
-  - `skipped` — peserta sudah ada dan `update_existing` bernilai `false`. Item berisi `reason`.
-  - `failed` — baris gagal diproses. Item berisi `reason`, tanpa `participant_id`.
+  - `created` — a new participant was created, or a previously deleted participant was restored.
+  - `updated` — the participant already exists and `update_existing` is `true`.
+  - `skipped` — the participant already exists and `update_existing` is `false`. The item includes a `reason`.
+  - `failed` — the row could not be processed. The item includes a `reason` and no `participant_id`.
 
   <Warning>
-    Dengan `update_existing: true`, data peserta yang sudah ada diganti dengan isi baris: nama, kata sandi, dan label. Label dilepas jika `label_id` tidak dikirim, dan peserta yang sedang nonaktif diaktifkan kembali.
+    With `update_existing: true`, an existing participant's data is replaced with the row's contents: name, password and label. The label is removed if `label_id` is not sent, and an inactive participant is reactivated.
   </Warning>
 
-  ### Parameter
+  ### Parameters
 
-  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | Name | Location | Required | Type | Description |
   | --- | --- | --: | --- | --- |
-  | `participants` | Body | Ya | array | Berisi 1–500 peserta. |
-  | `participants.*.email` | Body | Ya | email | Email peserta, maksimal 255 karakter. |
-  | `participants.*.name` | Body | Ya | string | Nama peserta, maksimal 255 karakter. |
-  | `participants.*.password` | Body | Ya | string | Panjang 6–255 karakter. |
-  | `participants.*.label_id` | Body | Tidak | integer/null | ID label milik projek. |
-  | `update_existing` | Body | Tidak | boolean | Jika `true`, data peserta yang sudah ada diperbarui. Default `false`. |
+  | `participants` | Body | Yes | array | Contains 1–500 participants. |
+  | `participants.*.email` | Body | Yes | email | Participant email, up to 255 characters. |
+  | `participants.*.name` | Body | Yes | string | Participant name, up to 255 characters. |
+  | `participants.*.password` | Body | Yes | string | 6–255 characters long. |
+  | `participants.*.label_id` | Body | No | integer/null | ID of a label that belongs to the project. |
+  | `update_existing` | Body | No | boolean | If `true`, existing participants are updated. Default `false`. |
 
-  ### Contoh request
+  ### Example request
 
   ```bash
   curl -X POST "https://app.indolat.com/api/v1/participants/batch" \
@@ -165,7 +165,7 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
     }'
   ```
 
-  ### Contoh response
+  ### Example response
 
   ```json
   {
@@ -187,14 +187,14 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
   ```
 </Accordion>
 
-<Accordion title="GET /participants/{id} — Detail peserta">
-  ### Parameter
+<Accordion title="GET /participants/{id} — Participant details">
+  ### Parameters
 
-  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | Name | Location | Required | Type | Description |
   | --- | --- | --: | --- | --- |
-  | `id` | Path | Ya | integer | ID peserta. |
+  | `id` | Path | Yes | integer | Participant ID. |
 
-  ### Contoh request
+  ### Example request
 
   ```bash
   curl -X GET "https://app.indolat.com/api/v1/participants/340" \
@@ -202,7 +202,7 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
     -H "Accept: application/json"
   ```
 
-  ### Contoh response
+  ### Example response
 
   ```json
   {
@@ -223,22 +223,22 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
   ```
 </Accordion>
 
-<Accordion title="PATCH /participants/{id} — Memperbarui peserta">
-  Endpoint juga menerima metode `PUT`.
+<Accordion title="PATCH /participants/{id} — Update a participant">
+  This endpoint also accepts the `PUT` method.
 
-  ### Parameter
+  ### Parameters
 
-  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | Name | Location | Required | Type | Description |
   | --- | --- | --: | --- | --- |
-  | `id` | Path | Ya | integer | ID peserta. |
-  | `name` | Body | Tidak | string | Nama baru, maksimal 255 karakter. |
-  | `password` | Body | Tidak | string | Kata sandi baru, 6–255 karakter. |
-  | `label_id` | Body | Tidak | integer/null | ID label baru atau `null` untuk melepas label. |
-  | `is_active` | Body | Tidak | boolean | Status aktif baru. |
+  | `id` | Path | Yes | integer | Participant ID. |
+  | `name` | Body | No | string | New name, up to 255 characters. |
+  | `password` | Body | No | string | New password, 6–255 characters. |
+  | `label_id` | Body | No | integer/null | New label ID, or `null` to remove the label. |
+  | `is_active` | Body | No | boolean | New active status. |
 
-  Field yang tidak dikirim tidak diubah. Email tidak dapat diubah melalui API. Peserta dengan `is_active: false` tidak dapat masuk ke CBT, termasuk melalui link akses ujian.
+  Fields you don't send are left unchanged. The email cannot be changed through the API. A participant with `is_active: false` cannot sign in to the CBT, including through an exam access link.
 
-  ### Contoh request
+  ### Example request
 
   ```bash
   curl -X PATCH "https://app.indolat.com/api/v1/participants/340" \
@@ -252,7 +252,7 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
     }'
   ```
 
-  ### Contoh response
+  ### Example response
 
   ```json
   {
@@ -273,16 +273,16 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
   ```
 </Accordion>
 
-<Accordion title="DELETE /participants/{id} — Menghapus peserta">
-  Peserta yang masih terdaftar pada ujian tidak dapat dihapus; permintaan ditolak dengan status `409`. Batalkan pendaftaran ujiannya terlebih dahulu melalui `DELETE /exams/{exam}/participants/{participant}`.
+<Accordion title="DELETE /participants/{id} — Delete a participant">
+  A participant who is still registered for an exam cannot be deleted; the request is rejected with status `409`. Cancel their exam registration first with `DELETE /exams/{exam}/participants/{participant}`.
 
-  ### Parameter
+  ### Parameters
 
-  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | Name | Location | Required | Type | Description |
   | --- | --- | --: | --- | --- |
-  | `id` | Path | Ya | integer | ID peserta. |
+  | `id` | Path | Yes | integer | Participant ID. |
 
-  ### Contoh request
+  ### Example request
 
   ```bash
   curl -X DELETE "https://app.indolat.com/api/v1/participants/340" \
@@ -290,7 +290,7 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
     -H "Accept: application/json"
   ```
 
-  ### Contoh response
+  ### Example response
 
   ```json
   {
@@ -301,18 +301,18 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
   ```
 </Accordion>
 
-<Accordion title="GET /participants/{id}/exams — Daftar ujian peserta">
-  Diurutkan dari pendaftaran terbaru. `results` berisi satu item untuk setiap tes dalam ujian, dengan struktur yang sama seperti [API Hasil Ujian](/api/hasil-ujian).
+<Accordion title="GET /participants/{id}/exams — List a participant's exams">
+  Sorted from the most recent registration. `results` contains one item for each test in the exam, with the same structure as in the [Exam Results API](/en/api/hasil-ujian).
 
-  ### Parameter
+  ### Parameters
 
-  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | Name | Location | Required | Type | Description |
   | --- | --- | --: | --- | --- |
-  | `id` | Path | Ya | integer | ID peserta. |
-  | `page` | Query | Tidak | integer | Nomor halaman. Default `1`. |
-  | `per_page` | Query | Tidak | integer | Data per halaman, `1–100`. Default `25`. |
+  | `id` | Path | Yes | integer | Participant ID. |
+  | `page` | Query | No | integer | Page number. Default `1`. |
+  | `per_page` | Query | No | integer | Items per page, `1–100`. Default `25`. |
 
-  ### Contoh request
+  ### Example request
 
   ```bash
   curl -X GET "https://app.indolat.com/api/v1/participants/340/exams?page=1&per_page=25" \
@@ -320,7 +320,7 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
     -H "Accept: application/json"
   ```
 
-  ### Contoh response
+  ### Example response
 
   ```json
   {
@@ -385,15 +385,15 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
   ```
 </Accordion>
 
-<Accordion title="GET /participant-labels — Daftar label peserta">
-  ### Parameter
+<Accordion title="GET /participant-labels — List participant labels">
+  ### Parameters
 
-  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | Name | Location | Required | Type | Description |
   | --- | --- | --: | --- | --- |
-  | `page` | Query | Tidak | integer | Nomor halaman. Default `1`. |
-  | `per_page` | Query | Tidak | integer | Data per halaman, `1–100`. Default `25`. |
+  | `page` | Query | No | integer | Page number. Default `1`. |
+  | `per_page` | Query | No | integer | Items per page, `1–100`. Default `25`. |
 
-  ### Contoh request
+  ### Example request
 
   ```bash
   curl -X GET "https://app.indolat.com/api/v1/participant-labels?page=1&per_page=25" \
@@ -401,7 +401,7 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
     -H "Accept: application/json"
   ```
 
-  ### Contoh response
+  ### Example response
 
   ```json
   {
@@ -423,14 +423,14 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
   ```
 </Accordion>
 
-<Accordion title="POST /participant-labels — Membuat label peserta">
-  ### Parameter
+<Accordion title="POST /participant-labels — Create a participant label">
+  ### Parameters
 
-  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | Name | Location | Required | Type | Description |
   | --- | --- | --: | --- | --- |
-  | `name` | Body | Ya | string | Nama unik pada projek, maksimal 255 karakter. |
+  | `name` | Body | Yes | string | Unique name within the project, up to 255 characters. |
 
-  ### Contoh request
+  ### Example request
 
   ```bash
   curl -X POST "https://app.indolat.com/api/v1/participant-labels" \
@@ -440,7 +440,7 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
     -d '{ "name": "Kelas XII IPA" }'
   ```
 
-  ### Contoh response
+  ### Example response
 
   ```json
   {

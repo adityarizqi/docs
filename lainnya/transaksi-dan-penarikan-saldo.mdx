@@ -1,6 +1,6 @@
 ---
 title: "Transaksi & Penarikan Saldo"
-description: "Cara Memantau Transaksi Keuangan dan Melakukan Penarikan Saldo"
+description: "Cara memantau transaksi keuangan yang masuk dan melakukan penarikan saldo ke rekening lembaga."
 ---
 
 Menu **Keuangan** digunakan untuk melihat pembayaran yang masuk dari peserta serta melakukan penarikan saldo ke rekening milik lembaga.
@@ -9,64 +9,66 @@ Menu **Keuangan** digunakan untuk melihat pembayaran yang masuk dari peserta ser
 >
 > Peserta **Rosa Adinda** melakukan pembayaran sebesar **Rp50.000** untuk mengikuti **Try Out Matematika Persiapan SNBT 2027**. Setelah pembayaran berhasil, transaksi tersebut tercatat pada menu **Riwayat Transaksi**.
 
-<Tip>
+<Info>
   Secara sederhana, alurnya adalah:
 
   **Peserta melakukan pembayaran → transaksi tercatat di Riwayat Transaksi → saldo masuk ke akun lembaga → saldo yang sudah dapat ditarik dapat diajukan ke rekening lembaga.**
-</Tip>
+</Info>
 
-# 1. Melihat Transaksi Keuangan yang Masuk
+## 1. Melihat Transaksi Keuangan yang Masuk
 
 Buka menu **Riwayat Transaksi** untuk melihat pembayaran peserta.
 
 <Frame>
-  ![2026 08 10 20 00](/images/2026-08-10_20-00.png "2026 08 10 20 00")
+  ![Daftar pembayaran peserta pada halaman Riwayat Transaksi](/images/2026-08-10_20-00.png)
 </Frame>
 
-Melalui halaman ini, Admin dapat mengetahui siapa yang melakukan pembayaran, ujian yang dibayar, jumlah pembayaran, serta status transaksi.
+Melalui halaman ini, admin dapat mengetahui siapa yang melakukan pembayaran, ujian yang dibayar, jumlah pembayaran, serta status transaksi. Berikut penjelasan setiap kolomnya.
 
-1. **No Transaksi**
+### No. Transaksi
 
 Menampilkan nomor transaksi sebagai tanda pengenal setiap pembayaran.
 
 Contoh: `TO-MAT-SNBT-271784392462258`
 
-2. **Status**
+### Status
 
-- Menampilkan kondisi pembayaran peserta.
+Menampilkan kondisi pembayaran peserta.
 
 Contoh pada halaman: `Sukses (Verifikasi Manual)`
 
 Artinya, pembayaran peserta sudah dinyatakan berhasil melalui proses verifikasi.
 
-- Di bawah status juga ditampilkan nama ujian yang dibayar.
+Di bawah status juga ditampilkan nama ujian yang dibayar.
 
 Contoh: `Try Out Matematika Persiapan SNBT 2027`
 
-3. **Total Pembayaran**
+### Total Pembayaran
 
 Menampilkan jumlah yang dibayarkan peserta.
 
 Contoh: `Rp50.000`
 
-4. **Tanggal Pembayaran**
+### Tanggal Pembayaran
 
 Menampilkan tanggal dan waktu saat pembayaran berhasil diterima.
 
-5. **Tanggal Transaksi**
+### Tanggal Transaksi
 
 Menampilkan tanggal dan waktu saat transaksi dibuat.
 
-6. **Tanggal Kedaluwarsa**
+### Tanggal Kedaluwarsa
 
 - Menampilkan batas waktu pembayaran.
 - Jika pembayaran belum diselesaikan sampai waktu tersebut, transaksi dapat menjadi kedaluwarsa.
-- Contoh : 
-  <Frame>
-    ![2026 08 10 20 06](/images/2026-08-10_20-06.png "2026 08 10 20 06")
-  </Frame>
 
-<Tip>
+Contoh:
+
+<Frame>
+  ![Transaksi berstatus Kedaluwarsa pada Riwayat Transaksi](/images/2026-08-10_20-06.png)
+</Frame>
+
+<Info>
   Pada bagian bawah halaman tersedia rangkuman nilai transaksi.
 
   - **Halaman ini** menunjukkan total pembayaran dari data yang sedang tampil pada halaman.
@@ -81,27 +83,31 @@ Menampilkan tanggal dan waktu saat transaksi dibuat.
   > **Rp500.000**
 
   Sedangkan jika seluruh transaksi yang tercatat berjumlah lebih banyak, bagian **Semua transaksi** akan menampilkan jumlah keseluruhannya.
+</Info>
 
-  > Gunakan menu **Riwayat Transaksi** untuk memeriksa pembayaran yang masuk. Untuk mencairkan dana yang sudah dapat ditarik, lanjutkan melalui menu **Penarikan Saldo**.
-</Tip>
+Gunakan menu **Riwayat Transaksi** untuk memeriksa pembayaran yang masuk. Untuk mencairkan dana yang sudah dapat ditarik, lanjutkan melalui menu **Penarikan Saldo**.
 
-# 2. Mengisi Data Rekening untuk Proses Penarikan Saldo
+## 2. Mengisi Data Rekening untuk Proses Penarikan Saldo
 
-Sebelum melakukan penarikan saldo untuk pertama kali, Admin perlu melengkapi **Informasi Rekening**.
+Sebelum melakukan penarikan saldo untuk pertama kali, admin perlu melengkapi **Informasi Rekening**.
 
-Apabila informasi data rekening belum diisikan, maka penarikan saldo <u>tidak dapat dilakukan.</u>
+<Warning>
+  Apabila informasi data rekening belum diisikan, penarikan saldo **tidak dapat dilakukan**.
+</Warning>
 
 <Frame>
-  ![2026 08 11 14 48 1](/images/2026-08-11_14-48_1.png "2026 08 11 14 48 1")
+  ![Notifikasi Informasi Rekening Diperlukan saat membuat penarikan saldo](/images/2026-08-11_14-48_1.png)
 </Frame>
 
 <Steps>
-  <Step title="Klik nama/profil akun Anda yang berada di pojok kiri bawah">
+  <Step title="Klik nama akun Anda di pojok kiri bawah">
+    Klik nama/profil akun Anda yang berada di pojok kiri bawah.
+
     <Frame>
-      ![2026 08 10 20 31](/images/2026-08-10_20-31.png "2026 08 10 20 31")
+      ![Nama akun di pojok kiri bawah panel admin](/images/2026-08-10_20-31.png)
     </Frame>
 
-    Sistem akan menampilkan menu : 
+    Sistem akan menampilkan menu:
 
     - Profil
     - Promo & Update
@@ -109,102 +115,108 @@ Apabila informasi data rekening belum diisikan, maka penarikan saldo <u>tidak da
     - Keluar
 
     <Frame>
-      ![2026 08 10 20 31 1](/images/2026-08-10_20-31_1.png "2026 08 10 20 31 1")
+      ![Menu akun berisi Profil, Promo & Update, Changelog, dan Keluar](/images/2026-08-10_20-31_1.png)
     </Frame>
   </Step>
-  <Step title="Pilih 'Profil' untuk membuka halaman pengaturan akun.">
+  <Step title="Pilih Profil">
+    Pilih **Profil** untuk membuka halaman pengaturan akun.
+
     <Frame>
-      ![2026 08 10 20 32](/images/2026-08-10_20-32.png "2026 08 10 20 32")
+      ![Menu Profil pada menu akun](/images/2026-08-10_20-32.png)
     </Frame>
   </Step>
-  <Step title="Gulir / scroll ke bagian 'Informasi Rekening', kemudian isikan Informasi Rekening">
+  <Step title="Isi Informasi Rekening">
+    Gulir (scroll) ke bagian **Informasi Rekening**, kemudian isikan informasi rekening.
+
     <Frame>
-      ![2026 08 10 203614 1](/images/2026-08-10_203614-1.png "2026 08 10 203614 1")
+      ![Bagian Informasi Rekening pada halaman Profil](/images/2026-08-10_203614-1.png)
     </Frame>
 
     1. **Nama Bank**
 
-    <Frame>
-      ![2026 08 10 20 32 1 1](/images/2026-08-10_20-32_1-1.png "2026 08 10 20 32 1 1")
-    </Frame>
+       <Frame>
+         ![Daftar pilihan bank pada kolom Nama Bank](/images/2026-08-10_20-32_1-1.png)
+       </Frame>
 
-    Pilih nama bank tempat rekening Anda terdaftar.
+       Pilih nama bank tempat rekening Anda terdaftar.
 
-    Contoh: `Bank Central Asia (BCA)`
+       Contoh: `Bank Central Asia (BCA)`
 
     2. **Nomor Rekening**
 
-    Isi nomor rekening yang akan digunakan untuk menerima hasil penarikan saldo. 
+       Isi nomor rekening yang akan digunakan untuk menerima hasil penarikan saldo.
 
-    Contoh: `123456789000`
+       Contoh: `123456789000`
 
-    Pastikan nomor rekening **sudah benar** agar dana tidak terkirim ke rekening yang salah.
+       Pastikan nomor rekening **sudah benar** agar dana tidak terkirim ke rekening yang salah.
 
     3. **Nama Pemilik Rekening**
 
-    Isi nama pemilik rekening sesuai dengan nama yang terdaftar di bank.
+       Isi nama pemilik rekening sesuai dengan nama yang terdaftar di bank.
 
-    Contoh: `Iqbal Hamzah`
+       Contoh: `Iqbal Hamzah`
 
-    Sebaiknya gunakan nama yang sama persis dengan data rekening untuk membantu menghindari kendala saat proses pencairan saldo.
+       Sebaiknya gunakan nama yang sama persis dengan data rekening untuk membantu menghindari kendala saat proses pencairan saldo.
 
-    4. **Pilih tombol 'Simpan' untuk menyimpan data rekening.**
+    4. Pilih tombol **Simpan** untuk menyimpan data rekening.
   </Step>
 </Steps>
 
-# 3. Melakukan Penarikan Saldo
+## 3. Melakukan Penarikan Saldo
 
 Sebagai contoh, Lembaga Indolat memiliki **Saldo Dapat Ditarik Rp6.215.003** dan ingin mencairkan **Rp3.000.000** ke rekening BCA.
 
 Admin sudah mengisi informasi rekening pada profil, kemudian membuka menu **Penarikan Saldo**, memasukkan Rp3.000.000, dan memeriksa kembali rekening tujuan.
 
-Setelah memilih **Buat Penarikan**, status awal menjadi **Pending**. Setelah proses selesai, status berubah menjadi **Disetujui** dan Admin dapat melihat bukti pembayarannya.
+Setelah memilih **Buat Penarikan**, status awal menjadi **Pending**. Setelah proses selesai, status berubah menjadi **Disetujui** dan admin dapat melihat bukti pembayarannya.
 
 <Steps>
-  <Step title="Buka menu 'Penarikan Saldo' kemudian pilih tombol 'Penarikan Saldo'">
+  <Step title="Buka menu Penarikan Saldo">
+    Buka menu **Penarikan Saldo**, kemudian pilih tombol **Penarikan Saldo**.
+
     <Frame>
-      ![2026 08 11 14 46](/images/2026-08-11_14-46.png "2026 08 11 14 46")
+      ![Tombol Penarikan Saldo pada halaman Penarikan Saldo](/images/2026-08-11_14-46.png)
     </Frame>
   </Step>
   <Step title="Isikan jumlah saldo yang akan ditarik">
     <Frame>
-      ![2026 08 11 14 48](/images/2026-08-11_14-48.png "2026 08 11 14 48")
+      ![Formulir Buat Penarikan Saldo berisi saldo dan jumlah penarikan](/images/2026-08-11_14-48.png)
     </Frame>
 
-    Lengapi kolom isian saldo penarikan.
+    Lengkapi kolom isian saldo penarikan.
 
     1. **Saldo Dapat Ditarik**
 
-    Menampilkan saldo yang sudah dapat diajukan untuk ditransfer ke rekening lembaga.
+       Menampilkan saldo yang sudah dapat diajukan untuk ditransfer ke rekening lembaga.
 
     2. **Saldo Tertunda**
 
-    Menampilkan saldo yang belum dapat ditarik
+       Menampilkan saldo yang belum dapat ditarik.
 
-    Pada informasi di sistem, saldo yang baru masuk dapat ditarik setelah melewati **2 hari kerja sejak saldo diterima**.
+       Sesuai keterangan pada sistem, saldo yang baru masuk dapat ditarik setelah melewati **2 hari kerja sejak saldo diterima**.
 
-    > 💡 **Contoh:**
-    >
-    > Saldo lembaga:
-    >
-    > - Saldo Dapat Ditarik: **Rp6.215.003**
-    > - Saldo Tertunda: **Rp945.000**
-    >
-    > Artinya, saat ini Admin hanya dapat melakukan penarikan dari saldo sebesar **Rp6.215.003**. Saldo Rp945.000 masih menunggu sampai dapat ditarik.
+       > 💡 **Contoh:**
+       >
+       > Saldo lembaga:
+       >
+       > - Saldo Dapat Ditarik: **Rp6.215.003**
+       > - Saldo Tertunda: **Rp945.000**
+       >
+       > Artinya, saat ini admin hanya dapat melakukan penarikan dari saldo sebesar **Rp6.215.003**. Saldo Rp945.000 masih menunggu sampai dapat ditarik.
 
     3. **Jumlah Penarikan**
 
-    Masukkan nominal yang ingin ditransfer ke rekening.
+       Masukkan nominal yang ingin ditransfer ke rekening.
 
-    Contoh: **Rp3.000.000**
+       Contoh: **Rp3.000.000**
 
-    <Tip>
-      Minimal penarikan saldo yang ditampilkan pada sistem adalah Rp 10.000,-
-    </Tip>
+       <Note>
+         Minimal penarikan saldo yang ditampilkan pada sistem adalah **Rp10.000**.
+       </Note>
 
-    4. Pilih tombol **Selanjutnya**
+    4. Pilih tombol **Selanjutnya**.
   </Step>
-  <Step title="Memeriksa dan Mengonfirmasi Penarikan">
+  <Step title="Periksa dan konfirmasi penarikan">
     Setelah klik **Selanjutnya**, sistem menampilkan kembali:
 
     - jenis bank
@@ -213,37 +225,35 @@ Setelah memilih **Buat Penarikan**, status awal menjadi **Pending**. Setelah pro
     - dan jumlah penarikan
 
     <Frame>
-      ![2026 08 11 15 39](/images/2026-08-11_15-39.png "2026 08 11 15 39")
+      ![Konfirmasi rekening tujuan dan jumlah penarikan](/images/2026-08-11_15-39.png)
     </Frame>
 
     Periksa seluruh informasi tersebut dengan teliti.
 
-    Jika sudah benar, pilih **Buat Penarikan**.
+    Jika sudah benar, pilih **Buat Penarikan**.
 
-    <Tip>
-      Setelah penarikan dibuat, Admin tidak dapat membatalkannya secara mandiri. 
+    <Warning>
+      Setelah penarikan dibuat, admin tidak dapat membatalkannya secara mandiri.
 
       Oleh sebab itu, pastikan rekening dan jumlah penarikan sudah benar sebelum melanjutkan.
-    </Tip>
+    </Warning>
   </Step>
-  <Step title="Melihat Status Penarikan">
+  <Step title="Lihat status penarikan">
     Setelah pengajuan dibuat, data akan muncul pada halaman **Penarikan Saldo**. Status dapat berubah sesuai prosesnya.
 
-    A. **Pending**
+    - **Pending**: permintaan penarikan sudah dibuat dan masih dalam proses.
 
-    Permintaan penarikan sudah dibuat dan masih dalam proses.
+      <Frame>
+        ![Penarikan saldo berstatus Pending](/images/2026-08-11_15-39_1.png)
+      </Frame>
 
-    <Frame>
-      ![2026 08 11 15 39 1](/images/2026-08-11_15-39_1.png "2026 08 11 15 39 1")
-    </Frame>
+    - **Disetujui**: penarikan sudah diproses. Pilih **Lihat Bukti Pembayaran** untuk melihat bukti transfernya.
 
-    B. **Disetujui**
+      <Frame>
+        ![Penarikan saldo berstatus Disetujui dengan tautan Lihat Bukti Pembayaran](/images/2026-08-11_15-39_2.png)
+      </Frame>
 
-    <Frame>
-      ![2026 08 11 15 39 2](/images/2026-08-11_15-39_2.png "2026 08 11 15 39 2")
-    </Frame>
-
-    <Tip>
+    <Note>
       **Ketentuan Penarikan Saldo**
 
       Berdasarkan informasi yang tampil pada sistem:
@@ -258,6 +268,6 @@ Setelah memilih **Buat Penarikan**, status awal menjadi **Pending**. Setelah pro
       Admin melakukan penarikan **Rp1.000.000** ke bank selain BNI. Setelah biaya admin Rp3.000, jumlah yang diterima menjadi:
 
       > **Rp997.000**
-    </Tip>
+    </Note>
   </Step>
 </Steps>
