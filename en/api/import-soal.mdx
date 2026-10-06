@@ -1,0 +1,471 @@
+---
+title: "Question Import API"
+description: "Send question packages from your system as new question packages: media uploads, validation, asynchronous import, status and ID mapping."
+sidebarTitle: "Question Import"
+---
+
+Every request on this page requires a [Bearer API key](/en/api/autentikasi).
+
+This API turns one revision of a question package from your system into one **new question package** in the admin panel, with its passages, images, audio and answer keys. An import does not create an exam: once the import has finished, assign the question package to an exam session in the admin panel.
+
+## Flow
+
+1. Prepare the media. Images can be written as `https` links directly in the package, or uploaded first to `POST /question-assets` to get an `asset_id`. Audio can only be sent as an upload.
+2. (Optional) Check the package with `POST /question-imports/validate`.
+3. Send the package to `POST /question-imports` with an `Idempotency-Key` header. The package is checked right away; if it is valid, the response is `202` and the package is processed in the background.
+4. Follow the result through `GET /question-imports/{id}` or the `question_import.completed` and `question_import.failed` webhooks.
+5. Store `question_bank.id` for the revision and `question_id` for every question.
+
+<Warning>
+  An imported question package **cannot be changed in the admin panel**: its questions, answers and passages are locked so every participant is scored against exactly the questions and answer keys you sent. Send corrections as a new revision. If you need to edit the content by hand, use **Duplicate Question Package**; the copy can be edited like any other question package.
+</Warning>
+
+## Error format
+
+The endpoints on this page return `errors` as a **list**, not as the per-field object of other endpoints, because one package can hold hundreds of questions. `pointer` is a JSON Pointer to the part of the body at fault and `source_item_id` is the `source_id` of that question or passage; for an error that is not about one question, both are `null`. One response carries at most 1,000 errors.
+
+```json
+{
+  "success": false,
+  "message": "Paket soal tidak valid.",
+  "errors": [
+    {
+      "pointer": "/items/4/answer_key/option_id",
+      "source_item_id": "demo-q-005",
+      "code": "unknown_option",
+      "message": "Opsi \"e\" tidak ada pada soal ini."
+    }
+  ]
+}
+```
+
+| Code | Status | Meaning |
+| --- | --- | --- |
+| `required` | `422` | A required field is missing. |
+| `invalid_value` | `422` / `400` | The value breaks a rule, for example the number of options, a format, or text containing control characters. |
+| `too_long` | `422` | The text exceeds its length limit. |
+| `unsupported_type` | `422` | Unknown question type. |
+| `duplicate_source_id` | `422` | A question or passage `source_id` is used more than once. |
+| `unknown_option` | `422` | The answer key names an option or statement that does not exist. |
+| `missing_answer_key` | `422` | The answer key is missing. |
+| `too_many_categories` | `422` | A categorization question has more than 2 categories. |
+| `unknown_stimulus` | `422` | `stimulus_id` is not in `stimuli`. |
+| `unused_stimulus` | `422` | No question uses the passage. |
+| `unknown_asset` | `422` | The `asset_id` does not exist, belongs to another project or has expired. |
+| `asset_type_mismatch` | `422` | An audio asset is used as an image, or the other way round. |
+| `invalid_image_link` | `422` | The image link is not a valid `https` address. |
+| `too_many_items` | `422` | More than 500 questions or 100 passages in a package. |
+| `idempotency_key_required` | `400` | The `Idempotency-Key` header is missing. |
+| `idempotency_key_mismatch` | `422` | The `Idempotency-Key` was already used for a different package body. |
+| `revision_already_imported` | `409` | This package revision is already a question package. The error carries `question_import_id` and `question_bank`. |
+| `revision_import_in_progress` | `409` | This package revision is being processed. The error carries `question_import_id`. |
+| `storage_full` | `409` | The project's storage quota is full. |
+| `too_many_imports` | `429` | More than 20 imports within one hour. |
+| `payload_too_large` | `413` | The body is larger than 10 MB. |
+| `unsupported_file_type` | `422` | The uploaded file is not a supported image or audio file. |
+| `too_large` | `422` | The uploaded file exceeds its size limit. |
+| `processing_failed` | `503` | The package or file could not be accepted because of a problem on Indolat's servers. Send it again with a new `Idempotency-Key`. |
+
+## Endpoints
+
+<Accordion title="POST /question-assets — Upload an image or audio file">
+  Uploads one file as `multipart/form-data`. The file type is read from its contents, not from its name or declared type.
+
+  - Images: JPEG, PNG, WebP or GIF, up to 5 MB and 10,000 pixels per side.
+  - Audio: MP3, WAV or OGG, up to 10 MB.
+  - SVG and any other file are rejected.
+
+  The exact same file (identical contents) returns the same `asset_id` with status `200` and a renewed expiry. An asset can be used in any package until `expires_at` (7 days after the upload); after that it is deleted. An import copies the file into the question package, so questions are not affected when the asset expires.
+
+  ### Parameters
+
+  | Name | Location | Required | Type | Description |
+  | --- | --- | --: | --- | --- |
+  | `file` | Body | Yes | file | Image or audio file. |
+
+  ### Example request
+
+  ```bash
+  curl -X POST "https://app.indolat.com/api/v1/question-assets" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json" \
+    -F "file=@grafik-kehadiran.png"
+  ```
+
+  ### Example response
+
+  Status `201`.
+
+  ```json
+  {
+    "success": true,
+    "message": "Aset berhasil diunggah.",
+    "data": {
+      "asset_id": "ast_01k6xq2v9w3m4n5p6q7r8s9t0v",
+      "type": "image",
+      "mime_type": "image/png",
+      "size_bytes": 48213,
+      "expires_at": "2026-10-13T10:00:00+07:00"
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="POST /question-imports/validate — Check a package">
+  Takes the same body as `POST /question-imports` and checks it without storing anything. No `Idempotency-Key` is needed. Validation only checks the shape of image links; images are downloaded when the import is processed, so an unreachable link only shows up as `image_download_failed` on a failed import.
+
+  ### Example request
+
+  ```bash
+  curl -X POST "https://app.indolat.com/api/v1/question-imports/validate" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    --data @paket.json
+  ```
+
+  ### Example response
+
+  Status `200` when the package is valid. When it is not, status `422` with the [error format](#error-format) above.
+
+  ```json
+  {
+    "success": true,
+    "message": "Paket soal valid.",
+    "data": { "valid": true, "item_count": 20, "stimulus_count": 1, "warnings": [] }
+  }
+  ```
+</Accordion>
+
+<Accordion title="POST /question-imports — Send a package">
+  Checks the package and then processes it in the background. When there are errors, the response is `422` with every error and nothing is stored. When the package is valid, the response is `202` with a `Location` header pointing to `GET /question-imports/{id}`.
+
+  An **Idempotency-Key** is required: up to 255 ASCII characters without spaces, for example `{package_id}-r{revision}-{uuid}`. A key is valid for 7 days:
+
+  - Same key and same package body: the existing import is returned with status `200` and the header `Idempotent-Replayed: true`. This is safe to use when the connection drops before the response arrives.
+  - Same key with a different package body: rejected with `422` and the code `idempotency_key_mismatch`.
+
+  **Revisions.** A `source.package_id` and `source.revision` pair can become a question package only once per project. A revision that was already imported is rejected with `409` (`revision_already_imported`). A failed import does not prevent sending the same revision again.
+
+  ### Parameters
+
+  | Name | Location | Required | Type | Description |
+  | --- | --- | --: | --- | --- |
+  | `Idempotency-Key` | Header | Yes | string | Unique key for this request. |
+  | Body | Body | Yes | JSON | The question package, see [Package format](#package-format). |
+
+  ### Example request
+
+  ```bash
+  curl -X POST "https://app.indolat.com/api/v1/question-imports" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -H "Idempotency-Key: demo-pkg-001-r3-5f0c9a7e" \
+    --data @paket.json
+  ```
+
+  ### Example response
+
+  Status `202`.
+
+  ```json
+  {
+    "success": true,
+    "message": "Paket diterima dan sedang diproses.",
+    "data": {
+      "id": "0d6f1c2e-5b7a-4f1e-9a51-3c8e2b7d4a10",
+      "status": "queued",
+      "source": { "package_id": "demo-pkg-001", "revision": 3, "title": "SNBT Literasi Paket 1" },
+      "item_count": 20,
+      "question_bank": null,
+      "warnings": [],
+      "error": null,
+      "created_at": "2026-10-06T10:00:00+07:00",
+      "started_at": null,
+      "finished_at": null
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="GET /question-imports — List imports">
+  Sorted from the newest import. List items do not include the ID mapping; use the import details for that.
+
+  ### Parameters
+
+  | Name | Location | Required | Type | Description |
+  | --- | --- | --: | --- | --- |
+  | `source_package_id` | Query | No | string | Filter by the package ID in your system. |
+  | `source_revision` | Query | No | integer | Filter by revision number. |
+  | `status` | Query | No | enum | `queued`, `processing`, `completed` or `failed`. |
+  | `page` | Query | No | integer | Page number. Default `1`. |
+  | `per_page` | Query | No | integer | Items per page, `1–100`. Default `25`. |
+
+  ### Example request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/question-imports?source_package_id=demo-pkg-001&status=completed" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+</Accordion>
+
+<Accordion title="GET /question-imports/{id} — Status and ID mapping">
+  Once the status is `completed`, the response contains the question package that was created, plus `stimuli` (passages) and `items` (questions) with their IDs in the CBT. Store this mapping to trace your questions in the CBT.
+
+  ### Parameters
+
+  | Name | Location | Required | Type | Description |
+  | --- | --- | --: | --- | --- |
+  | `id` | Path | Yes | UUID | Import `id` from the `POST /question-imports` response. |
+
+  ### Example request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/question-imports/0d6f1c2e-5b7a-4f1e-9a51-3c8e2b7d4a10" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Example response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": {
+      "id": "0d6f1c2e-5b7a-4f1e-9a51-3c8e2b7d4a10",
+      "status": "completed",
+      "source": { "package_id": "demo-pkg-001", "revision": 3, "title": "SNBT Literasi Paket 1" },
+      "item_count": 20,
+      "question_bank": { "id": 88, "name": "SNBT Literasi Paket 1 (rev. 3)" },
+      "stimuli": [{ "source_id": "demo-passage-1", "stimulus_id": 301 }],
+      "items": [
+        { "source_id": "demo-q-001", "position": 1, "question_id": 5012 },
+        { "source_id": "demo-q-002", "position": 2, "question_id": 5013 }
+      ],
+      "warnings": [],
+      "error": null,
+      "created_at": "2026-10-06T10:00:00+07:00",
+      "started_at": "2026-10-06T10:00:02+07:00",
+      "finished_at": "2026-10-06T10:00:05+07:00"
+    }
+  }
+  ```
+</Accordion>
+
+## Package format
+
+```json
+{
+  "source": { "package_id": "demo-pkg-001", "revision": 3, "title": "SNBT Literasi Paket 1" },
+  "bank": {
+    "name": "SNBT Literasi Paket 1 (rev. 3)",
+    "description": null,
+    "shuffle_questions": false,
+    "shuffle_options": false
+  },
+  "stimuli": [
+    {
+      "source_id": "demo-passage-1",
+      "title": "Teks 1 - Kehadiran Klub Membaca",
+      "content": "<p>Klub membaca mencatat kehadiran selama tiga minggu ...</p>",
+      "media": { "images": [{ "url": "https://cdn.contoh.id/soal/grafik.png" }], "audio": null }
+    }
+  ],
+  "items": [
+    {
+      "source_id": "demo-q-001",
+      "stimulus_id": "demo-passage-1",
+      "type": "single_choice",
+      "content": "<p>Pernyataan mana yang didukung bacaan?</p>",
+      "media": { "images": [{ "asset_id": "ast_01k6xq2v9w3m4n5p6q7r8s9t0v" }], "audio": null },
+      "options": [
+        { "id": "a", "content": "Kehadiran meningkat", "image": null },
+        { "id": "b", "content": "Kehadiran menurun", "image": null }
+      ],
+      "answer_key": { "option_id": "a" },
+      "scoring": { "correct": 4, "incorrect": -1, "unanswered": 0 },
+      "explanation": "<p>Kehadiran naik selama tiga minggu.</p>",
+      "difficulty": 2,
+      "metadata": { "topic": "Literasi", "subtopic": "Inferensi" }
+    }
+  ]
+}
+```
+
+| Field | Required | Description |
+| --- | --: | --- |
+| `source.package_id` | Yes | Package ID in your system, up to 191 characters. |
+| `source.revision` | Yes | Whole number ≥ 1. |
+| `source.title` | Yes | Package title, up to 255 characters. |
+| `bank.name` | No | Name of the question package in the admin panel. Default `<title> (rev. <revision>)`. |
+| `bank.description` | No | Plain-text description, up to 1,000 characters. |
+| `bank.shuffle_questions`, `bank.shuffle_options` | No | Shuffle the question and option order. Default `false`. |
+| `stimuli` | No | Passages (shared reading texts), up to 100. Each has a `source_id` (unique), a `title` (visible to admins only; default `source_id`), `content` (HTML, up to 20,000 characters of text) and `media`. It must contain text, an image or audio. |
+| `items` | Yes | 1–500 questions. **The array order is the question order.** |
+| `items.*.source_id` | Yes | Question ID in your system, unique within the package. |
+| `items.*.stimulus_id` | No | The `source_id` of one of the passages. A passage no question uses is rejected. |
+| `items.*.type` | Yes | See [Question types](#question-types). |
+| `items.*.content` | Yes | Question HTML. May be empty when `media.images` is filled in. |
+| `items.*.media.images` | No | Up to 10 images, each `{ "asset_id": "..." }` or `{ "url": "https://..." }`. |
+| `items.*.media.audio` | No | `{ "asset_id": "..." }` of an uploaded audio file. |
+| `items.*.scoring` | No | Weights for the Sum of Correct/Wrong scoring method: `correct`, `incorrect`, `unanswered` (numbers from −1000 to 1000). Default `1`, `0`, `0`. |
+| `items.*.explanation` | No | Explanation HTML. |
+| `items.*.difficulty` | No | `0` very easy to `4` very hard. |
+| `items.*.metadata` | No | Free-form object up to 4 KB, stored as sent and not used by the CBT. |
+
+## Question types
+
+| Type | Shown in the admin panel as | Specific fields |
+| --- | --- | --- |
+| `single_choice` | Multiple Choice | `options` 2–10, `answer_key.option_id` |
+| `multiple_choice` | Multiple Choice with more than one answer | `options` 2–10, `answer_key.option_ids` (at least 1) |
+| `categorization` | Complex Multiple Response with custom column labels | exactly 2 `categories`, 1–10 `statements`, an `answer_key` per statement |
+| `short_answer` | Short Answer | `format`, `answer_key.accepted` (1–21 correct answers) |
+| `matching` | Matching | 2–10 `pairs` with `left` and `right` (plain text, up to 255 characters) |
+
+Each option has an `id` (unique within the question, up to 50 characters), `content` (HTML) or an `image`, and optional `points` (default `0`). `answer_key` may give an `id` as a string or a number. `points` are used by the **Sum of Answer Scores** scoring method, so partial credit can be set per option.
+
+`multiple_choice` example:
+
+```json
+{
+  "source_id": "demo-q-002",
+  "type": "multiple_choice",
+  "content": "<p>Pilih semua pernyataan yang sesuai.</p>",
+  "options": [
+    { "id": "a", "content": "Minggu ketiga paling ramai", "points": 2 },
+    { "id": "b", "content": "Minggu pertama paling sepi", "points": 2 },
+    { "id": "c", "content": "Kehadiran selalu sama", "points": 0 }
+  ],
+  "answer_key": { "option_ids": ["a", "b"] }
+}
+```
+
+`categorization` example (Fact/Opinion; for True/False just change the categories):
+
+```json
+{
+  "source_id": "demo-q-003",
+  "type": "categorization",
+  "content": "<p>Tentukan apakah setiap pernyataan fakta atau opini.</p>",
+  "categories": [
+    { "id": "fakta", "label": "Fakta" },
+    { "id": "opini", "label": "Opini" }
+  ],
+  "statements": [
+    { "id": "s1", "content": "Klub membaca bertemu setiap minggu.", "points": 1 },
+    { "id": "s2", "content": "Klub membaca adalah kegiatan paling seru.", "points": 1 }
+  ],
+  "answer_key": { "s1": "fakta", "s2": "opini" }
+}
+```
+
+The first category is shown as the left column and the second as the right column. Category labels are up to 50 characters.
+
+`short_answer` example with several correct answers:
+
+```json
+{
+  "source_id": "demo-q-004",
+  "type": "short_answer",
+  "content": "<p>Hasil dari \\(\\tfrac{1}{4} + \\tfrac{1}{4}\\) adalah ...</p>",
+  "format": "text",
+  "answer_key": { "accepted": ["0,5", "1/2"] }
+}
+```
+
+- `format: "numeric"`: the participant's answer box only accepts numbers, and every correct answer must be a number. `format: "text"`: the participant types free text. When `format` is not sent, the question uses `numeric` if every correct answer is a number, and `text` otherwise.
+- Two numbers are compared by value (`0,5` equals `0.50`); anything else is compared as text, ignoring letter case and extra spaces. There is no numeric tolerance; write every form you accept as its own answer. Each answer is up to 255 characters.
+
+`matching` example:
+
+```json
+{
+  "source_id": "demo-q-005",
+  "type": "matching",
+  "content": "<p>Pasangkan provinsi dengan ibu kotanya.</p>",
+  "pairs": [
+    { "left": "Jawa Barat", "right": "Bandung" },
+    { "left": "Jawa Timur", "right": "Surabaya" }
+  ]
+}
+```
+
+## Content and media
+
+- **HTML** keeps the same tags as the question editor in the admin panel: `b i em span p u strong table th tr td ul li ol br sup pre code` for questions, passages and explanations; options and statements keep only `b i em span p strong ul li ol br sup pre code` (no underline and no tables). Other tags are unwrapped (their text stays); `script`, `style`, `iframe`, `svg` and similar elements are removed with their content; every attribute is removed except `colspan` and `rowspan` on table cells. Content that was changed is reported in `warnings` with the code `content_sanitized`.
+- Write `<` and `>` inside text or formulas as `&lt;` and `&gt;`, for example `\(a &lt; b\)`. Control characters (other than tabs and line breaks) are rejected.
+- **Formulas** are written in LaTeX with the delimiters `\( ... \)`, `\[ ... \]`, `$ ... $` or `$$ ... $$`.
+- Question, option, statement and explanation text is up to 5,000 characters once tags are removed.
+- **Images inside text are not supported** and are removed. Send question images through `media.images` and option images through `options.*.image`.
+- **Images from links** must be `https`, publicly reachable, and JPEG, PNG, GIF or WebP up to 5 MB. Images are downloaded into the project's storage; the original link is neither stored nor shown to participants. Links to internal network addresses, more than 3 redirects and files whose contents are not an image are rejected. Up to 300 distinct links per package.
+- Every image and audio file counts towards the project's storage quota.
+
+During the exam, a passage is shown as part of every question that uses it: the passage images come first with the question images, then the passage text sits right above the question text. When questions are shuffled, questions that share a passage stay together.
+
+## Import status
+
+| Status | Meaning |
+| --- | --- |
+| `queued` | The package was accepted and is waiting its turn. A project processes one import at a time. |
+| `processing` | Media is being downloaded or copied and the question package is being written. |
+| `completed` | The question package was created. `question_bank`, `stimuli` and `items` are filled in. |
+| `failed` | Nothing was stored. The cause is in `error`. |
+
+A failed import carries `error.code`, `error.message`, `error.retryable` and `error.details` (a list of per-question errors in the same shape as the [error format](#error-format)):
+
+```json
+{
+  "code": "image_download_failed",
+  "message": "1 gambar atau aset tidak dapat dipakai. Lihat error.details untuk soal yang perlu diperbaiki.",
+  "retryable": false,
+  "details": [
+    {
+      "pointer": "/items/1/media/images/0/url",
+      "source_item_id": "demo-q-002",
+      "code": "image_download_failed",
+      "message": "Gambar tidak dapat diunduh: server membalas dengan status HTTP 404."
+    }
+  ]
+}
+```
+
+| `error.code` | Cause |
+| --- | --- |
+| `image_download_failed` | An image link could not be downloaded or its contents are not an image. |
+| `unknown_asset` | An asset expired before the import was processed. |
+| `revision_already_imported` | The same revision finished importing first through another request. |
+| `processing_failed` | A problem on Indolat's servers. |
+
+When `retryable` is `true`, send the package again with a **new** `Idempotency-Key`. When it is `false`, fix the data as `details` describes, then send it again with a new `Idempotency-Key`.
+
+## Webhooks
+
+Subscribe to the `question_import.completed` and `question_import.failed` events through the [Webhooks API](/en/api/webhook). Headers and signatures are the same as for other events.
+
+```json
+{
+  "event": "question_import.completed",
+  "created_at": "2026-10-06T10:00:05+07:00",
+  "data": {
+    "id": "0d6f1c2e-5b7a-4f1e-9a51-3c8e2b7d4a10",
+    "status": "completed",
+    "source": { "package_id": "demo-pkg-001", "revision": 3, "title": "SNBT Literasi Paket 1" },
+    "item_count": 20,
+    "question_bank": { "id": 88, "name": "SNBT Literasi Paket 1 (rev. 3)" },
+    "error": null
+  }
+}
+```
+
+On `question_import.failed`, `question_bank` is `null` and `error` holds the cause. The full ID mapping is read through `GET /question-imports/{id}`.
+
+## Limits
+
+- 500 questions and 100 passages per package; the body is up to 10 MB.
+- 20 imports per hour per project; one import is processed at a time and the others wait in the queue.
+- The API rate limit of 120 requests per minute still applies.
+- The package body is kept for 30 days after the import finishes and then deleted. The question package and the ID mapping are not deleted.

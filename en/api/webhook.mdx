@@ -14,6 +14,8 @@ Available events:
 - `exam_participant.unregistered` — a participant's registration was cancelled
 - `exam_result.completed` — a participant finished a test
 - `exam_result.scored` — a test score was published or changed
+- `question_import.completed` — a question package import finished
+- `question_import.failed` — a question package import failed
 
 Webhooks are sent only while the **API Integration** add-on is active and the endpoint is enabled.
 
@@ -24,6 +26,7 @@ Webhooks are sent only while the **API Integration** add-on is active and the en
 - `exam_result.completed` and `exam_result.scored` come from a scan of exam results that runs every minute, so an event may arrive about 1–2 minutes after the participant finishes.
 - `exam_result.completed` may carry `score: null` for tests scored with IRT or manually. `exam_result.scored` follows once the score has been calculated.
 - `exam_result.scored` is sent again every time `score` or `meta_score` changes, for example after an IRT recalculation or a score recalculation. The same score is never sent twice.
+- `question_import.completed` and `question_import.failed` are sent when a question package import through the [Question Import API](/en/api/import-soal) finishes or fails.
 - Events are not guaranteed to arrive in order. Use `updated_at` from the [Exam Results API](/en/api/hasil-ujian) to determine the latest data, and resync regularly with `GET /exam-results?updated_since=...` so that missed events are still handled.
 
 <Accordion title="GET /webhooks — List webhook endpoints">
@@ -65,7 +68,9 @@ Webhooks are sent only while the **API Integration** add-on is active and the en
         "exam_participant.registered": "Peserta didaftarkan ke ujian",
         "exam_participant.unregistered": "Peserta dibatalkan dari ujian",
         "exam_result.completed": "Peserta selesai mengerjakan tes",
-        "exam_result.scored": "Nilai tes terbit atau berubah"
+        "exam_result.scored": "Nilai tes terbit atau berubah",
+        "question_import.completed": "Import paket soal selesai",
+        "question_import.failed": "Import paket soal gagal"
       }
     }
   }

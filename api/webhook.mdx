@@ -14,6 +14,8 @@ Event yang tersedia:
 - `exam_participant.unregistered` — pendaftaran peserta dibatalkan
 - `exam_result.completed` — peserta selesai mengerjakan tes
 - `exam_result.scored` — nilai tes terbit atau berubah
+- `question_import.completed` — import paket soal selesai
+- `question_import.failed` — import paket soal gagal
 
 Webhook hanya dikirim selama add-on **Integrasi API** aktif dan endpoint dalam keadaan aktif.
 
@@ -24,6 +26,7 @@ Webhook hanya dikirim selama add-on **Integrasi API** aktif dan endpoint dalam k
 - `exam_result.completed` dan `exam_result.scored` berasal dari pemindaian hasil ujian yang berjalan setiap menit, sehingga event dapat tiba sekitar 1–2 menit setelah peserta selesai.
 - `exam_result.completed` dapat membawa `score: null` untuk tes yang dinilai dengan IRT atau secara manual. `exam_result.scored` menyusul setelah nilainya dihitung.
 - `exam_result.scored` dikirim lagi setiap kali `score` atau `meta_score` berubah, misalnya setelah perhitungan ulang IRT atau perhitungan ulang skor. Nilai yang sama tidak dikirim dua kali.
+- `question_import.completed` dan `question_import.failed` dikirim saat import paket soal lewat [API Import Soal](/api/import-soal) selesai atau gagal.
 - Urutan kedatangan event tidak dijamin. Gunakan `updated_at` dari [API Hasil Ujian](/api/hasil-ujian) untuk menentukan data terbaru, dan sinkronkan ulang secara berkala dengan `GET /exam-results?updated_since=...` agar event yang terlewat tetap tertangani.
 
 <Accordion title="GET /webhooks — Daftar endpoint webhook">
@@ -65,7 +68,9 @@ Webhook hanya dikirim selama add-on **Integrasi API** aktif dan endpoint dalam k
         "exam_participant.registered": "Peserta didaftarkan ke ujian",
         "exam_participant.unregistered": "Peserta dibatalkan dari ujian",
         "exam_result.completed": "Peserta selesai mengerjakan tes",
-        "exam_result.scored": "Nilai tes terbit atau berubah"
+        "exam_result.scored": "Nilai tes terbit atau berubah",
+        "question_import.completed": "Import paket soal selesai",
+        "question_import.failed": "Import paket soal gagal"
       }
     }
   }

@@ -83,6 +83,7 @@
               "api/ujian",
               "api/pendaftaran-ujian",
               "api/hasil-ujian",
+              "api/import-soal",
               "api/webhook"
             ]
           }
@@ -160,6 +161,7 @@
               "en/api/ujian",
               "en/api/pendaftaran-ujian",
               "en/api/hasil-ujian",
+              "en/api/import-soal",
               "en/api/webhook"
             ]
           }

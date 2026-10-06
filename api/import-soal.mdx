@@ -1,0 +1,471 @@
+---
+title: "API Import Soal"
+description: "Kirim paket soal dari sistem Anda sebagai paket soal baru: unggah media, validasi, import asinkron, status, dan pemetaan ID."
+sidebarTitle: "Import Soal"
+---
+
+Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
+
+API ini mengubah satu revisi paket soal dari sistem Anda menjadi satu **paket soal baru** di panel, lengkap dengan wacana, gambar, audio, dan kunci jawaban. Import tidak membuat ujian: setelah import selesai, pasang paket soal tersebut ke sesi ujian melalui panel.
+
+## Alur
+
+1. Siapkan media. Gambar dapat ditulis sebagai link `https` langsung di paket, atau diunggah dulu ke `POST /question-assets` untuk mendapatkan `asset_id`. Audio hanya dapat dikirim lewat unggahan.
+2. (Opsional) Periksa paket dengan `POST /question-imports/validate`.
+3. Kirim paket ke `POST /question-imports` dengan header `Idempotency-Key`. Paket diperiksa saat itu juga; jika valid, respons `202` dan paket diproses di latar belakang.
+4. Pantau hasilnya lewat `GET /question-imports/{id}` atau webhook `question_import.completed` dan `question_import.failed`.
+5. Simpan `question_bank.id` untuk revisi tersebut dan `question_id` untuk setiap soal.
+
+<Warning>
+  Paket soal hasil import **tidak dapat diubah di panel**: soal, jawaban, dan wacananya terkunci agar setiap peserta dinilai dengan soal dan kunci jawaban yang sama persis dengan yang Anda kirim. Kirim koreksi sebagai revisi baru. Jika perlu mengubah isinya secara manual, gunakan **Duplikat Paket Soal**; salinannya dapat diubah seperti paket soal biasa.
+</Warning>
+
+## Format error
+
+Endpoint pada halaman ini mengembalikan `errors` berupa **daftar**, bukan objek per field seperti endpoint lain, karena satu paket dapat berisi ratusan soal. `pointer` adalah JSON Pointer ke bagian body yang bermasalah dan `source_item_id` adalah `source_id` soal atau wacana tersebut; untuk error yang tidak terkait satu soal, keduanya bernilai `null`. Satu respons memuat paling banyak 1.000 error.
+
+```json
+{
+  "success": false,
+  "message": "Paket soal tidak valid.",
+  "errors": [
+    {
+      "pointer": "/items/4/answer_key/option_id",
+      "source_item_id": "demo-q-005",
+      "code": "unknown_option",
+      "message": "Opsi \"e\" tidak ada pada soal ini."
+    }
+  ]
+}
+```
+
+| Kode | Status | Arti |
+| --- | --- | --- |
+| `required` | `422` | Field wajib tidak diisi. |
+| `invalid_value` | `422` / `400` | Nilai tidak sesuai aturan, misalnya jumlah opsi, format, atau teks berisi karakter kontrol. |
+| `too_long` | `422` | Teks melebihi batas panjang. |
+| `unsupported_type` | `422` | Tipe soal tidak dikenali. |
+| `duplicate_source_id` | `422` | `source_id` soal atau wacana dipakai lebih dari sekali. |
+| `unknown_option` | `422` | Kunci jawaban menyebut opsi atau pernyataan yang tidak ada. |
+| `missing_answer_key` | `422` | Kunci jawaban tidak diisi. |
+| `too_many_categories` | `422` | Soal kategori berisi lebih dari 2 kategori. |
+| `unknown_stimulus` | `422` | `stimulus_id` tidak ada di `stimuli`. |
+| `unused_stimulus` | `422` | Wacana tidak dipakai soal mana pun. |
+| `unknown_asset` | `422` | `asset_id` tidak ditemukan, milik projek lain, atau sudah kedaluwarsa. |
+| `asset_type_mismatch` | `422` | Aset audio dipakai sebagai gambar, atau sebaliknya. |
+| `invalid_image_link` | `422` | Link gambar bukan alamat `https` yang valid. |
+| `too_many_items` | `422` | Melebihi 500 soal atau 100 wacana per paket. |
+| `idempotency_key_required` | `400` | Header `Idempotency-Key` tidak dikirim. |
+| `idempotency_key_mismatch` | `422` | `Idempotency-Key` sudah dipakai untuk isi paket yang berbeda. |
+| `revision_already_imported` | `409` | Revisi paket ini sudah menjadi paket soal. Error berisi `question_import_id` dan `question_bank`. |
+| `revision_import_in_progress` | `409` | Revisi paket ini sedang diproses. Error berisi `question_import_id`. |
+| `storage_full` | `409` | Kuota penyimpanan projek penuh. |
+| `too_many_imports` | `429` | Lebih dari 20 import dalam satu jam. |
+| `payload_too_large` | `413` | Body lebih dari 10 MB. |
+| `unsupported_file_type` | `422` | Berkas unggahan bukan gambar atau audio yang didukung. |
+| `too_large` | `422` | Berkas unggahan melebihi batas ukuran. |
+| `processing_failed` | `503` | Paket atau berkas tidak dapat diterima karena gangguan di server Indolat. Kirim ulang dengan `Idempotency-Key` baru. |
+
+## Endpoint
+
+<Accordion title="POST /question-assets — Mengunggah gambar atau audio">
+  Mengunggah satu berkas dengan `multipart/form-data`. Tipe berkas dibaca dari isinya, bukan dari nama atau tipe yang dikirim.
+
+  - Gambar: JPEG, PNG, WebP, atau GIF, maksimal 5 MB dan 10.000 piksel per sisi.
+  - Audio: MP3, WAV, atau OGG, maksimal 10 MB.
+  - SVG dan berkas lain ditolak.
+
+  Berkas yang sama persis (isi identik) mengembalikan `asset_id` yang sama dengan status `200` dan masa berlaku yang diperpanjang. Aset dapat dipakai di paket mana pun sampai `expires_at` (7 hari setelah diunggah); setelah itu aset dihapus. Import menyalin berkasnya ke paket soal, sehingga soal tidak terpengaruh saat aset kedaluwarsa.
+
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `file` | Body | Ya | file | Gambar atau audio. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X POST "https://app.indolat.com/api/v1/question-assets" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json" \
+    -F "file=@grafik-kehadiran.png"
+  ```
+
+  ### Contoh response
+
+  Status `201`.
+
+  ```json
+  {
+    "success": true,
+    "message": "Aset berhasil diunggah.",
+    "data": {
+      "asset_id": "ast_01k6xq2v9w3m4n5p6q7r8s9t0v",
+      "type": "image",
+      "mime_type": "image/png",
+      "size_bytes": 48213,
+      "expires_at": "2026-10-13T10:00:00+07:00"
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="POST /question-imports/validate — Memeriksa paket">
+  Menerima body yang sama dengan `POST /question-imports` dan memeriksanya tanpa menyimpan apa pun. `Idempotency-Key` tidak diperlukan. Validasi hanya memeriksa bentuk link gambar; gambar diunduh saat import diproses, sehingga link yang tidak dapat diakses baru terlihat sebagai `image_download_failed` pada import yang gagal.
+
+  ### Contoh request
+
+  ```bash
+  curl -X POST "https://app.indolat.com/api/v1/question-imports/validate" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    --data @paket.json
+  ```
+
+  ### Contoh response
+
+  Status `200` jika paket valid. Jika tidak valid, status `422` dengan [format error](#format-error) di atas.
+
+  ```json
+  {
+    "success": true,
+    "message": "Paket soal valid.",
+    "data": { "valid": true, "item_count": 20, "stimulus_count": 1, "warnings": [] }
+  }
+  ```
+</Accordion>
+
+<Accordion title="POST /question-imports — Mengirim paket">
+  Memeriksa paket lalu memprosesnya di latar belakang. Jika ada kesalahan, respons `422` berisi seluruh error dan tidak ada yang disimpan. Jika valid, respons `202` dengan header `Location` ke `GET /question-imports/{id}`.
+
+  **Idempotency-Key** wajib dikirim, maksimal 255 karakter ASCII tanpa spasi, misalnya `{package_id}-r{revision}-{uuid}`. Key berlaku 7 hari:
+
+  - Key sama dan isi paket sama: import yang sudah ada dikembalikan dengan status `200` dan header `Idempotent-Replayed: true`. Aman dipakai saat koneksi terputus sebelum respons diterima.
+  - Key sama dengan isi paket berbeda: ditolak `422` dengan kode `idempotency_key_mismatch`.
+
+  **Revisi.** Pasangan `source.package_id` dan `source.revision` hanya dapat menjadi paket soal satu kali per projek. Revisi yang sudah selesai diimport ditolak `409` (`revision_already_imported`). Import yang gagal tidak menghalangi pengiriman ulang revisi yang sama.
+
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `Idempotency-Key` | Header | Ya | string | Kunci unik untuk request ini. |
+  | Body | Body | Ya | JSON | Paket soal, lihat [Format paket](#format-paket). |
+
+  ### Contoh request
+
+  ```bash
+  curl -X POST "https://app.indolat.com/api/v1/question-imports" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -H "Idempotency-Key: demo-pkg-001-r3-5f0c9a7e" \
+    --data @paket.json
+  ```
+
+  ### Contoh response
+
+  Status `202`.
+
+  ```json
+  {
+    "success": true,
+    "message": "Paket diterima dan sedang diproses.",
+    "data": {
+      "id": "0d6f1c2e-5b7a-4f1e-9a51-3c8e2b7d4a10",
+      "status": "queued",
+      "source": { "package_id": "demo-pkg-001", "revision": 3, "title": "SNBT Literasi Paket 1" },
+      "item_count": 20,
+      "question_bank": null,
+      "warnings": [],
+      "error": null,
+      "created_at": "2026-10-06T10:00:00+07:00",
+      "started_at": null,
+      "finished_at": null
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="GET /question-imports — Daftar import">
+  Diurutkan dari import terbaru. Item daftar tidak memuat pemetaan ID; gunakan detail import untuk itu.
+
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `source_package_id` | Query | Tidak | string | Filter ID paket di sistem Anda. |
+  | `source_revision` | Query | Tidak | integer | Filter nomor revisi. |
+  | `status` | Query | Tidak | enum | `queued`, `processing`, `completed`, atau `failed`. |
+  | `page` | Query | Tidak | integer | Nomor halaman. Default `1`. |
+  | `per_page` | Query | Tidak | integer | Data per halaman, `1–100`. Default `25`. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/question-imports?source_package_id=demo-pkg-001&status=completed" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+</Accordion>
+
+<Accordion title="GET /question-imports/{id} — Status dan pemetaan ID">
+  Setelah status `completed`, respons berisi paket soal yang dibuat, `stimuli` (wacana) dan `items` (soal) dengan ID-nya di CBT. Simpan pemetaan ini untuk menelusuri soal Anda di CBT.
+
+  ### Parameter
+
+  | Nama | Lokasi | Wajib | Tipe | Keterangan |
+  | --- | --- | --: | --- | --- |
+  | `id` | Path | Ya | UUID | `id` import dari respons `POST /question-imports`. |
+
+  ### Contoh request
+
+  ```bash
+  curl -X GET "https://app.indolat.com/api/v1/question-imports/0d6f1c2e-5b7a-4f1e-9a51-3c8e2b7d4a10" \
+    -H "Authorization: Bearer <API_KEY>" \
+    -H "Accept: application/json"
+  ```
+
+  ### Contoh response
+
+  ```json
+  {
+    "success": true,
+    "message": null,
+    "data": {
+      "id": "0d6f1c2e-5b7a-4f1e-9a51-3c8e2b7d4a10",
+      "status": "completed",
+      "source": { "package_id": "demo-pkg-001", "revision": 3, "title": "SNBT Literasi Paket 1" },
+      "item_count": 20,
+      "question_bank": { "id": 88, "name": "SNBT Literasi Paket 1 (rev. 3)" },
+      "stimuli": [{ "source_id": "demo-passage-1", "stimulus_id": 301 }],
+      "items": [
+        { "source_id": "demo-q-001", "position": 1, "question_id": 5012 },
+        { "source_id": "demo-q-002", "position": 2, "question_id": 5013 }
+      ],
+      "warnings": [],
+      "error": null,
+      "created_at": "2026-10-06T10:00:00+07:00",
+      "started_at": "2026-10-06T10:00:02+07:00",
+      "finished_at": "2026-10-06T10:00:05+07:00"
+    }
+  }
+  ```
+</Accordion>
+
+## Format paket
+
+```json
+{
+  "source": { "package_id": "demo-pkg-001", "revision": 3, "title": "SNBT Literasi Paket 1" },
+  "bank": {
+    "name": "SNBT Literasi Paket 1 (rev. 3)",
+    "description": null,
+    "shuffle_questions": false,
+    "shuffle_options": false
+  },
+  "stimuli": [
+    {
+      "source_id": "demo-passage-1",
+      "title": "Teks 1 - Kehadiran Klub Membaca",
+      "content": "<p>Klub membaca mencatat kehadiran selama tiga minggu ...</p>",
+      "media": { "images": [{ "url": "https://cdn.contoh.id/soal/grafik.png" }], "audio": null }
+    }
+  ],
+  "items": [
+    {
+      "source_id": "demo-q-001",
+      "stimulus_id": "demo-passage-1",
+      "type": "single_choice",
+      "content": "<p>Pernyataan mana yang didukung bacaan?</p>",
+      "media": { "images": [{ "asset_id": "ast_01k6xq2v9w3m4n5p6q7r8s9t0v" }], "audio": null },
+      "options": [
+        { "id": "a", "content": "Kehadiran meningkat", "image": null },
+        { "id": "b", "content": "Kehadiran menurun", "image": null }
+      ],
+      "answer_key": { "option_id": "a" },
+      "scoring": { "correct": 4, "incorrect": -1, "unanswered": 0 },
+      "explanation": "<p>Kehadiran naik selama tiga minggu.</p>",
+      "difficulty": 2,
+      "metadata": { "topic": "Literasi", "subtopic": "Inferensi" }
+    }
+  ]
+}
+```
+
+| Field | Wajib | Keterangan |
+| --- | --: | --- |
+| `source.package_id` | Ya | ID paket di sistem Anda, maksimal 191 karakter. |
+| `source.revision` | Ya | Bilangan bulat ≥ 1. |
+| `source.title` | Ya | Judul paket, maksimal 255 karakter. |
+| `bank.name` | Tidak | Nama paket soal di panel. Default `<title> (rev. <revision>)`. |
+| `bank.description` | Tidak | Deskripsi teks biasa, maksimal 1.000 karakter. |
+| `bank.shuffle_questions`, `bank.shuffle_options` | Tidak | Acak urutan soal dan opsi. Default `false`. |
+| `stimuli` | Tidak | Wacana (bacaan bersama), maksimal 100. Berisi `source_id` (unik), `title` (hanya terlihat admin; default `source_id`), `content` (HTML, maksimal 20.000 karakter teks), dan `media`. Minimal berisi teks, gambar, atau audio. |
+| `items` | Ya | 1–500 soal. **Urutan array adalah urutan soal.** |
+| `items.*.source_id` | Ya | ID soal di sistem Anda, unik di paket. |
+| `items.*.stimulus_id` | Tidak | `source_id` salah satu wacana. Wacana yang tidak dipakai soal mana pun ditolak. |
+| `items.*.type` | Ya | Lihat [Tipe soal](#tipe-soal). |
+| `items.*.content` | Ya | HTML soal. Boleh kosong jika `media.images` diisi. |
+| `items.*.media.images` | Tidak | Maksimal 10 gambar, masing-masing `{ "asset_id": "..." }` atau `{ "url": "https://..." }`. |
+| `items.*.media.audio` | Tidak | `{ "asset_id": "..." }` hasil unggahan audio. |
+| `items.*.scoring` | Tidak | Bobot metode penilaian Akumulasi Benar/Salah: `correct`, `incorrect`, `unanswered` (angka −1000 sampai 1000). Default `1`, `0`, `0`. |
+| `items.*.explanation` | Tidak | HTML pembahasan. |
+| `items.*.difficulty` | Tidak | `0` sangat mudah sampai `4` sangat sulit. |
+| `items.*.metadata` | Tidak | Objek bebas maksimal 4 KB, disimpan apa adanya dan tidak dipakai CBT. |
+
+## Tipe soal
+
+| Tipe | Tampil di panel sebagai | Field khusus |
+| --- | --- | --- |
+| `single_choice` | Pilihan Ganda | `options` 2–10, `answer_key.option_id` |
+| `multiple_choice` | Pilihan Ganda dengan jawaban lebih dari satu | `options` 2–10, `answer_key.option_ids` (minimal 1) |
+| `categorization` | Majemuk Kompleks dengan label kolom sendiri | `categories` tepat 2, `statements` 1–10, `answer_key` per pernyataan |
+| `short_answer` | Jawaban Singkat | `format`, `answer_key.accepted` (1–21 jawaban benar) |
+| `matching` | Menjodohkan | `pairs` 2–10 berisi `left` dan `right` (teks biasa, maksimal 255 karakter) |
+
+Setiap opsi berisi `id` (unik di soal, maksimal 50 karakter), `content` (HTML) atau `image`, dan `points` opsional (default `0`). `answer_key` dapat menyebut `id` sebagai string atau angka. `points` dipakai metode penilaian **Akumulasi Skor Jawaban**, sehingga nilai parsial dapat diatur per opsi.
+
+Contoh `multiple_choice`:
+
+```json
+{
+  "source_id": "demo-q-002",
+  "type": "multiple_choice",
+  "content": "<p>Pilih semua pernyataan yang sesuai.</p>",
+  "options": [
+    { "id": "a", "content": "Minggu ketiga paling ramai", "points": 2 },
+    { "id": "b", "content": "Minggu pertama paling sepi", "points": 2 },
+    { "id": "c", "content": "Kehadiran selalu sama", "points": 0 }
+  ],
+  "answer_key": { "option_ids": ["a", "b"] }
+}
+```
+
+Contoh `categorization` (Fakta/Opini; untuk Benar/Salah cukup ganti kategorinya):
+
+```json
+{
+  "source_id": "demo-q-003",
+  "type": "categorization",
+  "content": "<p>Tentukan apakah setiap pernyataan fakta atau opini.</p>",
+  "categories": [
+    { "id": "fakta", "label": "Fakta" },
+    { "id": "opini", "label": "Opini" }
+  ],
+  "statements": [
+    { "id": "s1", "content": "Klub membaca bertemu setiap minggu.", "points": 1 },
+    { "id": "s2", "content": "Klub membaca adalah kegiatan paling seru.", "points": 1 }
+  ],
+  "answer_key": { "s1": "fakta", "s2": "opini" }
+}
+```
+
+Kategori pertama tampil sebagai kolom kiri dan kategori kedua sebagai kolom kanan. Label kategori maksimal 50 karakter.
+
+Contoh `short_answer` dengan beberapa jawaban benar:
+
+```json
+{
+  "source_id": "demo-q-004",
+  "type": "short_answer",
+  "content": "<p>Hasil dari \\(\\tfrac{1}{4} + \\tfrac{1}{4}\\) adalah ...</p>",
+  "format": "text",
+  "answer_key": { "accepted": ["0,5", "1/2"] }
+}
+```
+
+- `format: "numeric"`: kolom jawaban peserta hanya menerima angka, dan semua jawaban benar wajib berupa angka. `format: "text"`: peserta mengetik teks bebas. Jika `format` tidak dikirim, soal memakai `numeric` bila semua jawaban benar berupa angka, selain itu `text`.
+- Dua angka dibandingkan berdasarkan nilainya (`0,5` sama dengan `0.50`); selain itu jawaban dibandingkan sebagai teks tanpa membedakan huruf besar/kecil dan spasi berlebih. Tidak ada toleransi angka; tulis setiap bentuk yang dianggap benar sebagai jawaban tersendiri. Setiap jawaban maksimal 255 karakter.
+
+Contoh `matching`:
+
+```json
+{
+  "source_id": "demo-q-005",
+  "type": "matching",
+  "content": "<p>Pasangkan provinsi dengan ibu kotanya.</p>",
+  "pairs": [
+    { "left": "Jawa Barat", "right": "Bandung" },
+    { "left": "Jawa Timur", "right": "Surabaya" }
+  ]
+}
+```
+
+## Konten dan media
+
+- **HTML** yang dipertahankan sama dengan editor soal di panel: `b i em span p u strong table th tr td ul li ol br sup pre code` untuk soal, wacana, dan pembahasan; opsi dan pernyataan hanya `b i em span p strong ul li ol br sup pre code` (tanpa garis bawah dan tabel). Tag lain dilepas (teksnya tetap ada); `script`, `style`, `iframe`, `svg`, dan sejenisnya dibuang beserta isinya; semua atribut dibuang kecuali `colspan` dan `rowspan` pada sel tabel. Konten yang berubah dilaporkan di `warnings` dengan kode `content_sanitized`.
+- Tulis karakter `<` dan `>` di dalam teks atau rumus sebagai `&lt;` dan `&gt;`, misalnya `\(a &lt; b\)`. Karakter kontrol (selain tab dan baris baru) ditolak.
+- **Rumus** ditulis dalam LaTeX dengan pembatas `\( ... \)`, `\[ ... \]`, `$ ... $`, atau `$$ ... $$`.
+- Teks soal, opsi, pernyataan, dan pembahasan maksimal 5.000 karakter setelah tag dibuang.
+- **Gambar di dalam teks tidak didukung** dan dibuang. Kirim gambar soal lewat `media.images` dan gambar opsi lewat `options.*.image`.
+- **Gambar dari link** harus `https`, dapat diakses publik, dan berupa JPEG, PNG, GIF, atau WebP maksimal 5 MB. Gambar diunduh ke penyimpanan projek; link asli tidak disimpan dan tidak ditampilkan ke peserta. Link ke alamat jaringan internal, redirect lebih dari 3 kali, dan berkas yang isinya bukan gambar ditolak. Maksimal 300 link berbeda per paket.
+- Seluruh gambar dan audio dihitung dalam kuota penyimpanan projek.
+
+Saat ujian, wacana tampil sebagai bagian dari setiap soal yang memakainya: gambar wacana tampil lebih dulu bersama gambar soal, lalu teks wacana tepat di atas teks soal. Jika soal diacak, soal-soal dengan wacana yang sama tetap berurutan.
+
+## Status import
+
+| Status | Arti |
+| --- | --- |
+| `queued` | Paket diterima dan menunggu giliran. Satu projek memproses satu import dalam satu waktu. |
+| `processing` | Media sedang diunduh atau disalin dan paket soal sedang ditulis. |
+| `completed` | Paket soal sudah dibuat. `question_bank`, `stimuli`, dan `items` terisi. |
+| `failed` | Tidak ada yang disimpan. Penyebabnya ada di `error`. |
+
+Import yang gagal berisi `error.code`, `error.message`, `error.retryable`, dan `error.details` (daftar error per soal dengan format yang sama seperti [Format error](#format-error)):
+
+```json
+{
+  "code": "image_download_failed",
+  "message": "1 gambar atau aset tidak dapat dipakai. Lihat error.details untuk soal yang perlu diperbaiki.",
+  "retryable": false,
+  "details": [
+    {
+      "pointer": "/items/1/media/images/0/url",
+      "source_item_id": "demo-q-002",
+      "code": "image_download_failed",
+      "message": "Gambar tidak dapat diunduh: server membalas dengan status HTTP 404."
+    }
+  ]
+}
+```
+
+| `error.code` | Penyebab |
+| --- | --- |
+| `image_download_failed` | Link gambar tidak dapat diunduh atau isinya bukan gambar. |
+| `unknown_asset` | Aset kedaluwarsa sebelum import diproses. |
+| `revision_already_imported` | Revisi yang sama selesai diimport lebih dulu oleh request lain. |
+| `processing_failed` | Gangguan di server Indolat. |
+
+Jika `retryable` bernilai `true`, kirim ulang paket dengan `Idempotency-Key` **baru**. Jika `false`, perbaiki data sesuai `details`, lalu kirim ulang dengan `Idempotency-Key` baru.
+
+## Webhook
+
+Daftarkan event `question_import.completed` dan `question_import.failed` lewat [API Webhook](/api/webhook). Header dan signature sama dengan event lain.
+
+```json
+{
+  "event": "question_import.completed",
+  "created_at": "2026-10-06T10:00:05+07:00",
+  "data": {
+    "id": "0d6f1c2e-5b7a-4f1e-9a51-3c8e2b7d4a10",
+    "status": "completed",
+    "source": { "package_id": "demo-pkg-001", "revision": 3, "title": "SNBT Literasi Paket 1" },
+    "item_count": 20,
+    "question_bank": { "id": 88, "name": "SNBT Literasi Paket 1 (rev. 3)" },
+    "error": null
+  }
+}
+```
+
+Pada `question_import.failed`, `question_bank` bernilai `null` dan `error` berisi penyebab kegagalan. Pemetaan ID lengkap dibaca lewat `GET /question-imports/{id}`.
+
+## Batas
+
+- 500 soal dan 100 wacana per paket; body maksimal 10 MB.
+- 20 import per jam per projek; satu import diproses dalam satu waktu, import lain menunggu di antrean.
+- Rate limit API 120 request per menit tetap berlaku.
+- Isi paket disimpan 30 hari setelah import selesai, lalu dihapus. Paket soal dan pemetaan ID tidak ikut dihapus.
