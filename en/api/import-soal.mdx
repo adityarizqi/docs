@@ -396,7 +396,7 @@ The first category is shown as the left column and the second as the right colum
 
 ## Content and media
 
-- **HTML** keeps the same tags as the question editor in the admin panel: `b i em span p u strong table th tr td ul li ol br sup pre code` for questions, passages and explanations; options and statements keep only `b i em span p strong ul li ol br sup pre code` (no underline and no tables). Other tags are unwrapped (their text stays); `script`, `style`, `iframe`, `svg` and similar elements are removed with their content; every attribute is removed except `colspan` and `rowspan` on table cells. Content that was changed is reported in `warnings` with the code `content_sanitized`.
+- **HTML** keeps the same tags as the question editor in the admin panel: `b i em span p u strong table th tr td ul li ol br sup sub pre code` for questions, passages and explanations; options and statements keep only `b i em span p strong ul li ol br sup sub pre code` (no underline and no tables). Other tags are unwrapped (their text stays); `script`, `style`, `iframe`, `svg` and similar elements are removed with their content; every attribute is removed except `colspan` and `rowspan` on table cells. Content that was changed is reported in `warnings` with the code `content_sanitized`.
 - Write `<` and `>` inside text or formulas as `&lt;` and `&gt;`, for example `\(a &lt; b\)`. Control characters (other than tabs and line breaks) are rejected.
 - **Formulas** are written in LaTeX with the delimiters `\( ... \)`, `\[ ... \]`, `$ ... $` or `$$ ... $$`.
 - Question, option, statement and explanation text is up to 5,000 characters once tags are removed.
