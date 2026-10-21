@@ -107,6 +107,7 @@ Main status codes: `200` success, `201` created, `401` invalid API key, `403` ac
 
 - Store the API key on your server only, never in a frontend or mobile app.
 - Use the IP whitelist under **Application Settings → API Integration** whenever possible.
+- Register only domains you own under **Post-Exam Redirect Domains**. Exam access links accept a `return_url` only on a registered domain and over `https://`.
 - Regenerate the API key (**Regenerate API Key**) immediately if you suspect it has leaked; the old key stops working straight away.
 - An exam access link acts as a participant login and can be used only once. Create the link when the participant is about to sign in, redirect the participant straight away, and keep the validity period as short as possible.
 - Use HTTPS for webhook endpoints, and verify the signature against the raw request body before processing the payload.

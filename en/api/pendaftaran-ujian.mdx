@@ -255,6 +255,7 @@ Every request on this page requires a [Bearer API key](/en/api/autentikasi).
   - `exam_url` is returned even when the test can't be taken yet. Check `can_start` before redirecting the participant. A link for a test with `can_start: false` doesn't open the test; the participant is sent to the CBT dashboard or gets a not-found page.
   - A participant can have only one active login session. Opening a link on another device ends the session on the previous device.
   - Inactive participants cannot sign in through a link. The link is still created, and the `message` in the response explains that the participant is inactive.
+  - When `return_url` is sent, the **Exam Completed** page shows a **Continue** button that takes the participant to that URL once the last test of the attempt is finished. Without `return_url`, the page keeps its **Back to Exam List** button.
 
   <Tip>
     Access links are designed for a redirect flow from your application, for example a "Start Exam" button. Create the link at the moment the participant clicks the button, with a short `expires_in_minutes` (for example 5–15 minutes), then redirect the participant straight away. Don't store links or send them by email or chat: some chat and email apps open links automatically to generate a preview, so the link is used up before the participant clicks it.
@@ -267,6 +268,11 @@ Every request on this page requires a [Bearer API key](/en/api/autentikasi).
   | `exam` | Path | Yes | integer | Exam ID. |
   | `participant` | Path | Yes | integer | ID of a registered participant. |
   | `expires_in_minutes` | Body | No | integer | Link validity, `1–10080`. Default `1440`. |
+  | `return_url` | Body | No | string | Full URL the **Continue** button opens after the test is finished, up to 2,048 characters. Must use `https://`, and its domain must be registered (see below). Any path and query string are allowed. |
+
+  <Note>
+    Register the `return_url` domains in the **Post-Exam Redirect Domains** field under **Application Settings → API Integration**. Enter the domain name only, without `https://` or a path, separated by commas, for example `portal.smanusantara.example.com, ujian.smanusantara.example.com`. Domains are matched exactly: registering `smanusantara.example.com` does not allow its subdomains, so register every subdomain you use. The port of a `return_url` is not part of the match.
+  </Note>
 
   ### Response fields per link
 
@@ -294,7 +300,7 @@ Every request on this page requires a [Bearer API key](/en/api/autentikasi).
   - `no_questions` — the session's question package has no questions yet.
   - `outside_session` — the current time is outside the session schedule.
 
-  Status `404` is returned if the exam or participant is not found, or if the participant isn't registered for the exam. Status `422` is returned if the exam has no tests yet.
+  Status `404` is returned if the exam or participant is not found, or if the participant isn't registered for the exam. Status `422` is returned if the exam has no tests yet, or if `return_url` doesn't use `https://` or its domain isn't registered.
 
   ### Example request
 
@@ -303,7 +309,7 @@ Every request on this page requires a [Bearer API key](/en/api/autentikasi).
     -H "Authorization: Bearer <API_KEY>" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{ "expires_in_minutes": 10 }'
+    -d '{ "expires_in_minutes": 10, "return_url": "https://portal.smanusantara.example.com/ujian/selesai" }'
   ```
 
   ### Example response

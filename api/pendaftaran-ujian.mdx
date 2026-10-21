@@ -255,6 +255,7 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
   - `exam_url` tetap dikembalikan walaupun tes belum dapat dikerjakan. Periksa `can_start` sebelum mengarahkan peserta. Link untuk tes dengan `can_start: false` tidak membuka tes; peserta diarahkan ke dashboard CBT atau mendapat halaman tidak ditemukan.
   - Satu peserta hanya dapat memiliki satu sesi login aktif. Membuka link di perangkat lain mengakhiri sesi di perangkat sebelumnya.
   - Peserta nonaktif tidak dapat masuk melalui link. Link tetap dibuat, dan `message` pada respons menjelaskan bahwa peserta sedang nonaktif.
+  - Jika `return_url` dikirim, halaman **Tes Selesai** menampilkan tombol **Lanjutkan** yang membawa peserta ke URL tersebut setelah tes terakhir dalam pengerjaan itu selesai. Tanpa `return_url`, halaman tersebut tetap menampilkan tombol **Kembali ke Daftar Tes**.
 
   <Tip>
     Link akses dirancang untuk alur redirect dari aplikasi Anda, misalnya tombol "Mulai Ujian". Buat link tepat saat peserta menekan tombol dengan `expires_in_minutes` yang singkat (misalnya 5–15 menit), lalu langsung redirect peserta. Jangan menyimpan link atau mengirimkannya melalui email atau chat: beberapa aplikasi chat dan email membuka link secara otomatis untuk pratinjau, sehingga link sudah terpakai sebelum peserta mengkliknya.
@@ -267,6 +268,11 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
   | `exam` | Path | Ya | integer | ID ujian. |
   | `participant` | Path | Ya | integer | ID peserta yang telah terdaftar. |
   | `expires_in_minutes` | Body | Tidak | integer | Masa berlaku link, `1–10080`. Default `1440`. |
+  | `return_url` | Body | Tidak | string | URL lengkap tujuan tombol **Lanjutkan** setelah tes selesai, maksimal 2.048 karakter. Wajib `https://`, dan domainnya harus terdaftar (lihat di bawah). Path dan query string bebas. |
+
+  <Note>
+    Daftarkan domain `return_url` pada kolom **Domain Redirect Setelah Ujian** di **Pengaturan Aplikasi → Integrasi API**. Tulis nama domain saja tanpa `https://` dan tanpa path, pisahkan dengan koma, misalnya `portal.smanusantara.example.com, ujian.smanusantara.example.com`. Domain dicocokkan persis: mendaftarkan `smanusantara.example.com` tidak otomatis mengizinkan subdomainnya, jadi daftarkan setiap subdomain yang dipakai. Port pada `return_url` tidak ikut dicocokkan.
+  </Note>
 
   ### Field respons per link
 
@@ -294,7 +300,7 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
   - `no_questions` — paket soal pada sesi belum berisi soal.
   - `outside_session` — waktu saat ini berada di luar jadwal sesi.
 
-  Status `404` dikembalikan jika ujian atau peserta tidak ditemukan, atau peserta belum terdaftar pada ujian. Status `422` dikembalikan jika ujian belum memiliki tes.
+  Status `404` dikembalikan jika ujian atau peserta tidak ditemukan, atau peserta belum terdaftar pada ujian. Status `422` dikembalikan jika ujian belum memiliki tes, atau jika `return_url` tidak memakai `https://` atau domainnya belum terdaftar.
 
   ### Contoh request
 
@@ -303,7 +309,7 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
     -H "Authorization: Bearer <API_KEY>" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{ "expires_in_minutes": 10 }'
+    -d '{ "expires_in_minutes": 10, "return_url": "https://portal.smanusantara.example.com/ujian/selesai" }'
   ```
 
   ### Contoh response
