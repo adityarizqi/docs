@@ -60,7 +60,7 @@ Secara garis besar, langkahnya adalah sebagai berikut:
 
     - ujian dengan tipe **Ujian Professional (Paket Berbayar)**, tipe pembayaran **Gratis**, dan pengaturan **Ya (Multi-Level)**;
     - tanggal mulai hari ini dan tanggal selesai satu bulan kemudian;
-    - tiga tes ujian: **Babak Penyisihan** dan **Babak Semifinal** (CBT, 120 menit, Perhitungan Skor Soal), serta **Babak Final** (Esai / Upload File);
+    - tiga tes ujian: **Babak Penyisihan** dan **Babak Semifinal** (CBT, 120 menit, Perhitungan Skor Soal, dengan **Hanya Izinkan Satu Layar** aktif bila paket projek mencakup fitur **Proctoring Dual Monitor**; jika tidak, pengaturan ini dimatikan), serta **Babak Final** (Esai / Upload File);
     - tiga level dengan nama yang sama, masing-masing berisi satu tes, dan semuanya memerlukan verifikasi admin;
     - pendaftaran mandiri yang belum dibuka.
 
@@ -128,7 +128,7 @@ Setiap tab disimpan dengan tombol **Simpan** di bawah formulir.
     **Tipe Ujian** menentukan jenis kredit yang dipakai. Kredit berkurang ketika peserta mengikuti ujian, dan sisa kredit tampil pada kotak keterangan.
 
     - **Ujian Standard (Paket Gratis)**: kredit di-reset otomatis setiap bulan; maksimal **4 Tes Ujian (Subtes)** per ujian; maksimal **50 peserta** ujian serentak; tanpa **Proctoring Kamera, Layar, dan Dual Monitor**; tanpa **Computer Adaptive Test (CAT)**.
-    - **Ujian Professional (Paket Berbayar)**: memakai kredit profesional dari langganan atau pembelian Kredit Ujian (sisa kredit langganan terakumulasi selama langganan diperpanjang tanpa jeda, lihat [Kredit Ujian, Ujian Standard, dan Ujian Professional](/konsep/kredit-dan-tipe-ujian)); maksimal **30 Tes Ujian (Subtes)** per ujian; maksimal **1.000 peserta** ujian serentak; **Proctoring Kamera, Layar, dan Dual Monitor** serta **CAT** tersedia. Jika projek tidak memiliki kredit ujian profesional, sistem menampilkan peringatan dan peserta tidak dapat memulai ujian sampai kredit tersedia.
+    - **Ujian Professional (Paket Berbayar)**: memakai kredit profesional dari langganan atau pembelian Kredit Ujian (kredit dari langganan terakumulasi selama langganan diperpanjang tanpa jeda, sedangkan Kredit Ujian yang dibeli terpisah berlaku 6 bulan sejak tanggal pembelian; lihat [Kredit Ujian, Ujian Standard, dan Ujian Professional](/konsep/kredit-dan-tipe-ujian)); maksimal **30 Tes Ujian (Subtes)** per ujian; maksimal **1.000 peserta** ujian serentak; **Proctoring Kamera, Layar, dan Dual Monitor** serta **CAT** tersedia. Dual monitor (**Hanya Izinkan Satu Layar**) dan CAT juga memerlukan paket langganan yang mencakup fiturnya: dual monitor pada paket **Esensial**, **Rutin**, dan **Intensif**, CAT pada paket **Rutin** dan **Intensif**. Jika projek tidak memiliki kredit ujian profesional, sistem menampilkan peringatan dan peserta tidak dapat memulai ujian sampai kredit tersedia.
 
     <Tip>
       Pada ujian berjenjang, setiap babak biasanya berupa satu tes ujian. Jika jumlah tes seluruh babak lebih dari empat, gunakan **Ujian Professional**.
@@ -163,7 +163,7 @@ Setiap tab disimpan dengan tombol **Simpan** di bawah formulir.
        - **Akumulasi Tes Ujian**: skor setiap tes dijumlahkan.
        - **Rata-Rata Tes Ujian** (bawaan): jumlah skor dibagi jumlah tes yang sudah dinilai.
 
-       Contoh: skor Babak Penyisihan 80 dan Babak Semifinal 70 menghasilkan skor akhir 150 dengan akumulasi, atau 75 dengan rata-rata. Jika ujian sudah memiliki peserta, skor akhir seluruh peserta dihitung ulang setelah perubahan disimpan.
+       Contoh: skor Babak Penyisihan 80 dan Babak Semifinal 70 menghasilkan skor akhir 150 dengan akumulasi, atau 75 dengan rata-rata. Jika ujian sudah memiliki peserta, skor akhir seluruh peserta dihitung ulang setelah perubahan disimpan. Tes bermetode **Psikotes (Pengelompokan Jawaban)** tidak ikut dijumlahkan maupun dirata-ratakan.
     3. **Apakah Tampilkan Skor Akhir Ujian?**: aktifkan jika peserta boleh melihat skor akhir. Aktifkan hanya setelah skor dihitung dengan benar.
     4. Klik **Simpan**.
   </Step>
@@ -202,10 +202,10 @@ Buat satu tes ujian untuk setiap babak. Penjelasan lengkap setiap kolom tes ujia
   </Step>
   <Step title="Isi formulir tes ujian">
     <Frame>
-      ![Formulir Tambah Tes Ujian untuk Babak Penyisihan](/images/data-ujian/membuat-ujian-berjenjang/13-formulir-tes-babak-penyisihan.png)
+      ![Formulir Tambah Tes Ujian untuk Babak Penyisihan](/images/data-ujian/membuat-ujian-berjenjang/13-formulir-tes-babak-penyisihan-standard.png)
     </Frame>
 
-    1. **Jenis Ujian**: contoh **Computer Based Test (CBT)**.
+    1. **Jenis Ujian**: contoh **Computer Based Test (CBT)**. Pada ujian Standard, teks bantuan **Fitur ini hanya tersedia untuk Ujian Professional.** mengingatkan bahwa CAT tidak dapat dipilih (lihat [Membuat Tes Ujian](/data-ujian/membuat-tes-ujian#jenis-ujian)).
     2. **Metode Penilaian**: contoh **Perhitungan Skor Soal (Akumulasi Benar/Salah)**.
     3. **Nama Tes**: contoh **Babak Penyisihan**.
     4. **Durasi Pengerjaan (menit)**: contoh **90**.

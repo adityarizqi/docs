@@ -24,13 +24,13 @@ Jenis ujian dipilih per tes, bukan per ujian. Satu ujian dapat berisi tes CBT da
 | Cara soal muncul | Semua soal paket, dengan urutan tetap atau diacak per peserta | Satu per satu; soal berikutnya bergantung pada jawaban sebelumnya | Semua soal paket |
 | Pindah antarsoal | Bebas, termasuk kembali ke soal sebelumnya | Hanya maju; soal yang sudah dilewati tidak dapat dibuka lagi | Bebas |
 | **Daftar Soal** dan **Tandai Ragu-ragu** | Ada | Tidak ada | **Daftar Soal** ada, tanpa ragu-ragu |
-| Jumlah soal yang dikerjakan | Semua soal paket | Semua soal paket, dengan urutan yang menyesuaikan jawaban; tes berakhir lebih awal jika waktu habis | Semua soal paket |
+| Jumlah soal yang dikerjakan | Semua soal paket | Semua soal paket, atau sebanyak **Jumlah Soal yang Dikerjakan (CAT)** jika diisi admin; urutannya menyesuaikan jawaban, dan tes berakhir lebih awal jika waktu habis | Semua soal paket |
 | Batas waktu | **Durasi Pengerjaan (menit)** tes, paling lambat sampai sesi berakhir | Sama seperti CBT | Tanpa durasi; dapat dikerjakan sampai sesi berakhir |
 | Jenis paket soal | **CBT/CAT** | **CBT/CAT**, dan setiap soal wajib memiliki **Tingkat Kesulitan** | **Esai/Upload File (Jawaban Manual)** |
 | Jenis soal | Pilihan Ganda, Jawaban Singkat, Majemuk Kompleks, Menjodohkan | Sama seperti CBT | Jawaban Uraian, Unggah File |
 | Metode penilaian | Enam metode otomatis (lihat di bawah) | Hanya **Perhitungan Skor Soal (Akumulasi Benar/Salah)** dengan bobot **Skor CAT** | Hanya **Penilaian Manual** |
 | Kapan skor keluar | Saat peserta selesai (IRT: setelah admin menjalankan perhitungan) | Saat peserta selesai | Setelah admin memberi skor |
-| Tipe ujian | **Ujian Standard** dan **Ujian Professional** | Hanya **Ujian Professional (Paket Berbayar)** | **Ujian Standard** dan **Ujian Professional** |
+| Tipe ujian dan paket | **Ujian Standard** dan **Ujian Professional**, semua paket | Hanya **Ujian Professional (Paket Berbayar)** pada projek berpaket **Rutin** atau **Intensif** | **Ujian Standard** dan **Ujian Professional**, semua paket |
 
 Tampilan setiap jenis soal bagi peserta dijelaskan di [Jenis Soal dan Tampilannya bagi Peserta](/konsep/jenis-soal).
 
@@ -41,10 +41,10 @@ CBT adalah ujian berbasis komputer yang paling umum, mirip lembar soal kertas ya
 ### Pengalaman peserta
 
 <Frame>
-  ![Tampilan tes CBT bagi peserta dengan Daftar Soal dan tombol navigasi bernomor](/images/konsep/jenis-ujian-cbt-cat-esai/01-tampilan-tes-cbt.png)
+  ![Tampilan tes CBT bagi peserta dengan Daftar Soal dan tombol navigasi bernomor](/images/konsep/jenis-ujian-cbt-cat-esai/01-tampilan-tes-cbt-daftar-soal.png)
 </Frame>
 
-1. **Daftar Soal**: nomor semua soal. Peserta dapat langsung melompat ke nomor mana pun. Warna nomor menunjukkan status: oranye untuk soal yang sedang dibuka, hijau untuk soal yang sudah dijawab, abu-abu untuk soal yang ditandai ragu-ragu, dan putih untuk soal yang belum dijawab. Ringkasan jumlahnya tampil di bagian **Keterangan**.
+1. **Daftar Soal**: nomor semua soal. Peserta dapat langsung melompat ke nomor mana pun. Warna nomor menunjukkan status: oranye untuk soal yang sedang dibuka, hijau untuk soal yang sudah dijawab, abu-abu untuk soal yang ditandai ragu-ragu, dan putih untuk soal yang belum dijawab. Soal **Menjodohkan** baru dihitung terjawab (hijau) setelah semua pasangannya ditempatkan; pada gambar, soal 6 masih putih karena baru sebagian pasangan yang ditempatkan. Ringkasan jumlahnya tampil di bagian **Keterangan**.
 2. **Soal Sebelumnya**: kembali ke soal sebelumnya untuk memeriksa atau mengubah jawaban.
 3. **Tandai Ragu-ragu**: menandai soal yang ingin diperiksa lagi nanti. Tanda ini hanya pengingat bagi peserta dan tidak memengaruhi nilai.
 4. **Soal Selanjutnya**: membuka soal berikutnya. Pada soal terakhir, tombol ini berganti menjadi **Selesai Tes**.
@@ -76,7 +76,7 @@ Dibandingkan CBT, tampilan CAT lebih sederhana:
 
 - Tidak ada **Daftar Soal**, tombol **Soal Sebelumnya**, maupun **Tandai Ragu-ragu**. Soal yang sudah dilewati tidak dapat dibuka lagi.
 - Tombol **Soal Selanjutnya** (nomor 1 pada gambar) baru aktif setelah peserta menjawab soal yang sedang tampil. Peserta tidak dapat melewati soal tanpa menjawab.
-- Tombol **Selesai Tes** baru muncul pada soal terakhir. Jika waktu habis lebih dulu, tes berakhir otomatis.
+- Tombol **Selesai Tes** baru muncul pada soal terakhir, yaitu soal terakhir paket soal atau soal ke-*N* jika admin membatasi jumlah soal. Jika waktu habis lebih dulu, tes berakhir otomatis.
 
 Setelah peserta menjawab benar soal pertama (tingkat **Sedang**), sistem memberikan soal tingkat **Sulit**:
 
@@ -105,11 +105,31 @@ Contoh perjalanan seorang peserta pada paket berisi 10 soal (dua soal untuk seti
 
 ### Berapa soal yang dikerjakan
 
-Tes CAT di CBT Indolat menampilkan **semua soal** dalam paket soal, satu per satu. Yang menyesuaikan dengan peserta adalah **urutan** soal, bukan jumlahnya. Dashboard peserta menampilkan jumlah soal tes, misalnya **30 Menit • 10 Soal**. Tes berakhir ketika peserta menjawab soal terakhir dan menekan **Selesai Tes**, atau ketika waktu habis. Jika waktu habis lebih dulu, soal yang belum sempat ditampilkan tidak ikut dihitung.
+Secara bawaan, tes CAT di CBT Indolat menampilkan **semua soal** dalam paket soal, satu per satu. Yang menyesuaikan dengan peserta adalah **urutan** soal, bukan jumlahnya.
+
+Admin dapat membatasi jumlah soal melalui pengaturan **Jumlah Soal yang Dikerjakan (CAT)** pada tes (lihat [Membuat Tes Ujian](/data-ujian/membuat-tes-ujian#jumlah-soal-tes-cat)). Misalnya, paket soal berisi 10 soal dan batasnya diisi **5**: setiap peserta hanya mengerjakan 5 soal, dan soal mana yang muncul tetap bergantung pada jawaban sebelumnya. Bayangkan guru les tadi berhenti bertanya setelah lima pertanyaan, walaupun masih punya soal cadangan.
+
+Tes CAT berakhir pada kejadian mana pun yang terjadi lebih dulu:
+
+- peserta sudah menjawab sebanyak batas jumlah soal lalu menekan **Selesai Tes**,
+- peserta sudah menjawab semua soal paket soal (jika batas dikosongkan atau lebih besar dari jumlah soal paket), atau
+- waktu pengerjaan habis. Soal yang belum sempat ditampilkan tidak ikut dihitung.
+
+Jumlah soal yang dilihat peserta mengikuti batas ini. Kartu tes di dashboard peserta menampilkan, misalnya, **30 Menit • 5 Soal**:
+
+<Frame>
+  ![Kartu tes CAT di dashboard peserta dengan keterangan 30 Menit • 5 Soal](/images/konsep/jenis-ujian-cbt-cat-esai/05-kartu-tes-cat-jumlah-soal.png)
+</Frame>
+
+Jendela petunjuk yang muncul saat peserta mengklik **Kerjakan Tes** juga menampilkan **Jumlah Soal: 5 Soal**, dan penanda `{{JUMLAH_SOAL}}` pada instruksi tes berisi angka yang sama.
+
+<Frame>
+  ![Jendela petunjuk tes CAT dengan Jenis Tes Computer Adaptive Test (CAT) dan Jumlah Soal 5 Soal](/images/konsep/jenis-ujian-cbt-cat-esai/06-dialog-mulai-tes-cat.png)
+</Frame>
 
 ### Syarat dan penilaian
 
-- CAT hanya dapat dipilih pada ujian bertipe **Ujian Professional (Paket Berbayar)**. Pada **Ujian Standard (Paket Gratis)**, pilihan CAT berwarna abu-abu.
+- CAT hanya dapat dipilih jika ujian bertipe **Ujian Professional (Paket Berbayar)** **dan** paket langganan projek mencakup fitur **Computer Adaptive Test (CAT)**, yaitu paket **Rutin** dan **Intensif**. Jika salah satu syarat tidak terpenuhi, pilihan CAT berlabel **(Fitur tidak aktif)** dan tidak dapat dipilih. Tes CAT yang sudah tersimpan tetap berjalan walaupun paket projek kemudian tidak lagi mencakup CAT. Rinciannya ada di [Membuat Tes Ujian](/data-ujian/membuat-tes-ujian#jenis-ujian).
 - **Setiap soal** pada paket soal yang dipakai sesi wajib memiliki **Tingkat Kesulitan**. Jika ada soal tanpa tingkat kesulitan, sesi tidak dapat dibuat atau diubah (pesan **Gagal Membuat Sesi Ujian** atau **Gagal Mengubah Sesi Ujian**), dan tes CBT yang sudah memiliki sesi tidak dapat diubah menjadi CAT (pesan **Gagal Menyimpan Tes Ujian**).
 - Metode penilaian CAT hanya **Perhitungan Skor Soal (Akumulasi Benar/Salah)**, memakai bobot **Skor Benar** dan **Skor Salah** pada bagian **Skor CAT** di tab **Penilaian** setiap soal. Bagian **Skor CBT** tidak dipakai.
 - Tingkat kesulitan hanya menentukan urutan soal, bukan besar nilainya. Jika soal sulit ingin bernilai lebih tinggi, beri **Skor Benar** yang lebih besar pada soal tersebut.
@@ -138,7 +158,7 @@ Tes esai hanya memakai **Penilaian Manual**. Setelah peserta selesai, admin memb
 | --- | --- |
 | Tryout UTBK-SNBT, ulangan harian, ujian sekolah, atau olimpiade dengan soal pilihan ganda | **CBT** dengan **Perhitungan Skor Soal (Akumulasi Benar/Salah)**, atau salah satu metode **IRT** bila ingin skor berskala UTBK atau TKA |
 | Angket, survei kepuasan, atau tes kepribadian tanpa jawaban benar-salah | **CBT** dengan **Perhitungan Skor Jawaban (Akumulasi Skor Jawaban)** atau **Psikotes (Pengelompokan Jawaban)** |
-| Tes penempatan kelas atau seleksi yang ingin menyesuaikan soal dengan kemampuan setiap peserta, dan bank soal sudah diberi tingkat kesulitan | **CAT** (memerlukan **Ujian Professional**) |
+| Tes penempatan kelas atau seleksi yang ingin menyesuaikan soal dengan kemampuan setiap peserta, dan bank soal sudah diberi tingkat kesulitan | **CAT** (memerlukan **Ujian Professional** dan paket **Rutin** atau **Intensif**) |
 | Peserta perlu bebas kembali ke soal sebelumnya dan menandai soal ragu-ragu | **CBT** |
 | Karangan, uraian langkah penyelesaian, laporan praktikum, atau tugas berupa berkas | **Esai / Upload File (Jawaban Manual)** |
 | Tryout yang berisi pilihan ganda dan esai | Satu ujian dengan dua tes: tes **CBT** dan tes **Esai / Upload File (Jawaban Manual)**, masing-masing dengan paket soalnya sendiri |

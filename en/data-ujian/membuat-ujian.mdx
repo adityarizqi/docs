@@ -81,6 +81,7 @@ There are two ways to create an exam:
           - An exam created from a template is a **Ujian Professional (Paket Berbayar)** (Professional exam) that starts when the template is used and ends one month later. Change its name, code, schedule and type through **Detail**.
           - A template does **not** create exam sessions, registration form fields or participants. You still need to [create exam sessions](/en/data-ujian/membuat-sesi-ujian), choose a question package for each session and [add participants](/en/data-ujian/menambahkan-peserta-ujian).
           - Templates that charge a fee can only be used when the registration form add-on is active.
+          - Test settings that need a plan feature follow the project's plan. If the plan does not include **Proctoring Dual Monitor**, **Hanya Izinkan Satu Layar** (single screen only) is turned off on the template's tests; if it does not include **Computer Adaptive Test (CAT)**, the template's CAT tests are created as CBT tests.
         </Note>
       </Step>
     </Steps>
@@ -150,20 +151,23 @@ This tab has the same fields as the **Tambah Ujian** form: **Kode Ujian**, **Nam
 
 | | **Ujian Standard (Paket Gratis)** | **Ujian Professional (Paket Berbayar)** |
 | --- | --- | --- |
-| Credit reset | Automatically every month | Every month, following your subscription period |
+| Credit validity | Reset automatically every month | Subscription credits accumulate as long as the subscription is renewed without a gap; separately purchased exam credits are valid for 6 months from the purchase date |
 | Tests per exam | Up to 4 | Up to 30 |
 | Participants taking the exam at the same time | Up to 50 | Up to 1,000 |
-| Camera, Screen and Dual Monitor proctoring | Not available | Available |
-| Computer Adaptive Test (CAT) | Not available | Available |
+| Camera and Screen proctoring | Not available | Available (uses add-on credits) |
+| Dual Monitor proctoring (**Hanya Izinkan Satu Layar**) | Not available | Available if the project is on the **Esensial**, **Rutin** or **Intensif** plan |
+| Computer Adaptive Test (CAT) | Not available | Available if the project is on the **Rutin** or **Intensif** plan |
 
 With both types, CBT tests can use every scoring method (including IRT), and **Deteksi Pindah Tab** (Tab Switch Detection) is always available.
+
+The **Ujian Professional** info box says proctoring and CAT are available, but **Hanya Izinkan Satu Layar** and CAT still need a subscription plan that includes them. Without it, the options are labelled **(Fitur tidak aktif)** (feature not active) on the test form. See [Create a Test](/en/data-ujian/membuat-tes-ujian#exam-type) and [Exam Credits, Standard and Professional Exams](/en/konsep/kredit-dan-tipe-ujian).
 
 <Warning>
   If you choose **Ujian Professional (Paket Berbayar)** but the project has no professional exam credits, the system shows a warning and participants cannot start the exam until credits are available. Credits are managed in **Administrasi Aplikasi** → **Keuangan** → **Langganan & Tagihan** (Subscription & Billing).
 </Warning>
 
 <Tip>
-  Choose **Ujian Standard** for simple exams with at most 4 tests and 50 participants at the same time. Choose **Ujian Professional** if you need more tests or concurrent participants, CAT, or camera, screen and dual monitor proctoring.
+  Choose **Ujian Standard** for simple exams with at most 4 tests and 50 participants at the same time. Choose **Ujian Professional** if you need more tests or concurrent participants, CAT, or camera, screen and dual monitor proctoring. For CAT and dual monitor, also make sure the project's subscription plan includes the feature.
 </Tip>
 
 ### Pendaftaran & Pembayaran
@@ -213,7 +217,7 @@ This tab sets the general test-taking rules and how the final score is calculate
    - **Akumulasi Tes Ujian** (Sum of Tests): the scores of all tests are added together.
    - **Rata-Rata Tes Ujian** (Average of Tests, default): the total is divided by the number of tests that have been scored.
 
-   Example: scores of 80 for Penalaran Matematika and 70 for Literasi Bahasa Indonesia give a final score of 150 with the sum, or 75 with the average. If the exam already has participants, every participant's final score is recalculated after you save the change.
+   Example: scores of 80 for Penalaran Matematika and 70 for Literasi Bahasa Indonesia give a final score of 150 with the sum, or 75 with the average. If the exam already has participants, every participant's final score is recalculated after you save the change. Tests scored with **Psikotes (Pengelompokan Jawaban)** are left out of both the sum and the average.
 5. **Apakah Tampilkan Skor Akhir Ujian?** (Show the Final Exam Score?)<br />Turn this on so participants can see their final exam score. Only turn it on once the final scores are correct. Leave it off if scores still need checking or will be announced later.
 6. Click **Simpan**.
 

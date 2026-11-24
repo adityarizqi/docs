@@ -22,11 +22,21 @@ Halaman ini berisi endpoint untuk membaca ujian. Membuat dan mengubah ujian, tes
 | `is_must_be_in_order` | Tes harus dikerjakan berurutan sesuai `level`. |
 | `is_force_complete` | Tes harus diselesaikan tanpa jeda sebelum lanjut ke tes berikutnya. |
 | `is_show_score` | Nilai akhir ditampilkan kepada peserta di CBT. Tidak membatasi nilai yang tersedia melalui API. |
-| `edition` | `standard` (Ujian Standard) atau `professional` (Ujian Professional). Menentukan kredit yang dipakai saat peserta mulai, batas jumlah tes, serta ketersediaan CAT dan proctoring kamera, layar, dan dual monitor. |
+| `edition` | `standard` (Ujian Standard) atau `professional` (Ujian Professional). Menentukan kredit yang dipakai saat peserta mulai, batas jumlah tes, serta ketersediaan CAT dan proctoring kamera, layar, dan dual monitor. CAT dan dual monitor juga memerlukan fitur paket langganan projek. |
 | `final_score_type` | Cara menghitung nilai akhir ujian dari nilai tes: `1` akumulasi, `2` rata-rata. |
 | `paid_type` | `1` gratis, `2` sekali bayar, `3` berbayar per tes, `4` berbayar per jenjang. |
 
-Pada tes (`exam_quizzes`), `exam_type` bernilai `cbt`, `cat`, atau `manual`, `duration_minutes` adalah durasi pengerjaan tes, `score_type` adalah metode penilaian, dan field `is_*` adalah pengaturan tes (lihat [Pengaturan Ujian](/api/pengaturan-ujian)). Pada sesi, `question_bank_id` adalah ID paket soal yang dikerjakan pada sesi tersebut.
+### Field penting pada tes
+
+| Field | Keterangan |
+| --- | --- |
+| `exam_type` | `cbt`, `cat`, atau `manual`. |
+| `duration_minutes` | Durasi pengerjaan tes dalam menit. |
+| `score_type` | Metode penilaian. |
+| `cat_question_limit` | Jumlah soal yang dikerjakan peserta pada tes CAT. `null` jika peserta mengerjakan seluruh soal pada paket soal; selalu `null` untuk tes selain CAT. |
+| `is_*` | Pengaturan tes (lihat [Pengaturan Ujian](/api/pengaturan-ujian)). |
+
+Pada sesi, `question_bank_id` adalah ID paket soal yang dikerjakan pada sesi tersebut.
 
 <Accordion title="GET /exams — Daftar ujian">
   ### Parameter
@@ -154,6 +164,7 @@ Pada tes (`exam_quizzes`), `exam_type` bernilai `cbt`, `cat`, atau `manual`, `du
           "is_dual_screen_proctoring": false,
           "is_audio_question_only_once": false,
           "is_audio_answer_only_once": false,
+          "cat_question_limit": null,
           "sessions": [
             {
               "id": 91,
@@ -221,6 +232,7 @@ Pada tes (`exam_quizzes`), `exam_type` bernilai `cbt`, `cat`, atau `manual`, `du
         "is_dual_screen_proctoring": false,
         "is_audio_question_only_once": false,
         "is_audio_answer_only_once": false,
+        "cat_question_limit": null,
         "sessions": [
           {
             "id": 91,

@@ -67,7 +67,7 @@ The **Penalaran Matematika** test has 20 questions. Each question has **Skor Ben
 </Warning>
 
 <Note>
-  If a participant finishes the test without answering a single question, every question is scored with **Skor Salah**, not **Skor Tidak Dijawab**.
+  Unanswered questions always use **Skor Tidak Dijawab**, including when a participant finishes the test without answering a single question. The correct, incorrect and unanswered counts shown in the results always add up to the number of scored questions.
 </Note>
 
 ### CAT tests
@@ -76,6 +76,8 @@ In a **Computer Adaptive Test (CAT)**, every question must have a **Tingkat Kesu
 
 - After a **correct** answer, the system first looks for a harder question.
 - After an **incorrect** answer, the system first looks for an easier question.
+
+The number of questions can be limited with the test setting **Jumlah Soal yang Dikerjakan (CAT)** (Number of Questions to Answer). If it is set, for example to 20, the test ends after the participant answers 20 questions; if it is empty, the participant works through every question in the package.
 
 Question selection does not change the score formula. A CAT test is scored with the total formula above using the **Skor CAT** weights, only for the questions actually shown to the participant.
 
@@ -129,9 +131,9 @@ A work-style test has 10 questions with the groups **Leadership**, **Teamwork** 
 
 The participant's main tendency is **Teamwork**.
 
-<Warning>
-  The numeric score of a psychometric test is always **0**, because the result is a group. If the exam's final score is **Rata-Rata Tes Ujian** (average), this 0 is included in the average and lowers the final score. Consider the **Akumulasi Tes Ujian** (total) final score type, or put the psychometric test in an exam of its own.
-</Warning>
+<Note>
+  A psychometric test produces no numeric score, because its result is a group. It is left out of the exam's final score, with both **Akumulasi Tes Ujian** and **Rata-Rata Tes Ujian**.
+</Note>
 
 ## IRT (Item Response Theory)
 
@@ -195,7 +197,7 @@ When an exam has more than one test, the test scores are combined into the final
 | **Akumulasi Tes Ujian** (total) | Final score = sum of the scores of all graded tests |
 | **Rata-Rata Tes Ujian** (average, default) | Final score = sum of the graded test scores ÷ number of graded tests |
 
-The final score is rounded to 2 decimals. Tests without a score yet, such as an ungraded essay test or an IRT test that has not been calculated, are left out of both the total and the average.
+The final score is rounded to 2 decimals. **Psikotes (Pengelompokan Jawaban)** tests are left out. Tests without a score yet, such as an ungraded essay test or an IRT test that has not been calculated, are left out of both the total and the average.
 
 **Example:** the **Tryout Akbar SNBT 2027** exam has three tests scoring **Penalaran Matematika** 57, **Literasi Bahasa Indonesia** 64 and **Pengetahuan Kuantitatif** 48.
 

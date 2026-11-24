@@ -74,16 +74,27 @@ The **Tipe Ujian** (Exam Type) is chosen per exam, in the **Tambah Ujian** form 
 | Credits used | Free credits, then professional credits when the free ones run out | Professional credits |
 | Tests (subtests) per exam | Up to 4 | Up to 30 |
 | Participants taking a test at the same time | Up to 50 per exam | Up to 1,000 per exam |
-| Computer Adaptive Test (CAT) | Not available | Available |
-| **Pengawasan Kamera**, **Pengawasan Layar (Share Screen)**, **Hanya Izinkan Satu Layar** (single screen only) | Not available | Available |
+| Computer Adaptive Test (CAT) | Not available | Available if the project's plan includes the **Computer Adaptive Test (CAT)** feature: the **Rutin** and **Intensif** plans |
+| **Hanya Izinkan Satu Layar** (single screen only) | Not available | Available if the project's plan includes the **Proctoring Dual Monitor** feature: the **Esensial**, **Rutin** and **Intensif** plans |
+| **Pengawasan Kamera**, **Pengawasan Layar (Share Screen)** | Not available | Available, with **Proctoring Kamera** or **Proctoring Layar** add-on credits |
 | **Deteksi Pindah Tab** (tab switch detection) | Available | Available |
 | Scoring methods, including IRT | All available for CBT tests | All available for CBT tests |
+
+So CAT and **Hanya Izinkan Satu Layar** need two conditions at once: the exam is an **Ujian Professional**, and the project's subscription plan includes the feature. If either is missing, the option is labelled **(Fitur tidak aktif)** (feature not active) on the test form and cannot be chosen. Settings saved before the plan changed keep applying. Details are in [Create a Test](/en/data-ujian/membuat-tes-ujian#exam-type).
 
 The info box under the **Tipe Ujian** field shows these limits together with the relevant remaining credit.
 
 <Frame>
   ![Tipe & Paket Ujian tab with the Ujian Standard (Gratis) info box and remaining credit](/images/konsep/kredit-dan-tipe-ujian/01-info-ujian-standard.png)
 </Frame>
+
+If the project has professional credits and you choose **Ujian Professional (Paket Berbayar)**, the info box shows the remaining professional credits and how long they last: **Kredit dari langganan terakumulasi selama langganan diperpanjang tanpa jeda. Kredit Ujian yang dibeli terpisah berlaku 6 bulan sejak tanggal pembelian.** (Subscription credits accumulate as long as the subscription is renewed without a gap. Separately purchased exam credits are valid for 6 months from the purchase date.)
+
+<Frame>
+  ![Ujian Professional info box with the remaining credits, the credit validity rule, and the plan condition for Dual Monitor Proctoring and CAT](/images/konsep/kredit-dan-tipe-ujian/04-info-ujian-professional.png)
+</Frame>
+
+The box follows your project's plan. **Proctoring Kamera dan Layar** (camera and screen proctoring) is always available on a Professional exam. **Proctoring Dual Monitor** and **Computer Adaptive Test (CAT)** are listed as **tersedia** (available) when the project's plan includes them; otherwise the box says the feature needs a plan that includes it, with a link to **Langganan & Tagihan**.
 
 If you choose **Ujian Professional (Paket Berbayar)** while the project has no professional credits, the info box turns into a warning. The exam can still be saved, but participants cannot start a test until credits are available.
 
@@ -111,12 +122,14 @@ There are three ways to extend a project. All three are bought in **Langganan & 
 
 Plan comparison:
 
-| Plan | Monthly price | Professional credits per month | Free credits per month | Storage |
-| --- | --- | --- | --- | --- |
-| **Standard** | Free | None | 200 (50 before the profile is completed) | 100 MB |
-| **Esensial** | Rp149,000 | 500 | 200 | 1 GB |
-| **Rutin** | Rp289,000 | 1,150 | 200 | 5 GB |
-| **Intensif** | Rp699,000 | 2,800 | 200 | 20 GB |
+| Plan | Monthly price | Professional credits per month | Free credits per month | Storage | Test features from the plan |
+| --- | --- | --- | --- | --- | --- |
+| **Standard** | Free | None | 200 (50 before the profile is completed) | 100 MB | None |
+| **Esensial** | Rp149,000 | 500 | 200 | 1 GB | **Proctoring Dual Monitor** |
+| **Rutin** | Rp289,000 | 1,150 | 200 | 5 GB | **Proctoring Dual Monitor**, **Computer Adaptive Test (CAT)** |
+| **Intensif** | Rp699,000 | 2,800 | 200 | 20 GB | **Proctoring Dual Monitor**, **Computer Adaptive Test (CAT)** |
+
+The features in the last column are enforced: without a matching plan, **Computer Adaptive Test (CAT)** and **Hanya Izinkan Satu Layar** cannot be chosen on a test, and creating such a test through the API is rejected too. If you create an exam from an exam template while the project's plan lacks these features, the template's CAT tests are created as CBT tests and **Hanya Izinkan Satu Layar** is turned off.
 
 While a paid subscription is active, extra credits cost Rp50 less, that is **Rp450 per credit**. Yearly prices, the other features of each plan, and the full add-on list are in [Subscription & Billing](/en/administrasi/langganan-dan-tagihan#plan-options).
 

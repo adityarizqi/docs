@@ -60,7 +60,7 @@ In outline, the steps are:
 
     - an exam with type **Ujian Professional (Paket Berbayar)**, payment type **Gratis** (Free), and the setting **Ya (Multi-Level)**;
     - a start date of today and an end date one month later;
-    - three exam tests: **Babak Penyisihan** and **Babak Semifinal** (CBT, 120 minutes, Perhitungan Skor Soal), and **Babak Final** (Esai / Upload File);
+    - three exam tests: **Babak Penyisihan** and **Babak Semifinal** (CBT, 120 minutes, Perhitungan Skor Soal, with **Hanya Izinkan Satu Layar** on when the project's plan includes **Proctoring Dual Monitor**; otherwise this setting is turned off), and **Babak Final** (Esai / Upload File);
     - three levels with the same names, each containing one test, all requiring admin verification;
     - self-registration that is not yet open.
 
@@ -128,7 +128,7 @@ Each tab is saved with the **Simpan** (Save) button below the form.
     **Tipe Ujian** determines which credits are used. Credits are deducted when participants take the exam, and the remaining credits are shown in the information box.
 
     - **Ujian Standard (Paket Gratis)**: credits reset automatically every month; at most **4 Tes Ujian (Subtes)** per exam; at most **50 participants** taking the exam at the same time; no **Proctoring Kamera, Layar, dan Dual Monitor** (camera, screen, and dual-monitor proctoring); no **Computer Adaptive Test (CAT)**.
-    - **Ujian Professional (Paket Berbayar)**: uses professional credits from your subscription or purchased Kredit Ujian (unused subscription credits carry over while the subscription is renewed without a gap; see [Exam Credits, Standard and Professional Exams](/en/konsep/kredit-dan-tipe-ujian)); at most **30 Tes Ujian (Subtes)** per exam; at most **1,000 participants** at the same time; proctoring and **CAT** are available. If the project has no professional exam credits, the system shows a warning and participants cannot start the exam until credits are available.
+    - **Ujian Professional (Paket Berbayar)**: uses professional credits from your subscription or purchased Kredit Ujian (subscription credits accumulate while the subscription is renewed without a gap, and separately purchased exam credits are valid for 6 months from the purchase date; see [Exam Credits, Standard and Professional Exams](/en/konsep/kredit-dan-tipe-ujian)); at most **30 Tes Ujian (Subtes)** per exam; at most **1,000 participants** at the same time; proctoring and **CAT** are available. Dual monitor (**Hanya Izinkan Satu Layar**) and CAT also need a subscription plan that includes them: dual monitor on the **Esensial**, **Rutin** and **Intensif** plans, CAT on the **Rutin** and **Intensif** plans. If the project has no professional exam credits, the system shows a warning and participants cannot start the exam until credits are available.
 
     <Tip>
       In a multi-level exam, each round is usually one exam test. If all rounds together have more than four tests, use **Ujian Professional**.
@@ -163,7 +163,7 @@ Each tab is saved with the **Simpan** (Save) button below the form.
        - **Akumulasi Tes Ujian** (Sum of Tests): the scores of all tests are added up.
        - **Rata-Rata Tes Ujian** (Average of Tests, default): the total score divided by the number of scored tests.
 
-       Example: a Preliminary Round score of 80 and a Semifinal score of 70 give a final score of 150 with the sum, or 75 with the average. If the exam already has participants, all final scores are recalculated after the change is saved.
+       Example: a Preliminary Round score of 80 and a Semifinal score of 70 give a final score of 150 with the sum, or 75 with the average. If the exam already has participants, all final scores are recalculated after the change is saved. Tests scored with **Psikotes (Pengelompokan Jawaban)** are left out of both the sum and the average.
     3. **Apakah Tampilkan Skor Akhir Ujian?** (Show Final Score?): turn on if participants may see their final score. Only turn it on once the scores have been calculated correctly.
     4. Click **Simpan**.
   </Step>
@@ -202,10 +202,10 @@ Create one exam test for each round. Every exam test field is explained in [Crea
   </Step>
   <Step title="Fill in the exam test form">
     <Frame>
-      ![Tambah Tes Ujian form for Babak Penyisihan](/images/data-ujian/membuat-ujian-berjenjang/13-formulir-tes-babak-penyisihan.png)
+      ![Tambah Tes Ujian form for Babak Penyisihan](/images/data-ujian/membuat-ujian-berjenjang/13-formulir-tes-babak-penyisihan-standard.png)
     </Frame>
 
-    1. **Jenis Ujian** (Exam Type): for example **Computer Based Test (CBT)**.
+    1. **Jenis Ujian** (Exam Type): for example **Computer Based Test (CBT)**. On a Standard exam, the helper text **Fitur ini hanya tersedia untuk Ujian Professional.** (This feature is only available for Professional Exams.) is a reminder that CAT cannot be chosen (see [Create a Test](/en/data-ujian/membuat-tes-ujian#exam-type)).
     2. **Metode Penilaian** (Scoring Method): for example **Perhitungan Skor Soal (Akumulasi Benar/Salah)**.
     3. **Nama Tes** (Test Name): for example **Babak Penyisihan**.
     4. **Durasi Pengerjaan (menit)** (Duration in minutes): for example **90**.

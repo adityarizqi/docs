@@ -73,6 +73,13 @@ Hal yang sering ditanyakan peserta pada tahap ini:
 
 - **Salah kata sandi berkali-kali.** Setelah 5 kali gagal dalam satu menit, peserta diminta menunggu sebentar sebelum mencoba lagi.
 - **Akun yang dinonaktifkan admin** tidak dapat masuk, dan pesan yang muncul sama dengan pesan salah kata sandi.
+- **Membuka halaman aplikasi sebelum masuk.** Peserta yang belum masuk, atau yang sesinya sudah berakhir, kadang membuka halaman aplikasi langsung, misalnya dari bookmark `https://prestasi.indolat.web.id/app/dashboard`. Aplikasi mengarahkannya ke halaman login projek dengan pesan **Silakan masuk terlebih dahulu untuk melanjutkan.** Setelah masuk, peserta langsung kembali ke halaman yang tadi dibukanya.
+
+  <Frame>
+    ![Halaman login peserta dengan pesan Informasi Silakan masuk terlebih dahulu untuk melanjutkan](/images/konsep/alur-peserta/26-silakan-masuk-terlebih-dahulu.png)
+  </Frame>
+
+  Jika halaman dibuka dari alamat utama CBT Indolat (tanpa kode projek di alamatnya), aplikasi memakai projek yang terakhir dibuka di browser tersebut. Jika browser itu belum pernah membuka projek mana pun, peserta diarahkan ke halaman awal untuk memasukkan kode projek. Karena itu, bagikan selalu tautan login yang memuat kode projek Anda.
 
 Langkah pendaftaran akun mandiri dan verifikasi email dijelaskan di [Login Peserta](/lainnya/login-peserta#cara-peserta-mendaftar-dan-masuk).
 
@@ -191,7 +198,7 @@ Warna nomor pada **Daftar Soal** membantu peserta memeriksa pekerjaannya sebelum
 
 - **Oranye**: soal yang sedang dibuka.
 - **Abu-abu**: soal yang ditandai ragu-ragu.
-- **Hijau**: soal yang sudah dijawab.
+- **Hijau**: soal yang sudah dijawab. Soal **Menjodohkan** baru berwarna hijau setelah semua pasangannya ditempatkan; soal yang baru sebagian dipasangkan tetap dihitung belum dijawab.
 - **Putih**: soal yang belum dijawab.
 
 Beberapa perilaku yang perlu Anda ketahui:
@@ -222,7 +229,13 @@ Peserta cukup membuka tautan login lagi dan masuk. Aplikasi langsung membawa pes
   ![Halaman soal di ponsel setelah peserta masuk dari perangkat kedua](/images/konsep/alur-peserta/23-tampilan-ponsel-soal.png)
 </Frame>
 
-Satu akun hanya dapat aktif di satu perangkat. Jika peserta masuk dari perangkat lain, halaman ujian di perangkat lama menampilkan pesan **Sesi tidak valid. Akun Anda digunakan di perangkat lain.**, dan sistem mencatat **Peserta mencoba login dengan device yang berbeda.** di [Monitoring Ujian](/cbt/monitoring-ujian). Catatan ini wajar jika peserta memang berpindah perangkat karena gangguan.
+Satu akun hanya dapat aktif di satu perangkat. Jika peserta masuk dari perangkat lain selagi sesi di perangkat lama masih aktif, halaman ujian di perangkat lama menampilkan pesan **Sesi tidak valid. Akun Anda digunakan di perangkat lain.** Jika halaman di perangkat lama dimuat ulang, peserta diarahkan ke halaman login dengan peringatan yang sama.
+
+<Frame>
+  ![Halaman login di perangkat lama dengan peringatan Sesi tidak valid. Akun Anda digunakan di perangkat lain.](/images/konsep/alur-peserta/25-sesi-tidak-valid-perangkat-lama.png)
+</Frame>
+
+Selama tes berjalan, sistem juga mencatat **Peserta mencoba login dengan device yang berbeda.** di [Monitoring Ujian](/cbt/monitoring-ujian). Catatan ini wajar jika peserta memang berpindah perangkat karena gangguan. Peserta yang keluar dari akun (**Keluar**) lalu masuk lagi, baik di perangkat yang sama maupun di perangkat lain, tidak dicatat.
 
 ## 8. Menyelesaikan tes
 

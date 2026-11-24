@@ -19,19 +19,19 @@ When an exam runs online, you cannot watch participants directly. CBT Indolat he
 
 ## Proctoring options
 
-Proctoring is set per test on the **Pengawasan** tab. Some options are only open on a **Ujian Professional (Paket Berbayar)**; on a **Ujian Standard (Paket Gratis)** they are labelled **(Fitur tidak aktif)** (feature inactive). The difference between the two exam types is explained in [Exam Credits, Standard Exams, and Professional Exams](/en/konsep/kredit-dan-tipe-ujian).
+Proctoring is set per test on the **Pengawasan** tab. Some options are only open on a **Ujian Professional (Paket Berbayar)**; on a **Ujian Standard (Paket Gratis)** they are labelled **(Fitur tidak aktif)** (feature inactive). **Hanya Izinkan Satu Layar** also needs a project subscription plan that includes the **Proctoring Dual Monitor** feature, which the **Esensial**, **Rutin** and **Intensif** plans do; without it, the option is also labelled **(Fitur tidak aktif)**. The difference between the two exam types and the plans is explained in [Exam Credits, Standard Exams, and Professional Exams](/en/konsep/kredit-dan-tipe-ujian).
 
 | Setting | What the system does | Exam type | Extra cost |
 | --- | --- | --- | --- |
 | **Deteksi Pindah Tab** (tab switch detection) | Records every time the exam page becomes hidden, for example when the participant opens another tab, and shows the participant a warning | Standard and Professional | None |
 | **Pengawasan Kamera** (camera proctoring) | The participant must allow the camera; the system takes a photo of the participant every few seconds | Professional | 1 **Proctoring Kamera** credit each time a participant starts the test |
 | **Pengawasan Layar (Share Screen)** (screen proctoring) | The participant must share the **entire screen** (not one tab or window); the system takes a screenshot every few seconds | Professional | 1 **Proctoring Layar** credit each time a participant starts the test |
-| **Hanya Izinkan Satu Layar** (single screen only) | Rejects participants using a second monitor, both before and during the test | Professional | None |
+| **Hanya Izinkan Satu Layar** (single screen only) | Rejects participants using a second monitor, both before and during the test | Professional, on the **Esensial**, **Rutin** or **Intensif** plan | None |
 | **Soal Audio Sekali Putar**, **Jawaban Audio Sekali Putar** (play audio once) | Audio in a question or answer option can be played only once. This is not cheating detection but a rule for listening questions. | Standard and Professional | None |
 
 There are also protections that are **always on** and need no setting:
 
-- **One account, one device.** If the participant's account signs in again in another browser or device while a test is running, the system records it and the old device can no longer be used.
+- **One account, one device.** If the participant's account signs in on another browser or device while a test is running and the session on the previous device is still active, the system records it and the old device can no longer be used. A participant who signs out (**Keluar**) and then signs in again is not recorded.
 - **Supported browsers.** Tests can only be taken in Google Chrome, Chromium, Microsoft Edge, Safari, or the CBT Indolat app. Other browsers, such as Firefox, are refused before the test starts.
 
 Before a test starts, the participant goes through the **Tes Diagnostik Sistem** (system diagnostic test) page, which checks the connection, the browser, and, when the related proctoring is on, the camera, screen sharing, and dual monitors. If **Deteksi Pindah Tab** is on, this page also reminds the participant not to switch tabs.
@@ -53,7 +53,7 @@ Each event below is stored as a **Deteksi Kecurangan** (cheating detected) entry
 | Log message | Trigger | Setting needed | Effect on the participant |
 | --- | --- | --- | --- |
 | **Peserta berpindah tab.** (participant switched tabs) | The exam page becomes hidden: another tab opened, the browser minimised, another app opened on a phone, or the phone screen locked | **Deteksi Pindah Tab** | A **Peringatan** (warning) dialog appears; the test can continue. Every occurrence is recorded. |
-| **Peserta mencoba login dengan device yang berbeda.** (participant tried to sign in from a different device) | The participant's account signs in again in any browser or device while the test is running | Always on | The old device shows **Sesi tidak valid. Akun Anda digunakan di perangkat lain.** (session invalid, account used on another device); the participant continues the test where they last signed in |
+| **Peserta mencoba login dengan device yang berbeda.** (participant tried to sign in from a different device) | The participant's account signs in on another browser or device while the test is running and the previous session is still active. A participant who signs out (**Keluar**) and then signs in again is not recorded. | Always on | The exam page on the old device shows **Sesi tidak valid. Akun Anda digunakan di perangkat lain.** (session invalid, account used on another device); when reloaded, the old device is sent to the sign-in page with the same warning. The participant continues the test on the device where they last signed in. |
 | **Peserta menggunakan dua monitor.** (participant used two monitors) | A second monitor is detected during the test | **Hanya Izinkan Satu Layar** | The exam screen locks with **Monitor ganda terdeteksi** (dual monitor detected) until the second monitor is removed and the page reloaded |
 | **Peserta menonaktifkan atau mencabut izin kamera saat ujian berlangsung.** (participant turned off or revoked the camera) | Camera permission revoked or the camera stops | **Pengawasan Kamera** | The exam screen locks with **Akses kamera tidak tersedia** (camera access unavailable) until the camera is allowed again and the page reloaded |
 | **Peserta menghentikan berbagi layar saat ujian berlangsung.** (participant stopped screen sharing) | Screen sharing stopped or refused, or something other than the entire screen was shared | **Pengawasan Layar (Share Screen)** | The participant is asked to share the entire screen again before continuing |
@@ -123,7 +123,7 @@ The steps for each action are in [Exam Monitoring](/en/cbt/monitoring-ujian#admi
 
 Many cheating entries are caused by unintentional habits. Share these tips with participants before the exam:
 
-- **Do not sign in again in the middle of a test.** Signing in from another browser, a private window, or another device is always recorded as **Peserta mencoba login dengan device yang berbeda.**, even on the same device after signing out. If the page is closed by accident, reopen it in the same browser; the test continues without signing in again while the session is still active.
+- **Do not sign in from another device in the middle of a test.** Signing in from another browser, a private window, or another device while the old session is still active is recorded as **Peserta mencoba login dengan device yang berbeda.** If the page is closed by accident, reopen it in the same browser; the test continues without signing in again while the session is still active. Signing out (**Keluar**) and signing in again is not recorded as cheating, so if a participant really has to switch devices, ask them to sign out on the old device first when they still can.
 - **One tab, one device.** Close other tabs before starting, and do not open the same test in two tabs or on two devices.
 - **Silence the phone.** An incoming call, switching to a chat app, or the screen locking automatically hides the exam page and is recorded as a tab switch. Turn on do-not-disturb and make sure the battery is charged.
 - **Disconnect a second monitor before starting** when **Hanya Izinkan Satu Layar** is on, including projectors or mirrored displays.

@@ -21,7 +21,7 @@ Dengan endpoint ini sistem Anda dapat menyiapkan ujian dari awal sampai siap dik
 - **Jenis ujian.** Ujian yang dibuat lewat API tidak memakai pembayaran di CBT dan bukan ujian multi-level. Ujian multi-level atau ujian dengan pembayaran di CBT yang dibuat di panel tetap dapat dibaca, tetapi hanya dapat diubah atau dihapus melalui panel. Tes jawaban manual (esai/unggah berkas) dibuat di panel; lewat API hanya nama, instruksi, dan sesinya yang dapat diubah.
 - **Edisi** (`edition`):
   - `standard` (Ujian Standard): maksimal 4 tes, tanpa CAT dan tanpa proctoring kamera, layar, atau dual monitor.
-  - `professional` (Ujian Professional): maksimal 30 tes, dengan semua fitur.
+  - `professional` (Ujian Professional): maksimal 30 tes. CAT dan `is_dual_screen_proctoring` juga memerlukan fitur paket langganan projek: **Computer Adaptive Test (CAT)** (paket Rutin dan Intensif) dan **Proctoring Dual Monitor** (paket Esensial, Rutin, dan Intensif). Lihat [Kredit Ujian, Ujian Standard, dan Ujian Professional](/konsep/kredit-dan-tipe-ujian).
   - Kredit dipotong saat peserta mulai mengerjakan tes, bukan saat ujian dibuat. Ujian professional memakai kredit professional; ujian standard memakai kredit gratis lebih dulu, lalu kredit professional. Tanpa kredit, ujian tetap dapat dibuat, tetapi peserta tidak dapat memulai tes.
 - **Waktu** dikirim dalam ISO 8601 dengan offset, misalnya `2026-11-10T08:00:00+07:00` atau `2026-11-10T01:00:00Z`, dan dikembalikan dalam WIB (`+07:00`). Waktu tanpa offset, seperti `2026-11-10 08:00:00`, ditolak dengan `422`. `end_at` ujian paling lambat satu tahun dari sekarang.
 - **Sesi** harus berada di dalam rentang waktu ujian dan berlangsung minimal sepanjang durasi tesnya. Paket soal sesi harus milik projek, sejenis dengan tesnya (CBT/CAT untuk tes CBT dan CAT, jawaban manual untuk tes jawaban manual), dan berisi minimal satu soal; untuk tes CAT, semua soal wajib memiliki tingkat kesulitan.
@@ -53,6 +53,15 @@ Kesalahan isian dikembalikan dengan status `422` dalam format error yang sama de
 }
 ```
 
+Pada ujian edisi professional, pengaturan yang memerlukan fitur paket ditolak dengan `422` jika paket langganan projek tidak mencakupnya. Tes yang sudah tersimpan dengan pengaturan tersebut tetap boleh mempertahankannya; yang ditolak hanya pemilihan baru.
+
+| Field | Pesan |
+| --- | --- |
+| `exam_type` (`cat`) | `Tes CAT membutuhkan fitur Computer Adaptive Test (CAT) pada paket langganan project ini.` |
+| `is_dual_screen_proctoring` (`true`) | `Hanya Izinkan Satu Layar membutuhkan fitur Proctoring Dual Monitor pada paket langganan project ini.` |
+| `cat_question_limit` pada tes selain CAT | `Hanya berlaku untuk tes CAT.` |
+| `cat_question_limit` diubah setelah ada peserta yang mulai mengerjakan tes | `Batas jumlah soal CAT tidak dapat diubah karena sudah ada peserta yang mulai mengerjakan tes ini.` |
+
 Perubahan yang ditolak karena kondisi ujian dikembalikan dengan status `409` dan field `code`:
 
 ```json
@@ -81,17 +90,18 @@ Perubahan yang ditolak karena kondisi ujian dikembalikan dengan status `409` dan
 
 | Field | Default | Keterangan |
 | --- | --- | --- |
-| `exam_type` | `cbt` | `cbt` atau `cat`. CAT hanya untuk edisi professional dan hanya mendukung `score_type` `score`. |
+| `exam_type` | `cbt` | `cbt` atau `cat`. CAT hanya untuk edisi professional, memerlukan fitur **Computer Adaptive Test (CAT)** pada paket langganan projek, dan hanya mendukung `score_type` `score`. |
 | `score_type` | `score` | `score` (akumulasi benar/salah), `answer_score` (akumulasi skor jawaban), `group` (psikotes), `irt` (referensi UTBK 0–1000), `irt_tka_sma` (200–800), atau `irt_tka_sd_smp` (0–100). Nilai IRT baru terisi setelah perhitungan IRT dijalankan (lihat [Kesiapan dan penilaian](#kesiapan-dan-penilaian)). |
 | `duration_minutes` | — | Durasi pengerjaan tes, 1–1440 menit (bilangan bulat). Wajib saat membuat tes. Tes yang dibuat di panel dapat berdurasi pecahan, misalnya `45.5`. |
 | `description` | Instruksi standar | HTML instruksi pengerjaan, maksimal 1.000 karakter teks. Dapat memakai `{{NAMA_TES}}`, `{{JUMLAH_SOAL}}`, dan `{{DURASI_TES}}`. |
+| `cat_question_limit` | `null` | Jumlah soal yang dikerjakan pada tes CAT (**Jumlah Soal yang Dikerjakan (CAT)** di panel), bilangan bulat minimal 1. `null` berarti peserta mengerjakan seluruh soal pada paket soal. Hanya untuk `exam_type` `cat`; pada tes lain nilai selain `null` ditolak dengan `422`. Mengubah `exam_type` menjadi `cbt` menghapus nilainya. |
 | `is_show_score` | `false` | Tampilkan nilai tes kepada peserta setelah selesai. |
 | `is_show_summary` | `false` | Tampilkan ringkasan benar-salah setelah selesai. |
 | `is_show_explanation_per_question` | `false` | Tampilkan pembahasan per soal (dari pembahasan setiap soal di paket soal) setelah selesai. Jika diaktifkan, file PDF pembahasan tes yang diunggah di panel tidak dipakai lagi. |
 | `is_switch_tab_proctoring` | `false` | Deteksi peserta yang berpindah tab. |
 | `is_camera_proctoring` | `false` | Peserta wajib mengaktifkan kamera selama mengerjakan. Hanya edisi professional. |
 | `is_screen_proctoring` | `false` | Peserta wajib membagikan layar selama mengerjakan. Hanya edisi professional. |
-| `is_dual_screen_proctoring` | `false` | Hanya izinkan satu layar (monitor). Hanya edisi professional. |
+| `is_dual_screen_proctoring` | `false` | Hanya izinkan satu layar (monitor). Hanya edisi professional, dan memerlukan fitur **Proctoring Dual Monitor** pada paket langganan projek. |
 | `is_audio_question_only_once` | `false` | Audio soal hanya dapat diputar sekali. |
 | `is_audio_answer_only_once` | `false` | Audio jawaban hanya dapat diputar sekali. |
 
@@ -183,6 +193,7 @@ Perubahan yang ditolak karena kondisi ujian dikembalikan dengan status `409` dan
           "exam_type": "cbt",
           "score_type": "irt",
           "is_switch_tab_proctoring": true,
+          "cat_question_limit": null,
           "sessions": [
             { "id": 301, "exam_quiz_id": 120, "name": "Sesi 1", "start_at": "2026-11-10T08:00:00+07:00", "end_at": "2026-11-10T10:00:00+07:00", "question_bank_id": 88 }
           ]
@@ -264,7 +275,7 @@ Perubahan yang ditolak karena kondisi ujian dikembalikan dengan status `409` dan
 </Accordion>
 
 <Accordion title="PATCH /exams/{exam}/quizzes/{examQuiz} — Mengubah tes">
-  Hanya field yang dikirim yang diubah: `name`, `exam_type`, `duration_minutes`, `score_type`, `description`, dan pengaturan `is_*`. Durasi baru tidak boleh lebih panjang dari sesi tes yang ada. Pada tes jawaban manual, hanya `name` dan `description` yang dapat diubah; field lain ditolak dengan `422`. Endpoint juga menerima metode `PUT`.
+  Hanya field yang dikirim yang diubah: `name`, `exam_type`, `duration_minutes`, `score_type`, `description`, `cat_question_limit`, dan pengaturan `is_*`. Durasi baru tidak boleh lebih panjang dari sesi tes yang ada. Pada tes jawaban manual, hanya `name` dan `description` yang dapat diubah; field lain ditolak dengan `422`. Endpoint juga menerima metode `PUT`.
 
   ```bash
   curl -X PATCH "https://app.indolat.com/api/v1/exams/31/quizzes/120" \

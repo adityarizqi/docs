@@ -16,7 +16,7 @@ One exam result represents one test taken by one participant. The result record 
 | --- | --- |
 | Question Score Calculation (Sum of Correct/Wrong) | Automatically when the participant finishes the test. |
 | Answer Score Calculation (Sum of Answer Scores) | Automatically when the participant finishes the test. |
-| Psychometric (Answer Grouping) | Automatically when the participant finishes. `score` is always `0`; results per answer group are not available through the API. |
+| Psychometric (Answer Grouping) | Automatically when the participant finishes. `score` is always `0` and the test is left out of the exam's final score; results per answer group are not available through the API. |
 | IRT (UTBK reference, 0-1000), IRT TKA for SMA/SMK (200-800), IRT TKA for SD/SMP (0-100) | After an admin runs **Calculate Score** → **IRT Calculation** in the admin panel. Until then, `score` is `null`. |
 | Manual Scoring | After an admin grades the participant's answers in the admin panel. |
 

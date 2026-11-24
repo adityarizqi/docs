@@ -34,7 +34,10 @@ This page collects the questions teachers, tutoring centre owners and HR teams u
     The default address follows the **Kode Projek** (project code): `https://<project-code>.indolat.web.id`. Change the code in **Administrasi Aplikasi** → **Pengaturan Projek** → **Profil Projek**; the old link stops working immediately, so tell participants the new address. To use your own domain, for example `ujian.bimbelprestasi.sch.id`, turn on the **Kustom Domain** (custom domain) add-on. See [Dashboard & Project Profile](/en/administrasi/profil-projek) and [Domain](/en/administrasi/domain).
   </Accordion>
   <Accordion title="Can a participant be logged in on two devices at once?">
-    No. An account is active on one device only. If a participant logs in on a second device while a test is running, the first device shows **Sesi tidak valid** (invalid session) and the system records it in **Monitoring Ujian**. See [If the browser closes or the participant switches devices](/en/konsep/alur-peserta#if-the-browser-closes-or-the-participant-switches-devices).
+    No. An account is active on one device only. If a participant logs in on a second device while a test is running and the session on the first device is still active, the first device shows **Sesi tidak valid. Akun Anda digunakan di perangkat lain.** (invalid session, account used on another device) and goes to the login page when reloaded. The system records this in **Monitoring Ujian** as **Peserta mencoba login dengan device yang berbeda.** A participant who logs out (**Keluar**) and then logs in again is not recorded as cheating. See [If the browser closes or the participant switches devices](/en/konsep/alur-peserta#if-the-browser-closes-or-the-participant-switches-devices).
+  </Accordion>
+  <Accordion title="A participant opened an app link and was asked to log in. Why?">
+    The participant was not logged in or their session had ended, for example because they opened a bookmark of the **Daftar Tes** page after logging out. The app sends them to the project's login page with the message **Silakan masuk terlebih dahulu untuk melanjutkan.** (Please log in first to continue.) After logging in, they go straight back to the page they asked for. If the address does not contain the project code and the browser has never opened your project, the participant is asked to enter the project code first. See [Log in or create an account](/en/konsep/alur-peserta#2-log-in-or-create-an-account).
   </Accordion>
 </AccordionGroup>
 
@@ -85,7 +88,7 @@ This page collects the questions teachers, tutoring centre owners and HR teams u
     See [Preparing for Exam Day](/en/konsep/persiapan-hari-ujian#15-handle-incidents).
   </Accordion>
   <Accordion title="Why is a participant flagged for cheating?">
-    Cheating records appear in **Monitoring Ujian** when the system detects, for example, a tab switch (when **Deteksi Pindah Tab** is on), two monitors, the camera being turned off, screen sharing being stopped, or a login from another device. These records are signals, not verdicts; check the context, for example a participant who switched devices because their laptop died. See [Exam Proctoring and Cheating Detection](/en/konsep/pengawasan-dan-kecurangan).
+    Cheating records appear in **Monitoring Ujian** when the system detects, for example, a tab switch (when **Deteksi Pindah Tab** is on), two monitors, the camera being turned off, screen sharing being stopped, or a login from another device while the old session is still active. These records are signals, not verdicts; check the context, for example a participant who switched devices because their laptop died. See [Exam Proctoring and Cheating Detection](/en/konsep/pengawasan-dan-kecurangan).
   </Accordion>
   <Accordion title="Can participants use a phone?">
     Yes, in Chrome or Safari on the phone, with a layout that fits the screen. The exception is exams with **Pengawasan Layar (Share Screen)**: participants must use the CBT Indolat app. See [Using a phone](/en/konsep/alur-peserta#13-using-a-phone).
@@ -159,7 +162,18 @@ This page collects the questions teachers, tutoring centre owners and HR teams u
 
 <AccordionGroup>
   <Accordion title="How do I contact the CBT Indolat team?">
-    In the admin panel, use the **Jadwalkan meeting** (Schedule a meeting) button in the bottom right corner.
+    The official CBT Indolat support channel is the **CBT Indolat Community** on Telegram: [t.me/cbtindolatcommunity](https://t.me/cbtindolatcommunity). Ask questions and report problems there; the CBT Indolat team and other users will help. You can also open the group from the **Join the Community** link at the top of this documentation site.
+
+    The bottom of every admin panel page has two more links:
+
+    <Frame>
+      ![Kirim Masukan and Status Layanan links at the bottom of the panel](/images/konsep/pertanyaan-umum/02-kirim-masukan.png)
+    </Frame>
+
+    1. **Kirim Masukan** (Send Feedback): opens `community.indolat.com` to send feedback and feature requests. The **Give Feedback** link at the top of this documentation site goes to the same place.
+    2. **Status Layanan** (Service Status): shows whether the service has an outage. Check it first if the app suddenly cannot be reached.
+
+    If you need hands-on help, use the **Jadwalkan meeting** (Schedule a meeting) button in the bottom right corner of the admin panel:
 
     <Frame>
       ![Jadwalkan meeting panel with the Jadwalkan Sekarang and Chat WhatsApp buttons](/images/konsep/pertanyaan-umum/01-jadwalkan-meeting.png)
@@ -168,17 +182,6 @@ This page collects the questions teachers, tutoring centre owners and HR teams u
     1. **Jadwalkan Sekarang** (Schedule Now): book a free 30-minute consultation on Google Meet (Monday–Friday, 08:00–17:00 WIB). The meeting link is sent to your email.
     2. **Chat WhatsApp**: chat with the team on WhatsApp.
     3. **Jadwalkan meeting**: opens or closes this panel.
-
-    The bottom of every panel page also has two links:
-
-    <Frame>
-      ![Kirim Masukan and Status Layanan links at the bottom of the panel](/images/konsep/pertanyaan-umum/02-kirim-masukan.png)
-    </Frame>
-
-    1. **Kirim Masukan** (Send Feedback): opens the CBT Indolat community site (`community.indolat.com`) to send feedback or report a problem.
-    2. **Status Layanan** (Service Status): shows whether the service has an outage.
-
-    You can also join the user community through the **Join the Community** link in this documentation.
   </Accordion>
   <Accordion title="Who should participants contact when they have a problem?">
     Participants contact you as the organiser, not the CBT Indolat team, because only you can change their accounts, sessions and tests. Show your committee's contact on the participants' **Daftar Tes** through the **Informasi Tambahan** (Additional Information) tab. See [Create an Exam](/en/data-ujian/membuat-ujian#informasi-tambahan).

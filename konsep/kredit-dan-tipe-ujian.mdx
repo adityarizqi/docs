@@ -74,16 +74,27 @@ Kredit gratis diisi ulang setiap tanggal 1. Kredit yang tidak terpakai bulan lal
 | Kredit yang dipakai | Kredit gratis, lalu kredit profesional bila kredit gratis habis | Kredit profesional |
 | Tes ujian (subtes) per ujian | Maksimal 4 | Maksimal 30 |
 | Peserta yang mengerjakan tes bersamaan | Maksimal 50 per ujian | Maksimal 1.000 per ujian |
-| Computer Adaptive Test (CAT) | Tidak tersedia | Tersedia |
-| **Pengawasan Kamera**, **Pengawasan Layar (Share Screen)**, **Hanya Izinkan Satu Layar** | Tidak tersedia | Tersedia |
+| Computer Adaptive Test (CAT) | Tidak tersedia | Tersedia jika paket projek mencakup fitur **Computer Adaptive Test (CAT)**: paket **Rutin** dan **Intensif** |
+| **Hanya Izinkan Satu Layar** | Tidak tersedia | Tersedia jika paket projek mencakup fitur **Proctoring Dual Monitor**: paket **Esensial**, **Rutin**, dan **Intensif** |
+| **Pengawasan Kamera**, **Pengawasan Layar (Share Screen)** | Tidak tersedia | Tersedia, dengan kredit add-on **Proctoring Kamera** atau **Proctoring Layar** |
 | **Deteksi Pindah Tab** | Tersedia | Tersedia |
 | Metode penilaian, termasuk IRT | Semua tersedia untuk tes CBT | Semua tersedia untuk tes CBT |
+
+Jadi, untuk CAT dan **Hanya Izinkan Satu Layar** ada dua syarat yang harus dipenuhi sekaligus: ujiannya bertipe **Ujian Professional**, dan paket langganan projek mencakup fiturnya. Jika salah satu syarat tidak terpenuhi, pilihan tersebut berlabel **(Fitur tidak aktif)** pada formulir tes dan tidak dapat dipilih. Pengaturan yang sudah tersimpan sebelum paket berubah tetap berlaku. Rinciannya ada di [Membuat Tes Ujian](/data-ujian/membuat-tes-ujian#jenis-ujian).
 
 Kotak informasi di bawah pilihan **Tipe Ujian** menampilkan batas tersebut beserta sisa kredit yang relevan.
 
 <Frame>
   ![Tab Tipe & Paket Ujian dengan kotak informasi Ujian Standard (Gratis) dan sisa kredit](/images/konsep/kredit-dan-tipe-ujian/01-info-ujian-standard.png)
 </Frame>
+
+Jika projek memiliki kredit profesional dan Anda memilih **Ujian Professional (Paket Berbayar)**, kotak informasinya menampilkan sisa kredit profesional dan aturan masa berlakunya: **Kredit dari langganan terakumulasi selama langganan diperpanjang tanpa jeda. Kredit Ujian yang dibeli terpisah berlaku 6 bulan sejak tanggal pembelian.**
+
+<Frame>
+  ![Kotak informasi Ujian Professional dengan sisa kredit, aturan masa berlaku kredit, dan syarat paket untuk Proctoring Dual Monitor dan CAT](/images/konsep/kredit-dan-tipe-ujian/04-info-ujian-professional.png)
+</Frame>
+
+Kotak ini menyesuaikan paket projek Anda. **Proctoring Kamera dan Layar** selalu tersedia pada Ujian Professional. **Proctoring Dual Monitor** dan **Computer Adaptive Test (CAT)** ditulis **tersedia** jika paket langganan projek mencakup fiturnya; jika tidak, kotak menyebut bahwa fitur itu membutuhkan paket yang mencakupnya, lengkap dengan tautan ke **Langganan & Tagihan**.
 
 Jika Anda memilih **Ujian Professional (Paket Berbayar)** sementara projek belum memiliki kredit profesional, kotak informasi berganti menjadi peringatan. Ujian tetap dapat disimpan, tetapi peserta tidak dapat memulai tes sampai kredit tersedia.
 
@@ -111,12 +122,14 @@ Ada tiga cara menambah kemampuan projek. Ketiganya dibeli di **Langganan & Tagih
 
 Perbandingan paket:
 
-| Paket | Harga per bulan | Kredit profesional per bulan | Kredit gratis per bulan | Penyimpanan |
-| --- | --- | --- | --- | --- |
-| **Standard** | Gratis | Tidak ada | 200 (50 sebelum profil dilengkapi) | 100 MB |
-| **Esensial** | Rp149.000 | 500 | 200 | 1 GB |
-| **Rutin** | Rp289.000 | 1.150 | 200 | 5 GB |
-| **Intensif** | Rp699.000 | 2.800 | 200 | 20 GB |
+| Paket | Harga per bulan | Kredit profesional per bulan | Kredit gratis per bulan | Penyimpanan | Fitur tes dari paket |
+| --- | --- | --- | --- | --- | --- |
+| **Standard** | Gratis | Tidak ada | 200 (50 sebelum profil dilengkapi) | 100 MB | Tidak ada |
+| **Esensial** | Rp149.000 | 500 | 200 | 1 GB | **Proctoring Dual Monitor** |
+| **Rutin** | Rp289.000 | 1.150 | 200 | 5 GB | **Proctoring Dual Monitor**, **Computer Adaptive Test (CAT)** |
+| **Intensif** | Rp699.000 | 2.800 | 200 | 20 GB | **Proctoring Dual Monitor**, **Computer Adaptive Test (CAT)** |
+
+Fitur pada kolom terakhir benar-benar diperiksa sistem: tanpa paket yang sesuai, pilihan **Computer Adaptive Test (CAT)** dan **Hanya Izinkan Satu Layar** tidak dapat dipilih pada tes, dan pembuatan tes melalui API juga ditolak. Jika Anda membuat ujian dari template ujian sementara paket projek tidak mencakup fitur tersebut, tes CAT pada template dibuat sebagai tes CBT dan **Hanya Izinkan Satu Layar** dimatikan.
 
 Selama langganan berbayar aktif, kredit tambahan dibeli dengan potongan Rp50, yaitu **Rp450 per kredit**. Harga tahunan, fitur lain setiap paket, dan daftar lengkap add-on ada di [Langganan & Tagihan](/administrasi/langganan-dan-tagihan#pilihan-paket).
 

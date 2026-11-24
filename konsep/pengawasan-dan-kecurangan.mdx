@@ -19,19 +19,19 @@ Saat ujian berlangsung secara daring, Anda tidak dapat melihat langsung apa yang
 
 ## Pilihan pengawasan
 
-Pengawasan diatur per tes pada tab **Pengawasan**. Beberapa pilihan hanya terbuka untuk **Ujian Professional (Paket Berbayar)**; pada **Ujian Standard (Paket Gratis)** pilihan tersebut berlabel **(Fitur tidak aktif)**. Perbedaan kedua tipe ujian dijelaskan di [Kredit Ujian, Ujian Standard, dan Ujian Professional](/konsep/kredit-dan-tipe-ujian).
+Pengawasan diatur per tes pada tab **Pengawasan**. Beberapa pilihan hanya terbuka untuk **Ujian Professional (Paket Berbayar)**; pada **Ujian Standard (Paket Gratis)** pilihan tersebut berlabel **(Fitur tidak aktif)**. **Hanya Izinkan Satu Layar** juga memerlukan paket langganan projek yang mencakup fitur **Proctoring Dual Monitor**, yaitu paket **Esensial**, **Rutin**, dan **Intensif**; tanpa paket itu, pilihannya juga berlabel **(Fitur tidak aktif)**. Perbedaan kedua tipe ujian dan paket dijelaskan di [Kredit Ujian, Ujian Standard, dan Ujian Professional](/konsep/kredit-dan-tipe-ujian).
 
 | Pengaturan | Yang dilakukan sistem | Tipe ujian | Biaya tambahan |
 | --- | --- | --- | --- |
 | **Deteksi Pindah Tab** | Mencatat setiap kali halaman ujian tidak terlihat, misalnya peserta membuka tab lain, lalu menampilkan peringatan kepada peserta | Standard dan Professional | Tidak ada |
 | **Pengawasan Kamera** | Peserta wajib mengizinkan kamera; sistem mengambil foto peserta setiap beberapa detik | Professional | 1 kredit **Proctoring Kamera** setiap peserta memulai tes |
 | **Pengawasan Layar (Share Screen)** | Peserta wajib membagikan **seluruh layar** (bukan satu tab atau jendela); sistem mengambil tangkapan layar setiap beberapa detik | Professional | 1 kredit **Proctoring Layar** setiap peserta memulai tes |
-| **Hanya Izinkan Satu Layar** | Menolak peserta yang memakai monitor kedua, baik sebelum maupun selama tes | Professional | Tidak ada |
+| **Hanya Izinkan Satu Layar** | Menolak peserta yang memakai monitor kedua, baik sebelum maupun selama tes | Professional, dengan paket **Esensial**, **Rutin**, atau **Intensif** | Tidak ada |
 | **Soal Audio Sekali Putar**, **Jawaban Audio Sekali Putar** | Audio pada soal atau pilihan jawaban hanya dapat diputar satu kali. Ini bukan deteksi kecurangan, melainkan aturan untuk soal *listening*. | Standard dan Professional | Tidak ada |
 
 Selain itu, ada perlindungan yang **selalu aktif** tanpa perlu diatur:
 
-- **Satu akun, satu perangkat.** Jika akun peserta masuk lagi di browser atau perangkat lain saat tesnya berjalan, sistem mencatatnya dan perangkat lama tidak dapat dipakai lagi.
+- **Satu akun, satu perangkat.** Jika akun peserta masuk di browser atau perangkat lain saat tesnya berjalan, sementara sesi di perangkat sebelumnya masih aktif, sistem mencatatnya dan perangkat lama tidak dapat dipakai lagi. Peserta yang keluar dari akun (**Keluar**) lalu masuk lagi tidak dicatat.
 - **Browser yang didukung.** Tes hanya dapat dikerjakan di Google Chrome, Chromium, Microsoft Edge, Safari, atau aplikasi CBT Indolat. Browser lain, misalnya Firefox, ditolak sebelum tes dimulai.
 
 Sebelum tes dimulai, peserta melewati halaman **Tes Diagnostik Sistem** yang memeriksa koneksi, browser, serta kamera, berbagi layar, dan monitor ganda bila pengawasannya aktif. Jika **Deteksi Pindah Tab** aktif, halaman ini juga mengingatkan peserta agar tidak berpindah tab.
@@ -53,7 +53,7 @@ Setiap kejadian di bawah ini disimpan sebagai catatan berjenis **Deteksi Kecuran
 | Pesan di log | Pemicu | Perlu pengaturan | Akibat bagi peserta |
 | --- | --- | --- | --- |
 | **Peserta berpindah tab.** | Halaman ujian tidak terlihat: membuka tab lain, meminimalkan browser, berpindah ke aplikasi lain di ponsel, atau layar ponsel terkunci | **Deteksi Pindah Tab** | Muncul jendela **Peringatan**; tes dapat dilanjutkan. Setiap kejadian dicatat. |
-| **Peserta mencoba login dengan device yang berbeda.** | Akun peserta masuk lagi di browser atau perangkat mana pun saat tesnya sedang berjalan | Selalu aktif | Perangkat lama menampilkan **Sesi tidak valid. Akun Anda digunakan di perangkat lain.**; peserta melanjutkan tes dari tempat login terakhir |
+| **Peserta mencoba login dengan device yang berbeda.** | Akun peserta masuk di browser atau perangkat lain saat tesnya sedang berjalan, sementara sesi sebelumnya masih aktif. Peserta yang keluar dari akun (**Keluar**) lalu masuk lagi tidak dicatat. | Selalu aktif | Halaman ujian di perangkat lama menampilkan **Sesi tidak valid. Akun Anda digunakan di perangkat lain.**; jika dimuat ulang, perangkat lama diarahkan ke halaman login dengan peringatan yang sama. Peserta melanjutkan tes dari perangkat tempat login terakhir. |
 | **Peserta menggunakan dua monitor.** | Monitor kedua terdeteksi selama tes | **Hanya Izinkan Satu Layar** | Layar ujian terkunci dengan pesan **Monitor ganda terdeteksi** sampai monitor kedua dilepas dan halaman dimuat ulang |
 | **Peserta menonaktifkan atau mencabut izin kamera saat ujian berlangsung.** | Izin kamera dicabut atau kamera berhenti | **Pengawasan Kamera** | Layar ujian terkunci dengan pesan **Akses kamera tidak tersedia** sampai kamera diizinkan lagi dan halaman dimuat ulang |
 | **Peserta menghentikan berbagi layar saat ujian berlangsung.** | Berbagi layar dihentikan atau ditolak, atau yang dibagikan bukan seluruh layar | **Pengawasan Layar (Share Screen)** | Peserta diminta membagikan seluruh layar lagi sebelum melanjutkan |
@@ -123,7 +123,7 @@ Langkah setiap tindakan ada di [Monitoring Ujian](/cbt/monitoring-ujian#tindakan
 
 Banyak catatan kecurangan sebenarnya disebabkan kebiasaan yang tidak disengaja. Bagikan tips berikut kepada peserta sebelum ujian:
 
-- **Jangan login ulang di tengah tes.** Masuk lagi dari browser lain, jendela penyamaran, atau perangkat lain selalu tercatat sebagai **Peserta mencoba login dengan device yang berbeda.**, bahkan jika perangkat yang sama dipakai setelah keluar akun. Jika halaman tertutup tidak sengaja, buka kembali dengan browser yang sama; tes berlanjut tanpa login ulang selama sesi masih aktif.
+- **Jangan masuk dari perangkat lain di tengah tes.** Masuk dari browser lain, jendela penyamaran, atau perangkat lain selagi sesi lama masih aktif tercatat sebagai **Peserta mencoba login dengan device yang berbeda.** Jika halaman tertutup tidak sengaja, buka kembali dengan browser yang sama; tes berlanjut tanpa login ulang selama sesi masih aktif. Keluar dari akun (**Keluar**) lalu masuk lagi tidak dicatat sebagai kecurangan, jadi jika peserta memang harus berpindah perangkat, minta peserta keluar lebih dulu dari perangkat lama bila masih memungkinkan.
 - **Satu tab, satu perangkat.** Tutup tab lain sebelum mulai, dan jangan membuka tes yang sama di dua tab atau dua perangkat.
 - **Matikan gangguan di ponsel.** Telepon masuk, berpindah ke aplikasi chat, atau layar terkunci otomatis membuat halaman ujian tersembunyi dan tercatat sebagai pindah tab. Aktifkan mode jangan ganggu dan pastikan baterai cukup.
 - **Lepas monitor kedua sebelum mulai** jika **Hanya Izinkan Satu Layar** aktif, termasuk proyektor atau layar yang hanya dicerminkan.

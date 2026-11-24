@@ -21,7 +21,7 @@ With these endpoints your system can set an exam up from start to finish without
 - **Kind of exam.** Exams created through the API take no payment inside the CBT and are not multi-level. Multi-level exams and exams with payment inside the CBT that were created in the admin panel can still be read, but can only be changed or deleted in the admin panel. Manual-answer tests (essay/file upload) are created in the admin panel; through the API only their name, instructions and sessions can change.
 - **Edition** (`edition`):
   - `standard` (Standard Exam): up to 4 tests, without CAT and without camera, screen or dual-monitor proctoring.
-  - `professional` (Professional Exam): up to 30 tests, with every feature.
+  - `professional` (Professional Exam): up to 30 tests. CAT and `is_dual_screen_proctoring` also need a feature in the project's subscription plan: **Computer Adaptive Test (CAT)** (Rutin and Intensif plans) and **Proctoring Dual Monitor** (Esensial, Rutin and Intensif plans). See [Exam Credits, Standard and Professional Exams](/en/konsep/kredit-dan-tipe-ujian).
   - Credit is used when a participant starts a test, not when the exam is created. A professional exam uses professional credit; a standard exam uses free credit first, then professional credit. Without credit an exam can still be created, but participants cannot start its tests.
 - **Times** are sent in ISO 8601 with an offset, for example `2026-11-10T08:00:00+07:00` or `2026-11-10T01:00:00Z`, and are returned in WIB (`+07:00`). A time without an offset, such as `2026-11-10 08:00:00`, is refused with `422`. An exam's `end_at` is at most one year from now.
 - **Sessions** must sit inside the exam's time range and last at least as long as their test. A session's question package must belong to the project, match its test's type (CBT/CAT for CBT and CAT tests, manual answer for manual-answer tests) and hold at least one question; for a CAT test every question needs a difficulty level.
@@ -53,6 +53,15 @@ Invalid input is returned with status `422` in the same error format as other en
 }
 ```
 
+On a professional exam, a setting that needs a plan feature is refused with `422` when the project's subscription plan does not include it. A test already saved with that setting may keep it; only a new selection is refused.
+
+| Field | Message |
+| --- | --- |
+| `exam_type` (`cat`) | `Tes CAT membutuhkan fitur Computer Adaptive Test (CAT) pada paket langganan project ini.` |
+| `is_dual_screen_proctoring` (`true`) | `Hanya Izinkan Satu Layar membutuhkan fitur Proctoring Dual Monitor pada paket langganan project ini.` |
+| `cat_question_limit` on a test other than CAT | `Hanya berlaku untuk tes CAT.` |
+| `cat_question_limit` changed after a participant has started the test | `Batas jumlah soal CAT tidak dapat diubah karena sudah ada peserta yang mulai mengerjakan tes ini.` |
+
 A change the exam's current state does not allow is returned with status `409` and a `code` field:
 
 ```json
@@ -81,17 +90,18 @@ A change the exam's current state does not allow is returned with status `409` a
 
 | Field | Default | Description |
 | --- | --- | --- |
-| `exam_type` | `cbt` | `cbt` or `cat`. CAT is for the professional edition only and supports only the `score` `score_type`. |
+| `exam_type` | `cbt` | `cbt` or `cat`. CAT is for the professional edition only, needs the **Computer Adaptive Test (CAT)** feature in the project's subscription plan, and supports only the `score` `score_type`. |
 | `score_type` | `score` | `score` (sum of correct/wrong), `answer_score` (sum of answer scores), `group` (psychometric), `irt` (UTBK 0–1000 reference), `irt_tka_sma` (200–800) or `irt_tka_sd_smp` (0–100). IRT scores are only filled in once the IRT calculation has run (see [Readiness and scoring](#readiness-and-scoring)). |
 | `duration_minutes` | — | The test's working time, 1–1440 whole minutes. Required when creating a test. Tests created in the admin panel can have a fractional duration, such as `45.5`. |
 | `description` | Standard instructions | HTML instructions for the test, up to 1,000 characters of text. It can use `{{NAMA_TES}}`, `{{JUMLAH_SOAL}}` and `{{DURASI_TES}}`. |
+| `cat_question_limit` | `null` | Number of questions answered in a CAT test (**Jumlah Soal yang Dikerjakan (CAT)** in the admin panel), a whole number of at least 1. `null` means participants answer every question in the question package. Only for `exam_type` `cat`; on other tests any value other than `null` is refused with `422`. Changing `exam_type` to `cbt` clears it. |
 | `is_show_score` | `false` | Show Score: show the participant's score after they finish. |
 | `is_show_summary` | `false` | Show Summary: show the correct/wrong summary after the participant finishes. |
 | `is_show_explanation_per_question` | `false` | Show the Explanation per Question, taken from each question in the question package, after the participant finishes. Turning it on stops using the explanation PDF uploaded for the test in the admin panel. |
 | `is_switch_tab_proctoring` | `false` | Tab Switch Detection. |
 | `is_camera_proctoring` | `false` | Participants must turn their camera on while taking the test. Professional edition only. |
 | `is_screen_proctoring` | `false` | Participants must share their screen while taking the test. Professional edition only. |
-| `is_dual_screen_proctoring` | `false` | Allow Only One Screen (monitor). Professional edition only. |
+| `is_dual_screen_proctoring` | `false` | Allow Only One Screen (monitor). Professional edition only, and needs the **Proctoring Dual Monitor** feature in the project's subscription plan. |
 | `is_audio_question_only_once` | `false` | Play the Audio Question Once. |
 | `is_audio_answer_only_once` | `false` | Play the Audio Answer Once. |
 
@@ -183,6 +193,7 @@ A change the exam's current state does not allow is returned with status `409` a
           "exam_type": "cbt",
           "score_type": "irt",
           "is_switch_tab_proctoring": true,
+          "cat_question_limit": null,
           "sessions": [
             { "id": 301, "exam_quiz_id": 120, "name": "Sesi 1", "start_at": "2026-11-10T08:00:00+07:00", "end_at": "2026-11-10T10:00:00+07:00", "question_bank_id": 88 }
           ]
@@ -264,7 +275,7 @@ A change the exam's current state does not allow is returned with status `409` a
 </Accordion>
 
 <Accordion title="PATCH /exams/{exam}/quizzes/{examQuiz} — Change a test">
-  Only the fields sent change: `name`, `exam_type`, `duration_minutes`, `score_type`, `description` and the `is_*` settings. A new duration cannot be longer than the test's existing sessions. On a manual-answer test only `name` and `description` can change; other fields are refused with `422`. The endpoint also accepts the `PUT` method.
+  Only the fields sent change: `name`, `exam_type`, `duration_minutes`, `score_type`, `description`, `cat_question_limit` and the `is_*` settings. A new duration cannot be longer than the test's existing sessions. On a manual-answer test only `name` and `description` can change; other fields are refused with `422`. The endpoint also accepts the `PUT` method.
 
   ```bash
   curl -X PATCH "https://app.indolat.com/api/v1/exams/31/quizzes/120" \

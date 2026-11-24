@@ -32,10 +32,10 @@ Jika belum memiliki ujian, buat terlebih dahulu melalui panduan [Membuat Ujian](
   </Step>
   <Step title="Isi formulir Tambah Tes Ujian">
     <Frame>
-      ![Formulir Tambah Tes Ujian dengan kolom bernomor](/images/data-ujian/membuat-tes-ujian/02-formulir-tambah-tes-ujian.png)
+      ![Formulir Tambah Tes Ujian dengan kolom bernomor pada ujian Standard](/images/data-ujian/membuat-tes-ujian/02-formulir-tes-ujian-standard.png)
     </Frame>
 
-    1. **Jenis Ujian**: cara peserta mengerjakan tes. Penjelasannya ada pada bagian [Jenis Ujian](#jenis-ujian).
+    1. **Jenis Ujian**: cara peserta mengerjakan tes. Teks bantuan di bawah kolom ini menjelaskan mengapa CAT belum dapat dipilih, misalnya **Fitur ini hanya tersedia untuk Ujian Professional.** pada ujian Standard. Penjelasannya ada pada bagian [Jenis Ujian](#jenis-ujian).
     2. **Metode Penilaian**: cara sistem menghitung skor. Penjelasannya ada pada bagian [Metode Penilaian](#metode-penilaian).
     3. **Nama Tes**: nama yang mudah dikenali. Contoh: **Penalaran Matematika**.
     4. **Durasi Pengerjaan (menit)**: lama pengerjaan tes. Contoh: **60**. Kolom ini tidak muncul untuk jenis **Esai / Upload File (Jawaban Manual)**.
@@ -46,18 +46,36 @@ Jika belum memiliki ujian, buat terlebih dahulu melalui panduan [Membuat Ujian](
     6. Klik **Buat**, atau **Buat & buat lainnya** jika ingin langsung menambahkan tes berikutnya.
 
     Jika **Tipe Pembayaran** ujian adalah **Berbayar per Tes Ujian**, formulir juga menampilkan kolom **Biaya Tes Ujian**. Isi biaya yang harus dibayar peserta untuk mengikuti tes ini, minimal Rp5.000.
+
+    Jika Anda memilih **Computer Adaptive Test (CAT)**, kolom **Jumlah Soal yang Dikerjakan (CAT)** muncul di bawah **Metode Penilaian**. Penjelasannya ada pada bagian [Jumlah soal tes CAT](#jumlah-soal-tes-cat).
   </Step>
 </Steps>
 
 ### Jenis Ujian
 
 <Frame>
-  ![Pilihan Jenis Ujian pada formulir Tambah Tes Ujian](/images/data-ujian/membuat-tes-ujian/03-pilihan-jenis-ujian.png)
+  ![Pilihan Computer Adaptive Test (CAT) berlabel Fitur tidak aktif pada ujian Professional yang paketnya tidak mencakup CAT](/images/data-ujian/membuat-tes-ujian/03-pilihan-jenis-ujian-cat-terkunci.png)
 </Frame>
 
 - **Computer Based Test (CBT)**<br />Peserta mengerjakan soal di layar dan menjawab langsung di sistem. Semua peserta mendapat soal dari paket soal yang sama. Pilih jenis ini untuk tryout SNBT biasa.
-- **Computer Adaptive Test (CAT)**<br />Soal berikutnya menyesuaikan kemampuan peserta: jawaban benar membuat soal berikutnya cenderung lebih sulit, jawaban salah membuat soal berikutnya cenderung lebih mudah. CAT hanya dapat dipilih pada **Ujian Professional (Paket Berbayar)**; pada **Ujian Standard** pilihan ini berwarna abu-abu. Semua soal pada paket soal CAT wajib memiliki tingkat kesulitan.
+- **Computer Adaptive Test (CAT)**<br />Soal berikutnya menyesuaikan kemampuan peserta: jawaban benar membuat soal berikutnya cenderung lebih sulit, jawaban salah membuat soal berikutnya cenderung lebih mudah. Semua soal pada paket soal CAT wajib memiliki tingkat kesulitan. CAT hanya dapat dipilih jika dua syarat terpenuhi:
+  - ujian bertipe **Ujian Professional (Paket Berbayar)**, dan
+  - paket langganan projek mencakup fitur **Computer Adaptive Test (CAT)**, yaitu paket **Rutin** dan **Intensif**. Paket **Standard** dan **Esensial** tidak mencakup CAT.
 - **Esai / Upload File (Jawaban Manual)**<br />Peserta menulis jawaban panjang atau mengunggah berkas, misalnya foto lembar jawaban atau file PDF. Jawaban dinilai secara manual dan tes ini tidak memiliki durasi pengerjaan.
+
+Jika salah satu syarat CAT tidak terpenuhi, pilihan tersebut tampil sebagai **Computer Adaptive Test (CAT) (Fitur tidak aktif)** dan tidak dapat dipilih. Teks bantuan di bawah **Jenis Ujian** menjelaskan penyebabnya:
+
+| Kondisi | Teks bantuan |
+| --- | --- |
+| Ujian bertipe **Ujian Standard (Paket Gratis)** | **Fitur ini hanya tersedia untuk Ujian Professional.** |
+| Ujian bertipe **Ujian Professional**, tetapi paket projek tidak mencakup CAT | **Fitur ini tidak termasuk dalam paket Anda. Lihat paket yang tersedia di Langganan & Tagihan.** Klik tautan **Langganan & Tagihan** untuk melihat atau meningkatkan paket. |
+| Tes sudah tersimpan sebagai CAT, tetapi paket projek tidak lagi mencakup CAT | **Paket Anda tidak lagi mencakup fitur ini. Pengaturan yang sudah tersimpan tetap berlaku, tetapi setelah diubah tidak dapat dipilih kembali.** |
+
+<Frame>
+  ![Teks bantuan Fitur ini tidak termasuk dalam paket Anda dengan tautan Langganan & Tagihan di bawah Jenis Ujian](/images/data-ujian/membuat-tes-ujian/03b-teks-bantuan-cat-tidak-termasuk-paket.png)
+</Frame>
+
+Tes CAT yang sudah tersimpan tetap berjalan seperti biasa bagi peserta walaupun paket projek tidak lagi mencakup CAT. Namun, jika **Jenis Ujian** tes tersebut diubah ke CBT dan disimpan, CAT tidak dapat dipilih kembali sampai paket projek mencakup fitur tersebut.
 
 <Note>
   Setelah tes dibuat, **Jenis Ujian** tidak dapat diubah dari esai ke CBT/CAT atau sebaliknya. Perpindahan antara CBT dan CAT masih dapat dilakukan selama belum ada peserta yang memulai tes.
@@ -66,7 +84,7 @@ Jika belum memiliki ujian, buat terlebih dahulu melalui panduan [Membuat Ujian](
 ### Metode Penilaian
 
 <Frame>
-  ![Pilihan Metode Penilaian untuk jenis CBT](/images/data-ujian/membuat-tes-ujian/04-pilihan-metode-penilaian.png)
+  ![Pilihan Metode Penilaian untuk jenis CBT](/images/data-ujian/membuat-tes-ujian/04-pilihan-metode-penilaian-standard.png)
 </Frame>
 
 Pilihan metode penilaian menyesuaikan **Jenis Ujian**. Rumus dan contoh perhitungan setiap metode ada di [Cara Perhitungan Metode Penilaian](/konsep/metode-penilaian). Semua metode di bawah tersedia untuk **CBT**. **CAT** hanya memakai **Perhitungan Skor Soal (Akumulasi Benar/Salah)**, sedangkan **Esai / Upload File (Jawaban Manual)** memakai **Penilaian Manual**.
@@ -84,6 +102,28 @@ Pilihan metode penilaian menyesuaikan **Jenis Ujian**. Rumus dan contoh perhitun
   Untuk tryout SNBT sederhana, pilih **Computer Based Test (CBT)** dengan **Perhitungan Skor Soal (Akumulasi Benar/Salah)**.
 </Tip>
 
+### Jumlah soal tes CAT
+
+Secara bawaan, peserta tes CAT mengerjakan seluruh soal pada paket soal, satu per satu. Jika Anda ingin tes berhenti setelah sejumlah soal, isi **Jumlah Soal yang Dikerjakan (CAT)**. Kolom ini hanya muncul jika **Jenis Ujian** adalah **Computer Adaptive Test (CAT)**, letaknya di bawah **Metode Penilaian** pada formulir **Tambah Tes Ujian** maupun pada tab **Informasi Umum** halaman detail tes.
+
+<Frame>
+  ![Kolom Jumlah Soal yang Dikerjakan (CAT) berisi 20 pada formulir Tambah Tes Ujian](/images/data-ujian/membuat-tes-ujian/09-jumlah-soal-cat.png)
+</Frame>
+
+- Isi dengan bilangan bulat minimal 1, misalnya **20**. Tes berakhir setelah peserta menjawab 20 soal, walaupun paket soal berisi lebih banyak soal.
+- Kosongkan kolom ini jika peserta harus mengerjakan seluruh soal pada paket soal, sesuai teks bantuannya: **Jika dikosongkan, peserta mengerjakan seluruh soal pada paket soal.**
+- Jika angka yang diisi lebih besar dari jumlah soal di paket soal, peserta tetap mengerjakan seluruh soal pada paket soal.
+- Tes tetap berakhir lebih awal jika waktu pengerjaan habis.
+- Kolom ini tidak dapat diubah lagi setelah ada peserta yang mulai mengerjakan tes.
+
+Batas ini juga dipakai sebagai jumlah soal yang dilihat peserta: kartu tes di dashboard peserta menampilkan, misalnya, **30 Menit • 20 Soal**, dan penanda `{{JUMLAH_SOAL}}` pada instruksi tes berisi angka yang sama. Pada bagian **Daftar Tes Ujian**, tes CAT yang memakai batas ini diberi keterangan seperti **Computer Adaptive Test (CAT) · 5 soal dikerjakan**.
+
+<Frame>
+  ![Keterangan Computer Adaptive Test (CAT) · 5 soal dikerjakan di bawah nama tes pada Daftar Tes Ujian](/images/data-ujian/membuat-tes-ujian/10-daftar-tes-cat-jumlah-soal.png)
+</Frame>
+
+Cara sistem memilih soal CAT dijelaskan di [Perbedaan CBT, CAT, dan Esai/Upload File](/konsep/jenis-ujian-cbt-cat-esai#berapa-soal-yang-dikerjakan).
+
 ## Membuka detail tes ujian
 
 Tes yang sudah dibuat tampil pada bagian **Daftar Tes Ujian** beserta jenis ujian, durasi, dan metode penilaiannya.
@@ -100,12 +140,12 @@ Keterangan **Tes belum memiliki sesi ujian** berarti tes sudah tersimpan, tetapi
 </Note>
 
 <Frame>
-  ![Tiga tab pada halaman detail tes ujian](/images/data-ujian/membuat-tes-ujian/06-detail-tes-ujian.png)
+  ![Tiga tab pada halaman detail tes ujian](/images/data-ujian/membuat-tes-ujian/06-detail-tes-ujian-standard.png)
 </Frame>
 
 Halaman detail tes memiliki tab berikut:
 
-1. **Informasi Umum**: **Nama Tes**, **Durasi Pengerjaan (menit)**, **Jenis Ujian**, **Metode Penilaian**, dan **Instruksi Pengerjaan Tes Ujian**.
+1. **Informasi Umum**: **Nama Tes**, **Durasi Pengerjaan (menit)**, **Jenis Ujian**, **Metode Penilaian**, **Jumlah Soal yang Dikerjakan (CAT)** (khusus tes CAT), dan **Instruksi Pengerjaan Tes Ujian**.
 2. **Skor & Hasil**: informasi yang boleh dilihat peserta setelah selesai.
 3. **Pengawasan**: pengawasan peserta dan pengaturan audio.
 
@@ -114,8 +154,14 @@ Tab **Biaya Tes Ujian** juga muncul jika tipe pembayaran ujian adalah **Berbayar
 Klik **Simpan** setelah mengubah tab mana pun, lalu klik **Kembali ke Detail Ujian** untuk kembali ke halaman ujian. Di bawah tab terdapat bagian **Daftar Sesi Ujian** dan **Sesi Peserta Ujian** yang dijelaskan di [Membuat Sesi Ujian](/data-ujian/membuat-sesi-ujian).
 
 <Note>
-  **Durasi Pengerjaan (menit)** tidak dapat diubah selama ada peserta yang sedang mengerjakan tes, dan **Jenis Ujian** tidak dapat diubah setelah tes mulai dikerjakan.
+  **Durasi Pengerjaan (menit)** tidak dapat diubah selama ada peserta yang sedang mengerjakan tes. **Jenis Ujian** dan **Jumlah Soal yang Dikerjakan (CAT)** tidak dapat diubah setelah tes mulai dikerjakan; sistem menampilkan peringatan **Jenis Ujian tidak dapat diubah karena tes sudah dimulai.**
 </Note>
+
+Contoh di bawah adalah tes CAT yang tersimpan sebelum paket projek berubah. Pengaturannya tetap berlaku, dan teks bantuan di bawah **Jenis Ujian** mengingatkan bahwa CAT tidak dapat dipilih kembali setelah diubah.
+
+<Frame>
+  ![Tes CAT tersimpan dengan teks bantuan Paket Anda tidak lagi mencakup fitur ini dan kolom Jumlah Soal yang Dikerjakan (CAT) berisi 5](/images/data-ujian/membuat-tes-ujian/11-tes-cat-tersimpan.png)
+</Frame>
 
 ## Mengatur skor dan hasil
 
@@ -138,7 +184,7 @@ Pada tab **Skor & Hasil**, tentukan informasi yang dapat dilihat peserta setelah
 ## Mengatur pengawasan
 
 <Frame>
-  ![Kolom bernomor pada tab Pengawasan untuk ujian Standard](/images/data-ujian/membuat-tes-ujian/08-tab-pengawasan.png)
+  ![Kolom bernomor pada tab Pengawasan untuk ujian Standard](/images/data-ujian/membuat-tes-ujian/08-tab-pengawasan-standard.png)
 </Frame>
 
 Tab **Pengawasan** berisi dua kelompok pengaturan: **Pengawasan Peserta** dan **Audio & Visual**.
@@ -146,16 +192,23 @@ Tab **Pengawasan** berisi dua kelompok pengaturan: **Pengawasan Peserta** dan **
 1. **Pengawasan Kamera**: peserta wajib mengaktifkan kamera selama mengerjakan soal.
 2. **Pengawasan Layar (Share Screen)**: peserta wajib membagikan tampilan layar selama mengerjakan soal.
 3. **Deteksi Pindah Tab**: sistem mencatat saat peserta berpindah ke tab atau jendela lain selama ujian.
-4. **Hanya Izinkan Satu Layar**: peserta hanya boleh memakai satu monitor.
+4. **Hanya Izinkan Satu Layar**: peserta hanya boleh memakai satu monitor. Pengaturan ini memerlukan **Ujian Professional** dan fitur **Proctoring Dual Monitor** pada paket langganan projek, yaitu paket **Esensial**, **Rutin**, dan **Intensif**.
 5. **Soal Audio Sekali Putar**: audio pada soal hanya dapat diputar satu kali, misalnya untuk soal *listening*.
 6. **Jawaban Audio Sekali Putar**: audio pada pilihan jawaban hanya dapat diputar satu kali.
 7. Klik **Simpan**.
 
 Pengaturan nomor 5 dan 6 hanya berlaku untuk soal bertipe audio atau video.
 
-<Note>
-  Keterangan **(Fitur tidak aktif)** berarti fitur tersebut tidak tersedia untuk tipe ujian yang dipakai. Pada **Ujian Standard (Paket Gratis)**, **Pengawasan Kamera**, **Pengawasan Layar (Share Screen)**, dan **Hanya Izinkan Satu Layar** tidak dapat diaktifkan. **Deteksi Pindah Tab** tersedia pada kedua tipe ujian.
-</Note>
+Keterangan **(Fitur tidak aktif)** berarti pengaturan tersebut tidak dapat diaktifkan pada tes ini:
+
+- Pada **Ujian Standard (Paket Gratis)**, **Pengawasan Kamera**, **Pengawasan Layar (Share Screen)**, dan **Hanya Izinkan Satu Layar** tidak dapat diaktifkan. Teks bantuan **Hanya Izinkan Satu Layar** menampilkan **Fitur ini hanya tersedia untuk Ujian Professional.**
+- Pada **Ujian Professional**, **Hanya Izinkan Satu Layar** juga memerlukan fitur **Proctoring Dual Monitor** pada paket projek. Jika paket tidak mencakupnya, misalnya paket **Standard**, teks bantuannya menampilkan **Fitur ini tidak termasuk dalam paket Anda. Lihat paket yang tersedia di Langganan & Tagihan.**
+- Jika **Hanya Izinkan Satu Layar** sudah aktif sebelumnya, misalnya sebelum paket berubah, pengaturan itu tetap berlaku dan masih dapat dimatikan. Pada ujian Professional, teks bantuannya menampilkan **Paket Anda tidak lagi mencakup fitur ini. Pengaturan yang sudah tersimpan tetap berlaku, tetapi setelah diubah tidak dapat dipilih kembali.**
+- **Deteksi Pindah Tab** tersedia pada kedua tipe ujian tanpa syarat paket.
+
+<Frame>
+  ![Hanya Izinkan Satu Layar berlabel Fitur tidak aktif dengan teks bantuan Fitur ini tidak termasuk dalam paket Anda pada ujian Professional](/images/data-ujian/membuat-tes-ujian/12-satu-layar-tidak-termasuk-paket.png)
+</Frame>
 
 <Warning>
   **Pengawasan Kamera** dan **Pengawasan Layar (Share Screen)** memakai kredit proctoring tersendiri (add-on). Setiap kali peserta memulai tes, satu kredit untuk setiap jenis pengawasan yang aktif terpakai. Jika kreditnya habis, peserta tidak dapat memulai tes.

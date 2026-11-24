@@ -67,7 +67,7 @@ Tes **Penalaran Matematika** berisi 20 soal. Setiap soal diberi **Skor Benar** `
 </Warning>
 
 <Note>
-  Jika peserta menyelesaikan tes tanpa menjawab satu soal pun, semua soal dihitung dengan **Skor Salah**, bukan **Skor Tidak Dijawab**.
+  Soal yang tidak dijawab selalu dihitung dengan **Skor Tidak Dijawab**, termasuk jika peserta menyelesaikan tes tanpa menjawab satu soal pun. Jumlah soal benar, salah, dan tidak dijawab yang tampil di hasil selalu sama dengan jumlah soal yang dinilai.
 </Note>
 
 ### Tes CAT
@@ -76,6 +76,8 @@ Pada tes **Computer Adaptive Test (CAT)**, setiap soal wajib memiliki **Tingkat 
 
 - Jika jawaban **benar**, sistem lebih dulu mencari soal dengan tingkat kesulitan lebih tinggi.
 - Jika jawaban **salah**, sistem lebih dulu mencari soal dengan tingkat kesulitan lebih rendah.
+
+Jumlah soal yang dikerjakan dapat dibatasi melalui pengaturan **Jumlah Soal yang Dikerjakan (CAT)** pada tes. Jika diisi, misalnya 20, tes berakhir setelah peserta menjawab 20 soal; jika dikosongkan, peserta mengerjakan seluruh soal pada paket soal.
 
 Pemilihan soal tidak mengubah rumus skor. Skor tes CAT tetap dihitung dengan rumus akumulasi di atas memakai bobot **Skor CAT**, hanya untuk soal yang benar-benar ditampilkan kepada peserta.
 
@@ -129,9 +131,9 @@ Tes gaya kerja berisi 10 soal dengan kelompok **Kepemimpinan**, **Kerja Sama**, 
 
 Kecenderungan utama peserta adalah **Kerja Sama**.
 
-<Warning>
-  Skor angka tes psikotes selalu **0**, karena hasilnya berupa kelompok. Jika ujian memakai nilai akhir **Rata-Rata Tes Ujian**, angka 0 ini ikut dirata-ratakan dan menurunkan nilai akhir. Pertimbangkan **Jenis Skor Akhir** **Akumulasi Tes Ujian**, atau tempatkan psikotes pada ujian tersendiri.
-</Warning>
+<Note>
+  Tes psikotes tidak menghasilkan skor angka, karena hasilnya berupa kelompok. Tes ini tidak ikut dihitung dalam nilai akhir ujian, baik dengan **Akumulasi Tes Ujian** maupun **Rata-Rata Tes Ujian**.
+</Note>
 
 ## IRT (Item Response Theory)
 
@@ -195,7 +197,7 @@ Jika ujian memiliki lebih dari satu tes, skor setiap tes digabungkan menjadi nil
 | **Akumulasi Tes Ujian** | Nilai akhir = jumlah skor semua tes yang sudah dinilai |
 | **Rata-Rata Tes Ujian** (bawaan) | Nilai akhir = jumlah skor tes yang sudah dinilai ÷ banyaknya tes yang sudah dinilai |
 
-Nilai akhir dibulatkan 2 angka desimal. Tes yang belum memiliki skor, misalnya tes esai yang belum dinilai atau tes IRT yang belum dihitung, tidak ikut dijumlahkan maupun dirata-ratakan.
+Nilai akhir dibulatkan 2 angka desimal. Tes **Psikotes (Pengelompokan Jawaban)** tidak ikut dihitung. Tes yang belum memiliki skor, misalnya tes esai yang belum dinilai atau tes IRT yang belum dihitung, tidak ikut dijumlahkan maupun dirata-ratakan.
 
 **Contoh:** ujian **Tryout Akbar SNBT 2027** memiliki tiga tes dengan skor **Penalaran Matematika** 57, **Literasi Bahasa Indonesia** 64, dan **Pengetahuan Kuantitatif** 48.
 

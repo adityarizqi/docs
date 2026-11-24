@@ -22,11 +22,21 @@ This page covers the endpoints that read exams. Creating and changing exams, tes
 | `is_must_be_in_order` | Tests must be taken in order of `level`. |
 | `is_force_complete` | A test must be finished without a break before the next one. |
 | `is_show_score` | The final score is shown to participants in the CBT. It does not limit the scores available through the API. |
-| `edition` | `standard` (Standard Exam) or `professional` (Professional Exam). It decides which credit participants use when they start, the maximum number of tests, and whether CAT and camera, screen and dual-monitor proctoring are available. |
+| `edition` | `standard` (Standard Exam) or `professional` (Professional Exam). It decides which credit participants use when they start, the maximum number of tests, and whether CAT and camera, screen and dual-monitor proctoring are available. CAT and dual monitor also need a feature in the project's subscription plan. |
 | `final_score_type` | How the exam's final score is calculated from the test scores: `1` sum, `2` average. |
 | `paid_type` | `1` free, `2` one-time payment, `3` paid per test, `4` paid per level. |
 
-For tests (`exam_quizzes`), `exam_type` is `cbt`, `cat` or `manual`, `duration_minutes` is the test's working time, `score_type` is the scoring method, and the `is_*` fields are the test settings (see [Exam Setup](/en/api/pengaturan-ujian)). On a session, `question_bank_id` is the ID of the question package taken in that session.
+### Key test fields
+
+| Field | Description |
+| --- | --- |
+| `exam_type` | `cbt`, `cat` or `manual`. |
+| `duration_minutes` | The test's working time in minutes. |
+| `score_type` | The scoring method. |
+| `cat_question_limit` | The number of questions participants answer in a CAT test. `null` when participants answer every question in the question package; always `null` for tests other than CAT. |
+| `is_*` | The test settings (see [Exam Setup](/en/api/pengaturan-ujian)). |
+
+On a session, `question_bank_id` is the ID of the question package taken in that session.
 
 <Accordion title="GET /exams — List exams">
   ### Parameters
@@ -154,6 +164,7 @@ For tests (`exam_quizzes`), `exam_type` is `cbt`, `cat` or `manual`, `duration_m
           "is_dual_screen_proctoring": false,
           "is_audio_question_only_once": false,
           "is_audio_answer_only_once": false,
+          "cat_question_limit": null,
           "sessions": [
             {
               "id": 91,
@@ -221,6 +232,7 @@ For tests (`exam_quizzes`), `exam_type` is `cbt`, `cat` or `manual`, `duration_m
         "is_dual_screen_proctoring": false,
         "is_audio_question_only_once": false,
         "is_audio_answer_only_once": false,
+        "cat_question_limit": null,
         "sessions": [
           {
             "id": 91,

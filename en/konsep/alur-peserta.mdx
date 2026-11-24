@@ -73,6 +73,13 @@ Questions participants often ask at this point:
 
 - **Wrong password several times.** After 5 failed attempts within one minute, the participant has to wait briefly before trying again.
 - **Accounts deactivated by the admin** cannot log in, and they see the same message as for a wrong password.
+- **Opening an app page before logging in.** A participant who is not logged in, or whose session has ended, sometimes opens an app page directly, for example from a bookmark such as `https://prestasi.indolat.web.id/app/dashboard`. The app sends them to the project's login page with the message **Silakan masuk terlebih dahulu untuk melanjutkan.** (Please log in first to continue.) After logging in, the participant goes straight back to the page they asked for.
+
+  <Frame>
+    ![Participant login page with the information message Silakan masuk terlebih dahulu untuk melanjutkan](/images/konsep/alur-peserta/26-silakan-masuk-terlebih-dahulu.png)
+  </Frame>
+
+  If the page is opened on the main CBT Indolat address (without a project code in the address), the app uses the project last opened in that browser. If the browser has never opened a project, the participant lands on the start page to enter the project code. So always share the login link that contains your project code.
 
 The self-registration and email verification steps are described in [Participant Login](/en/lainnya/login-peserta#how-participants-register-and-log-in).
 
@@ -191,7 +198,7 @@ The colours in **Daftar Soal** help participants review their work before finish
 
 - **Orange**: the question currently open.
 - **Grey**: flagged as unsure.
-- **Green**: answered.
+- **Green**: answered. A **Menjodohkan** (matching) question only turns green once every pair is placed; a partly matched question still counts as unanswered.
 - **White**: not answered.
 
 Behaviour worth knowing:
@@ -222,7 +229,13 @@ The participant simply opens the login link again and logs in. The app takes the
   ![Question page on a phone after the participant logs in from a second device](/images/konsep/alur-peserta/23-tampilan-ponsel-soal.png)
 </Frame>
 
-An account can only be active on one device. If the participant logs in on another device, the exam page on the old device shows **Sesi tidak valid. Akun Anda digunakan di perangkat lain.** (Invalid session. Your account is being used on another device.), and the system records **Peserta mencoba login dengan device yang berbeda.** (participant tried to log in from a different device) in [Exam Monitoring](/en/cbt/monitoring-ujian). This entry is expected when a participant genuinely switched devices because of a problem.
+An account can only be active on one device. If the participant logs in on another device while the session on the old device is still active, the exam page on the old device shows **Sesi tidak valid. Akun Anda digunakan di perangkat lain.** (Invalid session. Your account is being used on another device.) If the page on the old device is reloaded, it goes to the login page with the same warning.
+
+<Frame>
+  ![Login page on the old device with the warning Sesi tidak valid. Akun Anda digunakan di perangkat lain.](/images/konsep/alur-peserta/25-sesi-tidak-valid-perangkat-lama.png)
+</Frame>
+
+While the test is running, the system also records **Peserta mencoba login dengan device yang berbeda.** (participant tried to log in from a different device) in [Exam Monitoring](/en/cbt/monitoring-ujian). This entry is expected when a participant genuinely switched devices because of a problem. A participant who logs out (**Keluar**) and then logs in again, on the same device or another one, is not recorded.
 
 ## 8. Finishing the test
 

@@ -34,7 +34,10 @@ Halaman ini mengumpulkan pertanyaan yang paling sering muncul dari guru, pemilik
     Alamat bawaan mengikuti **Kode Projek**: `https://<kode-projek>.indolat.web.id`. Ganti kode di **Administrasi Aplikasi** → **Pengaturan Projek** → **Profil Projek**; tautan lama langsung tidak berlaku, jadi umumkan alamat baru kepada peserta. Jika ingin memakai domain sendiri, misalnya `ujian.bimbelprestasi.sch.id`, aktifkan add-on **Kustom Domain**. Lihat [Profil Projek](/administrasi/profil-projek) dan [Domain](/administrasi/domain).
   </Accordion>
   <Accordion title="Apakah peserta bisa masuk dari dua perangkat sekaligus?">
-    Tidak. Satu akun hanya aktif di satu perangkat. Jika peserta masuk dari perangkat kedua saat tes berjalan, perangkat pertama menampilkan **Sesi tidak valid**, dan sistem mencatatnya di **Monitoring Ujian**. Lihat [Jika browser tertutup atau berganti perangkat](/konsep/alur-peserta#jika-browser-tertutup-atau-berganti-perangkat).
+    Tidak. Satu akun hanya aktif di satu perangkat. Jika peserta masuk dari perangkat kedua saat tes berjalan dan sesi di perangkat pertama masih aktif, perangkat pertama menampilkan **Sesi tidak valid. Akun Anda digunakan di perangkat lain.**, lalu diarahkan ke halaman login saat dimuat ulang. Sistem mencatat kejadian ini di **Monitoring Ujian** sebagai **Peserta mencoba login dengan device yang berbeda.** Peserta yang keluar dari akun (**Keluar**) lalu masuk lagi tidak dicatat sebagai kecurangan. Lihat [Jika browser tertutup atau berganti perangkat](/konsep/alur-peserta#jika-browser-tertutup-atau-berganti-perangkat).
+  </Accordion>
+  <Accordion title="Peserta membuka tautan aplikasi lalu diminta masuk. Mengapa?">
+    Peserta tersebut belum masuk atau sesinya sudah berakhir, misalnya karena membuka bookmark halaman **Daftar Tes** setelah keluar. Aplikasi mengarahkannya ke halaman login projek dengan pesan **Silakan masuk terlebih dahulu untuk melanjutkan.** Setelah masuk, peserta langsung kembali ke halaman yang tadi dibukanya. Jika alamat yang dibuka tidak memuat kode projek dan browser belum pernah membuka projek Anda, peserta diminta memasukkan kode projek lebih dulu. Lihat [Masuk atau membuat akun](/konsep/alur-peserta#2-masuk-atau-membuat-akun).
   </Accordion>
 </AccordionGroup>
 
@@ -85,7 +88,7 @@ Halaman ini mengumpulkan pertanyaan yang paling sering muncul dari guru, pemilik
     Lihat [Persiapan Sebelum Hari Ujian](/konsep/persiapan-hari-ujian#15-tangani-insiden).
   </Accordion>
   <Accordion title="Mengapa peserta ditandai melakukan kecurangan?">
-    Catatan kecurangan muncul di **Monitoring Ujian** saat sistem mendeteksi, misalnya, peserta berpindah tab (jika **Deteksi Pindah Tab** aktif), memakai dua monitor, mematikan kamera, menghentikan berbagi layar, atau masuk dari perangkat lain. Catatan ini adalah indikasi, bukan putusan; periksa konteksnya, misalnya peserta yang berpindah perangkat karena laptopnya mati. Lihat [Pengawasan Ujian dan Deteksi Kecurangan](/konsep/pengawasan-dan-kecurangan).
+    Catatan kecurangan muncul di **Monitoring Ujian** saat sistem mendeteksi, misalnya, peserta berpindah tab (jika **Deteksi Pindah Tab** aktif), memakai dua monitor, mematikan kamera, menghentikan berbagi layar, atau masuk dari perangkat lain selagi sesi lama masih aktif. Catatan ini adalah indikasi, bukan putusan; periksa konteksnya, misalnya peserta yang berpindah perangkat karena laptopnya mati. Lihat [Pengawasan Ujian dan Deteksi Kecurangan](/konsep/pengawasan-dan-kecurangan).
   </Accordion>
   <Accordion title="Apakah peserta bisa mengerjakan ujian dari ponsel?">
     Bisa, melalui Chrome atau Safari di ponsel, dengan tampilan yang menyesuaikan layar. Pengecualiannya ujian dengan **Pengawasan Layar (Share Screen)**: peserta harus memakai aplikasi CBT Indolat. Lihat [Mengerjakan dari ponsel](/konsep/alur-peserta#13-mengerjakan-dari-ponsel).
@@ -159,7 +162,18 @@ Halaman ini mengumpulkan pertanyaan yang paling sering muncul dari guru, pemilik
 
 <AccordionGroup>
   <Accordion title="Bagaimana cara menghubungi tim CBT Indolat?">
-    Dari panel admin, Anda dapat memakai tombol **Jadwalkan meeting** di pojok kanan bawah.
+    Kanal dukungan resmi CBT Indolat adalah **Komunitas CBT Indolat** di Telegram: [t.me/cbtindolatcommunity](https://t.me/cbtindolatcommunity). Ajukan pertanyaan dan laporkan masalah di sana; tim CBT Indolat dan sesama pengguna akan membantu. Grup ini juga dapat dibuka dari tautan **Gabung Komunitas** di bagian atas situs dokumentasi ini.
+
+    Di bagian bawah setiap halaman panel admin terdapat dua tautan lain:
+
+    <Frame>
+      ![Tautan Kirim Masukan dan Status Layanan di bagian bawah panel](/images/konsep/pertanyaan-umum/02-kirim-masukan.png)
+    </Frame>
+
+    1. **Kirim Masukan**: membuka situs `community.indolat.com` untuk menyampaikan masukan dan usulan fitur. Tautan yang sama ada di **Berikan Feedback** di bagian atas situs dokumentasi ini.
+    2. **Status Layanan**: memeriksa apakah layanan sedang mengalami gangguan. Periksa halaman ini lebih dulu jika aplikasi tiba-tiba tidak dapat diakses.
+
+    Jika Anda membutuhkan pendampingan langsung, gunakan tombol **Jadwalkan meeting** di pojok kanan bawah panel admin:
 
     <Frame>
       ![Panel Jadwalkan meeting dengan tombol Jadwalkan Sekarang dan Chat WhatsApp](/images/konsep/pertanyaan-umum/01-jadwalkan-meeting.png)
@@ -168,17 +182,6 @@ Halaman ini mengumpulkan pertanyaan yang paling sering muncul dari guru, pemilik
     1. **Jadwalkan Sekarang**: memesan konsultasi gratis 30 menit melalui Google Meet (Senin–Jumat, 08.00–17.00 WIB). Tautan meeting dikirim ke email Anda.
     2. **Chat WhatsApp**: mengobrol langsung dengan tim melalui WhatsApp.
     3. **Jadwalkan meeting**: membuka atau menutup panel ini.
-
-    Di bagian bawah setiap halaman panel juga terdapat dua tautan:
-
-    <Frame>
-      ![Tautan Kirim Masukan dan Status Layanan di bagian bawah panel](/images/konsep/pertanyaan-umum/02-kirim-masukan.png)
-    </Frame>
-
-    1. **Kirim Masukan**: membuka situs komunitas CBT Indolat (`community.indolat.com`) untuk menyampaikan masukan atau melaporkan masalah.
-    2. **Status Layanan**: memeriksa apakah layanan sedang mengalami gangguan.
-
-    Anda juga dapat bergabung dengan komunitas pengguna melalui tautan **Gabung Komunitas** di dokumentasi ini.
   </Accordion>
   <Accordion title="Siapa yang harus dihubungi peserta jika mengalami kendala?">
     Peserta menghubungi Anda sebagai penyelenggara, bukan tim CBT Indolat, karena hanya Anda yang dapat mengubah akun, sesi, dan tes mereka. Tampilkan kontak panitia di **Daftar Tes** peserta melalui tab **Informasi Tambahan**. Lihat [Membuat Ujian](/data-ujian/membuat-ujian#informasi-tambahan).

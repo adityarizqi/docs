@@ -81,6 +81,7 @@ Ada dua cara membuat ujian:
           - Ujian dari template dibuat sebagai **Ujian Professional (Paket Berbayar)**, dengan tanggal mulai saat template dipakai dan tanggal selesai satu bulan setelahnya. Ubah nama, kode, jadwal, dan tipe ujian melalui **Detail**.
           - Template **tidak** membuat sesi ujian, isian formulir pendaftaran, maupun peserta. Anda tetap perlu [membuat sesi ujian](/data-ujian/membuat-sesi-ujian), memilih paket soal untuk setiap sesi, dan [menambahkan peserta](/data-ujian/menambahkan-peserta-ujian).
           - Template yang memakai pembayaran hanya dapat dipakai jika add-on formulir pendaftaran aktif.
+          - Pengaturan tes yang memerlukan fitur paket menyesuaikan paket projek. Jika paket tidak mencakup **Proctoring Dual Monitor**, **Hanya Izinkan Satu Layar** pada tes template dimatikan; jika paket tidak mencakup **Computer Adaptive Test (CAT)**, tes CAT pada template dibuat sebagai tes CBT.
         </Note>
       </Step>
     </Steps>
@@ -150,20 +151,23 @@ Tab ini berisi kolom yang sama dengan formulir **Tambah Ujian**: **Kode Ujian**,
 
 | | **Ujian Standard (Paket Gratis)** | **Ujian Professional (Paket Berbayar)** |
 | --- | --- | --- |
-| Reset kredit | Otomatis setiap bulan | Setiap bulan sesuai periode langganan |
+| Masa berlaku kredit | Di-reset otomatis setiap bulan | Kredit dari langganan terakumulasi selama langganan diperpanjang tanpa jeda; Kredit Ujian yang dibeli terpisah berlaku 6 bulan sejak tanggal pembelian |
 | Tes ujian per ujian | Maksimal 4 | Maksimal 30 |
 | Peserta yang mengerjakan serentak | Maksimal 50 | Maksimal 1.000 |
-| Proctoring Kamera, Layar, dan Dual Monitor | Tidak tersedia | Tersedia |
-| Computer Adaptive Test (CAT) | Tidak tersedia | Tersedia |
+| Proctoring Kamera dan Layar | Tidak tersedia | Tersedia (memakai kredit add-on) |
+| Proctoring Dual Monitor (**Hanya Izinkan Satu Layar**) | Tidak tersedia | Tersedia jika paket projek **Esensial**, **Rutin**, atau **Intensif** |
+| Computer Adaptive Test (CAT) | Tidak tersedia | Tersedia jika paket projek **Rutin** atau **Intensif** |
 
 Pada kedua tipe, tes CBT dapat memakai semua metode penilaian (termasuk IRT), dan **Deteksi Pindah Tab** tetap tersedia.
+
+Kotak informasi **Ujian Professional** menyebut proctoring dan CAT tersedia, tetapi **Hanya Izinkan Satu Layar** dan CAT tetap memerlukan paket langganan yang mencakup fiturnya. Tanpa paket tersebut, pilihannya berlabel **(Fitur tidak aktif)** pada formulir tes. Lihat [Membuat Tes Ujian](/data-ujian/membuat-tes-ujian#jenis-ujian) dan [Kredit Ujian, Ujian Standard, dan Ujian Professional](/konsep/kredit-dan-tipe-ujian).
 
 <Warning>
   Jika Anda memilih **Ujian Professional (Paket Berbayar)** tetapi projek tidak memiliki kredit ujian profesional, sistem menampilkan peringatan dan peserta tidak dapat memulai ujian sampai kredit tersedia. Kredit dikelola di **Administrasi Aplikasi** → **Keuangan** → **Langganan & Tagihan**.
 </Warning>
 
 <Tip>
-  Pilih **Ujian Standard** untuk ujian sederhana dengan paling banyak 4 tes dan 50 peserta serentak. Pilih **Ujian Professional** jika Anda membutuhkan lebih banyak tes atau peserta serentak, CAT, atau proctoring kamera, layar, dan dual monitor.
+  Pilih **Ujian Standard** untuk ujian sederhana dengan paling banyak 4 tes dan 50 peserta serentak. Pilih **Ujian Professional** jika Anda membutuhkan lebih banyak tes atau peserta serentak, CAT, atau proctoring kamera, layar, dan dual monitor. Untuk CAT dan dual monitor, pastikan juga paket langganan projek mencakup fiturnya.
 </Tip>
 
 ### Pendaftaran & Pembayaran
@@ -213,7 +217,7 @@ Tab ini menentukan aturan umum pengerjaan dan penghitungan skor akhir.
    - **Akumulasi Tes Ujian**: skor setiap tes dijumlahkan.
    - **Rata-Rata Tes Ujian** (bawaan): jumlah skor dibagi jumlah tes yang sudah dinilai.
 
-   Contoh: skor Penalaran Matematika 80 dan Literasi Bahasa Indonesia 70 menghasilkan skor akhir 150 dengan akumulasi, atau 75 dengan rata-rata. Jika ujian sudah memiliki peserta, skor akhir seluruh peserta dihitung ulang setelah perubahan disimpan.
+   Contoh: skor Penalaran Matematika 80 dan Literasi Bahasa Indonesia 70 menghasilkan skor akhir 150 dengan akumulasi, atau 75 dengan rata-rata. Jika ujian sudah memiliki peserta, skor akhir seluruh peserta dihitung ulang setelah perubahan disimpan. Tes bermetode **Psikotes (Pengelompokan Jawaban)** tidak ikut dijumlahkan maupun dirata-ratakan.
 5. **Apakah Tampilkan Skor Akhir Ujian?**<br />Aktifkan agar peserta dapat melihat skor akhir ujian. Aktifkan hanya jika skor akhir sudah dihitung dengan benar. Nonaktifkan jika nilai masih perlu diperiksa atau akan diumumkan kemudian.
 6. Klik **Simpan**.
 
