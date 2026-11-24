@@ -44,6 +44,21 @@
                 ]
               },
               {
+                "group": "Konsep Dasar",
+                "pages": [
+                  "konsep/struktur-ujian",
+                  "konsep/jenis-ujian-cbt-cat-esai",
+                  "konsep/jenis-soal",
+                  "konsep/metode-penilaian",
+                  "konsep/kredit-dan-tipe-ujian",
+                  "konsep/ujian-berbayar-dan-saldo",
+                  "konsep/pengawasan-dan-kecurangan",
+                  "konsep/alur-peserta",
+                  "konsep/persiapan-hari-ujian",
+                  "konsep/pertanyaan-umum"
+                ]
+              },
+              {
                 "group": "Paket Soal",
                 "pages": [
                   "paket-soal/membuat-paket-soal",
@@ -154,6 +169,21 @@
                   "en/memulai/mengenal-portal-dan-modul",
                   "en/membuat-ujian-pertama-anda-dalam-5-menit",
                   "en/glosarium-cbt-indolat"
+                ]
+              },
+              {
+                "group": "Basic Concepts",
+                "pages": [
+                  "en/konsep/struktur-ujian",
+                  "en/konsep/jenis-ujian-cbt-cat-esai",
+                  "en/konsep/jenis-soal",
+                  "en/konsep/metode-penilaian",
+                  "en/konsep/kredit-dan-tipe-ujian",
+                  "en/konsep/ujian-berbayar-dan-saldo",
+                  "en/konsep/pengawasan-dan-kecurangan",
+                  "en/konsep/alur-peserta",
+                  "en/konsep/persiapan-hari-ujian",
+                  "en/konsep/pertanyaan-umum"
                 ]
               },
               {

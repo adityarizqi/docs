@@ -1,0 +1,209 @@
+---
+title: "How Each Scoring Method Is Calculated"
+description: "Formulas and worked examples for every test scoring method, and how the system combines test scores into the exam's final score."
+---
+
+Every exam test uses one **Metode Penilaian** (scoring method) that you choose when you create the test (see [Create a Test](/en/data-ujian/membuat-tes-ujian#scoring-method)). This page explains how the system calculates the score for each method, with formulas and examples, and how test scores are combined into the exam's final score.
+
+<Info>
+  **Where the settings are:**
+
+  - Scoring method: **Portal** → **Platform Ujian (CBT)** → **Manajemen Ujian** → **Data Ujian** → **Detail** on the exam → **Daftar Tes Ujian** → **Metode Penilaian**.
+  - Score weights per question and per answer option: **Manajemen Ujian** → **Data Paket Soal** → **Ubah** on the package → question form, **Jawaban** (Answers) and **Penilaian** (Scoring) tabs.
+  - How the final score is built: **Jenis Skor Akhir** (final score type) on the **Pengaturan Ujian** (Exam Settings) tab of the **Detail Ujian** page.
+</Info>
+
+## Methods at a glance
+
+| Scoring method | Exam type | Based on | When the score is produced |
+| --- | --- | --- | --- |
+| **Perhitungan Skor Soal (Akumulasi Benar/Salah)** (question score, correct/incorrect total) | CBT and CAT | Each question's **Skor Benar**, **Skor Salah** and **Skor Tidak Dijawab** weights | When the participant finishes the test |
+| **Perhitungan Skor Jawaban (Akumulasi Skor Jawaban)** (answer score total) | CBT | The **Skor Jawaban** of each option the participant picks | When the participant finishes the test |
+| **Psikotes (Pengelompokan Jawaban)** (psychometric, answer grouping) | CBT | Number of answers per **Kelompok Jawaban** (answer group) | When the participant finishes the test |
+| **IRT (Referensi UTBK 0-1000)** | CBT | Participant ability (theta) from the answer pattern of all participants | After the admin runs **Perhitungan IRT** |
+| **IRT TKA SMA/SMK (200-800)** | CBT | The same theta, 200–800 scale | After the admin runs **Perhitungan IRT** |
+| **IRT TKA SD/SMP (0-100)** | CBT | The same theta, 0–100 scale | After the admin runs **Perhitungan IRT** |
+| **Penilaian Manual** (manual grading) | Essay / file upload | The score the admin enters | After the admin grades it |
+
+## When a question counts as correct
+
+The **correct/incorrect total** and **IRT** methods only look at whether each question was answered correctly, incorrectly, or not at all. The rules per question type:
+
+| Question type | Counts as correct when |
+| --- | --- |
+| **Pilihan Ganda** (multiple choice, one key) | The participant's choice is the answer key. |
+| **Pilihan Ganda** (more than one key) | The participant's choices match all keys exactly: no key missed and no extra wrong choice. |
+| **Majemuk Kompleks** (complex multiple response) | The participant's label (for example **Benar**/**Salah**) matches for **every** statement. One wrong statement makes the whole question incorrect. |
+| **Jawaban Singkat** (short answer) | The answer matches the **Kunci Jawaban Utama** (main key) or one of the **Jawaban Benar Lainnya** (other accepted answers). Numbers are compared by value, so `2,5`, `2.5` and `2,50` are the same. Text ignores letter case and extra spaces, so `dki  Jakarta` equals `DKI Jakarta`. |
+| **Menjodohkan** (matching) | Every pair is matched correctly. |
+
+## Perhitungan Skor Soal (Akumulasi Benar/Salah)
+
+Each question has three weights on the **Penilaian** tab of the question form. For **CBT** tests the weights come from the **Skor CBT** section: **Skor Benar** (correct), **Skor Salah** (incorrect) and **Skor Tidak Dijawab** (unanswered). For **CAT** tests they come from the **Skor CAT** section: **Skor Benar** and **Skor Salah**.
+
+**Formula**
+
+```text
+Test score = Σ Skor Benar        (questions answered correctly)
+           + Σ Skor Salah        (questions answered incorrectly)
+           + Σ Skor Tidak Dijawab (questions left unanswered)
+```
+
+Weights may be negative, for example a **Skor Salah** of `-1` to penalise wrong answers.
+
+**Example**
+
+The **Penalaran Matematika** test has 20 questions. Each question has **Skor Benar** `4`, **Skor Salah** `-1` and **Skor Tidak Dijawab** `0`. A participant answers 15 questions correctly, 3 incorrectly, and leaves 2 unanswered.
+
+| Status | Questions | Weight | Subtotal |
+| --- | --- | --- | --- |
+| Correct | 15 | 4 | 60 |
+| Incorrect | 3 | -1 | -3 |
+| Unanswered | 2 | 0 | 0 |
+| **Test score** | | | **57** |
+
+<Warning>
+  A new question's weights are empty (0) until you fill them in. If all weights are left empty, a participant who answers everything correctly still scores **0**. Fill the weights one by one on the **Penilaian** tab, or all at once with **Tindakan** → **Ubah Skor Massal** (bulk score change) in the question list (see [Create a Question Package](/en/paket-soal/membuat-paket-soal#bulk-actions)).
+</Warning>
+
+<Note>
+  If a participant finishes the test without answering a single question, every question is scored with **Skor Salah**, not **Skor Tidak Dijawab**.
+</Note>
+
+### CAT tests
+
+In a **Computer Adaptive Test (CAT)**, every question must have a **Tingkat Kesulitan** (difficulty level): **Sangat Mudah**, **Mudah**, **Sedang**, **Sulit** or **Sangat Sulit** (very easy to very hard). The next question is chosen from the previous answer:
+
+- After a **correct** answer, the system first looks for a harder question.
+- After an **incorrect** answer, the system first looks for an easier question.
+
+Question selection does not change the score formula. A CAT test is scored with the total formula above using the **Skor CAT** weights, only for the questions actually shown to the participant.
+
+## Perhitungan Skor Jawaban (Akumulasi Skor Jawaban)
+
+This method has no right or wrong. Each answer option has its own **Skor Jawaban** (answer score, set on the **Jawaban** tab of the question form), and the scores of every option the participant picks are added up.
+
+**Formula**
+
+```text
+Test score = Σ Skor Jawaban of every option the participant picked
+```
+
+- **Pilihan Ganda**: the score of the chosen option. If the question allows several choices, the scores of all chosen options are added.
+- **Majemuk Kompleks**: for each statement whose label matches the key, that statement's **Skor Jawaban** is added. Wrong statements score 0.
+- Unanswered questions score 0.
+
+**Example**
+
+A **study habits** questionnaire has 3 questions with the same options:
+
+| Option | Skor Jawaban |
+| --- | --- |
+| Every day | 4 |
+| Several times a week | 3 |
+| Rarely | 2 |
+| Never | 1 |
+
+The participant picks **Every day** (4), **Rarely** (2) and **Several times a week** (3). Test score = 4 + 2 + 3 = **9**.
+
+## Psikotes (Pengelompokan Jawaban)
+
+This method counts how often the participant picks an answer from each **Kelompok Jawaban** (answer group, created on the **Kelompok Jawaban** tab of the package and linked to each answer option). The result is a count per group, sorted from most to least, not a right/wrong number.
+
+**Formula**
+
+```text
+Count for group G = number of the participant's answers whose option belongs to group G
+Main tendency     = the group with the highest count
+```
+
+**Example**
+
+A work-style test has 10 questions with the groups **Leadership**, **Teamwork** and **Independent**. One participant's answers spread like this:
+
+| Group | Answers |
+| --- | --- |
+| Teamwork | 5 |
+| Leadership | 3 |
+| Independent | 2 |
+
+The participant's main tendency is **Teamwork**.
+
+<Warning>
+  The numeric score of a psychometric test is always **0**, because the result is a group. If the exam's final score is **Rata-Rata Tes Ujian** (average), this 0 is included in the average and lowers the final score. Consider the **Akumulasi Tes Ujian** (total) final score type, or put the psychometric test in an exam of its own.
+</Warning>
+
+## IRT (Item Response Theory)
+
+All three IRT methods use the same calculation, the Rasch model (one-parameter IRT). A participant's score depends not only on how many questions they answered correctly but also on **which** ones: answering a question that few others got right is worth more. The three methods differ only in the reporting scale.
+
+IRT scores are recalculated each time the admin runs **Hitung Skor** → **Perhitungan IRT** on the **Detail Ujian** page (see [Exam Results and Exports](/en/data-ujian/hasil-dan-ekspor-ujian#recalculate-scores)). The calculation uses every participant who has **finished** the same question package, so a participant's score can change as more participants finish. Run it after all participants are done.
+
+### Step 1: question difficulty (b)
+
+For each question, the system takes the share of participants who answered correctly, adjusted so that no question is ever exactly 0% or 100%:
+
+```text
+p = (participants who answered correctly + 1) / (participants + 2)
+p is limited to 0.01–0.99
+b = ln((1 − p) / p)
+```
+
+A negative **b** means an easy question, a positive one a hard question.
+
+**Example:** 10 participants finished and 7 answered question 1 correctly.
+
+```text
+p = (7 + 1) / (10 + 2) = 0.667
+b = ln(0.333 / 0.667) = −0.69   (a fairly easy question)
+```
+
+### Step 2: participant ability (theta)
+
+The probability that a participant with ability θ answers a question of difficulty b correctly is:
+
+```text
+P(correct) = 1 / (1 + e^−(θ − b))
+```
+
+The system looks for the θ at which the sum of these probabilities over all questions equals the participant's number of correct answers (Newton-Raphson, starting at θ = 0, at most 20 iterations). θ is limited to −4…+4. Unanswered questions count as incorrect. If the package has fewer than 5 questions, θ is set to −4.
+
+### Step 3: conversion to the reporting scale
+
+| Method | Formula | Range | Rounding |
+| --- | --- | --- | --- |
+| **IRT (Referensi UTBK 0-1000)** | `500 + 125 × θ` | 0–1000 | whole number |
+| **IRT TKA SMA/SMK (200-800)** | `500 + 75 × θ` | 200–800 | 2 decimals |
+| **IRT TKA SD/SMP (0-100)** | `50 + 12.5 × θ` | 0–100 | 2 decimals |
+
+**Example:** a participant with θ = 0.8 scores **600** on the UTBK scale, **560** on the TKA SMA/SMK scale and **60** on the TKA SD/SMP scale. An average participant (θ = 0) scores 500, 500 and 50.
+
+<Note>
+  The UTBK and TKA ranges above are reference scales built from the same ability estimate. They are not official equated results from the bodies that run UTBK or TKA.
+</Note>
+
+## Penilaian Manual
+
+**Esai / Upload File (Jawaban Manual)** tests are not scored automatically. The test score is the number the admin enters after checking the participant's answer under **Riwayat Tes Ujian** → **Lihat** → **Beri Skor Manual** (see [Test History](/en/cbt/riwayat-tes-ujian#giving-a-manual-score-to-an-essay-test)). Every score change is written to the participant's log. Until it is graded, the test has no score and is left out of the final score.
+
+## The exam's final score
+
+When an exam has more than one test, the test scores are combined into the final score according to **Jenis Skor Akhir** (final score type) on the **Pengaturan Ujian** tab:
+
+| Jenis Skor Akhir | Formula |
+| --- | --- |
+| **Akumulasi Tes Ujian** (total) | Final score = sum of the scores of all graded tests |
+| **Rata-Rata Tes Ujian** (average, default) | Final score = sum of the graded test scores ÷ number of graded tests |
+
+The final score is rounded to 2 decimals. Tests without a score yet, such as an ungraded essay test or an IRT test that has not been calculated, are left out of both the total and the average.
+
+**Example:** the **Tryout Akbar SNBT 2027** exam has three tests scoring **Penalaran Matematika** 57, **Literasi Bahasa Indonesia** 64 and **Pengetahuan Kuantitatif** 48.
+
+- **Akumulasi Tes Ujian**: 57 + 64 + 48 = **169**.
+- **Rata-Rata Tes Ujian**: (57 + 64 + 48) ÷ 3 = **56.33**.
+
+The final score is recalculated whenever a test score changes, for example after **Hitung Ulang Skor**, **Perhitungan IRT** or **Beri Skor Manual**.
+
+<Tip>
+  Changing question weights, answer keys or the scoring method does not change the scores of participants who have already finished. Run **Hitung Skor** → **Perhitungan Skor Ujian** (for the correct/incorrect total, answer score and psychometric methods) or **Hitung Skor** → **Perhitungan IRT** (for IRT) so scores use the latest settings.
+</Tip>

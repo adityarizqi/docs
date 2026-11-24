@@ -1,0 +1,209 @@
+---
+title: "Cara Perhitungan Metode Penilaian"
+description: "Rumus dan contoh perhitungan setiap metode penilaian tes ujian, serta cara sistem menyusun nilai akhir ujian."
+---
+
+Setiap tes ujian memakai satu **Metode Penilaian** yang Anda pilih saat membuat tes (lihat [Membuat Tes Ujian](/data-ujian/membuat-tes-ujian#metode-penilaian)). Halaman ini menjelaskan cara sistem menghitung skor untuk setiap metode, lengkap dengan rumus dan contoh, serta cara skor tes digabungkan menjadi nilai akhir ujian.
+
+<Info>
+  **Lokasi pengaturan:**
+
+  - Metode penilaian: **Portal** → **Platform Ujian (CBT)** → **Manajemen Ujian** → **Data Ujian** → **Detail** pada ujian → **Daftar Tes Ujian** → **Metode Penilaian**.
+  - Bobot skor per soal dan per pilihan jawaban: **Manajemen Ujian** → **Data Paket Soal** → **Ubah** pada paket → formulir soal, tab **Jawaban** dan **Penilaian**.
+  - Cara menyusun nilai akhir: **Jenis Skor Akhir** pada tab **Pengaturan Ujian** di halaman **Detail Ujian**.
+</Info>
+
+## Ringkasan metode
+
+| Metode Penilaian | Jenis Ujian | Dasar perhitungan | Kapan skor terbentuk |
+| --- | --- | --- | --- |
+| **Perhitungan Skor Soal (Akumulasi Benar/Salah)** | CBT dan CAT | Bobot **Skor Benar**, **Skor Salah**, dan **Skor Tidak Dijawab** setiap soal | Saat peserta menyelesaikan tes |
+| **Perhitungan Skor Jawaban (Akumulasi Skor Jawaban)** | CBT | **Skor Jawaban** pada setiap pilihan jawaban yang dipilih | Saat peserta menyelesaikan tes |
+| **Psikotes (Pengelompokan Jawaban)** | CBT | Jumlah jawaban per **Kelompok Jawaban** | Saat peserta menyelesaikan tes |
+| **IRT (Referensi UTBK 0-1000)** | CBT | Kemampuan peserta (theta) dari pola jawaban seluruh peserta | Setelah admin menjalankan **Perhitungan IRT** |
+| **IRT TKA SMA/SMK (200-800)** | CBT | Theta yang sama, skala 200–800 | Setelah admin menjalankan **Perhitungan IRT** |
+| **IRT TKA SD/SMP (0-100)** | CBT | Theta yang sama, skala 0–100 | Setelah admin menjalankan **Perhitungan IRT** |
+| **Penilaian Manual** | Esai / Upload File | Nilai yang diisi admin | Setelah admin memberi skor |
+
+## Kapan sebuah soal dianggap benar
+
+Metode **Akumulasi Benar/Salah** dan **IRT** hanya melihat apakah setiap soal dijawab benar, salah, atau tidak dijawab. Aturannya per jenis soal:
+
+| Jenis soal | Dianggap benar jika |
+| --- | --- |
+| **Pilihan Ganda** (satu kunci) | Pilihan peserta sama dengan kunci jawaban. |
+| **Pilihan Ganda** (lebih dari satu kunci) | Pilihan peserta persis sama dengan seluruh kunci: tidak ada kunci yang terlewat dan tidak ada pilihan tambahan yang salah. |
+| **Majemuk Kompleks** | Label peserta (misalnya **Benar**/**Salah**) cocok untuk **semua** pernyataan. Satu pernyataan keliru membuat seluruh soal dianggap salah. |
+| **Jawaban Singkat** | Jawaban cocok dengan **Kunci Jawaban Utama** atau salah satu **Jawaban Benar Lainnya**. Jawaban angka dibandingkan berdasarkan nilainya, sehingga `2,5`, `2.5`, dan `2,50` dianggap sama. Jawaban teks tidak membedakan huruf besar-kecil dan spasi berlebih, sehingga `dki  Jakarta` sama dengan `DKI Jakarta`. |
+| **Menjodohkan** | Semua pasangan dijodohkan dengan benar. |
+
+## Perhitungan Skor Soal (Akumulasi Benar/Salah)
+
+Setiap soal memiliki tiga bobot pada tab **Penilaian** di formulir soal. Untuk tes **CBT**, bobot diambil dari bagian **Skor CBT**: **Skor Benar**, **Skor Salah**, dan **Skor Tidak Dijawab**. Untuk tes **CAT**, bobot diambil dari bagian **Skor CAT**: **Skor Benar** dan **Skor Salah**.
+
+**Rumus**
+
+```text
+Skor tes = Σ Skor Benar   (soal yang dijawab benar)
+         + Σ Skor Salah   (soal yang dijawab salah)
+         + Σ Skor Tidak Dijawab (soal yang tidak dijawab)
+```
+
+Bobot boleh bernilai negatif, misalnya **Skor Salah** `-1` untuk memberi pengurangan nilai pada jawaban salah.
+
+**Contoh**
+
+Tes **Penalaran Matematika** berisi 20 soal. Setiap soal diberi **Skor Benar** `4`, **Skor Salah** `-1`, dan **Skor Tidak Dijawab** `0`. Seorang peserta menjawab 15 soal dengan benar, 3 soal salah, dan 2 soal tidak dijawab.
+
+| Status | Jumlah soal | Bobot | Subtotal |
+| --- | --- | --- | --- |
+| Benar | 15 | 4 | 60 |
+| Salah | 3 | -1 | -3 |
+| Tidak dijawab | 2 | 0 | 0 |
+| **Skor tes** | | | **57** |
+
+<Warning>
+  Bobot soal baru bernilai kosong (0) sampai Anda mengisinya. Jika semua bobot dibiarkan kosong, peserta yang menjawab semua soal dengan benar tetap mendapat skor **0**. Isi bobot satu per satu pada tab **Penilaian**, atau sekaligus melalui **Tindakan** → **Ubah Skor Massal** pada daftar soal (lihat [Membuat Paket Soal](/paket-soal/membuat-paket-soal#tindakan-massal)).
+</Warning>
+
+<Note>
+  Jika peserta menyelesaikan tes tanpa menjawab satu soal pun, semua soal dihitung dengan **Skor Salah**, bukan **Skor Tidak Dijawab**.
+</Note>
+
+### Tes CAT
+
+Pada tes **Computer Adaptive Test (CAT)**, setiap soal wajib memiliki **Tingkat Kesulitan**: **Sangat Mudah**, **Mudah**, **Sedang**, **Sulit**, atau **Sangat Sulit**. Soal berikutnya dipilih berdasarkan jawaban sebelumnya:
+
+- Jika jawaban **benar**, sistem lebih dulu mencari soal dengan tingkat kesulitan lebih tinggi.
+- Jika jawaban **salah**, sistem lebih dulu mencari soal dengan tingkat kesulitan lebih rendah.
+
+Pemilihan soal tidak mengubah rumus skor. Skor tes CAT tetap dihitung dengan rumus akumulasi di atas memakai bobot **Skor CAT**, hanya untuk soal yang benar-benar ditampilkan kepada peserta.
+
+## Perhitungan Skor Jawaban (Akumulasi Skor Jawaban)
+
+Metode ini tidak mengenal benar atau salah. Setiap pilihan jawaban memiliki **Skor Jawaban** sendiri (diisi pada tab **Jawaban** di formulir soal), lalu skor semua pilihan yang dipilih peserta dijumlahkan.
+
+**Rumus**
+
+```text
+Skor tes = Σ Skor Jawaban dari setiap pilihan yang dipilih peserta
+```
+
+- **Pilihan Ganda**: skor pilihan yang dipilih. Jika soal mengizinkan lebih dari satu pilihan, skor setiap pilihan yang dipilih dijumlahkan.
+- **Majemuk Kompleks**: untuk setiap pernyataan yang label peserta-nya cocok dengan kunci, **Skor Jawaban** pernyataan itu ditambahkan. Pernyataan yang keliru bernilai 0.
+- Soal yang tidak dijawab bernilai 0.
+
+**Contoh**
+
+Angket **Kebiasaan Belajar** berisi 3 soal dengan pilihan yang sama:
+
+| Pilihan | Skor Jawaban |
+| --- | --- |
+| Setiap hari | 4 |
+| Beberapa kali seminggu | 3 |
+| Jarang | 2 |
+| Tidak pernah | 1 |
+
+Peserta memilih **Setiap hari** (4), **Jarang** (2), dan **Beberapa kali seminggu** (3). Skor tes = 4 + 2 + 3 = **9**.
+
+## Psikotes (Pengelompokan Jawaban)
+
+Metode ini menghitung berapa kali peserta memilih jawaban dari setiap **Kelompok Jawaban** (dibuat pada tab **Kelompok Jawaban** di paket soal, lalu dihubungkan ke setiap pilihan jawaban). Hasilnya berupa jumlah per kelompok yang diurutkan dari yang paling banyak, bukan angka benar atau salah.
+
+**Rumus**
+
+```text
+Jumlah kelompok K = banyaknya jawaban peserta yang pilihan jawabannya termasuk kelompok K
+Kecenderungan utama = kelompok dengan jumlah terbanyak
+```
+
+**Contoh**
+
+Tes gaya kerja berisi 10 soal dengan kelompok **Kepemimpinan**, **Kerja Sama**, dan **Mandiri**. Jawaban seorang peserta tersebar sebagai berikut:
+
+| Kelompok | Jumlah jawaban |
+| --- | --- |
+| Kerja Sama | 5 |
+| Kepemimpinan | 3 |
+| Mandiri | 2 |
+
+Kecenderungan utama peserta adalah **Kerja Sama**.
+
+<Warning>
+  Skor angka tes psikotes selalu **0**, karena hasilnya berupa kelompok. Jika ujian memakai nilai akhir **Rata-Rata Tes Ujian**, angka 0 ini ikut dirata-ratakan dan menurunkan nilai akhir. Pertimbangkan **Jenis Skor Akhir** **Akumulasi Tes Ujian**, atau tempatkan psikotes pada ujian tersendiri.
+</Warning>
+
+## IRT (Item Response Theory)
+
+Ketiga metode IRT memakai perhitungan yang sama, yaitu model Rasch (IRT satu parameter). Skor peserta tidak hanya bergantung pada banyaknya jawaban benar, tetapi juga pada **soal mana** yang dijawab benar: menjawab benar soal yang jarang dijawab benar oleh peserta lain bernilai lebih tinggi. Yang membedakan ketiga metode hanya skala laporannya.
+
+Skor IRT dihitung ulang setiap kali admin menjalankan **Hitung Skor** → **Perhitungan IRT** pada halaman **Detail Ujian** (lihat [Hasil dan Ekspor Ujian](/data-ujian/hasil-dan-ekspor-ujian#menghitung-ulang-skor)). Perhitungan memakai semua peserta yang sudah **selesai** pada paket soal yang sama, sehingga skor seorang peserta dapat berubah ketika lebih banyak peserta selesai. Jalankan perhitungan setelah seluruh peserta selesai.
+
+### Langkah 1: tingkat kesulitan soal (b)
+
+Untuk setiap soal, sistem menghitung proporsi peserta yang menjawab benar, dengan penyesuaian agar tidak ada soal yang bernilai mutlak 0% atau 100%:
+
+```text
+p = (jumlah peserta yang menjawab benar + 1) / (jumlah peserta + 2)
+p dibatasi antara 0,01 dan 0,99
+b = ln((1 − p) / p)
+```
+
+Nilai **b** negatif berarti soal mudah, positif berarti soal sulit.
+
+**Contoh:** 10 peserta selesai, 7 menjawab soal nomor 1 dengan benar.
+
+```text
+p = (7 + 1) / (10 + 2) = 0,667
+b = ln(0,333 / 0,667) = −0,69   (soal relatif mudah)
+```
+
+### Langkah 2: kemampuan peserta (theta)
+
+Peluang peserta dengan kemampuan θ menjawab benar soal dengan kesulitan b adalah:
+
+```text
+P(benar) = 1 / (1 + e^−(θ − b))
+```
+
+Sistem mencari θ sehingga jumlah peluang benar pada semua soal sama dengan jumlah jawaban benar peserta (metode Newton-Raphson, dimulai dari θ = 0, maksimal 20 iterasi). Nilai θ dibatasi antara −4 dan +4. Soal yang tidak dijawab dihitung sebagai salah. Jika paket berisi kurang dari 5 soal, θ ditetapkan −4.
+
+### Langkah 3: konversi ke skala laporan
+
+| Metode | Rumus | Rentang | Pembulatan |
+| --- | --- | --- | --- |
+| **IRT (Referensi UTBK 0-1000)** | `500 + 125 × θ` | 0–1000 | bilangan bulat |
+| **IRT TKA SMA/SMK (200-800)** | `500 + 75 × θ` | 200–800 | 2 angka desimal |
+| **IRT TKA SD/SMP (0-100)** | `50 + 12,5 × θ` | 0–100 | 2 angka desimal |
+
+**Contoh:** peserta dengan θ = 0,8 mendapat skor **600** pada skala UTBK, **560** pada skala TKA SMA/SMK, dan **60** pada skala TKA SD/SMP. Peserta berkemampuan rata-rata (θ = 0) mendapat 500, 500, dan 50.
+
+<Note>
+  Rentang UTBK dan TKA di atas adalah skala referensi dari perhitungan kemampuan yang sama, bukan hasil *equating* resmi lembaga penyelenggara UTBK atau TKA.
+</Note>
+
+## Penilaian Manual
+
+Tes **Esai / Upload File (Jawaban Manual)** tidak dinilai otomatis. Skor tes adalah angka yang diisi admin setelah memeriksa jawaban peserta melalui **Riwayat Tes Ujian** → **Lihat** → **Beri Skor Manual** (lihat [Riwayat Tes Ujian](/cbt/riwayat-tes-ujian#memberi-skor-manual-untuk-tes-esai)). Setiap perubahan skor tercatat di log peserta. Selama belum dinilai, tes ini belum memiliki skor dan tidak ikut dihitung dalam nilai akhir.
+
+## Nilai akhir ujian
+
+Jika ujian memiliki lebih dari satu tes, skor setiap tes digabungkan menjadi nilai akhir menurut **Jenis Skor Akhir** pada tab **Pengaturan Ujian**:
+
+| Jenis Skor Akhir | Rumus |
+| --- | --- |
+| **Akumulasi Tes Ujian** | Nilai akhir = jumlah skor semua tes yang sudah dinilai |
+| **Rata-Rata Tes Ujian** (bawaan) | Nilai akhir = jumlah skor tes yang sudah dinilai ÷ banyaknya tes yang sudah dinilai |
+
+Nilai akhir dibulatkan 2 angka desimal. Tes yang belum memiliki skor, misalnya tes esai yang belum dinilai atau tes IRT yang belum dihitung, tidak ikut dijumlahkan maupun dirata-ratakan.
+
+**Contoh:** ujian **Tryout Akbar SNBT 2027** memiliki tiga tes dengan skor **Penalaran Matematika** 57, **Literasi Bahasa Indonesia** 64, dan **Pengetahuan Kuantitatif** 48.
+
+- **Akumulasi Tes Ujian**: 57 + 64 + 48 = **169**.
+- **Rata-Rata Tes Ujian**: (57 + 64 + 48) ÷ 3 = **56,33**.
+
+Nilai akhir dihitung ulang setiap kali skor salah satu tes berubah, misalnya setelah **Hitung Ulang Skor**, **Perhitungan IRT**, atau **Beri Skor Manual**.
+
+<Tip>
+  Mengubah bobot soal, kunci jawaban, atau metode penilaian tidak langsung mengubah skor peserta yang sudah selesai. Jalankan **Hitung Skor** → **Perhitungan Skor Ujian** (untuk metode Akumulasi Benar/Salah, Skor Jawaban, dan Psikotes) atau **Hitung Skor** → **Perhitungan IRT** (untuk metode IRT) agar skor memakai pengaturan terbaru.
+</Tip>
