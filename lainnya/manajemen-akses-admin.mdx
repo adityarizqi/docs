@@ -1,152 +1,151 @@
 ---
 title: "Manajemen Akses Admin"
-description: "Cara memberi akses kepada admin lain melalui Role Admin dan Tim Admin."
+description: "Cara membuat Role Admin, mengundang anggota Tim Admin, dan mengatur modul yang boleh mereka kelola."
 ---
 
-Agar pengelolaan ujian tidak dilakukan oleh satu orang saja, Anda dapat menambahkan anggota tim dan menentukan bagian sistem yang boleh mereka kelola.
+Agar pengelolaan projek tidak bertumpu pada satu orang, Anda dapat mengundang anggota tim dan menentukan modul yang boleh mereka buka. Pengaturan ini dilakukan dalam dua tahap: buat **Role Admin** sesuai tugas, lalu undang anggota melalui **Tim Admin** dengan role tersebut.
 
-> Sebagai contoh, lembaga memiliki dua petugas tambahan:
->
-> - **Admin Soal**, bertugas membuat paket soal, soal, dan jawaban
-> - **Admin Ujian**, bertugas membuat ujian, tes, dan sesi ujian
+<Info>
+  **Lokasi menu:** **Portal** → **Administrasi Aplikasi** → **Tim & Akses** → **Tim Admin** atau **Role Admin**.
 
-Pemberian akses dilakukan dalam dua tahap. Pertama, buat **Role Admin** sesuai tugasnya. Setelah itu, tambahkan anggota melalui **Tim Admin** dan pilih role yang sesuai.
+  **Peran yang dibutuhkan:** pemilik projek, atau anggota tim yang role-nya mencakup modul **Tim Admin** dan **Role Admin**.
+</Info>
 
-<Note>
-  Fitur ini memerlukan add-on **Manajemen Hak Akses** yang aktif pada projek. Tanpa add-on tersebut, pemilik projek tetap dapat menyiapkan **Role Admin**, tetapi tombol **Tambah Tim** tidak tampil; halaman menampilkan tombol **Aktifkan Add-on Manajemen Hak Akses**.
-</Note>
+Sebagai contoh, **Bimbel Prestasi Nusantara** memiliki dua petugas tambahan dan satu pengajar:
+
+- **Yogi Atmaja** sebagai **Admin Soal**, bertugas menyusun paket soal, butir soal, dan jawaban.
+- **Rahmat Hidayat** sebagai **Admin Ujian**, bertugas mengatur ujian, tes, dan sesi ujian serta memantau ujian yang berlangsung.
+- **Sri Wahyuni** sebagai **Guru** yang mengajar di LMS.
+
+Rina Wulandari, sebagai **Pemilik**, tetap dapat membuka seluruh modul.
+
+## Add-on Manajemen Hak Akses
+
+Mengundang anggota tim memerlukan add-on **Manajemen Hak Akses** yang aktif pada projek. Add-on ini sudah termasuk dalam paket **Rutin** dan **Intensif**, atau dapat dibeli terpisah melalui [Langganan & Tagihan](/administrasi/langganan-dan-tagihan).
+
+Selama add-on belum aktif:
+
+- pemilik projek tetap dapat menyiapkan **Role Admin**;
+- tombol **Tambah Tim** tidak tampil, dan halaman menampilkan tombol **Aktifkan Add-on Manajemen Hak Akses** yang membuka halaman pembelian add-on;
+- anggota tim selain pemilik tidak dapat membuka projek, kecuali anggota dengan role **Guru**.
+
+<Frame>
+  ![Tombol Aktifkan Add-on Manajemen Hak Akses pada halaman Tim Admin](/images/lainnya/manajemen-akses-admin/01-tim-admin-add-on-belum-aktif.png)
+</Frame>
 
 ## 1. Membuat Role Admin
 
-**Role Admin** bisa disebut peran pengguna dalam mengakses suatu aplikasi.
-
-Melalui pengaturan ini, Anda dapat menentukan menu apa saja yang boleh dibuka dan dikelola oleh masing-masing anggota.
-
-> 💡 **Contoh:**
->
-> - **Admin Soal** hanya mengelola paket soal, soal, dan jawaban.
-> - **Admin Ujian** hanya mengelola ujian, tes, dan sesi ujian.
-
-Dengan begitu, setiap anggota tim dapat fokus pada tugasnya masing-masing serta memiliki batasan dalam mengakses seluruh menu.
+**Role Admin** menentukan modul yang boleh dibuka dan dikelola oleh anggota tim. Satu role dapat dipakai oleh banyak anggota.
 
 <Steps>
   <Step title="Klik Tambah Role">
-    Buka menu **Role Admin**, kemudian pilih tombol **Tambah Role**.
+    Buka **Administrasi Aplikasi** → **Tim & Akses** → **Role Admin**, lalu klik **Tambah Role**.
 
     <Frame>
-      ![Tombol Tambah Role pada halaman Role Admin](/images/2026-07-31_21-48.png)
+      ![Tombol Tambah Role pada halaman Role Admin](/images/lainnya/manajemen-akses-admin/02-tombol-tambah-role.png)
     </Frame>
   </Step>
-  <Step title="Isikan data role">
-    Isikan data role yang akan ditambahkan.
-
+  <Step title="Isi data role dan pilih modul">
     <Frame>
-      ![Formulir role berisi Nama Role, Deskripsi, dan Izin Akses Modul](/images/2026-07-31_21-50.png)
+      ![Formulir role berisi Nama Role, Deskripsi, dan daftar modul pada Izin Akses Modul](/images/lainnya/manajemen-akses-admin/03-formulir-role.png)
     </Frame>
 
-    1. **Nama Role**
+    1. **Nama Role**: nama peran yang mudah dikenali, misalnya `Admin Soal`.
+    2. **Deskripsi** (opsional): tanggung jawab role, misalnya `Bertanggung jawab membuat paket soal, butir soal, dan jawaban.`
+    3. **Izin Akses Modul**: centang modul yang boleh dibuka. Untuk **Admin Soal**, centang **Data Paket Soal**.
+    4. Klik **Buat** untuk menyimpan, atau **Buat & buat lainnya** untuk langsung membuat role berikutnya.
 
-       Isi nama peran yang akan diberikan kepada anggota tim. Gunakan nama yang mudah dikenali dan sesuai dengan tugasnya.
+    Daftar modul disusun per produk sesuai urutan di **Portal**: modul **Administrasi Aplikasi** terlebih dahulu, kemudian **Platform Ujian (CBT)**, **Learning Management System (LMS)**, dan **Pembuat Website**. Teks kecil di bawah setiap modul menunjukkan grup menunya di sidebar, misalnya **Data Paket Soal** berada di grup **Manajemen Ujian**.
 
-       > Contoh:
-       >
-       > Admin Soal
+    | Produk | Modul yang dapat dipilih |
+    | --- | --- |
+    | Administrasi Aplikasi | Penarikan Saldo, Langganan & Tagihan, Pengguna, Profil Projek, Tim Admin, Branding & Warna, Role Admin, Domain, Integrasi & API |
+    | Platform Ujian (CBT) | Dasbor, Riwayat Tes Ujian, Monitoring Ujian, Leaderboard, Data Ujian, Data Paket Soal, Sertifikat Ujian, Data Akun, Riwayat Transaksi, Unduh Hasil Ekspor, Pengaturan Aplikasi |
+    | Learning Management System (LMS) | Periode, Ruang Guru, Guru, Kelas, Mapel, Pengumuman, Pengampu, Jadwal Mengajar |
+    | Pembuat Website | Pembuat Website |
 
-    2. **Deskripsi**
+    <Tip>
+      Gunakan kolom pencarian di atas daftar untuk menemukan modul dengan cepat, atau **Pilih semua** untuk mencentang seluruh modul. Minimal satu modul wajib dipilih.
+    </Tip>
 
-       Isi penjelasan singkat mengenai tugas dan tanggung jawab dari role tersebut.
-
-       > Contoh:
-       >
-       > Bertanggung jawab membuat paket soal, butir soal, dan jawaban.
-
-    3. **Izin Akses Modul**
-
-       Pilih menu yang boleh dibuka dan dikelola oleh anggota dengan role tersebut.
-
-       > Contoh:
-       >
-       > Untuk role **Admin Soal**, centang **Data Paket Soal**. Dengan pengaturan ini, anggota hanya dapat mengakses bagian yang berkaitan dengan pengelolaan soal.
-
-    4. Setelah seluruh informasi dan akses sudah sesuai, pilih tombol **Buat** untuk menyimpan role.
+    <Note>
+      Anda hanya dapat memberikan modul yang Anda miliki sendiri. Jika role berisi modul di luar akses Anda, sistem menolak penyimpanan dengan pesan *Anda tidak dapat memberikan akses modul yang tidak Anda miliki.*
+    </Note>
+  </Step>
+  <Step title="Periksa daftar role">
+    Role yang dibuat tampil pada daftar **Role Admin** beserta jumlah modulnya.
 
     <Frame>
-      ![Role Admin Soal yang baru dibuat pada daftar Role Admin](/images/2026-07-31_21-51.png)
+      ![Daftar Role Admin berisi Admin Soal, Admin Ujian, dan Guru beserta tombol Duplikasi, Ubah, dan Hapus](/images/lainnya/manajemen-akses-admin/04-daftar-role.png)
     </Frame>
 
-    <Info>
-      Role yang sudah dibuat nantinya dapat dipilih saat Anda menambahkan anggota melalui menu **Tim Admin**.
-    </Info>
+    - **Duplikasi**: membuat salinan role dengan modul yang sama. Anda diminta mengisi **Nama Role Baru** (bawaannya nama role ditambah `Copy`).
+    - **Ubah**: mengganti nama, deskripsi, atau modul role. Perubahan langsung berlaku bagi semua anggota yang memakai role tersebut.
+    - **Hapus**: menghapus role. Tombol ini hanya tampil untuk role yang belum dipakai anggota tim; pindahkan atau hapus anggota yang memakainya terlebih dahulu.
   </Step>
 </Steps>
 
-## 2. Menambahkan Akun Tim beserta Akses
+### Role bawaan
 
-Setelah role dibuat, tambahkan anggota tim yang akan menerima akses.
+- **Pemilik**: role tetap untuk pemilik projek dengan akses ke seluruh modul. Role ini tidak tampil di daftar dan tidak dapat diubah.
+- **Guru**: role sistem untuk pengajar LMS dengan modul **Ruang Guru**, **Data Ujian**, dan **Data Paket Soal**. Guru hanya melihat ujian dan paket soal miliknya sendiri. Role ini dapat diubah dan diduplikasi, tetapi tidak dapat dihapus. Anggota dengan role **Guru** tetap dapat masuk meskipun add-on **Manajemen Hak Akses** belum aktif.
 
-> 💡 **Contoh:**
->
-> Yogi bertugas menyiapkan soal tryout SNBT. Pilih role **Admin Soal**, sehingga Yogi hanya memperoleh akses ke bagian yang berhubungan dengan paket soal.
->
-> Rahmat bertugas mengatur jadwal dan sesi ujian. Pilih role **Admin Ujian**, sehingga Rahmat dapat mengelola data ujian sesuai izin yang diberikan.
->
-> Sedangkan Anda, Ahmad Efendi, sebagai **Pemilik** dapat mengakses keseluruhan menu.
+## 2. Mengundang anggota Tim Admin
 
 <Steps>
   <Step title="Klik Tambah Tim">
-    Buka menu **Tim Admin**, kemudian pilih tombol **Tambah Tim**.
+    Buka **Administrasi Aplikasi** → **Tim & Akses** → **Tim Admin**, lalu klik **Tambah Tim**.
 
     <Frame>
-      ![Tombol Tambah Tim pada halaman Tim Admin](/images/2026-07-31_21-52.png)
+      ![Tombol Tambah Tim pada halaman Tim Admin](/images/lainnya/manajemen-akses-admin/05-tombol-tambah-tim.png)
     </Frame>
   </Step>
-  <Step title="Isikan data akun tim">
+  <Step title="Isi email dan pilih role">
     <Frame>
-      ![Formulir akun tim berisi Alamat Email dan Role Admin](/images/2026-07-31_21-54.png)
+      ![Formulir Tim berisi Alamat Email dan daftar pilihan Role Admin](/images/lainnya/manajemen-akses-admin/06-formulir-tim.png)
     </Frame>
 
-    1. **Alamat Email**
-
-       Isi alamat email anggota tim yang akan diberi akses. Pastikan email yang dimasukkan **benar dan masih aktif**, karena undangan bergabung pada aplikasi Indolat akan dikirim ke alamat tersebut.
-
-       > Contoh:
-       >
-       > `yogiatmaja53@yopmail.com`
-
-    2. **Role Admin**
-
-       Pilih peran sesuai tugas anggota tim. Pilihan role yang tampil berasal dari **Role Admin yang sudah Anda buat sebelumnya**.
-
-       <Frame>
-         ![Pilihan role pada kolom Role Admin](/images/2026-07-31_21-54_1.png)
-       </Frame>
-
-       > Contoh:
-       >
-       > - Pilih **Admin Soal** jika anggota bertugas mengelola paket soal, butir soal, dan jawaban.
-       > - Pilih **Admin Ujian** jika anggota bertugas mengelola data ujian, tes ujian, dan sesi ujian.
-
-       <Info>
-         Role yang dipilih akan menentukan menu apa saja yang dapat dibuka dan dikelola oleh anggota tersebut.
-       </Info>
-
-    3. Setelah alamat email dan role sudah sesuai, pilih tombol **Buat**.
-
-    Jika undangan belum diterima, pilih tombol **Kirim Ulang** untuk mengirimkan kembali undangan melalui email.
-
-    Anda juga dapat menggunakan:
-
-    - **Ubah** untuk mengganti role anggota.
-    - **Hapus** untuk menghilangkan akses anggota dari tim.
+    1. **Alamat Email**: email anggota yang diundang, misalnya `yogi.atmaja@contoh.id`. Undangan dikirim ke alamat ini, jadi pastikan email benar dan aktif. Jika email tersebut sudah dipakai oleh akun admin lain, formulir menampilkan **Akun Terdeteksi** beserta nama pemiliknya.
+    2. **Role Admin**: pilih role sesuai tugas anggota. Pilihan berasal dari daftar **Role Admin**, termasuk **Guru**.
 
     <Frame>
-      ![Tombol Kirim Ulang, Ubah, dan Hapus pada daftar Tim Admin](/images/2026-07-31_21-56.png)
+      ![Formulir Tim yang sudah terisi dengan role Admin Soal dan tombol Buat](/images/lainnya/manajemen-akses-admin/07-formulir-tim-terisi.png)
     </Frame>
 
-    <Tip>
-      Pastikan alamat email yang dimasukkan sudah benar. Jika status masih **Menunggu Konfirmasi**, minta anggota memeriksa kotak masuk maupun folder spam pada emailnya.
+    3. Klik **Buat**. Sistem mengirim undangan dan menampilkan notifikasi *Undangan admin berhasil dikirim.*
 
-      Anggota baru dapat masuk dan menggunakan halaman admin setelah menerima undangan tersebut.
-    </Tip>
+    <Note>
+      Satu email hanya dapat diundang sekali per projek. Jika undangan sebelumnya belum diterima, sistem menampilkan pesan bahwa undangan masih menunggu persetujuan; gunakan **Kirim Ulang** pada daftar tim.
+    </Note>
+  </Step>
+  <Step title="Pantau status undangan">
+    Anggota yang diundang tampil di daftar **Tim Admin** dengan **Status Akses** **Menunggu Konfirmasi** sampai undangannya diterima, lalu berubah menjadi **Aktif**. Nama anggota diambil sementara dari bagian depan alamat emailnya.
+
+    <Frame>
+      ![Daftar Tim Admin dengan status Menunggu Konfirmasi dan tombol Kirim Ulang, Ubah, dan Hapus](/images/lainnya/manajemen-akses-admin/08-daftar-tim.png)
+    </Frame>
+
+    - **Kirim Ulang**: mengirim ulang email undangan. Tombol ini hanya tampil selama status masih **Menunggu Konfirmasi**. Tautan lama tidak berlaku lagi setelah undangan dikirim ulang.
+    - **Ubah**: mengganti **Role Admin** anggota. Alamat email tidak dapat diubah.
+    - **Hapus**: mencabut akses anggota dari projek.
+
+    Gunakan filter **Role** untuk menampilkan anggota dengan role tertentu. Baris **Pemilik** tidak memiliki tombol aksi.
   </Step>
 </Steps>
+
+## 3. Menerima undangan
+
+Anggota menerima email **Undangan Admin Projek** (atau **Undangan Mengajar di LMS** untuk role **Guru**). Tautan di email berlaku selama 7 hari dan membuka halaman **Terima undangan Anda** yang menampilkan nama projek, role, dan email.
+
+<Frame>
+  ![Halaman Terima undangan Anda berisi Projek, Role Admin, Email, dan kolom kata sandi baru](/images/lainnya/manajemen-akses-admin/09-halaman-undangan.png)
+</Frame>
+
+- Jika email belum memiliki akun, anggota mengisi **Kata Sandi Baru** dan **Konfirmasi Kata Sandi**, lalu klik **Terima Undangan**. Akun anggota juga dibuatkan projek awal miliknya sendiri, sehingga ia dapat berpindah projek melalui **Ganti Projek** di Portal.
+- Jika email sudah memiliki akun, anggota cukup klik **Terima Undangan**; kata sandi lamanya tidak berubah.
+
+<Tip>
+  Jika status masih **Menunggu Konfirmasi**, minta anggota memeriksa kotak masuk dan folder spam, atau klik **Kirim Ulang**.
+</Tip>
+
+Setelah undangan diterima, anggota masuk melalui halaman login panel dan memilih projek **Bimbel Prestasi Nusantara** di Portal. Sidebar setiap modul hanya menampilkan menu yang termasuk dalam role-nya.

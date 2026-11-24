@@ -1,418 +1,310 @@
 ---
 title: "Sertifikat Ujian"
-description: "Cara membuat sertifikat ujian, mengatur syarat dan desainnya, serta alur pengajuan dan persetujuan sertifikat peserta."
+description: "Cara membuat template sertifikat untuk ujian, mengatur syarat, desain, dan penandatangan, menyetujui pengajuan, serta alur peserta mengajukan dan mengunduh sertifikat."
 ---
 
-Fitur **Sertifikat Ujian** digunakan untuk membuat sertifikat yang dapat diberikan kepada peserta setelah menyelesaikan ujian.
+Fitur **Sertifikat Ujian** digunakan untuk membuat sertifikat yang dapat diunduh peserta setelah menyelesaikan ujian. Setiap template sertifikat dihubungkan ke satu ujian. Anda menentukan syarat penerbitan (misalnya nilai minimum), tampilan sertifikat, penandatangan, dan apakah sertifikat perlu disetujui admin sebelum dapat diunduh.
 
-Anda dapat menentukan ujian yang menggunakan sertifikat, syarat peserta menerimanya, tampilan sertifikat, serta pihak yang menandatangani.
+<Info>
+  **Lokasi menu:** **Portal** → **Platform Ujian (CBT)** → **Manajemen Ujian** → **Sertifikat Ujian**.
+</Info>
+
+Contoh pada halaman ini memakai template **Sertifikat Tryout Mingguan Penalaran – Pekan 3** untuk ujian **Tryout Mingguan Penalaran – Pekan 3** (kode **TMP-P3**). Sertifikat diberikan kepada peserta yang menyelesaikan semua tes dengan nilai akhir minimal 12.
+
+## Add-on Sertifikat Ujian
+
+**Sertifikat Ujian** merupakan fitur add-on. Selama add-on belum aktif, tombol **Aktifkan Add-on Sertifikat Ujian** tampil di halaman **Sertifikat Ujian**. Klik tombol tersebut untuk membeli add-on melalui **Langganan & Tagihan**, lihat [Langganan dan Tagihan](/administrasi/langganan-dan-tagihan).
+
+<Frame>
+  ![Tombol Aktifkan Add-on Sertifikat Ujian pada halaman Sertifikat Ujian](/images/lainnya/sertifikat-ujian/02-tombol-aktifkan-addon.png)
+</Frame>
+
+Selama add-on belum aktif, Anda tetap dapat menyiapkan template. Formulir menampilkan peringatan **Add-on Sertifikat Ujian belum aktif**, **Status** hanya dapat berupa **Draft**, dan **Tampilkan ke peserta** tidak dapat diaktifkan. Akibatnya, sertifikat belum dapat diajukan atau diunduh peserta.
+
+<Frame>
+  ![Peringatan Add-on Sertifikat Ujian belum aktif dan keterangan status pada formulir](/images/lainnya/sertifikat-ujian/03-peringatan-addon-belum-aktif.png)
+</Frame>
 
 <Note>
-  **Sertifikat Ujian** merupakan fitur add-on. Selama add-on ini belum aktif, Anda tetap dapat menyiapkan template, tetapi **Status** hanya dapat berupa **Draft** dan **Tampilkan ke peserta** tidak dapat diaktifkan, sehingga sertifikat belum dapat diterbitkan untuk peserta. Untuk mengaktifkannya, klik **Aktifkan Add-on Sertifikat Ujian** pada halaman **Sertifikat Ujian**.
+  Jika add-on berakhir, peserta yang sertifikatnya sudah disetujui tetap dapat mengunduhnya. Sertifikat baru tidak dapat diterbitkan sampai add-on aktif kembali.
 </Note>
 
-💡 **Sebagai contoh:** Anda menyelenggarakan **Tryout SNBT 2027**. Peserta yang menyelesaikan ujian dan memperoleh nilai minimal 70 akan mendapatkan sertifikat secara otomatis.
-
-## 1. Pengaturan Sertifikat oleh Admin
-
-Bagian ini menjelaskan cara membuat sertifikat dari awal, meliputi:
-
-- Membuka menu Sertifikat Ujian
-- Mengisi bagian Umum
-- Mengatur Template & Desain
-- Menambahkan Penandatangan
-- Menyesuaikan tampilan melalui Desainer
-- Menyimpan dan mengaktifkan sertifikat
-
-### A. Buka Menu Sertifikat Ujian
+## 1. Membuat template sertifikat
 
 <Steps>
-  <Step title="Buka menu Sertifikat Ujian, kemudian klik Tambah Sertifikat">
-    <Frame>
-      ![Tombol Tambah Sertifikat pada halaman Sertifikat Ujian](/images/2026-07-31_19-33-1.png)
-    </Frame>
-  </Step>
-  <Step title="Sistem akan menampilkan 4 bagian">
-    1. **Umum**
-    2. **Template & Desain**
-    3. **Penandatangan**
-    4. **Desainer**
+  <Step title="Klik Tambah Sertifikat">
+    Buka menu **Sertifikat Ujian**, lalu klik **Tambah Sertifikat**.
 
     <Frame>
-      ![Empat bagian formulir sertifikat: Umum, Template & Desain, Penandatangan, Desainer](/images/2026-07-31_19-35-1.png)
+      ![Tombol Tambah Sertifikat pada halaman Sertifikat Ujian](/images/lainnya/sertifikat-ujian/01-tombol-tambah-sertifikat.png)
     </Frame>
+  </Step>
+  <Step title="Kenali tab formulir">
+    Formulir sertifikat terdiri atas empat tab:
+
+    <Frame>
+      ![Empat tab formulir sertifikat bernomor](/images/lainnya/sertifikat-ujian/04-tab-formulir-sertifikat.png)
+    </Frame>
+
+    1. **Umum**: nama, ujian, status, nomor sertifikat, dan aturan penerbitan.
+    2. **Template & Desain**: layout, ukuran halaman, desain, logo, dan warna.
+    3. **Penandatangan**: pihak yang menandatangani sertifikat.
+    4. **Desainer**: posisi dan isi setiap elemen sertifikat.
+
+    Setelah template disimpan, tab **Sertifikat Terbit** juga muncul untuk mengelola sertifikat peserta.
   </Step>
 </Steps>
 
-### B. Mengisi Bagian Umum
+### A. Tab Umum
 
-<Steps>
-  <Step title="Isi Informasi Umum">
-    Bagian **Umum** digunakan untuk menentukan nama sertifikat, ujian yang menggunakan sertifikat, nomor sertifikat, serta syarat penerbitannya.
-
-    <Frame>
-      ![Isian pada bagian Umum formulir sertifikat](/images/2026-08-05_19-02.png)
-    </Frame>
-
-    1. **Nama Template**<br />Digunakan untuk membedakan sertifikat dengan template lainnya. Isi nama yang mudah dikenali oleh admin.<br />Contoh: **Sertifikat Kelulusan Tryout SNBT 2027**
-    2. **Ujian**<br />Pilih ujian yang akan menggunakan sertifikat tersebut. Satu template sertifikat dihubungkan ke satu ujian.
-
-       <Frame>
-         <img
-           src="/images/2026-07-31_19-43.png"
-           alt="Daftar pilihan ujian pada kolom Ujian"
-           className="mx-auto"
-           style={{ width:"85%" }}
-         />
-       </Frame>
-
-       Contoh: **Try Out Matematika Persiapan SNBT 2027**
-    3. **Status**<br />Digunakan untuk menentukan kondisi template.
-
-       - **Dipublikasikan**: sertifikat sudah siap digunakan pada ujian.
-       - **Draft**: sertifikat masih perlu diperiksa dan disesuaikan oleh admin, dan belum tampil ke peserta.
-
-       <Tip>
-         Sebaiknya gunakan status **Draft** selama sertifikat masih perlu disesuaikan.
-       </Tip>
-    4. **Format Nomor Sertifikat**<br />Digunakan untuk mengatur susunan nomor sertifikat yang dibuat otomatis oleh sistem.
-
-       <Info>
-         **Keterangan penanda:**
-
-         - `{YYYY}`: tahun, misalnya 2027
-         - `{YY}`: dua angka tahun, misalnya 27
-         - `{MM}`: bulan
-         - `{DD}`: tanggal
-         - `{SEQ}`: nomor urut sertifikat (6 angka, misalnya 000001)
-         - `{EXAM}`: kode ujian (huruf dan angka saja, maksimal 6 karakter)
-       </Info>
-
-       💡 Contoh format: `INDOLAT/{YYYY}/{EXAM}/{SEQ}` pada ujian dengan kode `TO-MAT-SNBT`<br />Hasil: `INDOLAT/2026/TOMATS/000001`
-    5. **Skor Minimum**<br />Isi nilai minimal yang harus diperoleh peserta agar berhak menerima sertifikat. Misalnya 70, artinya peserta dengan nilai akhir 70 atau lebih dapat menerima sertifikat.
-
-       <Tip>
-         Kosongkan isian **Skor Minimum** jika semua peserta tetap boleh menerima sertifikat tanpa batas nilai minimum.
-       </Tip>
-    6. **Wajib selesai ujian**<br />Aktifkan agar sertifikat hanya dapat diterbitkan setelah peserta menyelesaikan ujian.<br />Contoh: peserta memperoleh nilai sementara 80, tetapi belum menekan tombol selesai. Sertifikat belum dapat diterbitkan sampai ujian benar-benar selesai.
-    7. **Butuh review manual**<br />Aktifkan jika sertifikat harus disetujui terlebih dahulu oleh admin. Pengaturan ini cocok untuk ujian resmi atau sertifikat penghargaan yang perlu diperiksa sebelum diterbitkan.
-    8. **Tampilkan ke peserta**
-
-       - Aktifkan agar peserta dapat melihat dan mengunduh sertifikat dari halaman hasil ujian.
-       - Nonaktifkan jika sertifikat hanya akan dikelola atau dicetak oleh admin.
-    9. **Catatan**<br />Buka bagian ini, lalu isi kolom **Catatan Template** dengan keterangan tambahan mengenai sertifikat. Catatan ini hanya untuk admin.<br />Contoh: Sertifikat diberikan kepada peserta yang telah menyelesaikan ujian dan memperoleh nilai minimal 60.
-
-    Setelah isian Anda sesuaikan, klik **Buat** untuk menyimpan pengaturan.
-  </Step>
-</Steps>
-
-### C. Mengatur Template dan Desain
-
-<Steps>
-  <Step title="Sesuaikan Template dan Desain">
-    Bagian ini digunakan untuk menentukan susunan, ukuran, dan tampilan sertifikat.
-
-    <Frame>
-      ![Isian pada bagian Template & Desain](/images/2026-08-05_20-00.png)
-    </Frame>
-
-    1. **Layout Template**<br />Pilih susunan sertifikat sesuai kebutuhan.<br />Contoh: **Layout Tengah 1 TTD**
-
-       <Tip>
-         Pilihan layout lain dapat digunakan sesuai jumlah penandatangan dan posisi isi sertifikat.
-       </Tip>
-    2. **Ukuran Halaman**<br />Pilih ukuran sertifikat.
-
-       <Frame>
-         ![Pilihan ukuran halaman A4 dan Letter](/images/2026-08-04_21-49-1.png)
-       </Frame>
-
-       Contoh: **A4**<br />Ukuran A4 sesuai untuk sertifikat yang akan dicetak atau diunduh dalam bentuk PDF.
-    3. **Orientasi**<br />Pilih arah halaman:
-
-       - **Landscape** untuk posisi mendatar
-       - **Portrait** untuk posisi berdiri
-
-       <Tip>
-         Sertifikat umumnya menggunakan **Landscape** agar ruang untuk nama peserta dan tanda tangan lebih luas dan proporsional.
-       </Tip>
-    4. **Template Desain**<br />Pilih desain yang akan digunakan:
-
-       - **Template A** untuk desain sederhana
-       - **Template B** untuk desain lebih formal
-       - **Template Custom** jika lembaga memiliki desain sendiri. Unggah desain tersebut pada kolom **Background Template Custom** yang muncul (PNG, JPG, atau WEBP, maksimal 2 MB).
-    5. **Logo Lembaga** (opsional)<br />Unggah logo lembaga pada kolom **File Logo** (PNG, JPG, atau WEBP, maksimal 1 MB). Logo ini tersedia sebagai elemen **Logo Lembaga** di bagian **Desainer**, tempat Anda mengatur posisi dan ukurannya.
-    6. **Tema Warna**
-
-       <Frame>
-         ![Isian Tema Warna sertifikat](/images/2026-08-05_20-52.png)
-       </Frame>
-
-       Walaupun telah memilih template desain, Anda dapat menyesuaikan kembali **Tema Warna** sertifikat. Bagian yang dapat diatur meliputi:
-
-       - **Warna Halaman**
-       - **Aksen Utama**
-       - **Aksen Kedua**
-
-       <Frame>
-         ![Posisi aksen utama, warna halaman, dan aksen kedua pada sertifikat](/images/2026-08-05_21-07.png)
-       </Frame>
-    7. **Safe Area**<br />Safe Area merupakan batas aman agar tulisan dan tanda tangan tidak terlalu dekat dengan pinggir sertifikat.
-
-       <Tip>
-         Gunakan nilai bawaan jika tidak memiliki kebutuhan desain khusus.
-       </Tip>
-  </Step>
-</Steps>
-
-### D. Menambahkan Penandatangan
-
-<Steps>
-  <Step title="Buka bagian Penandatangan, kemudian klik Tambah Penandatangan">
-    <Frame>
-      ![Bagian Penandatangan dan tombol + Tambah Penandatangan](/images/2026-08-04_23-17.png)
-    </Frame>
-  </Step>
-  <Step title="Tambahkan pihak yang akan menandatangani sertifikat">
-    <Frame>
-      ![Isian data penandatangan sertifikat](/images/2026-08-04_23-23.png)
-    </Frame>
-
-    Isi kolom data penandatangan berikut:
-
-    1. **Slot**<br />Pilih posisi tanda tangan. Contoh:
-
-       - **Slot 1** untuk penandatangan pertama
-       - **Slot 2** untuk penandatangan kedua
-
-       <Tip>
-         Jumlah slot yang digunakan perlu disesuaikan dengan layout sertifikat.
-       </Tip>
-    2. **Nama**<br />Isi nama lengkap penandatangan.<br />Contoh: **Diana Valerie**
-    3. **Jabatan**<br />Isi jabatan penandatangan.<br />Contoh: **Ketua Panitia**
-    4. **Gambar Tanda Tangan**<br />Unggah gambar tanda tangan.
-
-       <Tip>
-         Gunakan format PNG dengan latar belakang transparan. Format ini akan memberikan hasil yang lebih rapi dan jelas. Ukuran file maksimal 1 MB.
-       </Tip>
-    5. **+ Tambah Penandatangan** (opsional)<br />Jika jumlah pihak yang berwenang untuk menandatangani sertifikat lebih dari satu, klik **+ Tambah Penandatangan** dan isi data penandatangan pihak kedua.
-  </Step>
-</Steps>
-
-### E. Menyesuaikan Tampilan melalui Desainer
-
-Buka bagian **Desainer** untuk mengatur posisi dan isi bagian-bagian pada sertifikat.
+**Informasi Dasar**
 
 <Frame>
-  ![Bagian Desainer berisi daftar elemen sertifikat](/images/2026-08-07_22-47.png)
+  ![Bagian Informasi Dasar dengan isian bernomor](/images/lainnya/sertifikat-ujian/05-informasi-dasar.png)
+</Frame>
+
+1. **Nama Template**: nama untuk membedakan template di daftar admin. Contoh: **Sertifikat Tryout Mingguan Penalaran – Pekan 3**.
+2. **Ujian**: ujian yang memakai sertifikat ini. Satu template dihubungkan ke satu ujian. Klik kolom, ketik sebagian nama ujian untuk mencari, lalu klik ujiannya.
+
+   <Frame>
+     ![Daftar pilihan ujian pada kolom Ujian](/images/lainnya/sertifikat-ujian/06-pilihan-ujian.png)
+   </Frame>
+3. **Status**:
+   - **Draft**: template masih disiapkan dan belum berlaku untuk peserta.
+   - **Dipublikasikan**: template berlaku. Pilihan ini hanya tersedia jika add-on aktif.
+4. **Format Nomor Sertifikat**: susunan nomor yang dibuat otomatis saat sertifikat diterbitkan. Bawaannya `CERT/{YYYY}/{MM}/{SEQ}`.
+
+   <Info>
+     **Token yang didukung:**
+
+     - `{YYYY}`: tahun empat angka, misalnya 2026
+     - `{YY}`: tahun dua angka, misalnya 26
+     - `{MM}`: bulan dua angka
+     - `{DD}`: tanggal dua angka
+     - `{SEQ}`: nomor urut sertifikat untuk template ini, enam angka, misalnya 000001
+     - `{EXAM}`: kode ujian, hanya huruf dan angka, maksimal enam karakter
+   </Info>
+
+   Contoh: format `BPN/{YYYY}/{EXAM}/{SEQ}` pada ujian berkode `TMP-P3` menghasilkan `BPN/2026/TMPP3/000001`.
+
+**Aturan Penerbitan** dan **Catatan**
+
+<Frame>
+  ![Bagian Aturan Penerbitan dan Catatan dengan isian bernomor](/images/lainnya/sertifikat-ujian/07-aturan-penerbitan-dan-catatan.png)
+</Frame>
+
+5. **Skor Minimum**: nilai akhir minimal agar peserta berhak menerima sertifikat. Nilai akhir peserta harus sama atau lebih besar dari angka ini. Kosongkan jika semua peserta yang selesai berhak menerima sertifikat.
+6. **Wajib selesai ujian**: jika aktif (bawaan), sertifikat hanya tersedia setelah peserta menyelesaikan semua tes dalam ujian.
+7. **Butuh review manual**: jika aktif, peserta harus mengajukan sertifikat terlebih dahulu dan admin menyetujuinya sebelum sertifikat dapat diunduh. Jika nonaktif, peserta yang memenuhi syarat langsung dapat mengunduh sertifikat.
+8. **Tampilkan ke peserta**: aktifkan agar tombol sertifikat tampil di halaman **Riwayat Tes** peserta. Jika nonaktif, sertifikat tidak tampil kepada peserta. Pilihan ini hanya dapat diaktifkan jika add-on aktif.
+9. **Catatan Template**: buka bagian **Catatan** untuk menulis catatan internal, misalnya aturan penggunaan template. Catatan ini hanya terlihat oleh admin.
+
+<Tip>
+  Pilih **Draft** dan nonaktifkan **Tampilkan ke peserta** selama desain masih disiapkan. Ubah ke **Dipublikasikan** dan aktifkan **Tampilkan ke peserta** setelah sertifikat siap.
+</Tip>
+
+### B. Tab Template & Desain
+
+<Frame>
+  ![Bagian Tata Letak dengan Layout Template, Ukuran Halaman, dan Orientasi](/images/lainnya/sertifikat-ujian/08-tata-letak.png)
+</Frame>
+
+1. **Layout Template**: susunan awal elemen sertifikat. Pilihannya **Layout Tengah 2 TTD**, **Layout Kiri 1 TTD**, **Layout Tengah 1 TTD**, **Layout Akademik 2 TTD**, **Layout Premium 2 TTD**, dan **Layout Pelatihan 1 TTD**. Pilih layout yang jumlah tanda tangannya (TTD) sesuai jumlah penandatangan.
+2. **Ukuran Halaman**: **A4** atau **Letter**.
+3. **Orientasi**: **Landscape** (mendatar) atau **Portrait** (tegak).
+
+<Note>
+  Mengganti **Layout Template** mengembalikan posisi semua elemen ke susunan bawaan layout tersebut. Pilih layout sebelum mengatur elemen di tab **Desainer**.
+</Note>
+
+<Frame>
+  ![Bagian Template Desain dan Logo Lembaga](/images/lainnya/sertifikat-ujian/09-template-desain-dan-logo.png)
+</Frame>
+
+4. **Template Desain**:
+   - **Template A**: desain bawaan dengan bilah atas, bilah bawah, dan bingkai lembut.
+   - **Template B**: desain bawaan formal dengan aksen emas.
+   - **Template Custom**: memakai desain Anda sendiri. Unggah gambar latar pada **Background Template Custom** (PNG, JPG, atau WEBP). Resolusi yang disarankan 3508 × 2480 px untuk landscape atau 2480 × 3508 px untuk portrait (A4, 300 DPI).
+5. **Logo Lembaga** (opsional): unggah logo pada **File Logo**. Gunakan PNG transparan, maksimal 1 MB. Logo tersedia sebagai elemen **Logo Lembaga** di tab **Desainer**.
+
+<Frame>
+  ![Bagian Tema Warna dan Safe Area](/images/lainnya/sertifikat-ujian/10-tema-warna-dan-safe-area.png)
+</Frame>
+
+**Tema Warna** terisi otomatis sesuai template desain, tetapi dapat Anda ubah:
+
+1. **Warna Halaman**: warna latar sertifikat.
+2. **Aksen Utama**: warna bilah dan ornamen utama.
+3. **Aksen Kedua**: warna ornamen pendukung.
+
+**Safe Area** (4) adalah batas aman dalam piksel di sisi **Atas**, **Kanan**, **Bawah**, dan **Kiri**. Elemen di tab **Desainer** tidak dapat digeser melewati batas ini. Gunakan nilai bawaan jika tidak ada kebutuhan khusus.
+
+### C. Tab Penandatangan
+
+Formulir baru langsung menyediakan dua penandatangan. Isi data setiap penandatangan:
+
+<Frame>
+  ![Isian penandatangan pertama dengan nomor 1 sampai 4](/images/lainnya/sertifikat-ujian/11-isian-penandatangan.png)
+</Frame>
+
+1. **Slot**: posisi tanda tangan di sertifikat, **Slot 1**, **Slot 2**, atau **Slot 3**. Slot ini dipakai elemen **Area Tanda Tangan**, **Nama Penandatangan**, dan **Jabatan Penandatangan** di tab **Desainer**.
+2. **Nama**: nama lengkap penandatangan. Contoh: **Rina Wulandari, S.Pd.**
+3. **Jabatan**: jabatan penandatangan. Contoh: **Direktur Bimbel Prestasi Nusantara**.
+4. **Gambar Tanda Tangan**: unggah gambar tanda tangan. PNG dengan latar transparan memberi hasil paling rapi.
+
+Klik **+ Tambah Penandatangan** untuk menambah penandatangan, atau ikon tempat sampah untuk menghapusnya. Ikon panah di kiri judul penandatangan dipakai untuk mengubah urutan.
+
+<Frame>
+  ![Tombol Tambah Penandatangan](/images/lainnya/sertifikat-ujian/12-tombol-tambah-penandatangan.png)
+</Frame>
+
+### D. Tab Desainer
+
+Tab **Desainer** dipakai untuk mengatur posisi dan isi setiap elemen sertifikat.
+
+<Frame>
+  ![Panel Layout & Placeholder, Elemen Aktif, dan Inspector pada tab Desainer](/images/lainnya/sertifikat-ujian/13-desainer-elemen.png)
+</Frame>
+
+1. **Layout & Placeholder**: klik nama elemen untuk menambahkannya ke sertifikat. Elemen yang tersedia: **Judul Sertifikat**, **Subjudul**, **Nama Peserta**, **Nama Ujian**, **Nilai Akhir**, **Tanggal Selesai**, **Nomor Sertifikat**, **Logo Lembaga**, **Teks Bebas**, **Area Tanda Tangan**, **Nama Penandatangan**, dan **Jabatan Penandatangan**. Klik **Reset layout** untuk mengembalikan susunan bawaan layout.
+2. **Elemen Aktif**: daftar elemen yang ada di sertifikat beserta posisinya. Klik elemen untuk memilihnya.
+3. **Inspector**: pengaturan elemen yang dipilih, yaitu **Label**, **Konten** (isi teks), posisi **X** dan **Y**, **Lebar**, **Tinggi**, **Font** (ukuran huruf), **Tebal**, **Align** (perataan), dan **Warna**. Klik **Duplikat** untuk menyalin elemen atau **Hapus** untuk menghapusnya. Untuk elemen tanda tangan, pilih juga **Slot** penandatangannya.
+
+Pada **Konten** elemen teks, Anda dapat memakai penanda yang diganti otomatis dengan data peserta, misalnya `{{exam_name}}`, `{{final_score}}`, `{{completion_date}}`, dan `{{certificate_number}}`.
+
+Bagian **Preview Interaktif** menampilkan gambaran sertifikat dengan contoh nama peserta. Geser elemen langsung di pratinjau untuk memindahkannya.
+
+<Frame>
+  ![Preview Interaktif sertifikat dengan dua penandatangan](/images/lainnya/sertifikat-ujian/14-preview-interaktif.png)
+</Frame>
+
+Periksa kembali posisi judul, nama peserta, nilai, nomor sertifikat, dan tanda tangan. Pastikan tidak ada tulisan yang bertumpuk, terpotong, atau terlalu dekat dengan tepi. Jika sudah sesuai, klik **Buat** untuk menyimpan template.
+
+## 2. Mengelola template sertifikat
+
+Template yang sudah dibuat tampil di daftar **Sertifikat Ujian** dengan kolom **Template** (beserta nama ujian), **Desain**, **Skor Minimum**, **Status**, dan **Terakhir Diperbarui**.
+
+<Frame>
+  ![Daftar Sertifikat Ujian dengan tombol Preview, Ubah, dan Hapus](/images/lainnya/sertifikat-ujian/15-daftar-sertifikat.png)
+</Frame>
+
+1. **Preview**: membuka pratinjau sertifikat dengan data contoh di tab baru.
+2. **Ubah**: membuka halaman **Ubah Sertifikat Ujian**. Di halaman ini tersedia juga tombol **Preview** dan **Unduh PDF** (contoh sertifikat dalam PDF) di kanan atas, serta tab **Sertifikat Terbit**.
+3. **Hapus**: menghapus template.
+
+Gunakan filter **Ujian** dan **Status** untuk menyaring daftar.
+
+<Note>
+  Pada halaman **Ubah Sertifikat Ujian**, klik **Simpan** setelah mengubah pengaturan. Jika halaman berpindah ke tab **Penandatangan** tanpa pesan tersimpan, klik **Simpan** sekali lagi.
+</Note>
+
+## 3. Alur sertifikat di aplikasi peserta
+
+Sertifikat tampil di halaman **Riwayat Tes** peserta, pada bagian **Skor Akhir**, jika:
+
+- template berstatus **Dipublikasikan** dan **Tampilkan ke peserta** aktif,
+- peserta sudah menyelesaikan semua tes (jika **Wajib selesai ujian** aktif), dan
+- nilai akhir peserta memenuhi **Skor Minimum**.
+
+Peserta yang belum memenuhi syarat tidak melihat tombol sertifikat. Pada contoh, Clarissa Anindya (nilai akhir 11) tidak melihat tombol, sedangkan Galih Prasetyo Utomo (nilai akhir 12) dan Adinda Maharani (nilai akhir 15) melihatnya.
+
+<Steps>
+  <Step title="Peserta membuka Riwayat Tes">
+    Setelah masuk ke aplikasi peserta, peserta mengklik **Riwayat Tes** di menu atas. Cara peserta masuk dijelaskan di [Login Peserta](/lainnya/login-peserta).
+
+    <Frame>
+      ![Menu Riwayat Tes pada aplikasi peserta](/images/lainnya/sertifikat-ujian/16-menu-riwayat-tes-peserta.png)
+    </Frame>
+  </Step>
+</Steps>
+
+### A. Tanpa persetujuan admin
+
+Jika **Butuh review manual** nonaktif, tombol **Unduh Sertifikat** langsung tampil pada bagian **Skor Akhir**.
+
+<Frame>
+  ![Butuh review manual dalam keadaan nonaktif](/images/lainnya/sertifikat-ujian/24-review-manual-nonaktif.png)
 </Frame>
 
 <Frame>
-  ![Preview Interaktif sertifikat dan tombol Buat](/images/2026-08-07_22-48.png)
+  ![Tombol Unduh Sertifikat pada Riwayat Tes milik Adinda Maharani](/images/lainnya/sertifikat-ujian/25-tombol-unduh-sertifikat.png)
 </Frame>
 
-Pada halaman ini, Anda dapat menyesuaikan elemen seperti:
+Saat peserta mengklik **Unduh Sertifikat**, sistem menerbitkan sertifikat dengan nomor berikutnya dan mengunduhnya dalam format PDF.
 
-- Judul Sertifikat
-- Subjudul
-- Nama Peserta
-- Nama Ujian
-- Nilai Akhir
-- Tanggal Selesai
-- Nomor Sertifikat
-- Logo Lembaga
-- Teks Bebas
-- Area Tanda Tangan
-- Nama Penandatangan
-- Jabatan Penandatangan
+### B. Dengan persetujuan admin
 
-Cara menggunakan **Desainer**:
-
-1. Pilih bagian yang ingin diubah, misalnya **Judul Sertifikat**.
-2. Ubah isi tulisan pada kolom **Konten** jika diperlukan. Contoh: **SERTIFIKAT UJIAN**
-3. Atur posisi tulisan agar sesuai dengan tampilan yang diinginkan. Anda dapat memindahkan elemen langsung pada tampilan sertifikat dengan cara **klik dan geser** ke posisi yang diinginkan.
-4. Atur ukuran tulisan atau area jika terlihat terlalu kecil, terlalu besar, atau terpotong.
-5. Ulangi langkah yang sama untuk bagian lain, seperti nama peserta, nomor sertifikat, dan tanda tangan.
-6. Periksa hasilnya pada bagian **Preview Interaktif**.
-
-> 💡 **Contoh:**
->
-> Nama peserta terlihat terlalu dekat dengan judul sertifikat. Pilih **Nama Peserta**, kemudian geser sedikit ke bawah sampai jaraknya terlihat lebih rapi.
->
-> Jika judul sertifikat terlihat terlalu kecil, pilih **Judul Sertifikat**, kemudian perbesar ukuran tulisannya.
-
-Bagian **Preview Interaktif** digunakan untuk melihat gambaran hasil sertifikat sebelum digunakan oleh peserta.
-
-Periksa kembali:
-
-- posisi judul;
-- nama peserta;
-- nama ujian;
-- nilai;
-- nomor sertifikat;
-- dan posisi tanda tangan.
-
-Pastikan tidak ada tulisan yang bertumpuk, terpotong, atau terlalu dekat dengan pinggir sertifikat. Jika semua bagian sudah sesuai, klik **Buat** untuk menyimpan sertifikat.
-
-## 2. Pengajuan dan Unduh Sertifikat oleh Peserta
-
-Sertifikat tersedia pada bagian **Skor Akhir** di halaman **Riwayat Tes**.
-
-### A. Membuka Riwayat Tes
+Jika **Butuh review manual** aktif, alurnya sebagai berikut:
 
 <Steps>
-  <Step title="Peserta masuk ke halaman CBT">
+  <Step title="Peserta mengklik Ajukan Sertifikat">
     <Frame>
-      <img
-        src="/images/2026-08-07_23-01.png"
-        alt="Peserta masuk melalui halaman login CBT"
-        style={{ width:"49%" }}
-      />
+      ![Tombol Ajukan Sertifikat pada Riwayat Tes milik Galih Prasetyo Utomo](/images/lainnya/sertifikat-ujian/17-tombol-ajukan-sertifikat.png)
     </Frame>
   </Step>
-  <Step title="Buka menu Riwayat Tes">
-    <Frame>
-      ![Menu Riwayat Tes dan bagian Skor Akhir pada halaman peserta](/images/2026-08-07_23-04.png)
-    </Frame>
-
-    Lihat bagian **Skor Akhir**.
-  </Step>
-</Steps>
-
-### B. Tanpa Persetujuan Admin
-
-Jika sertifikat tidak membutuhkan pemeriksaan admin dan seluruh syarat sudah terpenuhi, tombol **Unduh Sertifikat** akan tampil.
-
-<Steps>
-  <Step title="Admin menonaktifkan Butuh review manual">
-    <Frame>
-      ![Pilihan Butuh review manual dalam keadaan nonaktif](/images/image-26.png)
-    </Frame>
-  </Step>
-  <Step title="Tombol Unduh Sertifikat akan tampil pada peserta">
-    <Frame>
-      ![Tombol Unduh Sertifikat pada halaman Riwayat Tes](/images/image-27.png)
-    </Frame>
-  </Step>
-  <Step title="Peserta klik Unduh Sertifikat">
-    <Frame>
-      ![File PDF sertifikat terunduh di browser peserta](/images/2026-08-07_23-12.png)
-    </Frame>
-
-    Sistem akan mengunduh sertifikat dalam bentuk PDF.
+  <Step title="Pengajuan menunggu persetujuan">
+    Tombol berubah menjadi **Menunggu Persetujuan**. Sertifikat beserta nomornya sudah dibuat, tetapi belum dapat diunduh.
 
     <Frame>
-      ![Contoh sertifikat PDF yang diunduh peserta](/images/2026-08-10_18-26-1.png)
+      ![Status Menunggu Persetujuan pada Riwayat Tes peserta](/images/lainnya/sertifikat-ujian/18-menunggu-persetujuan.png)
     </Frame>
-  </Step>
-</Steps>
-
-### C. Perlu Persetujuan Admin
-
-Jika sertifikat membutuhkan pemeriksaan admin, prosesnya sebagai berikut:
-
-<Steps>
-  <Step title="Admin mengaktifkan Butuh review manual">
-    <Frame>
-      ![Pilihan Butuh review manual dalam keadaan aktif](/images/2026-08-07_23-08_1.png)
-    </Frame>
-  </Step>
-  <Step title="Tombol Ajukan Sertifikat akan tampil pada peserta">
-    <Frame>
-      ![Tombol Ajukan Sertifikat pada halaman Riwayat Tes](/images/2026-08-07_23-29.png)
-    </Frame>
-  </Step>
-  <Step title="Peserta klik Ajukan Sertifikat">
-    Tombol berubah menjadi **Menunggu Persetujuan**.
-
-    <Frame>
-      ![Tombol Menunggu Persetujuan setelah sertifikat diajukan](/images/2026-08-10_18-18.png)
-    </Frame>
-
-    Sistem akan mengirimkan pengajuan kepada admin.
   </Step>
   <Step title="Admin menyetujui pengajuan">
-    Apabila sertifikat telah disetujui oleh admin, tombol **Menunggu Persetujuan** akan berubah menjadi **Unduh Sertifikat**. Langkah persetujuan dijelaskan pada bagian **3. Admin Menyetujui Pengajuan Sertifikat** di bawah.
+    Lihat bagian [4. Menyetujui pengajuan sertifikat](#4-menyetujui-pengajuan-sertifikat).
   </Step>
-  <Step title="Tombol Unduh Sertifikat akan tampil pada peserta">
-    <Frame>
-      ![Tombol Unduh Sertifikat pada halaman Riwayat Tes](/images/image-27.png)
-    </Frame>
-  </Step>
-  <Step title="Peserta klik Unduh Sertifikat">
-    <Frame>
-      ![File PDF sertifikat terunduh di browser peserta](/images/2026-08-07_23-12.png)
-    </Frame>
-
-    Sistem akan mengunduh sertifikat dalam bentuk PDF.
+  <Step title="Peserta mengunduh sertifikat">
+    Setelah disetujui dan halaman dimuat ulang, tombol berubah menjadi **Unduh Sertifikat**. Peserta mengklik tombol tersebut untuk mengunduh PDF.
 
     <Frame>
-      ![Contoh sertifikat PDF yang diunduh peserta](/images/2026-08-10_18-26.png)
+      ![Tombol Unduh Sertifikat setelah pengajuan disetujui](/images/lainnya/sertifikat-ujian/22-tombol-unduh-sertifikat.png)
     </Frame>
   </Step>
 </Steps>
 
 <Info>
-  Alur tombol pada halaman peserta:
+  Ringkasan tombol pada halaman peserta:
 
-  - **Ajukan Sertifikat**: peserta belum mengajukan.
-  - **Menunggu Persetujuan**: pengajuan sedang diperiksa admin.
-  - **Unduh Sertifikat**: pengajuan sudah disetujui.
+  - **Ajukan Sertifikat**: peserta memenuhi syarat dan belum mengajukan.
+  - **Menunggu Persetujuan**: pengajuan sedang menunggu persetujuan admin.
+  - **Unduh Sertifikat**: sertifikat siap diunduh.
 </Info>
 
-## 3. Admin Menyetujui Pengajuan Sertifikat
-
-Bagian ini digunakan ketika pada pengaturan sertifikat, **Butuh review manual** diaktifkan.
-
-Artinya, peserta yang sudah memenuhi syarat belum dapat langsung mengunduh sertifikat. Peserta perlu mengajukan sertifikat terlebih dahulu, kemudian admin menyetujuinya.
-
-> 💡 **Contoh:**
->
-> Adipati Wisnu telah menyelesaikan **Try Out Matematika Persiapan SNBT 2027** dengan nilai 100. Karena sertifikat membutuhkan persetujuan admin, Adipati terlebih dahulu memilih **Ajukan Sertifikat**.
->
-> Setelah pengajuan berhasil, pada halaman peserta akan tampil status **Menunggu Persetujuan**.
+Contoh sertifikat PDF yang diterima peserta:
 
 <Frame>
-  ![Status Menunggu Persetujuan pada halaman Riwayat Tes peserta](/images/2026-08-10_18-27.png)
+  ![Contoh sertifikat PDF atas nama Galih Prasetyo Utomo dengan nomor BPN/2026/TMPP3/000001](/images/lainnya/sertifikat-ujian/23-contoh-sertifikat-pdf.png)
 </Frame>
 
-Selama status tersebut masih tampil, peserta belum dapat mengunduh sertifikat.
+## 4. Menyetujui pengajuan sertifikat
 
 <Steps>
-  <Step title="Buka menu Sertifikat Ujian, kemudian klik Ubah">
+  <Step title="Buka tab Sertifikat Terbit">
+    Buka menu **Sertifikat Ujian**, klik **Ubah** pada template, lalu klik tab **Sertifikat Terbit**. Tabel berisi semua sertifikat yang sudah diajukan atau diterbitkan, dengan kolom **Nomor Sertifikat**, **Nama Peserta**, **Nilai**, dan **Tanggal Terbit**. Kolom **Tgl. Persetujuan** dapat ditampilkan melalui ikon kolom di kanan atas tabel.
+
     <Frame>
-      ![Tombol Ubah pada daftar Sertifikat Ujian](/images/2026-08-10_18-21.png)
+      ![Tab Sertifikat Terbit dengan tombol Setujui pada baris Galih Prasetyo Utomo](/images/lainnya/sertifikat-ujian/19-tab-sertifikat-terbit.png)
     </Frame>
 
-    Pilih sesuai dengan data sertifikat yang telah Anda buat.
+    Gunakan filter **Status Persetujuan** (**Sudah Disetujui** atau **Belum Disetujui**) untuk menampilkan pengajuan yang belum diproses.
   </Step>
-  <Step title="Buka bagian Sertifikat Terbit, kemudian klik Setujui">
+  <Step title="Klik Setujui">
+    Klik **Setujui** pada baris peserta. Periksa nomor sertifikat dan nama peserta pada jendela konfirmasi, lalu klik **Konfirmasi**.
+
     <Frame>
-      ![Tombol Setujui pada bagian Sertifikat Terbit](/images/2026-08-10_18-25.png)
+      ![Jendela konfirmasi Setujui Sertifikat](/images/lainnya/sertifikat-ujian/20-konfirmasi-setujui-sertifikat.png)
     </Frame>
-
-    Sistem akan menampilkan daftar peserta yang sudah mengajukan sertifikat, beserta informasi seperti:
-
-    - Nomor Sertifikat
-    - Nama Peserta
-    - Nilai
-    - Tanggal Terbit
-
-    Cari peserta yang pengajuannya akan disetujui. Klik **Setujui** pada baris peserta.
   </Step>
-  <Step title="Konfirmasi persetujuan sertifikat">
-    <Frame>
-      ![Jendela konfirmasi Setujui Sertifikat](/images/2026-08-10_18-25_1.png)
-    </Frame>
-
-    Sistem akan menampilkan konfirmasi persetujuan sertifikat. Pastikan nama peserta dan nomor sertifikat sudah benar, kemudian klik **Konfirmasi**.
-
-    <Note>
-      Setelah disetujui, peserta perlu membuka kembali atau memuat ulang halaman **Riwayat Tes**. Tombol **Menunggu Persetujuan** akan berubah menjadi **Unduh Sertifikat**.
-    </Note>
+  <Step title="Sertifikat disetujui">
+    Tombol **Setujui** berganti menjadi **Unduh** dan **Cabut**. Klik **Unduh** untuk mengunduh sertifikat peserta tersebut dari panel admin.
 
     <Frame>
-      ![Tombol Unduh Sertifikat setelah pengajuan disetujui](/images/2026-08-10_18-25_2.png)
+      ![Baris sertifikat yang sudah disetujui dengan tombol Unduh dan Cabut](/images/lainnya/sertifikat-ujian/21-sertifikat-disetujui.png)
     </Frame>
   </Step>
 </Steps>
+
+Untuk menyetujui banyak pengajuan sekaligus, centang barisnya, lalu pilih **Setujui Semua** pada menu tindakan massal.
+
+<Warning>
+  **Cabut** (atau **Cabut Semua** untuk beberapa baris) membatalkan persetujuan. Selama **Butuh review manual** aktif, peserta kembali melihat **Menunggu Persetujuan** dan tidak dapat mengunduh sertifikat sampai disetujui lagi.
+</Warning>

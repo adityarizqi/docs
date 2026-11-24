@@ -1,418 +1,310 @@
 ---
 title: "Exam Certificates"
-description: "How to create an exam certificate, set its requirements and design, and handle participant certificate requests and approvals."
+description: "How to create a certificate template for an exam, set its requirements, design, and signatories, approve requests, and how participants request and download certificates."
 ---
 
-The **Exam Certificate** feature lets you create certificates that participants can receive after finishing an exam.
+The **Sertifikat Ujian** (Exam Certificate) feature lets you create certificates that participants can download after finishing an exam. Each certificate template is linked to one exam. You decide the issuing requirements (such as a minimum score), how the certificate looks, who signs it, and whether an admin has to approve it before it can be downloaded.
 
-You can choose which exam uses the certificate, the requirements participants must meet to receive it, how the certificate looks and who signs it.
+<Info>
+  **Menu location:** **Portal** → **Platform Ujian (CBT)** → **Manajemen Ujian** → **Sertifikat Ujian**.
+</Info>
+
+The examples on this page use the template **Sertifikat Tryout Mingguan Penalaran – Pekan 3** for the exam **Tryout Mingguan Penalaran – Pekan 3** (code **TMP-P3**). The certificate is given to participants who finish every test with a final score of at least 12.
+
+## The Exam Certificate add-on
+
+**Sertifikat Ujian** is an add-on. While the add-on is inactive, the **Aktifkan Add-on Sertifikat Ujian** (activate the add-on) button is shown on the **Sertifikat Ujian** page. Click it to buy the add-on through **Langganan & Tagihan**; see [Langganan dan Tagihan](/en/administrasi/langganan-dan-tagihan).
+
+<Frame>
+  ![Aktifkan Add-on Sertifikat Ujian button on the Sertifikat Ujian page](/images/lainnya/sertifikat-ujian/02-tombol-aktifkan-addon.png)
+</Frame>
+
+While the add-on is inactive you can still prepare templates. The form shows the **Add-on Sertifikat Ujian belum aktif** warning, **Status** can only be **Draft**, and **Tampilkan ke peserta** (show to participants) cannot be turned on. As a result, participants cannot request or download certificates yet.
+
+<Frame>
+  ![Add-on Sertifikat Ujian belum aktif warning and the status note in the form](/images/lainnya/sertifikat-ujian/03-peringatan-addon-belum-aktif.png)
+</Frame>
 
 <Note>
-  **Exam Certificate** is an add-on. While the add-on is inactive, you can still prepare templates, but **Status** can only be **Draft** and **Show to participants** can't be turned on, so certificates can't be issued to participants yet. To activate it, click **Enable the Exam Certificate Add-on** on the **Exam Certificate** page.
+  If the add-on expires, participants whose certificates were already approved can still download them. New certificates cannot be issued until the add-on is active again.
 </Note>
 
-💡 **For example:** you run the **SNBT 2027 Tryout** (a practice exam for SNBT, Indonesia's national university entrance test). Participants who finish the exam with a score of at least 70 receive a certificate automatically.
-
-## 1. Certificate Setup by the Admin
-
-This section explains how to create a certificate from scratch, covering:
-
-- Opening the Exam Certificate menu
-- Filling in the General section
-- Setting up the Template & Design
-- Adding signatories
-- Adjusting the layout in the Designer
-- Saving and activating the certificate
-
-### A. Open the Exam Certificate Menu
+## 1. Creating a certificate template
 
 <Steps>
-  <Step title="Open Exam Certificate, then click Add Certificate">
-    <Frame>
-      ![Add Certificate button on the Exam Certificate page](/images/2026-07-31_19-33-1.png)
-    </Frame>
-  </Step>
-  <Step title="The system shows 4 sections">
-    1. **General**
-    2. **Template & Design**
-    3. **Signatory**
-    4. **Designer**
+  <Step title="Click Tambah Sertifikat">
+    Open the **Sertifikat Ujian** menu and click **Tambah Sertifikat** (add certificate).
 
     <Frame>
-      ![Four certificate form sections: General, Template & Design, Signatory, Designer](/images/2026-07-31_19-35-1.png)
+      ![Tambah Sertifikat button on the Sertifikat Ujian page](/images/lainnya/sertifikat-ujian/01-tombol-tambah-sertifikat.png)
     </Frame>
+  </Step>
+  <Step title="Get to know the form tabs">
+    The certificate form has four tabs:
+
+    <Frame>
+      ![The four numbered tabs of the certificate form](/images/lainnya/sertifikat-ujian/04-tab-formulir-sertifikat.png)
+    </Frame>
+
+    1. **Umum** (general): name, exam, status, certificate number, and issuing rules.
+    2. **Template & Desain**: layout, page size, design, logo, and colours.
+    3. **Penandatangan** (signatories): the people who sign the certificate.
+    4. **Desainer**: the position and content of each certificate element.
+
+    After the template is saved, a **Sertifikat Terbit** (issued certificates) tab also appears for managing participants' certificates.
   </Step>
 </Steps>
 
-### B. Fill In the General Section
+### A. The Umum tab
 
-<Steps>
-  <Step title="Fill In the General Information">
-    The **General** section is where you set the certificate name, the exam that uses it, the certificate number and the requirements for issuing it.
-
-    <Frame>
-      ![Fields in the General section of the certificate form](/images/2026-08-05_19-02.png)
-    </Frame>
-
-    1. **Template Name**<br />Used to tell this certificate apart from other templates. Enter a name the admin can recognise easily.<br />Example: **SNBT 2027 Tryout Completion Certificate**
-    2. **Exam**<br />Choose the exam that will use this certificate. One certificate template is linked to one exam.
-
-       <Frame>
-         <img
-           src="/images/2026-07-31_19-43.png"
-           alt="Exam options in the Exam field"
-           className="mx-auto"
-           style={{ width:"85%" }}
-         />
-       </Frame>
-
-       Example: **Try Out Matematika Persiapan SNBT 2027** (an SNBT 2027 maths tryout)
-    3. **Status**<br />Sets the state of the template.
-
-       - **Published**: the certificate is ready to be used in the exam.
-       - **Draft**: the certificate still needs to be checked and adjusted by the admin, and isn't shown to participants yet.
-
-       <Tip>
-         Keep the status at **Draft** while the certificate still needs adjusting.
-       </Tip>
-    4. **Certificate Number Format**<br />Sets how the certificate numbers that the system generates automatically are put together.
-
-       <Info>
-         **Placeholder key:**
-
-         - `{YYYY}`: year, e.g. 2027
-         - `{YY}`: two-digit year, e.g. 27
-         - `{MM}`: month
-         - `{DD}`: day
-         - `{SEQ}`: certificate sequence number (6 digits, e.g. 000001)
-         - `{EXAM}`: exam code (letters and numbers only, up to 6 characters)
-       </Info>
-
-       💡 Example format: `INDOLAT/{YYYY}/{EXAM}/{SEQ}` for an exam with the code `TO-MAT-SNBT`<br />Result: `INDOLAT/2026/TOMATS/000001`
-    5. **Minimum Score**<br />Enter the minimum score a participant needs to receive the certificate. For example, 70 means participants with a final score of 70 or higher can receive the certificate.
-
-       <Tip>
-         Leave **Minimum Score** empty if every participant may receive the certificate regardless of their score.
-       </Tip>
-    6. **The exam must be completed**<br />Turn this on so the certificate can only be issued once the participant has finished the exam.<br />Example: a participant has a provisional score of 80 but hasn't pressed the finish button yet. The certificate can't be issued until the exam is actually finished.
-    7. **Needs manual review**<br />Turn this on if the admin must approve the certificate first. This suits official exams or award certificates that need checking before they are issued.
-    8. **Show to participants**
-
-       - Turn this on so participants can view and download the certificate from their exam results page.
-       - Turn it off if the certificate will only be managed or printed by the admin.
-    9. **Notes**<br />Expand this section and fill in **Template Notes** with extra information about the certificate. These notes are for admins only.<br />Example: The certificate is awarded to participants who have finished the exam with a score of at least 60.
-
-    Once you have adjusted the fields, click **Create** to save the settings.
-  </Step>
-</Steps>
-
-### C. Set Up the Template and Design
-
-<Steps>
-  <Step title="Adjust the Template and Design">
-    This section sets the layout, size and look of the certificate.
-
-    <Frame>
-      ![Fields in the Template & Design section](/images/2026-08-05_20-00.png)
-    </Frame>
-
-    1. **Template Layout**<br />Choose the certificate layout you need.<br />Example: **Centre Layout, 1 Signature**
-
-       <Tip>
-         Other layouts can be used depending on the number of signatories and where the certificate content goes.
-       </Tip>
-    2. **Page Size**<br />Choose the certificate size.
-
-       <Frame>
-         ![A4 and Letter page size options](/images/2026-08-04_21-49-1.png)
-       </Frame>
-
-       Example: **A4**<br />A4 suits certificates that will be printed or downloaded as a PDF.
-    3. **Orientation**<br />Choose the page direction:
-
-       - **Landscape** for a horizontal page
-       - **Portrait** for an upright page
-
-       <Tip>
-         Certificates usually use **Landscape**, which gives more room for the participant name and signatures and keeps them well proportioned.
-       </Tip>
-    4. **Design Template**<br />Choose the design to use:
-
-       - **Template A** for a simple design
-       - **Template B** for a more formal design
-       - **Custom Template** if your institution has its own design. Upload that design in the **Custom Template Background** field that appears (PNG, JPG or WEBP, up to 2 MB).
-    5. **Institution Logo** (optional)<br />Upload your institution's logo in the **Logo File** field (PNG, JPG or WEBP, up to 1 MB). The logo becomes available as the **Institution Logo** element in the **Designer** section, where you set its position and size.
-    6. **Colour Theme**
-
-       <Frame>
-         ![Colour Theme fields for the certificate](/images/2026-08-05_20-52.png)
-       </Frame>
-
-       Even after choosing a design template, you can still adjust the certificate's **Colour Theme**. You can set:
-
-       - **Page Colour**
-       - **Primary Accent**
-       - **Secondary Accent**
-
-       <Frame>
-         ![Where the primary accent, page colour and secondary accent appear](/images/2026-08-05_21-07.png)
-       </Frame>
-    7. **Safe Area**<br />The Safe Area is a margin that keeps text and signatures from sitting too close to the edge of the certificate.
-
-       <Tip>
-         Use the default values if you have no special design needs.
-       </Tip>
-  </Step>
-</Steps>
-
-### D. Add Signatories
-
-<Steps>
-  <Step title="Open Signatory, then click Add Signatory">
-    <Frame>
-      ![Signatory section and the + Add Signatory button](/images/2026-08-04_23-17.png)
-    </Frame>
-  </Step>
-  <Step title="Add the people who will sign the certificate">
-    <Frame>
-      ![Signatory details fields for the certificate](/images/2026-08-04_23-23.png)
-    </Frame>
-
-    Fill in the following signatory fields:
-
-    1. **Slot**<br />Choose the signature position. For example:
-
-       - **Slot 1** for the first signatory
-       - **Slot 2** for the second signatory
-
-       <Tip>
-         Match the number of slots you use to the certificate layout.
-       </Tip>
-    2. **Name**<br />Enter the signatory's full name.<br />Example: **Diana Valerie**
-    3. **Position**<br />Enter the signatory's position.<br />Example: **Committee Chair**
-    4. **Signature Image**<br />Upload the signature image.
-
-       <Tip>
-         Use a PNG with a transparent background. It gives a neater, clearer result. The file can be up to 1 MB.
-       </Tip>
-    5. **+ Add Signatory** (optional)<br />If more than one authorised person signs the certificate, click **+ Add Signatory** and fill in the second signatory's details.
-  </Step>
-</Steps>
-
-### E. Adjust the Layout in the Designer
-
-Open the **Designer** section to set the position and content of each part of the certificate.
+**Informasi Dasar** (basic information)
 
 <Frame>
-  ![Designer section listing the certificate elements](/images/2026-08-07_22-47.png)
+  ![Informasi Dasar section with numbered fields](/images/lainnya/sertifikat-ujian/05-informasi-dasar.png)
+</Frame>
+
+1. **Nama Template**: a name to tell templates apart in the admin list. Example: **Sertifikat Tryout Mingguan Penalaran – Pekan 3**.
+2. **Ujian**: the exam that uses this certificate. One template is linked to one exam. Click the field, type part of the exam name to search, then click the exam.
+
+   <Frame>
+     ![Exam options in the Ujian field](/images/lainnya/sertifikat-ujian/06-pilihan-ujian.png)
+   </Frame>
+3. **Status**:
+   - **Draft**: the template is still being prepared and does not apply to participants.
+   - **Dipublikasikan** (published): the template applies. Only available while the add-on is active.
+4. **Format Nomor Sertifikat** (certificate number format): the pattern of the number generated automatically when a certificate is issued. The default is `CERT/{YYYY}/{MM}/{SEQ}`.
+
+   <Info>
+     **Supported tokens:**
+
+     - `{YYYY}`: four-digit year, for example 2026
+     - `{YY}`: two-digit year, for example 26
+     - `{MM}`: two-digit month
+     - `{DD}`: two-digit day
+     - `{SEQ}`: certificate sequence number for this template, six digits, for example 000001
+     - `{EXAM}`: exam code, letters and digits only, at most six characters
+   </Info>
+
+   Example: the format `BPN/{YYYY}/{EXAM}/{SEQ}` on an exam with the code `TMP-P3` produces `BPN/2026/TMPP3/000001`.
+
+**Aturan Penerbitan** (issuing rules) and **Catatan** (notes)
+
+<Frame>
+  ![Aturan Penerbitan and Catatan sections with numbered fields](/images/lainnya/sertifikat-ujian/07-aturan-penerbitan-dan-catatan.png)
+</Frame>
+
+5. **Skor Minimum**: the minimum final score a participant needs to receive the certificate. The participant's final score must be equal to or higher than this number. Leave it empty if every participant who finishes is eligible.
+6. **Wajib selesai ujian** (must finish the exam): when on (the default), the certificate is only available after the participant has finished every test in the exam.
+7. **Butuh review manual** (needs manual review): when on, participants must request the certificate first and an admin must approve it before it can be downloaded. When off, eligible participants can download the certificate straight away.
+8. **Tampilkan ke peserta** (show to participants): turn on so the certificate button appears on the participant's **Riwayat Tes** page. When off, the certificate is not shown to participants. Can only be turned on while the add-on is active.
+9. **Catatan Template**: open the **Catatan** section to write an internal note, for example the template's usage rules. Only admins see this note.
+
+<Tip>
+  Choose **Draft** and keep **Tampilkan ke peserta** off while the design is being prepared. Switch to **Dipublikasikan** and turn on **Tampilkan ke peserta** once the certificate is ready.
+</Tip>
+
+### B. The Template & Desain tab
+
+<Frame>
+  ![Tata Letak section with Layout Template, Ukuran Halaman, and Orientasi](/images/lainnya/sertifikat-ujian/08-tata-letak.png)
+</Frame>
+
+1. **Layout Template**: the starting arrangement of the certificate elements. The options are **Layout Tengah 2 TTD**, **Layout Kiri 1 TTD**, **Layout Tengah 1 TTD**, **Layout Akademik 2 TTD**, **Layout Premium 2 TTD**, and **Layout Pelatihan 1 TTD**. Pick a layout whose number of signatures (TTD) matches your number of signatories.
+2. **Ukuran Halaman** (page size): **A4** or **Letter**.
+3. **Orientasi**: **Landscape** or **Portrait**.
+
+<Note>
+  Changing **Layout Template** resets every element to that layout's default positions. Choose the layout before arranging elements in the **Desainer** tab.
+</Note>
+
+<Frame>
+  ![Template Desain and Logo Lembaga sections](/images/lainnya/sertifikat-ujian/09-template-desain-dan-logo.png)
+</Frame>
+
+4. **Template Desain** (design template):
+   - **Template A**: built-in design with a top bar, bottom bar, and soft frame.
+   - **Template B**: built-in formal design with gold accents.
+   - **Template Custom**: your own design. Upload a background image in **Background Template Custom** (PNG, JPG, or WEBP). The recommended resolution is 3508 × 2480 px for landscape or 2480 × 3508 px for portrait (A4, 300 DPI).
+5. **Logo Lembaga** (institution logo, optional): upload the logo in **File Logo**. Use a transparent PNG, at most 1 MB. The logo becomes available as the **Logo Lembaga** element in the **Desainer** tab.
+
+<Frame>
+  ![Tema Warna and Safe Area sections](/images/lainnya/sertifikat-ujian/10-tema-warna-dan-safe-area.png)
+</Frame>
+
+**Tema Warna** (colour theme) is filled in from the design template, but you can change it:
+
+1. **Warna Halaman**: the page background colour.
+2. **Aksen Utama**: the colour of the main bars and ornaments.
+3. **Aksen Kedua**: the colour of the supporting ornaments.
+
+**Safe Area** (4) is the safe margin in pixels on the **Atas** (top), **Kanan** (right), **Bawah** (bottom), and **Kiri** (left). Elements in the **Desainer** tab cannot be dragged beyond it. Keep the default values unless you have a specific need.
+
+### C. The Penandatangan tab
+
+A new form already has two signatories. Fill in each signatory:
+
+<Frame>
+  ![First signatory fields numbered 1 to 4](/images/lainnya/sertifikat-ujian/11-isian-penandatangan.png)
+</Frame>
+
+1. **Slot**: the signature position on the certificate, **Slot 1**, **Slot 2**, or **Slot 3**. The slot is used by the **Area Tanda Tangan**, **Nama Penandatangan**, and **Jabatan Penandatangan** elements in the **Desainer** tab.
+2. **Nama**: the signatory's full name. Example: **Rina Wulandari, S.Pd.**
+3. **Jabatan** (position): the signatory's title. Example: **Direktur Bimbel Prestasi Nusantara**.
+4. **Gambar Tanda Tangan** (signature image): upload the signature. A PNG with a transparent background gives the cleanest result.
+
+Click **+ Tambah Penandatangan** to add a signatory, or the bin icon to remove one. The arrow icon left of the signatory title changes the order.
+
+<Frame>
+  ![Tambah Penandatangan button](/images/lainnya/sertifikat-ujian/12-tombol-tambah-penandatangan.png)
+</Frame>
+
+### D. The Desainer tab
+
+The **Desainer** tab is where you arrange the position and content of each certificate element.
+
+<Frame>
+  ![Layout & Placeholder, Elemen Aktif, and Inspector panels in the Desainer tab](/images/lainnya/sertifikat-ujian/13-desainer-elemen.png)
+</Frame>
+
+1. **Layout & Placeholder**: click an element name to add it to the certificate. Available elements: **Judul Sertifikat** (title), **Subjudul** (subtitle), **Nama Peserta**, **Nama Ujian**, **Nilai Akhir** (final score), **Tanggal Selesai** (completion date), **Nomor Sertifikat**, **Logo Lembaga**, **Teks Bebas** (free text), **Area Tanda Tangan** (signature area), **Nama Penandatangan**, and **Jabatan Penandatangan**. Click **Reset layout** to return to the layout's default arrangement.
+2. **Elemen Aktif** (active elements): the elements on the certificate and their positions. Click an element to select it.
+3. **Inspector**: settings of the selected element: **Label**, **Konten** (text content), **X** and **Y** position, **Lebar** (width), **Tinggi** (height), **Font** (font size), **Tebal** (weight), **Align**, and **Warna** (colour). Click **Duplikat** to copy the element or **Hapus** to delete it. For signature elements, also choose the signatory **Slot**.
+
+In the **Konten** of text elements you can use placeholders that are replaced with the participant's data, for example `{{exam_name}}`, `{{final_score}}`, `{{completion_date}}`, and `{{certificate_number}}`.
+
+The **Preview Interaktif** (interactive preview) shows the certificate with a sample participant name. Drag elements directly in the preview to move them.
+
+<Frame>
+  ![Preview Interaktif of a certificate with two signatories](/images/lainnya/sertifikat-ujian/14-preview-interaktif.png)
+</Frame>
+
+Check the position of the title, participant name, score, certificate number, and signatures. Make sure no text overlaps, is cut off, or sits too close to the edge. When everything looks right, click **Buat** to save the template.
+
+## 2. Managing certificate templates
+
+Saved templates are listed on **Sertifikat Ujian** with the columns **Template** (with the exam name), **Desain**, **Skor Minimum**, **Status**, and **Terakhir Diperbarui** (last updated).
+
+<Frame>
+  ![Sertifikat Ujian list with the Preview, Ubah, and Hapus buttons](/images/lainnya/sertifikat-ujian/15-daftar-sertifikat.png)
+</Frame>
+
+1. **Preview**: opens a preview of the certificate with sample data in a new tab.
+2. **Ubah** (edit): opens **Ubah Sertifikat Ujian**. This page also has **Preview** and **Unduh PDF** (sample certificate as PDF) at the top right, and the **Sertifikat Terbit** tab.
+3. **Hapus**: deletes the template.
+
+Use the **Ujian** and **Status** filters to narrow the list.
+
+<Note>
+  On **Ubah Sertifikat Ujian**, click **Simpan** (save) after changing settings. If the page jumps to the **Penandatangan** tab without a saved message, click **Simpan** once more.
+</Note>
+
+## 3. The certificate flow in the participant app
+
+The certificate appears on the participant's **Riwayat Tes** (test history) page, in the **Skor Akhir** (final score) section, when:
+
+- the template is **Dipublikasikan** and **Tampilkan ke peserta** is on,
+- the participant has finished every test (if **Wajib selesai ujian** is on), and
+- the participant's final score meets the **Skor Minimum**.
+
+Participants who do not meet the requirements do not see a certificate button. In the example, Clarissa Anindya (final score 11) sees no button, while Galih Prasetyo Utomo (final score 12) and Adinda Maharani (final score 15) do.
+
+<Steps>
+  <Step title="The participant opens Riwayat Tes">
+    After signing in to the participant app, the participant clicks **Riwayat Tes** in the top menu. Participant sign-in is explained in [Login Peserta](/en/lainnya/login-peserta).
+
+    <Frame>
+      ![Riwayat Tes menu in the participant app](/images/lainnya/sertifikat-ujian/16-menu-riwayat-tes-peserta.png)
+    </Frame>
+  </Step>
+</Steps>
+
+### A. Without admin approval
+
+When **Butuh review manual** is off, the **Unduh Sertifikat** (download certificate) button appears straight away in the **Skor Akhir** section.
+
+<Frame>
+  ![Butuh review manual turned off](/images/lainnya/sertifikat-ujian/24-review-manual-nonaktif.png)
 </Frame>
 
 <Frame>
-  ![Certificate Interactive Preview and the Create button](/images/2026-08-07_22-48.png)
+  ![Unduh Sertifikat button on Adinda Maharani's Riwayat Tes](/images/lainnya/sertifikat-ujian/25-tombol-unduh-sertifikat.png)
 </Frame>
 
-On this page, you can adjust elements such as:
+When the participant clicks **Unduh Sertifikat**, the system issues the certificate with the next number and downloads it as a PDF.
 
-- Certificate Title
-- Subtitle
-- Participant Name
-- Exam Name
-- Final Score
-- End Date
-- Certificate Number
-- Institution Logo
-- Free Text
-- Signature Area
-- Signatory Name
-- Signatory Position
+### B. With admin approval
 
-How to use the **Designer**:
-
-1. Select the part you want to change, for example **Certificate Title**.
-2. Change the text in the **Content** field if needed. Example: **EXAM CERTIFICATE**
-3. Position the text the way you want. You can move elements directly on the certificate by **clicking and dragging** them into place.
-4. Adjust the text or area size if it looks too small, too large or cut off.
-5. Repeat these steps for other parts, such as the participant name, certificate number and signature.
-6. Check the result in the **Interactive Preview** section.
-
-> 💡 **Example:**
->
-> The participant name looks too close to the certificate title. Select **Participant Name**, then drag it down a little until the spacing looks neater.
->
-> If the certificate title looks too small, select **Certificate Title**, then increase its font size.
-
-The **Interactive Preview** section shows what the certificate will look like before participants use it.
-
-Check again:
-
-- the title position;
-- the participant name;
-- the exam name;
-- the score;
-- the certificate number;
-- and the signature position.
-
-Make sure no text overlaps, is cut off or sits too close to the edge of the certificate. When everything looks right, click **Create** to save the certificate.
-
-## 2. Participant Certificate Requests and Downloads
-
-The certificate is available in the **Final Score** section of the **Exam History** page.
-
-### A. Open Exam History
+When **Butuh review manual** is on, the flow is:
 
 <Steps>
-  <Step title="The participant logs in to the CBT page">
+  <Step title="The participant clicks Ajukan Sertifikat">
     <Frame>
-      <img
-        src="/images/2026-08-07_23-01.png"
-        alt="Participant logging in on the CBT login page"
-        style={{ width:"49%" }}
-      />
+      ![Ajukan Sertifikat button on Galih Prasetyo Utomo's Riwayat Tes](/images/lainnya/sertifikat-ujian/17-tombol-ajukan-sertifikat.png)
     </Frame>
   </Step>
-  <Step title="Open Exam History">
+  <Step title="The request waits for approval">
+    The button changes to **Menunggu Persetujuan** (waiting for approval). The certificate and its number have been created, but it cannot be downloaded yet.
+
     <Frame>
-      ![Exam History menu and Final Score section on the participant page](/images/2026-08-07_23-04.png)
-    </Frame>
-
-    Look at the **Final Score** section.
-  </Step>
-</Steps>
-
-### B. Without Admin Approval
-
-If the certificate doesn't need an admin check and all the requirements are met, the **Download Certificate** button appears.
-
-<Steps>
-  <Step title="The admin turns off Needs manual review">
-    <Frame>
-      ![Needs manual review turned off](/images/image-26.png)
+      ![Menunggu Persetujuan status on the participant's Riwayat Tes](/images/lainnya/sertifikat-ujian/18-menunggu-persetujuan.png)
     </Frame>
   </Step>
-  <Step title="The Download Certificate button appears for the participant">
-    <Frame>
-      ![Download Certificate button on the Exam History page](/images/image-27.png)
-    </Frame>
+  <Step title="An admin approves the request">
+    See [4. Approving certificate requests](#4-approving-certificate-requests).
   </Step>
-  <Step title="The participant clicks Download Certificate">
-    <Frame>
-      ![Certificate PDF downloaded in the participant's browser](/images/2026-08-07_23-12.png)
-    </Frame>
-
-    The system downloads the certificate as a PDF.
+  <Step title="The participant downloads the certificate">
+    After approval and a page reload, the button changes to **Unduh Sertifikat**. The participant clicks it to download the PDF.
 
     <Frame>
-      ![Example of the certificate PDF downloaded by the participant](/images/2026-08-10_18-26-1.png)
-    </Frame>
-  </Step>
-</Steps>
-
-### C. Admin Approval Required
-
-If the certificate needs an admin check, the process is as follows:
-
-<Steps>
-  <Step title="The admin turns on Needs manual review">
-    <Frame>
-      ![Needs manual review turned on](/images/2026-08-07_23-08_1.png)
-    </Frame>
-  </Step>
-  <Step title="The Request Certificate button appears for the participant">
-    <Frame>
-      ![Request Certificate button on the Exam History page](/images/2026-08-07_23-29.png)
-    </Frame>
-  </Step>
-  <Step title="The participant clicks Request Certificate">
-    The button changes to **Waiting for Approval**.
-
-    <Frame>
-      ![Waiting for Approval button after the request is sent](/images/2026-08-10_18-18.png)
-    </Frame>
-
-    The system sends the request to the admin.
-  </Step>
-  <Step title="The admin approves the request">
-    Once the admin has approved the certificate, the **Waiting for Approval** button changes to **Download Certificate**. The approval steps are explained in section **3. The Admin Approves Certificate Requests** below.
-  </Step>
-  <Step title="The Download Certificate button appears for the participant">
-    <Frame>
-      ![Download Certificate button on the Exam History page](/images/image-27.png)
-    </Frame>
-  </Step>
-  <Step title="The participant clicks Download Certificate">
-    <Frame>
-      ![Certificate PDF downloaded in the participant's browser](/images/2026-08-07_23-12.png)
-    </Frame>
-
-    The system downloads the certificate as a PDF.
-
-    <Frame>
-      ![Example of the certificate PDF downloaded by the participant](/images/2026-08-10_18-26.png)
+      ![Unduh Sertifikat button after the request was approved](/images/lainnya/sertifikat-ujian/22-tombol-unduh-sertifikat.png)
     </Frame>
   </Step>
 </Steps>
 
 <Info>
-  The button flow on the participant page:
+  Button summary on the participant page:
 
-  - **Request Certificate**: the participant hasn't requested the certificate yet.
-  - **Waiting for Approval**: the admin is reviewing the request.
-  - **Download Certificate**: the request has been approved.
+  - **Ajukan Sertifikat** (request certificate): the participant is eligible and has not requested yet.
+  - **Menunggu Persetujuan**: the request is waiting for admin approval.
+  - **Unduh Sertifikat**: the certificate is ready to download.
 </Info>
 
-## 3. The Admin Approves Certificate Requests
-
-This section applies when **Needs manual review** is turned on in the certificate settings.
-
-This means participants who meet the requirements can't download the certificate straight away. They need to request it first, and then the admin approves it.
-
-> 💡 **Example:**
->
-> Adipati Wisnu has finished **Try Out Matematika Persiapan SNBT 2027** with a score of 100. Because the certificate needs admin approval, Adipati first chooses **Request Certificate**.
->
-> Once the request is sent, the participant page shows the status **Waiting for Approval**.
+Example of the PDF certificate the participant receives:
 
 <Frame>
-  ![Waiting for Approval status on the participant's Exam History page](/images/2026-08-10_18-27.png)
+  ![Example PDF certificate for Galih Prasetyo Utomo with the number BPN/2026/TMPP3/000001](/images/lainnya/sertifikat-ujian/23-contoh-sertifikat-pdf.png)
 </Frame>
 
-While this status is shown, the participant can't download the certificate.
+## 4. Approving certificate requests
 
 <Steps>
-  <Step title="Open Exam Certificate, then click Edit">
+  <Step title="Open the Sertifikat Terbit tab">
+    Open the **Sertifikat Ujian** menu, click **Ubah** on the template, then click the **Sertifikat Terbit** tab. The table lists every requested or issued certificate with the columns **Nomor Sertifikat**, **Nama Peserta**, **Nilai**, and **Tanggal Terbit**. The **Tgl. Persetujuan** (approval date) column can be shown with the column icon at the top right of the table.
+
     <Frame>
-      ![Edit button in the Exam Certificate list](/images/2026-08-10_18-21.png)
+      ![Sertifikat Terbit tab with the Setujui button on Galih Prasetyo Utomo's row](/images/lainnya/sertifikat-ujian/19-tab-sertifikat-terbit.png)
     </Frame>
 
-    Choose the certificate you created.
+    Use the **Status Persetujuan** filter (**Sudah Disetujui** or **Belum Disetujui**) to show requests that have not been handled yet.
   </Step>
-  <Step title="Open Certificate Issued, then click Approve">
+  <Step title="Click Setujui">
+    Click **Setujui** (approve) on the participant's row. Check the certificate number and participant name in the confirmation window, then click **Konfirmasi**.
+
     <Frame>
-      ![Approve button in the Certificate Issued section](/images/2026-08-10_18-25.png)
+      ![Setujui Sertifikat confirmation window](/images/lainnya/sertifikat-ujian/20-konfirmasi-setujui-sertifikat.png)
     </Frame>
-
-    The system shows a list of participants who have requested a certificate, with details such as:
-
-    - Certificate Number
-    - Participant Name
-    - Score
-    - Issue Date
-
-    Find the participant whose request you want to approve and click **Approve** on their row.
   </Step>
-  <Step title="Confirm the certificate approval">
-    <Frame>
-      ![Approve Certificate confirmation dialog](/images/2026-08-10_18-25_1.png)
-    </Frame>
-
-    The system shows a confirmation for approving the certificate. Make sure the participant name and certificate number are correct, then click **Confirm**.
-
-    <Note>
-      After approval, the participant needs to reopen or reload the **Exam History** page. The **Waiting for Approval** button then changes to **Download Certificate**.
-    </Note>
+  <Step title="The certificate is approved">
+    **Setujui** is replaced by **Unduh** (download) and **Cabut** (revoke). Click **Unduh** to download that participant's certificate from the admin panel.
 
     <Frame>
-      ![Download Certificate button after the request is approved](/images/2026-08-10_18-25_2.png)
+      ![Approved certificate row with the Unduh and Cabut buttons](/images/lainnya/sertifikat-ujian/21-sertifikat-disetujui.png)
     </Frame>
   </Step>
 </Steps>
+
+To approve many requests at once, tick the rows and choose **Setujui Semua** in the bulk actions menu.
+
+<Warning>
+  **Cabut** (or **Cabut Semua** for several rows) withdraws the approval. While **Butuh review manual** is on, the participant sees **Menunggu Persetujuan** again and cannot download the certificate until it is approved again.
+</Warning>

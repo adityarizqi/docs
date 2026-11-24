@@ -1,837 +1,474 @@
 ---
 title: "Create a Question Package"
-description: "How to create a question package and add questions and answers to it."
+description: "How to create question packages, add questions and answers, and manage reading passages and question groups."
 ---
 
-Before participants can take an exam, you need to prepare a question package with all of its questions and answers.
-
-A **question package** is where a set of questions is stored. You can add as many questions to one question package as the exam needs.
-
-> 💡 **For example**, you're an admin at a tutoring centre and you're running:
->
-> **SNBT 2027 Mathematics Prep Tryout**
->
-> For this exam, you create one question package called:
->
-> **Penalaran Matematika** (Mathematical Reasoning)
->
-> You then fill the package with 40 multiple-choice questions and their correct answers.
+This page explains how to create a question package and fill it with questions. A **question package** (**Paket Soal**) is a collection of questions used in exam tests. One package can contain many questions, and one package can be used in more than one exam.
 
 <Info>
-  Put simply, the process has two parts:
+  **Menu location:** **Portal** → **Platform Ujian (CBT)** → **Manajemen Ujian** → **Data Paket Soal**.
 
-  1. Create or add a **question package**
-  2. Create the **questions and answers** inside that package
+  Admins with the **Guru** (teacher) role only see and manage the packages they created themselves.
 </Info>
 
-## 1. The Question Package Page
+The examples on this page use a tutoring center preparing the **Tryout Akbar SNBT 2027**. For that exam it creates the package **Penalaran Matematika – Tryout Akbar SNBT 2027** (code **PM-TA27**) containing multiple-choice, short-answer, complex multiple-statement, and matching questions.
+
+In short, the process has two parts:
+
+1. Create the **question package** (name, code, description, and type).
+2. Fill the package with **questions and answers**, manually, by [Excel import](/en/paket-soal/import-paket-soal), or with [Jasper AI](/en/paket-soal/generate-soal-ai).
+
+## The Data Paket Soal page
+
+Open **Data Paket Soal** (Question Package Data) in the sidebar of the **Platform Ujian (CBT)** module.
 
 <Frame>
-  ![Question Package Data page with the buttons for creating a question package](/images/2026-07-31_00-57.png)
+  ![Data Paket Soal menu in the Platform Ujian (CBT) sidebar](/images/paket-soal/membuat-paket-soal/01-menu-data-paket-soal.png)
 </Frame>
 
-Open the **Question Package Data** menu.
+The table lists all packages with the columns **Nama Paket Soal** (name), **Kode Paket Soal** (code), **Jenis Paket Soal** (type), **Jumlah Soal** (number of questions), and **Tanggal Dibuat** (date created). Use **Cari** (Search) to find a package by name or code, and the filter icon to filter by **Jenis Paket Soal**.
 
-This page lists every question package you've created. It shows each package's name, code and type, the number of questions and the creation date. Each package has an **Edit** button and an **Other** menu with **Duplicate Question Package** and **Delete**.
+<Frame>
+  ![Package list filtered by a search, with the three buttons for creating packages](/images/paket-soal/membuat-paket-soal/05-daftar-paket-soal.png)
+</Frame>
 
-<Info>
-  You can create a question package in several ways:
+There are three ways to create a package, matching the numbers in the image:
 
-  - manually: click **Add Question Package**
-  - from a question template: click **Question Package Template**
-  - with Jasper AI: click **Create a Question Package with Jasper AI**
-</Info>
+1. **Template Paket Soal**: create a package from a template that already contains questions. This button only appears when templates are available.
+2. **Buat Paket Soal Jasper AI**: create a package and its questions automatically with AI. See [Generate Questions with Jasper AI](/en/paket-soal/generate-soal-ai).
+3. **Tambah Paket Soal** (Add Question Package): create an empty package manually and add the questions yourself.
 
-### Adding a Question Package Manually
+Each package row has an **Ubah** (Edit) button to open the package and a **Lainnya** (More) menu containing:
 
-Use this method if you want to build a question package from scratch and set up all of its content yourself. With the manual method, you first create the question package's name and details. Once the package is created, you add its questions and answers one by one.
+- **Duplikat Paket Soal**: copies the package with its question groups, answer groups, questions, answers, and media files. The copy is processed in the background, and you receive a notification when it is done.
+- **Hapus**: deletes the package.
 
-> 💡 Example:
->
-> You're creating the Penalaran Matematika package for the SNBT (Indonesia's national university entrance test) 2027 tryout (practice exam). The teaching team has already written the questions, and there are only 10 of them.
->
-> Because there aren't many questions and each one needs to be checked carefully, you can create the package manually and then enter the questions and answers one by one.
-
-This method suits you if:
-
-- there aren't many questions
-- the questions are already written
-- or you want to set up each question in more detail.
-
-### Using a Question Template
-
-Use a template if you want to create a question package faster, starting from a structure the system already provides. A template gets you started without setting everything up from scratch. After using a template, you can still change the package name, the questions and the settings.
-
-> 💡 Example:
->
-> You're creating an SNBT tryout package with the same general structure as your previous tryout packages.
->
-> Instead of setting everything up from scratch, you choose the template that fits best. Once the package is created, you only need to rename it, adjust the questions and check the answers again.
-
-This method suits you if:
-
-- your exam is similar to one of the available examples
-- you want to create the package faster.
-
-<Tip>
-  A template is only a starting point. Check its content and settings before you use it in an exam.
-</Tip>
-
-### Using Jasper AI
-
-Use Jasper AI if you want the system to help you create a question package and generate its questions and answers. You only need to describe the subject, the number of questions, the question format and the difficulty level you want.
-
-> 💡 Example:
->
-> You need 20 multiple-choice Basic Mathematics questions for extra practice, but you don't have a question bank yet.
->
-> Give an instruction such as:
->
-> _Create 20 multiple-choice Basic Mathematics questions for SNBT preparation. Each question has five answer options and one correct answer._
->
-> The system creates the question package, the questions, the answer options and the correct answers automatically.
-
-This method suits you if:
-
-- you don't have any questions yet
-- you need many questions in a short time.
+<Frame>
+  ![Lainnya menu of a package with Duplikat Paket Soal and Hapus](/images/paket-soal/membuat-paket-soal/08-menu-lainnya-paket-soal.png)
+</Frame>
 
 <Warning>
-  AI-generated questions and answers must be checked before you use them. Make sure the subject matter, answer options, difficulty level and correct answers are right.
+  A package that is used in an exam session of an existing exam cannot be deleted. The system shows **Gagal Menghapus Paket Soal**. Remove or replace the package in that exam first.
 </Warning>
 
-## 2. How to Create or Add a Question Package
+## Creating a package manually
 
-<AccordionGroup>
-  <Accordion title="Create a Question Package Manually">
-    Use this method if you want to set all of the question package's details yourself.
+Choose the package type according to how participants answer:
 
-    <Note>
-      **CBT/CAT** and **Essay/File Upload** question packages **can't be combined** in one question package. If your exam needs both types, create two separate question packages and add them as separate tests.
-
-      For example:
-
-      - Question Package 1: **Mathematics Multiple Choice** — CBT/CAT type
-      - Question Package 2: **Mathematics Essay** — Essay/File Upload type
-
-      This way, each question package has a clear answering and grading method.
-    </Note>
-
-    <AccordionGroup>
-      <Accordion title="CBT / CAT" icon="sparkles">
-        <Steps>
-          <Step title="Open the Question Package Data menu">
-            <Frame>
-              <img
-                src="/images/data-paket-ujian.png"
-                alt="Question Package Data menu in the sidebar"
-              />
-            </Frame>
-          </Step>
-          <Step title="Click Add Question Package">
-            <Frame>
-              ![Add Question Package button on the Question Package Data page](/images/tambah-paket-soal.png)
-            </Frame>
-          </Step>
-          <Step title="Fill in the question package details">
-            <Frame>
-              ![Question package form for the CBT/CAT type](/images/informasi-paket-soal.png)
-            </Frame>
-
-            In this step, you enter the question package's details and basic settings.
-
-            1. **Question Package Name**<br />Enter a name that's easy to recognise, for example **Penalaran Matematika**.
-            2. **Question Package Code**<br />Enter a unique code that tells the question packages apart, for example **MTK-UJIAN**.
-            3. **Question Package Description**<br />Add a short description of the package's content or purpose.
-            4. **Question Package Type**<br />Choose **CBT/CAT** if participants will answer the questions directly in the system.
-            5. **Shuffle Questions**<br />Turn this on if you want the question order to be different for each participant.
-            6. **Shuffle Answers (Multiple Choice)**<br />Turn this on if you want the order of the answer options to be different for each participant. This setting applies to multiple-choice questions.
-            7. **Save the question package**<br />Click **Create** to save the question package and move on to adding questions.
-
-            <Tip>
-              <Frame>
-                ![Question Package Type options: CBT/CAT and Essay/File Upload](/images/jenis-paket-soal.png)
-              </Frame>
-
-              - Choose **CBT/CAT** if participants will see the questions on screen and enter their answers directly on the exam platform. This type **suits UTBK-SNBT tryouts, olympiads** and other computer-based exams.
-              - Choose **Essay/File Upload (Manual Grading)** if the questions are already in a single file, such as a PDF. Participants open the file to read the questions, then submit their answers as the exam instructions say.
-            </Tip>
-          </Step>
-          <Step title="Save the question package">
-            <Frame>
-              ![Create button on the question package form](/images/download-1.png)
-            </Frame>
-
-            Click **Create** after you've filled in the question package details. You can then add questions to the package.
-          </Step>
-        </Steps>
-      </Accordion>
-
-      <Accordion title="Essay / File Upload" icon="sparkles">
-        <Steps>
-          <Step title="Open the Question Package Data menu">
-            <Frame>
-              <img
-                src="/images/data-paket-ujian.png"
-                alt="Question Package Data menu in the sidebar"
-              />
-            </Frame>
-          </Step>
-          <Step title="Click Add Question Package">
-            <Frame>
-              ![Add Question Package button on the Question Package Data page](/images/tambah-paket-soal.png)
-            </Frame>
-          </Step>
-          <Step title="Fill in the question package details">
-            <Frame>
-              ![Question package form for the Essay/File Upload type](/images/esai-1.png)
-            </Frame>
-
-            Use this package type if participants will **write their answers out in full or upload an answer file**.
-
-            1. **Question Package Name**: Enter a name that makes the question package easy to recognise.<br />Example: **Literasi Bahasa Indonesia** (Indonesian Language Literacy).
-            2. **Question Package Code**: Enter a short, unique code.<br />Example: **LBI-UJIAN**.
-            3. **Question Package Description**: Write a short description of the package's content.<br />Example: _A collection of Indonesian Language Literacy questions for SNBT 2027 preparation._
-            4. **Question Package Type**: Choose **Essay/File Upload (Manual Grading)**. Use this option if participants:
-               - write long answers directly in the system, or
-               - upload an answer file, such as a PDF, a Word document or a photo of their answer sheet.
-
-               Participants' answers then need to be checked and graded manually by a grader.
-            5. **Create**: Once all the fields are filled in, click **Create** to save the question package.
-
-            <Note>
-              This type of question package can't be used for CBT or CAT exams, because the system doesn't check the answers automatically.
-            </Note>
-
-            <Tip>
-              <Frame>
-                ![Essay/File Upload (Manual Grading) option in Question Package Type](/images/esai-2.png)
-              </Frame>
-
-              - Choose **CBT/CAT** if participants will see the questions on screen and enter their answers directly on the exam platform. This type **suits UTBK-SNBT tryouts, olympiads** and other computer-based exams.
-              - Choose **Essay/File Upload (Manual Grading)** if the questions are already in a single file, such as a PDF. Participants open the file to read the questions, then submit their answers as the exam instructions say.
-            </Tip>
-          </Step>
-          <Step title="Save the question package">
-            <Frame>
-              ![Create button on the essay question package form](/images/simpan-paket-esai.png)
-            </Frame>
-
-            Click **Create** after you've filled in the question package details. You can then add questions to the package.
-          </Step>
-        </Steps>
-      </Accordion>
-    </AccordionGroup>
-  </Accordion>
-
-  <Accordion title="Create a Question Package with Questions and Answers from a Template">
-    Use a template if you want to create a question package from a structure the system already provides.
-
-    <Steps>
-      <Step title="Click Question Package Template">
-        Open the **Question Package Data** menu, then click **Question Package Template**.
-
-        <Frame>
-          ![Question Package Template button on the Question Package Data page](/images/2026-07-31_01-54.png)
-        </Frame>
-      </Step>
-      <Step title="Choose a template and click Use Template">
-        <Frame>
-          ![List of question package templates and the Use Template button](/images/2026-07-31_01-54_1-1.png)
-        </Frame>
-
-        The system shows the available templates. Look at the following details:
-
-        - **Template Name**, the name of the available package
-        - **Question Type**, the kind of question package it uses
-        - **Number of Questions**, how many questions will be copied into the new package
-
-        Tick one template, then click **Use Template**. Wait until a notification says the question package template was added. In this example, the system creates a package called **Latihan Try Out**.
-
-        <Frame>
-          ![Question Package Template Added notification](/images/2026-07-31_01-55.png)
-        </Frame>
-      </Step>
-      <Step title="Click Edit to check the question package">
-        <Frame>
-          ![Edit button on the Latihan Try Out question package](/images/2026-07-31_01-55_1.png)
-        </Frame>
-
-        <Frame>
-          ![Latihan Try Out question package details with its question list](/images/2026-07-31_01-56.png)
-        </Frame>
-
-        Check the package details and all of its questions and answers. You can still:
-
-        - change the package name or description
-        - correct the questions
-        - replace answer options
-        - change the correct answer
-        - and add or delete questions.
-
-        <Tip>
-          A template already includes the question package and its questions. Still, **check** the questions and answers before you use the package in an exam session.
-        </Tip>
-      </Step>
-    </Steps>
-  </Accordion>
-
-  <Accordion title="Create a Question Package with Questions and Answers Using Jasper AI">
-    You can also use Jasper AI from the question package page to create a question package with its questions and answers.
-
-    <Steps>
-      <Step title="Click Create a Question Package with Jasper AI">
-        Open the **Question Package Data** menu, then click **Create a Question Package with Jasper AI**.
-
-        <Frame>
-          ![Create a Question Package with Jasper AI button on the Question Package Data page](/images/2026-07-31_02-12.png)
-        </Frame>
-      </Step>
-      <Step title="Fill in the question package details">
-        <Frame>
-          ![Completed Create a Question Package with Jasper AI form](/images/2026-07-31_02-14.png)
-        </Frame>
-
-        1. Fill in **Question Package Name**.
-
-           Example: **Try Out SNBT 2027**
-        2. Fill in **Number of Questions** with the number of questions you want to generate.
-
-           Example: **10 questions**
-
-        <Note>
-          The number of questions you enter is deducted from your Jasper AI quota.
-        </Note>
-
-        3. In **Notes**, describe the questions you need. You can mention the subject, school level, question format or difficulty level.
-
-           Example: **Create Mathematics, Indonesian and English questions for SNBT 2027 preparation.**
-
-        <Tip>
-          The clearer your instructions, the better the generated questions will match what you need.
-        </Tip>
-
-        4. Click **Generate**. The system starts creating the question package; while it runs, the button shows the generation progress. Wait until a notification says the questions were created.
-
-        <Frame>
-          ![Questions created notification and the new package in the question package list](/images/2026-07-31_02-17.png)
-        </Frame>
-      </Step>
-      <Step title="Click Edit to check the question package">
-        <Frame>
-          ![Edit button on the question package generated by Jasper AI](/images/2026-07-31_02-17_1.png)
-        </Frame>
-
-        <Frame>
-          ![Details of the Jasper AI question package with its question list](/images/2026-07-31_02-18.png)
-        </Frame>
-
-        Check the package details and all of its questions and answers. You can still:
-
-        - change the package name or description
-        - correct the questions
-        - replace answer options
-        - change the correct answer
-        - and add or delete questions.
-
-        <Warning>
-          Jasper AI results must be checked before you use them in an exam. Make sure the questions, answer options and correct answers match the subject matter and the difficulty level you want.
-        </Warning>
-      </Step>
-    </Steps>
-  </Accordion>
-</AccordionGroup>
-
-## 3. The Question List Page
-
-Once the question package is created, click **Edit** on the package you want to manage.
-
-<Frame>
-  ![Edit button in the question package list](/images/2026-07-31_02-36.png)
-</Frame>
-
-The system opens the question package details page.
-
-<Frame>
-  ![Question package details page with the Question List section](/images/2026-07-31_02-35.png)
-</Frame>
-
-> 💡 **For example**, you open the **Penalaran Matematika** package used for SNBT 2027 preparation. In the **Question List** section, you can check the existing questions, add new ones, import questions from Excel and fix questions that still need adjusting.
-
-### Question List
-
-This section shows every question in the package. You can see, among other things:
-
-- the question number
-- the question group
-- the passage, if the question uses a shared reading text
-- supporting media, if any
-- the question text
-- and the question type.
-
-<Tip>
-  Use this list to make sure the number and content of the questions are right before the package is used in an exam session.
-</Tip>
-
-### Add Questions with Jasper AI
-
-Use the **Add Questions with Jasper AI** button to add questions generated by Jasper AI to the package you have open. Fill in **Number of Additional Questions** and, if needed, **Additional Notes**, then click **Generate**. This button is only available for **CBT/CAT** question packages, and the number of questions generated is deducted from your Jasper AI quota.
-
-### Import Questions (Excel)
-
-Use the **Import Questions (Excel)** button if you already have many questions and want to add them in one go.
-
-<Tip>
-  This is quicker than adding questions one by one. Make sure your Excel file follows the template provided by the system so the import runs smoothly.
-</Tip>
-
-### Add Question
-
-Use the **Add Question** button to add questions manually.
-
-<Tip>
-  This method suits you if:
-
-  - you're only adding a few questions
-  - you want to write the questions directly in the system
-  - or you only need to add a few extra questions.
-</Tip>
-
-After clicking the button, you can fill in the question, question type, answer options, correct answer and other settings.
-
-### Reorder Questions
-
-Use the **Reorder Questions** button if you want to rearrange the questions. Drag the questions into place, then click **Finished Reordering**.
-
-💡 **Example:** you want the easier questions at the start, followed by the harder ones. Use this feature to put the questions in the order you want.
+| Jenis Paket Soal | Use |
+| --- | --- |
+| **CBT/CAT** | Participants answer directly in the exam app and answers are scored automatically. Suitable for UTBK-SNBT tryouts, olympiads, and other computer-based exams. Supports multiple choice, short answer, complex multiple-statement, matching, reading passages, Excel import, and Jasper AI. |
+| **Esai/Upload File (Jawaban Manual)** | Participants write an essay answer or upload answer files, and a grader reviews them manually. |
 
 <Note>
-  This order is used in the exam when **Shuffle Questions** is off. When **Shuffle Questions** is on, the questions are shuffled for each participant; only questions that share a passage keep this order.
+  The two types cannot be combined in one package. If an exam needs both, create two packages, for example **Penalaran Matematika – Tryout Akbar SNBT 2027** (CBT/CAT) and **Esai Literasi Bahasa Indonesia – Tryout Akbar SNBT 2027** (Esai/Upload File), and add each one as a separate exam test. **Jenis Paket Soal** cannot be changed after the package is created.
 </Note>
 
-### Edit
+<Steps>
+  <Step title="Click Tambah Paket Soal">
+    <Frame>
+      ![Tambah Paket Soal button on the Data Paket Soal page](/images/paket-soal/membuat-paket-soal/02-tombol-tambah-paket-soal.png)
+    </Frame>
+  </Step>
+  <Step title="Fill in the Informasi Umum section">
+    <Frame>
+      ![Tambah Paket Soal form for a CBT/CAT package with numbered fields](/images/paket-soal/membuat-paket-soal/03-formulir-paket-soal-cbt.png)
+    </Frame>
 
-Click **Edit** on a question to correct or adjust it. You can change:
+    1. **Nama Paket Soal**: an easily recognizable name, for example **Penalaran Matematika – Tryout Akbar SNBT 2027**.
+    2. **Kode Paket Soal**: a short code that is unique in your project, for example **PM-TA27**. If another package already uses the code, the message **Kode paket soal sudah digunakan.** appears.
+    3. **Deskripsi Paket Soal**: a short description of the package, at most 1,000 characters. Jasper AI also uses it as context when adding questions.
+    4. **Jenis Paket Soal**: choose **CBT/CAT** or **Esai/Upload File (Jawaban Manual)**.
+    5. **Acak Soal** (Shuffle Questions, CBT/CAT only): the question order is shuffled for each participant.
+    6. **Acak Jawaban (Pilihan Ganda)** (Shuffle Answers, CBT/CAT only): the option order of multiple-choice questions is shuffled for each participant.
+    7. Click **Buat** (Create). Use **Buat & buat lainnya** to create the next package right away, or **Batal** to go back without saving.
 
-- the question
-- the answer options
-- the correct answer
-- the supporting media
-- the question group
-- and other settings.
+    If you choose **Esai/Upload File (Jawaban Manual)**, the shuffle options are hidden and a note says the package cannot be used for CBT/CAT exams.
 
-<Tip>
-  Use this if you find a typo or an incorrect answer, or if the question content needs updating.
-</Tip>
+    <Frame>
+      ![Note shown for the Esai/Upload File (Jawaban Manual) package type](/images/paket-soal/membuat-paket-soal/04-jenis-esai-upload-file.png)
+    </Frame>
+  </Step>
+  <Step title="Continue on the Ubah Paket Soal page">
+    After the package is saved, the system opens the **Ubah Paket Soal** (Edit Question Package) page. This is where you add questions, as described below.
+  </Step>
+</Steps>
 
-### Other
+## Creating a package from a template
+
+Templates are complete sample packages with questions and answers. A package created from a template belongs entirely to you and can be edited.
+
+<Steps>
+  <Step title="Click Template Paket Soal">
+    On the **Data Paket Soal** page, click **Template Paket Soal**.
+  </Step>
+  <Step title="Select a template and click Gunakan Template">
+    <Frame>
+      ![Pilih Template Paket Soal window with the Penalaran Matematika template selected](/images/paket-soal/membuat-paket-soal/60-pilih-template.png)
+    </Frame>
+
+    The list shows each **Nama Template** (template name) with a summary, **Jenis Soal**, and **Jumlah Soal**. Click the template row you want, then click **Gunakan Template** (Use Template). The notification **Template Paket Soal Berhasil Ditambahkan** appears, and the new package is listed with the template's name and an automatically generated code.
+  </Step>
+  <Step title="Adjust the name, code, and content">
+    Click **Ubah** on the new package. Change **Nama Paket Soal** and **Kode Paket Soal** as needed, then click **Simpan** (Save).
+
+    <Frame>
+      ![Adjusted name and code of a package created from a template, with the Simpan button](/images/paket-soal/membuat-paket-soal/62-sesuaikan-paket-dari-template.png)
+    </Frame>
+
+    A template may already enable **Acak Soal** and **Acak Jawaban (Pilihan Ganda)** and contain reading passages and question groups. Review the settings and every question before using the package in an exam.
+  </Step>
+</Steps>
+
+## The Ubah Paket Soal page
+
+Click **Ubah** on a package to open the following page.
 
 <Frame>
-  ![Other menu on a question: Duplicate Question, Question Preview and Delete](/images/2026-07-31_02-49.png)
+  ![Ubah Paket Soal page with numbered areas](/images/paket-soal/membuat-paket-soal/06-halaman-ubah-paket-soal.png)
 </Frame>
 
-Opens additional actions for a question. The options are:
+1. **Informasi Umum** (General Information): name, code, description, and shuffle settings. **Jenis Paket Soal** is shown but cannot be changed.
+2. **Ekspor ke PDF** (Export to PDF, CBT/CAT only): creates a PDF of the package. Choose **PDF dengan jawaban & pembahasan** (with answers and explanations) for internal review or **PDF soal murni** (questions only) to share with participants, then click **Proses Ekspor**. The export runs in the background, and you receive a notification when the file is ready.
+3. **Simpan**: saves changes to **Informasi Umum**.
+4. Content tabs (CBT/CAT only): **Daftar Soal** (Question List), **Wacana** (Reading Passages), **Kelompok Soal** (Question Groups), and **Kelompok Jawaban** (Answer Groups). Esai/Upload File packages only have **Daftar Soal**.
+5. **Daftar Soal**: the question list with the **Tambah Soal dengan Jasper AI**, **Import Soal (Excel)**, and **Tambah Soal** buttons.
 
-- **Duplicate Question**<br />Copies an existing question. This is useful when you want to create a new question with almost the same format or structure, so you don't have to write it again from scratch.
-- **Question Preview**<br />Shows the question as participants will see it (CBT/CAT question packages only). Use it to make sure the question, answer options and layout are right before the exam takes place.
-  <Frame>
-    <img
-      src="/images/2026-07-31_02-49_1.png"
-      alt="Question Preview as participants see it"
-      style={{ width:"91%" }}
-    />
-  </Frame>
-- **Delete**<br />Deletes a question you no longer need. Make sure you've selected the right question before deleting it.
+<Frame>
+  ![Ekspor Paket Soal PDF window with two Jenis PDF options](/images/paket-soal/membuat-paket-soal/07-ekspor-pdf.png)
+</Frame>
 
-## 4. How to Create Questions and Answers
+## Adding questions to a CBT/CAT package
 
-Once the question package is created, the next step is to add questions to it.
+This section uses the package **Penalaran Matematika – Tryout Akbar SNBT 2027**. If questions share a reading text or should be grouped by topic, prepare the [reading passages](#managing-reading-passages) and [question groups](#managing-question-groups) first so you can select them while creating questions.
 
-<AccordionGroup>
-  <Accordion title="Create Questions and Answers Manually">
-    <Steps>
-      <Step title="Click Add Question">
-        <Frame>
-          ![Add Question button in the Question List section](/images/tambah-soal.png)
-        </Frame>
+<Steps>
+  <Step title="Click Tambah Soal">
+    <Frame>
+      ![Tambah Soal button in the Daftar Soal section](/images/paket-soal/membuat-paket-soal/10-tombol-tambah-soal.png)
+    </Frame>
 
-        In the **Question List** section, click **Add Question** to enter questions one by one. You can also use **Import Questions (Excel)** if you already have many questions and want to add them in one go.
+    The **Tambah Soal** (Add Question) window opens with the tabs **Soal** (Question), **Jawaban** (Answers), **Pembahasan** (Explanation), and **Penilaian** (Scoring). The **Jawaban** tab only appears for **Pilihan Ganda** and **Majemuk Kompleks** questions.
+  </Step>
+  <Step title="Fill in the Klasifikasi section">
+    <Frame>
+      ![Klasifikasi section of the Soal tab with numbered fields](/images/paket-soal/membuat-paket-soal/11-klasifikasi-soal.png)
+    </Frame>
 
-        <Tip>
-          If you skipped some questions or haven't added them to the question package yet, you can add them later:
+    1. **Jenis Soal** (question type): cannot be changed after the question is saved. The options are explained under **CBT/CAT question types** below.
+    2. **Kelompok Soal** (optional): the topic or subtest, for example **Aritmetika Sosial**. The list comes from the **Kelompok Soal** tab.
+    3. **Wacana** (optional): a shared reading passage shown above the question text. The list comes from the **Wacana** tab.
+    4. **Jawaban Lebih dari Satu** (More Than One Answer): enable it if participants must choose more than one correct answer. Only shown for **Pilihan Ganda** questions.
 
-          1. Open the **Question Package Data** menu.
-          2. Find the question package that is missing questions.
-          3. Click **Edit** on that question package.
-          4. Add the questions in the **Question List** section using the **Add Question** button.
+    <Frame>
+      ![Jenis Soal options: Pilihan Ganda, Jawaban Singkat, Majemuk Kompleks, and Menjodohkan](/images/paket-soal/membuat-paket-soal/12-pilihan-jenis-soal.png)
+    </Frame>
+  </Step>
+  <Step title="Fill in the Konten Soal section">
+    <Frame>
+      ![Konten Soal section with numbered fields](/images/paket-soal/membuat-paket-soal/13-konten-soal.png)
+    </Frame>
 
-          <Frame>
-            ![Question Package Data menu and the Edit button on a question package](/images/image-17.png)
-          </Frame>
+    1. **Media Soal** (question media): choose one or more of **Teks** (Text), **Gambar** (Image), and **Audio**. The following fields depend on the media you choose.
+    2. **Teks Soal** (question text, Text media): at most 5,000 characters. The toolbar offers bold, italic, strikethrough, underline, headings (H1, H2), tables, bulleted and numbered lists, code blocks, superscript, and subscript.
+    3. **Tampilkan Input LaTeX**: opens a helper field for writing math formulas. See [Writing math formulas (LaTeX)](#writing-math-formulas-latex).
+    4. **Tampilkan keterangan "Perhatikan soal berikut:"**: when enabled, this sentence ("Look at the following question:") appears above the question text during the exam. Click **Lihat contoh** to see an example.
 
-          <Frame>
-            ![Add Question button in the Question List section](/images/image-18.png)
-          </Frame>
-        </Tip>
-      </Step>
-      <Step title="Fill in the question details">
-        <Frame>
-          ![Add Question form on the Question tab](/images/Lengkapi-informasi-soal.png)
-        </Frame>
+    With **Gambar** media, upload one or more images (JPG, PNG, or GIF) in **Berkas Gambar**; drag them to change the order. A **Tampilkan keterangan "Perhatikan gambar berikut:"** setting is also available. With **Audio** media, upload an MP3, WAV, or OGG file in **Berkas Audio**.
 
-        After you click **Add Question**, the system shows the fields for adding a question to the package.
+    Example question text: _Sebuah toko memberikan diskon 20% untuk sebuah tas. Setelah mendapat diskon, harga tas menjadi Rp240.000,00. Harga tas sebelum diskon adalah ...._ (A shop gives a 20% discount on a bag; after the discount the bag costs Rp240,000. What was the price before the discount?)
+  </Step>
+  <Step title="Add answer options in the Jawaban tab">
+    For a **Pilihan Ganda** question, open the **Jawaban** tab. Click **Isi 5 opsi (A–E)** to create five text options at once, or **+ Tambah Jawaban** to add them one by one (including option F and beyond). The **Isi 5 opsi (A–E)** link only appears while the answer list is empty.
 
-        Start with the **Question** section, then set:
+    <Frame>
+      ![Isi 5 opsi (A–E) link in the Jawaban tab](/images/paket-soal/membuat-paket-soal/14-isi-5-opsi.png)
+    </Frame>
 
-        - **Question Type**: sets the kind of question participants will answer:
-          <Frame>
-            <img
-              src="/images/image-19.png"
-              alt="Question Type options on the question form"
-              style={{ width:"62%" }}
-            />
-          </Frame>
-          1. **Multiple Choice**<br />Participants choose one correct answer.<br />Example: _The capital of Indonesia is ..._<br />A. Bandung<br />B. Jakarta<br />C. Surabaya
-          2. **Short Answer**<br />Participants type a short answer as a number or text. You can set more than one answer that counts as correct. Set the key in the **Answer Key** section that appears when you choose this type: **Answer Format** (**Text** or **Number**), **Main Answer Key** and **Other Accepted Answers**.<br />Example: _The capital of Indonesia is ..._<br />Correct answers: **DKI Jakarta** or **Jakarta**
-          3. **Complex Multiple Response (True/False, Fact/Opinion, etc.)**<br />Participants choose one of two labels for each statement. The labels can be True/False, Fact/Opinion, Matches/Does Not Match, Agree/Disagree, Yes/No or any other labels you set. Choose them in **Label Pair** under **Statement Column Labels**; choose **Other labels (type your own)** to write your own.<br />Example:
-             - The sun rises in the east — **True**
-             - Water freezes at 100°C — **False**
-          4. **Matching (Drag & Drop)**<br />Participants pair up items that belong together. Fill in the pairs in the **Matching Pairs** section (**Statement (Left)** and **Answer (Right)**); the right-hand side is shuffled during the exam.<br />Example:
-             - Indonesia → Jakarta
-             - Japan → Tokyo
-        - **Question Group**: groups several questions that share the same material or topic.
-          <Frame>
-            <img
-              src="/images/image-21.png"
-              alt="Question Group field on the question form"
-              style={{ width:"61%" }}
-            />
-          </Frame>
-          Example: there is one reading text called **“School Environment”**, and 3 questions are based on it. All three questions can go into the **School Environment** question group, so participants read the same material and then answer several related questions. Another example:
-          - Question Group: **Reading Text 1**
-          - Question 1: What is the main idea of the text?
-          - Question 2: Who is the character in the text?
-          - Question 3: What is the conclusion of the text?
+    Complete each answer option:
 
-          If each question stands on its own and doesn't use shared material, you can leave **Question Group** empty. A question group only groups questions; to show the reading text to participants, save it as a **passage**.
-        - **Passages**: choose a shared reading text to show above the question text. The list of passages comes from the **Passages** tab of the question package (see the **Create Passages (Shared Reading Texts)** section). Leave it empty if the question doesn't use a reading text.
-        - **More Than One Answer**: use this if a question has more than one correct answer.
-          <Frame>
-            <img
-              src="/images/image-23.png"
-              alt="More Than One Answer setting on the question form"
-              style={{ width:"58%" }}
-            />
-          </Frame>
-          Example: **Choose the animals that are mammals:**
-          - Cat ✅
-          - Cow ✅
-          - Chicken
-          - Fish
+    <Frame>
+      ![Answer option D marked as the answer key](/images/paket-soal/membuat-paket-soal/15-isian-pilihan-jawaban.png)
+    </Frame>
 
-          In this example, participants must choose **Cat** and **Cow**.
+    1. **Media Jawaban** (answer media): **Teks**, **Gambar**, **Audio**, or a combination.
+    2. **Kunci Jawaban** (answer key): enable it only on the correct option, in this example **Rp300.000,00**. If **Jawaban Lebih dari Satu** is enabled, enable it on every correct option.
+    3. **Skor Jawaban** (option score): only used by the scoring method **Perhitungan Skor Jawaban (Akumulasi Skor Jawaban)**; leave it at **0** for other methods.
+    4. **Kelompok Jawaban** (answer group): only for the scoring method **Psikotes (Pengelompokan Jawaban)**. The list comes from the **Kelompok Jawaban** tab.
+    5. **Teks Jawaban** (option text): the text participants see. This field also has **Tampilkan Input LaTeX**. With Image or Audio media, upload the file (images JPG, PNG, or GIF; audio MP3, WAV, or OGG).
 
-          Only turn this setting on if participants are allowed to choose several answers. If there is only one correct answer, leave it off. This setting only appears for **Multiple Choice** questions.
-        - **Question Media**: sets how participants will see or hear the question.
-          <Frame>
-            <img
-              src="/images/image-24.png"
-              alt="Question Media options: Text, Image and Audio"
-              style={{ width:"61%" }}
-            />
-          </Frame>
-          You can choose more than one **Question Media** type for a single question.
-          <Frame>
-            <img
-              src="/images/image-25.png"
-              alt="Question Media with text, image and audio combined"
-              style={{ width:"94%" }}
-            />
-          </Frame>
-          This means one question can combine **text, images and audio**. For example:
-          - **Text** for writing the question.
-          - **Image** for showing a chart or an illustration.
-          - **Audio** for listening questions.
+    Options are lettered A, B, C, and so on in their order. Drag the arrow icon to reorder an option, or click the trash icon to delete it.
 
-          Choose the media that fit the question you're creating.
-      </Step>
-      <Step title="Write the question text">
-        <Frame>
-          ![Question Text field on the question form](/images/isikan-soal.png)
-        </Frame>
+    <Frame>
+      ![Daftar Jawaban with options A to E](/images/paket-soal/membuat-paket-soal/16-daftar-jawaban.png)
+    </Frame>
+  </Step>
+  <Step title="Write an explanation (optional)">
+    Open the **Pembahasan** tab. In **Format Pembahasan**, choose **Teks** to write the explanation in **Isi Pembahasan** (with the same toolbar and LaTeX input as the question text), or **Unggah Berkas (PDF / Gambar)** to upload a PDF, JPG, or PNG file.
 
-        In **Question Text**, write the question participants will read.
-
-        Example:
-
-        > A shop gives a 20% discount on a bag. After the discount, the bag costs Rp240,000. What was the price of the bag before the discount?
-
-        Use the buttons at the top of the field to format text, create lists, add tables or write mathematical formulas. The question text can be up to 5,000 characters.
-
-        <Tip>
-          LaTeX lets you write mathematical formulas so they display neatly. To use it:
-
-          1. Click **Show LaTeX Input**.
-          2. Type the formula in the field that appears.
-          3. Click **Copy**.
-          4. Paste the formula into **Question Text**.
-
-          <Frame>
-            ![Show LaTeX Input link below the Question Text field](/images/latex-1-2.png)
-
-            ![Formula in the LaTeX input field and the Copy button](/images/latex-2.png)
-
-            ![LaTeX formula pasted into the Question Text field](/images/Latex-3.png)
-          </Frame>
-        </Tip>
-      </Step>
-      <Step title="Add the answer options">
-        <Frame>
-          ![Answer tab and Add Answer button on the question form](/images/image-7.png)
-        </Frame>
-
-        Once the question is written, open the **Answer** section, then click **Add Answer** to add answer options and set the correct answer.
-
-        The system shows the fields for the answer list.
-
-        <Frame>
-          ![Answer option fields on the Answer tab](/images/image-9.png)
-        </Frame>
-
-        Fill in each answer option as follows:
-
-        1. **Answer Media**: Choose the answer format, for example text, image or audio.
-        2. **Answer Key**: Turn this on only for the correct option. If **More Than One Answer** is on, turn it on for every correct option.<br />For example, if the correct answer is **Rp300,000**, turn on **Answer Key** only for that option. Leave it off for the other answer options.
-           <Frame>
-             <img
-               src="/images/image-11.png"
-               alt="Answer Key turned on for the correct answer option"
-               className="mx-auto"
-               style={{ width:"52%" }}
-             />
-           </Frame>
-        3. **Answer Score**: Enter the score for this option.<br />For ordinary multiple-choice questions, wrong answers can be given a score of **0**. This score is only used with the **Answer Score Calculation (Sum of Answer Scores)** scoring method.
-        4. **Answer Group**: Only used with the **Psychometric (Answer Grouping)** scoring method. If you don't use it, leave it empty.
-        5. **Answer Text**: Write the answer option participants will see.
-        6. **Add Answer**: Click **Add Answer** to create the next answer option.
-
-        <Note>
-          The **Answer** tab only appears for **Multiple Choice** and **Complex Multiple Response** questions. For **Complex Multiple Response**, each answer holds one statement, and the **Answer Key** toggle is replaced by a **Correct Answer** field where you choose the right label. The key for **Short Answer** and the pairs for **Matching** are filled in on the **Question** tab.
-        </Note>
-
-        Repeat these steps until all the questions and answers have been added.
-
-        <Frame>
-          ![Question list filled with questions](/images/image-13.png)
-        </Frame>
-      </Step>
-    </Steps>
-  </Accordion>
-
-  <Accordion title="Create Passages (Shared Reading Texts)">
-    A passage is a reading text, chart, table or recording used by several questions at once, for example one reading text for three literacy questions. You write the passage once, then select it on every question that uses it.
-
-    <Steps>
-      <Step title="Open the Passages tab of the question package">
-        Click **Edit** on a CBT/CAT question package, then open the **Passages** tab next to the **Question List** tab.
-      </Step>
-      <Step title="Click Add Passage and fill it in">
-        Click **Add Passage**, then fill in the following fields:
-
-        - **Passage Title**: the name you use to select the passage on a question. Only admins see this title; if participants need to read a title, write it inside the passage text.
-        - **Passage Text**: the reading text, up to 20,000 characters. You can use text formatting, tables and LaTeX input, just like in the question text.
-        - **Passage Images**: optional, for example a chart or a table. You can add more than one image.
-        - **Passage Audio**: optional, for example a recording for listening questions. Participants can play it as many times as they like; if the audio may only be played once, attach it to the question instead.
-
-        At least one of text, images or audio must be filled in.
-      </Step>
-      <Step title="Select the passage on the questions">
-        When you add or edit a question, choose the passage in the **Passages** field. Do this for every question that uses the reading text.
-      </Step>
-    </Steps>
-
-    <Info>
-      During the exam, the passage appears as part of the question, just as if its text had been copied into every question: the passage images come first with the question images, then the passage text sits right above the question text in the same style. If questions are shuffled, questions that share a passage stay together in the order they have in the question package, so participants only need to read the passage once.
-    </Info>
+    <Frame>
+      ![Pembahasan tab with the Teks explanation format](/images/paket-soal/membuat-paket-soal/17-tab-pembahasan.png)
+    </Frame>
 
     <Note>
-      A passage that is still used by questions can't be deleted; remove it from those questions first. While an exam is in progress, passages can't be edited.
+      When the package is exported to PDF, only text or image explanations are embedded.
     </Note>
-  </Accordion>
+  </Step>
+  <Step title="Set the scores in the Penilaian tab">
+    <Frame>
+      ![Penilaian tab with the Skor CAT and Skor CBT sections](/images/paket-soal/membuat-paket-soal/18-tab-penilaian.png)
+    </Frame>
 
-  <Accordion title="Create Questions and Answers by Import">
-    <Steps>
-      <Step title="Click Edit on the question package">
-        <Frame>
-          ![Number of Questions column and Edit button on the Question Package Data page](/images/2026-07-31_02-58.png)
-        </Frame>
+    - **Skor CAT**: only used in **Computer Adaptive Test (CAT)** exams. Fill in **Tingkat Kesulitan** (difficulty: **Sangat Mudah**, **Mudah**, **Sedang**, **Sulit**, or **Sangat Sulit**), **Skor Benar** (correct), and **Skor Salah** (incorrect). **Tingkat Kesulitan** is required if the package is used by a CAT test.
+    - **Skor CBT**: only used by the scoring method **Perhitungan Skor Soal (Akumulasi Benar/Salah)**. Fill in **Skor Benar**, **Skor Salah**, and **Skor Tidak Dijawab** (unanswered), for example 4, -1, and 0.
 
-        Open the **Question Package Data** menu, then click **Edit** on the question package you want to fill. The **Number of Questions** column shows whether a question package already contains questions or is still empty.
-      </Step>
-      <Step title="Click Import Questions (Excel)">
-        <Frame>
-          ![Import Questions (Excel) button in the Question List section](/images/2026-07-31_02-59.png)
-        </Frame>
-      </Step>
-      <Step title="Click Download Template">
-        <Frame>
-          ![Download Template link in the Import Questions (Excel) window](/images/2026-07-31_02-59_1.png)
-        </Frame>
-      </Step>
-      <Step title="Open the downloaded template">
-        The Excel template has four sheets:
+    The scoring method is chosen when you set up the exam test. See [Create a Test](/en/data-ujian/membuat-tes-ujian).
+  </Step>
+  <Step title="Save the question">
+    Click **Buat** to save, or **Buat & buat lainnya** to save and start the next question right away. New questions are added at the end of the list.
 
-        - **Panduan** (the instructions sheet; its name is not translated)
-        - **Question Data**
-        - **Answer Data**
-        - **Passage Data** (optional)
+    <Warning>
+      If the question text exceeds 5,000 characters, the question is not saved and the message **Gagal Menyimpan Soal** shows the character count.
+    </Warning>
+  </Step>
+</Steps>
 
-        <Frame>
-          ![Panduan sheet in the Excel template](/images/2026-07-31_03-00.png)
-        </Frame>
+### CBT/CAT question types
 
-        The **Panduan** sheet explains how to fill in the template, which codes you can use and which columns are required or optional.
+| Jenis Soal | How participants answer | Where to set the key |
+| --- | --- | --- |
+| **Pilihan Ganda** (multiple choice) | Choose one answer, or several when **Jawaban Lebih dari Satu** is enabled. | **Jawaban** tab, **Kunci Jawaban** toggle. |
+| **Jawaban Singkat** (short answer) | Type a number or text. | **Kunci Jawaban** section in the **Soal** tab. |
+| **Majemuk Kompleks (Benar/Salah, Fakta/Opini, dll.)** (complex multiple-statement) | Choose one of two labels for each statement. | **Jawaban** tab, **Jawaban Benar** field of each statement. |
+| **Menjodohkan (Drag & Drop)** (matching) | Drag the answers on the right to the matching statements on the left. | **Pasangan Menjodohkan** section in the **Soal** tab. |
 
-        <Note>
-          Keep the following rules in mind:
+#### Jawaban Singkat
 
-          - Import is only available for **CBT/CAT** question packages.
-          - Don't change the column names or the layout of the template.
-          - Question images and answer images can be added through **image links** (see **Image link rules** below). Audio and video are still added after the import.
-          - Use the codes listed in the instructions to fill in the question type and content type.
-          - Use the latest template (version 1.2.0) so that the image link columns and the passage sheet are available. Files made from earlier template versions can still be imported.
-        </Note>
-      </Step>
-      <Step title="Fill in the Question Data sheet">
-        <Frame>
-          ![Question Data sheet in the Excel template](/images/2026-07-31_03-00_1.png)
-        </Frame>
+After choosing **Jawaban Singkat**, the **Kunci Jawaban** section appears. Example question: _Persentase kenaikan jumlah buku tulis yang terjual dari bulan Januari ke bulan Februari adalah ... %_ (the percentage increase in notebooks sold from January to February), with the key **20**.
 
-        Use the **Question Data** sheet to enter each question and its settings. The main columns are:
+<Frame>
+  ![Kunci Jawaban section of a Jawaban Singkat question with numbered fields](/images/paket-soal/membuat-paket-soal/20-kunci-jawaban-singkat.png)
+</Frame>
 
-        - **Question No**<br />Enter the question's sequence number, for example 1, 2, 3 and so on.
-        - **Question Type**<br />Enter the question type using a code:
-          - **PG** for Multiple Choice
-          - **MK** for Complex Multiple Response
-          - **IN** for Short Answer
-        - **Content Type**<br />Enter how the question is presented using the codes below. To use more than one type, separate them with commas, for example **T,G**.
-          - **T** for Text
-          - **G** for Image
-          - **A** for Audio
-        - **Essay Question**<br />Enter the question participants will answer, up to 5,000 characters. You can leave it empty if the question is only an image from **Question Image Links**.
-        - **Question Group**<br />Enter the name of the question group. If no question group with that name exists yet, it is created automatically. Leave it empty if the question doesn't need to be grouped. Examples:
-          - Basic Geography
-          - Biology
-          - Mathematics
-        - **Difficulty Level**<br />Enter the question's difficulty level (the Indonesian values, such as Mudah or Sulit, are also accepted), for example:
-          - Very Easy
-          - Easy
-          - Medium
-          - Hard
-          - Very Hard
-        - **More Than One Answer**<br />Enter **Yes** if the question has more than one correct answer, or **No** if it has only one correct answer. **Ya** and **Tidak** are also accepted.
-        - **Correct Answer applies to IN only**<br />For **IN** (Short Answer) questions only, enter the correct answer as a number or text. If several answers count as correct, separate them with **|**, for example `DKI Jakarta | Jakarta` or `0.5 | 1/2`. If all the answers are numbers, participants can only type numbers during the exam. Leave this column empty for other question types.
-        - **CBT and CAT scores**<br />Enter the score for a correct, wrong or unanswered question in the **CBT Score for Correct**, **CBT Score for Wrong**, **CBT Score for Unanswered**, **CAT Score for Correct** and **CAT Score for Wrong** columns, according to the scoring rules you use.
-        - **Explanation**<br />Enter an explanation of the answer if needed.
-        - **Question Image Links**<br />Optional. Enter the image link(s) for this question. If the question has several images, put one link per line in the same cell (up to 10 images).
-        - **Passage Code**<br />Optional. Enter a passage code from the **Passage Data** sheet (for example `W1`) if the question uses a shared reading text.
+1. **Format Jawaban** (answer format):
+   - **Angka** (number): participants can only type numbers. Numbers are compared by value, so 0,5 equals 0.50. The key may start with a minus sign and use a comma or a period as the decimal separator, for example 250, 0, -3, or 1,5.
+   - **Teks** (text): participants can type free text. Letter case and extra spaces are ignored; numbers are still compared by value.
+2. **Kunci Jawaban Utama** (main key): the correct answer, at most 255 characters.
+3. **Jawaban Benar Lainnya** (other correct answers, optional): other answers that are also accepted, for example **Jakarta** for the main key **DKI Jakarta**, or -3 for a question with two roots. Type an answer and press Enter; up to 20 answers.
 
-        <Tip>
-          **Example:**
+The key is shown under the question type in **Daftar Soal**, for example **Jawaban Benar: 20**.
 
-          For the question:
+#### Majemuk Kompleks
 
-          > What is 10 + 15?
+After choosing **Majemuk Kompleks (Benar/Salah, Fakta/Opini, dll.)**, the **Label Kolom Pernyataan** (statement column labels) section appears. In **Pasangan Label**, choose **Benar / Salah** (True/False), **Fakta / Opini** (Fact/Opinion), **Sesuai / Tidak Sesuai**, **Setuju / Tidak Setuju**, or **Ya / Tidak**. Choose **Label lain (isi sendiri)** to write your own **Label Kolom Pertama** and **Label Kolom Kedua** (at most 50 characters each, and they must differ).
 
-          A simple entry looks like this:
+<Frame>
+  ![Label Kolom Pernyataan section with the Benar / Salah label pair](/images/paket-soal/membuat-paket-soal/21-label-kolom-pernyataan.png)
+</Frame>
 
-          - Question No: 4
-          - Question Type: IN
-          - Content Type: T
-          - Question Group: Mathematics
-          - Correct Answer: 25
-        </Tip>
-      </Step>
-      <Step title="Fill in the Answer Data sheet">
-        <Frame>
-          ![Answer Data sheet in the Excel template](/images/2026-07-31_03-01.png)
-        </Frame>
+In the **Jawaban** tab, each item holds one statement. Choose the correct label for the statement in **Jawaban Benar**. Example for the question `Diketahui fungsi $f(x)=2x+3$. Tentukan benar atau salah setiap pernyataan berikut.`:
 
-        Use the **Answer Data** sheet to enter the answer options for Multiple Choice and Complex Multiple Response questions. The main columns are:
+- `Nilai $f(2)=7$`: **Benar**
+- Grafik fungsi f memotong sumbu Y di titik (0, 3): **Benar**
+- Fungsi f merupakan fungsi kuadrat: **Salah**
 
-        - **Question No**<br />Enter the same number as in the **Question Data** sheet.
-        - **Answer A to Answer E**<br />Enter the answer options participants will see. There **must be** at least two answer options (Answer A and Answer B), as text or as an image link.
-        - **Answer Key**<br />Enter the letter of the correct answer. For example:
-          - Enter **A** if only Answer A is correct.
-          - Enter **B,C,D** (separated by commas, without spaces) if there is more than one correct answer.
-        - **Image Link A to Image Link E**<br />Optional. Enter one image link for the matching answer option. An answer option can be text, an image or both.
+<Frame>
+  ![Statement of a Majemuk Kompleks question with the Jawaban Benar field](/images/paket-soal/membuat-paket-soal/22-jawaban-majemuk-kompleks.png)
+</Frame>
 
-        <Note>
-          **Image link rules**
+During the exam, the statements appear as a table with two label columns:
 
-          - Use a full link that starts with `https://` and points directly at a **JPG, PNG, GIF or WebP** image file of up to **5 MB**. An easy check: when you open the link in a browser, only the image is shown.
-          - Page links, such as a Google Drive sharing page or a web page that contains the image, are not image links and will be rejected.
-          - Images are **downloaded and stored in your project's storage**, not linked to the original address. The question stays intact even if the original link later changes or is deleted, and the image size counts towards your storage quota.
-          - For security, the system only downloads from public servers on the internet and checks that the file really is an image.
-          - If one image fails to download, **the whole import is cancelled** and the notification names the rows to fix. A file can contain up to 300 image links.
-        </Note>
+<Frame>
+  ![Preview of a Majemuk Kompleks question as participants see it](/images/paket-soal/membuat-paket-soal/37-preview-majemuk-kompleks.png)
+</Frame>
 
-        <Tip>
-          **Example:**
+#### Menjodohkan
 
-          For the question:
+After choosing **Menjodohkan (Drag & Drop)**, the **Pasangan Menjodohkan** (matching pairs) section appears with two starting pairs. Fill in **Pernyataan (Kiri)** (left statement) and **Jawaban (Kanan)** (right answer) for each pair, and click **+ Tambah Pasangan** to add more. At least two pairs are required. The right side is shuffled during the exam, and participants match them by drag and drop.
 
-          > What is the capital of Indonesia?
+<Frame>
+  ![Pasangan Menjodohkan section with three algebra pairs](/images/paket-soal/membuat-paket-soal/23-pasangan-menjodohkan.png)
+</Frame>
 
-          Fill in the answers:
+### Writing math formulas (LaTeX)
 
-          - Answer A: Jakarta
-          - Answer B: Bandung
-          - Answer C: Surabaya
-          - Answer D: Medan
-          - Answer E: Yogyakarta
-          - Answer Key: A
-        </Tip>
-      </Step>
-      <Step title="Fill in the Passage Data sheet (optional)">
-        Fill in the **Passage Data** sheet only if several questions share the same reading text. Its columns are:
+Write formulas in LaTeX between two dollar signs, for example `$f(x)=2x+3$` or `$\frac{1}{2}$`. You can type them directly in the question text, answer text, explanation, or passage text, or use the helper field:
 
-        - **Passage Code**<br />A unique code for each passage, for example `W1`, `W2`. Write this code in the **Passage Code** column of the **Question Data** sheet for every question that uses the passage.
-        - **Passage Title**<br />Optional and only visible to admins. If left empty, the code is used as the title.
-        - **Passage Text**<br />The reading text, up to 20,000 characters. It can be left empty if the passage uses **Passage Image Links** instead.
-        - **Passage Image Links**<br />Optional. Image links follow the same rules as question image links; put one link per line for several images.
+1. Click **Tampilkan Input LaTeX** below the editor.
+2. Type the formula in the field that appears. It is rendered as math right away.
+3. Click **Salin** (Copy). The formula is copied together with its dollar signs.
+4. Paste it at the desired position in the editor.
 
-        <Tip>
-          **Example:** passage `W1` contains attendance data for a reading club. Questions 6 and 7 in the **Question Data** sheet have `W1` in the **Passage Code** column, so both show the same reading text during the exam.
-        </Tip>
-      </Step>
-      <Step title="Upload the template">
-        <Frame>
-          ![Uploaded file and Import button in the Import Questions (Excel) window](/images/2026-07-31_03-01_1.png)
-        </Frame>
+<Frame>
+  ![LaTeX input field with the formula f(x)=2x+3 and the Salin button](/images/paket-soal/membuat-paket-soal/24-input-latex.png)
+</Frame>
 
-        Once all the questions and answers are filled in:
+In the editor and in **Daftar Soal**, formulas remain visible as LaTeX text (shown in bold in **Daftar Soal**). During the exam and in **Preview Soal**, they are rendered as math.
 
-        1. Save the Excel file.
-        2. Click **Import Questions (Excel)** again on the question package.
-        3. Upload the completed file.
-        4. Click **Import**.
-        5. Wait until the process is finished. The import runs in the background, and you'll get a notification when it's done.
+## Managing the question list
 
-        <Frame>
-          ![Question Import In Progress notification](/images/2026-07-31_03-02.png)
-        </Frame>
+<Frame>
+  ![Daftar Soal of the Penalaran Matematika package with five questions](/images/paket-soal/membuat-paket-soal/30-daftar-soal.png)
+</Frame>
 
-        After a successful import, the questions appear in the **Question List** section with their question group, question text and question type.
+**Daftar Soal** shows the number, **Kelompok Soal**, **Wacana**, **Media**, **Soal Uraian** (question text), and **Jenis Soal**. Short-answer questions show their key under the type; complex multiple-statement questions show their label pair. Use **Cari** to search questions and the column icon to show or hide the **Wacana** column. The table shows 10 or 25 questions per page.
 
-        <Frame>
-          ![Imported questions in the Question List section](/images/2026-07-31_03-02_1.png)
-        </Frame>
+### Reordering questions
 
-        <Tip>
-          Check the import results before using the package. Make sure the question numbers in the **Question Data** and **Answer Data** sheets match, so answers don't end up on the wrong question.
-        </Tip>
-      </Step>
-    </Steps>
-  </Accordion>
-</AccordionGroup>
+Click **Ubah Urutan Soal** (Reorder Questions), drag questions by the icon on the left to the desired position, then click **Selesai Mengurutkan** (Finish Reordering).
+
+<Frame>
+  ![Reorder mode with the Selesai Mengurutkan button](/images/paket-soal/membuat-paket-soal/31-ubah-urutan-soal.png)
+</Frame>
+
+<Note>
+  This order is used during the exam when **Acak Soal** is off. When **Acak Soal** is on, questions are shuffled for each participant; questions that share a reading passage stay together in their package order.
+</Note>
+
+### Bulk actions
+
+Tick several questions (or the box in the column header to select all), then click **Tindakan** (Actions):
+
+<Frame>
+  ![Tindakan menu for the selected questions](/images/paket-soal/membuat-paket-soal/32-tindakan-massal.png)
+</Frame>
+
+- **Ubah Skor Massal** (bulk score change, CBT/CAT only): sets **Skor CAT** and **Skor CBT** for all selected questions at once. Leave fields you do not want to change empty, then click **Simpan Perubahan**.
+- **Jadikan Soal Konsentrasi** (mark as concentration questions): marks the selected questions with the same color. Questions with the same color are used to assess the consistency of a participant's answers (Analisa Konsentrasi) in the exam result details, for example in psychological tests.
+- **Hapus Konsentrasi Soal**: removes the concentration color from the selected questions.
+- **Hapus yang dipilih**: deletes the selected questions.
+
+<Frame>
+  ![Ubah Skor Soal window for several questions at once](/images/paket-soal/membuat-paket-soal/33-ubah-skor-massal.png)
+</Frame>
+
+### Editing, duplicating, and previewing questions
+
+Click **Ubah** on a question to open the **Ubah Soal** window with the same fields as when adding a question (except **Jenis Soal**, which cannot be changed). Besides **Simpan**, the bottom of the window contains:
+
+- **Preview Soal**: opens the question as participants see it in a new tab (CBT/CAT only).
+- **Buka Halaman Detail**: opens the question on its own page in a new tab.
+- **Hapus**: deletes the question. This cannot be undone.
+
+<Frame>
+  ![Preview Soal, Buka Halaman Detail, and Hapus buttons in the Ubah Soal window](/images/paket-soal/membuat-paket-soal/35-tombol-ubah-soal.png)
+</Frame>
+
+The **Lainnya** menu of each question contains **Duplikat Soal** (copies the question with its answers and media files into the same package), **Preview Soal**, and **Hapus**.
+
+<Frame>
+  ![Lainnya menu of a question with Duplikat Soal, Preview Soal, and Hapus](/images/paket-soal/membuat-paket-soal/34-menu-lainnya-soal.png)
+</Frame>
+
+<Frame>
+  ![Preview of a multiple-choice question as participants see it](/images/paket-soal/membuat-paket-soal/36-preview-soal.png)
+</Frame>
+
+## Managing reading passages
+
+A reading passage (**Wacana**) is a text, chart, table, or recording used by several questions, for example one sales data set for two questions. Write the passage once and select it on every question that uses it. The **Wacana** tab is only available in CBT/CAT packages.
+
+<Steps>
+  <Step title="Open the Wacana tab and click Tambah Wacana">
+    <Frame>
+      ![Wacana tab with the passage Penjualan Buku Tulis Koperasi Sekolah and the Tambah Wacana button](/images/paket-soal/membuat-paket-soal/40-tab-wacana.png)
+    </Frame>
+
+    The **Jumlah Soal** column shows how many questions use each passage.
+  </Step>
+  <Step title="Fill in the passage">
+    <Frame>
+      ![Tambah Wacana form with numbered fields](/images/paket-soal/membuat-paket-soal/41-formulir-wacana.png)
+    </Frame>
+
+    1. **Judul Wacana** (title): the name used to select the passage on questions. It is only visible to admins; if participants need to read a title, write it inside the passage text.
+    2. **Teks Wacana** (text): at most 20,000 characters, with the same toolbar and LaTeX input as the question text.
+    3. **Gambar Wacana** (images, optional): for example a chart or table. More than one image is allowed.
+    4. **Audio Wacana** (audio, optional): for example a recording for listening questions. Participants can replay it; if the audio may only be played once, attach it to the question instead.
+
+    At least one of text, image, or audio must be filled in. Click **Buat**.
+  </Step>
+  <Step title="Select the passage on the questions">
+    When adding or editing a question, choose the passage in the **Wacana** field of the **Klasifikasi** section. Do this for every question that uses the passage.
+  </Step>
+</Steps>
+
+<Info>
+  During the exam, the passage appears as part of the question: passage images are shown first together with the question images, then the passage text directly above the question text. When questions are shuffled, questions sharing a passage stay together so participants only read it once.
+</Info>
+
+<Note>
+  A passage still used by questions cannot be deleted (the message **Gagal Menghapus Wacana** appears); detach it from those questions first. Passages cannot be edited while an exam is in progress.
+</Note>
+
+## Managing question groups
+
+Question groups (**Kelompok Soal**) group questions by topic or subtest, for example **Aritmetika Sosial** and **Aljabar**. Question groups do not show any text to participants; for shared reading text, use [reading passages](#managing-reading-passages).
+
+Open the **Kelompok Soal** tab, click **Tambah Kelompok Soal**, fill in **Nama**, then click **Buat**. Question groups are also created automatically by [Excel import](/en/paket-soal/import-paket-soal) when the name does not exist yet.
+
+<Frame>
+  ![Kelompok Soal tab with Aritmetika Sosial and Aljabar](/images/paket-soal/membuat-paket-soal/42-tab-kelompok-soal.png)
+</Frame>
+
+<Note>
+  A question group that contains questions cannot be deleted.
+</Note>
+
+## Managing answer groups
+
+Answer groups (**Kelompok Jawaban**) are used by the scoring method **Psikotes (Pengelompokan Jawaban)**, for example for personality tests. Each answer option is linked to one group through the **Kelompok Jawaban** field in the **Jawaban** tab, and participant results are calculated per group.
+
+<Frame>
+  ![Kelompok Jawaban tab with the Gunakan Template and Tambah Kelompok Jawaban buttons](/images/paket-soal/membuat-paket-soal/43-tab-kelompok-jawaban.png)
+</Frame>
+
+- **Tambah Kelompok Jawaban**: fill in **Judul** (title), **Kode** (code), **Deskripsi** (description), and **Warna** (color).
+- **Gunakan Template**: adds ready-made answer groups, for example **DISC Personality**, **MBTI Dimensi**, **Big Five Personality (OCEAN)**, **Holland Code (RIASEC) — Minat Karir**, or **Gaya Belajar (VARK)**. Choose a template, then click **Terapkan Template**.
+
+<Frame>
+  ![Pilih Template Kelompok Jawaban window](/images/paket-soal/membuat-paket-soal/44-template-kelompok-jawaban.png)
+</Frame>
+
+## Adding questions to an Esai/Upload File package
+
+An **Esai/Upload File (Jawaban Manual)** package only has the **Daftar Soal** section with the **Tambah Soal** button. Excel import, Jasper AI, reading passages, question groups, automatic scoring, Preview Soal, and Export to PDF are not available for this type.
+
+Click **Tambah Soal**, then complete the **Soal** tab:
+
+<Frame>
+  ![Konten Soal section of an essay question with the Unggah File answer type](/images/paket-soal/membuat-paket-soal/50-soal-esai-unggah-file.png)
+</Frame>
+
+1. **Media Soal**: **Teks**, **Gambar**, **File**, or a combination. With **File**, fill in **Nama Berkas** (file name) and upload **Berkas Lampiran** (attachment: PDF, DOCX, XLSX, PPTX, JPG, PNG, GIF, ZIP, or RAR), for example the question sheet as a PDF.
+2. **Jenis Jawaban** (answer type): **Jawaban Uraian** (participants write the answer in the app) or **Unggah File** (participants upload answer files). The answer type cannot be changed after the question is saved.
+3. **Jenis Berkas yang Diizinkan** (allowed file types, Unggah File): PDF, Gambar (JPG, PNG, GIF), MS Word (DOCX), MS Excel (XLSX), MS PowerPoint (PPTX), CSV, ZIP, or RAR.
+4. **Ukuran Maks. (MB)** (Unggah File): maximum size per file, 1–100 MB.
+5. **Jumlah Maks. Berkas** (Unggah File): number of files allowed, 1–10.
+
+Then write the **Teks Soal**, for example _Tulislah esai argumentatif sepanjang 300–500 kata tentang manfaat membaca buku cetak bagi pelajar. Unggah jawaban Anda dalam format PDF._ (Write a 300–500 word argumentative essay on the benefits of reading printed books for students and upload it as a PDF.)
+
+The **Panduan Pengerjaan** (work guide) section (optional) adds a guide link or file for participants. Click the section title to open it, click **+ Tambah Panduan**, choose **Jenis Panduan** (**Tautan** for a link or **Berkas** for a file), fill in **Judul**, then fill in **Tautan** or upload **Berkas**.
+
+<Frame>
+  ![Panduan Pengerjaan section with the Pedoman Penulisan Esai link](/images/paket-soal/membuat-paket-soal/51-panduan-pengerjaan.png)
+</Frame>
+
+The **Pembahasan** tab works as in CBT/CAT packages. Click **Buat** to save. In **Daftar Soal**, the answer type is shown in the **Tipe Jawaban** column.
+
+<Frame>
+  ![Daftar Soal of an essay package with the Unggah File answer type](/images/paket-soal/membuat-paket-soal/52-daftar-soal-esai.png)
+</Frame>
+
+## Changes while an exam is in progress
+
+While a participant is taking an exam that uses the package:
+
+- **CBT/CAT package**: the package, questions, passages, and question groups cannot be edited, added, or deleted. The package page shows **Paket soal ini tidak dapat diubah karena ujian sedang berlangsung.** The **Tambah Soal**, **Import Soal (Excel)**, and **Tambah Soal dengan Jasper AI** buttons are hidden.
+- **Esai/Upload File package**: questions can still be edited but not added or deleted.
+
+Packages created through the API import are read-only. Use **Duplikat Paket Soal** to create an editable copy.
+
+<Tip>
+  When the package is ready, add it to an exam as described in [Create a Test](/en/data-ujian/membuat-tes-ujian).
+</Tip>

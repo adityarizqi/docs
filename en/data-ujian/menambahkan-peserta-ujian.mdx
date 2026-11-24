@@ -1,231 +1,177 @@
 ---
 title: "Add Participants to an Exam"
-description: "How to add participants to an exam, either by importing accounts in Account Data or by importing participants directly in Exam Data."
+description: "How to add participants to an exam by choosing accounts from Data Akun, importing an Excel file or through self-registration, then manage the exam's participant list."
 ---
 
-Once your exam has been created, the next step is to decide who will take it. Participants who **already have** or **don't yet have an account** can be added to the exam in several ways, depending on how you run the exam.
+Once the exam and its tests are ready, the next step is to add participants. This page explains how to add participants who already have an account and those who do not, and how to manage the exam's participant list.
 
-💡 For example, you are the admin of **Bimbingan Belajar Indolat** (Indolat Tutoring Centre) running a tryout (practice exam) for SNBT, Indonesia's national university entrance test:
+<Info>
+  **Menu location:** **Portal** → **Platform Ujian (CBT)** → **Manajemen Ujian** → **Data Ujian** → **Detail** on the exam → **Daftar Peserta Ujian** (Participant List) section.
+</Info>
 
-> **SNBT 2027 Grand Tryout**
+There are three ways to add participants to an exam:
 
-You already have the participant data and want to add those participants to the exam so they can take the tryout.
+| Method | When to use it |
+| --- | --- |
+| **Tambah Peserta** (Add Participants) | The participants' accounts already exist in **Data Akun** (Account Data), for example created with **Tambah Akun**, **Import Akun** or account self-registration. |
+| **Import Peserta** (Import Participants) | You have a list of participants for this exam. Accounts are created and added to the exam in one step. |
+| Self-registration | Participants register themselves through the exam registration link. |
 
-You can choose either of these two methods:
-
-1. Import accounts through the **Account Data** menu (the **Import Accounts** button), then add the participants to the exam manually.
-2. Import participants through the **Exam Data** menu (the **Import Participants** button), so the participant accounts go straight into the chosen exam.
-
-<AccordionGroup>
-  <Accordion title="Add Participants by Importing Account Data">
-    Use this method if you want to prepare the participant data first.
-
-    💡 For example, you have a list of participants from the **Surabaya Branch**. They will later take several different exams, so their data goes into the **Account Data** menu first.
-
-    <Steps>
-      <Step title="Open Account Data and Click Import Accounts">
-        <Frame>
-          ![Account Data menu and Import Accounts button](/images/2026-07-22_23-53.png)
-        </Frame>
-
-        Open the **Account Data** menu, then on the **Account** tab click **Import Accounts**.
-      </Step>
-      <Step title="Download the Excel Template">
-        <Frame>
-          ![Download Template link in the Import Accounts dialog](/images/2026-07-22_23-53_1.png)
-        </Frame>
-
-        Click **Download Template** to get the right Excel format.
-      </Step>
-      <Step title="Fill In the Participant Data in the Excel File">
-        <Frame>
-          ![Excel template with Name, Email Address, Password and Label columns](/images/2026-07-22_23-56-1.png)
-        </Frame>
-
-        1. **Name**: enter the name of the participant who will take the exam.
-        2. **Email Address**: enter the email the participant will use to log in.
-        3. **Password**: enter a password for each participant.
-        4. **Label**: a tag for grouping participants. This column **can be left empty** if you don't need groups.
-
-        <Note>
-          **About email addresses**
-
-          During the import, the system **doesn't check** whether an email address is actually active and valid. So admins can use email addresses created just for the exam, for example:
-
-          - `peserta001@indolat.com`
-          - `peserta002@indolat.com`
-
-          Make sure each participant has a different email address and password so accounts don't get mixed up.
-        </Note>
-
-        <Tip>
-          **What the Label column is for**
-
-          The **Label** column groups participants so they're easier to find and select. Example labels:
-
-          - **Year 2026**
-          - **Grade 12 IPA** (science stream)
-          - **Intake 1**
-          - **Surabaya Branch**
-        </Tip>
-      </Step>
-      <Step title="Upload the File and Click Import">
-        <Frame>
-          ![Uploaded Excel file and Import button in the Import Accounts dialog](/images/2026-07-22_23-57.png)
-        </Frame>
-
-        Upload the completed Excel file, then click **Import**.
-
-        The import runs in the background and you'll get a notification when it's done. When the import succeeds, the participants appear in the **Account Data** menu.
-
-        <Frame>
-          ![Imported participant accounts listed in Account Data by label](/images/2026-07-23_21-15.png)
-        </Frame>
-
-        <Note>
-          At this point, the participants are only saved as accounts and **haven't been added to any exam yet**. To add them to an exam, open **Exam Data**, go to **Exam Participant List**, then use the **Add Participant** button.
-        </Note>
-      </Step>
-      <Step title="Open the Exam Details">
-        Once the participant accounts are in the **Account Data** menu, the next step is to add the participants to the exam they will take.
-
-        💡 For example, you've imported participants from **Indolat Surabaya Branch**. Next, they need to be added to the **SNBT 2027 Grand Tryout** so they can take the exam.
-
-        <Frame>
-          ![Exam Data menu and Details button on an exam](/images/2026-07-23_21-22.png)
-        </Frame>
-
-        Open the **Exam Data** menu, then click **Details** on the exam you want to add participants to.
-      </Step>
-      <Step title="Click Add Participant">
-        <Frame>
-          ![Exam Participant List section and Add Participant button](/images/2026-07-23_21-23.png)
-        </Frame>
-
-        Go to the **Exam Participant List** section, then click **Add Participant**.
-      </Step>
-      <Step title="Choose Participants from the List">
-        <Frame>
-          ![Ticked participants in the Add Participant dialog](/images/2026-07-23_21-24.png)
-        </Frame>
-
-        Tick the participants you want to add to the exam. Only accounts whose **Account Status** is **Active** and whose **Exam Status** is **Not Registered** can be ticked. If there are many participants, use the **Filter** button to find them more easily.
-
-        <Frame>
-          ![Filter button in the Add Participant dialog](/images/2026-07-23_21-24_1.png)
-        </Frame>
-
-        <Tip>
-          With the filter, you can narrow participants down by:
-
-          - **Label**, for example _Indolat Cabang Surabaya_ (Indolat Surabaya Branch); and
-          - **Exam Status**: choose **Not Registered** to show only participants who haven't been added to this exam yet.
-
-          <Frame>
-            ![Label and Exam Status filters with the Apply filters button](/images/2026-07-23_21-26.png)
-          </Frame>
-        </Tip>
-      </Step>
-      <Step title="Click Add Participants">
-        <Frame>
-          ![Selected participants and Add Participants button](/images/2026-07-23_21-26_1.png)
-        </Frame>
-
-        Click **Add Participants**. The participants are added in the background and you'll get a notification when it's done. Participants who were added successfully appear in the **Exam Participant List** with the **Active** status.
-
-        <Frame>
-          ![New participants with Active status in the Exam Participant List](/images/image-2.png)
-        </Frame>
-      </Step>
-    </Steps>
-  </Accordion>
-
-  <Accordion title="Add Participants by Importing Exam Participants">
-    Use this method if you already know which exam the participants will take.
-
-    For example, you have a list of participants who will only take the **SNBT 2027 Grand Tryout**.
-
-    <Tip>
-      With this method, you don't need to add the participants again with the **Add Participant** button.
-    </Tip>
-
-    <Steps>
-      <Step title="Click Import Participants">
-        <Frame>
-          ![Exam Data menu and Details button in the exam list](/images/1-2.png)
-        </Frame>
-
-        <Frame>
-          ![Exam Participant List section and Import Participants button](/images/3-4.png)
-        </Frame>
-
-        1. Open the **Exam Data** menu and choose the exam the participants will take.
-        2. Click **Details**.
-        3. The system opens the details page. Go to the **Exam Participant List** section.
-        4. Click **Import Participants**.
-      </Step>
-      <Step title="Download the Excel Template">
-        <Frame>
-          ![Download Template link in the Import Participants dialog](/images/unduh-template.png)
-        </Frame>
-
-        Click **Download Template** to get the Excel format provided.
-      </Step>
-      <Step title="Fill In the Participant Data in the Import Template">
-        <Frame>
-          ![Import template with Name, Email Address, Password and Label columns](/images/template-impor.png)
-        </Frame>
-
-        1. **Name**: enter the name of the participant who will take the exam.
-        2. **Email Address**: enter the email the participant will use to log in.
-        3. **Password**: enter a password for each participant.
-        4. **Label**: a tag for grouping participants. This column **can be left empty** if you don't need groups.
-
-        <Note>
-          **About email addresses**
-
-          During the import, the system **doesn't check** whether an email address is actually active and valid. So admins can use email addresses created just for the exam, for example:
-
-          - `peserta001@indolat.com`
-          - `peserta002@indolat.com`
-
-          Make sure each participant has a different email address and password so accounts don't get mixed up.
-        </Note>
-
-        <Tip>
-          **What the Label column is for**
-
-          The **Label** column groups participants so they're easier to find and select. Example labels:
-
-          - **Year 2026**
-          - **Grade 12 IPA** (science stream)
-          - **Intake 1**
-          - **Surabaya Branch**
-        </Tip>
-      </Step>
-      <Step title="Upload the Import File">
-        <Frame>
-          ![Uploaded file and Import button in the Import Participants dialog](/images/impor.png)
-        </Frame>
-
-        1. Make sure the file name appears with the message **Upload complete**.
-        2. Click **Import**.
-        3. The system automatically creates the participant accounts and adds them to the **Exam Participant List**. This runs in the background and you'll get a notification when the import is done.
-
-        <Frame>
-          ![Imported participants listed in the Exam Participant List](/images/berhasil-impor.png)
-        </Frame>
-      </Step>
-    </Steps>
-  </Accordion>
-</AccordionGroup>
-
-<Warning>
-  Every registered participant **must be linked to an exam session** before they can start answering questions. Follow the steps for [creating exam sessions and linking participants to them](/en/data-ujian/membuat-sesi-ujian).
-</Warning>
-
-This is what participants see when they haven't been linked to an exam session yet: the test is shown with the **Locked** status.
+For example, the admin of **Bimbel Prestasi Nusantara** adds participants to **Tryout Akbar SNBT 2027 – Gelombang 2**: five students labelled **Gelombang 2** whose accounts already exist in **Data Akun**, plus four **Kelas Intensif** (intensive class) students from an Excel file.
 
 <Frame>
-  ![Test with Locked status on the participant's Exam List page](/images/2026-07-22_23-41.png)
+  ![Tambah Peserta and Import Peserta buttons in the Daftar Peserta Ujian section](/images/data-ujian/menambahkan-peserta-ujian/01-daftar-peserta-ujian.png)
+</Frame>
+
+1. **Tambah Peserta**: choose existing accounts.
+2. **Import Peserta**: import participants from an Excel file.
+
+<Note>
+  Participants can only be added once the exam has at least one test. On a multi-level exam, every test must already be mapped to the level structure.
+</Note>
+
+## Method 1: Choose accounts from Data Akun
+
+Use this method when the participants' accounts already exist in **Platform Ujian (CBT)** → **Manajemen Akun** → **Data Akun** (the master data is in **Administrasi Aplikasi** → **Pengguna** → **Pengguna**). Creating accounts, one at a time or with **Import Akun**, is explained in [Add Participant Accounts](/en/data-akun/menambahkan-akun-peserta).
+
+<Steps>
+  <Step title="Click Tambah Peserta">
+    In the **Daftar Peserta Ujian** section, click **Tambah Peserta**. The **Tambah Peserta** window lists every account in your project with its **Label**, **Status Ujian** (Exam Status) and **Status Akun** (Account Status).
+
+    <Frame>
+      ![Tambah Peserta window and the Filter button](/images/data-ujian/menambahkan-peserta-ujian/02-jendela-tambah-peserta.png)
+    </Frame>
+
+    Only accounts whose **Status Akun** is **Aktif** (Active) and whose **Status Ujian** is **Belum Terdaftar** (Not Registered) have a checkbox. Accounts that are **Belum Terverifikasi** (Unverified, participants who have not verified their email) or **Tidak Aktif** (Inactive) cannot be selected.
+  </Step>
+  <Step title="Narrow the list with Filter">
+    If there are many accounts, click the **Filter** icon and set:
+
+    - **Label**: for example **Gelombang 2**. Choose **Tanpa Label** (No Label) for accounts without a label.
+    - **Status Ujian**: choose **Belum Terdaftar** to show only accounts that are not in this exam yet.
+
+    Click **Terapkan filter** (Apply filter). You can also search by name in the **Cari** (Search) field.
+
+    <Frame>
+      ![Label Gelombang 2 and Status Ujian Belum Terdaftar filters with the Terapkan filter button](/images/data-ujian/menambahkan-peserta-ujian/03-filter-tambah-peserta.png)
+    </Frame>
+  </Step>
+  <Step title="Select participants, then click Tambahkan Peserta">
+    <Frame>
+      ![Five Gelombang 2 accounts ticked and the Tambahkan Peserta button](/images/data-ujian/menambahkan-peserta-ujian/04-pilih-peserta.png)
+    </Frame>
+
+    1. Tick the accounts to add. Tick the box in the column header to select every account shown, or click an account's row to select it.
+    2. Click **Tambahkan Peserta** (Add Participants).
+
+    Participants are added in the background. You get a notification when it is done.
+  </Step>
+  <Step title="Check Daftar Peserta Ujian">
+    The new participants appear with the **Status Peserta** (Participant Status) **Aktif**. The system gives each one a **Kode Peserta** (Participant Code), by default the **Kode Ujian** followed by a 7-digit sequence number. The format can be changed, see [Participant Codes and Field Codes](/en/data-ujian/kode-peserta).
+
+    <Frame>
+      ![Five new participants with the Aktif status in Daftar Peserta Ujian](/images/data-ujian/menambahkan-peserta-ujian/05-hasil-tambah-peserta.png)
+    </Frame>
+  </Step>
+</Steps>
+
+## Method 2: Import participants from an Excel file
+
+Use this method when you have a list of participants for this exam. The system creates their accounts in **Data Akun** and adds them to the exam straight away, so you do not need **Tambah Peserta** afterwards.
+
+<Steps>
+  <Step title="Click Import Peserta and download the template">
+    In the **Daftar Peserta Ujian** section, click **Import Peserta**, then click **Unduh Template** (Download Template) to get the correct Excel format.
+
+    <Frame>
+      ![Import Peserta window and the Unduh Template link](/images/data-ujian/menambahkan-peserta-ujian/06-jendela-import-peserta.png)
+    </Frame>
+  </Step>
+  <Step title="Fill in the template">
+    <Frame>
+      ![Example import template with the Nama, Alamat Email, Kata Sandi and Label columns](/images/template-impor.png)
+    </Frame>
+
+    The template has four columns. Do not change the column headings in the first row.
+
+    1. **Nama** (Name): the participant's name.
+    2. **Alamat Email** (Email Address): the email the participant signs in with. Each participant needs a different email.
+    3. **Kata Sandi** (Password): the password for signing in.
+    4. **Label** (optional): a tag for grouping participants, such as **Kelas Intensif**, **Gelombang 2** or **Cabang Surabaya**. Labels that do not exist yet are created automatically.
+
+    <Note>
+      - The system does not check whether an email address actually exists, so you can use exam-only addresses. They must still be valid email addresses.
+      - Incomplete rows and rows with an invalid email are skipped; the rest of the file is still imported.
+      - Imported accounts are active and verified immediately.
+    </Note>
+
+    <Warning>
+      If an email in the file already belongs to an account in your project, the account is **not duplicated**, but its **name, password and label are updated** from the file, and the account is added to the exam. Check your file so you do not change other participants' accounts by accident.
+    </Warning>
+  </Step>
+  <Step title="Upload the file and click Import">
+    <Frame>
+      ![Uploaded Excel file and the Import button in the Import Peserta window](/images/data-ujian/menambahkan-peserta-ujian/07-unggah-file-import-peserta.png)
+    </Frame>
+
+    1. Upload the completed `.xlsx` file and wait for **Pengunggahan selesai** (Upload complete).
+    2. Click **Import**.
+
+    The import runs in the background. While it runs, a **Mengimpor Akun Peserta** (Importing Participant Accounts) box at the top of the page shows its progress. When it finishes, you get a notification with the number of new accounts and accounts that already existed.
+  </Step>
+  <Step title="Check the import result">
+    Imported participants appear in **Daftar Peserta Ujian** with the **Aktif** status. Participants already registered for this exam are not added twice.
+
+    <Frame>
+      ![Four imported participants in Daftar Peserta Ujian](/images/data-ujian/menambahkan-peserta-ujian/08-hasil-import-peserta.png)
+    </Frame>
+  </Step>
+</Steps>
+
+## Method 3: Participant self-registration
+
+Participants can also register themselves through the exam registration link:
+
+1. Turn on **Apakah Pendaftaran Ujian Dibuka?** (Is Exam Registration Open?) on the **Pendaftaran & Pembayaran** tab of **Detail Ujian**, then copy the registration URL from its helper text. See [Create an Exam](/en/data-ujian/membuat-ujian).
+2. Build the registration form and set up verification. See [Participant Registration Form](/en/data-ujian/membuat-formulir-pendaftaran).
+3. Registrants who need verification appear in **Daftar Peserta Ujian** with the status **Menunggu Verifikasi** (Awaiting Verification), or **Menunggu Pembayaran** (Awaiting Payment) for unpaid registrations to a paid exam. Click **Verifikasi Peserta** (Verify Participant) on the row to review their form answers and approve them, or **Tolak & Hapus** (Reject & Delete) to reject them.
+
+<Note>
+  An exam created from a class in the **Learning Management System (LMS)** module is linked to that class automatically, and the class's students are registered for the exam straight away.
+</Note>
+
+## Manage the participant list
+
+The **Daftar Peserta Ujian** table shows **Kode Peserta**, **Nama/Email Peserta** (Name/Email), **Status Peserta**, **Skor Akhir** (Final Score) and **Terdaftar Pada** (Registered At). Use **Filter** to narrow it by **Status Peserta** or to show participants who **Memiliki Skor Akhir** (Have a Final Score).
+
+Buttons on each row:
+
+- **Lihat** (View): opens the participant's account details and exam results.
+- **Unduh Laporan** (Download Report): downloads the participant's result report as a PDF once they have finished a test. See [Exam Results and Exports](/en/data-ujian/hasil-dan-ekspor-ujian#download-participant-result-reports).
+- **Verifikasi Peserta**: appears for participants with the **Menunggu Verifikasi** status.
+- **Hapus** (Delete), or **Tolak & Hapus** for participants awaiting verification: removes the participant from the exam. Participants who have started cannot be deleted.
+
+To manage several participants at once, tick them and click **Tindakan** (Actions):
+
+<Frame>
+  ![Tindakan menu with Verifikasi Peserta, Unduh Laporan (ZIP), Ubah Status Peserta and Hapus Peserta](/images/data-ujian/menambahkan-peserta-ujian/09-tindakan-peserta.png)
+</Frame>
+
+- **Verifikasi Peserta**: verifies every selected participant awaiting verification. Participants still awaiting payment are skipped.
+- **Unduh Laporan (ZIP)** (Download Reports as ZIP): creates a ZIP archive with the selected participants' reports.
+- **Ubah Status Peserta** (Change Participant Status): sets the status to **Aktif**, **Ditangguhkan** (Suspended), **Perlu Ditinjau** (Needs Review) or **Selesai** (Finished).
+- **Hapus Peserta** (Delete Participants): removes the selected participants from the exam. Participants who have started are skipped.
+
+<Warning>
+  Removing a participant from an exam also removes their session assignments and cancels any pending payment transaction. This cannot be undone.
+</Warning>
+
+## Assign participants to exam sessions
+
+Registered participants **must be assigned to an exam session** on every test before they can start. Follow [Create Exam Sessions](/en/data-ujian/membuat-sesi-ujian), or turn on **Set Sesi Otomatis Setelah Pendaftaran** for self-registered participants.
+
+If a participant has no session for a test, that test shows as **Terkunci** (Locked) on the participant's **Daftar Tes** (Test List) page:
+
+<Frame>
+  ![Literasi Bahasa Indonesia test shown as Terkunci on the participant's Daftar Tes page](/images/data-ujian/menambahkan-peserta-ujian/10-tes-terkunci-peserta.png)
 </Frame>

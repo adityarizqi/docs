@@ -1,344 +1,352 @@
 ---
 title: "Menambahkan Akun Peserta"
-description: "Cara menambahkan akun peserta melalui pendaftaran mandiri, Tambah Akun, atau Import Akun, serta mengelola akun dan label pada halaman Data Akun."
+description: "Cara mengelola akun peserta melalui menu Pengguna atau Data Akun, termasuk label, Tambah Akun, Import Akun, dan pendaftaran mandiri oleh peserta."
 ---
 
-Sebelum peserta dapat masuk dan menggunakan sistem CBT Indolat, **setiap peserta perlu memiliki akun**. Akun tersebut digunakan peserta untuk masuk ke sistem, melihat ujian yang tersedia, dan mengikuti ujian yang telah ditentukan.
+Sebelum peserta dapat masuk dan mengikuti ujian, **setiap peserta perlu memiliki akun** di projek Anda. Halaman ini menjelaskan tempat akun peserta dikelola, cara menambahkan akun, serta cara mengelompokkan, mencari, dan merapikan akun dengan label.
 
-Akun peserta dapat ditambahkan melalui tiga cara, yaitu:
+<Info>
+  **Lokasi menu (daftar induk):** **Portal** → **Administrasi Aplikasi** → **Pengguna** → **Pengguna**
 
-1. **Peserta membuat akun secara mandiri** melalui halaman pendaftaran akun.
+  **Lokasi menu (cermin di CBT):** **Portal** → **Platform Ujian (CBT)** → **Manajemen Akun** → **Data Akun**
+
+  **Peran yang dibutuhkan:** pemilik projek, atau admin dengan peran yang diberi akses ke modul **Pengguna** (Administrasi Aplikasi) atau **Data Akun** (Platform Ujian).
+</Info>
+
+Akun peserta dapat ditambahkan melalui tiga cara:
+
+1. **Peserta membuat akun sendiri** melalui tautan **Daftar** pada halaman login peserta.
 2. **Admin menambahkan akun satu per satu** melalui tombol **Tambah Akun**.
-3. **Admin menambahkan akun melalui Import Akun** menggunakan file Excel.
+3. **Admin menambahkan banyak akun sekaligus** melalui tombol **Import Akun** dengan file Excel.
 
 <Tip>
   Pilih cara yang paling sesuai dengan kebutuhan Anda:
 
-  - **Pendaftaran mandiri** cocok digunakan jika peserta diperbolehkan membuat akun sendiri.
-  - **Tambah Akun** cocok digunakan jika Anda hanya perlu menambahkan sedikit akun.
-  - **Import Akun** cocok digunakan jika data peserta sudah disiapkan oleh sekolah, lembaga, atau penyelenggara.
+  - **Pendaftaran mandiri** cocok jika peserta diperbolehkan membuat akun sendiri, misalnya untuk tryout terbuka.
+  - **Tambah Akun** cocok jika Anda hanya perlu menambahkan sedikit akun.
+  - **Import Akun** cocok jika data peserta sudah disiapkan oleh sekolah, cabang lembaga, atau penyelenggara.
 </Tip>
 
-## 1. Mengenal Halaman Data Akun
+## Menu Pengguna dan menu Data Akun
 
-Halaman **Data Akun** digunakan untuk melihat dan mengelola seluruh akun peserta yang dapat menggunakan sistem CBT Indolat.
-
-💡 Sebagai contoh, Anda adalah **Admin Bimbingan Belajar Indolat** yang memiliki peserta dari beberapa cabang, seperti:
-
-- Indolat Cabang Surabaya
-- Indolat Cabang Jakarta
-- Peserta Program Promosi Indolat
-- dan Peserta Umum
-
-Seluruh akun tersebut dapat dilihat dan dikelola melalui menu **Data Akun**.
+Akun peserta dipakai bersama oleh semua produk dalam projek Anda. Karena itu, daftar induknya berada di modul **Administrasi Aplikasi**, pada menu **Pengguna** → **Pengguna**.
 
 <Frame>
-  ![Halaman Data Akun berisi daftar akun peserta](/images/2026-07-26_21-04.png)
+  ![Menu Pengguna pada sidebar Administrasi Aplikasi](/images/data-akun/menambahkan-akun-peserta/01-menu-pengguna.png)
 </Frame>
 
-Setelah membuka menu **Data Akun**, Anda akan melihat seluruh akun peserta yang sudah terdaftar pada sistem. Halaman ini memiliki dua tab: **Akun** berisi daftar akun peserta, dan **Label** untuk mengelola label.
-
-Setiap baris pada tabel di tab **Akun** mewakili satu akun peserta. Dari halaman ini, Anda dapat mencari akun, mengelompokkan peserta, mengatur label, menambahkan akun satu per satu, serta memasukkan banyak akun sekaligus.
-
-### 1. Kelompokkan Berdasarkan
+Daftar yang sama juga ditampilkan di modul **Platform Ujian (CBT)**, pada menu **Manajemen Akun** → **Data Akun**, sehingga Anda tidak perlu berpindah modul saat sedang menyiapkan ujian.
 
 <Frame>
-  ![Pilihan Kelompokkan berdasar pada halaman Data Akun](/images/2026-07-26_21-12.png)
+  ![Menu Data Akun pada sidebar Platform Ujian (CBT)](/images/data-akun/menambahkan-akun-peserta/02-menu-data-akun-cbt.png)
 </Frame>
 
-Bagian **Kelompokkan berdasar** digunakan untuk mengatur tampilan daftar akun agar lebih mudah dibaca. Secara bawaan, daftar akun dikelompokkan berdasarkan **Label**; akun tanpa label masuk ke grup **Tanpa Label**.
+Kedua menu menampilkan **data yang sama** dengan fitur yang sama: tab **Akun** dan **Label**, tombol **Tambah Akun** dan **Import Akun**, pengelompokan, pencarian, filter, serta tindakan pada setiap akun. Akun atau label yang Anda tambahkan, ubah, atau hapus di salah satu menu langsung terlihat di menu lainnya.
 
-- Pilih **Label** jika Anda ingin peserta dengan kelompok yang sama ditampilkan berdekatan.
-
-<Frame>
-  ![Daftar akun dikelompokkan berdasarkan label](/images/2026-07-25_01-33.png)
-</Frame>
-
-- Pilih **Tidak Dikelompokkan** jika Anda ingin seluruh akun ditampilkan dalam satu daftar biasa.
-
-<Frame>
-  ![Daftar akun tanpa pengelompokan](/images/2026-07-26_21-14.png)
-</Frame>
-
-### 2. Tambah Label
-
-Digunakan untuk membuat kelompok peserta baru. Buka tab **Label**, klik **Tambah Label**, isi **Nama Label**, lalu klik **Simpan**.
-
-<Frame>
-  ![Membuat label baru melalui tombol Tambah Label](/images/2026-07-25_01-37.png)
-</Frame>
-
-Label dapat disesuaikan dengan kebutuhan penyelenggaraan, misalnya:
-
-- Indolat Cabang Surabaya
-- Indolat Cabang Jakarta
-- Peserta Tahun 2026
-- Promo Member
-
-<Tip>
-  Label membantu Anda mencari dan memilih banyak peserta dengan lebih mudah.
-</Tip>
-
-### 3. Ubah Label
-
-Digunakan untuk mengganti nama label yang sudah dibuat.
-
-<Frame>
-  ![Tombol Ubah Label pada halaman Data Akun](/images/2026-07-25_01-41.png)
-</Frame>
-
-<Frame>
-  ![Jendela Ubah Label dengan label terpilih dan nama baru](/images/2026-07-25_01-42.png)
-</Frame>
-
-Contohnya, label **Promo Member** ingin diubah menjadi **Promo Member Indolat** agar penamaannya lebih jelas.
-
-Cara mengubah label:
-
-1. Buka tab **Label**.
-2. Klik **Ubah** pada baris label yang ingin Anda ubah.
-3. Isikan nama label baru pada kolom **Nama Label**.
-4. Pilih tombol **Simpan** untuk menyimpan perubahan nama label.
-
-<Tip>
-  Perubahan nama label akan mengikuti akun-akun yang sudah menggunakan label tersebut.
-
-  Untuk memasang atau mengganti label pada beberapa akun sekaligus, buka tab **Akun**, centang akun yang diinginkan, klik **Tindakan**, lalu pilih **Ubah Label**.
-</Tip>
-
-### 4. Hapus Label
-
-Digunakan untuk menghapus label yang tidak lagi diperlukan.
-
-<Frame>
-  ![Tombol Hapus Label pada halaman Data Akun](/images/2026-07-25_01-44.png)
-</Frame>
-
-<Frame>
-  ![Jendela Hapus Label dengan label yang akan dihapus](/images/2026-07-25_01-45.png)
-</Frame>
-
-Cara menghapus label:
-
-1. Buka tab **Label**.
-2. Klik **Hapus** pada baris label yang akan dihapus.
-3. Pilih tombol **Hapus** pada jendela konfirmasi.
+| | **Pengguna** (Administrasi Aplikasi) | **Data Akun** (Platform Ujian (CBT)) |
+| --- | --- | --- |
+| Isi data | Seluruh akun peserta projek | Sama persis |
+| Kapan dipakai | Mengelola peserta untuk semua produk (CBT dan LMS) | Mengelola peserta sambil menyiapkan ujian di CBT |
+| Hak akses admin | Diatur melalui modul **Pengguna** pada **Role Admin** | Diatur melalui modul **Data Akun** pada **Role Admin** |
 
 <Note>
-  Menghapus label hanya menghilangkan kelompoknya.
-
-  Akun peserta **tetap tersimpan** pada halaman **Data Akun** dan menjadi **Tanpa Label**.
+  Hak akses kedua menu diatur terpisah. Admin yang hanya diberi akses ke **Data Akun** tetap dapat mengelola akun peserta dari modul CBT tanpa melihat menu **Pengguna** di Administrasi Aplikasi. Lihat [Manajemen Akses Admin](/lainnya/manajemen-akses-admin) untuk mengatur peran admin. Daftar yang sama juga tersedia di modul LMS dengan nama **Akun Siswa**.
 </Note>
 
-### 5. Tambah Akun
+## Mengenal halaman akun peserta
 
-Digunakan untuk menambahkan akun peserta satu per satu tanpa file Excel.
-
-1. Pada tab **Akun**, klik **Tambah Akun**.
-2. Isi **Nama**, **Alamat Email**, dan **Kata Sandi**. Kolom **Label** boleh dikosongkan.
-3. Biarkan **Status Aktif** menyala agar akun dapat langsung digunakan.
-4. Klik **Buat**.
-
-Akun yang ditambahkan dengan cara ini langsung terverifikasi, sehingga peserta tidak perlu memverifikasi email.
-
-### 6. Import Akun
-
-Digunakan untuk memasukkan banyak akun peserta sekaligus menggunakan file Excel.
+Halaman ini memiliki dua tab: **Akun** berisi daftar akun peserta, dan **Label** untuk mengelola label. Setiap baris pada tab **Akun** mewakili satu akun peserta dengan kolom **No**, **Nama**, **Label**, **Alamat Email**, **Status Akun**, dan **Terdaftar Pada**.
 
 <Frame>
-  ![Tombol dan jendela Import Akun pada halaman Data Akun](/images/2026-07-25_01-48.png)
+  ![Daftar akun peserta yang dikelompokkan berdasarkan label](/images/data-akun/menambahkan-akun-peserta/16-dikelompokkan-berdasarkan-label.png)
 </Frame>
 
-Cara ini cocok jika data peserta sudah tersedia dari sekolah, cabang lembaga, atau daftar peserta internal. Setelah proses impor selesai, seluruh akun akan muncul pada halaman **Data Akun**.
+Pada setiap baris tersedia tindakan berikut:
 
-<Warning>
-  Akun yang diimpor belum otomatis masuk ke ujian tertentu. Peserta masih perlu ditambahkan melalui bagian **Daftar Peserta Ujian**.
-</Warning>
+- **Verifikasi Email**: tampil hanya untuk akun yang belum terverifikasi. Lihat [Status akun](#status-akun).
+- **Ubah**: membuka formulir untuk mengubah nama, label, kata sandi, atau status akun.
+- **Lihat**: tampil untuk akun yang sudah terverifikasi dan membuka halaman **Detail Akun** peserta.
+- **Hapus**: menghapus akun peserta setelah konfirmasi.
 
-### 7. Cari
+Jumlah akun per halaman dapat diatur menjadi 10, 25, atau 50 melalui pilihan **per halaman** di bagian bawah tabel.
 
-Gunakan kolom **Cari** untuk menemukan akun tertentu tanpa memeriksa daftar satu per satu. Contohnya, ketik **Rosa Adinda** untuk menampilkan akun peserta tersebut.
+### Kelompokkan berdasar
+
+Pilihan **Kelompokkan berdasar** mengatur tampilan daftar akun. Secara bawaan, daftar dikelompokkan berdasarkan **Label**, dan akun tanpa label dikumpulkan dalam grup **Tanpa Label**. Pilihan di sebelahnya (**A ke Z** atau **Z ke A**) mengatur urutan grup.
 
 <Frame>
-  ![Pencarian akun peserta melalui kolom Cari](/images/2026-07-25_01-52.png)
+  ![Pilihan Kelompokkan berdasar pada tab Akun](/images/data-akun/menambahkan-akun-peserta/15-kelompokkan-berdasar.png)
 </Frame>
 
-### 8. Filter
-
-Pilih tombol **Filter** jika Anda ingin menyaring daftar akun berdasarkan ketentuan tertentu. Contohnya, Anda hanya ingin melihat:
-
-- akun dengan label **Indolat Cabang Surabaya**; atau
-- akun dengan status **Aktif**.
+- Pilih **Label** agar peserta dengan label yang sama ditampilkan berdekatan. Setiap grup dapat diciutkan dengan mengeklik panah di samping nama grup.
+- Pilih **Tidak Dikelompokkan** agar seluruh akun ditampilkan dalam satu daftar.
 
 <Frame>
-  ![Pilihan filter pada daftar akun peserta](/images/2026-07-25_01-54.png)
+  ![Daftar akun tanpa pengelompokan](/images/data-akun/menambahkan-akun-peserta/17-tidak-dikelompokkan.png)
 </Frame>
 
-Setelah memilih ketentuan yang dibutuhkan, klik **Terapkan filter**. Daftar akun akan menampilkan peserta yang sesuai dengan pilihan tersebut.
+### Cari
 
-### 9. Ikon Penanda
-
-Pada kolom **Alamat Email**, terdapat ikon yang menunjukkan dari mana akun peserta berasal:
-
-- **Ikon orang berwarna biru**<br />Menandakan akun tidak berasal dari impor, yaitu dibuat sendiri oleh peserta melalui halaman pendaftaran akun atau ditambahkan admin melalui **Tambah Akun**.
-- **Ikon panah ke bawah**<br />Menandakan akun ditambahkan melalui impor, misalnya **Import Akun** di halaman ini atau **Import Peserta** pada ujian.
-- **Ikon Google**<br />Menandakan akun dibuat dengan mendaftar menggunakan akun Google. Ikon ini tampil di samping salah satu ikon di atas.
+Gunakan kolom **Cari** untuk menemukan akun berdasarkan nama, alamat email, atau nama label. Contohnya, ketik **Adi Prabowo** untuk menampilkan akun peserta tersebut. Kata kunci pencarian tampil pada baris **Filter aktif** dan dapat dihapus dengan mengeklik tanda **×**.
 
 <Frame>
-  ![Ikon penanda asal akun pada kolom Alamat Email](/images/2026-07-25_01-07_1.png)
+  ![Pencarian akun Adi Prabowo melalui kolom Cari](/images/data-akun/menambahkan-akun-peserta/19-pencarian.png)
 </Frame>
+
+### Filter
+
+Klik ikon **Filter** di sebelah kolom **Cari** untuk menyaring daftar akun. Pilihan yang tersedia:
+
+- **Akun Google**: hanya akun yang dibuat dengan akun Google.
+- **Apakah Akun diimport?**: hanya akun yang ditambahkan melalui impor.
+- **Label**: satu atau beberapa label, termasuk **Tanpa Label**.
+- **Status Akun**: **Aktif**, **Tidak Aktif**, atau **Belum Terverifikasi**.
+
+<Frame>
+  ![Panel Filter dengan beberapa label terpilih](/images/data-akun/menambahkan-akun-peserta/18-panel-filter.png)
+</Frame>
+
+Setelah memilih ketentuan, klik **Terapkan filter**. Filter yang sedang berlaku tampil pada baris **Filter aktif** di atas tabel. Klik **Atur ulang filter** di panel filter, atau tanda **×** pada baris **Filter aktif**, untuk menghapusnya.
 
 <Tip>
-  Dengan ikon ini, Anda dapat mengetahui asal akun peserta tanpa perlu membuka detail akun satu per satu.
+  Pada **Status Akun**, pilih satu status saja. Jika beberapa status dipilih sekaligus, hanya satu status yang diterapkan.
 </Tip>
 
-## 2. Peserta Membuat Akun Secara Mandiri
+### Ikon asal akun
 
-Gunakan cara ini jika peserta diperbolehkan membuat akun secara mandiri.
+Pada kolom **Alamat Email**, terdapat ikon yang menunjukkan asal akun peserta:
+
+- **Ikon orang dengan tanda tambah (biru)**: akun tidak berasal dari impor, yaitu dibuat sendiri oleh peserta melalui halaman pendaftaran atau ditambahkan admin melalui **Tambah Akun**.
+- **Ikon panah ke bawah (abu-abu)**: akun ditambahkan melalui impor, misalnya **Import Akun** di halaman ini, impor peserta pada ujian, atau API.
+- **Ikon Google**: akun dibuat dengan akun Google. Ikon ini tampil di samping salah satu ikon di atas.
+
+<Frame>
+  ![Ikon asal akun pada kolom Alamat Email](/images/data-akun/menambahkan-akun-peserta/20-ikon-asal-akun.png)
+</Frame>
+
+### Status akun
+
+Kolom **Status Akun** menampilkan salah satu status berikut:
+
+- **Aktif** (hijau): akun dapat dipakai untuk masuk.
+- **Belum Terverifikasi** (kuning): peserta mendaftar sendiri tetapi belum memasukkan kode verifikasi email.
+- **Tidak Aktif** (merah): **Status Aktif** akun dimatikan sehingga peserta tidak dapat masuk.
+
+Jika peserta tidak menerima email verifikasi, Anda dapat memverifikasinya secara manual. Klik **Verifikasi Email** pada baris akun tersebut, lalu konfirmasi. Status akun berubah menjadi **Aktif** untuk projek Anda.
+
+<Frame>
+  ![Status Belum Terverifikasi dan tombol Verifikasi Email](/images/data-akun/menambahkan-akun-peserta/21-status-dan-verifikasi-email.png)
+</Frame>
+
+## Mengelola label
+
+Label digunakan untuk mengelompokkan peserta, misalnya per cabang, per kelas, atau per program. Label memudahkan Anda mencari, menyaring, dan memilih banyak peserta sekaligus. Semua label dikelola di tab **Label**, yang menampilkan **Nama Label**, **Jumlah Akun** yang memakai label tersebut, dan waktu **Terakhir Diubah**.
+
+### Tambah label
 
 <Steps>
-  <Step title="Peserta membuka link ujian">
+  <Step title="Buka tab Label">
     <Frame>
-      ![Halaman login CBT dari sisi peserta](/images/2026-07-25_02-09.png)
-    </Frame>
-
-    Peserta dapat masuk atau membuat akun dengan menekan tombol **Daftar**. Cara peserta login dapat Anda atur sebagai penyelenggara ujian.
-
-    Untuk langkah pengaturannya, lihat panduan [Pengaturan dan Cara Login Peserta](/lainnya/login-peserta).
-  </Step>
-  <Step title="Pilih Daftar">
-    <Frame>
-      ![Tombol Daftar pada halaman login peserta](/images/2026-07-25_02-14.png)
+      ![Tab Label pada halaman akun peserta](/images/data-akun/menambahkan-akun-peserta/03-tab-label.png)
     </Frame>
   </Step>
-  <Step title="Peserta mengisi data akun pribadi">
-    <Frame>
-      ![Formulir pendaftaran akun peserta](/images/2026-07-25_02-16.png)
-    </Frame>
-
-    1. **Nama Lengkap**<br />Isi dengan nama peserta yang akan digunakan di dalam sistem.
-    2. **Alamat Email**<br />Isi dengan alamat email yang masih aktif. Email ini akan digunakan untuk sistem mengirimkan kode verifikasi.
-    3. **Kata Sandi**<br />Buat kata sandi yang mudah diingat, tetapi tidak mudah ditebak oleh orang lain.
-    4. **Konfirmasi Kata Sandi**<br />Masukkan kembali kata sandi yang sama untuk memastikan tidak ada kesalahan penulisan.
-    5. **Persetujuan Ketentuan Layanan dan Kebijakan Privasi**<br />Centang bagian ini sebagai tanda bahwa peserta telah membaca dan menyetujui ketentuan yang berlaku.
-    6. **Daftar**<br />Setelah seluruh data terisi, klik **Daftar** untuk membuat akun.
-  </Step>
-  <Step title="Peserta memverifikasi email">
-    <Frame>
-      ![Halaman Verifikasi Email Anda untuk memasukkan kode verifikasi](/images/2026-07-25_02-19.png)
-    </Frame>
-
-    Setelah peserta berhasil membuat akun, sistem akan mengirimkan kode verifikasi ke alamat email yang didaftarkan.
-
-    Verifikasi ini diperlukan untuk memastikan bahwa alamat email tersebut benar dan dapat digunakan oleh peserta.
-
-    💡 Sebagai contoh, peserta mendaftarkan akun menggunakan email:
-
-    > `sintamhs0215@yopmail.com`
-
-    Langkah yang perlu dilakukan peserta:
-
-    1. Buka kotak masuk pada email yang didaftarkan.
-    2. Cari email dari **CBT Indolat**.
-    3. Salin kode verifikasi yang berisi 6 angka.
-    4. Masukkan kode tersebut pada halaman verifikasi.
-    5. Klik **Verifikasi Akun**.
+  <Step title="Klik Tambah Label, isi Nama Label, lalu klik Simpan">
+    Contohnya, buat label **Cabang Surabaya** untuk peserta dari cabang Surabaya.
 
     <Frame>
-      ![Email berisi kode verifikasi 6 digit dari CBT Indolat](/images/2026-07-25_02-20.png)
-    </Frame>
-
-    <Frame>
-      ![Kode verifikasi diisi lalu klik Verifikasi Akun](/images/2026-07-25_02-20_1.png)
+      ![Jendela Tambah Label dengan nama Cabang Surabaya](/images/data-akun/menambahkan-akun-peserta/04-form-tambah-label.png)
     </Frame>
 
     <Note>
-      Kode verifikasi hanya berlaku selama **5 menit**. Apabila kode belum diterima atau sudah tidak dapat digunakan, pilih **Kirim Ulang Kode** untuk mendapatkan kode baru.
-
-      <Frame>
-        ![Tombol Kirim Ulang Kode pada halaman verifikasi email](/images/2026-07-25_02-26.png)
-      </Frame>
+      Nama label harus berbeda dari label yang sudah ada (huruf besar dan kecil dianggap sama). Jika nama sudah dipakai, muncul pesan bahwa label tersebut sudah tersedia.
     </Note>
-  </Step>
-  <Step title="Peserta berhasil masuk ke halaman CBT">
-    <Frame>
-      ![Halaman utama CBT peserta setelah verifikasi berhasil](/images/2026-07-25_02-21.png)
-    </Frame>
-
-    Setelah verifikasi berhasil, peserta akan masuk ke halaman utama dan dapat melanjutkan dengan memilih **Pendaftaran Tes Baru** untuk mencari ujian yang akan diikuti.
-
-    <Info>
-      Verifikasi email hanya diperlukan bagi peserta yang membuat akun secara mandiri. Akun yang ditambahkan oleh admin melalui **Tambah Akun** atau **Import Akun** tidak perlu melalui proses ini.
-    </Info>
   </Step>
 </Steps>
 
-## 3. Admin Menambahkan Akun Peserta melalui Import
+### Ubah label
 
-Gunakan cara ini jika Anda ingin menyiapkan data peserta terlebih dahulu, tetapi belum menentukan ujian yang akan mereka ikuti.
-
-💡 Sebagai contoh, Anda memiliki daftar peserta dari **Cabang Surabaya**. Peserta tersebut nantinya dapat mengikuti beberapa ujian yang berbeda, sehingga datanya dimasukkan terlebih dahulu ke menu **Data Akun**.
+Contohnya, label **Promo Member** diubah menjadi **Promo Member Prestasi** agar penamaannya lebih jelas.
 
 <Steps>
-  <Step title="Buka Data Akun lalu klik Import Akun">
+  <Step title="Klik Ubah pada baris label yang ingin diubah">
     <Frame>
-      ![Tombol Import Akun pada halaman Data Akun](/images/2026-07-22_23-53.png)
+      ![Tombol Ubah pada baris label Promo Member](/images/data-akun/menambahkan-akun-peserta/05-daftar-label.png)
+    </Frame>
+  </Step>
+  <Step title="Isi nama baru pada kolom Nama Label, lalu klik Simpan">
+    <Frame>
+      ![Jendela Ubah Label dengan nama baru Promo Member Prestasi](/images/data-akun/menambahkan-akun-peserta/06-form-ubah-label.png)
+    </Frame>
+
+    Nama label baru langsung berlaku untuk semua akun yang memakai label tersebut.
+  </Step>
+</Steps>
+
+### Hapus label
+
+Klik **Hapus** pada baris label, lalu klik **Hapus** pada jendela konfirmasi.
+
+<Frame>
+  ![Jendela konfirmasi Hapus Label](/images/data-akun/menambahkan-akun-peserta/07-konfirmasi-hapus-label.png)
+</Frame>
+
+<Note>
+  Menghapus label hanya menghapus kelompoknya. Akun peserta **tetap tersimpan** dan menjadi **Tanpa Label**.
+</Note>
+
+### Memasang label pada banyak akun sekaligus
+
+<Steps>
+  <Step title="Centang akun yang ingin diberi label, lalu klik Tindakan → Ubah Label">
+    <Frame>
+      ![Menu Tindakan dengan pilihan Ubah Label setelah dua akun dicentang](/images/data-akun/menambahkan-akun-peserta/22-tindakan-massal.png)
+    </Frame>
+  </Step>
+  <Step title="Pilih label, lalu klik Simpan">
+    Pilih **Tanpa Label** jika Anda ingin melepas label dari akun yang dipilih.
+
+    <Frame>
+      ![Jendela Ubah Label untuk akun yang dipilih](/images/data-akun/menambahkan-akun-peserta/23-ubah-label-massal.png)
+    </Frame>
+  </Step>
+</Steps>
+
+## Menambahkan akun satu per satu (Tambah Akun)
+
+<Steps>
+  <Step title="Pada tab Akun, klik Tambah Akun">
+    <Frame>
+      ![Tombol Tambah Akun pada tab Akun](/images/data-akun/menambahkan-akun-peserta/08-tombol-tambah-akun.png)
+    </Frame>
+  </Step>
+  <Step title="Isi data akun, lalu klik Buat">
+    <Frame>
+      ![Formulir Tambah Akun yang sudah diisi](/images/data-akun/menambahkan-akun-peserta/09-form-tambah-akun.png)
+    </Frame>
+
+    1. **Nama**: nama peserta, misalnya **Nadia Putri**.
+    2. **Label**: label peserta (boleh dikosongkan sehingga akun menjadi **Tanpa Label**).
+    3. **Alamat Email**: alamat email yang dipakai peserta untuk masuk, misalnya `nadia.putri@contoh.id`.
+    4. **Kata Sandi**: kata sandi awal peserta.
+    5. **Status Aktif**: biarkan menyala agar akun dapat langsung digunakan.
+    6. **Buat**: menyimpan akun. Gunakan **Buat & buat lainnya** jika Anda ingin langsung mengisi akun berikutnya.
+  </Step>
+</Steps>
+
+Akun yang ditambahkan dengan cara ini langsung terverifikasi, sehingga peserta tidak perlu memverifikasi email. Bagikan alamat email dan kata sandi kepada peserta beserta tautan login peserta (lihat [Login Peserta](/lainnya/login-peserta)).
+
+<Note>
+  Satu alamat email hanya dapat dipakai untuk satu akun peserta dalam projek yang sama. Jika alamat email sudah terdaftar, muncul pesan **Alamat email sudah terdaftar pada projek ini.**
+</Note>
+
+## Mengubah atau menghapus akun
+
+Klik **Ubah** pada baris akun untuk membuka formulir **Ubah Akun**.
+
+<Frame>
+  ![Formulir Ubah Akun](/images/data-akun/menambahkan-akun-peserta/24-form-ubah-akun.png)
+</Frame>
+
+- **Alamat Email** tidak dapat diubah.
+- **Kata Sandi** boleh dikosongkan. Isi kolom ini hanya jika Anda ingin mengganti kata sandi peserta.
+- Mematikan **Status Aktif** membuat peserta tidak dapat masuk, dan sesi peserta yang sedang berjalan ikut diakhiri.
+
+Untuk menghapus akun, klik **Hapus** pada baris akun atau pada formulir **Ubah Akun**. Untuk menghapus beberapa akun sekaligus, centang akunnya, lalu klik **Tindakan** → **Hapus yang dipilih**.
+
+<Warning>
+  Penghapusan akun tidak dapat dibatalkan. Akun yang sudah terdaftar di suatu ujian tidak dapat dihapus; keluarkan peserta dari ujian tersebut terlebih dahulu.
+</Warning>
+
+## Menambahkan banyak akun sekaligus (Import Akun)
+
+Gunakan cara ini jika daftar peserta sudah tersedia, tetapi Anda belum menentukan ujian yang akan mereka ikuti. Contohnya, Anda memiliki daftar peserta dari **Cabang Surabaya** yang nantinya dapat mengikuti beberapa ujian berbeda.
+
+<Steps>
+  <Step title="Pada tab Akun, klik Import Akun">
+    <Frame>
+      ![Tombol Import Akun pada tab Akun](/images/data-akun/menambahkan-akun-peserta/10-tombol-import-akun.png)
     </Frame>
   </Step>
   <Step title="Klik Unduh Template">
     <Frame>
-      ![Tautan Unduh Template pada jendela Import Akun](/images/2026-07-22_23-53_1.png)
+      ![Tautan Unduh Template pada jendela Import Akun](/images/data-akun/menambahkan-akun-peserta/11-jendela-import-akun.png)
     </Frame>
 
-    Pilih **Unduh Template** untuk mendapatkan format Excel yang sesuai.
+    File **template-import-akun.xlsx** akan terunduh. Template berisi kolom **Nama**, **Alamat Email**, **Kata Sandi**, dan **Label**, serta beberapa baris contoh.
   </Step>
   <Step title="Isi data peserta pada file Excel">
-    <Frame>
-      ![Template Excel berisi kolom Nama, Alamat Email, Kata Sandi, dan Label](/images/2026-07-22_23-56-1.png)
-    </Frame>
-
-    1. **Nama**: Isikan nama peserta yang akan mengikuti ujian.
-    2. **Alamat Email**: Isikan email yang akan digunakan peserta untuk masuk.
-    3. **Kata Sandi**: Isikan kata sandi untuk masing-masing peserta ujian.
-
-       <Note>
-         **Catatan tentang Alamat Email**
-
-         Pada proses impor, sistem **tidak memeriksa** apakah alamat email tersebut benar-benar aktif; sistem hanya memeriksa format penulisannya. Karena itu, admin dapat menggunakan email khusus yang dibuat untuk kebutuhan ujian, misalnya:
-
-         - `peserta001@indolat.com`
-         - `peserta002@indolat.com`
-
-         Pastikan setiap peserta menggunakan alamat email dan kata sandi yang berbeda agar akun tidak tertukar.
-       </Note>
-    4. **Label**: Penanda untuk mengelompokkan peserta. Kolom ini **boleh dikosongkan** jika pengelompokan tidak diperlukan.
-
-       <Info>
-         **Fungsi Kolom Label**
-
-         Kolom **Label** digunakan untuk mengelompokkan peserta agar lebih mudah dicari dan dipilih. Contoh label:
-
-         - **Tahun 2026**
-         - **Kelas 12 IPA**
-         - **Gelombang 1**
-         - **Cabang Surabaya**
-       </Info>
-  </Step>
-  <Step title="Unggah file Excel lalu klik Import">
-    <Frame>
-      ![Unggah file Excel pada jendela Import Akun lalu klik Import](/images/2026-07-22_23-57.png)
-    </Frame>
-
-    Unggah kembali file Excel yang sudah diisi, kemudian pilih tombol **Import**. Setelah proses _import_ berhasil, data peserta akan tampil pada menu **Data Akun**.
+    Ganti baris contoh dengan data peserta Anda. Jangan mengubah judul kolom pada baris pertama.
 
     <Frame>
-      ![Akun peserta hasil impor tampil pada halaman Data Akun](/images/2026-07-23_21-15.png)
+      ![Contoh isian template: empat peserta dengan label Cabang Surabaya](/images/data-akun/menambahkan-akun-peserta/25-contoh-isian-template.png)
     </Frame>
+
+    1. **Nama**: nama peserta (wajib).
+    2. **Alamat Email**: alamat email yang dipakai peserta untuk masuk (wajib).
+    3. **Kata Sandi**: kata sandi untuk setiap peserta (wajib).
+    4. **Label**: nama label untuk mengelompokkan peserta (boleh dikosongkan). Jika label belum ada, sistem membuatnya secara otomatis.
+
+    <Note>
+      Pada proses impor, sistem **tidak memeriksa** apakah alamat email benar-benar aktif; sistem hanya memeriksa format penulisannya. Karena itu, Anda dapat memakai alamat email khusus ujian, misalnya `peserta001@contoh.id`. Pastikan setiap peserta memakai alamat email yang berbeda.
+    </Note>
 
     <Warning>
-      Pada tahap ini, peserta baru tersimpan sebagai akun dan **belum masuk ke ujian tertentu**. Untuk memasukkannya ke ujian, buka **Data Ujian**, pilih **Daftar Peserta Ujian**, lalu gunakan tombol **Tambah Peserta**.
-
-      Berikut langkah-langkah lengkapnya: [Cara Menambahkan Peserta ke Dalam Ujian](/data-ujian/menambahkan-peserta-ujian).
+      Hapus baris contoh dari template sebelum mengunggah. Baris yang tidak dihapus akan ikut diimpor sebagai akun.
     </Warning>
   </Step>
+  <Step title="Unggah file, lalu klik Import">
+    <Frame>
+      ![File Excel sudah diunggah pada jendela Import Akun](/images/data-akun/menambahkan-akun-peserta/12-unggah-file-import.png)
+    </Frame>
+
+    Sistem memproses file di latar belakang. Selama proses berjalan, kartu **Mengimpor Akun Peserta** dengan bilah kemajuan tampil di atas daftar akun. Setelah selesai, Anda menerima notifikasi **Berhasil Mengimpor Akun Peserta** beserta jumlah akun yang berhasil diimpor.
+
+    <Frame>
+      ![Notifikasi Berhasil Mengimpor Akun Peserta](/images/data-akun/menambahkan-akun-peserta/14-notifikasi-impor.png)
+    </Frame>
+
+    Akun hasil impor langsung aktif dan terverifikasi, ditandai dengan ikon panah ke bawah pada kolom **Alamat Email**.
+  </Step>
 </Steps>
+
+<Note>
+  Impor dibatalkan seluruhnya jika ada baris dengan **Nama**, **Alamat Email**, atau **Kata Sandi** yang kosong, atau jika ada alamat email dengan format tidak valid. Perbaiki file sesuai pesan pada notifikasi, lalu impor ulang.
+
+  Jika alamat email di file sudah terdaftar di projek Anda, akun tersebut tidak digandakan. Nama, kata sandi, dan labelnya diperbarui sesuai isi file, dan akun diaktifkan kembali.
+</Note>
+
+<Warning>
+  Akun yang diimpor belum otomatis masuk ke ujian tertentu. Untuk memasukkannya ke ujian, buka **Data Ujian**, pilih **Daftar Peserta Ujian**, lalu gunakan tombol **Tambah Peserta**. Langkah lengkapnya ada di [Menambahkan Peserta ke Dalam Ujian](/data-ujian/menambahkan-peserta-ujian).
+</Warning>
+
+## Peserta membuat akun sendiri
+
+Cara ini hanya tersedia jika pilihan **Izinkan pendaftaran akun mandiri** diaktifkan di **Platform Ujian (CBT)** → **Lainnya** → **Pengaturan Aplikasi**. Lihat [Login Peserta](/lainnya/login-peserta) untuk pengaturannya.
+
+<Steps>
+  <Step title="Peserta membuka tautan login, lalu klik Daftar">
+    <Frame>
+      ![Tautan Daftar pada halaman login peserta](/images/lainnya/login-peserta/13-peserta-klik-daftar.png)
+    </Frame>
+  </Step>
+  <Step title="Peserta mengisi formulir pendaftaran">
+    <Frame>
+      ![Formulir pendaftaran akun peserta yang sudah diisi](/images/lainnya/login-peserta/14-formulir-pendaftaran.png)
+    </Frame>
+
+    Peserta mengisi **Nama Lengkap**, **Alamat Email**, **Kata Sandi** (minimal 8 karakter), dan **Konfirmasi Kata Sandi**, mencentang persetujuan **Ketentuan Layanan** dan **Kebijakan Privasi**, lalu mengeklik **Daftar**. Jika **Autentikasi dengan Google** aktif, peserta juga dapat memilih **Daftar dengan Google**.
+  </Step>
+  <Step title="Peserta memverifikasi alamat email">
+    Sistem mengirimkan kode verifikasi 6 angka ke alamat email peserta. Peserta memasukkan kode tersebut, lalu mengeklik **Verifikasi Akun**.
+
+    <Frame>
+      ![Halaman Verifikasi Email Anda dengan kode yang sudah diisi](/images/lainnya/login-peserta/17-kode-verifikasi-diisi.png)
+    </Frame>
+
+    Selama kode belum dimasukkan, akun tampil dengan status **Belum Terverifikasi** di daftar akun. Setelah verifikasi berhasil, peserta masuk ke halaman **Daftar Tes** dan status akunnya menjadi **Aktif**.
+  </Step>
+</Steps>
+
+<Info>
+  Verifikasi email hanya diperlukan bagi peserta yang mendaftar sendiri. Akun yang ditambahkan admin melalui **Tambah Akun** atau **Import Akun** langsung terverifikasi. Langkah lengkap pendaftaran dari sisi peserta ada di [Login Peserta](/lainnya/login-peserta#cara-peserta-mendaftar-dan-masuk).
+</Info>

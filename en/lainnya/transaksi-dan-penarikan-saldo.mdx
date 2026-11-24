@@ -1,274 +1,200 @@
 ---
-title: "Transactions & Balance Withdrawals"
-description: "How to monitor incoming transactions and withdraw your balance to the institution's bank account."
+title: "Transactions & Balance Withdrawal"
+description: "How to track exam payments from participants, set the payout bank account, and withdraw the project balance to the owner's account."
 ---
 
-The **Finance** menu is where you see incoming payments from participants and withdraw your balance to the institution's own bank account.
-
-> 💡 **Example:**
->
-> Participant **Rosa Adinda** pays **Rp50,000** to take **Try Out Matematika Persiapan SNBT 2027** (a maths tryout, or practice exam, for SNBT 2027, Indonesia's national university entrance test). Once the payment succeeds, the transaction is recorded in the **Transaction History** menu.
+Payments for paid exams are recorded in **Riwayat Transaksi** (Transaction History) and add to the project balance. That balance can be paid out to the project owner's bank account through **Penarikan Saldo** (Balance Withdrawal). The two menus live in different modules:
 
 <Info>
-  In short, the flow is:
+  **Menu location:**
 
-  **The participant pays → the transaction is recorded in Transaction History → the balance goes into the institution's account → the withdrawable balance can be requested to the institution's bank account.**
+  - **Riwayat Transaksi**: **Portal** → **Platform Ujian (CBT)** → **Keuangan** → **Riwayat Transaksi**.
+  - **Penarikan Saldo**: **Portal** → **Administrasi Aplikasi** → **Keuangan** → **Penarikan Saldo**.
+
+  **Required role:** the project owner, or a team member whose role includes the **Riwayat Transaksi** or **Penarikan Saldo** module.
 </Info>
 
-## 1. View Incoming Transactions
+The flow is:
 
-Open the **Transaction History** menu to see participant payments.
+**A participant pays for an exam → the transaction appears in Riwayat Transaksi → the money enters the Saldo Tertunda (pending balance) → after 2 working days it becomes Saldo Dapat Ditarik (withdrawable balance) → the admin requests a withdrawal to the project owner's account.**
 
-<Frame>
-  ![Participant payments on the Transaction History page](/images/2026-08-10_20-00.png)
-</Frame>
+For example, **Bimbel Prestasi Nusantara** sells **Try Out Intensif SNBT 2027** for **Rp150.000**. Payments from participants such as **Rosa Adinda** and **Bagas Pratama** appear in **Riwayat Transaksi**, and Rina Wulandari, the project owner, withdraws **Rp500.000** to her BCA account.
 
-On this page, you can see who paid, which exam they paid for, how much they paid and the transaction status. Each column is explained below.
+## 1. Track the transaction history
 
-### Transaction No.
-
-Shows the transaction number that identifies each payment.
-
-Example: `TO-MAT-SNBT-271784392462258`
-
-### Status
-
-Shows the participant's payment status.
-
-Example on the page: `Success (Manual Verification)`
-
-This means an admin marked the transaction as paid manually with the **Mark as Paid** button (available on transactions with the **Pending** status). The participant's exam access is activated, but the institution's balance doesn't increase. Payments completed through the payment system show the `Success` status.
-
-The name of the exam that was paid for is also shown under the status.
-
-Example: `Try Out Matematika Persiapan SNBT 2027`
-
-### Payment Total
-
-Shows the amount the participant paid.
-
-Example: `Rp50,000`
-
-### Payment Date
-
-Shows the date and time the payment was received.
-
-### Transaction Date
-
-Shows the date and time the transaction was created.
-
-### Expiry Date
-
-- Shows the payment deadline.
-- If the payment isn't completed by then, the transaction can expire.
-
-Example:
+Open **Platform Ujian (CBT)** → **Keuangan** → **Riwayat Transaksi**. The newest transactions are at the top.
 
 <Frame>
-  ![Expired transaction on the Transaction History page](/images/2026-08-10_20-06.png)
+  ![Participant payments on the Riwayat Transaksi page](/images/lainnya/transaksi-dan-penarikan-saldo/01-riwayat-transaksi.png)
 </Frame>
 
-<Info>
-  A **Summary** for the **Payment Total** column is shown at the bottom of the table. Its **Total Paid** value only adds up transactions that have been paid, that is, those with the **Success** or **Success (Manual Verification)** status. Transactions with the **Pending**, **Failed** or **Expired** status aren't counted.
+| Column | Content |
+| --- | --- |
+| **No. Transaksi** | Transaction number, for example `TO-SNBT1793756460174`, with the participant's name and email below it. |
+| **Status** | Payment status, with the name of the paid exam below it. |
+| **Total Pembayaran** | Amount paid. If the participant used a voucher, the voucher code and discount appear below the amount. |
+| **Tanggal Pembayaran** | When the payment was received. Empty (`-`) if not paid yet. |
+| **Tanggal Transaksi** | When the transaction was created, as the participant registered or chose to pay. |
+| **Tanggal Kedaluwarsa** | Payment deadline, 2 hours after the transaction was created. |
 
-  - **This page** shows the **Total Paid** for the transactions currently displayed on the page. This row only appears when the data spans more than one page.
-  - **All transactions** shows the **Total Paid** for every transaction that matches the active filters and search, including those on other pages.
+Possible statuses:
 
-  💡 **Example:**
+- **Pending**: the participant hasn't completed the payment.
+- **Sukses** (success): paid through the payment system; the project balance increases.
+- **Sukses (Verifikasi Manual)** (success, manual verification): marked as paid by an admin with **Tandai Lunas**. The participant's exam access is activated, but the project balance does not increase.
+- **Gagal** (failed): the payment was rejected.
+- **Kedaluwarsa** (expired): the payment wasn't completed before the deadline.
 
-  The page shows 10 transactions with the **Success** status, each for **Rp50,000**.
+Use the **Cari** (search) box to find a transaction number or participant email, and the filter icon to filter by **Nama Ujian** (exam name). The table is wide; scroll right to see the date columns and the action button.
 
-  The **Total Paid** for **This page** is then:
+### Mark a transaction as paid manually
 
-  > **Rp500,000**
+If a participant paid outside the system, for example in cash at the tutoring office, you can activate their access without waiting for an automatic payment.
 
-  **All transactions**, on the other hand, shows the total of every paid transaction, including those on other pages.
-</Info>
+<Steps>
+  <Step title="Click Tandai Lunas">
+    The **Tandai Lunas** (mark as paid) button only appears on **Pending** transactions.
 
-Use the **Transaction History** menu to check incoming payments. To cash out funds that can already be withdrawn, continue in the **Balance Withdrawal** menu.
+    <Frame>
+      ![Tandai Lunas button on a Pending transaction](/images/lainnya/transaksi-dan-penarikan-saldo/02-tombol-tandai-lunas.png)
+    </Frame>
+  </Step>
+  <Step title="Confirm">
+    Read the warning in the **Konfirmasi Flagging Lunas Manual** window, then click **Ya, Flagging Lunas**.
 
-## 2. Add Your Bank Account Details for Withdrawals
+    <Frame>
+      ![Konfirmasi Flagging Lunas Manual window](/images/lainnya/transaksi-dan-penarikan-saldo/03-konfirmasi-tandai-lunas.png)
+    </Frame>
 
-Before you withdraw your balance for the first time, the project owner needs to complete the **Bank Account Details** in their account profile. The balance is always withdrawn to the project owner's bank account; if you're a member of the **Admin Team**, ask the project owner to fill them in.
+    The status changes to **Sukses (Verifikasi Manual)** and the participant's exam access is processed.
+  </Step>
+</Steps>
 
 <Warning>
-  If the bank account details haven't been filled in, you **can't withdraw your balance**.
+  A transaction marked as paid manually doesn't add to the project balance and can't be returned to **Pending**.
 </Warning>
 
+### Total Dibayar summary
+
+Below the table there's a **Rangkuman** (summary) for the **Total Pembayaran** column. **Total Dibayar** (total paid) adds up paid transactions only, that is **Sukses** and **Sukses (Verifikasi Manual)**; **Pending**, **Gagal** and **Kedaluwarsa** transactions are not counted.
+
 <Frame>
-  ![Bank Account Details Required notification when creating a withdrawal](/images/2026-08-11_14-48_1.png)
+  ![Rangkuman rows with Total Dibayar for Halaman ini and Semua transaksi](/images/lainnya/transaksi-dan-penarikan-saldo/04-rangkuman-total-dibayar.png)
 </Frame>
 
-<Steps>
-  <Step title="Click your account name in the bottom-left corner">
-    Click your account name/profile in the bottom-left corner.
+- **Halaman ini** (this page): total of the transactions currently shown. This row only appears when the data spans more than one page.
+- **Semua transaksi** (all transactions): total of every transaction matching the current search and filters, including other pages.
 
-    <Frame>
-      ![Account name in the bottom-left corner of the admin panel](/images/2026-08-10_20-31.png)
-    </Frame>
+In the example, the first page holds seven paid transactions of Rp150.000, so **Halaman ini** shows **Rp1.050.000**. **Semua transaksi** shows **Rp1.800.000** from twelve paid transactions.
 
-    The system shows the account menu, which includes:
+<Note>
+  **Total Dibayar** is the total paid by participants, not the withdrawable balance. **Sukses (Verifikasi Manual)** transactions are included in the total but don't add to the balance. To see the balance, open **Penarikan Saldo**.
+</Note>
 
-    - Profile
-    - Changelog
-    - the language option (for example, English)
-    - Sign out
+## 2. View the project balance
 
-    <Frame>
-      ![Account menu opened in the bottom-left corner](/images/2026-08-10_20-31_1.png)
-    </Frame>
-  </Step>
-  <Step title="Select Profile">
-    Select **Profile** to open your account settings page.
+Open **Administrasi Aplikasi** → **Keuangan** → **Penarikan Saldo**. The project balance is shown above the withdrawal history table.
 
-    <Frame>
-      ![Profile option in the account menu](/images/2026-08-10_20-32.png)
-    </Frame>
-  </Step>
-  <Step title="Fill in the Bank Account Details">
-    Scroll down to the **Bank Account Details** section, then fill in your bank account details.
+<Frame>
+  ![Penarikan Saldo page with the Saldo Dapat Ditarik and Saldo Tertunda cards and the Penarikan Saldo button](/images/lainnya/transaksi-dan-penarikan-saldo/05-halaman-penarikan-saldo.png)
+</Frame>
 
-    <Frame>
-      ![Bank Account Details section on the Profile page](/images/2026-08-10_203614-1.png)
-    </Frame>
+1. **Saldo Dapat Ditarik** (withdrawable balance): the amount you can pay out now. It comes from participant exam payments and from refunds of failed purchases, for example a domain purchase the registrar rejected.
+2. **Saldo Tertunda** (pending balance): new payments that can't be withdrawn yet. Payments become withdrawable 2 working days after they're received.
+3. **Penarikan Saldo**: the button to request a withdrawal.
 
-    1. **Bank Name**
+> **Example:** Saldo Dapat Ditarik is **Rp750.000** and Saldo Tertunda is **Rp300.000**. Rina can withdraw at most **Rp750.000** right now. The Rp300.000 comes from two payments received yesterday and today.
 
-       <Frame>
-         ![Bank options in the Bank Name field](/images/2026-08-10_20-32_1-1.png)
-       </Frame>
+## 3. Set the bank account
 
-       Select the bank where your account is held.
+The balance is always paid out to the **project owner's** bank account. Before the first withdrawal, the owner must fill in **Informasi Rekening** (bank account information) in their account profile. If it's incomplete, the withdrawal is refused with the **Informasi Rekening Diperlukan** notification.
 
-       Example: `Bank Central Asia (BCA)`
+<Frame>
+  ![Informasi Rekening Diperlukan notification when creating a withdrawal](/images/lainnya/transaksi-dan-penarikan-saldo/06-informasi-rekening-diperlukan.png)
+</Frame>
 
-    2. **Account Number**
-
-       Enter the account number that will receive your withdrawals.
-
-       Example: `123456789000`
-
-       Make sure the account number is **correct** so the funds aren't sent to the wrong account.
-
-    3. **Account Holder Name**
-
-       Enter the account holder's name as registered with the bank.
-
-       Example: `Iqbal Hamzah`
-
-       Use exactly the same name as on the bank account to help avoid problems when the balance is paid out.
-
-    4. Click **Save** to save your bank account details.
-  </Step>
-</Steps>
-
-## 3. Withdraw Your Balance
-
-For example, Indolat Institute has a **Withdrawable Balance of Rp6,215,003** and wants to cash out **Rp3,000,000** to its BCA account.
-
-The admin has already filled in the bank account details in the profile. They open the **Balance Withdrawal** menu, enter Rp3,000,000 and double-check the destination account.
-
-After they select **Create Withdrawal**, the status starts as **Pending**. Once processing is complete, the status changes to **Approved** and the admin can view the payment proof.
+<Note>
+  If you're an **Admin Team** member, the notification asks the project owner to complete their account details. Team members can't fill in the owner's bank account.
+</Note>
 
 <Steps>
-  <Step title="Open the Balance Withdrawal menu">
-    Open the **Balance Withdrawal** menu, then click the **Balance Withdrawal** button.
+  <Step title="Open Profil from the account menu">
+    Click your account name at the bottom left of the sidebar, then choose **Profil**. You can also click the **Halaman Profil** link in the **Buat Penarikan Saldo** window.
 
     <Frame>
-      ![Balance Withdrawal button on the Balance Withdrawal page](/images/2026-08-11_14-46.png)
+      ![Profil item in the account menu at the bottom left of the sidebar](/images/lainnya/transaksi-dan-penarikan-saldo/07-menu-profil.png)
     </Frame>
-  </Step>
-  <Step title="Enter the amount to withdraw">
-    <Frame>
-      ![Withdrawal form showing the balances and the withdrawal amount](/images/2026-08-11_14-48.png)
-    </Frame>
-
-    Complete the withdrawal form.
-
-    1. **Withdrawable Balance**
-
-       Shows the balance that can already be requested for transfer to the institution's bank account.
-
-    2. **Pending Balance**
-
-       Shows the balance that can't be withdrawn yet.
-
-       As stated in the system, newly received balance can be withdrawn once **2 working days have passed since it was received**.
-
-       > 💡 **Example:**
-       >
-       > The institution's balance:
-       >
-       > - Withdrawable Balance: **Rp6,215,003**
-       > - Pending Balance: **Rp945,000**
-       >
-       > This means you can currently withdraw only from the **Rp6,215,003** balance. The Rp945,000 is still waiting until it can be withdrawn.
-
-    3. **Withdrawal Amount**
-
-       Enter the amount you want transferred to your account.
-
-       Example: **Rp3,000,000**
-
-       <Note>
-         The minimum withdrawal shown in the system is **Rp10,000**.
-       </Note>
-
-    4. Click **Next**.
-  </Step>
-  <Step title="Review and confirm the withdrawal">
-    After you click **Next**, the system shows again:
-
-    - **Bank**
-    - **Destination Account**
-    - **Account Holder**
-    - **Withdrawal Amount**
-
-    <Frame>
-      ![Confirmation of the destination account and withdrawal amount](/images/2026-08-11_15-39.png)
-    </Frame>
-
-    Check all of this information carefully.
-
-    If everything is correct, click **Create Withdrawal**.
 
     <Warning>
-      Once a withdrawal has been created, you can't cancel it yourself.
-
-      So make sure the bank account and the withdrawal amount are correct before you continue.
+      The **Halaman Profil** button on the Portal opens a short **Profil** page (name, email, password and two-factor authentication) without **Informasi Rekening**. Use the **Profil** item in the sidebar instead.
     </Warning>
   </Step>
-  <Step title="Check the withdrawal status">
-    Once the request has been created, it appears on the **Balance Withdrawal** page. The status changes as the request is processed.
+  <Step title="Fill in Informasi Rekening">
+    Scroll to **Informasi Rekening** and enter the account details.
 
-    - **Pending**: the withdrawal request has been created and is still being processed.
+    <Frame>
+      ![Informasi Rekening section with Nama Bank, Nomor Rekening and Nama Pemilik Rekening](/images/lainnya/transaksi-dan-penarikan-saldo/08-informasi-rekening.png)
+    </Frame>
 
-      <Frame>
-        ![Balance withdrawal with Pending status](/images/2026-08-11_15-39_1.png)
-      </Frame>
+    1. **Nama Bank** (bank name): pick your bank, for example **Bank Central Asia (BCA)**.
+    2. **Nomor Rekening** (account number): digits only, for example `8730412256`.
+    3. **Nama Pemilik Rekening** (account holder name): as printed in your bank book, for example `Rina Wulandari`.
+    4. Click **Simpan** (Save) below the **Informasi Rekening** section. The notification *Informasi profil Anda telah berhasil disimpan.* appears.
 
-    - **Approved**: the withdrawal has been processed. Select **View Payment Proof** to see the transfer receipt.
-
-      <Frame>
-        ![Approved balance withdrawal with the View Payment Proof link](/images/2026-08-11_15-39_2.png)
-      </Frame>
-
-    <Note>
-      **Balance withdrawal terms**
-
-      Based on the information shown in the system:
-
-      - Withdrawals are processed on **working days, 09:00–16:00 WIB (UTC+7)**.
-      - Withdrawals made outside these hours are processed on the **next working day**.
-      - Withdrawals to banks other than **BNI** incur an admin fee of **Rp3,000**.
-      - The minimum withdrawal is **Rp10,000**.
-      - You can't create a new withdrawal while another one still has the **Pending** status.
-
-      💡 **Admin fee example:**
-
-      You withdraw **Rp1,000,000** to a bank other than BNI. After the Rp3,000 admin fee, the amount received is:
-
-      > **Rp997,000**
-    </Note>
+    <Tip>
+      Make sure the account holder name matches the bank's records exactly. A different name can get the withdrawal rejected.
+    </Tip>
   </Step>
 </Steps>
+
+## 4. Request a withdrawal
+
+<Steps>
+  <Step title="Open the withdrawal form">
+    On the **Penarikan Saldo** page, click the **Penarikan Saldo** button.
+  </Step>
+  <Step title="Enter the amount">
+    <Frame>
+      ![Buat Penarikan Saldo form with Saldo Dapat Ditarik, Saldo Tertunda and Jumlah Penarikan](/images/lainnya/transaksi-dan-penarikan-saldo/09-formulir-penarikan.png)
+    </Frame>
+
+    1. **Saldo Dapat Ditarik**: the withdrawable balance (read only).
+    2. **Saldo Tertunda**: the balance still on hold (read only).
+    3. **Jumlah Penarikan** (withdrawal amount): the amount to pay out, without dots, for example `500000`. The minimum is **Rp10.000** and it can't exceed **Saldo Dapat Ditarik**.
+    4. Click **Selanjutnya** (Next).
+
+    Withdrawal terms shown on the form:
+
+    - Withdrawals are processed on working days from **09.00 to 16.00 WIB**; requests outside those hours are processed on the next working day.
+    - Withdrawals to banks other than **BNI** have a **Rp3.000** admin fee. Example: a Rp1.000.000 withdrawal arrives as Rp997.000.
+  </Step>
+  <Step title="Review and create the withdrawal">
+    The form shows **Jenis Bank** (bank), **Rekening Tujuan** (destination account), **Atas Nama** (account holder) and **Jumlah Penarikan**. Check them, then click **Buat Penarikan** (Create Withdrawal). Click **Sebelumnya** (Previous) to change the amount.
+
+    <Frame>
+      ![Confirmation of the destination account and amount with the Buat Penarikan button](/images/lainnya/transaksi-dan-penarikan-saldo/10-konfirmasi-penarikan.png)
+    </Frame>
+
+    The **Penarikan Saldo Berhasil** notification appears and the amount is deducted from the balance straight away.
+
+    <Warning>
+      You can't cancel a withdrawal yourself once it's created. Make sure the account and amount are correct before clicking **Buat Penarikan**.
+    </Warning>
+  </Step>
+</Steps>
+
+<Note>
+  You can't create a new withdrawal while another one is still **Pending**. The system shows *Anda masih memiliki penarikan saldo yang sedang diproses.*
+</Note>
+
+## 5. Track withdrawal status
+
+Every request is listed on the **Penarikan Saldo** page with its **No. Penarikan** (withdrawal number), **Status Penarikan**, **Jumlah Penarikan** with the **Saldo Terakhir** (balance before the withdrawal), **Tanggal Pembayaran** (payout date) and **Tanggal Penarikan** (request date). Use the **Tanggal Penarikan** filter to narrow the list to a period.
+
+<Frame>
+  ![Withdrawal history with Pending, Ditolak and Disetujui statuses](/images/lainnya/transaksi-dan-penarikan-saldo/11-riwayat-penarikan.png)
+</Frame>
+
+- **Pending**: the request has been submitted and is being processed.
+- **Disetujui** (approved): the money has been transferred. Click **Lihat Bukti Pembayaran** to open the transfer receipt; **Tanggal Pembayaran** shows when it was sent.
+- **Ditolak** (rejected): the withdrawal was cancelled and the amount returned to the balance. The reason appears as **Catatan** (note), for example a mismatched account holder name. Fix what's requested, then submit a new withdrawal.

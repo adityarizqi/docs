@@ -5,7 +5,65 @@ description: "Common CBT Indolat terms with their meanings and usage examples."
 
 This glossary lists terms commonly used in CBT Indolat. The explanations are kept simple to help you understand what each term does without needing any technical knowledge.
 
-## A. Exams & Participants
+## A. Layout & Modules
+
+### Portal
+
+**Meaning:** The first page an admin sees after signing in. It shows the institution name, the modules the admin can open, and the active project.
+
+**Example:**<br />After signing in, the admin picks the **Platform Ujian (CBT)** tile on the Portal to start creating an exam. The **Portal** item at the top of every module's sidebar leads back to this page.
+
+---
+
+### Project (Projek)
+
+**Meaning:** One institution's workspace. Each project has its own code, exams, participants, admin team, and subscription.
+
+**Example:**<br />The **Bimbel Prestasi Nusantara** project has the code `prestasi`, so participants sign in at `prestasi.indolat.web.id`. Admins who belong to several projects switch with the **Ganti Projek** (Switch Project) button on the Portal.
+
+---
+
+### Module (Modul)
+
+**Meaning:** A part of the application opened from the Portal, each with its own sidebar. The modules are **Administrasi Aplikasi** (Application Administration), **Platform Ujian (CBT)**, **Learning Management System (LMS)**, and **Pembuat Website** (Website Builder).
+
+**Example:**<br />The admin opens **Administrasi Aplikasi** to invite the team, then returns to the Portal and opens **Platform Ujian (CBT)** to write questions.
+
+---
+
+### Application Administration (Administrasi Aplikasi)
+
+**Meaning:** The module for managing the whole project: users, admin team and roles, balance withdrawals, subscription and billing, project profile, branding, domains, and API integration.
+
+**Example:**<br />The admin changes the logo and primary color under **Administrasi Aplikasi** → **Pengaturan Projek** → **Branding & Warna**.
+
+---
+
+### Exam Platform (Platform Ujian (CBT))
+
+**Meaning:** The module for running exams: question packages, exams, sessions, monitoring, results, certificates, and exam payment history.
+
+**Example:**<br />The admin creates **Tryout Akbar SNBT 2027** under **Platform Ujian (CBT)** → **Manajemen Ujian** → **Data Ujian**.
+
+---
+
+### Complete Your Profile (Lengkapi Profil)
+
+**Meaning:** A short four-step form shown the first time an admin signs in. Once the profile is complete, the free exam credits rise from 50 to 200 per month.
+
+**Example:**<br />A new admin fills in identity, role, needs, and usage plan, and receives 150 extra credits.
+
+---
+
+### Exam Credit (Kredit Ujian)
+
+**Meaning:** The unit of exam usage. One credit is used each time a participant starts one exam test.
+
+**Example:**<br />The Standard plan gets 200 free credits every month after the profile is complete.
+
+---
+
+## B. Exams & Participants
 
 ### CBT
 
@@ -55,7 +113,7 @@ This glossary lists terms commonly used in CBT Indolat. The explanations are kep
 
 ---
 
-## B. Questions & Question Packages
+## C. Questions & Question Packages
 
 ### Question Package (Paket Soal)
 
@@ -145,11 +203,11 @@ This glossary lists terms commonly used in CBT Indolat. The explanations are kep
 
 ---
 
-## C. Users & Access
+## D. Users & Access
 
 ### Admin Role (Role Admin)
 
-**Meaning:** A user role that determines which menus someone can open and manage.
+**Meaning:** A user role that determines which menus someone can open and manage. Roles are managed under **Administrasi Aplikasi** → **Tim & Akses** → **Role Admin**.
 
 **Example:**<br />**Admin Soal** (question admin) only manages question packages, while **Admin Ujian** (exam admin) manages exams and sessions.
 
@@ -157,17 +215,17 @@ This glossary lists terms commonly used in CBT Indolat. The explanations are kep
 
 ### Admin Team (Tim Admin)
 
-**Meaning:** Other members who are given access to help manage the CBT.
+**Meaning:** Other members who are given access to help manage the CBT. Team members are invited under **Administrasi Aplikasi** → **Tim & Akses** → **Tim Admin**.
 
 **Example:**<br />The admin invites a teacher as **Admin Soal** so they can help prepare questions.
 
 ---
 
-## D. Domains
+## E. Domains
 
 ### Custom Domain (Kustom Domain)
 
-**Meaning:** A dedicated address for opening the CBT, using a name that matches the institution.
+**Meaning:** A dedicated address for opening the CBT, using a name that matches the institution. Domains are managed under **Administrasi Aplikasi** → **Pengaturan Projek** → **Domain**.
 
 **Example:**<br />Participants can open the CBT at:
 
@@ -185,7 +243,7 @@ so the address is easier to recognise.
 
 ---
 
-## E. Certificates
+## F. Certificates
 
 ### Exam Certificate (Sertifikat Ujian)
 
@@ -275,11 +333,11 @@ so the address is easier to recognise.
 
 ---
 
-## F. Finance
+## G. Finance
 
 ### Transaction History (Riwayat Transaksi)
 
-**Meaning:** The menu for viewing payments made by participants.
+**Meaning:** The menu for viewing payments made by participants. It is located under **Platform Ujian (CBT)** → **Keuangan** → **Riwayat Transaksi**.
 
 **Example:**<br />The admin sees a **Rp50,000** payment from a participant to take a tryout.
 
@@ -327,7 +385,7 @@ so the address is easier to recognise.
 
 ### Balance Withdrawal (Penarikan Saldo)
 
-**Meaning:** The process of moving balance from CBT Indolat to the institution's bank account.
+**Meaning:** The process of moving balance from CBT Indolat to the institution's bank account. Withdrawals are requested under **Administrasi Aplikasi** → **Keuangan** → **Penarikan Saldo**.
 
 **Example:**<br />The admin withdraws **Rp3,000,000** to the institution's BCA account.
 
@@ -350,4 +408,5 @@ These include the **Bank Name, Account Number and Account Holder Name**.
 **Example:**
 
 - **Pending** → the withdrawal is still being processed.
-- **Approved** → the withdrawal has been processed to the destination account.
+- **Approved** (Disetujui) → the withdrawal has been processed to the destination account.
+- **Rejected** (Ditolak) → the withdrawal was not processed and the amount returns to the project balance.

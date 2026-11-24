@@ -271,7 +271,7 @@ Seluruh request pada halaman ini membutuhkan [Bearer API Key](/api/autentikasi).
   | `return_url` | Body | Tidak | string | URL lengkap tujuan tombol **Lanjutkan** setelah tes selesai, maksimal 2.048 karakter. Wajib `https://`, dan domainnya harus terdaftar (lihat di bawah). Path dan query string bebas. |
 
   <Note>
-    Daftarkan domain `return_url` pada kolom **Domain Redirect Setelah Ujian** di **Pengaturan Aplikasi → Integrasi API**. Tulis nama domain saja tanpa `https://` dan tanpa path, pisahkan dengan koma, misalnya `portal.smanusantara.example.com, ujian.smanusantara.example.com`. Domain dicocokkan persis: mendaftarkan `smanusantara.example.com` tidak otomatis mengizinkan subdomainnya, jadi daftarkan setiap subdomain yang dipakai. Port pada `return_url` tidak ikut dicocokkan.
+    Daftarkan domain `return_url` pada kolom **Domain Redirect Setelah Ujian** di **Portal** → **Administrasi Aplikasi** → **Pengaturan Projek** → **Integrasi & API**. Tulis nama domain saja tanpa `https://` dan tanpa path, pisahkan dengan koma, misalnya `portal.smanusantara.example.com, ujian.smanusantara.example.com`. Domain dicocokkan persis: mendaftarkan `smanusantara.example.com` tidak otomatis mengizinkan subdomainnya, jadi daftarkan setiap subdomain yang dipakai. Port pada `return_url` tidak ikut dicocokkan.
   </Note>
 
   ### Field respons per link

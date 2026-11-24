@@ -1,216 +1,168 @@
 ---
 title: "Membuat Tes Ujian"
-description: "Cara membuat tes ujian CBT, CAT, atau esai/upload file di dalam ujian, lalu mengatur skor, hasil, dan pengawasannya."
+description: "Cara menambahkan tes ujian CBT, CAT, atau esai/unggah berkas ke dalam ujian, lalu mengatur metode penilaian, biaya tes, skor dan hasil, serta pengawasan."
 ---
 
-**Tes Ujian** adalah **bagian tes** yang ada di dalam acara ujian.
+**Tes ujian** adalah bagian tes di dalam sebuah ujian. Setiap tes memiliki jenis ujian, metode penilaian, durasi, instruksi, dan pengaturannya sendiri. Halaman ini menjelaskan cara menambahkan tes ke ujian dan mengatur detailnya.
 
-💡 Contoh, di dalam **Tryout Akbar SNBT 2027** terdapat:
+<Info>
+  **Lokasi menu:** **Portal** → **Platform Ujian (CBT)** → **Manajemen Ujian** → **Data Ujian** → **Detail** pada ujian → bagian **Daftar Tes Ujian**.
+</Info>
 
-- Penalaran Matematika
-- Literasi Bahasa Indonesia
-- Literasi Bahasa Inggris
+Sebagai contoh, **Tryout Akbar SNBT 2027 – Gelombang 2** terdiri dari dua tes:
 
-Setiap tes ujian memiliki jenis ujian, durasi, metode penilaian, dan pengaturan sendiri.
+- **Penalaran Matematika** (60 menit)
+- **Literasi Bahasa Indonesia** (45 menit)
 
-## 1. Tambah Tes Ujian
+Jika belum memiliki ujian, buat terlebih dahulu melalui panduan [Membuat Ujian](/data-ujian/membuat-ujian).
 
-Pilih tombol **Tambah Tes Ujian** pada bagian **Daftar Tes Ujian**.
+## Menambahkan tes ujian
 
-<Frame>
-  ![Tombol Tambah Tes Ujian pada bagian Daftar Tes Ujian](/images/tambah-tes-ujian.png)
-</Frame>
+<Steps>
+  <Step title="Klik Tambah Tes Ujian">
+    Buka **Detail** ujian, pilih bagian **Daftar Tes Ujian**, lalu klik **Tambah Tes Ujian**.
 
-<Tip>
-  Jika tes ujian terlewat dan belum ditambahkan pada ujian, Anda dapat membukanya kembali melalui langkah-langkah berikut:
+    <Frame>
+      ![Tombol Tambah Tes Ujian pada bagian Daftar Tes Ujian](/images/data-ujian/membuat-tes-ujian/01-tombol-tambah-tes-ujian.png)
+    </Frame>
 
-  1. Pilih menu **Data Ujian**.
-  2. Pilih ujian yang belum memiliki tes ujian.
-  3. Kemudian pilih tombol **Detail** pada ujian tersebut.
-  4. Anda dapat menambahkan tes ujian pada bagian **Daftar Tes Ujian** melalui tombol **Tambah Tes Ujian**.
+    <Note>
+      Jumlah tes dibatasi oleh tipe ujian: maksimal 4 tes untuk **Ujian Standard (Paket Gratis)** dan 30 tes untuk **Ujian Professional (Paket Berbayar)**. Jika batas tercapai, sistem menolak tes baru. Pada ujian multi-level yang sudah memiliki peserta, tombol **Tambah Tes Ujian** tidak ditampilkan.
+    </Note>
+  </Step>
+  <Step title="Isi formulir Tambah Tes Ujian">
+    <Frame>
+      ![Formulir Tambah Tes Ujian dengan kolom bernomor](/images/data-ujian/membuat-tes-ujian/02-formulir-tambah-tes-ujian.png)
+    </Frame>
 
-  <Frame>
-    ![Menu Data Ujian dan tombol Detail pada daftar ujian](/images/sub-data-ujian.png)
-  </Frame>
-</Tip>
+    1. **Jenis Ujian**: cara peserta mengerjakan tes. Penjelasannya ada pada bagian [Jenis Ujian](#jenis-ujian).
+    2. **Metode Penilaian**: cara sistem menghitung skor. Penjelasannya ada pada bagian [Metode Penilaian](#metode-penilaian).
+    3. **Nama Tes**: nama yang mudah dikenali. Contoh: **Penalaran Matematika**.
+    4. **Durasi Pengerjaan (menit)**: lama pengerjaan tes. Contoh: **60**. Kolom ini tidak muncul untuk jenis **Esai / Upload File (Jawaban Manual)**.
+    5. **Instruksi Pengerjaan Tes Ujian**: petunjuk yang dibaca peserta sebelum mulai mengerjakan, maksimal 1.000 karakter. Sistem sudah mengisi teks bawaan yang dapat Anda ubah. Untuk tes CBT dan CAT, Anda dapat memakai penanda berikut:
+       - `{{NAMA_TES}}` untuk menampilkan nama tes,
+       - `{{JUMLAH_SOAL}}` untuk menampilkan jumlah soal,
+       - `{{DURASI_TES}}` untuk menampilkan durasi pengerjaan.
+    6. Klik **Buat**, atau **Buat & buat lainnya** jika ingin langsung menambahkan tes berikutnya.
 
-## 2. Isikan Informasi Tes Ujian
-
-<Frame>
-  ![Formulir Tambah Tes Ujian dengan kolom isian bernomor](/images/image-28.png)
-</Frame>
-
-Setelah memilih tombol **Tambah Tes Ujian**, sistem secara otomatis akan menampilkan kolom isian informasi tes yang akan dikerjakan peserta.
+    Jika **Tipe Pembayaran** ujian adalah **Berbayar per Tes Ujian**, formulir juga menampilkan kolom **Biaya Tes Ujian**. Isi biaya yang harus dibayar peserta untuk mengikuti tes ini, minimal Rp5.000.
+  </Step>
+</Steps>
 
 ### Jenis Ujian
 
-Pilih jenis tes sesuai yang akan diselenggarakan.
-
 <Frame>
-  ![Pilihan Jenis Ujian pada formulir Tambah Tes Ujian](/images/jenis-ujian.png)
+  ![Pilihan Jenis Ujian pada formulir Tambah Tes Ujian](/images/data-ujian/membuat-tes-ujian/03-pilihan-jenis-ujian.png)
 </Frame>
 
-1. **Computer Based Test (CBT)**<br />Peserta melihat soal di layar, lalu memilih atau menulis jawaban langsung di sistem.
+- **Computer Based Test (CBT)**<br />Peserta mengerjakan soal di layar dan menjawab langsung di sistem. Semua peserta mendapat soal dari paket soal yang sama. Pilih jenis ini untuk tryout SNBT biasa.
+- **Computer Adaptive Test (CAT)**<br />Soal berikutnya menyesuaikan kemampuan peserta: jawaban benar membuat soal berikutnya cenderung lebih sulit, jawaban salah membuat soal berikutnya cenderung lebih mudah. CAT hanya dapat dipilih pada **Ujian Professional (Paket Berbayar)**; pada **Ujian Standard** pilihan ini berwarna abu-abu. Semua soal pada paket soal CAT wajib memiliki tingkat kesulitan.
+- **Esai / Upload File (Jawaban Manual)**<br />Peserta menulis jawaban panjang atau mengunggah berkas, misalnya foto lembar jawaban atau file PDF. Jawaban dinilai secara manual dan tes ini tidak memiliki durasi pengerjaan.
 
-   > Contoh: peserta melihat soal _Hasil dari 10 × 5 adalah ..._, lalu memilih jawaban **50** di layar.
-
-2. **Computer Adaptive Test (CAT)**<br />Soal berikutnya akan menyesuaikan kemampuan peserta. Jenis ini hanya dapat dipilih pada **Ujian Professional (Paket Berbayar)**.
-
-   > Contoh: peserta menjawab soal pertama dengan benar. Sistem kemudian memberikan soal yang sedikit lebih sulit. Jika peserta menjawab salah, sistem dapat memberikan soal yang lebih mudah atau setara.
-
-   CAT seperti ujian yang "mengikuti kemampuan peserta". Semakin banyak jawaban benar, soal berikutnya bisa semakin sulit.
-
-3. **Esai / Upload File (Jawaban Manual)**<br />Peserta tidak memilih jawaban seperti pada soal pilihan ganda. Peserta menulis jawaban panjang atau mengunggah berkas.
-
-   > Contoh:
-   >
-   > - Menulis jawaban esai langsung di sistem.
-   > - Mengunggah foto lembar jawaban.
-   > - Mengunggah file PDF atau Word.
-
-<Tip>
-  Untuk tryout SNBT biasa, pilih **Computer Based Test (CBT)**.
-</Tip>
+<Note>
+  Setelah tes dibuat, **Jenis Ujian** tidak dapat diubah dari esai ke CBT/CAT atau sebaliknya. Perpindahan antara CBT dan CAT masih dapat dilakukan selama belum ada peserta yang memulai tes.
+</Note>
 
 ### Metode Penilaian
 
-Tentukan cara sistem menghitung nilai peserta.
-
 <Frame>
-  ![Pilihan Metode Penilaian pada formulir Tambah Tes Ujian](/images/Metode-Penilaian.png)
+  ![Pilihan Metode Penilaian untuk jenis CBT](/images/data-ujian/membuat-tes-ujian/04-pilihan-metode-penilaian.png)
 </Frame>
+
+Pilihan metode penilaian menyesuaikan **Jenis Ujian**. Semua metode di bawah tersedia untuk **CBT**. **CAT** hanya memakai **Perhitungan Skor Soal (Akumulasi Benar/Salah)**, sedangkan **Esai / Upload File (Jawaban Manual)** memakai **Penilaian Manual**.
+
+- **Perhitungan Skor Soal (Akumulasi Benar/Salah)**<br />Skor dihitung dari soal yang dijawab benar dan salah sesuai bobot setiap soal. Cocok untuk tryout pilihan ganda biasa.
+- **Perhitungan Skor Jawaban (Akumulasi Skor Jawaban)**<br />Setiap pilihan jawaban memiliki skor sendiri, lalu skor seluruh jawaban peserta dijumlahkan. Contoh: pada pertanyaan kebiasaan belajar, jawaban "Setiap hari" bernilai 4 dan "Tidak pernah" bernilai 1.
+- **Psikotes (Pengelompokan Jawaban)**<br />Jawaban dikelompokkan untuk melihat kecenderungan peserta, misalnya kelompok **Kepemimpinan**, **Kerja Sama**, atau **Mandiri**. Hasilnya berupa kelompok, bukan benar atau salah.
+- **IRT (Referensi UTBK 0-1000)**, **IRT TKA SMA/SMK (200-800)**, dan **IRT TKA SD/SMP (0-100)**<br />Skor *Item Response Theory* mempertimbangkan tingkat kesulitan soal berdasarkan pola jawaban seluruh peserta. Ketiga pilihan memakai perhitungan kemampuan (theta) yang sama; yang berbeda hanya rentang nilai laporannya. Rentang UTBK dan TKA tersebut adalah referensi skala, bukan hasil *equating* resmi.
 
 <Note>
-  Pilihan metode penilaian menyesuaikan **Jenis Ujian**. Semua metode di bawah ini tersedia untuk **CBT**. Untuk **CAT** hanya tersedia **Perhitungan Skor Soal (Akumulasi Benar/Salah)**, sedangkan **Esai / Upload File (Jawaban Manual)** memakai **Penilaian Manual**.
+  Skor IRT dihitung setelah Anda menjalankan **Hitung Skor** → **Perhitungan IRT** pada halaman **Detail Ujian**. Lihat [Hasil dan Ekspor Ujian](/data-ujian/hasil-dan-ekspor-ujian#menghitung-ulang-skor).
 </Note>
 
-1. **Perhitungan Skor Soal (Akumulasi Benar/Salah)**<br />Nilai dihitung dari jumlah soal yang dijawab benar.
-
-   > Contoh:
-   >
-   > - Jawaban benar: 10 poin
-   > - Jawaban salah: 0 poin
-   > - Peserta menjawab benar 8 dari 10 soal
-   > - Nilai peserta: **80**
-
-   Cocok untuk tryout atau ujian pilihan ganda biasa.
-
-2. **Perhitungan Skor Jawaban (Akumulasi Skor Jawaban)**<br />Setiap pilihan jawaban dapat memiliki skor yang berbeda.
-
-   > Contoh:
-   >
-   > Pertanyaan: _Seberapa sering Anda belajar dalam seminggu?_
-   >
-   > - Setiap hari: 4 poin
-   > - 3–4 kali: 3 poin
-   > - 1–2 kali: 2 poin
-   > - Tidak pernah: 1 poin
-
-   Nilai akhir dihitung dari jumlah skor semua jawaban peserta.
-
-3. **Psikotes (Pengelompokan Jawaban)**<br />Jawaban peserta dikelompokkan untuk melihat kecenderungan atau karakter tertentu.
-
-   > Contoh:
-   >
-   > Pertanyaan: _Saat bekerja dalam kelompok, Anda lebih suka..._
-   >
-   > - Mengatur pembagian tugas → Kelompok **Kepemimpinan**
-   > - Membantu anggota lain → Kelompok **Kerja Sama**
-   > - Mengerjakan bagian sendiri → Kelompok **Mandiri**
-
-   Hasilnya bukan sekadar benar atau salah, tetapi menunjukkan kelompok karakter peserta.
-
-4. **Item Response Theory (IRT)**<br />Nilai tidak hanya melihat jumlah jawaban benar, tetapi juga mempertimbangkan tingkat kesulitan soal.
-
-   > Contoh:
-   >
-   > - Soal mudah dijawab benar oleh banyak peserta.
-   > - Soal sulit hanya dijawab benar oleh sedikit peserta.
-   > - Peserta yang mampu menjawab soal sulit dapat memperoleh nilai kemampuan yang lebih tinggi.
-
-   Metode ini cocok untuk ujian berskala besar atau analisis kemampuan peserta yang lebih mendalam. IRT tersedia dalam tiga pilihan:
-
-   - **IRT (Referensi UTBK 0-1000)**: nilai dilaporkan pada rentang 0–1000, mengacu pada skala UTBK.
-   - **IRT TKA SMA/SMK (200-800)**: nilai dilaporkan pada rentang 200–800, mengacu pada skala TKA jenjang SMA/SMK.
-   - **IRT TKA SD/SMP (0-100)**: nilai dilaporkan pada rentang 0–100, mengacu pada skala TKA jenjang SD/SMP.
-
-   Ketiga pilihan memakai perhitungan kemampuan (theta) yang sama; yang berbeda hanya rentang nilai laporannya. Rentang UTBK dan TKA tersebut adalah referensi skala, bukan hasil equating resmi.
-
-   Skor IRT dihitung setelah Anda menjalankan **Hitung Skor** → **Perhitungan IRT** pada halaman detail ujian. Menu ini tidak dapat digunakan pada ujian multi-level.
-
 <Tip>
-  Untuk tryout SNBT sederhana, pilih **Perhitungan Skor Soal (Akumulasi Benar/Salah)**.
+  Untuk tryout SNBT sederhana, pilih **Computer Based Test (CBT)** dengan **Perhitungan Skor Soal (Akumulasi Benar/Salah)**.
 </Tip>
 
-### Nama Tes, Durasi, dan Instruksi
+## Membuka detail tes ujian
 
-- **Nama Tes**: masukkan nama tes yang mudah dikenali.<br />Contoh: **Penalaran Matematika**.
-- **Durasi Pengerjaan (menit)**: masukkan lama waktu pengerjaan dalam menit.<br />Contoh: **60**. Kolom ini tidak muncul untuk jenis **Esai / Upload File (Jawaban Manual)**.
-- **Biaya Tes Ujian**: hanya muncul jika **Tipe Pembayaran** ujian adalah **Berbayar per Tes Ujian**. Isi biaya yang harus dibayar peserta untuk mengikuti tes ini.
-- **Instruksi Pengerjaan Tes Ujian**: tuliskan petunjuk yang akan dibaca peserta sebelum mulai mengerjakan.
-
-Pada instruksi, Anda dapat menggunakan penanda berikut:
-
-- `{{NAMA_TES}}` untuk menampilkan nama tes.
-- `{{JUMLAH_SOAL}}` untuk menampilkan jumlah soal.
-- `{{DURASI_TES}}` untuk menampilkan durasi pengerjaan.
-
-Setelah semua kolom terisi, klik **Buat**. Pilih **Buat & buat lainnya** jika ingin langsung menambahkan tes berikutnya.
-
-## 3. Buka Tes Ujian yang Sudah Dibuat
+Tes yang sudah dibuat tampil pada bagian **Daftar Tes Ujian** beserta jenis ujian, durasi, dan metode penilaiannya.
 
 <Frame>
-  ![Tes ujian baru dengan keterangan belum memiliki sesi ujian](/images/buka-tes-ujian.png)
+  ![Tes ujian dengan keterangan Tes belum memiliki sesi ujian dan tombol Ubah](/images/data-ujian/membuat-tes-ujian/05-daftar-tes-belum-ada-sesi.png)
 </Frame>
 
-Setelah tes ujian berhasil dibuat, tes ujian tersebut akan tampil pada bagian **Daftar Tes Ujian**.
+Keterangan **Tes belum memiliki sesi ujian** berarti tes sudah tersimpan, tetapi belum memiliki jadwal pelaksanaan sehingga belum dapat dikerjakan peserta. Klik **Ubah** pada tes untuk membuka halaman detail tes. Cara membuat sesinya dijelaskan di [Membuat Sesi Ujian](/data-ujian/membuat-sesi-ujian).
 
-💡 Perhatikan keterangan **Tes belum memiliki sesi ujian**. Artinya, tes sudah tersimpan, tetapi belum memiliki jadwal pelaksanaan sehingga belum dapat dikerjakan oleh peserta. Pilih tombol **Ubah** pada tes yang ingin dilanjutkan. Cara membuat sesinya dijelaskan pada halaman [Membuat Sesi Ujian](/data-ujian/membuat-sesi-ujian).
-
-## 4. Atur Skor dan Hasil Ujian
+<Note>
+  - Jika **Apakah Tes Ujian Harus Dikerjakan Secara Berurutan?** diaktifkan pada ujian, tombol **Ubah Urutan Tes Ujian** muncul di bagian ini. Seret tes untuk mengatur urutannya, lalu klik **Selesai Mengurutkan**.
+  - Tombol **Hapus** menghapus tes. Tes yang sudah memiliki peserta tidak dapat dihapus.
+</Note>
 
 <Frame>
-  ![Pengaturan pada tab Skor & Hasil tes ujian](/images/skor-dan-hasil.png)
+  ![Tiga tab pada halaman detail tes ujian](/images/data-ujian/membuat-tes-ujian/06-detail-tes-ujian.png)
 </Frame>
 
-Pilih bagian **Skor & Hasil**, tentukan informasi apa saja yang boleh dilihat peserta setelah menyelesaikan tes. Bagian ini hanya tersedia untuk tes berjenis CBT dan CAT.
+Halaman detail tes memiliki tab berikut:
 
-1. **Tampilkan Skor**<br />Aktifkan jika peserta boleh langsung melihat nilai setelah selesai mengerjakan.
-2. **Tampilkan Ringkasan**<br />Aktifkan jika peserta boleh melihat jumlah jawaban benar dan salah.
-3. **Tampilkan Pembahasan Tes (PDF)**<br />Aktifkan jika Anda ingin membagikan satu file PDF yang berisi pembahasan seluruh soal. Setelah diaktifkan, unggah file tersebut pada kolom **File Pembahasan Tes (PDF)**.
-4. **Tampilkan Pembahasan Per Soal**<br />Aktifkan jika peserta boleh melihat pembahasan pada setiap soal. Pastikan pembahasan sudah diisi pada masing-masing soal di paket soal. Pengaturan ini tidak dapat aktif bersamaan dengan **Tampilkan Pembahasan Tes (PDF)**.
+1. **Informasi Umum**: **Nama Tes**, **Durasi Pengerjaan (menit)**, **Jenis Ujian**, **Metode Penilaian**, dan **Instruksi Pengerjaan Tes Ujian**.
+2. **Skor & Hasil**: informasi yang boleh dilihat peserta setelah selesai.
+3. **Pengawasan**: pengawasan peserta dan pengaturan audio.
 
-Setelah pengaturan selesai, klik **Simpan**.
+Tab **Biaya Tes Ujian** juga muncul jika tipe pembayaran ujian adalah **Berbayar per Tes Ujian**. Tab ini berisi **Biaya Tes Ujian (IDR)** dan **Deskripsi Ujian Berbayar**, yaitu keterangan yang ditampilkan kepada peserta di dasbor. Tab **Skor & Hasil** dan **Pengawasan** hanya tersedia untuk tes CBT dan CAT.
+
+Klik **Simpan** setelah mengubah tab mana pun, lalu klik **Kembali ke Detail Ujian** untuk kembali ke halaman ujian. Di bawah tab terdapat bagian **Daftar Sesi Ujian** dan **Sesi Peserta Ujian** yang dijelaskan di [Membuat Sesi Ujian](/data-ujian/membuat-sesi-ujian).
+
+<Note>
+  **Durasi Pengerjaan (menit)** tidak dapat diubah selama ada peserta yang sedang mengerjakan tes, dan **Jenis Ujian** tidak dapat diubah setelah tes mulai dikerjakan.
+</Note>
+
+## Mengatur skor dan hasil
+
+<Frame>
+  ![Kolom bernomor pada tab Skor & Hasil](/images/data-ujian/membuat-tes-ujian/07-tab-skor-hasil.png)
+</Frame>
+
+Pada tab **Skor & Hasil**, tentukan informasi yang dapat dilihat peserta setelah menyelesaikan tes.
+
+1. **Tampilkan Skor**: peserta langsung melihat skor tes setelah selesai mengerjakan.
+2. **Tampilkan Ringkasan**: peserta melihat ringkasan jumlah jawaban benar dan salah.
+3. **Tampilkan Pembahasan Tes (PDF)**: peserta dapat membuka satu file PDF pembahasan. Setelah diaktifkan, unggah file pada kolom **File Pembahasan Tes (PDF)** yang muncul.
+4. **Tampilkan Pembahasan Per Soal**: peserta melihat pembahasan pada setiap soal. Pembahasan diambil dari soal di paket soal. Pengaturan ini tidak dapat aktif bersamaan dengan **Tampilkan Pembahasan Tes (PDF)**; mengaktifkan salah satunya menonaktifkan yang lain.
+5. Klik **Simpan**.
 
 <Tip>
-  Untuk tryout yang hasilnya ingin langsung diketahui peserta, aktifkan **Tampilkan Skor**.
+  Untuk tryout yang hasilnya ingin langsung diketahui peserta, aktifkan **Tampilkan Skor** dan **Tampilkan Ringkasan**.
 </Tip>
 
-## 5. Atur Pengawasan Peserta Ujian
+## Mengatur pengawasan
 
 <Frame>
-  ![Pengaturan pada tab Pengawasan tes ujian](/images/pengawasan.png)
+  ![Kolom bernomor pada tab Pengawasan untuk ujian Standard](/images/data-ujian/membuat-tes-ujian/08-tab-pengawasan.png)
 </Frame>
 
-Pada bagian **Pengawasan**, Anda dapat menentukan cara sistem mengawasi peserta selama ujian berlangsung. Bagian ini hanya tersedia untuk tes berjenis CBT dan CAT.
+Tab **Pengawasan** berisi dua kelompok pengaturan: **Pengawasan Peserta** dan **Audio & Visual**.
 
-1. **Pengawasan Kamera**<br />Aktifkan jika peserta wajib menyalakan kamera selama mengerjakan ujian.<br />Contoh: digunakan agar pengawas dapat memastikan peserta mengerjakan ujian sendiri.
-2. **Deteksi Pindah Tab**<br />Aktifkan jika sistem perlu mencatat saat peserta membuka tab atau halaman lain selama ujian.<br />Contoh: peserta berpindah dari halaman ujian ke mesin pencarian.
-3. **Pengawasan Layar (Share Screen)**<br />Aktifkan jika peserta wajib membagikan tampilan layar selama ujian.<br />Contoh: pengawas dapat melihat aplikasi atau halaman yang sedang dibuka peserta.
-4. **Hanya Izinkan Satu Layar**<br />Aktifkan jika peserta hanya boleh menggunakan satu monitor.<br />Pengaturan ini cocok untuk ujian berbayar atau ujian yang membutuhkan pengawasan lebih ketat.
-5. **Soal Audio Sekali Putar**<br />Aktifkan jika audio pada soal hanya boleh didengarkan satu kali.<br />Contoh: soal listening bahasa Inggris.
-6. **Jawaban Audio Sekali Putar**<br />Aktifkan jika audio pada pilihan jawaban hanya boleh didengarkan satu kali.
+1. **Pengawasan Kamera**: peserta wajib mengaktifkan kamera selama mengerjakan soal.
+2. **Pengawasan Layar (Share Screen)**: peserta wajib membagikan tampilan layar selama mengerjakan soal.
+3. **Deteksi Pindah Tab**: sistem mencatat saat peserta berpindah ke tab atau jendela lain selama ujian.
+4. **Hanya Izinkan Satu Layar**: peserta hanya boleh memakai satu monitor.
+5. **Soal Audio Sekali Putar**: audio pada soal hanya dapat diputar satu kali, misalnya untuk soal *listening*.
+6. **Jawaban Audio Sekali Putar**: audio pada pilihan jawaban hanya dapat diputar satu kali.
+7. Klik **Simpan**.
 
-Setelah pengaturan selesai, klik **Simpan**.
+Pengaturan nomor 5 dan 6 hanya berlaku untuk soal bertipe audio atau video.
+
+<Note>
+  Keterangan **(Fitur tidak aktif)** berarti fitur tersebut tidak tersedia untuk tipe ujian yang dipakai. Pada **Ujian Standard (Paket Gratis)**, **Pengawasan Kamera**, **Pengawasan Layar (Share Screen)**, dan **Hanya Izinkan Satu Layar** tidak dapat diaktifkan. **Deteksi Pindah Tab** tersedia pada kedua tipe ujian.
+</Note>
 
 <Warning>
-  **Pengawasan Kamera** dan **Pengawasan Layar (Share Screen)** memakai kredit proctoring tersendiri (add-on). Setiap kali peserta memulai tes, 1 kredit untuk setiap jenis pengawasan yang aktif terpakai. Jika kreditnya habis, peserta tidak dapat memulai tes.
+  **Pengawasan Kamera** dan **Pengawasan Layar (Share Screen)** memakai kredit proctoring tersendiri (add-on). Setiap kali peserta memulai tes, satu kredit untuk setiap jenis pengawasan yang aktif terpakai. Jika kreditnya habis, peserta tidak dapat memulai tes.
 </Warning>
 
-<Note>
-  Keterangan **(Fitur tidak aktif)** berarti fitur tersebut tidak tersedia dalam tipe ujian yang digunakan, misalnya **Ujian Standard (Paket Gratis)**.
+Setelah tes siap, lanjutkan dengan membuat jadwal pelaksanaannya:
 
-  <Frame>
-    ![Pengaturan pengawasan berketerangan Fitur tidak aktif pada Ujian Standard](/images/fitur-standar.png)
-  </Frame>
-</Note>
+<Card title="Membuat Sesi Ujian" icon="arrow-right" horizontal href="/data-ujian/membuat-sesi-ujian">
+  Tentukan jadwal tes dan paket soal yang dikerjakan peserta.
+</Card>

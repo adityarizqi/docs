@@ -1,238 +1,187 @@
 ---
 title: "Participant Login"
-description: "How to set up your CBT system details and participant login options, and how participants create an account and log in."
+description: "How to find the participant login link, set up Google login and self-registration, and how participants register and log in."
 ---
 
-Before participants can log in to the CBT Indolat system, you need to set up the system's front page. Here you can decide:
-
-- The exam organiser name participants will see
-- The link (_URL_) that opens the participant _login_ page
-- Whether participants may log in with Google or create their own account
+This page covers the settings that decide how participants enter the exam app: the login link you share with participants, the Google login button, and self-registration. The last section shows the registration and email verification steps from the participant's side.
 
 <Info>
-  These settings are in the **Application Settings** menu.
+  **Menu location:** **Portal** → **Platform Ujian (CBT)** (Exam Platform) → **Lainnya** (Other) → **Pengaturan Aplikasi** (Application Settings)
+
+  **Required role:** project owner, or an admin whose role has access to the **Pengaturan Aplikasi** module.
 </Info>
 
-💡 For example, you are the **Indolat Tutoring Centre Admin** and you want to give participants access to this tryout (practice exam) for SNBT (Indonesia's national university entrance test):
+For example, you are the admin of **Bimbel Prestasi Nusantara** and want to share the **Tryout Akbar SNBT 2027** link with participants on WhatsApp or social media. Participants open the link, then log in with an account you prepared or create their own account.
 
-> **SNBT 2027 Grand Tryout**
+<Note>
+  The institution name, project code and participant app language are now set in **Administrasi Aplikasi** (Application Administration) → **Pengaturan Projek** (Project Settings) → **Profil Projek** (Project Profile). See [Project Profile](/en/administrasi/profil-projek). The logo, colour and login banner are set in **Branding & Warna**; see [Customise the Website Appearance](/en/lainnya/kustomisasi-tampilan-website).
+</Note>
 
-To let participants open the login page, you first need to set up the CBT system address. You can then share that link on WhatsApp, social media or any other channel.
+<Frame>
+  ![Pengaturan Aplikasi menu in the Platform Ujian (CBT) sidebar](/images/lainnya/login-peserta/01-menu-pengaturan-aplikasi.png)
+</Frame>
 
-## 1. Set Up the CBT System's General Information
+## Informasi Aplikasi (Application Information)
+
+The **Informasi Aplikasi** card is read-only on this page.
+
+<Frame>
+  ![Informasi Aplikasi card with Nama Lembaga, Kode Projek and Tautan Login Peserta](/images/lainnya/login-peserta/02-kartu-informasi-aplikasi.png)
+</Frame>
+
+1. **Nama Lembaga** (Institution Name): the name shown on the participant login page, for example **Bimbel Prestasi Nusantara**. The system adds the word **CBT** automatically, so the login page heading becomes **Masuk ke CBT Bimbel Prestasi Nusantara**.
+2. **Kode Projek** (Project Code): your project's short code, for example `prestasi`. It is part of the participant app address.
+3. **Tautan Login Peserta** (Participant Login Link): the login page address you share with participants, in the format `https://<project-code>.indolat.web.id/auth/login`. For example, `https://prestasi.indolat.web.id/auth/login`. Click the link to open it in a new tab.
+
+To change the institution name, project code or participant app language, click **Ubah di Profil Projek** (Change in Project Profile). You are taken to the [Project Profile](/en/administrasi/profil-projek) page in **Administrasi Aplikasi**.
+
+<Frame>
+  ![Ubah di Profil Projek link on the Informasi Aplikasi card](/images/lainnya/login-peserta/03-tautan-ubah-di-profil-projek.png)
+</Frame>
+
+<Warning>
+  Changing the project code also changes the participant login link. Links you have already shared no longer point to your project, so you need to share the new link.
+</Warning>
+
+## Pengaturan Lainnya (Other Settings)
+
+The **Pengaturan Lainnya** card has three switches, saved with the **Simpan** (Save) button.
+
+<Frame>
+  ![Pengaturan Lainnya card with three switches and the Simpan button](/images/lainnya/login-peserta/04-kartu-pengaturan-lainnya.png)
+</Frame>
+
+1. **Bebankan Biaya Transaksi ke Admin** (Charge Transaction Fee to Admin)
+2. **Autentikasi dengan Google** (Google Authentication)
+3. **Izinkan pendaftaran akun mandiri** (Allow self-registration)
+4. **Simpan**
 
 <Steps>
-  <Step title="Open Application Settings, then select General Information">
-    <Frame caption="Here you can set the name, website address and language that participants will see.">
-      ![General Information tab in the Application Settings menu](/images/2026-07-25_02-51.png)
-    </Frame>
-  </Step>
-  <Step title="Enter the Basic Information for Your CBT System">
+  <Step title="Decide who pays the transaction fee (optional)">
     <Frame>
-      ![CBT System Name, Code and Language fields on the General Information tab](/images/2026-07-25_02-55.png)
+      ![Bebankan Biaya Transaksi ke Admin switch](/images/lainnya/login-peserta/05-bebankan-biaya-transaksi.png)
     </Frame>
 
-    1. **CBT System Name**<br />Enter the institution name shown on the participant pages, without the word **CBT**. The system adds it automatically, for example **CBT Try Out Indolat**.<br />Example: **Try Out Indolat**
+    **Bebankan Biaya Transaksi ke Admin** only applies to paid exams.
 
-       <Tip>
-         Use a name that is easy to recognise so participants know they have opened the right page.
-       </Tip>
+    - When it is on, you as the organiser pay the payment transaction fee, and it is deducted from the participant's payment.
+    - When it is off, the transaction fee is added to the participant's bill.
 
-       Here is how the **CBT System Name** looks to participants:
+    For example, with an exam fee of **Rp50,000** and a transaction fee of **Rp2,000**:
 
-       <Frame>
-         <img
-           src="/images/2026-07-25_02-57.png"
-           alt="CBT System Name shown on the participant login page"
-           className="mx-auto"
-           style={{ width:"69%" }}
-         />
-       </Frame>
-    2. **CBT System Code**<br />Enter a short code that becomes your CBT system's web address. Use lowercase letters, numbers or hyphens (-), at least 4 characters, and a code no other system already uses.<br />Example: `tryout-lembaga-indolat`
-
-       Once the code is saved, the system creates a login link like this:
-
-       > `https://tryout-lembaga-indolat.indolat.web.id/auth/login`
-
-       This is the address participants open to log in to the CBT system.
-
-       <Frame>
-         <img
-           src="/images/2026-07-25_03-01.png"
-           alt="CBT system login link in the browser address bar"
-           className="mx-auto"
-           style={{ width:"81%" }}
-         />
-       </Frame>
-    3. **CBT System Language**<br />Choose the language used in the system interface.<br />Example: **Bahasa Indonesia**
+    | Setting | Participant pays | Admin receives |
+    | --- | --- | --- |
+    | On | Rp50,000 | Rp48,000 |
+    | Off | Rp52,000 | Rp50,000 |
   </Step>
-  <Step title="Click Save">
-    Once you have checked all the information, click **Save**.
-
+  <Step title="Set Autentikasi dengan Google (optional)">
     <Frame>
-      ![Save button on the General Information tab](/images/2026-07-25_03-42.png)
+      ![Autentikasi dengan Google switch](/images/lainnya/login-peserta/06-autentikasi-dengan-google.png)
     </Frame>
+
+    - When it is on, the **Lanjutkan dengan Google** (Continue with Google) button appears on the participant login page, and **Daftar dengan Google** (Register with Google) appears on the registration page. Participants can log in with their Google account without remembering a new password.
+
+      <Frame>
+        ![Participant login page with the Lanjutkan dengan Google button](/images/lainnya/login-peserta/07-login-dengan-tombol-google.png)
+      </Frame>
+
+    - When it is off, the button is hidden and participants log in with their email address and password.
+
+      <Frame>
+        ![Participant login page without the Lanjutkan dengan Google button](/images/lainnya/login-peserta/08-login-tanpa-tombol-google.png)
+      </Frame>
+
+    <Note>
+      The Google login button is not shown when the login page is opened in the Indolat native mobile app, even when this setting is on.
+    </Note>
+  </Step>
+  <Step title="Set Izinkan pendaftaran akun mandiri (optional)">
+    <Frame>
+      ![Izinkan pendaftaran akun mandiri switch](/images/lainnya/login-peserta/09-izinkan-pendaftaran-akun-mandiri.png)
+    </Frame>
+
+    - When it is on, a **Daftar** (Register) link appears below the **Masuk** (Log in) button on the participant login page, so participants can create their own account.
+
+      <Frame>
+        ![Participant login page with the Daftar link](/images/lainnya/login-peserta/10-login-dengan-tautan-daftar.png)
+      </Frame>
+
+    - When it is off, the **Daftar** link is hidden. Participants can only log in with accounts an admin prepared with **Tambah Akun** or **Import Akun** (see [Add Participant Accounts](/en/data-akun/menambahkan-akun-peserta)).
+
+      <Frame>
+        ![Participant login page without the Daftar link](/images/lainnya/login-peserta/11-login-tanpa-tautan-daftar.png)
+      </Frame>
+  </Step>
+  <Step title="Click Simpan">
+    <Frame>
+      ![Simpan button on the Pengaturan Lainnya card](/images/lainnya/login-peserta/12-tombol-simpan.png)
+    </Frame>
+
+    After saving, the **Berhasil Menyimpan Pengaturan** (Settings saved) notification appears. The change applies to the participant login page straight away.
   </Step>
 </Steps>
 
-## 2. Set How Participants Create an Account
+## How participants register and log in
 
-In this section, you choose which login options are available to participants and who pays the transaction fee for exam payments.
-
-<Steps>
-  <Step title="Open Application Settings, then select Other Settings">
-    <Frame>
-      ![Other Settings tab in the Application Settings menu](/images/2026-07-25_03-07.png)
-    </Frame>
-  </Step>
-  <Step title="Choose Who Pays the Transaction Fee (Optional)">
-    <Frame>
-      ![Charge the Transaction Fee to the Admin toggle in Other Settings](/images/2026-07-25_03-24.png)
-    </Frame>
-
-    Set the **Charge the Transaction Fee to the Admin** option. This setting only applies to paid exams.
-
-    - Turn this option on if you, as the organiser, want to cover the _admin fee_ for payment transactions.
-    - If it is turned off, the transaction _admin fee_ is added to the participant's bill.
-
-    💡 Example: the exam fee is **Rp50,000** and the transaction _admin fee_ is **Rp2,000**.
-
-    **If Charge the Transaction Fee to the Admin is turned on:**
-
-    - The participant pays **Rp50,000**
-    - The **Rp2,000** transaction fee is deducted from the payment
-    - The admin receives **Rp48,000**
-
-    **If the setting is turned off:**
-
-    - The participant pays **Rp52,000**
-    - This is the **Rp50,000** exam fee plus the **Rp2,000** transaction fee
-    - The admin still receives **Rp50,000**
-
-    <Frame>
-      ![Table comparing what the participant pays and the admin receives](/images/2026-07-25_03-28.png)
-    </Frame>
-  </Step>
-  <Step title="Configure Authenticate with Google (Optional)">
-    <Frame>
-      ![Authenticate with Google toggle in Other Settings](/images/2026-07-25_03-25.png)
-    </Frame>
-
-    - Turn this option on if participants may log in with an existing Google or Gmail account. Once it is on, the **Continue with Google** button appears on the participant login page.
-
-      <Frame>
-        ![Continue with Google button on the participant login page](/images/2026-07-25_03-33-1.png)
-      </Frame>
-
-      <Tip>
-        This **makes it easier** for participants, as they don't need to create and remember a new password.
-      </Tip>
-
-    - If it is turned off, the **Continue with Google** button does not appear on the participant login page.
-
-      <Frame>
-        ![Participant login page without the Continue with Google button](/images/2026-07-25_03-36.png)
-      </Frame>
-  </Step>
-  <Step title="Allow Self-Service Account Registration (Optional)">
-    <Frame>
-      ![Allow self-service account registration toggle in Other Settings](/images/2026-07-25_03-25_1.png)
-    </Frame>
-
-    - Turn this option on if participants may create their own account from the login page. Once it is on, the **Register** button appears on the participant login page.
-
-      <Frame>
-        ![Register button shown on the participant login page](/images/2026-07-25_03-39.png)
-      </Frame>
-
-    - If it is turned off, participants can only log in with accounts the admin has prepared.
-
-      <Frame>
-        ![Participant login page without the Register button](/images/2026-07-25_03-40.png)
-      </Frame>
-  </Step>
-  <Step title="Click Save">
-    Once everything is set as you want, click **Save**.
-
-    <Frame>
-      ![Save button on the Other Settings tab](/images/2026-07-25_03-43.png)
-    </Frame>
-  </Step>
-</Steps>
-
-## 3. How Participants Log In
+The following steps apply when **Izinkan pendaftaran akun mandiri** is on. Participants who already have an account just fill in **Alamat Email** (Email Address) and **Kata Sandi** (Password) on the login page and click **Masuk**.
 
 <Steps>
-  <Step title="The Participant Opens the Exam Link">
+  <Step title="The participant opens the login link and clicks Daftar">
     <Frame>
-      ![CBT login page opened by the participant](/images/2026-07-25_02-09.png)
-    </Frame>
-
-    Participants can log in or create an account in two ways: by choosing **Continue with Google** or by clicking **Register**. As the exam organiser, you decide which of these options are available.
-
-    For the setup steps, see section **2. Set How Participants Create an Account** above.
-  </Step>
-  <Step title="Click Register">
-    <Frame>
-      ![Register button on the participant login page](/images/2026-07-25_02-14.png)
+      ![Daftar link on the participant login page](/images/lainnya/login-peserta/13-peserta-klik-daftar.png)
     </Frame>
   </Step>
-  <Step title="The Participant Fills In Their Account Details">
+  <Step title="The participant fills in the registration form">
     <Frame>
-      ![Participant account registration form](/images/2026-07-25_02-16.png)
+      ![Completed Daftar CBT Bimbel Prestasi Nusantara form](/images/lainnya/login-peserta/14-formulir-pendaftaran.png)
     </Frame>
 
-    1. **Full Name**<br />Enter the participant's name as it will be used in the system.
-    2. **Email Address**<br />Enter an email address that is still in use. The system sends the verification code to this address.
-    3. **Password**<br />Create a password that is easy to remember but hard for others to guess.
-    4. **Confirm Password**<br />Enter the same password again to make sure there are no typos.
-    5. **Agreement to the Terms of Service and Privacy Policy**<br />Tick this box to confirm that the participant has read and agrees to the terms.
-    6. **Register**<br />Once everything is filled in, click **Register** to create the account.
+    1. **Nama Lengkap** (Full Name): the name used in the system, for example **Sinta Maharani**.
+    2. **Alamat Email**: an active email address owned by the participant, for example `sinta.maharani@contoh.id`. The verification code is sent here.
+    3. **Kata Sandi**: at least 8 characters.
+    4. **Konfirmasi Kata Sandi** (Confirm Password): the same password as the previous field.
+    5. **Agreement**: tick the statement that the participant agrees to the **Ketentuan Layanan** (Terms of Service) and **Kebijakan Privasi** (Privacy Policy).
+    6. **Daftar**: click to create the account.
+
+    <Note>
+      Registration is refused if the email address is already registered in the same project, or if it belongs to a temporary (_disposable_) or anonymous email service.
+    </Note>
   </Step>
-  <Step title="The Participant Verifies Their Email">
+  <Step title="The participant opens the verification email">
+    After registering, the participant is taken to the **Verifikasi Email Anda** (Verify Your Email) page.
+
     <Frame>
-      ![Verify Your Email page after successful registration](/images/2026-07-25_02-19.png)
+      ![Verifikasi Email Anda page with six code boxes](/images/lainnya/login-peserta/15-halaman-verifikasi-email.png)
     </Frame>
 
-    Once the participant has created an account, the system sends a verification code to the registered email address.
-
-    This verification makes sure the email address is correct and can be used by the participant.
-
-    💡 For example, the participant registers with the email `sintamhs0215@yopmail.com`.
-
-    What the participant needs to do:
-
-    1. Open the inbox of the registered email address.
-    2. Look for the email from **CBT Indolat**.
-    3. Copy the 6-digit verification code.
-    4. Enter the code on the verification page.
-    5. Click **Verify Account**.
+    The system sends an email from **CBT Indolat** with the subject **Kode OTP Anda: [code]** (Your OTP code). The email contains a 6-digit verification code.
 
     <Frame>
-      ![Email from CBT Indolat with the 6-digit verification code](/images/2026-07-25_02-20.png)
+      ![Kode Verifikasi Anda email with a 6-digit code](/images/lainnya/login-peserta/16-email-kode-verifikasi.png)
     </Frame>
-
+  </Step>
+  <Step title="The participant enters the code and clicks Verifikasi Akun">
     <Frame>
-      ![Verification code entered and Verify Account clicked](/images/2026-07-25_02-20_1.png)
+      ![Verification code filled in and the Verifikasi Akun button clicked](/images/lainnya/login-peserta/17-kode-verifikasi-diisi.png)
     </Frame>
 
     <Note>
-      The verification code is only valid for **5 minutes**. If the code hasn't arrived or no longer works, choose **Resend Code** to get a new one.
+      The verification code is only valid for **5 minutes**. If the code has not arrived or has expired, click **Kirim Ulang Kode** (Resend Code) to get a new one. Check the spam folder too.
+
+      <Frame>
+        ![Kirim Ulang Kode link on the verification page](/images/lainnya/login-peserta/18-kirim-ulang-kode.png)
+      </Frame>
     </Note>
-
-    <Frame>
-      ![Resend Code link on the email verification page](/images/2026-07-25_02-26.png)
-    </Frame>
   </Step>
-  <Step title="The Participant Is Logged In to the CBT Page">
+  <Step title="The participant lands on the Daftar Tes page">
     <Frame>
-      ![Exam List page with the New Exam Registration button](/images/2026-07-25_02-21.png)
+      ![Participant Daftar Tes page with the Pendaftaran Tes Baru button](/images/lainnya/login-peserta/19-halaman-utama-peserta.png)
     </Frame>
 
-    After verification, the participant lands on the home page and can continue by choosing **New Exam Registration** to find an exam to take.
+    Once verification succeeds, the participant lands on the **Daftar Tes** (Test List) page. The **Pendaftaran Tes Baru** (New Test Registration) button appears when an active exam is currently running, so the participant can find and register for an exam.
 
     <Info>
-      Email verification is only needed for participants who create their own account. Accounts that the admin adds through **Import Accounts** skip this step.
+      Email verification is only needed for participants who register themselves. Accounts added by an admin with **Tambah Akun** or **Import Akun** are verified immediately. If a participant does not receive the code, an admin can verify the account manually with the **Verifikasi Email** button in the participant account list.
     </Info>
   </Step>
 </Steps>

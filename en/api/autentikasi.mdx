@@ -6,6 +6,14 @@ sidebarTitle: "Authentication"
 
 Use this page to set up the initial connection before calling any other endpoint.
 
+## Getting an API Key
+
+The API Key, Base URL, and authentication header are shown in the **Integrasi API** (API Integration) section under
+**Portal** → **Administrasi Aplikasi** → **Pengaturan Projek** → **Integrasi & API**. The API can be used only after
+**Aktifkan Add-on Integrasi API** (Enable API Integration add-on) is switched on. The full steps, including
+**Whitelist IP**, **Domain Redirect Setelah Ujian** (post-exam redirect domains), and webhooks, are described in
+[Integrations & API](/en/administrasi/integrasi-dan-api).
+
 ## General configuration
 
 - Base URL: `https://app.indolat.com/api/v1`
@@ -106,7 +114,7 @@ Main status codes: `200` success, `201` created, `401` invalid API key, `403` ac
 ## Security notes
 
 - Store the API key on your server only, never in a frontend or mobile app.
-- Use the IP whitelist under **Application Settings → API Integration** whenever possible.
+- Fill in the **Whitelist IP** field under **Portal** → **Administrasi Aplikasi** → **Pengaturan Projek** → **Integrasi & API** (Integrations & API) whenever possible.
 - Register only domains you own under **Post-Exam Redirect Domains**. Exam access links accept a `return_url` only on a registered domain and over `https://`.
 - Regenerate the API key (**Regenerate API Key**) immediately if you suspect it has leaked; the old key stops working straight away.
 - An exam access link acts as a participant login and can be used only once. Create the link when the participant is about to sign in, redirect the participant straight away, and keep the validity period as short as possible.

@@ -1,1170 +1,514 @@
 ---
 title: "Membuat Ujian Pertama Anda dalam 5 Menit!"
-description: "Panduan cepat membuat ujian pertama di CBT Indolat, dari menyiapkan paket soal hingga peserta siap mengerjakan dan hasilnya diunduh."
+description: "Panduan cepat membuat ujian pertama di CBT Indolat, mulai dari paket soal hingga peserta mengerjakan ujian dan hasilnya diunduh."
 ---
 
-Halo! Selamat datang di panduan cepat (_Quick Start_) Indolat.
+Panduan cepat (_quick start_) ini menuntun Anda membuat satu ujian dari awal sampai selesai: menyiapkan paket soal, membuat ujian, tes, dan sesi, menambahkan peserta, mencoba ujian dari sisi peserta, lalu memantau dan mengunduh hasilnya. Pengaturan lanjutan tidak dibahas di sini; setiap bagian menautkan halaman panduan yang lebih lengkap.
 
-Pada panduan ini, Anda akan membuat sebuah ujian hingga siap dikerjakan oleh para peserta. Pengaturan lanjutan tidak akan dibahas terlebih dahulu. Kita akan fokus pada **langkah-langkah utama yang paling sering digunakan**.
+<Info>
+  **Lokasi menu:** **Portal** → **Platform Ujian (CBT)**. Semua langkah admin di halaman ini dilakukan di modul Platform Ujian (CBT).
 
-## Bagian Dalam Ujian
+  **Peran:** pemilik projek, atau admin yang diberi akses ke menu **Data Paket Soal**, **Data Ujian**, dan menu **Ujian** lainnya (lihat [Manajemen Akses Admin](/lainnya/manajemen-akses-admin)).
+</Info>
 
-Secara sederhana, proses pembuatan ujian terdiri dari empat bagian:
+## Gambaran alur
 
-1. **Paket Soal**, yaitu tempat menyimpan kumpulan soal, biasa disebut bank soal.
-2. **Ujian**, yaitu kegiatan utama yang akan diikuti peserta.
-3. **Tes Ujian**, yaitu bagian atau mata ujian yang terdapat di dalam sebuah ujian.
-4. **Sesi Ujian**, yaitu jadwal pelaksanaan ujian untuk peserta.
+Sebuah ujian di CBT Indolat tersusun dari beberapa bagian berikut.
 
-💡 Sebagai contoh, Anda adalah **Pemilik Lembaga Bimbingan Indolat** yang akan menyelenggarakan **Tryout Akbar persiapan SNBT 2027**:
+| Bagian | Fungsi | Contoh di panduan ini |
+| --- | --- | --- |
+| **Paket Soal** | Bank soal berisi butir soal dan kunci jawabannya. | **Paket Penalaran Matematika** (kode **PM-TOAKBAR27**), 3 soal pilihan ganda |
+| **Ujian** | Acara utama yang diikuti peserta. | **Tryout Akbar SNBT 2027 – Gelombang 1** (kode **TOAKBAR27-G1**) |
+| **Tes Ujian** | Mata ujian (subtes) di dalam ujian, dengan durasi dan metode penilaian sendiri. | **Penalaran Matematika**, 30 menit |
+| **Sesi Ujian** | Jadwal pengerjaan sebuah tes sekaligus paket soal yang dipakai. | **Sesi 1**, 24 November 2026 pukul 13.00 sampai 30 November 2026 pukul 21.00 |
+| **Peserta** | Akun yang terdaftar pada ujian dan dihubungkan ke sesi. | 5 siswa yang diimpor dari Excel, misalnya **Dimas Pratama** |
 
-- Paket Soal: **Paket Penalaran Matematika**
-- Ujian: **Tryout Akbar SNBT 2027**
-- Tes Ujian: **Matematika**
-- Sesi Ujian: **Sesi Pagi, pukul 10.00–12.00**
+Urutannya: buat paket soal, buat ujian, tambahkan tes, buat sesi untuk tes tersebut, tambahkan peserta, lalu hubungkan peserta ke sesi. Peserta baru dapat mengerjakan tes jika keempat hal itu sudah lengkap.
 
-Setelah memahami susunan tersebut, Anda dapat mulai dari menyiapkan paket soal! 🚀
+## 1. Membuka Platform Ujian (CBT)
 
-## 1. Membuat Paket Soal
+<Steps>
+  <Step title="Masuk dan buka modul Platform Ujian (CBT)">
+    <Frame>
+      ![Ubin Platform Ujian (CBT) pada Daftar Modul di halaman Portal](/images/mulai-cepat/membuat-ujian-pertama/01-portal-platform-ujian.png)
+    </Frame>
 
-Sebelum menyelenggarakan ujian, siapkan terlebih dahulu **wadah** untuk soal-soal yang akan dikerjakan oleh peserta.
+    Setelah masuk ke panel admin, Anda berada di halaman **Portal**. Pada bagian **Daftar Modul**, klik **Platform Ujian (CBT)**. Semua menu yang dipakai di panduan ini ada di sidebar modul tersebut.
+  </Step>
+</Steps>
 
-**Paket soal berfungsi sebagai tempat menyimpan seluruh butir soal beserta jawabannya**, atau bisa disebut bank soal. Kemudian, tentukan jenis paket soalnya, apakah **CBT/CAT** atau **Esai/Upload File**.
+## 2. Membuat paket soal
 
-<Note>
-  Paket soal **CBT/CAT** dan **Esai/Upload File** **tidak dapat digabungkan** dalam satu paket soal. Jika ujian membutuhkan kedua jenis soal tersebut, buat dua paket soal yang berbeda, lalu tambahkan sebagai tes ujian yang terpisah.
+<Steps>
+  <Step title="Buka Data Paket Soal, lalu klik Tambah Paket Soal">
+    <Frame>
+      ![Menu Data Paket Soal di sidebar dan tombol Tambah Paket Soal](/images/mulai-cepat/membuat-ujian-pertama/02-menu-data-paket-soal.png)
+    </Frame>
 
-  Contoh:
+    1. Di sidebar, klik **Manajemen Ujian** → **Data Paket Soal**.
+    2. Klik **Tambah Paket Soal**.
+  </Step>
+  <Step title="Isi informasi paket soal">
+    <Frame>
+      ![Formulir Informasi Umum paket soal yang sudah diisi](/images/mulai-cepat/membuat-ujian-pertama/03-formulir-paket-soal.png)
+    </Frame>
 
-  - Paket Soal 1: **Pilihan Ganda Matematika** — jenis CBT/CAT
-  - Paket Soal 2: **Esai Matematika** — jenis Esai/Upload File
+    1. **Nama Paket Soal**: nama yang mudah dikenali, misalnya **Paket Penalaran Matematika**.
+    2. **Kode Paket Soal**: kode unik di projek Anda, misalnya **PM-TOAKBAR27**. Kode yang sudah dipakai paket lain akan ditolak.
+    3. **Deskripsi Paket Soal**: penjelasan singkat isi paket (maksimal 1.000 karakter).
+    4. **Jenis Paket Soal**: pilih **CBT/CAT** agar peserta menjawab langsung di layar dan dinilai otomatis. Jenis ini tidak dapat diubah setelah paket disimpan.
+    5. **Acak Soal**: aktifkan agar urutan soal berbeda untuk setiap peserta.
+    6. **Acak Jawaban (Pilihan Ganda)**: aktifkan agar urutan pilihan jawaban berbeda untuk setiap peserta.
+    7. Klik **Buat**. Halaman paket soal terbuka dan Anda dapat langsung menambahkan butir soal.
 
-  Dengan begitu, setiap paket soal memiliki jenis pengerjaan dan penilaian yang jelas.
-</Note>
+    <Note>
+      Pilih **Esai/Upload File (Jawaban Manual)** jika peserta menulis uraian atau mengunggah berkas jawaban yang dinilai manual. Paket jenis ini tidak dapat dipakai untuk tes CBT/CAT, dan sebaliknya. Penjelasannya ada di [Membuat Paket Soal](/paket-soal/membuat-paket-soal).
+    </Note>
+  </Step>
+</Steps>
 
-<AccordionGroup>
-  <Accordion title="CBT / CAT" icon="sparkles">
-    <Steps>
-      <Step title="Buka menu Data Paket Soal">
-        <Frame>
-          ![Menu Data Paket Soal pada panel admin](/images/data-paket-ujian.png)
-        </Frame>
-      </Step>
-      <Step title="Klik Tambah Paket Soal">
-        <Frame>
-          ![Tombol Tambah Paket Soal pada halaman Data Paket Soal](/images/tambah-paket-soal.png)
-        </Frame>
-      </Step>
-      <Step title="Lengkapi Informasi Paket Soal">
-        <Frame>
-          ![Formulir informasi paket soal jenis CBT/CAT](/images/informasi-paket-soal.png)
-        </Frame>
+<Tip>
+  Selain mengisi soal satu per satu, Anda dapat memakai **Template Paket Soal**, [mengimpor soal dari Excel](/paket-soal/import-paket-soal), atau [membuat soal dengan Jasper AI](/paket-soal/generate-soal-ai).
+</Tip>
 
-        Pada tahap ini, Anda akan mengisikan informasi dan pengaturan dasar paket soal.
-
-        1. **Nama Paket Soal**<br />Masukkan nama yang mudah dikenali, misalnya **Penalaran Matematika**.
-        2. **Kode Paket Soal**<br />Masukkan kode unik untuk membedakan setiap paket soal, misalnya **MTK-UJIAN**.
-        3. **Deskripsi Paket Soal**<br />Tambahkan penjelasan singkat mengenai isi atau tujuan paket soal.
-        4. **Jenis Paket Soal**<br />Pilih **CBT/CAT** jika peserta akan mengerjakan dan menjawab soal secara langsung melalui sistem.
-        5. **Acak Soal**<br />Aktifkan apabila urutan soal ingin dibuat berbeda untuk setiap peserta.
-        6. **Acak Jawaban (Pilihan Ganda)**<br />Aktifkan apabila urutan pilihan jawaban ingin dibuat berbeda untuk setiap peserta. Pengaturan ini berlaku untuk soal pilihan ganda.
-        7. **Simpan Paket Soal**<br />Klik **Buat** untuk menyimpan paket soal dan melanjutkan ke proses penambahan butir soal.
-
-        <Tip>
-          <Frame>
-            ![Pilihan Jenis Paket Soal](/images/jenis-paket-soal.png)
-          </Frame>
-
-          - Pilih **CBT/CAT** jika peserta akan melihat soal di layar dan mengisikan jawaban langsung melalui platform ujian. Jenis ini **cocok digunakan untuk tryout UTBK-SNBT, olimpiade**, atau ujian berbasis komputer lainnya.
-          - Pilih **Esai/Upload File (Jawaban Manual)** jika soal sudah dibuat dalam satu berkas, misalnya PDF. Peserta akan membuka berkas tersebut untuk membaca soal, lalu mengirimkan jawaban sesuai petunjuk ujian.
-        </Tip>
-      </Step>
-      <Step title="Simpan Paket Soal">
-        <Frame>
-          ![Tombol Buat pada formulir paket soal](/images/download-1.png)
-        </Frame>
-
-        Klik **Buat** setelah mengisikan informasi paket soal. Selanjutnya, Anda dapat menambahkan butir soal ke dalam paket tersebut.
-      </Step>
-    </Steps>
-  </Accordion>
-
-  <Accordion title="Soal Esai/File" icon="sparkles">
-    <Steps>
-      <Step title="Buka menu Data Paket Soal">
-        <Frame>
-          ![Menu Data Paket Soal pada panel admin](/images/data-paket-ujian.png)
-        </Frame>
-      </Step>
-      <Step title="Klik Tambah Paket Soal">
-        <Frame>
-          ![Tombol Tambah Paket Soal pada halaman Data Paket Soal](/images/tambah-paket-soal.png)
-        </Frame>
-      </Step>
-      <Step title="Lengkapi Informasi Paket Soal">
-        <Frame>
-          ![Formulir informasi paket soal jenis Esai/Upload File](/images/esai-1.png)
-        </Frame>
-
-        Gunakan jenis paket soal ini jika peserta akan **menjawab dengan uraian atau mengunggah berkas jawaban**.
-
-        1. **Nama Paket Soal**: Isi nama paket soal agar mudah dikenali.<br />Contoh: **Literasi Bahasa Indonesia**.
-        2. **Kode Paket Soal**: Isi kode singkat dan unik.<br />Contoh: **LBI-UJIAN**.
-        3. **Deskripsi Paket Soal**: Tuliskan penjelasan singkat mengenai isi paket soal.<br />Contoh: _Kumpulan soal Literasi Bahasa Indonesia untuk persiapan SNBT 2027._
-        4. **Jenis Paket Soal**: Pilih **Esai/Upload File (Jawaban Manual)**. Gunakan pilihan ini jika peserta:
-           - menulis jawaban panjang langsung di sistem, atau
-           - mengunggah file jawaban, seperti PDF, Word, atau foto lembar jawaban. Jawaban peserta nantinya perlu diperiksa dan dinilai secara manual oleh penilai.
-        5. **Buat**<br />Setelah semua data terisi, klik **Buat** untuk menyimpan paket soal.
-
-        <Note>
-          Paket soal jenis ini tidak dapat digunakan untuk ujian CBT atau CAT karena jawabannya tidak diperiksa otomatis oleh sistem.
-        </Note>
-
-        <Tip>
-          <Frame>
-            ![Jenis Paket Soal Esai/Upload File (Jawaban Manual) dipilih](/images/esai-2.png)
-          </Frame>
-
-          - Pilih **CBT/CAT** jika peserta akan melihat soal di layar dan mengisikan jawaban langsung melalui platform ujian. Jenis ini **cocok digunakan untuk tryout UTBK-SNBT, olimpiade**, atau ujian berbasis komputer lainnya.
-          - Pilih **Esai/Upload File (Jawaban Manual)** jika soal sudah dibuat dalam satu berkas, misalnya PDF. Peserta akan membuka berkas tersebut untuk membaca soal, lalu mengirimkan jawaban sesuai petunjuk ujian.
-        </Tip>
-      </Step>
-      <Step title="Simpan Paket Soal">
-        <Frame>
-          ![Tombol Buat pada formulir paket soal esai](/images/simpan-paket-esai.png)
-        </Frame>
-
-        Klik **Buat** setelah mengisikan informasi paket soal. Selanjutnya, Anda dapat menambahkan butir soal ke dalam paket tersebut.
-      </Step>
-    </Steps>
-  </Accordion>
-</AccordionGroup>
-
-## 2. Membuat Butir-Butir Soal dan Jawaban
-
-Setelah paket soal berhasil dibuat, langkah berikutnya adalah menambahkan butir soal ke dalam paket tersebut.
+## 3. Menambahkan butir soal
 
 <Steps>
   <Step title="Klik Tambah Soal">
     <Frame>
-      ![Tombol Tambah Soal pada bagian Daftar Soal](/images/tambah-soal.png)
+      ![Tombol Tambah Soal pada bagian Daftar Soal di halaman paket soal](/images/mulai-cepat/membuat-ujian-pertama/04-tombol-tambah-soal.png)
     </Frame>
 
-    Pada bagian **Daftar Soal**, klik **Tambah Soal** untuk memasukkan soal satu per satu. Anda juga dapat menggunakan **Import Soal (Excel)** apabila sudah memiliki banyak soal dan ingin memasukkannya sekaligus.
+    Gulir ke bagian **Daftar Soal**, lalu klik **Tambah Soal**. Jendela **Tambah Soal** terbuka dengan tab **Soal**, **Jawaban**, **Pembahasan**, dan **Penilaian**.
 
-    <Tip>
-      Jika ada butir soal yang belum ditambahkan ke paket soal, Anda dapat menambahkannya kembali melalui langkah-langkah berikut:
-
-      1. Buka menu **Data Paket Soal**.
-      2. Pilih paket soal yang butir soalnya belum ditambahkan.
-      3. Klik **Ubah** pada paket soal tersebut.
-      4. Tambahkan butir soal pada bagian **Daftar Soal** melalui tombol **Tambah Soal**.
-
-      <Frame>
-        ![Tombol Ubah pada paket soal di halaman Data Paket Soal](/images/image-17.png)
-      </Frame>
-
-      <Frame>
-        ![Tombol Tambah Soal pada bagian Daftar Soal paket soal](/images/image-18.png)
-      </Frame>
-    </Tip>
+    Untuk membuka paket ini lagi nanti, buka **Data Paket Soal**, lalu klik **Ubah** pada paket tersebut.
   </Step>
-  <Step title="Lengkapi Informasi Soal">
+  <Step title="Isi tab Soal">
     <Frame>
-      ![Formulir informasi butir soal](/images/Lengkapi-informasi-soal.png)
+      ![Tab Soal pada jendela Tambah Soal dengan Jenis Soal, Media Soal, dan Teks Soal terisi](/images/mulai-cepat/membuat-ujian-pertama/05-formulir-soal.png)
     </Frame>
 
-    Setelah mengklik **Tambah Soal**, sistem secara otomatis akan menampilkan kolom isian untuk menambahkan soal ke dalam paket.
+    1. **Jenis Soal**: pilih **Pilihan Ganda**.
+    2. **Media Soal**: pilih **Teks**. Anda dapat memilih lebih dari satu media, misalnya teks dan gambar.
+    3. **Teks Soal**: tulis pertanyaannya, misalnya _Sebuah toko memberikan diskon 20% untuk sebuah tas. Setelah diskon, harga tas menjadi Rp240.000. Harga tas sebelum diskon adalah ...._
 
-    Mulailah dari bagian **Soal**, kemudian tentukan:
-
-    - **Jenis Soal**: untuk menentukan bentuk soal yang akan dikerjakan peserta:
-      <Frame>
-        <img
-          src="/images/image-19.png"
-          alt="Pilihan Jenis Soal"
-          style={{ width:"62%" }}
-        />
-      </Frame>
-      1. **Pilihan Ganda**<br />Peserta memilih satu jawaban yang benar.<br />Contoh: _Ibu kota Indonesia adalah ..._<br />A. Bandung<br />B. Jakarta<br />C. Surabaya
-      2. **Jawaban Singkat**<br />Peserta mengetik jawaban singkat berupa angka atau teks. Anda dapat menentukan lebih dari satu jawaban yang dianggap benar. Isi kuncinya pada bagian **Kunci Jawaban** yang muncul setelah jenis ini dipilih: **Format Jawaban** (**Teks** atau **Angka**), **Kunci Jawaban Utama**, dan **Jawaban Benar Lainnya**.<br />Contoh: _Ibu kota Indonesia adalah ..._<br />Jawaban benar: **DKI Jakarta** atau **Jakarta**
-      3. **Majemuk Kompleks (Benar/Salah, Fakta/Opini, dll.)**<br />Peserta memilih salah satu dari dua label untuk setiap pernyataan. Labelnya dapat berupa Benar/Salah, Fakta/Opini, Sesuai/Tidak Sesuai, Setuju/Tidak Setuju, Ya/Tidak, atau label lain yang Anda tentukan. Pilih labelnya pada kolom **Pasangan Label** di bagian **Label Kolom Pernyataan**; pilih **Label lain (isi sendiri)** untuk menulis label sendiri.<br />Contoh:
-         - Matahari terbit dari timur — **Benar**
-         - Air membeku pada suhu 100°C — **Salah**
-      4. **Menjodohkan (Drag & Drop)**<br />Peserta memasangkan dua pilihan yang sesuai. Isi pasangannya pada bagian **Pasangan Menjodohkan** (**Pernyataan (Kiri)** dan **Jawaban (Kanan)**); sisi kanan diacak saat ujian.<br />Contoh:
-         - Indonesia → Jakarta
-         - Jepang → Tokyo
-    - **Kelompok Soal**: digunakan untuk mengelompokkan beberapa soal yang memiliki bahan atau topik yang sama.
-      <Frame>
-        <img
-          src="/images/image-21.png"
-          alt="Kolom Kelompok Soal"
-          style={{ width:"61%" }}
-        />
-      </Frame>
-      Contoh: Ada satu bacaan berjudul **“Lingkungan Sekolah”**, lalu dari bacaan tersebut dibuat 3 soal. Ketiga soal itu dapat dimasukkan ke kelompok soal **Lingkungan Sekolah**. Jadi peserta membaca bahan yang sama, lalu menjawab beberapa soal yang berkaitan. Contoh lain:
-      - Kelompok Soal: **Teks Bacaan 1**
-      - Soal 1: Apa gagasan utama bacaan?
-      - Soal 2: Siapa tokoh dalam bacaan?
-      - Soal 3: Apa kesimpulan bacaan?
-      > Apabila setiap soal berdiri sendiri dan tidak memakai bahan yang sama, bagian **Kelompok Soal** boleh dikosongkan.
-    - **Wacana**: pilih bacaan bersama yang ditampilkan di atas teks soal. Daftar wacana diambil dari tab **Wacana** pada paket soal (lihat bagian **Membuat Wacana (Bacaan Bersama)** di halaman [Membuat Paket Soal](/paket-soal/membuat-paket-soal)). Kosongkan jika soal tidak memakai bacaan.
-    - **Jawaban Lebih dari Satu**: digunakan jika satu soal memiliki lebih dari satu jawaban yang benar. Pengaturan ini hanya muncul untuk soal **Pilihan Ganda**.
-      <Frame>
-        <img
-          src="/images/image-23.png"
-          alt="Pengaturan Jawaban Lebih dari Satu"
-          style={{ width:"58%" }}
-        />
-      </Frame>
-      Contoh: **Pilih hewan yang termasuk mamalia:**
-      - Kucing ✅
-      - Sapi ✅
-      - Ayam
-      - Ikan
-
-      Pada contoh tersebut, peserta harus memilih **Kucing** dan **Sapi**.
-      > Aktifkan pengaturan ini hanya jika peserta memang boleh memilih beberapa jawaban. Jika hanya ada satu jawaban benar, biarkan tetap nonaktif.
-    - **Media Soal**: digunakan untuk menentukan bentuk soal yang akan dilihat atau didengar oleh peserta.
-      <Frame>
-        <img
-          src="/images/image-24.png"
-          alt="Pilihan Media Soal"
-          style={{ width:"61%" }}
-        />
-      </Frame>
-      **Media Soal** dapat dipilih lebih dari satu dalam satu butir soal.
-      <Frame>
-        <img
-          src="/images/image-25.png"
-          alt="Media Soal teks, gambar, dan audio dipilih sekaligus"
-          style={{ width:"94%" }}
-        />
-      </Frame>
-      Artinya, satu butir soal dapat menggunakan gabungan **teks, gambar, dan audio** sekaligus. Contoh:
-      - **Teks** untuk menuliskan pertanyaan.
-      - **Gambar** untuk menampilkan grafik atau ilustrasi.
-      - **Audio** untuk bahan soal listening.
-      > Pilih media yang diperlukan sesuai bentuk soal yang akan dibuat.
+    **Kelompok Soal**, **Wacana**, dan **Jawaban Lebih dari Satu** boleh dibiarkan kosong untuk soal yang berdiri sendiri. Jenis soal lain (**Jawaban Singkat**, **Majemuk Kompleks**, **Menjodohkan**) dijelaskan di [Membuat Paket Soal](/paket-soal/membuat-paket-soal).
   </Step>
-  <Step title="Isikan Soal">
+  <Step title="Isi pilihan jawaban di tab Jawaban">
     <Frame>
-      ![Kolom Teks Soal pada formulir butir soal](/images/isikan-soal.png)
+      ![Tombol Isi 5 opsi (A–E) pada tab Jawaban](/images/mulai-cepat/membuat-ujian-pertama/06-tab-jawaban.png)
     </Frame>
 
-    Pada bagian **Teks Soal**, tuliskan pertanyaan yang akan dibaca oleh peserta.
+    Buka tab **Jawaban**, lalu klik **Isi 5 opsi (A–E)** untuk membuat lima pilihan jawaban sekaligus dengan media **Teks**. Gunakan **+ Tambah Jawaban** jika butuh pilihan tambahan.
 
-    Contoh:
+    <Frame>
+      ![Pilihan jawaban D dengan Kunci Jawaban aktif dan Teks Jawaban Rp300.000](/images/mulai-cepat/membuat-ujian-pertama/07-jawaban-dan-kunci.png)
+    </Frame>
 
-    > Sebuah toko memberikan diskon 20% untuk sebuah tas. Setelah diskon, harga tas menjadi Rp240.000. Harga tas sebelum diskon adalah ....
+    Pada setiap pilihan jawaban:
 
-    Gunakan tombol pada bagian atas kolom apabila ingin mengatur tulisan, membuat daftar, menambahkan tabel, atau menulis rumus matematika. Teks soal maksimal 5.000 karakter.
+    1. **Kunci Jawaban**: aktifkan hanya pada pilihan yang benar, pada contoh ini pilihan D.
+    2. **Teks Jawaban**: tulis pilihan yang dilihat peserta, misalnya **Rp300.000**.
 
-    <Tip>
-      LaTeX digunakan untuk menulis rumus matematika agar tampil lebih rapi. Cara menggunakannya:
-
-      1. Klik **Tampilkan Input LaTeX**.
-      2. Ketik rumus pada kolom yang tersedia.
-      3. Klik **Salin**.
-      4. Tempelkan rumus ke bagian **Teks Soal**.
-
-      <Frame>
-        ![Tombol Tampilkan Input LaTeX pada editor soal](/images/latex-1-2.png)
-
-        ![Kolom input LaTeX dan tombol Salin](/images/latex-2.png)
-
-        ![Rumus LaTeX yang ditempelkan ke Teks Soal](/images/Latex-3.png)
-      </Frame>
-    </Tip>
+    **Skor Jawaban** dan **Kelompok Jawaban** hanya dipakai pada metode penilaian tertentu dan dapat dibiarkan apa adanya. Klik **Buat** untuk menyimpan soal, atau **Buat & buat lainnya** untuk langsung menambah soal berikutnya.
   </Step>
-  <Step title="Tambahkan Pilihan Jawaban">
+  <Step title="Periksa daftar soal">
     <Frame>
-      ![Tombol Tambah Jawaban pada bagian Jawaban](/images/image-7.png)
+      ![Daftar Soal berisi tiga soal pilihan ganda](/images/mulai-cepat/membuat-ujian-pertama/08-daftar-soal-terisi.png)
     </Frame>
 
-    Setelah soal selesai ditambahkan, buka bagian **Jawaban**, kemudian klik **Tambah Jawaban** untuk menambahkan pilihan jawaban dan menentukan jawaban yang benar.
-
-    Sistem secara otomatis akan menampilkan kolom isian daftar jawaban.
-
-    <Frame>
-      ![Kolom isian pilihan jawaban](/images/image-9.png)
-    </Frame>
-
-    Lengkapi setiap pilihan jawaban sebagai berikut:
-
-    1. **Media Jawaban**: Pilih bentuk jawaban, misalnya teks, gambar, atau audio.
-    2. **Kunci Jawaban**: Aktifkan hanya pada pilihan yang benar. Jika **Jawaban Lebih dari Satu** aktif, aktifkan pada setiap pilihan yang benar.<br />Misalnya jawaban yang benar adalah **Rp300.000**, sehingga tombol **Kunci Jawaban** hanya diaktifkan pada pilihan tersebut. Pilihan jawaban lainnya tetap dinonaktifkan.
-       <Frame>
-         <img
-           src="/images/image-11.png"
-           alt="Kunci Jawaban diaktifkan pada pilihan jawaban yang benar"
-           className="mx-auto"
-           style={{ width:"52%" }}
-         />
-       </Frame>
-    3. **Skor Jawaban**: Isi nilai untuk pilihan tersebut. Kolom ini hanya dipakai pada metode penilaian **Perhitungan Skor Jawaban (Akumulasi Skor Jawaban)**.<br />Misalnya, jawaban salah dapat diberi skor **0**.
-    4. **Kelompok Jawaban**: Digunakan khusus untuk metode penilaian **Psikotes (Pengelompokan Jawaban)**. Jika tidak digunakan, bagian ini dapat dikosongkan.
-    5. **Teks Jawaban**: Tulis pilihan jawaban yang akan dilihat peserta.
-    6. **Tambah Jawaban**: Klik **Tambah Jawaban** untuk membuat pilihan jawaban berikutnya.
-
-    <Note>
-      Tab **Jawaban** hanya muncul untuk soal **Pilihan Ganda** dan **Majemuk Kompleks**. Pada **Majemuk Kompleks**, setiap jawaban berisi satu pernyataan, dan tombol **Kunci Jawaban** diganti kolom **Jawaban Benar** untuk memilih label yang benar. Kunci **Jawaban Singkat** dan pasangan **Menjodohkan** diisi di tab **Soal**.
-    </Note>
-
-    Ulangi langkah tersebut sampai seluruh butir soal dan jawaban selesai ditambahkan.
-
-    <Frame>
-      ![Daftar Soal berisi butir soal yang sudah ditambahkan](/images/image-13.png)
-    </Frame>
+    Ulangi langkah di atas sampai semua soal masuk. Contoh ini memakai tiga soal Penalaran Matematika.
   </Step>
-</Steps>
-
-## 3. Membuat Acara Ujian
-
-Setelah butir-butir soal dan jawaban berhasil dibuat, langkah berikutnya adalah mempersiapkan acara ujian.
-
-💡 **Acara Ujian**: Ini adalah **wadah utama** untuk seluruh kegiatan ujian.
-
-> Contoh: Tryout Akbar SNBT 2027
->
-> Di dalam acara ujian ini nanti ada beberapa tes, peserta, formulir pendaftaran, dan pengaturan pembayaran.
-
-💡 **Tes Ujian**: Ini adalah **bagian tes** yang ada di dalam acara ujian.
-
-> Contoh, di dalam **Tryout Akbar SNBT 2027** terdapat:
->
-> - Penalaran Matematika
-> - Literasi Bahasa Indonesia
-> - Literasi Bahasa Inggris
->
-> Setiap tes ujian memiliki durasi, metode penilaian, dan pengaturan sendiri.
-
-💡 **Sesi Ujian**: Ini adalah **jadwal pelaksanaan** untuk sebuah tes ujian.
-
-> Contoh:
->
-> Penalaran Matematika — Sesi Pagi, 20 Juli 2026 pukul 08.00–09.00<br />Penalaran Matematika — Sesi Sore, 20 Juli 2026 pukul 15.00–16.00
->
-> Di sesi inilah Anda memilih paket soal dan menentukan kapan peserta dapat mulai serta selesai mengerjakan.
-
-### Buat Acara Ujian
-
-<Steps>
-  <Step title="Buka menu Data Ujian">
+  <Step title="Atur skor soal">
     <Frame>
-      ![Menu Data Ujian pada panel admin](/images/image-14.png)
-    </Frame>
-  </Step>
-  <Step title="Klik Tambah Ujian">
-    <Frame>
-      ![Tombol Tambah Ujian pada halaman Data Ujian](/images/tambah-ujian.png)
-    </Frame>
-  </Step>
-  <Step title="Isikan Informasi Data Acara Ujian">
-    <Frame>
-      ![Formulir informasi acara ujian](/images/Isian-data-ujian-1.png)
+      ![Semua soal dicentang, menu Tindakan terbuka, dan opsi Ubah Skor Massal](/images/mulai-cepat/membuat-ujian-pertama/09-ubah-skor-massal.png)
     </Frame>
 
-    Pada tahap ini, Anda akan mengisikan informasi dasar untuk acara ujian yang akan diselenggarakan.
+    Tentukan berapa poin yang didapat peserta untuk setiap soal:
 
-    1. **Kode Ujian**<br />Masukkan kode singkat dan unik agar ujian mudah dikenali.<br />Contoh: **TO-JULI-26**
-    2. **Nama Ujian**<br />Tuliskan nama ujian yang akan dilihat oleh admin dan peserta.<br />Contoh: **Tryout Akbar Matematika Persiapan SNBT 2027**
-    3. **Tanggal Mulai**<br />Tentukan tanggal dan waktu mulai acara ujian.
-    4. **Tanggal Selesai**<br />Tentukan tanggal dan waktu berakhirnya acara ujian.
-    5. **Deskripsi Ujian**<br />Berikan penjelasan singkat mengenai tujuan atau isi ujian.<br />Contoh: _Tryout berisi kumpulan soal Matematika untuk membantu peserta mempersiapkan diri menghadapi SNBT 2027._
-    6. **Gambar/Sampul Ujian**<br />Unggah gambar yang akan digunakan sebagai sampul ujian (format PNG, maksimal 1 MB). Bagian ini dapat digunakan agar ujian lebih mudah dikenali oleh peserta.
-    7. **Tipe Ujian**<br />Pilih jenis ujian sesuai kebutuhan. Pada contoh ini digunakan **Ujian Standard (Paket Gratis)**. Perhatikan batasan yang ditampilkan sistem sebelum melanjutkan.
-       <Frame>
-         ![Pilihan Tipe Ujian](/images/tipe-ujian.png)
-       </Frame>
-    8. **Buat**<br />Setelah semua informasi diperiksa dan sudah sesuai, klik **Buat** untuk menyimpan acara ujian.
-  </Step>
-  <Step title="Tentukan Tipe & Paket Ujian">
-    <Frame>
-      <img
-        src="/images/2026-07-19_18-12.png"
-        alt="Bagian Tipe & Paket Ujian dengan Ujian Professional terpilih"
-        style={{ width:"85%" }}
-      />
-    </Frame>
-
-    Bagian **Tipe & Paket Ujian** digunakan untuk melihat tipe layanan atau paket yang dipakai pada ujian.
+    1. Centang kotak di kepala tabel untuk memilih semua soal.
+    2. Klik **Tindakan**.
+    3. Pilih **Ubah Skor Massal**.
 
     <Frame>
-      ![Pilihan Ujian Standard dan Ujian Professional](/images/image-30.png)
+      ![Jendela Ubah Skor Soal dengan Skor Benar 10, Skor Salah 0, dan Skor Tidak Dijawab 0 pada bagian Skor CBT](/images/mulai-cepat/membuat-ujian-pertama/10-formulir-skor-soal.png)
     </Frame>
 
-    Kredit ujian akan berkurang ketika peserta mengikuti ujian.
+    Pada bagian **Skor CBT**, isi:
 
-    **A. Ujian Standard (Paket Gratis)**
+    1. **Skor Benar**: misalnya **10**.
+    2. **Skor Salah**: misalnya **0** (isi angka negatif jika jawaban salah dikurangi nilai).
+    3. **Skor Tidak Dijawab**: misalnya **0**.
+    4. Klik **Simpan Perubahan**.
 
-    Cocok untuk ujian sederhana atau latihan rutin.
-
-    **Ketentuan utamanya:**
-
-    1. Kredit di-reset otomatis setiap bulan.
-    2. Maksimal **4 Tes Ujian (Subtes)** per ujian.
-    3. Maksimal **50 peserta ujian serentak** (mengerjakan ujian pada waktu yang sama).
-    4. Fitur pengawasan (proctoring) kamera, layar, dan dual monitor tidak tersedia.
-    5. Fitur **Computer Adaptive Test (CAT)** tidak tersedia.
-
-    **B. Ujian Professional (Paket Berbayar) — Rp500 per Kredit Ujian**
-
-    Cocok untuk ujian dengan peserta lebih banyak dan kebutuhan yang lebih lengkap.
-
-    **Ketentuan utamanya:**
-
-    1. Kredit di-reset setiap bulan sesuai dengan periode langganan Anda.
-    2. Maksimal **30 Tes Ujian (Subtes)** per ujian.
-    3. Maksimal **1.000 peserta ujian serentak**.
-    4. Fitur pengawasan (proctoring) kamera, layar, dan dual monitor tersedia.
-    5. Fitur **Computer Adaptive Test (CAT)** tersedia.
-
-    Pada kedua tipe ujian, tes CBT dapat menggunakan semua metode penilaian, termasuk IRT, dan pengaturan **Deteksi Pindah Tab** tetap tersedia.
+    Dengan pengaturan ini, peserta yang menjawab benar ketiga soal mendapat nilai **30**. Skor juga dapat diatur per soal di tab **Penilaian** pada jendela soal.
 
     <Warning>
-      Jika Anda memilih **Ujian Professional (Paket Berbayar)** tetapi tidak memiliki kredit ujian profesional, sistem menampilkan peringatan dan peserta tidak dapat memulai ujian sampai kredit tersedia.
+      Pada metode penilaian **Perhitungan Skor Soal (Akumulasi Benar/Salah)**, nilai peserta adalah jumlah skor soal. Jika **Skor Benar** tidak diisi, semua peserta mendapat nilai **0** walaupun jawabannya benar. Skor soal tidak dapat diubah selama ada peserta yang sedang mengerjakan paket soal ini.
     </Warning>
-
-    <Tip>
-      Pilih **Ujian Standard (Paket Gratis)** jika ujian sederhana, cukup dengan maksimal 4 tes ujian, dan tidak lebih dari 50 peserta mengerjakan ujian pada waktu yang sama.
-
-      Pilih **Ujian Professional (Paket Berbayar)** jika Anda membutuhkan lebih banyak tes ujian atau peserta serentak, CAT, atau pengawasan kamera, layar, dan dual monitor.
-    </Tip>
-  </Step>
-  <Step title="Buka bagian Pendaftaran & Pembayaran">
-    <Frame>
-      ![Bagian Pendaftaran & Pembayaran pada detail ujian](/images/pendaftaran-dan-pembayaran.png)
-    </Frame>
-
-    Setelah informasi acara ujian berhasil dibuat, sistem secara otomatis akan menampilkan tambahan bagian seperti **Pendaftaran & Pembayaran**. Pada bagian ini, Anda dapat menentukan apakah peserta boleh mendaftar sendiri dan apakah ujian tersebut gratis atau berbayar.
-
-    1. **Apakah Pendaftaran Ujian Dibuka?**<br />Jika diaktifkan, peserta dapat mendaftar ujian secara mandiri. Pengaturan ini memerlukan add-on **Halaman Pendaftaran Ujian dan Pembayaran Otomatis**. Jika add-on tersebut belum aktif, label pengaturan menampilkan keterangan **(Add-on Tidak Aktif)** dan pengaturan tidak dapat diaktifkan.
-    2. **Tipe Pembayaran**<br />Pilih **Gratis** jika peserta tidak perlu membayar. Jika ujian berbayar, pilih jenis pembayaran yang sesuai.
-
-       <Frame>
-         <img
-           src="/images/tipe-pembayaran.png"
-           alt="Pilihan Tipe Pembayaran"
-           className="mr-auto"
-         />
-       </Frame>
-
-       - **Gratis**: Peserta tidak perlu membayar.
-
-         > Contoh:
-         >
-         > Tryout SNBT gratis yang terdiri dari Tes Matematika dan Tes Bahasa Indonesia. Peserta dapat mengikuti semuanya **tanpa biaya**.
-       - **Sekali Bayar**: Peserta membayar satu kali, lalu dapat mengikuti seluruh tes yang ada dalam satu acara ujian.
-
-         > Contoh:
-         >
-         > Biaya Tryout SNBT adalah Rp50.000. Setelah membayar, peserta dapat mengikuti: Tes Penalaran Matematika, Tes Literasi Bahasa Indonesia, Tes Literasi Bahasa Inggris.
-         >
-         > Peserta tidak perlu membayar lagi untuk setiap tes.
-       - **Berbayar per Tes Ujian**: Peserta membayar setiap tes yang ingin diikuti.
-
-         > Contoh:
-         >
-         > Tes Matematika: Rp20.000
-         >
-         > Tes Bahasa Indonesia: Rp15.000
-         >
-         > Tes Bahasa Inggris: Rp15.000
-         >
-         > Peserta yang hanya ingin mengikuti Tes Matematika cukup membayar Rp20.000.
-       - **Berbayar per Level (Multi-Level)**: Digunakan untuk ujian yang terdiri dari beberapa babak. Peserta membayar pada setiap babak yang diikuti.
-
-         > Contoh:
-         >
-         > Babak Penyisihan: Rp25.000
-         >
-         > Babak Semifinal: Rp30.000
-         >
-         > Babak Final: Rp40.000
-         >
-         > Peserta membayar biaya babak berikutnya **hanya jika berhasil lolos**.
-    3. **Biaya Ujian Sekali Bayar (IDR)**<br />Biaya yang harus dibayar oleh peserta ketika mengikuti ujian. Kolom ini muncul jika tipe pembayaran **Sekali Bayar** dipilih.
-    4. **Set Sesi Otomatis Setelah Pendaftaran**<br />Aktifkan jika peserta yang berhasil mendaftar ingin langsung dimasukkan ke sesi ujian secara otomatis. Jika **Tipe Pembayaran** diatur ke **Sekali Bayar** atau **Berbayar per Tes Ujian**, pengaturan ini bernama **Set Sesi Otomatis Setelah Pembayaran**.
-    5. Setelah pengaturan selesai, klik **Simpan**.
-  </Step>
-  <Step title="Buka bagian Pengaturan Ujian">
-    <Frame>
-      ![Bagian Pengaturan Ujian pada detail ujian](/images/pengaturan-ujian.png)
-    </Frame>
-
-    Pada bagian **Pengaturan Ujian**, Anda dapat menentukan urutan pengerjaan dan tampilan hasil ujian.
-
-    1. **Apakah Ujian Multi-Level?**
-       - Pilih **Ya (Multi-Level)** jika ujian terdiri dari beberapa babak, misalnya **Penyisihan, Semifinal, dan Final**.
-       - Pilih **Tidak** jika ujian hanya terdiri dari satu tahap.
-    2. **Apakah Tes Ujian Harus Dikerjakan Secara Berurutan?**<br />Aktifkan jika peserta harus mengerjakan tes sesuai urutan yang sudah ditentukan.<br />Contoh: Peserta harus menyelesaikan **Tes Matematika** terlebih dahulu sebelum membuka **Tes Bahasa Indonesia**.
-    3. **Apakah Tes Ujian Harus Dikerjakan Secara Langsung?**
-       - Aktifkan jika peserta harus menyelesaikan seluruh tes tanpa berhenti atau mengambil jeda.
-       - Jika dinonaktifkan, peserta dapat keluar terlebih dahulu lalu melanjutkan tes berikutnya sesuai jadwal.
-    4. **Jenis Skor Akhir**<br />Pilih cara skor akhir peserta dihitung dari skor seluruh tes ujian:
-       - **Akumulasi Tes Ujian**: menjumlahkan skor setiap tes.
-       - **Rata-Rata Tes Ujian**: membagi jumlah skor dengan jumlah tes yang sudah dinilai. Pilihan ini digunakan secara bawaan.
-    5. **Apakah Tampilkan Skor Akhir Ujian?**
-       - Aktifkan jika peserta boleh melihat nilai setelah selesai mengerjakan ujian.
-       - Nonaktifkan jika nilai masih perlu diperiksa atau diumumkan pada waktu lain.
-
-    Pengaturan **Apakah Tes Ujian Harus Dikerjakan Secara Berurutan?** dan **Apakah Tes Ujian Harus Dikerjakan Secara Langsung?** hanya muncul jika ujian bukan ujian multi-level. Pada ujian multi-level, kedua pengaturan tersebut diatur pada setiap level ujian.
-  </Step>
-  <Step title="Simpan Acara Ujian">
-    <Frame>
-      ![Tombol Simpan pada detail ujian](/images/simpan-data-ujiannn-1.png)
-    </Frame>
-
-    Setelah seluruh pengaturan pada bagian **Informasi Umum**, **Tipe & Paket Ujian**, **Pendaftaran & Pembayaran**, dan **Pengaturan Ujian** selesai diperiksa, klik **Simpan**.
-
-    Bagian **Informasi Tambahan** bersifat opsional. Gunakan bagian ini jika ingin menampilkan informasi khusus ujian, misalnya tautan grup WhatsApp, di dasbor peserta yang sudah mendaftar.
-
-    Jika muncul pemberitahuan **Data berhasil disimpan**, berarti pengaturan ujian sudah tersimpan dengan baik.
   </Step>
 </Steps>
 
-### Buat Tes Ujian
+## 4. Membuat ujian
+
+<Steps>
+  <Step title="Buka Data Ujian, lalu klik Tambah Ujian">
+    <Frame>
+      ![Menu Data Ujian di sidebar dan tombol Tambah Ujian](/images/mulai-cepat/membuat-ujian-pertama/11-menu-data-ujian.png)
+    </Frame>
+
+    1. Di sidebar, klik **Manajemen Ujian** → **Data Ujian**.
+    2. Klik **Tambah Ujian**.
+  </Step>
+  <Step title="Isi informasi ujian">
+    <Frame>
+      ![Formulir Informasi Umum ujian yang sudah diisi](/images/mulai-cepat/membuat-ujian-pertama/12-formulir-ujian.png)
+    </Frame>
+
+    1. **Kode Ujian**: kode unik berisi huruf, angka, tanda hubung (-), atau tanda pagar (#), misalnya **TOAKBAR27-G1**. Kode otomatis ditulis dengan huruf kapital dan menjadi awalan **Kode Peserta**.
+    2. **Nama Ujian**: nama yang dilihat peserta, misalnya **Tryout Akbar SNBT 2027 – Gelombang 1**.
+    3. **Tanggal Mulai**: awal periode ujian, misalnya 24 November 2026 pukul 08.00.
+    4. **Tanggal Selesai**: akhir periode ujian, misalnya 6 Desember 2026 pukul 21.00. Tanggal ini paling lambat satu tahun dari hari ini.
+    5. **Deskripsi Ujian**: penjelasan singkat tentang ujian.
+    6. **Gambar/Sampul Ujian** (opsional): berkas PNG, maksimal 1 MB.
+    7. **Tipe Ujian**: pilih **Ujian Standard (Paket Gratis)** untuk ujian sederhana. Kotak informasi di bawahnya menampilkan sisa kredit dan batasannya: maksimal 4 tes ujian per ujian, maksimal 50 peserta mengerjakan serentak, tanpa pengawasan kamera, layar, dan dual monitor, serta tanpa CAT. **Ujian Professional (Paket Berbayar)** membuka batas hingga 30 tes ujian dan 1.000 peserta serentak beserta fitur tersebut.
+    8. Klik **Buat**.
+
+    <Note>
+      Kredit ujian berkurang ketika peserta mengikuti ujian. Jika Anda memilih **Ujian Professional (Paket Berbayar)** tanpa kredit ujian profesional, sistem menampilkan peringatan dan peserta tidak dapat memulai ujian sampai kredit tersedia.
+    </Note>
+  </Step>
+  <Step title="Kenali halaman detail ujian">
+    <Frame>
+      ![Tab pengaturan ujian dan tombol Ekspor Data, Kode Peserta, dan Hitung Skor di halaman detail ujian](/images/mulai-cepat/membuat-ujian-pertama/13-halaman-detail-ujian.png)
+    </Frame>
+
+    Setelah ujian dibuat, halaman detail ujian terbuka. Pengaturannya terbagi dalam tab **Informasi Umum**, **Tipe & Paket Ujian**, **Pendaftaran & Pembayaran**, **Pengaturan Ujian**, dan **Informasi Tambahan**. Di bawahnya ada tab **Daftar Tes Ujian**, **Formulir Pendaftaran**, dan **Daftar Peserta Ujian**.
+
+    Untuk panduan cepat ini, pengaturan bawaan sudah cukup: ujian gratis, satu tahap (bukan multi-level), dan peserta tidak mendaftar sendiri. Penjelasan setiap tab ada di [Membuat Ujian](/data-ujian/membuat-ujian).
+
+    Untuk membuka halaman ini lagi nanti, buka **Data Ujian**, lalu klik **Detail** pada ujian tersebut.
+  </Step>
+</Steps>
+
+## 5. Menambahkan tes ujian
 
 <Steps>
   <Step title="Klik Tambah Tes Ujian">
     <Frame>
-      ![Tombol Tambah Tes Ujian pada bagian Daftar Tes Ujian](/images/tambah-tes-ujian.png)
+      ![Tombol Tambah Tes Ujian pada tab Daftar Tes Ujian](/images/mulai-cepat/membuat-ujian-pertama/14-tombol-tambah-tes-ujian.png)
     </Frame>
 
-    Pada bagian **Daftar Tes Ujian**, klik **Tambah Tes Ujian**.
-
-    <Tip>
-      Jika ada tes ujian yang belum ditambahkan ke acara ujian, Anda dapat menambahkannya kembali melalui langkah-langkah berikut:
-
-      1. Buka menu **Data Ujian**.
-      2. Pilih ujian yang tes ujiannya belum ditambahkan.
-      3. Klik **Detail** pada ujian tersebut.
-      4. Tambahkan tes ujian pada bagian **Daftar Tes Ujian** melalui tombol **Tambah Tes Ujian**.
-
-      <Frame>
-        ![Bagian Daftar Tes Ujian pada detail ujian](/images/sub-data-ujian.png)
-      </Frame>
-    </Tip>
+    Gulir ke tab **Daftar Tes Ujian**, lalu klik **Tambah Tes Ujian**.
   </Step>
-  <Step title="Isikan Informasi Tes Ujian">
+  <Step title="Isi informasi tes">
     <Frame>
-      ![Formulir informasi tes ujian](/images/isi-tes-ujian.png)
+      ![Jendela Tambah Tes Ujian yang sudah diisi](/images/mulai-cepat/membuat-ujian-pertama/15-formulir-tes-ujian.png)
     </Frame>
 
-    Setelah mengklik **Tambah Tes Ujian**, sistem secara otomatis akan menampilkan kolom isian informasi tes yang akan dikerjakan peserta.
+    1. **Jenis Ujian**: biarkan **Computer Based Test (CBT)**.
+    2. **Metode Penilaian**: pilih **Perhitungan Skor Soal (Akumulasi Benar/Salah)**, yaitu nilai dihitung dari skor setiap soal yang Anda atur di langkah sebelumnya.
+    3. **Nama Tes**: misalnya **Penalaran Matematika**.
+    4. **Durasi Pengerjaan (menit)**: misalnya **30**.
+    5. **Instruksi Pengerjaan Tes Ujian**: sudah terisi teks bawaan. Penanda `{{NAMA_TES}}`, `{{JUMLAH_SOAL}}`, dan `{{DURASI_TES}}` otomatis diganti nama tes, jumlah soal, dan durasi.
+    6. Klik **Buat**.
 
-    - **Jenis Ujian**: Pilih jenis tes sesuai yang akan diselenggarakan.
-      <Frame>
-        ![Pilihan Jenis Ujian](/images/jenis-ujian.png)
-      </Frame>
-      1. **Computer Based Test (CBT)**<br />Peserta melihat soal di layar, lalu memilih atau menulis jawaban langsung di sistem.
-         > Contoh:<br />Peserta melihat soal: Hasil dari 10 × 5 adalah ...
-         >
-         > Lalu memilih jawaban **50** di layar.
-      2. **Computer Adaptive Test (CAT)**<br />Soal berikutnya akan menyesuaikan kemampuan peserta. Pilihan ini hanya dapat dipilih pada tipe ujian **Ujian Professional (Paket Berbayar)**.
-         > Contoh:<br />Peserta menjawab soal pertama dengan benar. Sistem kemudian memberikan soal yang sedikit lebih sulit. Jika peserta menjawab salah, sistem dapat memberikan soal yang lebih mudah atau setara.<br />**CAT seperti ujian yang “mengikuti kemampuan peserta”. Semakin banyak jawaban benar, soal berikutnya bisa semakin sulit.**
-      3. **Esai / Upload File (Jawaban Manual)**<br />Peserta tidak memilih jawaban seperti pada soal pilihan ganda. Peserta menulis jawaban panjang atau mengunggah berkas.
-         > Contoh:
-         >
-         > - Menulis jawaban esai langsung di sistem.
-         > - Mengunggah foto lembar jawaban.
-         > - Mengunggah file PDF atau Word.
-      <Tip>
-        Untuk tryout SNBT biasa, pilih **Computer Based Test (CBT)**.
-      </Tip>
-    - **Metode Penilaian**: Tentukan cara sistem menghitung nilai peserta. Semua metode di bawah tersedia untuk **Computer Based Test (CBT)**. Tes **Computer Adaptive Test (CAT)** hanya dapat menggunakan **Perhitungan Skor Soal (Akumulasi Benar/Salah)**, sedangkan tes **Esai / Upload File (Jawaban Manual)** menggunakan **Penilaian Manual**.
-      <Frame>
-        ![Pilihan Metode Penilaian](/images/Metode-Penilaian.png)
-      </Frame>
-      1. **Perhitungan Skor Soal (Akumulasi Benar/Salah)**<br />Nilai dihitung dari jumlah soal yang dijawab benar.
-         > Contoh:
-         >
-         > - Jawaban benar: 10 poin
-         > - Jawaban salah: 0 poin
-         > - Peserta menjawab benar 8 dari 10 soal
-         > - Nilai peserta: **80**
-
-         Cocok untuk tryout atau ujian pilihan ganda biasa.
-      2. **Perhitungan Skor Jawaban (Akumulasi Skor Jawaban)**<br />Setiap pilihan jawaban dapat memiliki skor yang berbeda.
-         > Contoh:
-         >
-         > Pertanyaan: _Seberapa sering Anda belajar dalam seminggu?_
-         >
-         > - Setiap hari: 4 poin
-         > - 3–4 kali: 3 poin
-         > - 1–2 kali: 2 poin
-         > - Tidak pernah: 1 poin
-
-         Nilai akhir dihitung dari jumlah skor semua jawaban peserta.
-      3. **Psikotes (Pengelompokan Jawaban)**<br />Jawaban peserta dikelompokkan untuk melihat kecenderungan atau karakter tertentu.
-         > Contoh:
-         >
-         > Pertanyaan: _Saat bekerja dalam kelompok, Anda lebih suka..._
-         >
-         > - Mengatur pembagian tugas → Kelompok **Kepemimpinan**
-         > - Membantu anggota lain → Kelompok **Kerja Sama**
-         > - Mengerjakan bagian sendiri → Kelompok **Mandiri**
-
-         Hasilnya bukan sekadar benar atau salah, tetapi menunjukkan kelompok karakter peserta.
-      4. **Item Response Theory (IRT)**<br />Nilai tidak hanya melihat jumlah jawaban benar, tetapi juga mempertimbangkan tingkat kesulitan soal.
-         > Contoh:
-         >
-         > - Soal mudah dijawab benar oleh banyak peserta.
-         > - Soal sulit hanya dijawab benar oleh sedikit peserta.
-         > - Peserta yang mampu menjawab soal sulit dapat memperoleh nilai kemampuan yang lebih tinggi.
-
-         Metode ini cocok untuk ujian berskala besar atau analisis kemampuan peserta yang lebih mendalam. Tersedia tiga pilihan IRT:
-         - **IRT (Referensi UTBK 0-1000)**
-         - **IRT TKA SMA/SMK (200-800)**
-         - **IRT TKA SD/SMP (0-100)**
-
-         Ketiganya menggunakan perkiraan kemampuan peserta yang sama; yang berbeda hanya rentang skor yang ditampilkan. Skala UTBK dan TKA tersebut merupakan skala acuan, bukan penyetaraan resmi.
-      <Tip>
-        Untuk tryout SNBT sederhana, pilih **Perhitungan Skor Soal (Akumulasi Benar/Salah)**.
-      </Tip>
-    - **Nama Tes**: Masukkan nama tes yang mudah dikenali.<br />Contoh: **Penalaran Matematika**.
-    - **Durasi Pengerjaan (menit)**: Masukkan lama waktu pengerjaan dalam menit.<br />Contoh: **60 menit**. Kolom ini tidak muncul untuk tes **Esai / Upload File (Jawaban Manual)**.
-    - **Instruksi Pengerjaan Tes Ujian**: Tuliskan petunjuk yang akan dibaca peserta sebelum mulai mengerjakan.
-
-    Pada instruksi, Anda dapat menggunakan penanda berikut:
-
-    - `{{NAMA_TES}}` untuk menampilkan nama tes.
-    - `{{JUMLAH_SOAL}}` untuk menampilkan jumlah soal.
-    - `{{DURASI_TES}}` untuk menampilkan durasi pengerjaan.
-
-    Setelah semua data terisi, klik **Buat**. Pilih **Buat & buat lainnya** jika ingin langsung menambahkan tes ujian berikutnya.
+    Metode penilaian lain (Psikotes, IRT, dan sebagainya) dijelaskan di [Membuat Tes Ujian](/data-ujian/membuat-tes-ujian).
   </Step>
-  <Step title="Buka Tes Ujian yang Sudah Dibuat">
+  <Step title="Buka tes yang baru dibuat">
     <Frame>
-      ![Tes ujian baru pada bagian Daftar Tes Ujian](/images/buka-tes-ujian.png)
+      ![Tes Penalaran Matematika dengan keterangan Tes belum memiliki sesi ujian dan tombol Ubah](/images/mulai-cepat/membuat-ujian-pertama/16-daftar-tes-ujian.png)
     </Frame>
 
-    Setelah tes ujian berhasil dibuat, tes ujian tersebut akan tampil pada bagian **Daftar Tes Ujian**.
-
-    💡 Perhatikan keterangan **Tes belum memiliki sesi ujian**. Artinya, tes sudah tersimpan, tetapi belum memiliki jadwal pelaksanaan sehingga belum dapat dikerjakan oleh peserta. Klik **Ubah** pada tes yang ingin dilanjutkan.
+    Tes baru tampil dengan keterangan **\*Tes belum memiliki sesi ujian**. Artinya tes belum bisa dikerjakan. Klik **Ubah** untuk membuka halaman tes.
   </Step>
-  <Step title="Atur Skor dan Hasil Ujian">
+  <Step title="Tampilkan skor kepada peserta">
     <Frame>
-      ![Bagian Skor & Hasil pada pengaturan tes ujian](/images/skor-dan-hasil.png)
+      ![Tab Skor & Hasil dengan Tampilkan Skor dan Tampilkan Ringkasan aktif](/images/mulai-cepat/membuat-ujian-pertama/17-skor-dan-hasil.png)
     </Frame>
 
-    Pilih bagian **Skor & Hasil**, lalu tentukan informasi apa saja yang boleh dilihat peserta setelah menyelesaikan tes.
+    Buka tab **Skor & Hasil**, lalu:
 
-    1. **Tampilkan Skor**<br />Aktifkan jika peserta boleh langsung melihat nilai setelah selesai mengerjakan.
-    2. **Tampilkan Ringkasan**<br />Aktifkan jika peserta boleh melihat jumlah jawaban benar dan salah.
-    3. **Tampilkan Pembahasan Tes (PDF)**<br />Aktifkan jika Anda ingin membagikan satu file PDF yang berisi pembahasan seluruh soal. Setelah diaktifkan, unggah file tersebut pada kolom **File Pembahasan Tes (PDF)**.
-    4. **Tampilkan Pembahasan Per Soal**<br />Aktifkan jika peserta boleh melihat pembahasan pada setiap soal. Pastikan pembahasan sudah diisi pada masing-masing soal di paket soal. Pengaturan ini tidak dapat aktif bersamaan dengan **Tampilkan Pembahasan Tes (PDF)**.
-    5. **Simpan**<br />Setelah pengaturan selesai, klik **Simpan**.
+    1. Aktifkan **Tampilkan Skor** agar peserta melihat nilainya setelah selesai.
+    2. Aktifkan **Tampilkan Ringkasan** agar peserta melihat jumlah jawaban benar dan salah.
+    3. Klik **Simpan**.
 
-    <Tip>
-      Untuk tryout yang hasilnya ingin langsung diketahui peserta, aktifkan **Tampilkan Skor**.
-    </Tip>
-  </Step>
-  <Step title="Atur Pengawasan Peserta Ujian">
-    <Frame>
-      ![Bagian Pengawasan pada pengaturan tes ujian](/images/pengawasan.png)
-    </Frame>
-
-    Pada bagian **Pengawasan**, Anda dapat menentukan cara sistem mengawasi peserta selama ujian berlangsung.
-
-    1. **Pengawasan Kamera**<br />Aktifkan jika peserta wajib menyalakan kamera selama mengerjakan ujian.<br />Contoh: digunakan agar pengawas dapat memastikan peserta mengerjakan ujian sendiri.
-    2. **Pengawasan Layar (Share Screen)**<br />Aktifkan jika peserta wajib membagikan tampilan layar selama ujian.<br />Contoh: pengawas dapat melihat aplikasi atau halaman yang sedang dibuka peserta.
-    3. **Deteksi Pindah Tab**<br />Aktifkan jika sistem perlu mencatat saat peserta membuka tab atau halaman lain selama ujian.<br />Contoh: peserta berpindah dari halaman ujian ke mesin pencarian.
-    4. **Hanya Izinkan Satu Layar**<br />Aktifkan jika peserta hanya boleh menggunakan satu monitor.<br />Pengaturan ini cocok untuk ujian yang membutuhkan pengawasan lebih ketat.
-    5. **Soal Audio Sekali Putar**<br />Aktifkan jika audio pada soal hanya boleh didengarkan satu kali.<br />Contoh: soal listening Bahasa Inggris.
-    6. **Jawaban Audio Sekali Putar**<br />Aktifkan jika audio pada pilihan jawaban hanya boleh didengarkan satu kali.
-
-    Setelah pengaturan selesai, klik **Simpan**.
-
-    <Note>
-      Keterangan **(Fitur tidak aktif)** berarti fitur tersebut tidak tersedia pada tipe ujian yang digunakan. Pada **Ujian Standard (Paket Gratis)**, keterangan ini muncul pada **Pengawasan Kamera**, **Pengawasan Layar (Share Screen)**, dan **Hanya Izinkan Satu Layar**.
-
-      <Frame>
-        ![Keterangan Fitur tidak aktif pada pengaturan Pengawasan](/images/fitur-standar.png)
-      </Frame>
-    </Note>
+    Tab **Pengawasan** berisi pengaturan seperti **Deteksi Pindah Tab**; lihat [Membuat Tes Ujian](/data-ujian/membuat-tes-ujian).
   </Step>
 </Steps>
 
-### Buat Sesi Ujian
+## 6. Membuat sesi ujian
 
 <Steps>
   <Step title="Klik Tambah Sesi Ujian">
     <Frame>
-      ![Tombol Tambah Sesi Ujian pada halaman tes ujian](/images/tambah-sesi-ujian.png)
+      ![Tombol Tambah Sesi Ujian pada tab Daftar Sesi Ujian di halaman tes](/images/mulai-cepat/membuat-ujian-pertama/18-tombol-tambah-sesi.png)
     </Frame>
 
-    Setelah pengaturan tes ujian selesai ditambahkan, _scroll_/geser halaman ke bawah, lalu klik **Tambah Sesi Ujian**.
+    Masih di halaman tes, gulir ke tab **Daftar Sesi Ujian**, lalu klik **Tambah Sesi Ujian**.
+  </Step>
+  <Step title="Isi jadwal dan paket soal">
+    <Frame>
+      ![Jendela Tambah Sesi Ujian yang sudah diisi](/images/mulai-cepat/membuat-ujian-pertama/19-formulir-sesi-ujian.png)
+    </Frame>
 
-    Sesi ujian adalah jadwal pelaksanaan tes. Di dalam sesi ini, Anda akan menentukan paket soal yang digunakan serta waktu mulai dan selesai ujian.
+    1. **Nama Sesi**: misalnya **Sesi 1**.
+    2. **Paket Soal**: pilih **Paket Penalaran Matematika**. Hanya paket berjenis **CBT/CAT** yang muncul untuk tes CBT.
+    3. **Tanggal Mulai Sesi**: misalnya 24 November 2026 pukul 13.00.
+    4. **Tanggal Selesai Sesi**: misalnya 30 November 2026 pukul 21.00.
+    5. Klik **Buat**.
+
+    Kotak informasi di atas formulir menampilkan rentang tanggal ujian. Tanggal sesi harus berada di dalam rentang tersebut.
 
     <Warning>
-      Tes tidak dapat dikerjakan peserta sebelum sesi ujian dibuat dan paket soal dipilih. Pastikan setiap tes ujian telah ditambahkan sesi ujian.
+      Sesi tanpa paket soal tidak dapat dimulai oleh peserta. Pastikan **Paket Soal** dipilih.
     </Warning>
-  </Step>
-  <Step title="Isikan Informasi Sesi Ujian">
-    <Frame>
-      ![Formulir informasi sesi ujian](/images/Informasi-sesi-ujian.png)
-    </Frame>
 
-    Pada tahap ini, Anda akan menentukan **jadwal tes** sekaligus memilih **paket soal** yang akan dikerjakan peserta.
-
-    - **Nama Sesi**: Isi nama yang mudah dikenali.<br />Contoh: **Sesi Pagi** atau **Sesi 1**.
-    - **Paket Soal**: Pilih paket soal yang sudah dibuat.<br />Pastikan paket soal dipilih, karena sesi tanpa paket soal tidak dapat dimulai oleh peserta.
-    - **Tanggal Mulai Sesi**: Tentukan tanggal dan waktu peserta mulai dapat mengerjakan tes.
-    - **Tanggal Selesai Sesi**: Tentukan batas akhir peserta dapat mengerjakan tes.
-
-    <Note>
-      Perhatikan bahwa tanggal sesi harus berada di dalam rentang tanggal ujian utama yang sudah ditentukan.
-    </Note>
-
-    Contoh:
-
-    > Ujian berlangsung pada 18–25 Juli 2026.<br />Maka sesi dapat dijadwalkan pada 20 Juli 2026 pukul 08.00–10.00.
-
-    Setelah semua data terisi, klik **Buat**. Pilih **Buat & buat lainnya** jika ingin langsung menambahkan sesi berikutnya.
+    Jika peserta dibagi ke beberapa jadwal, buat beberapa sesi. Lihat [Membuat Sesi Ujian](/data-ujian/membuat-sesi-ujian).
   </Step>
 </Steps>
 
-## 4. (Opsional) Membuat Aturan Formulir Pendaftaran
+## 7. Menambahkan peserta
 
-Aturan formulir pendaftaran dapat ditambahkan pada **Ujian Standard (Paket Gratis)** maupun **Ujian Professional (Paket Berbayar)**, selama add-on **Halaman Pendaftaran Ujian dan Pembayaran Otomatis** aktif. Jika add-on tersebut belum aktif, bagian **Formulir Pendaftaran** menampilkan tombol **Aktifkan Add-on Formulir Pendaftaran** sebagai ganti tombol **Tambah Formulir Pendaftaran**.
+Pada contoh ini, akun peserta disiapkan oleh admin melalui impor Excel. Cara lain dijelaskan di bagian bawah.
 
 <Steps>
-  <Step title="Klik Tambah Formulir Pendaftaran">
+  <Step title="Buka Daftar Peserta Ujian, lalu klik Import Peserta">
     <Frame>
-      ![Tombol Tambah Formulir Pendaftaran pada detail ujian](/images/tambah-formulir.png)
+      ![Tab Daftar Peserta Ujian dan tombol Import Peserta di halaman detail ujian](/images/mulai-cepat/membuat-ujian-pertama/20-tab-daftar-peserta.png)
     </Frame>
 
-    Buka bagian **Formulir Pendaftaran**, lalu klik **Tambah Formulir Pendaftaran**.
+    Kembali ke halaman detail ujian (klik **Kembali ke Detail Ujian** di halaman tes).
+
+    1. Klik tab **Daftar Peserta Ujian**.
+    2. Klik **Import Peserta**.
   </Step>
-  <Step title="Isikan Aturan Formulir Pendaftaran">
+  <Step title="Unduh template dan isi data peserta">
     <Frame>
-      ![Formulir aturan pertanyaan pendaftaran](/images/2026-07-23_19-56.png)
+      ![Tautan Unduh Template pada jendela Import Peserta](/images/mulai-cepat/membuat-ujian-pertama/21-unduh-template.png)
     </Frame>
 
-    1. **Template Pertanyaan (Opsional)**: Pilih template jika ingin menggunakan pertanyaan yang sudah tersedia.<br />Contoh: **Metode Pembayaran** (hanya dapat dipilih jika **Tipe Pembayaran** diatur ke **Sekali Bayar**).<br />Jika tidak menggunakan template, bagian ini boleh dikosongkan.
-    2. **Apakah selalu ditampilkan pada formulir pendaftaran?**<br />Pilih **Ya, selalu ditampilkan** jika pertanyaan harus selalu muncul pada formulir pendaftaran.<br />Pilih **Tampilkan berdasarkan kondisi tertentu** jika pertanyaan hanya muncul dalam kondisi tertentu.
-    3. **Apakah Wajib Diisi?**<br />Aktifkan jika peserta tidak boleh melanjutkan pendaftaran sebelum menjawab pertanyaan tersebut.
-    4. **Label Pertanyaan**<br />Tulis nama data yang diminta dari peserta.<br />Contoh: **Asal Sekolah**, **Nomor WhatsApp**, atau **Nama Lengkap**.
-    5. **Tipe Pertanyaan**<br />Pilih bentuk jawaban yang harus diisi peserta.<br />Contoh:
-       - **Text (Input Biasa)** untuk nama, asal sekolah, atau nomor telepon.
-       - **Select (Dropdown)** atau **Radio (Pilihan Tunggal)** untuk jawaban yang sudah disediakan.
-       - **File (Berkas)** untuk mengunggah bukti pembayaran atau dokumen.
-    6. **Petunjuk Pengisian**<br />Tambahkan penjelasan agar peserta memahami cara mengisi.<br />Contoh: _Masukkan nama sekolah secara lengkap._
-    7. **Buat**<br />Klik **Buat** untuk menyimpan pertanyaan. Klik **Buat & buat lainnya** jika ingin menambahkan pertanyaan berikutnya.
+    Klik **Unduh Template** untuk mendapatkan berkas Excel, lalu isi satu baris per peserta:
+
+    | Nama | Alamat Email | Kata Sandi | Label |
+    | --- | --- | --- | --- |
+    | Dimas Pratama | dimas.pratama@contoh.id | (kata sandi peserta) | Gelombang 1 |
+    | Siti Rahmawati | siti.rahmawati@contoh.id | (kata sandi peserta) | Gelombang 1 |
+
+    - **Nama**, **Alamat Email**, dan **Kata Sandi** wajib diisi. Baris yang tidak lengkap dilewati.
+    - **Label** boleh kosong; gunakan untuk mengelompokkan peserta, misalnya **Gelombang 1** atau **Kelas 12 IPA**.
+    - Email dipakai peserta untuk masuk. Sistem tidak memeriksa apakah email benar-benar aktif, jadi Anda boleh memakai email khusus ujian, asalkan setiap peserta berbeda.
   </Step>
-  <Step title="Klik Buat">
+  <Step title="Unggah berkas dan klik Import">
     <Frame>
-      ![Tombol Buat pada formulir pertanyaan pendaftaran](/images/buat-formulir-1.png)
+      ![Berkas Excel terunggah dengan keterangan Pengunggahan selesai dan tombol Import](/images/mulai-cepat/membuat-ujian-pertama/22-unggah-file-impor.png)
     </Frame>
 
+    Seret berkas ke kolom **File Excel** atau klik **Jelajahi**. Setelah muncul keterangan **Pengunggahan selesai**, klik **Import**.
+
     <Frame>
-      ![Pertanyaan baru pada bagian Formulir Pendaftaran](/images/simpan-formulir.png)
+      ![Lima peserta hasil impor pada Daftar Peserta Ujian dengan status Aktif](/images/mulai-cepat/membuat-ujian-pertama/23-peserta-hasil-impor.png)
     </Frame>
 
-    Aturan formulir berhasil tersimpan.
-
-    <Tip>
-      Langkah formulir pendaftaran ini **boleh** dilewati pada tipe ujian apa pun. Jika ujian memiliki formulir pendaftaran, peserta yang mendaftar mandiri akan berstatus **Menunggu Verifikasi** sampai diverifikasi admin, kecuali pengaturan **Apakah Formulir Pendaftaran Perlu Diverifikasi?** pada ikon pengaturan (roda gigi) bagian **Formulir Pendaftaran** dinonaktifkan. Tanpa formulir pendaftaran, peserta langsung terdaftar tanpa perlu diverifikasi.
-    </Tip>
-  </Step>
-</Steps>
-
-## 5. Mengatur Kuota Peserta Ujian
-
-Isi jumlah peserta yang diperbolehkan mendaftar pada ujian tersebut.
-
-💡 **Sebagai contoh:**
-
-Anda hanya menyediakan **200 tempat** untuk Kompetisi Matematika 2027. Maka setelah jumlah pendaftar mencapai 200 peserta, peserta berikutnya tidak dapat melanjutkan pendaftaran.
-
-<Steps>
-  <Step title="Buka detail ujian">
-    <Frame>
-      ![Tombol Detail pada ujian di halaman Data Ujian](/images/2026-07-27_20-42.png)
-    </Frame>
-
-    Buka menu **Data Ujian**, lalu klik **Detail** pada ujian yang telah Anda buat.
-  </Step>
-  <Step title="Buka pengaturan Formulir Pendaftaran">
-    <Frame>
-      ![Ikon pengaturan pada bagian Formulir Pendaftaran](/images/2026-07-27_20-34.png)
-    </Frame>
-
-    Buka bagian **Formulir Pendaftaran**, lalu klik tombol ikon pengaturan (roda gigi).
-  </Step>
-  <Step title="Isi Kuota Maksimal Pendaftaran">
-    <Frame>
-      ![Kolom Kuota Maksimal Pendaftaran pada pengaturan formulir pendaftaran](/images/2026-07-27_20-35.png)
-    </Frame>
-
-    Jumlah isian dapat Anda sesuaikan dengan kebutuhan. Apabila pendaftar telah mencapai kuota maksimal, peserta berikutnya tidak dapat melanjutkan pendaftaran.
-
-    <Tip>
-      Kosongkan kolom ini jika Anda ingin jumlah peserta tidak dibatasi.
-    </Tip>
-
-    Setelah pengaturan sesuai, klik **Perbarui Pengaturan**.
+    Impor berjalan di latar belakang dan kemajuannya tampil di bagian atas halaman. Akun yang belum ada dibuat otomatis, lalu semua peserta ditambahkan ke ujian dengan **Kode Peserta** seperti **TOAKBAR27-G10000001**. Peserta yang sudah terdaftar di ujian ini tidak diduplikasi.
   </Step>
 </Steps>
-
-## 6. Mengelola Akun Peserta Ujian
-
-Langkah berikutnya adalah memastikan peserta memiliki akun dan sudah terdaftar pada ujian.
-
-Ada dua cara untuk menambahkan peserta:
-
-1. **Peserta mendaftar secara mandiri**, cocok untuk ujian yang dibuka untuk umum.
-2. **Peserta ditambahkan melalui Anda (penyelenggara)**, cocok untuk ujian internal sekolah, lembaga, atau bimbingan belajar.
-
-<Warning>
-  Seluruh peserta ujian, baik yang mendaftar secara mandiri maupun yang ditambahkan melalui admin, **wajib dihubungkan ke sesi ujian** agar dapat mulai mengerjakan soal.
-</Warning>
-
-Dari sisi peserta, tes yang belum memiliki sesi ujian tampil dengan tombol **Terkunci** sehingga belum dapat dikerjakan. Jika pendaftaran peserta masih menunggu verifikasi admin, ujian tampil dengan tombol **Proses Verifikasi**, seperti contoh berikut.
-
-<Frame>
-  ![Status Proses Verifikasi pada daftar tes peserta](/images/verifikasi.png)
-</Frame>
 
 <AccordionGroup>
-  <Accordion title="Peserta Mendaftar secara Mandiri" icon="sparkles">
-    Gunakan langkah-langkah berikut ini jika peserta diperbolehkan membuat akun dan mendaftar ujian secara mandiri.
-
-    <Steps>
-      <Step title="Buka menu Pengaturan Aplikasi">
-        <Frame>
-          ![Menu Pengaturan Aplikasi pada panel admin](/images/Pengaturan-Aplikasi.png)
-        </Frame>
-      </Step>
-      <Step title="Buka tab Informasi Umum">
-        <Frame>
-          ![Tab Informasi Umum pada Pengaturan Aplikasi](/images/informasi-umum.png)
-        </Frame>
-
-        Pada bagian ini, Anda dapat mengatur nama dan alamat website sistem CBT yang nantinya dibuka oleh peserta.
-
-        1. **Nama Sistem CBT**<br />Isi nama sistem yang akan dilihat oleh peserta. Tulis nama lembaganya saja, tanpa kata **CBT**, karena sistem menambahkannya secara otomatis.<br />Contoh: **Try Out Indolat** tampil sebagai **CBT Try Out Indolat** di aplikasi peserta.
-        2. **Kode Sistem CBT**<br />Isi kode singkat untuk membuat alamat sistem CBT Anda, minimal 4 karakter dan hanya berisi huruf kecil, angka, atau tanda hubung (-).<br />Contoh: **tryout-lembaga-indolat**.
-           <Info>
-             Setelah kode diisi, sistem akan membuat tautan login seperti `https://tryout-lembaga-indolat.indolat.web.id/auth/login`. Tautan inilah **yang dibagikan kepada peserta** agar mereka dapat membuka halaman login.
-           </Info>
-        3. **Bahasa Sistem CBT**<br />Pilih bahasa yang digunakan pada tampilan sistem.<br />Contoh: **Bahasa Indonesia**.
-        4. **Simpan**<br />Setelah semua data diperiksa, klik **Simpan**.
-      </Step>
-      <Step title="Buka tab Pengaturan Lainnya">
-        <Frame>
-          ![Pengaturan Autentikasi dengan Google dan pendaftaran akun mandiri](/images/mandiri.png)
-        </Frame>
-
-        - **(Opsional) Autentikasi dengan Google**<br />**Aktifkan** jika peserta boleh masuk menggunakan akun Google atau Gmail yang sudah dimiliki. Dengan cara ini, peserta tidak perlu membuat dan mengingat kata sandi baru.
-        - **(Wajib) Izinkan pendaftaran akun mandiri**<br />**Aktifkan** agar peserta diperbolehkan membuat akun sendiri melalui halaman login.
-        - **Simpan**<br />Setelah semua data diperiksa, klik **Simpan**.
-      </Step>
-      <Step title="Bagikan Tautan Sistem CBT kepada Peserta">
-        <Frame>
-          ![Halaman login peserta dengan tombol Daftar](/images/login-mandiri.png)
-        </Frame>
-
-        1. Tautan dapat dibagikan kepada peserta ujian melalui grup WhatsApp maupun media sosial Anda.
-        2. Setelah tautan sistem CBT dibagikan, peserta dapat membukanya melalui browser, misalnya `https://tryout-lembaga-indolat.indolat.web.id/auth/login`.
-        3. Pada halaman ini, peserta memiliki dua cara untuk masuk:
-           1. Klik **Lanjutkan dengan Google** jika peserta ingin menggunakan akun Google atau Gmail. Tombol ini hanya muncul jika **Autentikasi dengan Google** diaktifkan.
-           2. Isi **Alamat Email** dan **Kata Sandi**, lalu klik **Masuk** jika peserta sudah memiliki akun.
-        4. Jika peserta belum memiliki akun, klik **Daftar** pada bagian bawah halaman.
-        5. Setelah masuk, peserta mendaftar ujian melalui tombol **Pendaftaran Tes Baru**.
-
-        <Note>
-          Tombol **Daftar** hanya akan muncul jika pengaturan **Izinkan pendaftaran akun mandiri** sudah diaktifkan oleh admin. Ujian hanya muncul di **Pendaftaran Tes Baru** jika pengaturan **Apakah Pendaftaran Ujian Dibuka?** pada bagian **Pendaftaran & Pembayaran** diaktifkan dan ujian sedang berada di antara **Tanggal Mulai** dan **Tanggal Selesai**.
-        </Note>
-      </Step>
-      <Step title="Hubungkan Peserta ke Sesi Ujian">
-        Setelah peserta mendaftar, hubungkan peserta ke sesi ujian. Ikuti langkah-langkah pada bagian **Cara Menghubungkan Peserta Ujian ke Sesi Ujian** di bawah.
-      </Step>
-      <Step title="Verifikasi Peserta">
-        <Frame>
-          ![Tombol Verifikasi Peserta pada Daftar Peserta Ujian](/images/veri.png)
-        </Frame>
-
-        Pada bagian **Daftar Peserta Ujian**, klik **Verifikasi Peserta** pada peserta yang berstatus **Menunggu Verifikasi**, lalu klik **Verifikasi** pada jendela yang muncul.
-
-        <Warning>
-          Peserta yang **mendaftar secara mandiri** melalui formulir pendaftaran berstatus **Menunggu Verifikasi** selama pengaturan **Apakah Formulir Pendaftaran Perlu Diverifikasi?** aktif (pengaturan bawaan). Anda sebagai admin penyelenggara ujian **wajib** memverifikasi peserta tersebut sebagai bentuk persetujuan bahwa peserta diperbolehkan mengikuti ujian. Sebelum diverifikasi, peserta belum dapat mengerjakan ujian.
-        </Warning>
-      </Step>
-    </Steps>
+  <Accordion title="Menambahkan akun yang sudah ada">
+    Jika akun peserta sudah ada di **Manajemen Akun** → **Data Akun**, klik **Tambah Peserta** pada tab **Daftar Peserta Ujian**, centang akun yang diinginkan, lalu klik **Tambahkan Peserta**. Cara membuat akun dijelaskan di [Menambahkan Akun Peserta](/data-akun/menambahkan-akun-peserta).
   </Accordion>
+  <Accordion title="Peserta mendaftar sendiri">
+    Untuk ujian yang dibuka untuk umum, peserta dapat membuat akun dan mendaftar ujian sendiri:
 
-  <Accordion title="Peserta Ditambahkan melalui Penyelenggara Ujian" icon="sparkles">
-    Gunakan langkah-langkah berikut ini jika akun peserta disiapkan oleh penyelenggara ujian. Dengan fitur **impor Excel**, Anda tidak perlu menambahkan peserta satu per satu.
+    1. Aktifkan **Izinkan pendaftaran akun mandiri** di **Lainnya** → **Pengaturan Aplikasi** agar tombol **Daftar** muncul di halaman login peserta.
+    2. Aktifkan **Apakah Pendaftaran Ujian Dibuka?** di tab **Pendaftaran & Pembayaran** pada detail ujian (membutuhkan add-on halaman pendaftaran). Peserta lalu mendaftar melalui tombol **Pendaftaran Tes Baru** di aplikasi peserta.
+    3. Atur **Tipe Pembayaran**, formulir pendaftaran, dan verifikasi peserta sesuai kebutuhan.
 
-    <Steps>
-      <Step title="Buka menu Pengaturan Aplikasi">
-        <Frame>
-          ![Menu Pengaturan Aplikasi pada panel admin](/images/Pengaturan-Aplikasi.png)
-        </Frame>
-      </Step>
-      <Step title="Buka tab Pengaturan Lainnya">
-        <Frame>
-          ![Pengaturan Izinkan pendaftaran akun mandiri dalam keadaan nonaktif](/images/nonaktif.png)
-        </Frame>
-
-        Pastikan pengaturan **Izinkan pendaftaran akun mandiri** tidak diaktifkan.
-
-        Kemudian klik **Simpan**.
-      </Step>
-      <Step title="Klik Import Peserta">
-        <Frame>
-          ![Menu Data Ujian dan tombol Detail pada ujian](/images/1-2.png)
-        </Frame>
-
-        <Frame>
-          ![Bagian Daftar Peserta Ujian dan tombol Import Peserta](/images/3-4.png)
-        </Frame>
-
-        1. Buka menu **Data Ujian**.
-        2. Pilih ujian yang akan diikuti peserta.
-        3. Klik **Detail**.
-        4. Sistem akan membuka halaman detail, kemudian pilih bagian **Daftar Peserta Ujian**.
-        5. Klik **Import Peserta**.
-      </Step>
-      <Step title="Unduh Template">
-        <Frame>
-          ![Tombol Unduh Template pada jendela Import Peserta](/images/unduh-template.png)
-        </Frame>
-
-        Klik **Unduh Template** untuk mendapatkan format Excel yang sudah disediakan.
-      </Step>
-      <Step title="Isikan Data Peserta pada Template Impor">
-        <Frame>
-          ![Template impor peserta berisi kolom Nama, Alamat Email, Kata Sandi, dan Label](/images/template-impor.png)
-        </Frame>
-
-        1. **Nama**: Isikan nama peserta yang akan mengikuti ujian.
-        2. **Alamat Email**: Isikan email yang akan digunakan peserta untuk masuk.
-        3. **Kata Sandi**: Isikan kata sandi untuk masing-masing peserta ujian.
-
-        <Note>
-          **Catatan tentang Alamat Email**
-
-          Pada proses impor, sistem **tidak memeriksa** apakah alamat email tersebut benar-benar aktif dan valid. Karena itu, admin dapat menggunakan email khusus yang dibuat untuk kebutuhan ujian, misalnya:
-
-          - `peserta001@indolat.com`
-          - `peserta002@indolat.com`
-
-          Pastikan setiap peserta menggunakan alamat email dan kata sandi yang berbeda agar akun tidak tertukar.
-        </Note>
-
-        4. **Label**: penanda untuk mengelompokkan peserta. Kolom ini **boleh dikosongkan** jika pengelompokan tidak diperlukan.
-
-        <Info>
-          **Fungsi Kolom Label**
-
-          Kolom **Label** digunakan untuk mengelompokkan peserta agar lebih mudah dicari dan dipilih. Contoh label:
-
-          - **Tahun 2026**
-          - **Kelas 12 IPA**
-          - **Gelombang 1**
-          - **Cabang Surabaya**
-        </Info>
-      </Step>
-      <Step title="Unggah File Impor">
-        <Frame>
-          ![Berkas impor dengan keterangan Pengunggahan selesai](/images/impor.png)
-        </Frame>
-
-        1. Pastikan nama file sudah muncul dan terdapat keterangan **Pengunggahan selesai**.
-        2. Klik **Import**.
-        3. Sistem secara otomatis akan membuat akun peserta dan menambahkannya ke **Daftar Peserta Ujian**. Proses impor berjalan di latar belakang, dan Anda akan menerima notifikasi setelah selesai.
-
-        <Frame>
-          ![Peserta hasil impor pada Daftar Peserta Ujian](/images/berhasil-impor.png)
-        </Frame>
-      </Step>
-      <Step title="Hubungkan Peserta ke Sesi Ujian">
-        Setelah proses impor selesai, peserta masih perlu ditambahkan ke sesi ujian. Tanpa sesi, peserta belum dapat mulai mengerjakan ujian. Ikuti langkah-langkah pada bagian **Cara Menghubungkan Peserta Ujian ke Sesi Ujian** di bawah.
-      </Step>
-    </Steps>
+    Langkah lengkapnya ada di [Membuat Formulir Pendaftaran](/data-ujian/membuat-formulir-pendaftaran) dan [Menambahkan Peserta Ujian](/data-ujian/menambahkan-peserta-ujian). Peserta yang mendaftar sendiri juga harus dihubungkan ke sesi, kecuali **Set Sesi Otomatis Setelah Pendaftaran** diaktifkan.
   </Accordion>
 </AccordionGroup>
 
-### Cara Menghubungkan Peserta Ujian ke Sesi Ujian
+## 8. Menghubungkan peserta ke sesi
+
+Peserta yang terdaftar di ujian belum bisa mengerjakan tes sebelum dihubungkan ke sebuah sesi.
 
 <Steps>
-  <Step title="Buka Sesi Peserta Ujian">
+  <Step title="Buka Sesi Peserta Ujian pada halaman tes">
     <Frame>
-      ![Menu Data Ujian dan tombol Detail pada ujian](/images/1-2-1.png)
+      ![Tab Sesi Peserta Ujian dengan peserta Tidak ada sesi ujian dan tombol Set Sesi Ujian Otomatis](/images/mulai-cepat/membuat-ujian-pertama/24-sesi-peserta-ujian.png)
     </Frame>
 
-    <Frame>
-      ![Bagian Daftar Tes Ujian dan tombol Ubah pada tes ujian](/images/sesi-3-4.png)
-    </Frame>
+    Buka halaman tes (tab **Daftar Tes Ujian** → **Ubah** pada **Penalaran Matematika**), lalu:
 
-    <Frame>
-      ![Tab Sesi Peserta Ujian pada halaman tes ujian](/images/sesi-5.png)
-    </Frame>
-
-    Peserta yang sudah terdaftar pada ujian tetap harus dipasangkan ke **sesi ujian**. Jika belum memiliki sesi, peserta tidak dapat mulai mengerjakan.
-
-    1. Buka menu **Data Ujian**.
-    2. Pilih ujian yang akan diikuti peserta.
-    3. Klik **Detail**.
-    4. Sistem akan membuka halaman detail, kemudian pilih bagian **Daftar Tes Ujian**.
-    5. Klik **Ubah** pada tes ujian.
-    6. Sistem akan membuka halaman detail tes ujian.
-    7. Kemudian pilih **Sesi Peserta Ujian**.
+    1. Klik tab **Sesi Peserta Ujian**. Peserta yang belum punya sesi bertanda **Tidak ada sesi ujian**.
+    2. Klik **Set Sesi Ujian Otomatis**.
   </Step>
-  <Step title="Tambahkan Peserta ke Sesi Ujian">
+  <Step title="Konfirmasi pembagian sesi">
     <Frame>
-      ![Mengatur sesi ujian satu peserta melalui jendela Ubah Peserta Ujian](/images/mapping-sesi-1.png)
+      ![Jendela konfirmasi Set Sesi Ujian Otomatis](/images/mulai-cepat/membuat-ujian-pertama/25-konfirmasi-set-sesi.png)
     </Frame>
 
-    💡 Penambahan sesi ujian pada peserta ujian dapat dilakukan satu per satu maupun kolektif.
+    Klik **Set Sesi Ujian Otomatis** pada jendela konfirmasi. Sistem membagi peserta secara merata ke sesi yang tersedia; dengan satu sesi, semua peserta masuk ke **Sesi 1**.
 
     <Frame>
-      ![Peserta tanpa sesi dicentang dan tombol Tindakan](/images/kolektif.png)
+      ![Kelima peserta sudah berada di Sesi 1 dengan status Belum Mengerjakan](/images/mulai-cepat/membuat-ujian-pertama/26-peserta-sudah-bersesi.png)
     </Frame>
-
-    <Frame>
-      ![Opsi Set Sesi Ujian Kolektif pada menu Tindakan](/images/set.png)
-    </Frame>
-
-    1. Centang peserta yang masih memiliki keterangan **Tidak ada sesi ujian**.<br />Untuk memilih seluruh peserta, klik **Pilih semua**.
-    2. Klik **Tindakan**, kemudian pilih **Set Sesi Ujian Kolektif**.
-    3. Pada kolom **Pilih Sesi Ujian**, pilih sesi yang akan diikuti peserta, misalnya **Sesi Pagi**.
-    4. Klik **Set Sesi Ujian Kolektif** untuk menyimpan perubahan.
-  </Step>
-  <Step title="Peserta Siap Mengerjakan Ujian">
-    Setelah peserta dipasangkan ke sesi, peserta dapat mulai mengerjakan sesuai jadwal sesi yang telah ditentukan.
   </Step>
 </Steps>
 
-## 7. Laporan dan Evaluasi
-
-Semua persiapan sudah selesai. Soal sudah dibuat, ujian sudah dijadwalkan, dan peserta sudah dimasukkan ke sesi. Sekarang ujian siap dilaksanakan! 🚀
-
-### Pantau Ujian Saat Berlangsung
-
-Buka menu **Monitoring Ujian**.
-
-<Frame>
-  ![Halaman Monitoring Ujian](/images/monitoring-ujian.png)
-</Frame>
-
-Di halaman ini, Anda dapat memeriksa:
-
-- siapa saja yang sedang mengerjakan,
-- siapa yang belum mulai,
-- sisa waktu pengerjaan,
-- serta status ujian setiap peserta.
-
-Dengan demikian, Anda tidak perlu memeriksa peserta satu per satu.
-
-### Lihat Hasil Setelah Ujian Selesai
-
-Buka menu **Riwayat Tes Ujian**.
-
-<Frame>
-  ![Halaman Riwayat Tes Ujian](/images/riwayat-tes-ujian.png)
-</Frame>
-
-Halaman ini menampilkan tes yang sudah selesai dikerjakan peserta. Di halaman tersebut, Anda dapat melihat:
-
-- nilai peserta (**Skor Tes Ujian**),
-- waktu mulai dan waktu selesai pengerjaan,
-- serta jawaban yang dipilih oleh setiap peserta, dengan mengklik **Lihat**.
-  <Frame>
-    <img
-      src="/images/lihat-riwayat-1.png"
-      alt="Tombol Lihat pada Riwayat Tes Ujian"
-      style={{ width:"83%" }}
-    />
-  </Frame>
-  <Frame>
-    <img
-      src="/images/detail-riwayat-1.png"
-      alt="Detail jawaban peserta pada riwayat tes ujian"
-      style={{ width:"82%" }}
-    />
-  </Frame>
-
 <Tip>
-  Gunakan data ini untuk memeriksa hasil ujian dan mengetahui peserta yang sudah menyelesaikan tes.
+  Untuk memilih sesi sendiri, centang peserta, klik **Tindakan**, lalu pilih **Set Sesi Ujian Kolektif**. Untuk satu peserta, klik **Ubah** pada barisnya. Tombol **Set Sesi Ujian Otomatis** hanya muncul jika masih ada peserta tanpa sesi dan tidak ada peserta yang sedang mengerjakan.
 </Tip>
 
-### Hitung Skor untuk Penilaian IRT
-
-Bagian ini hanya digunakan jika Anda memilih salah satu metode penilaian **IRT**.
-
-Pada metode IRT, nilai peserta **tidak langsung muncul** setelah ujian selesai. Sistem perlu melakukan proses perhitungan terlebih dahulu.
-
-<Frame>
-  <img
-    src="/images/perhitungan-irt.png"
-    alt="Tombol Hitung Skor dengan pilihan Perhitungan IRT"
-    style={{ width:"69%" }}
-  />
-</Frame>
-
-Setelah seluruh peserta selesai mengerjakan:
-
-1. Buka menu **Data Ujian**.
-2. Pilih ujian yang akan dihitung, lalu klik **Detail**.
-3. Klik **Hitung Skor** → **Perhitungan IRT**, lalu konfirmasi.
-4. Tunggu sampai proses perhitungan selesai. Sistem akan mengirimkan notifikasi setelah proses selesai.
-
-<Note>
-  **Perhitungan IRT** hanya dapat diklik jika sudah ada peserta yang menyelesaikan tes, tidak ada peserta yang sedang mengerjakan, dan tidak ada perhitungan IRT lain yang masih berjalan. Pilihan ini tidak tersedia untuk ujian multi-level.
-</Note>
-
-<Tip>
-  Jika Anda tidak menggunakan metode IRT, langkah ini dapat dilewati.
-</Tip>
-
-### Unduh Laporan Hasil Ujian
-
-Setelah ujian selesai, Anda dapat menyimpan hasil peserta dalam bentuk file Excel.
+## 9. Membagikan tautan login peserta
 
 <Steps>
-  <Step title="Buka menu Data Ujian">
+  <Step title="Salin Tautan Login Peserta">
     <Frame>
-      ![Menu Data Ujian dan tombol Detail pada ujian](/images/2026-07-19_10-43.png)
+      ![Menu Pengaturan Aplikasi dan Tautan Login Peserta pada kartu Informasi Aplikasi](/images/mulai-cepat/membuat-ujian-pertama/27-tautan-login-peserta.png)
     </Frame>
 
-    <Frame>
-      ![Menu Ekspor Data dengan pilihan Hasil Tes Ujian](/images/2026-07-19_10-44-1.png)
-    </Frame>
+    1. Di sidebar, klik **Lainnya** → **Pengaturan Aplikasi**.
+    2. Salin **Tautan Login Peserta** pada kartu **Informasi Aplikasi**, misalnya `https://prestasi.indolat.web.id/auth/login`, lalu bagikan kepada peserta bersama email dan kata sandi masing-masing.
 
-    1. Pilih ujian yang hasilnya ingin diekspor.
-    2. Klik **Detail**.
-    3. Pada pojok kanan atas, klik **Ekspor Data**, lalu pilih **Hasil Tes Ujian** dan konfirmasi.
-    4. Sistem memproses file Excel di latar belakang dan mengirimkan notifikasi setelah file siap.
+    Alamat ini dibentuk dari kode projek. Nama lembaga, kode, dan domain diubah di **Administrasi Aplikasi** → **Pengaturan Projek**. Lihat juga [Login Peserta](/lainnya/login-peserta).
   </Step>
-  <Step title="Buka menu Unduh Hasil Ekspor">
+</Steps>
+
+## 10. Peserta mengerjakan ujian
+
+Bagian ini menunjukkan tampilan dari sisi peserta. Cobalah sendiri dengan salah satu akun peserta sebelum ujian dibuka untuk semua orang.
+
+<Steps>
+  <Step title="Masuk ke aplikasi peserta">
     <Frame>
-      ![Tombol Unduh File pada halaman Unduh Hasil Ekspor](/images/2026-07-19_10-45_1.png)
+      ![Halaman login peserta dengan email dan kata sandi terisi](/images/mulai-cepat/membuat-ujian-pertama/28-login-peserta.png)
     </Frame>
 
+    1. Buka tautan login, lalu isi **Alamat Email**.
+    2. Isi **Kata Sandi**.
+    3. Klik **Masuk**.
+  </Step>
+  <Step title="Pilih tes di Daftar Tes">
     <Frame>
-      <img
-        src="/images/2026-07-19_10-46-1.png"
-        alt="Contoh file Excel hasil ujian peserta"
-        className="mx-auto"
-        style={{ width:"69%" }}
-      />
+      ![Kartu tes Tryout Akbar SNBT 2027 – Gelombang 1 - Penalaran Matematika dengan tombol Kerjakan Tes](/images/mulai-cepat/membuat-ujian-pertama/29-daftar-tes-peserta.png)
     </Frame>
 
-    Setelah file siap, buka menu **Unduh Hasil Ekspor**, lalu klik **Unduh File** pada file hasil ekspor untuk mengunduh laporan dalam bentuk Excel. File hasil unduhan dapat digunakan untuk:
+    Halaman **Daftar Tes** menampilkan tes yang dapat dikerjakan beserta waktu pengerjaan (jadwal sesi), durasi, dan jumlah soal. Klik **Kerjakan Tes**.
+  </Step>
+  <Step title="Baca instruksi, lalu mulai">
+    <Frame>
+      ![Jendela instruksi tes dengan tombol Kerjakan Tes](/images/mulai-cepat/membuat-ujian-pertama/30-instruksi-tes.png)
+    </Frame>
 
-    - membuat rekap nilai,
-    - menyimpan arsip ujian,
-    - membagikan hasil kepada pihak terkait,
-    - atau melakukan pengolahan data lanjutan.
+    Jendela instruksi menampilkan **Instruksi Pengerjaan Tes Ujian** yang Anda tulis, jenis tes, jumlah soal, dan durasi. Klik **Kerjakan Tes**.
+
+    <Frame>
+      ![Halaman Tes Diagnostik Sistem dengan tombol Mulai Tes](/images/mulai-cepat/membuat-ujian-pertama/31-tes-diagnostik.png)
+    </Frame>
+
+    Halaman **Tes Diagnostik Sistem** memeriksa koneksi dan browser peserta. Setelah pemeriksaan selesai, klik **Mulai Tes**. Waktu pengerjaan mulai berjalan.
+  </Step>
+  <Step title="Jawab soal">
+    <Frame>
+      ![Halaman soal dengan jawaban terpilih, tombol Soal Selanjutnya, dan panel Daftar Soal](/images/mulai-cepat/membuat-ujian-pertama/32-halaman-soal.png)
+    </Frame>
+
+    1. Klik pilihan jawaban. Gunakan **Hapus Jawaban** untuk membatalkan pilihan.
+    2. Klik **Soal Selanjutnya** untuk berpindah soal. **Tandai Ragu-ragu** menandai soal yang ingin diperiksa lagi.
+    3. Panel **Daftar Soal** menunjukkan nomor yang sudah dijawab dan dapat diklik untuk melompat ke soal tertentu.
+
+    Sisa waktu tampil di bagian atas. Karena **Acak Soal** aktif, urutan soal setiap peserta berbeda.
+  </Step>
+  <Step title="Selesaikan tes">
+    <Frame>
+      ![Soal terakhir dengan tombol Selesai Tes](/images/mulai-cepat/membuat-ujian-pertama/33-selesaikan-tes.png)
+    </Frame>
+
+    Pada soal terakhir, klik **Selesai Tes**.
+
+    <Frame>
+      ![Jendela konfirmasi Apakah Anda yakin ingin mengakhiri tes? dengan tombol Ya, Selesai](/images/mulai-cepat/membuat-ujian-pertama/34-konfirmasi-selesai.png)
+    </Frame>
+
+    Klik **Ya, Selesai**. Setelah tes diakhiri, peserta tidak dapat kembali ke halaman ujian atau mengubah jawaban.
+
+    <Frame>
+      ![Halaman Tes Selesai dengan tombol Kembali ke Daftar Tes](/images/mulai-cepat/membuat-ujian-pertama/35-tes-selesai.png)
+    </Frame>
+  </Step>
+  <Step title="Lihat nilai di Riwayat Tes">
+    <Frame>
+      ![Halaman Riwayat Tes peserta dengan nilai 30 dan tautan Lihat Hasil Tes](/images/mulai-cepat/membuat-ujian-pertama/36-riwayat-tes-peserta.png)
+    </Frame>
+
+    Di menu **Riwayat Tes**, peserta melihat **Nilai** tesnya karena **Tampilkan Skor** aktif. Klik **Lihat Hasil Tes** untuk melihat lembar jawaban dan ringkasan benar-salah (tampil karena **Tampilkan Ringkasan** aktif).
+  </Step>
+</Steps>
+
+## 11. Memantau dan melihat hasil
+
+### Pantau peserta yang sedang mengerjakan
+
+<Frame>
+  ![Halaman Monitoring Ujian dengan filter ujian aktif dan satu peserta sedang mengerjakan](/images/mulai-cepat/membuat-ujian-pertama/37-monitoring-ujian.png)
+</Frame>
+
+1. Di sidebar, klik **Ujian** → **Monitoring Ujian**. Halaman ini diperbarui otomatis setiap 10 detik.
+2. Klik ikon filter untuk memilih **Ujian**, **Status Ujian** (sedang atau belum mengerjakan), atau **Terdeteksi Kecurangan**, lalu klik **Terapkan filter**.
+
+Daftar ini menampilkan peserta yang belum menyelesaikan ujiannya, beserta tes yang sedang dikerjakan, waktu mulai, sisa waktu, dan peringatan, misalnya **Peserta mencoba login dengan device yang berbeda**. Peserta yang sudah selesai pindah ke **Riwayat Tes Ujian**.
+
+### Lihat hasil peserta
+
+<Frame>
+  ![Halaman Riwayat Tes Ujian dengan pencarian TOAKBAR27 dan tombol Lihat](/images/mulai-cepat/membuat-ujian-pertama/38-riwayat-tes-ujian.png)
+</Frame>
+
+1. Di sidebar, klik **Ujian** → **Riwayat Tes Ujian**.
+2. Cari dengan nama atau kode peserta. Karena kode peserta diawali kode ujian, mengetik **TOAKBAR27** menampilkan semua peserta ujian ini. Anda juga dapat memakai filter **Tes Ujian** atau **Tanggal Pengerjaan**. Tabel menampilkan **Skor Tes Ujian**, **Waktu Mulai**, dan **Waktu Selesai** setiap peserta; label **Terdeteksi kecurangan** muncul jika sistem mencatat pelanggaran.
+3. Klik **Lihat** untuk membuka detail hasil peserta.
+
+<Frame>
+  ![Ringkasan hasil tes Bagus Setiawan dengan Skor Tes Ujian 10](/images/mulai-cepat/membuat-ujian-pertama/39-detail-hasil-peserta.png)
+</Frame>
+
+<Frame>
+  ![Bagian Jawaban Peserta dengan status benar atau salah setiap soal](/images/mulai-cepat/membuat-ujian-pertama/40-jawaban-peserta.png)
+</Frame>
+
+Halaman detail memuat ringkasan peserta, **Log Peserta & Ujian** (kapan mulai, selesai, dan kejadian lain), serta **Jawaban Peserta** dengan status benar atau salah per soal. Tautan **Soal** membuka butir soal tersebut, sedangkan **Link** membuka pilihan jawaban yang dipilih peserta, masing-masing di tab baru.
+
+<Tip>
+  Jika Anda mengubah skor soal setelah peserta selesai, hitung ulang nilainya melalui **Hitung Skor** → **Perhitungan Skor Ujian** di halaman detail ujian, atau **Hitung Ulang Skor** di tab **Sesi Peserta Ujian** pada halaman tes. Tes dengan metode IRT dihitung melalui **Hitung Skor** → **Perhitungan IRT** setelah semua peserta selesai.
+</Tip>
+
+### Unduh laporan hasil ujian
+
+<Steps>
+  <Step title="Ekspor hasil tes ujian">
+    <Frame>
+      ![Menu Ekspor Data dengan pilihan Hasil Tes Ujian di halaman detail ujian](/images/mulai-cepat/membuat-ujian-pertama/41-ekspor-data.png)
+    </Frame>
+
+    Di halaman detail ujian:
+
+    1. Klik **Ekspor Data**.
+    2. Pilih **Hasil Tes Ujian**, lalu klik **Konfirmasi**.
+
+    Berkas Excel diproses di latar belakang, dan Anda mendapat notifikasi setelah berkas siap. Berkas ini berisi dua lembar kerja: rekap skor setiap peserta, dan rincian peserta beserta waktu pengerjaan dan data kecurangan.
+  </Step>
+  <Step title="Unduh berkas">
+    <Frame>
+      ![Halaman Unduh Hasil Ekspor dengan berkas hasil_ujian_tryout_akbar_snbt_2027_gelombang_1.xlsx dan tombol Unduh File](/images/mulai-cepat/membuat-ujian-pertama/42-unduh-hasil-ekspor.png)
+    </Frame>
+
+    1. Di sidebar, klik **Lainnya** → **Unduh Hasil Ekspor**.
+    2. Klik **Unduh File** pada berkas hasil ekspor, misalnya **hasil_ujian_tryout_akbar_snbt_2027_gelombang_1.xlsx**.
 
     <Check>
-      Sampai tahap ini, seluruh proses ujian telah selesai, mulai dari menyiapkan soal hingga melihat dan mengunduh hasil peserta.
+      Selesai. Anda sudah membuat paket soal, ujian, tes, dan sesi, menambahkan peserta, mencoba ujian dari sisi peserta, serta memantau dan mengunduh hasilnya.
     </Check>
   </Step>
 </Steps>

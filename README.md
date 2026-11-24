@@ -1,43 +1,50 @@
-# Mintlify Starter Kit
+# Dokumentasi CBT Indolat
 
-Use the starter kit to get your docs deployed and ready to customize.
+Sumber situs dokumentasi CBT Indolat (Mintlify). Setiap push ke branch `main` diterbitkan otomatis.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+## Struktur
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+| Lokasi | Isi |
+| --- | --- |
+| `docs.json` | Navigasi, bahasa (ID default, EN), warna, dan redirect |
+| `*.mdx`, `<folder>/*.mdx` | Halaman bahasa Indonesia |
+| `en/` | Terjemahan bahasa Inggris dengan path yang sama |
+| `images/<folder>/<halaman>/NN-deskripsi.png` | Screenshot per halaman, diberi nomor sesuai urutan tampil |
+| `api/`, `en/api/` | Dokumentasi API |
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+Folder halaman panduan mengikuti modul di aplikasi:
 
-## Development
+- `memulai/`: Portal, modul, dan akun admin
+- `paket-soal/`, `data-ujian/`, `cbt/`: modul **Platform Ujian (CBT)**
+- `data-akun/`, `lainnya/login-peserta`: akun dan login peserta
+- `administrasi/`, `lainnya/manajemen-akses-admin`, `lainnya/transaksi-dan-penarikan-saldo`,
+  `lainnya/kustomisasi-tampilan-website`: modul **Administrasi Aplikasi**
+- `lms/`, `web-builder/`: modul **LMS** dan **Pembuat Website**
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
+## Pratinjau lokal
 
-```
+```bash
 npm i -g mint
-```
-
-Run the following command at the root of your documentation, where your `docs.json` is located:
-
-```
 mint dev
 ```
 
-View your local preview at `http://localhost:3000`.
+Buka `http://localhost:3000`. Jalankan `mint broken-links` sebelum push.
 
-## Publishing changes
+## Aturan penulisan
 
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
+- Bahasa Indonesia baku (EYD V dan KBBI), sapaan "Anda", tanpa emoji.
+- Nama menu, tombol, dan kolom ditulis **tebal** persis seperti di aplikasi. Jalur menu ditulis lengkap, misalnya
+  **Portal** → **Platform Ujian (CBT)** → **Manajemen Ujian** → **Data Ujian**.
+- Setiap halaman panduan dibuka dengan paragraf tujuan dan blok `<Info>` berisi lokasi menu.
+- Langkah memakai `<Steps>`/`<Step>`, setiap gambar berada di dalam `<Frame>` dengan teks alt yang deskriptif.
+- `<Warning>` hanya untuk tindakan yang tidak bisa dibatalkan atau berisiko kehilangan data.
+- Setiap perubahan halaman ID wajib diikuti perubahan halaman `en/` yang setara. Tautan internal di halaman EN memakai
+  awalan `/en/`.
 
-## Need help?
+## Aturan screenshot
 
-### Troubleshooting
-
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
-
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+- Ambil dari tampilan aplikasi terbaru dengan lebar jendela 1440 px, lalu potong ke area yang relevan.
+- Penanda berwarna merah (`#E11D27`): kotak dan panah untuk tombol atau menu yang diklik, lingkaran bernomor bila teks
+  berisi daftar bernomor (nomor di gambar sama dengan nomor di teks).
+- Gunakan data contoh fiktif (nama Indonesia, email `@contoh.id`), jangan data pelanggan atau orang sungguhan.
+- Simpan di `images/<folder>/<halaman>/` dan hapus gambar lama yang tidak dirujuk lagi.

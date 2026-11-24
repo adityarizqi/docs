@@ -1,344 +1,352 @@
 ---
 title: "Add Participant Accounts"
-description: "How to add participant accounts through self-registration, Add Account or Import Accounts, and manage accounts and labels on the Account Data page."
+description: "How to manage participant accounts from the Pengguna or Data Akun menu, including labels, Tambah Akun, Import Akun and participant self-registration."
 ---
 
-Before participants can log in and use the CBT Indolat system, **every participant needs an account**. Participants use the account to log in to the system, see the available exams and take the exams assigned to them.
+Before participants can log in and take an exam, **every participant needs an account** in your project. This page explains where participant accounts are managed, how to add accounts, and how to group, search and tidy them up with labels.
+
+<Info>
+  **Menu location (master list):** **Portal** → **Administrasi Aplikasi** (Application Administration) → **Pengguna** (Users) → **Pengguna**
+
+  **Menu location (CBT mirror):** **Portal** → **Platform Ujian (CBT)** (Exam Platform) → **Manajemen Akun** (Account Management) → **Data Akun** (Account Data)
+
+  **Required role:** project owner, or an admin whose role has access to the **Pengguna** module (Administrasi Aplikasi) or the **Data Akun** module (Platform Ujian).
+</Info>
 
 Participant accounts can be added in three ways:
 
-1. **Participants create their own account** on the account registration page.
-2. **The admin adds accounts one by one** with the **Add Account** button.
-3. **The admin adds accounts with Import Accounts** using an Excel file.
+1. **Participants create their own account** through the **Daftar** (Register) link on the participant login page.
+2. **The admin adds accounts one by one** with the **Tambah Akun** (Add Account) button.
+3. **The admin adds many accounts at once** with the **Import Akun** (Import Accounts) button and an Excel file.
 
 <Tip>
   Choose the method that best fits your needs:
 
-  - **Self-registration** suits cases where participants are allowed to create their own accounts.
-  - **Add Account** suits cases where you only need to add a few accounts.
-  - **Import Accounts** suits cases where the participant data has already been prepared by a school, institution or organiser.
+  - **Self-registration** suits cases where participants may create their own accounts, for example an open tryout.
+  - **Tambah Akun** suits cases where you only need to add a few accounts.
+  - **Import Akun** suits cases where the participant data has already been prepared by a school, branch or organiser.
 </Tip>
 
-## 1. Get to Know the Account Data Page
+## The Pengguna menu and the Data Akun menu
 
-The **Account Data** page is where you view and manage every participant account that can use the CBT Indolat system.
-
-💡 For example, say you are the **admin of Indolat Tutoring Centre**, with participants from several branches, such as:
-
-- Indolat Surabaya Branch
-- Indolat Jakarta Branch
-- Indolat Promotion Programme Participants
-- and General Participants
-
-You can view and manage all of these accounts from the **Account Data** menu.
+Participant accounts are shared by every product in your project. That is why the master list lives in the **Administrasi Aplikasi** module, under **Pengguna** → **Pengguna**.
 
 <Frame>
-  ![Account Data page listing participant accounts](/images/2026-07-26_21-04.png)
+  ![Pengguna menu in the Administrasi Aplikasi sidebar](/images/data-akun/menambahkan-akun-peserta/01-menu-pengguna.png)
 </Frame>
 
-When you open the **Account Data** menu, you'll see every participant account registered in the system. The page has two tabs: **Account**, which lists the participant accounts, and **Label**, where you manage labels.
-
-Each row in the table on the **Account** tab is one participant account. From this page you can search for accounts, group participants, manage labels, add accounts one by one and add many accounts at once.
-
-### 1. Group By
+The same list is also shown in the **Platform Ujian (CBT)** module, under **Manajemen Akun** → **Data Akun**, so you do not have to switch modules while preparing an exam.
 
 <Frame>
-  ![Group by options on the Account Data page](/images/2026-07-26_21-12.png)
+  ![Data Akun menu in the Platform Ujian (CBT) sidebar](/images/data-akun/menambahkan-akun-peserta/02-menu-data-akun-cbt.png)
 </Frame>
 
-The **Group by** control changes how the account list is laid out so it is easier to read. By default, the list is grouped by **Label**; accounts without a label go into the **No Label** group.
+Both menus show **the same data** with the same features: the **Akun** (Accounts) and **Label** tabs, the **Tambah Akun** and **Import Akun** buttons, grouping, search, filters and the actions on each account. Any account or label you add, edit or delete in one menu appears immediately in the other.
 
-- Choose **Label** if you want participants in the same group to be shown together.
-
-<Frame>
-  ![Account list grouped by label](/images/2026-07-25_01-33.png)
-</Frame>
-
-- Choose **Ungrouped** if you want all accounts shown in one plain list.
-
-<Frame>
-  ![Account list without grouping](/images/2026-07-26_21-14.png)
-</Frame>
-
-### 2. Add Label
-
-Use it to create a new participant group. Open the **Label** tab, click **Add Label**, fill in **Label Name**, then click **Save**.
-
-<Frame>
-  ![Creating a new label with the Add Label button](/images/2026-07-25_01-37.png)
-</Frame>
-
-Labels can follow whatever your exams need, for example:
-
-- Indolat Surabaya Branch
-- Indolat Jakarta Branch
-- 2026 Participants
-- Promo Member
-
-<Tip>
-  Labels make it easier to find and select many participants at once.
-</Tip>
-
-### 3. Edit Label
-
-Use it to rename a label you have already created.
-
-<Frame>
-  ![Edit Label button on the Account Data page](/images/2026-07-25_01-41.png)
-</Frame>
-
-<Frame>
-  ![Edit Label window with the selected label and its new name](/images/2026-07-25_01-42.png)
-</Frame>
-
-For example, you want to rename the **Promo Member** label to **Promo Member Indolat** so the name is clearer.
-
-To rename a label:
-
-1. Open the **Label** tab.
-2. Click **Edit** on the row of the label you want to rename.
-3. Enter the new name in the **Label Name** field.
-4. Click **Save** to save the new name.
-
-<Tip>
-  Renaming a label also updates every account that already uses it.
-
-  To set or change the label on several accounts at once, open the **Account** tab, tick the accounts you want, click **Action**, then choose **Edit Label**.
-</Tip>
-
-### 4. Delete Label
-
-Use it to delete labels you no longer need.
-
-<Frame>
-  ![Delete Label button on the Account Data page](/images/2026-07-25_01-44.png)
-</Frame>
-
-<Frame>
-  ![Delete Label window with the label to delete](/images/2026-07-25_01-45.png)
-</Frame>
-
-To delete a label:
-
-1. Open the **Label** tab.
-2. Click **Delete** on the row of the label you want to delete.
-3. Click **Delete** in the confirmation window.
+| | **Pengguna** (Administrasi Aplikasi) | **Data Akun** (Platform Ujian (CBT)) |
+| --- | --- | --- |
+| Data | Every participant account in the project | Exactly the same |
+| When to use it | Managing participants for all products (CBT and LMS) | Managing participants while preparing exams in CBT |
+| Admin access | Granted through the **Pengguna** module in **Role Admin** | Granted through the **Data Akun** module in **Role Admin** |
 
 <Note>
-  Deleting a label only removes the group.
-
-  The participant accounts **stay saved** on the **Account Data** page and move to **No Label**.
+  Access to the two menus is granted separately. An admin who only has access to **Data Akun** can still manage participant accounts from the CBT module without seeing the **Pengguna** menu in Administrasi Aplikasi. See [Admin Access Management](/en/lainnya/manajemen-akses-admin) to set up admin roles. The same list is also available in the LMS module as **Akun Siswa** (Student Accounts).
 </Note>
 
-### 5. Add Account
+## The participant account page
 
-Use it to add participant accounts one at a time, without an Excel file.
-
-1. On the **Account** tab, click **Add Account**.
-2. Fill in **Name**, **Email Address** and **Password**. You can leave the **Label** field empty.
-3. Leave **Active Status** switched on so the account can be used straight away.
-4. Click **Create**.
-
-Accounts added this way are verified straight away, so participants don't need to verify their email.
-
-### 6. Import Accounts
-
-Use it to add many participant accounts at once from an Excel file.
+The page has two tabs: **Akun** lists the participant accounts, and **Label** is where you manage labels. Each row in the **Akun** tab is one participant account, with the columns **No**, **Nama** (Name), **Label**, **Alamat Email** (Email Address), **Status Akun** (Account Status) and **Terdaftar Pada** (Registered On).
 
 <Frame>
-  ![Import Accounts button and window on the Account Data page](/images/2026-07-25_01-48.png)
+  ![Participant accounts grouped by label](/images/data-akun/menambahkan-akun-peserta/16-dikelompokkan-berdasarkan-label.png)
 </Frame>
 
-This suits cases where the participant data already comes from a school, an institution branch or an internal participant list. Once the import finishes, all the accounts appear on the **Account Data** page.
+Each row offers these actions:
 
-<Warning>
-  Imported accounts are not added to any exam automatically. You still need to add the participants in the **Exam Participant List** section.
-</Warning>
+- **Verifikasi Email** (Verify Email): shown only for unverified accounts. See [Account status](#account-status).
+- **Ubah** (Edit): opens the form to change the name, label, password or status of the account.
+- **Lihat** (View): shown for verified accounts and opens the participant's **Detail Akun** (Account Details) page.
+- **Hapus** (Delete): deletes the participant account after confirmation.
 
-### 7. Search
+You can show 10, 25 or 50 accounts per page with the **per halaman** (per page) option below the table.
 
-Use the **Search** field to find a specific account without going through the list one by one. For example, type **Rosa Adinda** to show that participant's account.
+### Kelompokkan berdasar (Group by)
+
+The **Kelompokkan berdasar** option controls how the list is displayed. By default, the list is grouped by **Label**, and accounts without a label are collected in the **Tanpa Label** (No Label) group. The option next to it (**A ke Z** or **Z ke A**) sets the order of the groups.
 
 <Frame>
-  ![Searching for a participant account with the Search field](/images/2026-07-25_01-52.png)
+  ![Kelompokkan berdasar option on the Akun tab](/images/data-akun/menambahkan-akun-peserta/15-kelompokkan-berdasar.png)
 </Frame>
 
-### 8. Filter
-
-Click **Filter** if you want to narrow the account list down by certain criteria. For example, you only want to see:
-
-- accounts with the label **Indolat Surabaya Branch**; or
-- accounts with the status **Active**.
+- Choose **Label** to show participants with the same label next to each other. Each group can be collapsed with the arrow next to its name.
+- Choose **Tidak Dikelompokkan** (Not Grouped) to show every account in a single list.
 
 <Frame>
-  ![Filter options for the participant account list](/images/2026-07-25_01-54.png)
+  ![Account list without grouping](/images/data-akun/menambahkan-akun-peserta/17-tidak-dikelompokkan.png)
 </Frame>
 
-After choosing the criteria you need, click **Apply filters**. The account list then shows the participants that match.
+### Cari (Search)
 
-### 9. Marker Icons
-
-In the **Email Address** column, an icon shows where each participant account came from:
-
-- **Blue person icon**<br />The account wasn't imported: the participant created it on the account registration page, or an admin added it with **Add Account**.
-- **Down arrow icon**<br />The account was added by import, for example with **Import Accounts** on this page or **Import Participants** in an exam.
-- **Google icon**<br />The account was created by registering with a Google account. This icon appears next to one of the icons above.
+Use the **Cari** field to find accounts by name, email address or label name. For example, type **Adi Prabowo** to show that participant's account. The search term appears in the **Filter aktif** (Active filters) bar and can be removed with the **×** mark.
 
 <Frame>
-  ![Icons showing the account source in the Email Address column](/images/2026-07-25_01-07_1.png)
+  ![Searching for Adi Prabowo with the Cari field](/images/data-akun/menambahkan-akun-peserta/19-pencarian.png)
 </Frame>
+
+### Filter
+
+Click the **Filter** icon next to the **Cari** field to narrow down the list. The options are:
+
+- **Akun Google** (Google Account): only accounts created with a Google account.
+- **Apakah Akun diimport?** (Imported account?): only accounts added through an import.
+- **Label**: one or more labels, including **Tanpa Label**.
+- **Status Akun**: **Aktif** (Active), **Tidak Aktif** (Inactive) or **Belum Terverifikasi** (Not Verified).
+
+<Frame>
+  ![Filter panel with several labels selected](/images/data-akun/menambahkan-akun-peserta/18-panel-filter.png)
+</Frame>
+
+After choosing your criteria, click **Terapkan filter** (Apply filters). The filters in effect appear in the **Filter aktif** bar above the table. Click **Atur ulang filter** (Reset filters) in the filter panel, or the **×** mark in the **Filter aktif** bar, to remove them.
 
 <Tip>
-  These icons tell you where a participant account came from, without opening each account's details.
+  For **Status Akun**, choose a single status. If several statuses are selected at once, only one of them is applied.
 </Tip>
 
-## 2. Participants Create Their Own Accounts
+### Account origin icons
 
-Use this method if participants are allowed to create their own accounts.
+The **Alamat Email** column shows an icon that indicates where the account came from:
+
+- **Person icon with a plus sign (blue)**: the account was not imported. It was created by the participant on the registration page or added by an admin with **Tambah Akun**.
+- **Down arrow icon (grey)**: the account was added through an import, for example **Import Akun** on this page, the participant import on an exam, or the API.
+- **Google icon**: the account was created with a Google account. This icon appears next to one of the icons above.
+
+<Frame>
+  ![Account origin icons in the Alamat Email column](/images/data-akun/menambahkan-akun-peserta/20-ikon-asal-akun.png)
+</Frame>
+
+### Account status
+
+The **Status Akun** column shows one of these statuses:
+
+- **Aktif** (green): the account can be used to log in.
+- **Belum Terverifikasi** (yellow): the participant registered themselves but has not entered the email verification code yet.
+- **Tidak Aktif** (red): the account's **Status Aktif** switch is off, so the participant cannot log in.
+
+If a participant does not receive the verification email, you can verify the account manually. Click **Verifikasi Email** on that account's row and confirm. The account status changes to **Aktif** for your project.
+
+<Frame>
+  ![Belum Terverifikasi status and the Verifikasi Email button](/images/data-akun/menambahkan-akun-peserta/21-status-dan-verifikasi-email.png)
+</Frame>
+
+## Managing labels
+
+Labels group participants, for example by branch, class or programme. They make it easier to search, filter and select many participants at once. All labels are managed in the **Label** tab, which shows the **Nama Label** (Label Name), the **Jumlah Akun** (Number of Accounts) using it, and when it was **Terakhir Diubah** (Last Changed).
+
+### Add a label
 
 <Steps>
-  <Step title="Participant opens the exam link">
+  <Step title="Open the Label tab">
     <Frame>
-      ![CBT login page on the participant side](/images/2026-07-25_02-09.png)
-    </Frame>
-
-    Participants can log in, or create an account by clicking **Register**. As the exam organiser, you decide how participants log in.
-
-    For the setup steps, see the guide [Participant Login](/en/lainnya/login-peserta).
-  </Step>
-  <Step title="Click Register">
-    <Frame>
-      ![Register button on the participant login page](/images/2026-07-25_02-14.png)
+      ![Label tab on the participant account page](/images/data-akun/menambahkan-akun-peserta/03-tab-label.png)
     </Frame>
   </Step>
-  <Step title="Participant fills in their account details">
-    <Frame>
-      ![Participant account registration form](/images/2026-07-25_02-16.png)
-    </Frame>
-
-    1. **Full Name**<br />Enter the participant's name as it will be used in the system.
-    2. **Email Address**<br />Enter an email address that is still active. The system sends the verification code to this email.
-    3. **Password**<br />Create a password that is easy to remember but hard for others to guess.
-    4. **Confirm Password**<br />Enter the same password again to make sure there are no typos.
-    5. **Agreement to the Terms of Service and Privacy Policy**<br />Tick this box to confirm the participant has read and agrees to the terms that apply.
-    6. **Register**<br />Once everything is filled in, click **Register** to create the account.
-  </Step>
-  <Step title="Participant verifies their email">
-    <Frame>
-      ![Verify Your Email page for entering the verification code](/images/2026-07-25_02-19.png)
-    </Frame>
-
-    After the participant creates the account, the system sends a verification code to the registered email address.
-
-    This verification makes sure the email address is correct and can be used by the participant.
-
-    💡 For example, the participant registers with the email:
-
-    > `sintamhs0215@yopmail.com`
-
-    What the participant needs to do:
-
-    1. Open the inbox of the registered email address.
-    2. Look for the email from **CBT Indolat**.
-    3. Copy the 6-digit verification code.
-    4. Enter the code on the verification page.
-    5. Click **Verify Account**.
+  <Step title="Click Tambah Label, fill in Nama Label, then click Simpan">
+    For example, create the label **Cabang Surabaya** for participants from the Surabaya branch.
 
     <Frame>
-      ![Email from CBT Indolat with the 6-digit verification code](/images/2026-07-25_02-20.png)
-    </Frame>
-
-    <Frame>
-      ![Verification code entered, then Verify Account clicked](/images/2026-07-25_02-20_1.png)
+      ![Tambah Label window with the name Cabang Surabaya](/images/data-akun/menambahkan-akun-peserta/04-form-tambah-label.png)
     </Frame>
 
     <Note>
-      The verification code is only valid for **5 minutes**. If the code hasn't arrived or no longer works, click **Resend Code** to get a new one.
-
-      <Frame>
-        ![Resend Code link on the email verification page](/images/2026-07-25_02-26.png)
-      </Frame>
+      A label name must differ from existing labels (upper and lower case are treated as the same). If the name is already in use, a message says the label already exists.
     </Note>
   </Step>
-  <Step title="Participant reaches the CBT home page">
-    <Frame>
-      ![Participant's CBT home page after successful verification](/images/2026-07-25_02-21.png)
-    </Frame>
-
-    After verification, the participant lands on the home page and can continue by choosing **New Exam Registration** to find an exam to take.
-
-    <Info>
-      Email verification is only needed for participants who create their own accounts. Accounts added by an admin through **Add Account** or **Import Accounts** skip this step.
-    </Info>
-  </Step>
 </Steps>
 
-## 3. The Admin Adds Participant Accounts by Import
+### Edit a label
 
-Use this method if you want to prepare participant data first, before deciding which exams they will take.
-
-💡 For example, you have a list of participants from the **Surabaya Branch**. They will take several different exams later, so you add their data to the **Account Data** menu first.
+For example, the label **Promo Member** is renamed to **Promo Member Prestasi** to make it clearer.
 
 <Steps>
-  <Step title="Open Account Data and click Import Accounts">
+  <Step title="Click Ubah on the label you want to change">
     <Frame>
-      ![Import Accounts button on the Account Data page](/images/2026-07-22_23-53.png)
+      ![Ubah button on the Promo Member label row](/images/data-akun/menambahkan-akun-peserta/05-daftar-label.png)
     </Frame>
   </Step>
-  <Step title="Click Download Template">
+  <Step title="Enter the new name in Nama Label, then click Simpan">
     <Frame>
-      ![Download Template link in the Import Accounts window](/images/2026-07-22_23-53_1.png)
+      ![Ubah Label window with the new name Promo Member Prestasi](/images/data-akun/menambahkan-akun-peserta/06-form-ubah-label.png)
     </Frame>
 
-    Click **Download Template** to get the right Excel format.
-  </Step>
-  <Step title="Fill in the participant data in the Excel file">
-    <Frame>
-      ![Excel template with Name, Email Address, Password and Label columns](/images/2026-07-22_23-56-1.png)
-    </Frame>
-
-    1. **Name**: Enter the name of the participant who will take the exam.
-    2. **Email Address**: Enter the email address the participant will use to log in.
-    3. **Password**: Enter a password for each participant.
-
-       <Note>
-         **About email addresses**
-
-         During the import, the system **doesn't check** whether an email address is real and active; it only checks that it is written in a valid format. So admins can use email addresses created just for the exam, for example:
-
-         - `peserta001@indolat.com`
-         - `peserta002@indolat.com`
-
-         Make sure every participant has a different email address and password so the accounts don't get mixed up.
-       </Note>
-    4. **Label**: A marker for grouping participants. You **can leave this column empty** if you don't need grouping.
-
-       <Info>
-         **What the Label column is for**
-
-         The **Label** column groups participants so they are easier to find and select. Example labels:
-
-         - **Year 2026**
-         - **Grade 12 IPA** (science stream)
-         - **Batch 1**
-         - **Surabaya Branch**
-       </Info>
-  </Step>
-  <Step title="Upload the Excel file and click Import">
-    <Frame>
-      ![Uploading the Excel file in the Import Accounts window, then clicking Import](/images/2026-07-22_23-57.png)
-    </Frame>
-
-    Upload the completed Excel file, then click **Import**. Once the import succeeds, the participant data appears in the **Account Data** menu.
-
-    <Frame>
-      ![Imported participant accounts on the Account Data page](/images/2026-07-23_21-15.png)
-    </Frame>
-
-    <Warning>
-      At this point, participants are only saved as accounts and **haven't been added to any exam yet**. To add them to an exam, open **Exam Data**, choose **Exam Participant List**, then use the **Add Participant** button.
-
-      Here are the full steps: [Add Participants to an Exam](/en/data-ujian/menambahkan-peserta-ujian).
-    </Warning>
+    The new label name applies straight away to every account that uses the label.
   </Step>
 </Steps>
+
+### Delete a label
+
+Click **Hapus** on the label row, then click **Hapus** in the confirmation window.
+
+<Frame>
+  ![Hapus Label confirmation window](/images/data-akun/menambahkan-akun-peserta/07-konfirmasi-hapus-label.png)
+</Frame>
+
+<Note>
+  Deleting a label only removes the group. The participant accounts **are kept** and become **Tanpa Label**.
+</Note>
+
+### Apply a label to many accounts at once
+
+<Steps>
+  <Step title="Tick the accounts, then click Tindakan → Ubah Label">
+    <Frame>
+      ![Tindakan menu with the Ubah Label option after ticking two accounts](/images/data-akun/menambahkan-akun-peserta/22-tindakan-massal.png)
+    </Frame>
+  </Step>
+  <Step title="Choose a label, then click Simpan">
+    Choose **Tanpa Label** to remove the label from the selected accounts.
+
+    <Frame>
+      ![Ubah Label window for the selected accounts](/images/data-akun/menambahkan-akun-peserta/23-ubah-label-massal.png)
+    </Frame>
+  </Step>
+</Steps>
+
+## Add accounts one by one (Tambah Akun)
+
+<Steps>
+  <Step title="In the Akun tab, click Tambah Akun">
+    <Frame>
+      ![Tambah Akun button on the Akun tab](/images/data-akun/menambahkan-akun-peserta/08-tombol-tambah-akun.png)
+    </Frame>
+  </Step>
+  <Step title="Fill in the account details, then click Buat">
+    <Frame>
+      ![Completed Tambah Akun form](/images/data-akun/menambahkan-akun-peserta/09-form-tambah-akun.png)
+    </Frame>
+
+    1. **Nama** (Name): the participant's name, for example **Nadia Putri**.
+    2. **Label**: the participant's label (may be left empty, which makes the account **Tanpa Label**).
+    3. **Alamat Email** (Email Address): the address the participant uses to log in, for example `nadia.putri@contoh.id`.
+    4. **Kata Sandi** (Password): the participant's initial password.
+    5. **Status Aktif** (Active Status): leave it on so the account can be used straight away.
+    6. **Buat** (Create): saves the account. Use **Buat & buat lainnya** (Create & create another) to go straight on to the next account.
+  </Step>
+</Steps>
+
+Accounts added this way are verified immediately, so participants do not need to verify their email. Give participants their email address and password together with the participant login link (see [Participant Login](/en/lainnya/login-peserta)).
+
+<Note>
+  An email address can only be used for one participant account in the same project. If the address is already registered, the message **Alamat email sudah terdaftar pada projek ini.** (This email address is already registered in this project.) appears.
+</Note>
+
+## Edit or delete an account
+
+Click **Ubah** on an account row to open the **Ubah Akun** (Edit Account) form.
+
+<Frame>
+  ![Ubah Akun form](/images/data-akun/menambahkan-akun-peserta/24-form-ubah-akun.png)
+</Frame>
+
+- **Alamat Email** cannot be changed.
+- **Kata Sandi** may be left empty. Fill it in only if you want to change the participant's password.
+- Turning **Status Aktif** off prevents the participant from logging in and also ends any session the participant has open.
+
+To delete an account, click **Hapus** on the account row or in the **Ubah Akun** form. To delete several accounts at once, tick them, then click **Tindakan** → **Hapus yang dipilih** (Delete selected).
+
+<Warning>
+  Deleting an account cannot be undone. Accounts already registered for an exam cannot be deleted; remove the participant from that exam first.
+</Warning>
+
+## Add many accounts at once (Import Akun)
+
+Use this method when you already have a list of participants but have not yet decided which exams they will take. For example, you have a list of participants from **Cabang Surabaya** who may later take several different exams.
+
+<Steps>
+  <Step title="In the Akun tab, click Import Akun">
+    <Frame>
+      ![Import Akun button on the Akun tab](/images/data-akun/menambahkan-akun-peserta/10-tombol-import-akun.png)
+    </Frame>
+  </Step>
+  <Step title="Click Unduh Template">
+    <Frame>
+      ![Unduh Template link in the Import Akun window](/images/data-akun/menambahkan-akun-peserta/11-jendela-import-akun.png)
+    </Frame>
+
+    The file **template-import-akun.xlsx** is downloaded. The template has the columns **Nama**, **Alamat Email**, **Kata Sandi** and **Label**, plus a few example rows.
+  </Step>
+  <Step title="Fill in the participant data in the Excel file">
+    Replace the example rows with your participants. Do not change the column headings in the first row.
+
+    <Frame>
+      ![Example template content: four participants labelled Cabang Surabaya](/images/data-akun/menambahkan-akun-peserta/25-contoh-isian-template.png)
+    </Frame>
+
+    1. **Nama**: the participant's name (required).
+    2. **Alamat Email**: the address the participant uses to log in (required).
+    3. **Kata Sandi**: a password for each participant (required).
+    4. **Label**: a label name to group participants (optional). If the label does not exist yet, it is created automatically.
+
+    <Note>
+      During the import, the system **does not check** whether an email address is actually active; it only checks the format. You can therefore use exam-only addresses, for example `peserta001@contoh.id`. Make sure every participant has a different email address.
+    </Note>
+
+    <Warning>
+      Delete the example rows from the template before uploading. Any row you leave in is imported as an account.
+    </Warning>
+  </Step>
+  <Step title="Upload the file, then click Import">
+    <Frame>
+      ![Excel file uploaded in the Import Akun window](/images/data-akun/menambahkan-akun-peserta/12-unggah-file-import.png)
+    </Frame>
+
+    The file is processed in the background. While it runs, a **Mengimpor Akun Peserta** (Importing Participant Accounts) card with a progress bar appears above the account list. When it finishes, you receive a **Berhasil Mengimpor Akun Peserta** (Participant Accounts Imported) notification with the number of accounts imported.
+
+    <Frame>
+      ![Berhasil Mengimpor Akun Peserta notification](/images/data-akun/menambahkan-akun-peserta/14-notifikasi-impor.png)
+    </Frame>
+
+    Imported accounts are active and verified straight away, and are marked with the down arrow icon in the **Alamat Email** column.
+  </Step>
+</Steps>
+
+<Note>
+  The whole import is cancelled if any row has an empty **Nama**, **Alamat Email** or **Kata Sandi**, or if any email address has an invalid format. Fix the file as described in the notification, then import it again.
+
+  If an email address in the file is already registered in your project, the account is not duplicated. Its name, password and label are updated from the file, and the account is reactivated.
+</Note>
+
+<Warning>
+  Imported accounts are not added to any exam automatically. To add them to an exam, open **Data Ujian**, choose **Daftar Peserta Ujian**, then use the **Tambah Peserta** button. The full steps are in [Add Participants to an Exam](/en/data-ujian/menambahkan-peserta-ujian).
+</Warning>
+
+## Participants create their own account
+
+This method is only available when **Izinkan pendaftaran akun mandiri** (Allow self-registration) is turned on in **Platform Ujian (CBT)** → **Lainnya** → **Pengaturan Aplikasi**. See [Participant Login](/en/lainnya/login-peserta) for the setting.
+
+<Steps>
+  <Step title="The participant opens the login link and clicks Daftar">
+    <Frame>
+      ![Daftar link on the participant login page](/images/lainnya/login-peserta/13-peserta-klik-daftar.png)
+    </Frame>
+  </Step>
+  <Step title="The participant fills in the registration form">
+    <Frame>
+      ![Completed participant registration form](/images/lainnya/login-peserta/14-formulir-pendaftaran.png)
+    </Frame>
+
+    The participant fills in **Nama Lengkap** (Full Name), **Alamat Email**, **Kata Sandi** (at least 8 characters) and **Konfirmasi Kata Sandi** (Confirm Password), ticks the agreement to the **Ketentuan Layanan** (Terms of Service) and **Kebijakan Privasi** (Privacy Policy), then clicks **Daftar**. If **Autentikasi dengan Google** is on, the participant can also choose **Daftar dengan Google** (Register with Google).
+  </Step>
+  <Step title="The participant verifies their email address">
+    The system sends a 6-digit verification code to the participant's email address. The participant enters the code, then clicks **Verifikasi Akun** (Verify Account).
+
+    <Frame>
+      ![Verifikasi Email Anda page with the code filled in](/images/lainnya/login-peserta/17-kode-verifikasi-diisi.png)
+    </Frame>
+
+    Until the code is entered, the account is listed with the **Belum Terverifikasi** status. Once verification succeeds, the participant lands on the **Daftar Tes** (Test List) page and the account status becomes **Aktif**.
+  </Step>
+</Steps>
+
+<Info>
+  Email verification is only needed for participants who register themselves. Accounts added by an admin with **Tambah Akun** or **Import Akun** are verified immediately. The full participant-side registration steps are in [Participant Login](/en/lainnya/login-peserta#how-participants-register-and-log-in).
+</Info>

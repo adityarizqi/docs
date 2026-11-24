@@ -1,375 +1,299 @@
 ---
 title: "Create an Exam"
-description: "How to create an exam from a template or from scratch, then complete its information, plan, registration, payment and test-taking rules."
+description: "How to create an exam from a template or from scratch, then set its general information, exam type, registration, payment, test-taking rules and additional information."
 ---
 
-This guide explains how to create an **exam as the main container**, together with all of its settings.
+This guide explains how to create an **exam** as the main container, together with all of its settings. In the exam you set the name and schedule, the exam type, how participants register, any fees, the test-taking rules and the information shown to participants. Tests, sessions and participants are added after the exam is created.
 
-The exam is where you set the name and schedule, add tests, decide how participants register, set any fees and define the rules for taking the exam.
+<Info>
+  **Menu location:** **Portal** → **Platform Ujian (CBT)** (Exam Platform) → **Manajemen Ujian** (Exam Management) → **Data Ujian** (Exam Data).
 
-💡 For example,
+  You need access to the **Data Ujian** menu. Admins with the **Guru** (Teacher) role can only see and manage the exams they created themselves.
+</Info>
 
-> You own Indolat Tutoring Centre and want to run the **SNBT 2027 Grand Tryout**, a tryout (practice exam) for SNBT (Indonesia's national university entrance test). The exam will be:
->
-> - free,
-> - open for participants to register themselves,
-> - and participants can see their scores as soon as they finish.
+For example, you are an admin at **Bimbel Prestasi Nusantara** (a tutoring centre) and want to run **Tryout Akbar SNBT 2027 – Gelombang 2**, a practice exam for SNBT (Indonesia's national university entrance test), with these conditions:
 
-<Tip>
-  You can create an exam in one of two ways:
+- the exam is free,
+- participants can register themselves,
+- participants can see their final score after they finish.
 
-  1. **Use an exam template** if you want the system to set up the exam for you, including the number of tests and levels.
-  2. **Create a new exam** if you want to define the whole structure and every setting yourself, from scratch.
-</Tip>
+## Open the Data Ujian menu
 
-## 1. Choose How to Create the Exam
+<Steps>
+  <Step title="Open the Platform Ujian (CBT) module">
+    After you sign in, you land on the **Portal** page. Click the **Platform Ujian (CBT)** tile in **Daftar Modul** (Module List).
+
+    <Frame>
+      ![Platform Ujian (CBT) tile in the module list on the Portal page](/images/data-ujian/membuat-ujian/01-portal-platform-ujian.png)
+    </Frame>
+  </Step>
+  <Step title="Click Data Ujian">
+    In the sidebar, click **Data Ujian** under **Manajemen Ujian**. This page lists your exams with their **Kode Ujian** (Exam Code), **Tipe Ujian** (Exam Type), **Tanggal Mulai** (Start Date) and **Tanggal Selesai** (End Date).
+
+    <Frame>
+      ![Data Ujian menu in the Platform Ujian (CBT) sidebar](/images/data-ujian/membuat-ujian/02-menu-data-ujian.png)
+    </Frame>
+  </Step>
+</Steps>
+
+## Choose how to create the exam
+
+There are two ways to create an exam:
+
+1. **Template Ujian** (Exam Template): the system sets up the exam with its tests and level structure.
+2. **Tambah Ujian** (Add Exam): you define the whole structure and every setting yourself.
 
 <AccordionGroup>
-  <Accordion title="Use an Exam Template">
-    Exam templates help you set up the structure of an exam more quickly.
-
-    When you use a template, the system automatically creates **the exam, its tests and its level or round structure**. You don't have to build each part one by one.
-
-    Several templates are available to suit different needs.
-
-    <Tip>
-      Use **Template Kompetisi Berjenjang** (multi-level competition template) for exams or competitions held over several rounds.
-
-      Example: a Mathematics Olympiad made up of a Preliminary Round, a Semifinal and a Final.
-
-      This template sets up:
-
-      - 3 tests
-      - 3 levels or rounds
-      - a free payment type.
-    </Tip>
+  <Accordion title="Use an exam template">
+    An exam template is a ready-made exam structure. When you use one, the system creates the **exam, its tests and its level structure** in one go. You only need to complete the details.
 
     <Steps>
-      <Step title="Click Exam Template">
-        Open the **Exam Data** menu, then click **Exam Template**.
+      <Step title="Click Template Ujian">
+        On the **Data Ujian** page, click **Template Ujian**.
 
         <Frame>
-          ![Exam Template button on the Exam Data page](/images/template-ujian.png)
+          ![Template Ujian button on the Data Ujian page](/images/data-ujian/membuat-ujian/03-tombol-template-ujian.png)
         </Frame>
       </Step>
-      <Step title="Choose an exam template">
+      <Step title="Choose a template, then click Gunakan Template">
+        The **Pilih Template Ujian** (Choose Exam Template) window shows each template's name, **Pembayaran** (payment type), number of **Tes Ujian** (tests) and level **Struktur** (structure).
+
         <Frame>
-          ![Template selection window with Template Tryout SNBT selected](/images/modal.png)
+          ![Pilih Template Ujian window with Template Tryout SNBT selected](/images/data-ujian/membuat-ujian/04-pilih-template-ujian.png)
         </Frame>
 
-        An exam template is **a sample exam structure prepared by the system**. With a _template_, you don't have to build the exam structure piece by piece.
+        1. Tick the template you want. In this example, choose **Template Tryout SNBT** (free, 7 tests, single level).
+        2. Click **Gunakan Template** (Use Template).
 
-        In this example, choose **Template Tryout SNBT** (SNBT tryout template), because you want to create an SNBT tryout made up of several tests.
+        Available templates:
 
-        1. Tick the box next to **Template Tryout SNBT**.
-        2. Click **Use Template**.
-
-        The system then creates the initial tryout structure automatically.
+        - **Template Tryout SNBT**: a tryout with several literacy and reasoning subtests in one exam.
+        - **Template Kompetisi Berjenjang**: a staged competition or selection with 3 tests and 3 levels. Multi-level exams are explained in [Create a Multi-Level Exam](/en/data-ujian/membuat-ujian-berjenjang).
+      </Step>
+      <Step title="Check the new exam">
+        The new exam appears in the **Data Ujian** list with the template's name and code.
 
         <Frame>
-          ![New Template Tryout SNBT exam in the Exam Data list](/images/list-template.png)
+          ![Template Tryout SNBT exam in the Data Ujian list](/images/data-ujian/membuat-ujian/05-ujian-dari-template.png)
         </Frame>
 
         <Note>
-          You still need to set up **exam sessions** and link each test to a **question package**.
-
-          An exam created from a template is a **Professional Exam (Paid Plan)**. You can change this in the **Exam Type & Plan** section.
-
-          In short, a template only helps you **get started faster**. The system prepares the framework; you fill in the content.
+          - An exam created from a template is a **Ujian Professional (Paket Berbayar)** (Professional exam) that starts when the template is used and ends one month later. Change its name, code, schedule and type through **Detail**.
+          - A template does **not** create exam sessions, registration form fields or participants. You still need to [create exam sessions](/en/data-ujian/membuat-sesi-ujian), choose a question package for each session and [add participants](/en/data-ujian/menambahkan-peserta-ujian).
+          - Templates that charge a fee can only be used when the registration form add-on is active.
         </Note>
       </Step>
     </Steps>
   </Accordion>
 
-  <Accordion title="Create a New Exam">
-    Use this option if you want to define every setting yourself from the start.
-
-    <Tip>
-      This option suits exams that don't follow the structure of any available template.
-    </Tip>
-
+  <Accordion title="Create an exam from scratch (Tambah Ujian)">
     <Steps>
-      <Step title="Click Add Exam">
-        Open the **Exam Data** menu, then click **Add Exam**.
+      <Step title="Click Tambah Ujian">
+        On the **Data Ujian** page, click **Tambah Ujian**.
 
         <Frame>
-          ![Add Exam button on the Exam Data page](/images/2026-07-19_18-02-1.png)
+          ![Tambah Ujian button on the Data Ujian page](/images/data-ujian/membuat-ujian/06-tombol-tambah-ujian.png)
         </Frame>
       </Step>
-      <Step title="Fill in the exam information">
+      <Step title="Fill in the Informasi Umum form">
         <Frame>
-          ![General Information form for a new exam](/images/2026-07-19_18-05.png)
+          ![Tambah Ujian form with numbered fields](/images/data-ujian/membuat-ujian/07-formulir-tambah-ujian.png)
         </Frame>
 
-        Fill in the exam information according to your institution's policies, then click **Create**. The system opens the exam details page straight away.
+        1. **Kode Ujian** (Exam Code)<br />A short code that is unique within your project. It may contain only letters, numbers, `-` and `#`; letters are converted to capitals. The code is also the prefix of the default **Kode Peserta** (Participant Code), see [Participant Codes and Field Codes](/en/data-ujian/kode-peserta).<br />Example: **TOSNBT27-G2**.
+        2. **Nama Ujian** (Exam Name)<br />The name admins and participants see.<br />Example: **Tryout Akbar SNBT 2027 – Gelombang 2**.
+        3. **Tanggal Mulai** (Start Date)<br />The date and time the exam event starts.
+        4. **Tanggal Selesai** (End Date)<br />The date and time the exam event ends. It cannot be earlier than the start date and can be at most one year from today. Every exam session must fall within this range.
+        5. **Deskripsi Ujian** (Exam Description)<br />A short description of the exam, up to 1,000 characters. This field is required.
+        6. **Gambar/Sampul Ujian** (Exam Image/Cover, optional)<br />A PNG cover image of up to 1 MB.
+        7. **Tipe Ujian** (Exam Type)<br />Choose **Ujian Standard (Paket Gratis)** or **Ujian Professional (Paket Berbayar)**. The differences are explained in the **Tipe & Paket Ujian** section below.
+        8. Click **Buat** (Create). The **Detail Ujian** (Exam Details) page opens straight away.
       </Step>
     </Steps>
   </Accordion>
 </AccordionGroup>
 
-## 2. Fill In the Basic Exam Information
+## Set up the exam details
 
-<Steps>
-  <Step title="Click Details">
-    On the **Exam Data** page, click **Details** on the exam you've just created. If you created the exam with **Add Exam**, the exam details page is already open after you click **Create**, so you can skip this step.
-
-    <Frame>
-      ![Details button on the Template Tryout SNBT exam](/images/detail-template.png)
-    </Frame>
-  </Step>
-  <Step title="Fill in the exam event information">
-    <Frame>
-      ![Numbered fields on the General Information tab of the exam details](/images/2026-07-19_17-47.png)
-    </Frame>
-
-    At this stage, you enter the basic information for the exam event you are running.
-
-    1. **Exam Code**<br />Enter a short, unique code so the exam is easy to identify.<br />Example: **TRYSNBT-TPL-854**
-    2. **Exam Name**<br />Enter the exam name that admins and participants will see.<br />Example: **Template Tryout SNBT**
-    3. **Start Date**<br />Set the date and time the exam event starts.
-    4. **End Date**<br />Set the date and time the exam event ends.
-    5. **Exam Description**<br />Give a short explanation of the exam's purpose or content.<br />Example: _This template suits academic tryouts with several literacy and reasoning subtests, ready to adapt to your programme's needs._
-    6. **Exam Image/Cover**<br />Upload an image to use as the exam cover. It makes the exam easier for participants to recognise. The file must be a PNG of up to 1MB.
-    7. Once you've checked that all the information is correct, click **Save changes** to save the exam event.
-  </Step>
-</Steps>
-
-## 3. Complete the Settings on the Exam Details Page
+The **Detail Ujian** page opens after you create an exam. To open it again later, click **Detail** on the exam's row on the **Data Ujian** page.
 
 <Frame>
-  <img
-    src="/images/2026-07-19_18-10.png"
-    alt="Four settings tabs on the exam details page"
-    className="mx-auto"
-    style={{ width:"75%" }}
-  />
+  ![Five settings tabs on the Detail Ujian page](/images/data-ujian/membuat-ujian/08-tab-detail-ujian.png)
 </Frame>
 
-Once the exam has been created, the system shows several settings sections:
+The exam settings are split into five tabs:
 
-1. **General Information**
-2. **Exam Type & Plan**
-3. **Registration & Payment**
-4. **Exam Settings**
-5. **Additional Information**
+1. **Informasi Umum** (General Information)
+2. **Tipe & Paket Ujian** (Exam Type & Plan)
+3. **Pendaftaran & Pembayaran** (Registration & Payment)
+4. **Pengaturan Ujian** (Exam Settings)
+5. **Informasi Tambahan** (Additional Information)
 
-Let's go through them one by one.
+After changing any tab, click **Simpan** (Save).
 
-<Steps>
-  <Step title="Review General Information">
-    The **General Information** section lets you view or change the exam's identity.
+### Informasi Umum
 
-    Here you can change:
+This tab has the same fields as the **Tambah Ujian** form: **Kode Ujian**, **Nama Ujian**, **Tanggal Mulai**, **Tanggal Selesai**, **Deskripsi Ujian** and **Gambar/Sampul Ujian**.
 
-    - the exam code
-    - the exam name
-    - the start date
-    - the end date
-    - the exam description
-    - the exam image or cover.
+<Note>
+  - **Kode Ujian** can no longer be changed once the exam has participants.
+  - **Tanggal Mulai** and **Tanggal Selesai** cannot be changed while any participant is taking a test.
+</Note>
 
-    Example:
+### Tipe & Paket Ujian
 
-    > The SNBT Grand Tryout was originally scheduled for 20–25 July. If the schedule changes, you can update it in the General Information section.
+<Frame>
+  ![Tipe & Paket Ujian tab with Ujian Standard selected and remaining credits](/images/data-ujian/membuat-ujian/09-tab-tipe-paket-ujian.png)
+</Frame>
 
-    After making changes, click **Save changes**.
-  </Step>
-  <Step title="Review Exam Type & Plan">
-    <Frame>
-      <img
-        src="/images/2026-07-19_18-12.png"
-        alt="Exam Type & Plan tab with the Professional Exam selected"
-        style={{ width:"85%" }}
-      />
-    </Frame>
+**Tipe Ujian** determines which credits the exam uses and which features are available. Credits are used when participants take the exam. The box below the field shows the remaining credits for that type.
 
-    The **Exam Type & Plan** section shows the service type or plan the exam uses. Credits are consumed when a participant takes an exam.
+| | **Ujian Standard (Paket Gratis)** | **Ujian Professional (Paket Berbayar)** |
+| --- | --- | --- |
+| Credit reset | Automatically every month | Every month, following your subscription period |
+| Tests per exam | Up to 4 | Up to 30 |
+| Participants taking the exam at the same time | Up to 50 | Up to 1,000 |
+| Camera, Screen and Dual Monitor proctoring | Not available | Available |
+| Computer Adaptive Test (CAT) | Not available | Available |
 
-    <Frame>
-      ![Exam Type options: Standard Exam and Professional Exam](/images/image-30.png)
-    </Frame>
+With both types, CBT tests can use every scoring method (including IRT), and **Deteksi Pindah Tab** (Tab Switch Detection) is always available.
 
-    - **Standard Exam (Free Plan)**
+<Warning>
+  If you choose **Ujian Professional (Paket Berbayar)** but the project has no professional exam credits, the system shows a warning and participants cannot start the exam until credits are available. Credits are managed in **Administrasi Aplikasi** → **Keuangan** → **Langganan & Tagihan** (Subscription & Billing).
+</Warning>
 
-      Suitable for simple exams or regular practice. Its terms:
+<Tip>
+  Choose **Ujian Standard** for simple exams with at most 4 tests and 50 participants at the same time. Choose **Ujian Professional** if you need more tests or concurrent participants, CAT, or camera, screen and dual monitor proctoring.
+</Tip>
 
-      1. Credits are reset automatically every month.
-      2. Up to **4 Tests (Subtests)** per exam.
-      3. Up to **50 participants** taking the exam at once (participants working on the exam at the same time).
-      4. **Camera, Screen and Dual Monitor Proctoring** is not available.
-      5. **Computer Adaptive Test (CAT)** is not available.
+### Pendaftaran & Pembayaran
 
-    - **Professional Exam (Paid Plan)**: Rp500 per exam credit
+<Frame>
+  ![Numbered fields on the Pendaftaran & Pembayaran tab](/images/data-ujian/membuat-ujian/10-tab-pendaftaran-pembayaran.png)
+</Frame>
 
-      Suitable for exams with more participants and more advanced needs. Its terms:
+This tab decides whether participants can register themselves and whether the exam is free or paid. Registration and payment settings require the **Halaman Pendaftaran Ujian dan Pembayaran Otomatis** (Exam Registration Page and Automatic Payment) add-on. Without the add-on, the settings show **(Add-on Tidak Aktif)** (Add-on Inactive) and a paid exam cannot be saved.
 
-      1. Credits are reset every month according to your subscription period.
-      2. Up to **30 Tests (Subtests)** per exam.
-      3. Up to **1,000 participants** taking the exam at once.
-      4. **Camera, Screen and Dual Monitor Proctoring** is available. Camera and screen proctoring also use their own proctoring credits (an add-on).
-      5. **Computer Adaptive Test (CAT)** is available.
+1. **Apakah Pendaftaran Ujian Dibuka?** (Is Exam Registration Open?)<br />Turn this on so participants can register for the exam themselves. Once it is on, click the **di sini** (here) link in the helper text to copy the exam registration URL, then share it with prospective participants. The **Lihat** (View) link shows an example registration page. Form fields, verification and the registration quota are set in [Participant Registration Form](/en/data-ujian/membuat-formulir-pendaftaran).
+2. **Tipe Pembayaran** (Payment Type)<br />Choose one of these types:
 
-      If you have no professional exam credits, the system shows a warning and participants can't start the exam until credits are available.
+   - **Gratis** (Free): participants do not pay.
+   - **Sekali Bayar** (One-Time Payment): participants pay once for every test in the exam. Example: Rp50,000 for all subtests of the tryout.
+   - **Berbayar per Tes Ujian** (Paid per Test): participants pay for each test they want to take. The fee is set on each test (see [Create a Test](/en/data-ujian/membuat-tes-ujian)).
+   - **Berbayar per Level (Multi-Level)** (Paid per Level): participants pay for each level or round they take. Choosing this type automatically sets **Apakah Ujian Multi-Level?** to **Ya (Multi-Level)**. Fees are set in the level structure, see [Create a Multi-Level Exam](/en/data-ujian/membuat-ujian-berjenjang).
+3. **Set Sesi Otomatis Setelah Pendaftaran** (Assign Session Automatically After Registration)<br />Turn this on so participants who register themselves are placed in an exam session straight away. With **Sekali Bayar** and **Berbayar per Tes Ujian**, the setting is called **Set Sesi Otomatis Setelah Pembayaran** (… After Payment) and runs once the participant has paid. It is not available with **Berbayar per Level (Multi-Level)**. If some tests still have no session, a warning asks you to add sessions first.
+4. Click **Simpan**.
 
-    On both exam types, CBT tests can use every scoring method, including IRT, and **Tab Switch Detection** is still available.
+If you choose **Sekali Bayar**, the **Biaya Ujian Sekali Bayar (IDR)** (One-Time Exam Fee) field appears. Enter the fee participants must pay, at least Rp5,000. **Set Sesi Otomatis Setelah Pembayaran** can only be turned on after the fee is filled in.
 
-    <Tip>
-      Choose the **Standard Exam** if the exam is simple, no more than 50 participants take it at the same time and it has no more than 4 tests.
+<Frame>
+  ![Biaya Ujian Sekali Bayar field and Set Sesi Otomatis Setelah Pembayaran with the Sekali Bayar type](/images/data-ujian/membuat-ujian/11-tipe-pembayaran-sekali-bayar.png)
+</Frame>
 
-      Choose the **Professional Exam** if more participants take it at the same time or it has more tests, or you need CAT or camera, screen and dual monitor proctoring.
-    </Tip>
-  </Step>
-  <Step title="Set up Registration & Payment">
-    <Frame>
-      ![Numbered fields on the Registration & Payment tab](/images/2026-07-19_18-17.png)
-    </Frame>
+<Note>
+  If you change the payment type from **Sekali Bayar** to another type, the **Metode Pembayaran** (Payment Method) field is automatically removed from the exam's registration form.
+</Note>
 
-    In this section, you decide whether participants can register themselves and whether the exam is free or paid.
+<Tip>
+  Turn on **Set Sesi Otomatis Setelah Pendaftaran** if you often forget to place registered participants in an exam session.
+</Tip>
 
-    1. **Is Exam Registration Open?**<br />When this is on, participants can register for the exam themselves. This setting needs the **Exam Registration Page and Automatic Payment** add-on. If the add-on isn't active, the label shows "(Add-on Inactive)" and the toggle can't be turned on.
-    2. **Payment Type**<br />Choose **Free** if participants don't need to pay. If the exam is paid, choose the matching payment type. Paid payment types need the same add-on; without it, a paid exam can't be saved.
+### Pengaturan Ujian
 
-    <Frame>
-      <img
-        src="/images/tipe-pembayaran.png"
-        alt="Payment Type options on the exam details"
-        className="mr-auto"
-      />
-    </Frame>
+<Frame>
+  ![Numbered fields on the Pengaturan Ujian tab](/images/data-ujian/membuat-ujian/12-tab-pengaturan-ujian.png)
+</Frame>
 
-    - **Free**: Participants don't pay anything.
+This tab sets the general test-taking rules and how the final score is calculated.
 
-      > Example:
-      >
-      > A free SNBT tryout made up of a Mathematics Test and an Indonesian Language Test. Participants can take all of them at no cost.
+1. **Apakah Ujian Multi-Level?** (Is This a Multi-Level Exam?)<br />Choose **Ya (Multi-Level)** if the exam runs in several rounds, such as Preliminary, Semifinal and Final. Choose **Tidak** (No) if the exam has a single stage, like the tryout in this example. This cannot be changed once the exam has participants. The full guide is in [Create a Multi-Level Exam](/en/data-ujian/membuat-ujian-berjenjang).
+2. **Apakah Tes Ujian Harus Dikerjakan Secara Berurutan?** (Must Tests Be Taken in Order?)<br />When on, participants must take the tests in the order you set. Set the order with the **Ubah Urutan Tes Ujian** (Reorder Tests) button in the **Daftar Tes Ujian** (Test List) section. When off, participants can choose which test to take first.
+3. **Apakah Tes Ujian Harus Dikerjakan Secara Langsung?** (Must Tests Be Taken Without a Break?)<br />When on, participants must finish a test without a break before moving to the next one. When off, participants may stop after one test and continue with another while its schedule is still open.
+4. **Jenis Skor Akhir** (Final Score Type)<br />How the final score is calculated from all test scores:
+   - **Akumulasi Tes Ujian** (Sum of Tests): the scores of all tests are added together.
+   - **Rata-Rata Tes Ujian** (Average of Tests, default): the total is divided by the number of tests that have been scored.
 
-    - **One-time Payment**: Participants pay once and can then take every test in the exam event.
+   Example: scores of 80 for Penalaran Matematika and 70 for Literasi Bahasa Indonesia give a final score of 150 with the sum, or 75 with the average. If the exam already has participants, every participant's final score is recalculated after you save the change.
+5. **Apakah Tampilkan Skor Akhir Ujian?** (Show the Final Exam Score?)<br />Turn this on so participants can see their final exam score. Only turn it on once the final scores are correct. Leave it off if scores still need checking or will be announced later.
+6. Click **Simpan**.
 
-      > Example:
-      >
-      > The SNBT tryout costs Rp50,000. After paying, participants can take the Mathematical Reasoning Test, the Indonesian Literacy Test and the English Literacy Test.
-      >
-      > Participants don't need to pay again for each test.
+<Note>
+  When the exam is set to **Ya (Multi-Level)**, settings 2 and 3 are hidden because the order and no-break rules are set on each level.
+</Note>
 
-    - **Paid per Test**: Participants pay for each test they want to take.
+### Informasi Tambahan
 
-      > Example:
-      >
-      > Mathematics Test: Rp20,000
-      >
-      > Indonesian Language Test: Rp15,000
-      >
-      > English Test: Rp15,000
-      >
-      > A participant who only wants to take the Mathematics Test pays just Rp20,000.
+<Frame>
+  ![Numbered fields on the Informasi Tambahan tab](/images/data-ujian/membuat-ujian/13-tab-informasi-tambahan.png)
+</Frame>
 
-    - **Paid per Level (Multi-Level)**: For exams made up of several rounds. Participants pay for each round they take.
+This optional tab shows extra information on the dashboard of participants registered for this exam, such as a WhatsApp group link, technical guidance or committee contacts. Participants of other exams do not see it.
 
-      > Example:
-      >
-      > Preliminary Round: Rp25,000
-      >
-      > Semifinal: Rp30,000
-      >
-      > Final: Rp40,000
-      >
-      > Participants pay for the next round only if they pass.
+1. **Apakah Tampilkan Informasi Tambahan untuk Peserta?** (Show Additional Information to Participants?)<br />Turn this on to show the other fields.
+2. **Judul Informasi** (Title)<br />Up to 100 characters. Example: **Gabung Grup WhatsApp Peserta Gelombang 2**.
+3. **Isi Informasi** (Content)<br />Up to 1,000 characters. You can use bold, italics, links and lists.
+4. **Label Tombol (Opsional)** (Button Label, optional)<br />The button text, up to 50 characters. Example: **Gabung Grup**.
+5. **Tautan Tombol (Opsional)** (Button Link, optional)<br />A full link starting with `http://` or `https://`. The button only appears when both the label and the link are filled in.
+6. Click **Simpan**.
 
-    3. **One-time Exam Fee (IDR)**<br />The fee participants pay to take the exam. This field appears when you choose **One-time Payment**.
-    4. **Assign the Session Automatically After Registration**<br />Turn this on if you want participants who register successfully to be placed in an exam session automatically. With **One-time Payment** and **Paid per Test**, this setting is called **Assign the Session Automatically After Payment** and takes effect once the participant has paid. With **Paid per Level (Multi-Level)**, this setting isn't shown. It also needs the **Exam Registration Page and Automatic Payment** add-on.
-    5. When you've finished, click **Save changes**.
+Participants see the information at the top of their **Daftar Tes** (Test List) page:
 
-    <Tip>
-      If you **often forget** to put participants into exam sessions, we recommend turning on **Assign the Session Automatically After Registration**.
-    </Tip>
-  </Step>
-  <Step title="Complete the Exam Settings">
-    <Frame>
-      ![Numbered fields on the Exam Settings tab](/images/2026-07-19_18-25.png)
-    </Frame>
+<Frame>
+  ![Additional information card with the Gabung Grup button on the participant dashboard](/images/data-ujian/membuat-ujian/14-informasi-tambahan-peserta.png)
+</Frame>
 
-    The **Exam Settings** section sets the general rules participants follow while taking the exam.
+## Other sections of the Detail Ujian page
 
-    1. **Is This a Multi-Level Exam?**
+Below the settings tabs there are three sections for completing the exam:
 
-       Choose **Yes (Multi-Level)** if the exam runs in several stages or rounds. The full guide is in [Create a Multi-Level Exam](/en/data-ujian/membuat-ujian-berjenjang).
+<Frame>
+  ![Daftar Tes Ujian, Formulir Pendaftaran and Daftar Peserta Ujian sections](/images/data-ujian/membuat-ujian/15-bagian-tes-formulir-peserta.png)
+</Frame>
 
-       > Example:
-       >
-       > 1. Preliminary Round
-       > 2. Semifinal
-       > 3. Final
+1. **Daftar Tes Ujian** (Test List): add and manage tests. See [Create a Test](/en/data-ujian/membuat-tes-ujian).
+2. **Formulir Pendaftaran** (Registration Form): build the self-registration form. See [Participant Registration Form](/en/data-ujian/membuat-formulir-pendaftaran).
+3. **Daftar Peserta Ujian** (Participant List): add and manage participants. See [Add Participants to an Exam](/en/data-ujian/menambahkan-peserta-ujian).
 
-       Choose **No** if the exam has only one stage.
+The top right of the page has three buttons:
 
-       > Example: an SNBT tryout held once, with no further rounds.
+<Frame>
+  ![Ekspor Data, Kode Peserta and Hitung Skor buttons at the top right of Detail Ujian](/images/data-ujian/membuat-ujian/16-tombol-header-detail-ujian.png)
+</Frame>
 
-    2. **Must the Tests Be Taken in Order?**
+1. **Ekspor Data** (Export Data): exports test results, essay answer links, item analysis and the leaderboard template to Excel. See [Exam Results and Exports](/en/data-ujian/hasil-dan-ekspor-ujian).
+2. **Kode Peserta** (Participant Code): sets the participant code format and per-session field codes. See [Participant Codes and Field Codes](/en/data-ujian/kode-peserta).
+3. **Hitung Skor** (Calculate Score): recalculates participant scores, including IRT scores. See [Exam Results and Exports](/en/data-ujian/hasil-dan-ekspor-ujian#recalculate-scores).
 
-       Turn this on if participants must take the tests in a set order.
+On a multi-level exam, the **Atur Struktur Level Ujian** (Set Up Level Structure) button also appears here.
 
-       > Example: participants must finish the Mathematics Test before they can open the Indonesian Language Test.
+## Manage exams in the Data Ujian list
 
-       If it's off, participants can choose which test to take first.
+Click **Lainnya** (More) on an exam's row for more actions:
 
-    3. **Must the Tests Be Taken in One Sitting?**
+<Frame>
+  ![Lainnya menu with Arsipkan Ujian, Duplikat Ujian and Hapus](/images/data-ujian/membuat-ujian/17-menu-lainnya-ujian.png)
+</Frame>
 
-       Turn this on if participants must go straight on to the next test without a break.
+- **Arsipkan Ujian** (Archive Exam): hides the exam from the list and locks all of its data. Archived exams are shown on the **Arsip Ujian** (Exam Archive) page, opened with the archive icon button next to **Template Ujian**, and can be restored with **Keluarkan dari Arsip** (Remove from Archive), but their data stays locked and can no longer be changed.
+- **Duplikat Ujian** (Duplicate Exam): copies the exam with its tests, level structure, registration form, coupons and media files. It runs in the background and you get a notification when it is done.
+- **Hapus** (Delete): deletes the exam. An exam that participants have started cannot be deleted.
 
-       > Example: after finishing the Mathematics Test, participants must go straight on to the Indonesian Language Test.
+<Warning>
+  Archiving an exam locks all of its data permanently, even if the exam is later removed from the archive. Make sure the exam is completely finished before you archive it.
+</Warning>
 
-       If it's off, participants can stop after finishing one test and come back for the next one while the schedule is still open.
-
-    4. **Final Score Type**
-
-       Choose how a participant's final score is derived from the scores of all the tests:
-
-       - **Accumulated Exam Test Scores**: the scores of each test are added up.
-       - **Averaged Exam Test Scores**: the total is divided by the number of tests already scored. This option is selected by default.
-
-       > Example: a participant scores 80 on the Mathematics Test and 70 on the Indonesian Language Test. With **Accumulated Exam Test Scores**, the final score is 150; with **Averaged Exam Test Scores**, it's 75.
-
-       If the exam already has participants, every participant's final score is recalculated once you save the change.
-
-    5. **Show the Final Exam Score?**
-
-       Turn this on if participants may see their final result once they finish.
-
-       > Example: in a practice tryout, participants can see their score straight away to check how they're doing.
-
-       Turn it off if scores still need to be checked or will be announced later.
-
-       > Example: selection scores are checked first and announced by the committee the next day.
-
-    6. When you've finished, click **Save changes**.
-  </Step>
-  <Step title="Set up Additional Information">
-    The **Additional Information** section is optional. Use it to show specific information on the dashboard of participants registered for this exam, such as a WhatsApp group link, technical guidance or the committee's contact details. Participants in other exams don't see it.
-
-    1. **Show Additional Information to Participants?**<br />Turn this on to show the additional information on participants' dashboards.
-    2. **Information Title**<br />Enter a title of up to 100 characters.<br />Example: **Join the Participants' WhatsApp Group**
-    3. **Information Content**<br />Enter the information itself, up to 1,000 characters.
-    4. **Button Label (Optional)** and **Button Link (Optional)**<br />Fill in both if you want to show a button, such as **Join Group**. Use a full link starting with `http://` or `https://`. The button only appears when both its label and link are filled in.
-    5. When you've finished, click **Save changes**.
-  </Step>
-</Steps>
-
-## 4. Review the Exam You Created
-
-Before you move on to creating tests, check the following:
+## Check your exam
 
 <Check>
-  - The exam name and code are correct.
-  - The start and end dates are right.
-  - The exam type fits your needs.
-  - Self-registration is turned on or off as intended.
-  - The payment type is correct.
-  - The test-taking rules are right.
-  - You've checked how scores are announced.
+  - The exam name, code and schedule are correct.
+  - The exam type matches the number of tests, concurrent participants and features you need.
+  - Self-registration and the payment type are set as intended.
+  - The test-taking rules and final score type are correct.
+  - The final score display setting has been checked.
 </Check>
 
-Once everything is set, the exam is ready for its tests. Continue with this guide:
+Once the settings are done, add tests to the exam:
 
 <Card title="Create a Test" icon="arrow-right" horizontal href="/en/data-ujian/membuat-tes-ujian">
-  Add tests to the exam you've just created.
+  Add tests to the exam you created.
 </Card>

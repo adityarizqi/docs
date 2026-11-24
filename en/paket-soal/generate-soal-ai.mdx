@@ -1,79 +1,109 @@
 ---
 title: "Generate Questions with Jasper AI"
-description: "How to create a question package with its questions and answers automatically using Jasper AI."
+description: "How to create a new question package or add questions to an existing package automatically with Jasper AI."
 ---
 
-The **Create a Question Package with Jasper AI** feature creates a question package with its questions and answers automatically. You only need to set the package name and the number of questions, and describe the material you need.
+**Jasper AI** automatically writes questions with answer options, keys, explanations, difficulty levels, and scores, based on the package name and the instructions you give. It is useful for preparing draft questions quickly, which you then review and refine.
 
-This is useful when you need questions in a short time or don't yet have questions ready to enter one by one.
+<Info>
+  **Menu location:**
 
-> 💡 **For example:** you're preparing **Try Out SNBT 2027**, a tryout (practice exam) for SNBT (Indonesia's national university entrance test) with Mathematics, Indonesian and English questions. Instead of writing all the questions by hand, you can ask the system to create 10 questions as a starting point.
+  - New package: **Portal** → **Platform Ujian (CBT)** → **Manajemen Ujian** → **Data Paket Soal** → **Buat Paket Soal Jasper AI**.
+  - Existing package: **Data Paket Soal** → **Ubah** (Edit) on the package → **Daftar Soal** → **Tambah Soal dengan Jasper AI**.
+
+  Jasper AI only creates questions for **CBT/CAT** packages and uses your project's **Jasper AI quota**: each question uses one unit of quota.
+</Info>
+
+## Jasper AI quota
+
+The remaining quota is shown at the bottom of the Jasper AI form, for example **Sisa kuota Jasper AI: 100 soal** (remaining quota: 100 questions). The quota is deducted by the **Jumlah Soal** (number of questions) when the process starts. If you have no quota left, the form shows **Anda tidak punya kuota Jasper AI, silakan beli di sini** (you have no Jasper AI quota, buy it here); the **di sini** link opens the Jasper AI add-on purchase in **Administrasi Aplikasi** → **Keuangan** → **Langganan & Tagihan**.
+
+If the requested number of questions exceeds the remaining quota, the process does not start and the message **Kuota Jasper AI Tidak Cukup** (insufficient quota) shows your remaining quota.
+
+## Creating a new package with Jasper AI
+
+As an example, you prepare the package **Penalaran Umum – Tryout Akbar SNBT 2027** with 20 questions as a starting point.
 
 <Steps>
-  <Step title="Click Create a Question Package with Jasper AI">
-    Open the **Question Package Data** menu, then click **Create a Question Package with Jasper AI**.
+  <Step title="Click Buat Paket Soal Jasper AI">
+    Open **Data Paket Soal**, then click **Buat Paket Soal Jasper AI** (Create Question Package with Jasper AI).
 
     <Frame>
-      ![Create a Question Package with Jasper AI button on the Question Package Data page](/images/2026-07-31_02-12.png)
+      ![Buat Paket Soal Jasper AI button on the Data Paket Soal page](/images/paket-soal/generate-soal-ai/01-tombol-buat-paket-soal-jasper-ai.png)
     </Frame>
   </Step>
-  <Step title="Fill in the question package details">
+  <Step title="Fill in the form">
     <Frame>
-      ![Completed Create a Question Package with Jasper AI form](/images/2026-07-31_02-14.png)
+      ![Buat Paket Soal Jasper AI form with numbered fields](/images/paket-soal/generate-soal-ai/02-formulir-buat-paket-soal-jasper-ai.png)
     </Frame>
 
-    1. Fill in **Question Package Name**.
-
-       Example: **Try Out SNBT 2027**
-    2. Fill in **Number of Questions** with the number of questions you want to generate.
-
-       Example: **10 questions**
-
-    <Note>
-      The number of questions you enter is deducted from your Jasper AI quota.
-    </Note>
-
-    3. In **Notes**, describe the questions you need. You can mention the subject, school level, question format or difficulty level.
-
-       Example: **Create Mathematics, Indonesian and English questions for SNBT 2027 preparation.**
-
-    <Tip>
-      The clearer your instructions, the better the generated questions will match what you need.
-    </Tip>
-
-    <Note>
-      If several questions share the same reading text, table or case (for example literacy questions or data-based reasoning questions), Jasper AI writes that material **once as a passage** instead of repeating it in every question. The passage appears in the **Passages** tab of the question package and is shown above the text of each of its questions during the exam. You can ask for reading-based questions specifically in **Notes**, for example: _Create 3 reading texts, each with 4 comprehension questions._
-    </Note>
-
-    4. Click **Generate**. The system starts creating the question package; while it runs, the button shows the generation progress. Wait until a notification says the questions were created.
-
-    <Frame>
-      ![Questions created notification and the new package in the question package list](/images/2026-07-31_02-17.png)
-    </Frame>
+    1. **Nama Paket Soal** (package name): the name of the new package. Jasper AI also uses it as a hint about the subject, so choose a clear name, for example **Penalaran Umum – Tryout Akbar SNBT 2027**.
+    2. **Jumlah Soal** (number of questions): at least 1, for example **20**.
+    3. **Catatan** (notes, optional): extra instructions on topics, level, question format, difficulty, or language. Example: _Soal penalaran umum untuk SNBT 2027. Buat 2 bacaan, masing-masing dengan 3 soal pemahaman; sisanya soal penalaran logis._ (General reasoning questions for SNBT 2027; two reading passages with three comprehension questions each, the rest logical reasoning.)
+    4. Remaining Jasper AI quota. In the example, the project has no quota yet, so the form shows the purchase link.
+    5. Click **Generate**.
   </Step>
-  <Step title="Click Edit to check the question package">
-    <Frame>
-      ![Edit button on the question package generated by Jasper AI](/images/2026-07-31_02-17_1.png)
-    </Frame>
+  <Step title="Wait for the process to finish">
+    The notification **Proses Pembuatan Soal Dimulai** (question generation started) appears. Questions are created in stages in the background (at most 20 questions per stage), so you can leave the page.
 
-    <Frame>
-      ![Details of the Jasper AI question package with its question list](/images/2026-07-31_02-18.png)
-    </Frame>
+    While the process runs, the **Buat Paket Soal Jasper AI** button changes to **Sedang Membuat Paket Soal... (x/y)**, showing how many questions are already saved. Click it to see the progress. When it finishes, you receive the notification **Soal berhasil dibuat** (questions created) and the new package appears in the list.
 
-    Check the package details and all of its questions and answers. You can still:
+    <Note>
+      Only one Jasper AI process can run in a project at a time. If you start another process before the previous one finishes, the message **Pembuatan Soal Sedang Berjalan** (generation in progress) appears.
+    </Note>
 
-    - change the package name or description
-    - correct the questions or the passage content in the **Passages** tab
-    - replace answer options
-    - change the correct answer
-    - and add or delete questions.
+    If a stage still fails after several retries, you receive the notification **Pembuatan soal Jasper AI terhenti** (generation stopped), which states how many questions were saved.
+  </Step>
+  <Step title="Review the generated package">
+    Click **Ubah** on the new package and review its information and every question. A Jasper AI package has the following characteristics:
 
-    <Warning>
-      Jasper AI results must be checked before you use them in an exam. Make sure the questions, answer options and correct answers match the subject matter and the difficulty level you want.
-    </Warning>
+    - Type **CBT/CAT** with an automatically generated code (the initials of the package name followed by **-AI-** and five random characters). Change the code and description if needed, then click **Simpan**.
+    - **Acak Soal** (shuffle questions) is on. **Acak Jawaban (Pilihan Ganda)** (shuffle answers) is on, except for psychological test packages.
+    - Questions are **Pilihan Ganda** (multiple choice) or **Jawaban Singkat** (short answer with a numeric key), each with an explanation, **Tingkat Kesulitan** (difficulty), and **Skor CBT** and **Skor CAT**. Math formulas are written in LaTeX.
+    - Questions are grouped into **Kelompok Soal** (question groups) by subtopic.
+    - Reading text, tables, or cases used by several questions are written once as a **reading passage** in the **Wacana** tab and shown above each related question during the exam. You can ask specifically for passage-based questions in **Catatan**.
+    - If the package name or notes indicate a personality or psychological test (for example DISC, MBTI, or career interest), Jasper AI creates multiple-choice questions without correct answers, together with **Kelompok Jawaban** (answer groups) for the scoring method **Psikotes (Pengelompokan Jawaban)**.
+    - Questions are written in Indonesian unless you ask for another language in **Catatan**.
+
+    How to edit questions, passages, and question groups is described in [Create a Question Package](/en/paket-soal/membuat-paket-soal).
   </Step>
 </Steps>
 
-<Tip>
-  To add Jasper AI questions to an existing **CBT/CAT** question package, open the package and click **Add Questions with Jasper AI** in the **Question List** section.
-</Tip>
+## Adding questions to an existing package
+
+Use this to add Jasper AI questions to a CBT/CAT package that already has questions, for example 10 more questions for **Penalaran Matematika – Tryout Akbar SNBT 2027**.
+
+<Steps>
+  <Step title="Click Tambah Soal dengan Jasper AI">
+    Open the package with **Ubah**, then click **Tambah Soal dengan Jasper AI** (Add Questions with Jasper AI) in the **Daftar Soal** section.
+
+    <Frame>
+      ![Tambah Soal dengan Jasper AI button in the Daftar Soal section](/images/paket-soal/generate-soal-ai/05-tombol-tambah-soal-jasper-ai.png)
+    </Frame>
+
+    The button is hidden while a participant is taking an exam that uses the package or while another Jasper AI process is running.
+  </Step>
+  <Step title="Fill in the form and click Generate">
+    <Frame>
+      ![Tambah Soal dengan Jasper AI form with numbered fields](/images/paket-soal/generate-soal-ai/06-formulir-tambah-soal-jasper-ai.png)
+    </Frame>
+
+    The top of the form shows the package name, its description, and the number of existing questions and question groups. Jasper AI uses this information and sample existing questions as context so the new questions fit the package and do not repeat existing ones.
+
+    1. **Jumlah Soal Tambahan** (number of additional questions): at least 1.
+    2. **Catatan Tambahan** (additional notes, optional): instructions for the new questions, at most 2,000 characters, for example _Tambahkan soal perbandingan dan persentase dengan tingkat kesulitan sulit._ (Add hard ratio and percentage questions.)
+
+    Click **Generate**. The notification **Proses Penambahan Soal Dimulai** appears, and the button changes to **Sedang Menambah Soal... (x/y)** while the process runs. New questions are added at the end of **Daftar Soal**.
+  </Step>
+</Steps>
+
+## Tips for writing notes
+
+- State the level and purpose, for example _grade XII, SNBT 2027 preparation_.
+- State which topics to emphasize or avoid.
+- State the question format, for example _numeric short-answer questions_ or _3 reading passages with 4 comprehension questions each_.
+- State the desired difficulty, for example _medium to hard_.
+
+<Warning>
+  Always review Jasper AI results before using them in an exam. Make sure the questions, answer options, keys, explanations, and scores match the material and the intended difficulty. Use **Preview Soal** to see how they look to participants.
+</Warning>

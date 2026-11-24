@@ -34,18 +34,13 @@
           {
             "tab": "Panduan Penggunaan",
             "pages": [
-              "index",
-              "membuat-ujian-pertama-anda-dalam-5-menit",
-              "glosarium-cbt-indolat",
               {
-                "group": "Data Ujian",
+                "group": "Memulai",
                 "pages": [
-                  "data-ujian/membuat-ujian",
-                  "data-ujian/membuat-tes-ujian",
-                  "data-ujian/membuat-ujian-berjenjang",
-                  "data-ujian/membuat-sesi-ujian",
-                  "data-ujian/membuat-formulir-pendaftaran",
-                  "data-ujian/menambahkan-peserta-ujian"
+                  "index",
+                  "memulai/mengenal-portal-dan-modul",
+                  "membuat-ujian-pertama-anda-dalam-5-menit",
+                  "glosarium-cbt-indolat"
                 ]
               },
               {
@@ -57,19 +52,58 @@
                 ]
               },
               {
-                "group": "Data Akun",
+                "group": "Data Ujian",
                 "pages": [
-                  "data-akun/menambahkan-akun-peserta"
+                  "data-ujian/membuat-ujian",
+                  "data-ujian/membuat-tes-ujian",
+                  "data-ujian/membuat-ujian-berjenjang",
+                  "data-ujian/membuat-sesi-ujian",
+                  "data-ujian/membuat-formulir-pendaftaran",
+                  "data-ujian/menambahkan-peserta-ujian",
+                  "data-ujian/kode-peserta",
+                  "data-ujian/hasil-dan-ekspor-ujian"
                 ]
               },
               {
-                "group": "Lainnya",
+                "group": "Pelaksanaan & Hasil Ujian",
                 "pages": [
-                  "lainnya/login-peserta",
-                  "lainnya/kustomisasi-tampilan-website",
-                  "lainnya/transaksi-dan-penarikan-saldo",
+                  "cbt/dasbor-cbt",
+                  "cbt/monitoring-ujian",
+                  "cbt/riwayat-tes-ujian",
+                  "cbt/leaderboard",
                   "lainnya/sertifikat-ujian",
-                  "lainnya/manajemen-akses-admin"
+                  "cbt/unduh-hasil-ekspor"
+                ]
+              },
+              {
+                "group": "Akun & Login Peserta",
+                "pages": [
+                  "data-akun/menambahkan-akun-peserta",
+                  "lainnya/login-peserta"
+                ]
+              },
+              {
+                "group": "Administrasi Aplikasi",
+                "pages": [
+                  "administrasi/profil-projek",
+                  "lainnya/manajemen-akses-admin",
+                  "lainnya/transaksi-dan-penarikan-saldo",
+                  "administrasi/langganan-dan-tagihan",
+                  "lainnya/kustomisasi-tampilan-website",
+                  "administrasi/domain",
+                  "administrasi/integrasi-dan-api"
+                ]
+              },
+              {
+                "group": "Learning Management System",
+                "pages": [
+                  "lms/mengenal-lms"
+                ]
+              },
+              {
+                "group": "Pembuat Website",
+                "pages": [
+                  "web-builder/membuat-website"
                 ]
               }
             ]
@@ -113,18 +147,13 @@
           {
             "tab": "User Guide",
             "pages": [
-              "en/index",
-              "en/membuat-ujian-pertama-anda-dalam-5-menit",
-              "en/glosarium-cbt-indolat",
               {
-                "group": "Exam Data",
+                "group": "Getting Started",
                 "pages": [
-                  "en/data-ujian/membuat-ujian",
-                  "en/data-ujian/membuat-tes-ujian",
-                  "en/data-ujian/membuat-ujian-berjenjang",
-                  "en/data-ujian/membuat-sesi-ujian",
-                  "en/data-ujian/membuat-formulir-pendaftaran",
-                  "en/data-ujian/menambahkan-peserta-ujian"
+                  "en/index",
+                  "en/memulai/mengenal-portal-dan-modul",
+                  "en/membuat-ujian-pertama-anda-dalam-5-menit",
+                  "en/glosarium-cbt-indolat"
                 ]
               },
               {
@@ -136,19 +165,58 @@
                 ]
               },
               {
-                "group": "Account Data",
+                "group": "Exam Data",
                 "pages": [
-                  "en/data-akun/menambahkan-akun-peserta"
+                  "en/data-ujian/membuat-ujian",
+                  "en/data-ujian/membuat-tes-ujian",
+                  "en/data-ujian/membuat-ujian-berjenjang",
+                  "en/data-ujian/membuat-sesi-ujian",
+                  "en/data-ujian/membuat-formulir-pendaftaran",
+                  "en/data-ujian/menambahkan-peserta-ujian",
+                  "en/data-ujian/kode-peserta",
+                  "en/data-ujian/hasil-dan-ekspor-ujian"
                 ]
               },
               {
-                "group": "More",
+                "group": "Running Exams & Results",
                 "pages": [
-                  "en/lainnya/login-peserta",
-                  "en/lainnya/kustomisasi-tampilan-website",
-                  "en/lainnya/transaksi-dan-penarikan-saldo",
+                  "en/cbt/dasbor-cbt",
+                  "en/cbt/monitoring-ujian",
+                  "en/cbt/riwayat-tes-ujian",
+                  "en/cbt/leaderboard",
                   "en/lainnya/sertifikat-ujian",
-                  "en/lainnya/manajemen-akses-admin"
+                  "en/cbt/unduh-hasil-ekspor"
+                ]
+              },
+              {
+                "group": "Participant Accounts & Login",
+                "pages": [
+                  "en/data-akun/menambahkan-akun-peserta",
+                  "en/lainnya/login-peserta"
+                ]
+              },
+              {
+                "group": "Application Administration",
+                "pages": [
+                  "en/administrasi/profil-projek",
+                  "en/lainnya/manajemen-akses-admin",
+                  "en/lainnya/transaksi-dan-penarikan-saldo",
+                  "en/administrasi/langganan-dan-tagihan",
+                  "en/lainnya/kustomisasi-tampilan-website",
+                  "en/administrasi/domain",
+                  "en/administrasi/integrasi-dan-api"
+                ]
+              },
+              {
+                "group": "Learning Management System",
+                "pages": [
+                  "en/lms/mengenal-lms"
+                ]
+              },
+              {
+                "group": "Website Builder",
+                "pages": [
+                  "en/web-builder/membuat-website"
                 ]
               }
             ]
@@ -213,6 +281,18 @@
     {
       "source": "/untitled-page",
       "destination": "/data-ujian/membuat-ujian"
+    },
+    {
+      "source": "/harga/:slug*",
+      "destination": "/administrasi/langganan-dan-tagihan"
+    },
+    {
+      "source": "/en/harga/:slug*",
+      "destination": "/en/administrasi/langganan-dan-tagihan"
+    },
+    {
+      "source": "/index-2",
+      "destination": "/cbt/dasbor-cbt"
     }
   ]
 }

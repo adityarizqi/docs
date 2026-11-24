@@ -1,145 +1,108 @@
 ---
 title: "Membuat Ujian Berjenjang"
-description: "Cara membuat ujian berjenjang (multi-level) dengan beberapa babak, mulai dari struktur level hingga verifikasi peserta ke babak berikutnya."
+description: "Cara membuat ujian berjenjang (multi-level) dengan beberapa babak, mulai dari pengaturan ujian dan struktur level hingga meloloskan peserta ke babak berikutnya."
 ---
 
-Ujian berjenjang digunakan ketika peserta perlu mengikuti beberapa babak secara bertahap. Peserta harus menyelesaikan satu babak terlebih dahulu sebelum dapat melanjutkan ke babak berikutnya.
-
-💡 Sebagai contoh, Anda adalah **Admin Penyelenggara Kompetisi Matematika Nasional 2027**.
-
-Kompetisi tersebut terdiri dari tiga babak:
-
-1. **Babak Penyisihan**
-2. **Babak Semifinal**
-3. **Babak Final**
+Ujian berjenjang digunakan ketika peserta mengikuti beberapa babak secara bertahap. Peserta menyelesaikan satu babak terlebih dahulu, lalu admin memeriksa hasilnya dan menentukan apakah peserta boleh melanjutkan ke babak berikutnya.
 
 <Info>
-  Seluruh peserta akan mengikuti Babak Penyisihan terlebih dahulu. Setelah hasil ujian diperiksa, peserta yang memenuhi ketentuan dapat diloloskan ke Babak Semifinal. Selanjutnya, peserta terbaik dari Babak Semifinal dapat melanjutkan ke Babak Final.
+  Lokasi menu: **Portal** → **Platform Ujian (CBT)** → **Manajemen Ujian** → **Data Ujian**.
+
+  Halaman ini membahas pengaturan yang khusus untuk ujian berjenjang. Pembuatan ujian, tes ujian, sesi ujian, dan peserta ujian secara umum dijelaskan pada [Membuat Ujian](/data-ujian/membuat-ujian), [Membuat Tes Ujian](/data-ujian/membuat-tes-ujian), [Membuat Sesi Ujian](/data-ujian/membuat-sesi-ujian), dan [Menambahkan Peserta Ujian](/data-ujian/menambahkan-peserta-ujian).
 </Info>
 
-## 1. Pilih Cara Membuat Ujian
+Sebagai contoh, Anda adalah admin **Bimbel Prestasi Nusantara** yang menyelenggarakan **Kompetisi Matematika Nasional 2027**. Kompetisi ini terdiri dari tiga babak:
+
+1. **Babak Penyisihan**: diikuti semua peserta tanpa biaya.
+2. **Babak Semifinal**: hanya untuk peserta yang lolos Babak Penyisihan, dengan biaya Rp30.000.
+3. **Babak Final**: hanya untuk peserta yang lolos Babak Semifinal, dengan biaya Rp40.000.
+
+Secara garis besar, langkahnya adalah sebagai berikut:
+
+1. Membuat ujian, baik dari template maupun dari awal.
+2. Mengatur ujian sebagai ujian multi-level beserta tipe pembayarannya.
+3. Menambahkan tes ujian untuk setiap babak.
+4. Menyusun struktur level dan memasukkan tes ke setiap level.
+5. Menambahkan sesi ujian dan peserta.
+6. Memeriksa hasil setiap babak dan meloloskan peserta ke babak berikutnya.
+
+## 1. Membuat ujian
 
 <AccordionGroup>
   <Accordion title="Menggunakan Template Ujian">
-    Template Ujian membantu Anda menyiapkan susunan ujian dengan lebih cepat.
-
-    Saat template digunakan, sistem akan membuat **ujian, tes ujian, dan susunan level atau babak** secara otomatis. Anda tidak perlu membuat seluruh susunannya satu per satu.
-
-    Tersedia beberapa template yang dapat dipilih sesuai kebutuhan.
-
-    <Tip>
-      Gunakan **Template Kompetisi Berjenjang** untuk ujian atau kompetisi yang dilaksanakan dalam beberapa babak.
-
-      Contoh: Olimpiade Matematika terdiri dari Babak Penyisihan, Semifinal, dan Final.
-
-      Template ini akan menyiapkan:
-
-      - 3 tes ujian
-      - 3 level atau babak
-      - tipe pembayaran gratis.
-    </Tip>
+    Template ujian menyiapkan data ujian, tes ujian, dan struktur level secara otomatis sehingga Anda tidak perlu menyusunnya satu per satu.
 
     <Steps>
       <Step title="Klik Template Ujian">
-        Buka menu **Data Ujian**, lalu klik **Template Ujian**.
+        Buka **Data Ujian**, lalu klik **Template Ujian**.
 
         <Frame>
-          ![Tombol Template Ujian pada halaman Data Ujian](/images/template-ujian.png)
+          ![Tombol Template Ujian pada halaman Data Ujian](/images/data-ujian/membuat-ujian-berjenjang/01-tombol-template-ujian.png)
         </Frame>
       </Step>
-      <Step title="Pilih template ujian">
+      <Step title="Pilih Template Kompetisi Berjenjang">
         <Frame>
-          ![Jendela Pilih Template Ujian dengan Template Kompetisi Berjenjang dipilih](/images/2026-07-26_22-50.png)
+          ![Jendela Pilih Template Ujian dengan Template Kompetisi Berjenjang dipilih](/images/data-ujian/membuat-ujian-berjenjang/02-pilih-template-kompetisi-berjenjang.png)
         </Frame>
 
-        Template Ujian adalah **contoh susunan ujian yang sudah disiapkan oleh sistem**. Dengan _template_, Anda tidak perlu membuat susunan ujian satu per satu.
-
-        Pada contoh ini, pilih **Template Kompetisi Berjenjang** karena Anda ingin membuat ujian kompetisi matematika yang terdiri dari beberapa level.
-
-        1. Klik kotak di sebelah **Template Kompetisi Berjenjang**.
+        1. Centang **Template Kompetisi Berjenjang**. Tabel template menampilkan tipe pembayaran, jumlah tes ujian, dan jumlah level setiap template.
         2. Klik **Gunakan Template**.
 
-        Setelah itu, sistem akan membuat susunan awal ujian secara otomatis.
+        Sistem menampilkan notifikasi **Template Data Ujian Berhasil Ditambahkan**, dan ujian baru bernama **Template Kompetisi Berjenjang** muncul pada daftar **Data Ujian** dengan kode seperti **KOMPETISI-TPL-116**.
 
         <Frame>
-          ![Ujian Template Kompetisi Berjenjang baru pada daftar Data Ujian](/images/2026-07-26_22-52.png)
+          ![Ujian Template Kompetisi Berjenjang pada daftar Data Ujian](/images/data-ujian/membuat-ujian-berjenjang/03-ujian-hasil-template.png)
         </Frame>
-
-        <Note>
-          Anda masih perlu melengkapi **sesi ujian** dan menghubungkan setiap tes ujian dengan **paket soal**.
-
-          Ujian dari template dibuat sebagai **Ujian Professional (Paket Berbayar)**. Anda dapat mengubahnya pada bagian **Tipe & Paket Ujian**.
-
-          Singkatnya, template hanya membantu Anda untuk **memulai lebih cepat**. Sistem menyiapkan kerangkanya, lalu Anda tinggal melengkapi isinya.
-        </Note>
       </Step>
     </Steps>
+
+    Template Kompetisi Berjenjang menyiapkan:
+
+    - ujian dengan tipe **Ujian Professional (Paket Berbayar)**, tipe pembayaran **Gratis**, dan pengaturan **Ya (Multi-Level)**;
+    - tanggal mulai hari ini dan tanggal selesai satu bulan kemudian;
+    - tiga tes ujian: **Babak Penyisihan** dan **Babak Semifinal** (CBT, 120 menit, Perhitungan Skor Soal), serta **Babak Final** (Esai / Upload File);
+    - tiga level dengan nama yang sama, masing-masing berisi satu tes, dan semuanya memerlukan verifikasi admin;
+    - pendaftaran mandiri yang belum dibuka.
+
+    <Note>
+      Setelah ujian dari template dibuat, klik **Detail** lalu sesuaikan nama, kode, tanggal, tipe ujian, dan tipe pembayaran sesuai kebutuhan Anda (lihat bagian 2). Anda tetap perlu membuat sesi ujian, memilih paket soal, dan menambahkan peserta. Template ini tidak dapat digunakan bila tipe pembayarannya berbayar dan add-on **Halaman Pendaftaran Ujian dan Pembayaran Otomatis** belum aktif.
+    </Note>
   </Accordion>
 
   <Accordion title="Membuat Ujian Baru">
-    Gunakan cara ini jika Anda ingin menentukan seluruh pengaturan dari awal.
-
-    <Tip>
-      Cara ini cocok apabila ujian yang akan Anda buat tidak mengikuti susunan template yang tersedia.
-    </Tip>
-
     <Steps>
       <Step title="Klik Tambah Ujian">
-        Buka menu **Data Ujian**, lalu klik **Tambah Ujian**.
+        Buka **Data Ujian**, lalu klik **Tambah Ujian**.
 
         <Frame>
-          ![Tombol Tambah Ujian pada halaman Data Ujian](/images/2026-07-19_18-02-1.png)
+          ![Tombol Tambah Ujian pada halaman Data Ujian](/images/data-ujian/membuat-ujian-berjenjang/04-tombol-tambah-ujian.png)
         </Frame>
       </Step>
       <Step title="Isi informasi ujian">
         <Frame>
-          ![Formulir Informasi Umum untuk ujian baru](/images/2026-07-19_18-05.png)
+          ![Formulir Informasi Umum untuk ujian Kompetisi Matematika Nasional 2027](/images/data-ujian/membuat-ujian-berjenjang/05-formulir-tambah-ujian.png)
         </Frame>
 
-        Lanjutkan pengisian informasi ujian sesuai dengan kebijakan lembaga penyelenggara ujian, lalu klik **Buat**. Sistem langsung membuka halaman detail ujian.
-
-        <Frame>
-          ![Formulir ujian baru yang diisi untuk Kompetisi Matematika 2027](/images/2026-07-26_23-08.png)
-        </Frame>
+        1. **Kode Ujian**: kode unik yang hanya berisi huruf, angka, tanda `-`, atau `#`. Huruf otomatis diubah menjadi kapital. Contoh: **KMN-2027**.
+        2. **Nama Ujian**: nama yang dilihat admin dan peserta. Contoh: **Kompetisi Matematika Nasional 2027**.
+        3. **Tanggal Mulai**: tanggal dan waktu acara ujian dimulai.
+        4. **Tanggal Selesai**: tanggal dan waktu acara ujian berakhir. Tanggal ini tidak boleh lebih awal dari tanggal mulai dan paling lambat satu tahun dari hari ini.
+        5. **Deskripsi Ujian**: penjelasan singkat tentang ujian, maksimal 1.000 karakter.
+        6. **Gambar/Sampul Ujian** (opsional): berkas PNG, maksimal 1 MB.
+        7. **Tipe Ujian**: **Ujian Standard (Paket Gratis)** atau **Ujian Professional (Paket Berbayar)**. Penjelasannya ada pada langkah **Periksa Tipe & Paket Ujian** di bawah.
+        8. Klik **Buat**. Sistem langsung membuka halaman detail ujian.
       </Step>
     </Steps>
   </Accordion>
 </AccordionGroup>
 
-## 2. Mengisi Informasi Awal Ujian
+## 2. Melengkapi pengaturan detail ujian
 
-<Steps>
-  <Step title="Klik Detail">
-    Pada halaman **Data Ujian**, klik **Detail** pada ujian yang baru dibuat. Jika Anda membuat ujian melalui **Tambah Ujian**, halaman detail ujian sudah terbuka setelah Anda klik **Buat**, sehingga langkah ini dapat dilewati.
-
-    <Frame>
-      ![Tombol Detail pada ujian Kompetisi Matematika 2027](/images/2026-07-26_23-09.png)
-    </Frame>
-  </Step>
-  <Step title="Isi informasi acara ujian">
-    <Frame>
-      ![Kolom bernomor pada tab Informasi Umum detail ujian](/images/2026-07-26_23-11.png)
-    </Frame>
-
-    Pada tahap ini, Anda akan mengisikan informasi dasar untuk acara ujian yang akan diselenggarakan.
-
-    1. **Kode Ujian**<br />Masukkan kode singkat dan unik agar ujian mudah dikenali.<br />Contoh: **LEVEL-MAT-2027**
-    2. **Nama Ujian**<br />Tuliskan nama ujian yang akan dilihat oleh admin dan peserta.<br />Contoh: **Kompetisi Matematika 2027**
-    3. **Tanggal Mulai**<br />Tentukan tanggal dan waktu mulai acara ujian.
-    4. **Tanggal Selesai**<br />Tentukan tanggal dan waktu berakhirnya acara ujian.
-    5. **Deskripsi Ujian**<br />Berikan penjelasan singkat mengenai tujuan atau isi ujian.<br />Contoh: _Ujian berjenjang untuk Kompetisi Matematika 2027_
-    6. **Gambar/Sampul Ujian**<br />Unggah gambar yang akan digunakan sebagai sampul ujian. Bagian ini dapat digunakan agar ujian lebih mudah dikenali oleh peserta. Format file PNG, maksimal 1MB.
-    7. Setelah semua informasi diperiksa dan sudah sesuai, klik **Simpan** untuk menyimpan acara ujian.
-  </Step>
-</Steps>
-
-## 3. Lengkapi Pengaturan pada Detail Ujian
+Halaman detail ujian memiliki lima tab pengaturan:
 
 <Frame>
-  ![Empat tab pengaturan pada halaman detail ujian](/images/2026-07-26_23-13.png)
+  ![Lima tab pengaturan pada halaman detail ujian](/images/data-ujian/membuat-ujian-berjenjang/06-tab-detail-ujian.png)
 </Frame>
-
-Setelah ujian berhasil dibuat, sistem akan menampilkan beberapa bagian pengaturan:
 
 1. **Informasi Umum**
 2. **Tipe & Paket Ujian**
@@ -147,610 +110,281 @@ Setelah ujian berhasil dibuat, sistem akan menampilkan beberapa bagian pengatura
 4. **Pengaturan Ujian**
 5. **Informasi Tambahan**
 
-Mari kita bahas satu per satu.
+Setiap tab disimpan dengan tombol **Simpan** di bawah formulir.
 
 <Steps>
   <Step title="Periksa Informasi Umum">
-    Bagian **Informasi Umum** digunakan untuk melihat atau mengubah identitas ujian.
+    Tab **Informasi Umum** berisi kolom yang sama dengan formulir **Tambah Ujian**: kode, nama, tanggal mulai, tanggal selesai, deskripsi, dan gambar sampul. Ubah kolom yang perlu, lalu klik **Simpan**.
 
-    Di bagian ini, Anda dapat mengatur kembali:
-
-    - kode ujian
-    - nama ujian
-    - tanggal mulai
-    - tanggal selesai
-    - deskripsi ujian
-    - gambar atau sampul ujian.
-
-    Contoh:
-
-    > Jadwal Kompetisi Matematika 2027 semula berlangsung pada 26–31 Juli. Jika jadwal berubah, Anda dapat memperbaruinya pada bagian Informasi Umum.
-
-    Setelah melakukan perubahan, klik **Simpan**.
+    <Note>
+      **Kode Ujian** tidak dapat diubah lagi setelah ujian memiliki peserta. **Tanggal Mulai** dan **Tanggal Selesai** tidak dapat diubah selama ada peserta yang sedang mengerjakan ujian.
+    </Note>
   </Step>
   <Step title="Periksa Tipe & Paket Ujian">
     <Frame>
-      <img
-        src="/images/2026-07-19_18-12.png"
-        alt="Tab Tipe & Paket Ujian dengan Ujian Professional terpilih"
-        style={{ width:"85%" }}
-      />
+      ![Tab Tipe & Paket Ujian dengan Ujian Standard terpilih](/images/data-ujian/membuat-ujian-berjenjang/07-tab-tipe-paket-ujian.png)
     </Frame>
 
-    Bagian **Tipe & Paket Ujian** digunakan untuk melihat tipe layanan atau paket yang dipakai pada ujian. Kredit ujian berkurang ketika peserta mengikuti ujian.
+    **Tipe Ujian** menentukan jenis kredit yang dipakai. Kredit berkurang ketika peserta mengikuti ujian, dan sisa kredit tampil pada kotak keterangan.
 
-    <Frame>
-      ![Pilihan Tipe Ujian: Ujian Standard dan Ujian Professional](/images/tipe-ujian.png)
-    </Frame>
-
-    - **Ujian Standard (Paket Gratis)**
-
-      Cocok untuk ujian sederhana atau latihan rutin. Ketentuannya:
-
-      1. Kredit di-reset otomatis setiap bulan.
-      2. Maksimal **4 Tes Ujian (Subtes)** per ujian.
-      3. Maksimal **50 peserta** ujian serentak (peserta yang mengerjakan ujian pada waktu yang sama).
-      4. Fitur **Proctoring Kamera, Layar, dan Dual Monitor** tidak tersedia.
-      5. Fitur **Computer Adaptive Test (CAT)** tidak tersedia.
-
-    - **Ujian Professional (Paket Berbayar)**: Rp500 per kredit ujian
-
-      Cocok untuk ujian dengan peserta lebih banyak dan kebutuhan yang lebih lengkap. Ketentuannya:
-
-      1. Kredit di-reset setiap bulan sesuai periode langganan Anda.
-      2. Maksimal **30 Tes Ujian (Subtes)** per ujian.
-      3. Maksimal **1.000 peserta** ujian serentak.
-      4. Fitur **Proctoring Kamera, Layar, dan Dual Monitor** tersedia. Proctoring kamera dan layar juga memakai kredit proctoring tersendiri (add-on).
-      5. Fitur **Computer Adaptive Test (CAT)** tersedia.
-
-      Jika Anda tidak memiliki kredit ujian profesional, sistem menampilkan peringatan dan peserta tidak dapat memulai ujian sampai kredit tersedia.
-
-    Pada kedua tipe ujian, tes CBT dapat menggunakan semua metode penilaian, termasuk IRT, dan pengaturan **Deteksi Pindah Tab** tetap tersedia.
+    - **Ujian Standard (Paket Gratis)**: kredit di-reset otomatis setiap bulan; maksimal **4 Tes Ujian (Subtes)** per ujian; maksimal **50 peserta** ujian serentak; tanpa **Proctoring Kamera, Layar, dan Dual Monitor**; tanpa **Computer Adaptive Test (CAT)**.
+    - **Ujian Professional (Paket Berbayar)**: kredit di-reset setiap bulan sesuai periode langganan; maksimal **30 Tes Ujian (Subtes)** per ujian; maksimal **1.000 peserta** ujian serentak; **Proctoring Kamera, Layar, dan Dual Monitor** serta **CAT** tersedia. Jika projek tidak memiliki kredit ujian profesional, sistem menampilkan peringatan dan peserta tidak dapat memulai ujian sampai kredit tersedia.
 
     <Tip>
-      Pilih **Ujian Standard** jika ujian sederhana, peserta yang mengerjakan ujian secara serentak tidak lebih dari 50 orang, dan jumlah tes ujian tidak lebih dari 4.
-
-      Pilih **Ujian Professional** jika peserta serentak atau tes ujian lebih banyak, atau Anda membutuhkan CAT atau proctoring kamera, layar, dan dual monitor.
+      Pada ujian berjenjang, setiap babak biasanya berupa satu tes ujian. Jika jumlah tes seluruh babak lebih dari empat, gunakan **Ujian Professional**.
     </Tip>
   </Step>
   <Step title="Atur Pendaftaran & Pembayaran">
     <Frame>
-      ![Tab Pendaftaran & Pembayaran dengan tipe Berbayar per Level](/images/2026-07-26_23-23.png)
+      ![Tab Pendaftaran & Pembayaran dengan tipe Berbayar per Level](/images/data-ujian/membuat-ujian-berjenjang/08-tab-pendaftaran-pembayaran.png)
     </Frame>
 
-    Pada bagian ini, Anda dapat menentukan apakah peserta boleh mendaftar sendiri dan apakah ujian tersebut gratis atau berbayar.
+    1. **Apakah Pendaftaran Ujian Dibuka?**: aktifkan jika peserta boleh mendaftar sendiri melalui aplikasi peserta. Tautan **di sini** pada teks bantuan menyalin URL pendaftaran ujian. Pengaturan ini memerlukan add-on **Halaman Pendaftaran Ujian dan Pembayaran Otomatis**; tanpa add-on, labelnya menampilkan **(Add-on Tidak Aktif)** dan tombolnya tidak dapat diaktifkan.
+    2. **Tipe Pembayaran**: pilih salah satu tipe berikut.
+       - **Gratis**: peserta tidak membayar.
+       - **Sekali Bayar**: peserta membayar satu kali untuk seluruh tes. Kolom **Biaya Ujian Sekali Bayar (IDR)** muncul, minimal Rp5.000.
+       - **Berbayar per Tes Ujian**: setiap tes memiliki biaya sendiri yang diisi pada formulir tes ujian.
+       - **Berbayar per Level (Multi-Level)**: setiap level memiliki biaya sendiri yang diisi pada struktur level (bagian 4). Saat tipe ini dipilih, **Apakah Ujian Multi-Level?** otomatis diubah menjadi **Ya (Multi-Level)**.
+    3. Klik **Simpan**.
 
-    1. **Apakah Pendaftaran Ujian Dibuka?**<br />Jika diaktifkan, peserta dapat mendaftar ujian secara mandiri. Pengaturan ini memerlukan add-on **Halaman Pendaftaran Ujian dan Pembayaran Otomatis**. Jika add-on belum aktif, label pengaturan ini menampilkan "(Add-on Tidak Aktif)" dan tombolnya tidak dapat diaktifkan.
-    2. **Tipe Pembayaran**<br />Pilih **Gratis** jika peserta tidak perlu membayar. Jika ujian berjenjang Anda berbayar, disarankan memilih **Berbayar per Level (Multi-Level)**. Saat tipe ini dipilih, pengaturan **Apakah Ujian Multi-Level?** otomatis berubah menjadi **Ya (Multi-Level)**. Tipe pembayaran berbayar juga memerlukan add-on tersebut; tanpa add-on, ujian berbayar tidak dapat disimpan.
+    Untuk contoh Kompetisi Matematika Nasional 2027, aktifkan pendaftaran dan pilih **Berbayar per Level (Multi-Level)**.
 
-    <Frame>
-      <img
-        src="/images/tipe-pembayaran.png"
-        alt="Pilihan Tipe Pembayaran pada detail ujian"
-        className="mr-auto"
-      />
-    </Frame>
-
-    - **Gratis**: Peserta tidak perlu membayar.
-
-      > Contoh:
-      >
-      > Tryout SNBT gratis yang terdiri dari Tes Matematika dan Tes Bahasa Indonesia. Peserta dapat mengikuti semuanya tanpa biaya.
-
-    - **Sekali Bayar**: Peserta membayar satu kali, lalu dapat mengikuti seluruh tes yang ada dalam satu acara ujian.
-
-      > Contoh:
-      >
-      > Biaya Tryout SNBT adalah Rp50.000. Setelah membayar, peserta dapat mengikuti Tes Penalaran Matematika, Tes Literasi Bahasa Indonesia, dan Tes Literasi Bahasa Inggris.
-      >
-      > Peserta tidak perlu membayar lagi untuk setiap tes.
-
-    - **Berbayar per Tes Ujian**: Peserta membayar setiap tes yang ingin diikuti.
-
-      > Contoh:
-      >
-      > Tes Matematika: Rp20.000
-      >
-      > Tes Bahasa Indonesia: Rp15.000
-      >
-      > Tes Bahasa Inggris: Rp15.000
-      >
-      > Peserta yang hanya ingin mengikuti Tes Matematika cukup membayar Rp20.000.
-
-    - **Berbayar per Level (Multi-Level)**: Digunakan untuk ujian yang terdiri dari beberapa babak. Peserta membayar pada setiap babak yang diikuti.
-
-      > Contoh:
-      >
-      > Babak Penyisihan: Rp25.000
-      >
-      > Babak Semifinal: Rp30.000
-      >
-      > Babak Final: Rp40.000
-      >
-      > Peserta membayar biaya babak berikutnya hanya jika berhasil lolos.
-
-    3. Setelah pengaturan selesai, klik **Simpan**.
+    <Note>
+      Tipe pembayaran selain **Gratis** memerlukan add-on **Halaman Pendaftaran Ujian dan Pembayaran Otomatis**; tanpa add-on, perubahan tidak dapat disimpan. Pada tipe **Berbayar per Level (Multi-Level)**, tagihan dibuat ketika Anda meloloskan peserta ke level berbayar (bagian 6). Biaya level pertama tidak ditagihkan saat peserta mendaftar, sehingga isi biaya mulai dari level kedua.
+    </Note>
   </Step>
-  <Step title="Lengkapi Pengaturan Ujian">
+  <Step title="Atur Pengaturan Ujian">
     <Frame>
-      ![Tab Pengaturan Ujian dengan pilihan Ya (Multi-Level)](/images/2026-07-26_23-26.png)
+      ![Tab Pengaturan Ujian dengan pilihan Ya (Multi-Level)](/images/data-ujian/membuat-ujian-berjenjang/09-tab-pengaturan-ujian.png)
     </Frame>
 
-    Bagian **Pengaturan Ujian** digunakan untuk menentukan aturan umum saat peserta mengerjakan ujian.
-
-    1. **Apakah Ujian Multi-Level?**
-
-       Pilih **Ya (Multi-Level)** jika ujian dilaksanakan dalam beberapa tahap atau babak.
-
-       > Contoh:
-       >
-       > 1. Babak Penyisihan
-       > 2. Babak Semifinal
-       > 3. Babak Final
-
-       Karena ujian diatur sebagai multi-level, pengaturan urutan pengerjaan dan pengerjaan secara langsung diatur pada setiap level ujian (lihat bagian **5. Mengatur Struktur Ujian Berjenjang** di bawah).
-
-    2. **Jenis Skor Akhir**
-
-       Tentukan cara skor akhir peserta dihitung dari skor seluruh tes ujian:
-
+    1. **Apakah Ujian Multi-Level?**: pilih **Ya (Multi-Level)**. Setelah disimpan, tombol **Atur Struktur Level Ujian** muncul di kanan atas halaman. Pengaturan **Apakah Tes Ujian Harus Dikerjakan Secara Berurutan?** dan **Apakah Tes Ujian Harus Dikerjakan Secara Langsung?** tidak lagi tampil di tab ini karena diatur per level. Pilihan ini tidak dapat diubah setelah ujian memiliki peserta.
+    2. **Jenis Skor Akhir**: cara menghitung skor akhir dari seluruh tes.
        - **Akumulasi Tes Ujian**: skor setiap tes dijumlahkan.
-       - **Rata-Rata Tes Ujian**: jumlah skor dibagi dengan jumlah tes yang sudah dinilai. Pilihan ini terpilih secara bawaan.
+       - **Rata-Rata Tes Ujian** (bawaan): jumlah skor dibagi jumlah tes yang sudah dinilai.
 
-       > Contoh: Peserta mendapat skor 80 pada Babak Penyisihan dan 70 pada Babak Semifinal. Dengan **Akumulasi Tes Ujian**, skor akhirnya 150; dengan **Rata-Rata Tes Ujian**, skor akhirnya 75.
-
-       Jika ujian sudah memiliki peserta, skor akhir seluruh peserta dihitung ulang setelah perubahan disimpan.
-
-    3. **Apakah Tampilkan Skor Akhir Ujian?**
-
-       Aktifkan jika peserta boleh melihat hasil akhir setelah selesai mengerjakan.
-
-       > Contoh: Pada tryout latihan, peserta dapat langsung melihat skor untuk mengetahui hasil belajarnya.
-
-       Nonaktifkan jika nilai masih perlu diperiksa atau akan diumumkan pada waktu lain.
-
-       > Contoh: Nilai seleksi akan diperiksa terlebih dahulu dan diumumkan oleh panitia pada hari berikutnya.
-
-    4. Setelah pengaturan selesai, klik **Simpan**.
+       Contoh: skor Babak Penyisihan 80 dan Babak Semifinal 70 menghasilkan skor akhir 150 dengan akumulasi, atau 75 dengan rata-rata. Jika ujian sudah memiliki peserta, skor akhir seluruh peserta dihitung ulang setelah perubahan disimpan.
+    3. **Apakah Tampilkan Skor Akhir Ujian?**: aktifkan jika peserta boleh melihat skor akhir. Aktifkan hanya setelah skor dihitung dengan benar.
+    4. Klik **Simpan**.
   </Step>
-  <Step title="Atur Informasi Tambahan">
-    Bagian **Informasi Tambahan** bersifat opsional. Gunakan bagian ini untuk menampilkan informasi khusus di dashboard peserta yang sudah terdaftar pada ujian ini, misalnya tautan grup WhatsApp, panduan teknis, atau kontak panitia. Peserta ujian lain tidak melihat informasi ini.
+  <Step title="Atur Informasi Tambahan (opsional)">
+    Gunakan tab ini untuk menampilkan informasi khusus di dashboard peserta ujian ini, misalnya tautan grup WhatsApp atau kontak panitia. Peserta ujian lain tidak melihat informasi ini.
 
-    1. **Apakah Tampilkan Informasi Tambahan untuk Peserta?**<br />Aktifkan agar informasi tambahan muncul di dashboard peserta.
-    2. **Judul Informasi**<br />Tuliskan judul informasi, maksimal 100 karakter.<br />Contoh: **Gabung Grup WhatsApp Peserta**
-    3. **Isi Informasi**<br />Tuliskan isi informasi, maksimal 1.000 karakter.
-    4. **Label Tombol (Opsional)** dan **Tautan Tombol (Opsional)**<br />Isi keduanya jika Anda ingin menampilkan tombol, misalnya **Gabung Grup**. Gunakan tautan lengkap yang diawali `http://` atau `https://`. Tombol hanya muncul jika label dan tautan tombol sama-sama diisi.
-    5. Setelah pengaturan selesai, klik **Simpan**.
+    <Frame>
+      ![Tab Informasi Tambahan yang sudah diisi](/images/data-ujian/membuat-ujian-berjenjang/10-tab-informasi-tambahan.png)
+    </Frame>
+
+    1. **Apakah Tampilkan Informasi Tambahan untuk Peserta?**: aktifkan agar kolom informasi muncul.
+    2. **Judul Informasi**: maksimal 100 karakter. Contoh: **Gabung Grup WhatsApp Peserta**.
+    3. **Isi Informasi**: maksimal 1.000 karakter.
+    4. **Label Tombol (Opsional)** dan **Tautan Tombol (Opsional)**: isi keduanya jika ingin menampilkan tombol. Tautan harus diawali `http://` atau `https://`.
+    5. Klik **Simpan**.
+
+    Informasi tersebut tampil di bagian atas halaman **Daftar Tes** peserta:
+
+    <Frame>
+      ![Informasi tambahan Gabung Grup WhatsApp Peserta di dashboard peserta](/images/data-ujian/membuat-ujian-berjenjang/11-informasi-tambahan-sisi-peserta.png)
+    </Frame>
   </Step>
 </Steps>
 
-## 4. Menambahkan Tes Ujian Berjenjang
+## 3. Menambahkan tes ujian untuk setiap babak
+
+Buat satu tes ujian untuk setiap babak. Penjelasan lengkap setiap kolom tes ujian ada pada [Membuat Tes Ujian](/data-ujian/membuat-tes-ujian).
 
 <Steps>
   <Step title="Klik Tambah Tes Ujian">
-    Buka tab **Daftar Tes Ujian**, lalu klik **Tambah Tes Ujian**.
+    Gulir ke bawah halaman detail ujian, buka tab **Daftar Tes Ujian**, lalu klik **Tambah Tes Ujian**.
 
     <Frame>
-      ![Tab Daftar Tes Ujian dan tombol Tambah Tes Ujian](/images/2026-07-26_23-34.png)
+      ![Tombol Tambah Tes Ujian pada tab Daftar Tes Ujian](/images/data-ujian/membuat-ujian-berjenjang/12-tombol-tambah-tes-ujian.png)
     </Frame>
   </Step>
-  <Step title="Isi informasi tes ujian">
+  <Step title="Isi formulir tes ujian">
     <Frame>
-      ![Formulir Tambah Tes Ujian yang diisi untuk Babak Penyisihan](/images/2026-07-28_18-57.png)
+      ![Formulir Tambah Tes Ujian untuk Babak Penyisihan](/images/data-ujian/membuat-ujian-berjenjang/13-formulir-tes-babak-penyisihan.png)
     </Frame>
 
-    Setelah Anda klik **Tambah Tes Ujian**, sistem akan menampilkan kolom isian informasi tes yang akan dikerjakan peserta.
+    1. **Jenis Ujian**: contoh **Computer Based Test (CBT)**.
+    2. **Metode Penilaian**: contoh **Perhitungan Skor Soal (Akumulasi Benar/Salah)**.
+    3. **Nama Tes**: contoh **Babak Penyisihan**.
+    4. **Durasi Pengerjaan (menit)**: contoh **90**.
+    5. **Instruksi Pengerjaan Tes Ujian**: petunjuk yang dibaca peserta sebelum mulai. Penanda `{{NAMA_TES}}`, `{{JUMLAH_SOAL}}`, dan `{{DURASI_TES}}` diganti otomatis.
+    6. Klik **Buat**, atau **Buat & buat lainnya** untuk langsung membuat tes berikutnya.
 
-    1. **Jenis Ujian**: Pilih jenis tes sesuai yang akan diselenggarakan.
+    <Warning>
+      Skor IRT dihitung melalui **Hitung Skor** → **Perhitungan IRT**, dan menu tersebut tidak dapat digunakan pada ujian multi-level. Untuk ujian berjenjang, pilih metode penilaian selain IRT.
+    </Warning>
+  </Step>
+  <Step title="Ulangi untuk babak lainnya">
+    Buat juga tes **Babak Semifinal** dan **Babak Final**. Selama tes belum dimasukkan ke struktur level, daftar tes menampilkan keterangan **Tes belum dipetakan ke struktur level ujian**.
 
-       <Frame>
-         ![Pilihan Jenis Ujian: CBT, CAT, dan Esai / Upload File](/images/jenis-ujian.png)
-       </Frame>
-
-       - **Computer Based Test (CBT)**<br />Peserta melihat soal di layar, lalu memilih atau menulis jawaban langsung di sistem.
-
-         > Contoh:<br />Peserta melihat soal: Hasil dari 10 × 5 adalah ...
-         >
-         > Lalu memilih jawaban **50** di layar.
-
-       - **Computer Adaptive Test (CAT)**<br />Soal berikutnya akan menyesuaikan kemampuan peserta. Jenis ini hanya dapat dipilih pada **Ujian Professional (Paket Berbayar)**.
-
-         > Contoh:<br />Peserta menjawab soal pertama dengan benar. Sistem kemudian memberikan soal yang sedikit lebih sulit. Jika peserta menjawab salah, sistem dapat memberikan soal yang lebih mudah atau setara.<br />**CAT seperti ujian yang “mengikuti kemampuan peserta”. Semakin banyak jawaban benar, soal berikutnya bisa semakin sulit.**
-
-       - **Esai / Upload File (Jawaban Manual)**<br />Peserta tidak memilih jawaban seperti pada soal pilihan ganda. Peserta menulis jawaban panjang atau mengunggah berkas.
-
-         > Contoh:
-         >
-         > - Menulis jawaban esai langsung di sistem.
-         > - Mengunggah foto lembar jawaban.
-         > - Mengunggah file PDF atau Word.
-
-       <Tip>
-         Untuk tryout SNBT biasa, pilih **Computer Based Test (CBT)**.
-       </Tip>
-
-    2. **Metode Penilaian**: Tentukan cara sistem menghitung nilai peserta.
-
-       <Frame>
-         ![Pilihan Metode Penilaian pada formulir tes ujian](/images/Metode-Penilaian.png)
-       </Frame>
-
-       <Note>
-         Pilihan metode penilaian menyesuaikan **Jenis Ujian**. Semua metode di bawah ini tersedia untuk **CBT**. Untuk **CAT** hanya tersedia **Perhitungan Skor Soal (Akumulasi Benar/Salah)**, sedangkan **Esai / Upload File (Jawaban Manual)** memakai **Penilaian Manual**.
-       </Note>
-
-       - **Perhitungan Skor Soal (Akumulasi Benar/Salah)**<br />Nilai dihitung dari jumlah soal yang dijawab benar.
-
-         > Contoh:
-         >
-         > - Jawaban benar: 10 poin
-         > - Jawaban salah: 0 poin
-         > - Peserta menjawab benar 8 dari 10 soal
-         > - Nilai peserta: **80**
-         >
-         > Cocok untuk tryout atau ujian pilihan ganda biasa.
-
-       - **Perhitungan Skor Jawaban (Akumulasi Skor Jawaban)**<br />Setiap pilihan jawaban dapat memiliki skor yang berbeda.
-
-         > Contoh:
-         >
-         > Pertanyaan: _Seberapa sering Anda belajar dalam seminggu?_
-         >
-         > - Setiap hari: 4 poin
-         > - 3–4 kali: 3 poin
-         > - 1–2 kali: 2 poin
-         > - Tidak pernah: 1 poin
-         >
-         > Nilai akhir dihitung dari jumlah skor semua jawaban peserta.
-
-       - **Psikotes (Pengelompokan Jawaban)**<br />Jawaban peserta dikelompokkan untuk melihat kecenderungan atau karakter tertentu.
-
-         > Contoh:
-         >
-         > Pertanyaan: _Saat bekerja dalam kelompok, Anda lebih suka..._
-         >
-         > - Mengatur pembagian tugas → Kelompok **Kepemimpinan**
-         > - Membantu anggota lain → Kelompok **Kerja Sama**
-         > - Mengerjakan bagian sendiri → Kelompok **Mandiri**
-         >
-         > Hasilnya bukan sekadar benar atau salah, tetapi menunjukkan kelompok karakter peserta.
-
-       - **Item Response Theory (IRT)**<br />Nilai tidak hanya melihat jumlah jawaban benar, tetapi juga mempertimbangkan tingkat kesulitan soal. Tersedia tiga opsi IRT:
-
-         - **IRT (Referensi UTBK 0-1000)**: nilai dilaporkan pada rentang 0–1000, mengacu pada skala UTBK.
-         - **IRT TKA SMA/SMK (200-800)**: nilai dilaporkan pada rentang 200–800, mengacu pada skala TKA jenjang SMA/SMK.
-         - **IRT TKA SD/SMP (0-100)**: nilai dilaporkan pada rentang 0–100, mengacu pada skala TKA jenjang SD/SMP.
-
-         Ketiga opsi memakai estimasi kemampuan (theta) yang sama; yang berbeda hanya rentang nilai yang dilaporkan. Rentang UTBK dan TKA adalah skala acuan, bukan hasil penyetaraan resmi.
-
-         > Contoh:
-         >
-         > - Soal mudah dijawab benar oleh banyak peserta.
-         > - Soal sulit hanya dijawab benar oleh sedikit peserta.
-         > - Peserta yang mampu menjawab soal sulit dapat memperoleh nilai kemampuan yang lebih tinggi.
-         >
-         > Metode ini cocok untuk ujian berskala besar atau analisis kemampuan peserta yang lebih mendalam.
-
-       <Warning>
-         Skor IRT dihitung melalui **Hitung Skor** → **Perhitungan IRT** pada halaman detail ujian, dan menu tersebut tidak dapat digunakan pada ujian multi-level. Untuk ujian berjenjang, pilih metode penilaian selain IRT.
-       </Warning>
-
-       <Tip>
-         Untuk tryout SNBT sederhana, pilih **Perhitungan Skor Soal (Akumulasi Benar/Salah)**.
-       </Tip>
-
-    3. **Nama Tes**: Isi nama tes sesuai babak yang sedang dibuat.<br />Contoh: **Babak Penyisihan**
-    4. **Durasi Pengerjaan (menit)**: Masukkan lama waktu pengerjaan dalam menit.<br />Contoh: **120**. Kolom ini tidak muncul untuk jenis **Esai / Upload File (Jawaban Manual)**.
-    5. **Instruksi Pengerjaan Tes Ujian**: Tuliskan petunjuk yang akan dibaca peserta sebelum mulai mengerjakan.
-
-       Pada instruksi, Anda dapat menggunakan penanda berikut:
-
-       - `{{NAMA_TES}}` untuk menampilkan nama tes.
-       - `{{JUMLAH_SOAL}}` untuk menampilkan jumlah soal.
-       - `{{DURASI_TES}}` untuk menampilkan durasi pengerjaan.
-
-    6. Klik **Buat** untuk menyimpan data, lalu ulangi langkah yang sama untuk membuat **Babak Semifinal** hingga **Babak Final**.
-
-       <Frame>
-         ![Tes Babak Penyisihan, Semifinal, dan Final pada Daftar Tes Ujian](/images/2026-07-28_19-07.png)
-       </Frame>
+    <Frame>
+      ![Tiga tes ujian pada tab Daftar Tes Ujian dengan keterangan belum dipetakan](/images/data-ujian/membuat-ujian-berjenjang/14-daftar-tes-ujian.png)
+    </Frame>
   </Step>
 </Steps>
 
-## 5. Mengatur Struktur Ujian Berjenjang
+## 4. Mengatur struktur level ujian
 
-Setelah seluruh tes untuk **Babak Penyisihan**, **Babak Semifinal**, dan **Babak Final** selesai dibuat, langkah berikutnya adalah menyusun setiap tes ujian ke dalam level atau babak yang sesuai.
-
-Struktur ini digunakan agar sistem mengetahui urutan perjalanan peserta, mulai dari babak pertama hingga babak terakhir.
+Struktur level menentukan urutan babak dan tes yang dikerjakan pada setiap babak.
 
 <Warning>
-  Atur seluruh level dan tes terlebih dahulu sebelum pendaftaran dibuka atau peserta ditambahkan. Setelah ujian memiliki peserta, struktur level dan tes tidak dapat diubah.
+  Selesaikan struktur level sebelum pendaftaran dibuka atau peserta ditambahkan. Setelah ujian memiliki peserta, struktur level dan tes ujian tidak dapat diubah, tombol berubah menjadi **Lihat Struktur Level Ujian**, dan halaman struktur hanya dapat dilihat. Selama masih ada tes yang belum dimasukkan ke level, peserta juga tidak dapat ditambahkan melalui **Tambah Peserta** atau **Import Peserta**.
 </Warning>
 
 <Steps>
-  <Step title="Buka detail ujian">
-    Buka menu **Data Ujian**, lalu klik **Detail** pada ujian berjenjang yang telah Anda buat sebelumnya.
-
-    <Frame>
-      ![Tombol Detail pada ujian Kompetisi Matematika 2027](/images/2026-07-28_21-21.png)
-    </Frame>
-  </Step>
   <Step title="Klik Atur Struktur Level Ujian">
-    Klik **Atur Struktur Level Ujian** di pojok kanan atas halaman.
+    Pada halaman detail ujian, klik **Atur Struktur Level Ujian** di kanan atas.
 
     <Frame>
-      ![Tombol Atur Struktur Level Ujian di kanan atas halaman detail ujian](/images/2026-07-28_20-07.png)
+      ![Tombol Atur Struktur Level Ujian di kanan atas halaman detail ujian](/images/data-ujian/membuat-ujian-berjenjang/15-tombol-atur-struktur-level.png)
     </Frame>
   </Step>
   <Step title="Klik Level Baru">
-    Klik **Level Baru** untuk membuat level ujian.
+    Halaman struktur level masih kosong. Klik **Level Baru**.
 
     <Frame>
-      ![Tombol Level Baru pada halaman struktur level ujian](/images/2026-07-28_20-08.png)
+      ![Tombol Level Baru pada halaman struktur level yang masih kosong](/images/data-ujian/membuat-ujian-berjenjang/16-tombol-level-baru.png)
     </Frame>
   </Step>
-  <Step title="Buat level ujian">
+  <Step title="Isi pengaturan level">
     <Frame>
-      ![Kolom bernomor pada jendela Edit level ujian](/images/2026-07-29_20-31.png)
+      ![Jendela Level Baru untuk Babak Penyisihan](/images/data-ujian/membuat-ujian-berjenjang/17-formulir-level-baru.png)
     </Frame>
 
-    1. **Nama Level**
+    1. **Nama Level**: nama babak. Contoh: **Babak Penyisihan**.
+    2. **Biaya Level (IDR)**: hanya muncul jika tipe pembayaran **Berbayar per Level (Multi-Level)**. Isi minimal Rp5.000, atau kosongkan jika level tersebut gratis.
+    3. **Apakah Memerlukan Verifikasi Admin?**: jika aktif, setelah peserta menyelesaikan semua tes pada level ini, statusnya berubah menjadi **Aktif (Perlu Ditinjau)** dan peserta menunggu keputusan admin sebelum masuk ke level berikutnya (bagian 6).
+    4. **Apakah Tes Ujian Harus Dikerjakan Secara Berurutan?**: jika aktif, tes di dalam level ini harus dikerjakan sesuai urutannya; tes berikutnya terkunci sampai tes sebelumnya selesai.
+    5. **Apakah Tes Ujian Harus Dikerjakan Secara Langsung?**: jika aktif, setelah satu tes selesai, tes berikutnya di level yang sama langsung dimulai tanpa jeda.
+    6. Klik **Tambah Level**.
 
-       Isi nama babak atau tahap ujian yang sedang dibuat. Gunakan nama yang mudah dipahami agar Anda dapat membedakan setiap tahapan ujian.
+    Ulangi untuk level lainnya. Pada contoh ini:
 
-       > 💡 **Contoh:**
-       >
-       > - **Babak Penyisihan**
-       > - **Babak Semifinal**
-       > - **Babak Final**
-       >
-       > Pada level pertama, isi **Babak Penyisihan** karena seluruh peserta akan memulai kompetisi dari babak tersebut.
-
-    2. **Biaya Level (IDR)**
-
-       Kolom ini muncul jika tipe pembayaran ujian adalah **Berbayar per Level (Multi-Level)**.
-
-       - Isi biaya yang perlu dibayar peserta untuk mengikuti level tersebut.
-       - Kosongkan bagian ini jika peserta tidak dikenakan biaya tambahan pada level tersebut.
-
-       > 💡 **Contoh:**
-       >
-       > - Babak Penyisihan: **Rp20.000**
-       > - Babak Semifinal: **Gratis**
-       > - Babak Final: **Gratis**
-       >
-       > Pada contoh tersebut, peserta hanya membayar saat mengikuti Babak Penyisihan. Peserta yang lolos ke Semifinal dan Final tidak perlu melakukan pembayaran kembali.
-       >
-       > **Contoh lainnya**, setiap babak dapat memiliki biaya berbeda:
-       >
-       > - Babak Penyisihan: **Rp20.000**
-       > - Babak Semifinal: **Rp15.000**
-       > - Babak Final: **Rp10.000**
-       >
-       > Dengan pengaturan tersebut, peserta perlu membayar kembali setiap akan mengikuti babak berikutnya.
-
-    3. **Apakah Memerlukan Verifikasi Admin?**
-
-       Pengaturan ini digunakan jika peserta hanya boleh masuk ke level tersebut setelah dinyatakan lolos dengan cara diverifikasi oleh admin.
-
-       > 💡 Sebagai contoh:
-       >
-       > - Seluruh peserta langsung mengikuti **Babak Penyisihan**.
-       > - Peserta yang lolos Penyisihan diverifikasi oleh admin agar dapat masuk ke **Babak Semifinal**.
-       > - Peserta yang lolos Semifinal diverifikasi kembali agar dapat masuk ke **Babak Final**.
-
-    4. **Apakah Tes Ujian Harus Dikerjakan Secara Berurutan?**
-
-       Aktifkan pengaturan ini jika dalam satu level terdapat beberapa tes yang harus dikerjakan sesuai urutan yang sudah ditentukan.
-
-       > 💡 **Contoh:**
-       >
-       > Pada Babak Penyisihan terdapat dua tes:
-       >
-       > 1. **Tes Matematika Dasar**
-       > 2. **Tes Penalaran Matematika**
-       >
-       > - Jika pengaturan ini diaktifkan, peserta harus menyelesaikan **Tes Matematika Dasar** terlebih dahulu. Setelah selesai, peserta baru dapat membuka **Tes Penalaran Matematika**.
-       > - Jika pengaturan ini tidak diaktifkan, peserta dapat memilih tes mana yang ingin dikerjakan terlebih dahulu.
-
-       <Tip>
-         Pengaturan ini baru bermanfaat jika satu level memiliki lebih dari satu tes.
-       </Tip>
-
-    5. **Apakah Tes Ujian Harus Dikerjakan Secara Langsung?**
-
-       Aktifkan pengaturan ini jika seluruh tes dalam satu level harus diselesaikan dalam satu rangkaian tanpa jeda.
-
-       > 💡 **Contoh:**
-       >
-       > Pada Babak Penyisihan terdapat dua tes:
-       >
-       > 1. Tes Matematika Dasar selama 60 menit
-       > 2. Tes Penalaran Matematika selama 60 menit
-       >
-       > - Jika pengaturan ini diaktifkan, setelah menyelesaikan Tes Matematika Dasar, peserta harus langsung melanjutkan ke Tes Penalaran Matematika. Peserta tidak dapat berhenti terlebih dahulu dan melanjutkan pada waktu lain.
-       > - Jika pengaturan ini tidak diaktifkan, peserta dapat menyelesaikan tes pertama, kemudian mengerjakan tes berikutnya pada waktu lain selama jadwal ujian masih tersedia.
-
-    6. Setelah pengaturan sesuai, klik **Tambah Level**. Ulangi langkah ini hingga level terakhir yang harus diikuti oleh peserta yang lolos.
-  </Step>
-  <Step title="Klik Tambah Tes Ujian">
-    Setelah seluruh level berhasil dibuat, hubungkan setiap tes ujian ke level yang sesuai. Klik **Tambah Tes Ujian** di pojok kanan atas halaman.
-
-    <Frame>
-      ![Tombol Tambah Tes Ujian pada halaman struktur level ujian](/images/2026-07-28_21-40.png)
-    </Frame>
-
-    <Info>
-      Untuk mempermudah pemahaman Anda, berikut perbedaan level ujian dengan tes ujian:
-
-      - **Tes Ujian**, yaitu tes yang sebelumnya sudah dibuat.
-      - **Level Ujian**, yaitu babak tempat tes tersebut akan dikerjakan.
-    </Info>
-  </Step>
-  <Step title="Pilih tes dan level ujian">
-    <Frame>
-      ![Formulir Tambah Tes Ujian dengan kolom Tes Ujian dan Level Ujian](/images/2026-07-28_21-44.png)
-    </Frame>
-
-    Pada bagian ini, Anda akan menentukan **tes apa yang dikerjakan peserta** dan **tes tersebut berada pada babak yang mana**.
-
-    1. **Tes Ujian** adalah bagian ujian yang benar-benar dikerjakan oleh peserta. Pilih tes yang ingin dimasukkan. Anda dapat memilih lebih dari satu tes sekaligus.
-
-       <Frame>
-         ![Daftar pilihan tes pada kolom Tes Ujian](/images/2026-07-28_21-44_1.png)
-       </Frame>
-
-       > Contohnya:
-       >
-       > - Tes Matematika Dasar
-       > - Tes Penalaran Matematika
-       > - Tes Pemecahan Masalah
-
-       <Tip>
-         Satu level dapat berisi satu atau beberapa tes ujian.
-       </Tip>
-
-    2. **Level Ujian** adalah babak atau tahapan tempat tes tersebut dilaksanakan.
-
-       <Frame>
-         ![Daftar pilihan level pada kolom Level Ujian](/images/2026-07-28_21-44_2.png)
-       </Frame>
-
-       > Contohnya:
-       >
-       > - Babak Pertama (Penyisihan)
-       > - Babak Kedua (Semifinal)
-       > - Babak Terakhir (Final)
-
-    3. Klik **Tambahkan**.
-
-    Pastikan tes yang dipilih sudah dimasukkan ke level yang benar. Setelah Anda klik **Tambahkan**, tes akan tampil di bawah level yang dipilih. Ulangi langkah ini hingga setiap tes berada di level yang sesuai.
-
-    <Frame>
-      ![Setiap tes ujian tampil di bawah levelnya masing-masing](/images/2026-07-28_21-53.png)
-    </Frame>
-  </Step>
-</Steps>
-
-## 6. Menambahkan Sesi pada Ujian Berjenjang
-
-<Steps>
-  <Step title="Buka tes ujian">
-    Kembali ke halaman detail ujian, buka tab **Daftar Tes Ujian**, lalu klik **Ubah** pada tes ujian yang akan Anda tambahkan sesi ujian.
-
-    <Frame>
-      ![Tombol Ubah pada tes Babak Penyisihan di Daftar Tes Ujian](/images/2026-07-29_20-38.png)
-    </Frame>
-  </Step>
-  <Step title="Klik Tambah Sesi Ujian">
-    <Frame>
-      ![Tombol Tambah Sesi Ujian pada halaman tes ujian](/images/2026-07-29_20-40.png)
-    </Frame>
-
-    Setelah halaman tes ujian terbuka, _scroll_/geser halaman ke bawah, lalu klik **Tambah Sesi Ujian**.
-
-    Sesi ujian adalah jadwal pelaksanaan tes. Di dalam sesi ini, Anda akan menentukan paket soal yang digunakan serta waktu mulai dan selesai ujian.
+    | Level | Biaya Level (IDR) | Verifikasi Admin |
+    | --- | --- | --- |
+    | Babak Penyisihan | kosong | aktif |
+    | Babak Semifinal | 30000 | aktif |
+    | Babak Final | 40000 | nonaktif |
 
     <Warning>
-      Tes tidak dapat dikerjakan peserta sebelum sesi ujian dibuat dan paket soal dipilih. Pastikan setiap tes ujian telah ditambahkan sesi ujian.
+      Peserta hanya dapat naik ke level berikutnya melalui keputusan admin. Aktifkan **Apakah Memerlukan Verifikasi Admin?** pada setiap level yang masih memiliki level sesudahnya. Jika nonaktif, status peserta tidak berubah menjadi **Aktif (Perlu Ditinjau)** setelah level tersebut selesai, sehingga tombol untuk meloloskan peserta tidak muncul. Pada level terakhir, pengaturan ini boleh dinonaktifkan.
     </Warning>
+
+    <Tip>
+      Pengaturan berurutan dan pengerjaan langsung baru berpengaruh jika satu level berisi lebih dari satu tes.
+    </Tip>
   </Step>
-  <Step title="Isi informasi sesi ujian">
+  <Step title="Klik Tambah Tes Ujian">
+    Setelah level dibuat, tombol **Tambah Tes Ujian** muncul. Klik tombol tersebut untuk memasukkan tes ke level.
+
     <Frame>
-      ![Formulir Tambah Sesi Ujian dengan kolom bernomor](/images/2026-07-29_20-41.png)
+      ![Tombol Tambah Tes Ujian pada halaman struktur level](/images/data-ujian/membuat-ujian-berjenjang/18-tombol-tambah-tes-ke-level.png)
+    </Frame>
+  </Step>
+  <Step title="Pilih tes dan level">
+    Kolom **Tes Ujian** hanya menampilkan tes yang belum dimasukkan ke level mana pun, dan Anda dapat memilih lebih dari satu tes.
+
+    <Frame>
+      ![Daftar pilihan pada kolom Tes Ujian](/images/data-ujian/membuat-ujian-berjenjang/19-pilihan-tes-ujian.png)
     </Frame>
 
-    Pada tahap ini, Anda akan menentukan **jadwal tes** sekaligus memilih **paket soal** yang akan dikerjakan peserta.
+    Kolom **Level Ujian** menampilkan level yang sudah dibuat.
 
-    - **Nama Sesi**: Isi nama yang mudah dikenali.<br />Contoh: **Sesi Penyisihan**
-    - **Paket Soal**: Pilih paket soal yang sudah dibuat.<br />Pastikan paket soal dipilih, karena sesi tanpa paket soal tidak dapat dimulai oleh peserta.
-    - **Tanggal Mulai Sesi**: Tentukan tanggal dan waktu peserta mulai dapat mengerjakan tes.
-    - **Tanggal Selesai Sesi**: Tentukan batas akhir peserta dapat mengerjakan tes.
+    <Frame>
+      ![Daftar pilihan pada kolom Level Ujian](/images/data-ujian/membuat-ujian-berjenjang/20-pilihan-level-ujian.png)
+    </Frame>
 
-    <Note>
-      Perhatikan bahwa tanggal sesi harus berada di dalam rentang tanggal ujian utama yang sudah ditentukan.
-    </Note>
+    <Frame>
+      ![Jendela Tambah Tes Ujian dengan tes dan level Babak Penyisihan](/images/data-ujian/membuat-ujian-berjenjang/21-formulir-tambah-tes-ke-level.png)
+    </Frame>
 
-    Contoh:
+    1. **Tes Ujian**: pilih tes, contoh **Babak Penyisihan**.
+    2. **Level Ujian**: pilih level tujuan, contoh **Babak Penyisihan**.
+    3. Klik **Tambahkan**.
 
-    > Ujian berlangsung pada 26–31 Juli 2026.<br />Maka sesi dapat dijadwalkan pada 26 Juli 2026 pukul 08.00–10.00.
+    Ulangi sampai semua tes berada di levelnya. Jika semua tes sudah dimasukkan, jendela ini menampilkan keterangan **Semua Tes Ujian sudah ditambahkan ke dalam struktur level**.
+  </Step>
+  <Step title="Periksa struktur level">
+    Setiap level tampil dengan label **[Level]** beserta ringkasan pengaturannya, dan tes di dalamnya tampil dengan label **[Tes Ujian]**.
 
-    Setelah semua data terisi, klik **Buat**. Pilih **Buat & buat lainnya** jika ingin langsung menambahkan sesi berikutnya.
+    <Frame>
+      ![Struktur level lengkap: tiga level masing-masing berisi satu tes](/images/data-ujian/membuat-ujian-berjenjang/22-struktur-level-lengkap.png)
+    </Frame>
+
+    - Seret pegangan titik-titik di sisi kiri untuk mengubah urutan level atau urutan tes di dalam level.
+    - Klik ikon pensil untuk mengubah pengaturan level, atau ikon tempat sampah untuk menghapus level atau mengeluarkan tes dari level. Menghapus level tidak menghapus tes ujian di dalamnya.
+    - Klik **Kembali ke Detail Ujian** setelah selesai.
   </Step>
 </Steps>
 
-## 7. Verifikasi Peserta Ujian Berjenjang
+## 5. Menambahkan sesi ujian dan peserta
 
-Setelah peserta menyelesaikan satu babak, Anda perlu menentukan apakah peserta tersebut dapat melanjutkan ke babak berikutnya.
+Setiap tes memerlukan sesi ujian dengan paket soal agar dapat dikerjakan. Buat sesi untuk setiap babak melalui tab **Daftar Tes Ujian** → **Ubah** pada tes → **Tambah Sesi Ujian**, mengikuti panduan [Membuat Sesi Ujian](/data-ujian/membuat-sesi-ujian). Jadwal sesi harus berada di dalam rentang tanggal ujian.
 
-💡 **Sebagai contoh**, peserta bernama **Rico Sadewa** telah menyelesaikan **Babak Penyisihan** pada Kompetisi Matematika 2027. Setelah hasilnya diperiksa, Anda memutuskan bahwa peserta tersebut berhak melanjutkan ke babak berikutnya.
+Setelah struktur level lengkap, tambahkan peserta melalui tab **Daftar Peserta Ujian** (lihat [Menambahkan Peserta Ujian](/data-ujian/menambahkan-peserta-ujian)) atau buka pendaftaran mandiri dengan formulir pendaftaran (lihat [Formulir Pendaftaran Peserta](/data-ujian/membuat-formulir-pendaftaran)). Peserta baru hanya dapat mengerjakan tes pada level pertama; tes pada level berikutnya terkunci.
 
-Berikut tampilan dari sisi peserta apabila Anda belum memverifikasi lolos tidaknya peserta ke babak selanjutnya. Babak berikutnya menampilkan status **Proses Verifikasi**.
+## 6. Meloloskan peserta ke babak berikutnya
+
+Sebagai contoh, peserta **Rico Sadewa** telah menyelesaikan **Babak Penyisihan**. Karena level ini memerlukan verifikasi admin, babak berikutnya ditandai **Proses Verifikasi** di aplikasi peserta, dan tesnya masih terkunci.
 
 <Frame>
-  ![Babak berikutnya berstatus Proses Verifikasi di aplikasi peserta](/images/2026-07-29_21-13-1.png)
+  ![Babak Semifinal berstatus Proses Verifikasi di halaman Daftar Tes peserta](/images/data-ujian/membuat-ujian-berjenjang/23-peserta-proses-verifikasi.png)
 </Frame>
 
 <Steps>
   <Step title="Buka detail ujian">
-    Buka menu **Data Ujian**, lalu klik **Detail** pada ujian berjenjang yang sedang Anda kelola.
+    Buka **Data Ujian**, cari ujian, lalu klik **Detail**.
 
     <Frame>
-      ![Tombol Detail pada ujian Kompetisi Matematika 2027](/images/2026-07-29_21-13_1.png)
+      ![Tombol Detail pada ujian Kompetisi Matematika Nasional 2027](/images/data-ujian/membuat-ujian-berjenjang/24-tombol-detail-ujian.png)
     </Frame>
   </Step>
-  <Step title="Buka tab Daftar Peserta Ujian">
-    Gulir halaman ke bawah, lalu buka tab **Daftar Peserta Ujian**.
+  <Step title="Klik Lihat pada peserta yang perlu ditinjau">
+    Gulir ke bawah, buka tab **Daftar Peserta Ujian**, cari peserta berstatus **Aktif (Perlu Ditinjau)**, lalu klik **Lihat**. Anda dapat memakai filter **Status Peserta** → **Perlu Ditinjau** untuk menampilkan peserta tersebut saja.
 
     <Frame>
-      ![Tab Daftar Peserta Ujian pada halaman detail ujian](/images/2026-07-29_21-14.png)
+      ![Peserta Rico Sadewa berstatus Aktif (Perlu Ditinjau) dan tombol Lihat](/images/data-ujian/membuat-ujian-berjenjang/25-daftar-peserta-perlu-ditinjau.png)
     </Frame>
-  </Step>
-  <Step title="Klik Lihat pada peserta">
-    <Frame>
-      ![Peserta berstatus Aktif (Perlu Ditinjau) dan tombol Lihat](/images/2026-07-29_21-15.png)
-    </Frame>
-
-    Cari peserta yang memiliki status **Aktif (Perlu Ditinjau)**, lalu klik **Lihat**.
-
-    Status tersebut menunjukkan bahwa peserta sudah menyelesaikan babak sebelumnya dan menunggu keputusan verifikasi admin.
   </Step>
   <Step title="Tentukan apakah peserta lolos">
+    Halaman **Detail Peserta** menampilkan **Tes Ujian Terakhir** dan **Tes Ujian Berikutnya**, serta kotak **Apakah Peserta Lanjut ke Tes Ujian Berikutnya?**.
+
     <Frame>
-      ![Tombol verifikasi lanjut atau akhiri ujian pada halaman Detail Peserta](/images/2026-07-29_21-15_1.png)
+      ![Tombol Ya, Lanjutkan ke Tes Berikutnya dan Tidak, Akhiri Ujian pada halaman Detail Peserta](/images/data-ujian/membuat-ujian-berjenjang/26-detail-peserta-lanjut-atau-akhiri.png)
     </Frame>
 
-    Jika peserta dinyatakan lolos, klik **Ya, Lanjutkan ke Tes Berikutnya**.
+    - Klik **Ya, Lanjutkan ke Tes Berikutnya** jika peserta lolos. Tes pada level berikutnya terbuka dan status peserta kembali **Aktif**.
+    - Klik **Tidak, Akhiri Ujian** jika peserta tidak lolos. Ujian peserta diakhiri dan tes pada level berikutnya tetap terkunci.
 
-    Jika peserta gugur/tidak lolos, klik **Tidak, Akhiri Ujian**.
-
-    <Warning>
-      Setelah peserta berhasil diverifikasi dan diloloskan, jangan lupa memasukkan peserta tersebut ke **sesi ujian pada babak berikutnya**.
-
-      Peserta belum dapat mengerjakan tes berikutnya jika belum dimasukkan ke sesi yang sesuai.
-    </Warning>
+    Konfirmasi pilihan Anda pada jendela yang muncul.
   </Step>
-  <Step title="Tentukan batas waktu pembayaran">
+  <Step title="Tentukan batas waktu pembayaran (level berbayar)">
+    Jika level berikutnya memiliki biaya, jendela konfirmasi menampilkan nominal biaya dan meminta batas waktu pembayaran.
+
     <Frame>
-      ![Jendela Lanjutkan ke Tes Berikutnya dengan batas waktu pembayaran](/images/2026-07-29_21-16_1.png)
+      ![Jendela Lanjutkan ke Tes Berikutnya dengan biaya Rp30.000 dan batas waktu pembayaran](/images/data-ujian/membuat-ujian-berjenjang/27-batas-waktu-pembayaran-level.png)
     </Frame>
 
-    Apabila Anda klik **Ya, Lanjutkan ke Tes Berikutnya** dan level berikutnya memiliki tagihan, Anda perlu:
+    1. Isi tanggal dan waktu kedaluwarsa pembayaran. Batas waktu tidak boleh di masa lalu dan paling lama 2 × 24 jam dari sekarang.
+    2. Klik **Konfirmasi**.
 
-    1. Menentukan batas akhir peserta menyelesaikan pembayaran tagihan.
-    2. Klik **Konfirmasi** untuk menyimpan aturan yang telah Anda buat.
+    Sistem membuat tagihan QRIS untuk peserta. Selama tagihan belum dibayar, status peserta pada daftar adalah **Menunggu Pembayaran**, dan halaman **Detail Peserta** menampilkan kode QR, kode pembayaran, total, dan batas waktunya.
   </Step>
-  <Step title="Tunggu peserta menyelesaikan pembayaran">
+  <Step title="Peserta menyelesaikan pembayaran">
+    Di aplikasi peserta, level berbayar menampilkan tombol **Selesaikan Pembayaran**. Peserta membayar melalui QRIS sebelum batas waktu; setelah pembayaran berhasil, tes pada level tersebut terbuka.
+
     <Frame>
-      ![Tombol Selesaikan Pembayaran di aplikasi peserta](/images/2026-07-29_21-19.png)
+      ![Tombol Selesaikan Pembayaran pada Babak Semifinal di aplikasi peserta](/images/data-ujian/membuat-ujian-berjenjang/28-peserta-selesaikan-pembayaran.png)
     </Frame>
-
-    Apabila peserta diloloskan, peserta akan melihat tombol **Selesaikan Pembayaran**.
-
-    Peserta perlu menyelesaikan pembayaran sebelum batas waktu yang sudah ditentukan. Setelah pembayaran berhasil, peserta dapat melanjutkan proses menuju babak berikutnya.
 
     <Info>
-      Jika level berikutnya tidak memiliki biaya, peserta dapat langsung dilanjutkan tanpa proses pembayaran.
+      Jika level berikutnya gratis, peserta langsung dapat melanjutkan tanpa pembayaran.
     </Info>
   </Step>
 </Steps>
+
+<Warning>
+  Pastikan peserta yang diloloskan sudah masuk ke sesi ujian pada tes level berikutnya. Tes tetap terkunci bagi peserta yang belum memiliki sesi, atau jika sesi tersebut belum memiliki paket soal.
+</Warning>

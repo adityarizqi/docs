@@ -1,151 +1,127 @@
 ---
 title: "Membuat Ujian"
-description: "Cara membuat ujian dari template atau dari awal, lalu melengkapi informasi, tipe paket, pendaftaran, pembayaran, dan aturan pengerjaannya."
+description: "Cara membuat ujian dari template atau dari awal, lalu mengatur informasi umum, tipe ujian, pendaftaran, pembayaran, aturan pengerjaan, dan informasi tambahan."
 ---
 
-Panduan ini menjelaskan cara membuat **ujian sebagai wadah utama** beserta seluruh pengaturannya.
+Panduan ini menjelaskan cara membuat **ujian** sebagai wadah utama beserta seluruh pengaturannya. Di dalam ujian, Anda mengatur nama dan jadwal pelaksanaan, tipe ujian, cara peserta mendaftar, biaya, aturan pengerjaan, dan informasi yang ditampilkan kepada peserta. Tes, sesi, dan peserta ditambahkan setelah ujian dibuat.
 
-Di dalam ujian inilah Anda akan mengatur nama dan jadwal pelaksanaan, menambahkan tes, menentukan cara peserta mendaftar, mengatur biaya, serta menetapkan aturan pengerjaan.
+<Info>
+  **Lokasi menu:** **Portal** → **Platform Ujian (CBT)** → **Manajemen Ujian** → **Data Ujian**.
 
-💡 Sebagai contoh,
+  Anda memerlukan akses ke menu **Data Ujian**. Admin dengan peran **Guru** hanya dapat melihat dan mengelola ujian yang ia buat sendiri.
+</Info>
 
-> Anda adalah pemilik Lembaga Bimbingan Indolat yang ingin menyelenggarakan **Tryout Akbar Persiapan SNBT 2027**. Ujian tersebut akan dilaksanakan:
->
-> - secara gratis,
-> - peserta dapat mendaftar sendiri,
-> - dan nilai dapat langsung dilihat setelah selesai mengerjakan.
+Sebagai contoh, Anda adalah admin **Bimbel Prestasi Nusantara** yang akan menyelenggarakan **Tryout Akbar SNBT 2027 – Gelombang 2** dengan ketentuan berikut:
 
-<Tip>
-  Untuk membuat ujian, Anda dapat memilih salah satu dari dua cara berikut:
+- ujian gratis,
+- peserta dapat mendaftar sendiri,
+- skor akhir dapat dilihat peserta setelah selesai mengerjakan.
 
-  1. **Gunakan Template Ujian** jika Anda ingin sistem yang menyusun ujian secara otomatis, termasuk jumlah tes dan levelnya.
-  2. **Buat Ujian Baru** jika Anda ingin menentukan seluruh susunan dan pengaturan ujian sendiri dari awal.
-</Tip>
+## Membuka menu Data Ujian
 
-## 1. Pilih Cara Membuat Ujian
+<Steps>
+  <Step title="Buka modul Platform Ujian (CBT)">
+    Setelah masuk, Anda berada di halaman **Portal**. Klik ubin **Platform Ujian (CBT)** pada **Daftar Modul**.
+
+    <Frame>
+      ![Ubin Platform Ujian (CBT) pada Daftar Modul di halaman Portal](/images/data-ujian/membuat-ujian/01-portal-platform-ujian.png)
+    </Frame>
+  </Step>
+  <Step title="Klik Data Ujian">
+    Pada sidebar, klik **Data Ujian** di grup **Manajemen Ujian**. Halaman ini menampilkan daftar ujian beserta **Kode Ujian**, **Tipe Ujian**, **Tanggal Mulai**, dan **Tanggal Selesai**.
+
+    <Frame>
+      ![Menu Data Ujian pada sidebar Platform Ujian (CBT)](/images/data-ujian/membuat-ujian/02-menu-data-ujian.png)
+    </Frame>
+  </Step>
+</Steps>
+
+## Memilih cara membuat ujian
+
+Ada dua cara membuat ujian:
+
+1. **Template Ujian**: sistem langsung menyusun ujian beserta tes ujian dan struktur levelnya.
+2. **Tambah Ujian**: Anda menentukan seluruh susunan dan pengaturan ujian sendiri dari awal.
 
 <AccordionGroup>
   <Accordion title="Menggunakan Template Ujian">
-    Template Ujian membantu Anda menyiapkan susunan ujian dengan lebih cepat.
-
-    Saat template digunakan, sistem akan membuat **ujian, tes ujian, dan susunan level atau babak** secara otomatis. Anda tidak perlu membuat seluruh susunannya satu per satu.
-
-    Tersedia beberapa template yang dapat dipilih sesuai kebutuhan.
-
-    <Tip>
-      Gunakan **Template Kompetisi Berjenjang** untuk ujian atau kompetisi yang dilaksanakan dalam beberapa babak.
-
-      Contoh: Olimpiade Matematika terdiri dari Babak Penyisihan, Semifinal, dan Final.
-
-      Template ini akan menyiapkan:
-
-      - 3 tes ujian
-      - 3 level atau babak
-      - tipe pembayaran gratis.
-    </Tip>
+    Template ujian adalah contoh susunan ujian yang sudah disiapkan sistem. Saat template dipakai, sistem membuat **ujian, tes ujian, dan struktur level** sekaligus. Anda tinggal melengkapi isinya.
 
     <Steps>
       <Step title="Klik Template Ujian">
-        Buka menu **Data Ujian**, lalu klik **Template Ujian**.
+        Pada halaman **Data Ujian**, klik **Template Ujian**.
 
         <Frame>
-          ![Tombol Template Ujian pada halaman Data Ujian](/images/template-ujian.png)
+          ![Tombol Template Ujian pada halaman Data Ujian](/images/data-ujian/membuat-ujian/03-tombol-template-ujian.png)
         </Frame>
       </Step>
-      <Step title="Pilih template ujian">
+      <Step title="Pilih template, lalu klik Gunakan Template">
+        Jendela **Pilih Template Ujian** menampilkan nama template, jenis **Pembayaran**, jumlah **Tes Ujian**, dan **Struktur** levelnya.
+
         <Frame>
-          ![Jendela Pilih Template Ujian dengan Template Tryout SNBT dipilih](/images/modal.png)
+          ![Jendela Pilih Template Ujian dengan Template Tryout SNBT dipilih](/images/data-ujian/membuat-ujian/04-pilih-template-ujian.png)
         </Frame>
 
-        Template Ujian adalah **contoh susunan ujian yang sudah disiapkan oleh sistem**. Dengan _template_, Anda tidak perlu membuat susunan ujian satu per satu.
-
-        Pada contoh ini, pilih **Template Tryout SNBT** karena Anda ingin membuat tryout SNBT yang terdiri dari beberapa bagian tes.
-
-        1. Klik kotak di sebelah **Template Tryout SNBT**.
+        1. Centang template yang sesuai. Pada contoh ini, pilih **Template Tryout SNBT** (gratis, 7 tes, satu level).
         2. Klik **Gunakan Template**.
 
-        Setelah itu, sistem akan membuat susunan awal tryout secara otomatis.
+        Template yang tersedia saat ini:
+
+        - **Template Tryout SNBT**: tryout dengan beberapa subtes literasi dan penalaran dalam satu paket ujian.
+        - **Template Kompetisi Berjenjang**: kompetisi atau seleksi bertahap dengan 3 tes dan 3 level. Penjelasan ujian bertingkat ada di [Membuat Ujian Berjenjang](/data-ujian/membuat-ujian-berjenjang).
+      </Step>
+      <Step title="Periksa ujian yang dibuat">
+        Ujian baru muncul di daftar **Data Ujian** dengan nama dan kode dari template.
 
         <Frame>
-          ![Ujian Template Tryout SNBT baru pada daftar Data Ujian](/images/list-template.png)
+          ![Ujian Template Tryout SNBT pada daftar Data Ujian](/images/data-ujian/membuat-ujian/05-ujian-dari-template.png)
         </Frame>
 
         <Note>
-          Anda masih perlu melengkapi **sesi ujian** dan menghubungkan setiap tes ujian dengan **paket soal**.
-
-          Ujian dari template dibuat sebagai **Ujian Professional (Paket Berbayar)**. Anda dapat mengubahnya pada bagian **Tipe & Paket Ujian**.
-
-          Singkatnya, template hanya membantu Anda untuk **memulai lebih cepat**. Sistem menyiapkan kerangkanya, lalu Anda tinggal melengkapi isinya.
+          - Ujian dari template dibuat sebagai **Ujian Professional (Paket Berbayar)**, dengan tanggal mulai saat template dipakai dan tanggal selesai satu bulan setelahnya. Ubah nama, kode, jadwal, dan tipe ujian melalui **Detail**.
+          - Template **tidak** membuat sesi ujian, isian formulir pendaftaran, maupun peserta. Anda tetap perlu [membuat sesi ujian](/data-ujian/membuat-sesi-ujian), memilih paket soal untuk setiap sesi, dan [menambahkan peserta](/data-ujian/menambahkan-peserta-ujian).
+          - Template yang memakai pembayaran hanya dapat dipakai jika add-on formulir pendaftaran aktif.
         </Note>
       </Step>
     </Steps>
   </Accordion>
 
-  <Accordion title="Membuat Ujian Baru">
-    Gunakan cara ini jika Anda ingin menentukan seluruh pengaturan dari awal.
-
-    <Tip>
-      Cara ini cocok apabila ujian yang akan Anda buat tidak mengikuti susunan template yang tersedia.
-    </Tip>
-
+  <Accordion title="Membuat ujian dari awal (Tambah Ujian)">
     <Steps>
       <Step title="Klik Tambah Ujian">
-        Buka menu **Data Ujian**, lalu klik **Tambah Ujian**.
+        Pada halaman **Data Ujian**, klik **Tambah Ujian**.
 
         <Frame>
-          ![Tombol Tambah Ujian pada halaman Data Ujian](/images/2026-07-19_18-02-1.png)
+          ![Tombol Tambah Ujian pada halaman Data Ujian](/images/data-ujian/membuat-ujian/06-tombol-tambah-ujian.png)
         </Frame>
       </Step>
-      <Step title="Isi informasi ujian">
+      <Step title="Isi formulir Informasi Umum">
         <Frame>
-          ![Formulir Informasi Umum untuk ujian baru](/images/2026-07-19_18-05.png)
+          ![Formulir Tambah Ujian dengan kolom bernomor](/images/data-ujian/membuat-ujian/07-formulir-tambah-ujian.png)
         </Frame>
 
-        Lanjutkan pengisian informasi ujian sesuai dengan kebijakan lembaga penyelenggara ujian, lalu klik **Buat**. Sistem langsung membuka halaman detail ujian.
+        1. **Kode Ujian**<br />Kode singkat dan unik dalam projek Anda. Hanya boleh berisi huruf, angka, tanda `-`, dan `#`; huruf otomatis menjadi kapital. Kode ini juga menjadi awalan **Kode Peserta** bawaan (lihat [Kode Peserta dan Kode Bidang](/data-ujian/kode-peserta)).<br />Contoh: **TOSNBT27-G2**.
+        2. **Nama Ujian**<br />Nama yang dilihat admin dan peserta.<br />Contoh: **Tryout Akbar SNBT 2027 – Gelombang 2**.
+        3. **Tanggal Mulai**<br />Tanggal dan waktu acara ujian dimulai.
+        4. **Tanggal Selesai**<br />Tanggal dan waktu acara ujian berakhir. Tanggal ini tidak boleh lebih awal dari tanggal mulai dan paling lambat satu tahun dari hari ini. Semua sesi ujian harus berada di dalam rentang tanggal ini.
+        5. **Deskripsi Ujian**<br />Penjelasan singkat tentang ujian, maksimal 1.000 karakter. Kolom ini wajib diisi.
+        6. **Gambar/Sampul Ujian** (opsional)<br />Gambar sampul ujian dalam format PNG, maksimal 1 MB.
+        7. **Tipe Ujian**<br />Pilih **Ujian Standard (Paket Gratis)** atau **Ujian Professional (Paket Berbayar)**. Perbedaan keduanya dijelaskan pada bagian **Tipe & Paket Ujian** di bawah.
+        8. Klik **Buat**. Sistem langsung membuka halaman **Detail Ujian**.
       </Step>
     </Steps>
   </Accordion>
 </AccordionGroup>
 
-## 2. Mengisi Informasi Awal Ujian
+## Mengatur detail ujian
 
-<Steps>
-  <Step title="Klik Detail">
-    Pada halaman **Data Ujian**, klik **Detail** pada ujian yang baru dibuat. Jika Anda membuat ujian melalui **Tambah Ujian**, halaman detail ujian sudah terbuka setelah Anda klik **Buat**, sehingga langkah ini dapat dilewati.
-
-    <Frame>
-      ![Tombol Detail pada ujian Template Tryout SNBT](/images/detail-template.png)
-    </Frame>
-  </Step>
-  <Step title="Isi informasi acara ujian">
-    <Frame>
-      ![Kolom bernomor pada tab Informasi Umum detail ujian](/images/2026-07-19_17-47.png)
-    </Frame>
-
-    Pada tahap ini, Anda akan mengisikan informasi dasar untuk acara ujian yang akan diselenggarakan.
-
-    1. **Kode Ujian**<br />Masukkan kode singkat dan unik agar ujian mudah dikenali.<br />Contoh: **TRYSNBT-TPL-854**
-    2. **Nama Ujian**<br />Tuliskan nama ujian yang akan dilihat oleh admin dan peserta.<br />Contoh: **Template Tryout SNBT**
-    3. **Tanggal Mulai**<br />Tentukan tanggal dan waktu mulai acara ujian.
-    4. **Tanggal Selesai**<br />Tentukan tanggal dan waktu berakhirnya acara ujian.
-    5. **Deskripsi Ujian**<br />Berikan penjelasan singkat mengenai tujuan atau isi ujian.<br />Contoh: _Template ini cocok digunakan untuk tryout akademik dengan beberapa subtes literasi dan penalaran yang siap disesuaikan kembali sesuai kebutuhan program Anda._
-    6. **Gambar/Sampul Ujian**<br />Unggah gambar yang akan digunakan sebagai sampul ujian. Bagian ini dapat digunakan agar ujian lebih mudah dikenali oleh peserta. Format file PNG, maksimal 1MB.
-    7. Setelah semua informasi diperiksa dan sudah sesuai, klik **Simpan** untuk menyimpan acara ujian.
-  </Step>
-</Steps>
-
-## 3. Lengkapi Pengaturan pada Detail Ujian
+Halaman **Detail Ujian** terbuka setelah Anda membuat ujian. Untuk membukanya kembali, klik **Detail** pada baris ujian di halaman **Data Ujian**.
 
 <Frame>
-  <img
-    src="/images/2026-07-19_18-10.png"
-    alt="Empat tab pengaturan pada halaman detail ujian"
-    className="mx-auto"
-    style={{ width:"75%" }}
-  />
+  ![Lima tab pengaturan pada halaman Detail Ujian](/images/data-ujian/membuat-ujian/08-tab-detail-ujian.png)
 </Frame>
 
-Setelah ujian berhasil dibuat, sistem akan menampilkan beberapa bagian pengaturan:
+Pengaturan ujian dibagi ke dalam lima tab:
 
 1. **Informasi Umum**
 2. **Tipe & Paket Ujian**
@@ -153,222 +129,170 @@ Setelah ujian berhasil dibuat, sistem akan menampilkan beberapa bagian pengatura
 4. **Pengaturan Ujian**
 5. **Informasi Tambahan**
 
-Mari kita bahas satu per satu.
+Setelah mengubah isi tab mana pun, klik **Simpan**.
 
-<Steps>
-  <Step title="Periksa Informasi Umum">
-    Bagian **Informasi Umum** digunakan untuk melihat atau mengubah identitas ujian.
+### Informasi Umum
 
-    Di bagian ini, Anda dapat mengatur kembali:
+Tab ini berisi kolom yang sama dengan formulir **Tambah Ujian**: **Kode Ujian**, **Nama Ujian**, **Tanggal Mulai**, **Tanggal Selesai**, **Deskripsi Ujian**, dan **Gambar/Sampul Ujian**.
 
-    - kode ujian
-    - nama ujian
-    - tanggal mulai
-    - tanggal selesai
-    - deskripsi ujian
-    - gambar atau sampul ujian.
+<Note>
+  - **Kode Ujian** tidak dapat diubah lagi setelah ujian memiliki peserta.
+  - **Tanggal Mulai** dan **Tanggal Selesai** tidak dapat diubah selama ada peserta yang sedang mengerjakan tes.
+</Note>
 
-    Contoh:
+### Tipe & Paket Ujian
 
-    > Jadwal Tryout Akbar SNBT semula berlangsung pada 20–25 Juli. Jika jadwal berubah, Anda dapat memperbaruinya pada bagian Informasi Umum.
+<Frame>
+  ![Tab Tipe & Paket Ujian dengan Ujian Standard terpilih dan sisa kredit](/images/data-ujian/membuat-ujian/09-tab-tipe-paket-ujian.png)
+</Frame>
 
-    Setelah melakukan perubahan, klik **Simpan**.
-  </Step>
-  <Step title="Periksa Tipe & Paket Ujian">
-    <Frame>
-      <img
-        src="/images/2026-07-19_18-12.png"
-        alt="Tab Tipe & Paket Ujian dengan Ujian Professional terpilih"
-        style={{ width:"85%" }}
-      />
-    </Frame>
+**Tipe Ujian** menentukan jenis kredit yang dipakai dan batasan fitur ujian. Kredit berkurang ketika peserta mengikuti ujian. Kotak di bawah pilihan menampilkan sisa kredit tipe tersebut.
 
-    Bagian **Tipe & Paket Ujian** digunakan untuk melihat tipe layanan atau paket yang dipakai pada ujian. Kredit ujian berkurang ketika peserta mengikuti ujian.
+| | **Ujian Standard (Paket Gratis)** | **Ujian Professional (Paket Berbayar)** |
+| --- | --- | --- |
+| Reset kredit | Otomatis setiap bulan | Setiap bulan sesuai periode langganan |
+| Tes ujian per ujian | Maksimal 4 | Maksimal 30 |
+| Peserta yang mengerjakan serentak | Maksimal 50 | Maksimal 1.000 |
+| Proctoring Kamera, Layar, dan Dual Monitor | Tidak tersedia | Tersedia |
+| Computer Adaptive Test (CAT) | Tidak tersedia | Tersedia |
 
-    <Frame>
-      ![Pilihan Tipe Ujian: Ujian Standard dan Ujian Professional](/images/image-30.png)
-    </Frame>
+Pada kedua tipe, tes CBT dapat memakai semua metode penilaian (termasuk IRT), dan **Deteksi Pindah Tab** tetap tersedia.
 
-    - **Ujian Standard (Paket Gratis)**
+<Warning>
+  Jika Anda memilih **Ujian Professional (Paket Berbayar)** tetapi projek tidak memiliki kredit ujian profesional, sistem menampilkan peringatan dan peserta tidak dapat memulai ujian sampai kredit tersedia. Kredit dikelola di **Administrasi Aplikasi** → **Keuangan** → **Langganan & Tagihan**.
+</Warning>
 
-      Cocok untuk ujian sederhana atau latihan rutin. Ketentuannya:
+<Tip>
+  Pilih **Ujian Standard** untuk ujian sederhana dengan paling banyak 4 tes dan 50 peserta serentak. Pilih **Ujian Professional** jika Anda membutuhkan lebih banyak tes atau peserta serentak, CAT, atau proctoring kamera, layar, dan dual monitor.
+</Tip>
 
-      1. Kredit di-reset otomatis setiap bulan.
-      2. Maksimal **4 Tes Ujian (Subtes)** per ujian.
-      3. Maksimal **50 peserta** ujian serentak (peserta yang mengerjakan ujian pada waktu yang sama).
-      4. Fitur **Proctoring Kamera, Layar, dan Dual Monitor** tidak tersedia.
-      5. Fitur **Computer Adaptive Test (CAT)** tidak tersedia.
+### Pendaftaran & Pembayaran
 
-    - **Ujian Professional (Paket Berbayar)**: Rp500 per kredit ujian
+<Frame>
+  ![Kolom bernomor pada tab Pendaftaran & Pembayaran](/images/data-ujian/membuat-ujian/10-tab-pendaftaran-pembayaran.png)
+</Frame>
 
-      Cocok untuk ujian dengan peserta lebih banyak dan kebutuhan yang lebih lengkap. Ketentuannya:
+Tab ini menentukan apakah peserta boleh mendaftar sendiri dan apakah ujian gratis atau berbayar. Pengaturan pendaftaran dan pembayaran memerlukan add-on **Halaman Pendaftaran Ujian dan Pembayaran Otomatis**. Jika add-on belum aktif, label pengaturan menampilkan **(Add-on Tidak Aktif)** dan ujian berbayar tidak dapat disimpan.
 
-      1. Kredit di-reset setiap bulan sesuai periode langganan Anda.
-      2. Maksimal **30 Tes Ujian (Subtes)** per ujian.
-      3. Maksimal **1.000 peserta** ujian serentak.
-      4. Fitur **Proctoring Kamera, Layar, dan Dual Monitor** tersedia. Proctoring kamera dan layar juga memakai kredit proctoring tersendiri (add-on).
-      5. Fitur **Computer Adaptive Test (CAT)** tersedia.
+1. **Apakah Pendaftaran Ujian Dibuka?**<br />Aktifkan agar peserta dapat mendaftar ujian secara mandiri. Setelah diaktifkan, klik tautan **di sini** pada teks bantuan untuk menyalin URL pendaftaran ujian, lalu bagikan kepada calon peserta. Tautan **Lihat** menampilkan contoh halaman pendaftaran. Isian formulir, verifikasi, dan kuota pendaftaran diatur di [Formulir Pendaftaran Peserta](/data-ujian/membuat-formulir-pendaftaran).
+2. **Tipe Pembayaran**<br />Pilih salah satu tipe berikut:
 
-      Jika Anda tidak memiliki kredit ujian profesional, sistem menampilkan peringatan dan peserta tidak dapat memulai ujian sampai kredit tersedia.
+   - **Gratis**: peserta tidak membayar.
+   - **Sekali Bayar**: peserta membayar satu kali untuk seluruh tes dalam ujian. Contoh: biaya tryout Rp50.000 untuk semua subtes.
+   - **Berbayar per Tes Ujian**: peserta membayar setiap tes yang ingin diikuti. Biaya diisi pada setiap tes ujian (lihat [Membuat Tes Ujian](/data-ujian/membuat-tes-ujian)).
+   - **Berbayar per Level (Multi-Level)**: peserta membayar setiap level atau babak yang diikuti. Memilih tipe ini otomatis mengubah **Apakah Ujian Multi-Level?** menjadi **Ya (Multi-Level)**. Biaya diisi pada struktur level, lihat [Membuat Ujian Berjenjang](/data-ujian/membuat-ujian-berjenjang).
+3. **Set Sesi Otomatis Setelah Pendaftaran**<br />Aktifkan agar peserta yang berhasil mendaftar mandiri langsung dimasukkan ke sesi ujian. Pada tipe **Sekali Bayar** dan **Berbayar per Tes Ujian**, pengaturan ini bernama **Set Sesi Otomatis Setelah Pembayaran** dan berjalan setelah peserta membayar. Pengaturan ini tidak tersedia pada tipe **Berbayar per Level (Multi-Level)**. Jika masih ada tes tanpa sesi ujian, sistem menampilkan peringatan agar Anda menambahkan sesi terlebih dahulu.
+4. Klik **Simpan**.
 
-    Pada kedua tipe ujian, tes CBT dapat menggunakan semua metode penilaian, termasuk IRT, dan pengaturan **Deteksi Pindah Tab** tetap tersedia.
+Jika Anda memilih **Sekali Bayar**, kolom **Biaya Ujian Sekali Bayar (IDR)** muncul. Isi biaya yang harus dibayar peserta, minimal Rp5.000. Pengaturan **Set Sesi Otomatis Setelah Pembayaran** baru dapat diaktifkan setelah biaya diisi.
 
-    <Tip>
-      Pilih **Ujian Standard** jika ujian sederhana, peserta yang mengerjakan ujian secara serentak tidak lebih dari 50 orang, dan jumlah tes ujian tidak lebih dari 4.
+<Frame>
+  ![Kolom Biaya Ujian Sekali Bayar dan Set Sesi Otomatis Setelah Pembayaran pada tipe Sekali Bayar](/images/data-ujian/membuat-ujian/11-tipe-pembayaran-sekali-bayar.png)
+</Frame>
 
-      Pilih **Ujian Professional** jika peserta serentak atau tes ujian lebih banyak, atau Anda membutuhkan CAT atau proctoring kamera, layar, dan dual monitor.
-    </Tip>
-  </Step>
-  <Step title="Atur Pendaftaran & Pembayaran">
-    <Frame>
-      ![Kolom bernomor pada tab Pendaftaran & Pembayaran](/images/2026-07-19_18-17.png)
-    </Frame>
+<Note>
+  Jika Anda mengubah tipe pembayaran dari **Sekali Bayar** ke tipe lain, isian **Metode Pembayaran** pada formulir pendaftaran ujian otomatis dihapus.
+</Note>
 
-    Pada bagian ini, Anda dapat menentukan apakah peserta boleh mendaftar sendiri dan apakah ujian tersebut gratis atau berbayar.
+<Tip>
+  Aktifkan **Set Sesi Otomatis Setelah Pendaftaran** jika Anda sering terlewat memasukkan peserta pendaftar ke sesi ujian.
+</Tip>
 
-    1. **Apakah Pendaftaran Ujian Dibuka?**<br />Jika diaktifkan, peserta dapat mendaftar ujian secara mandiri. Pengaturan ini memerlukan add-on **Halaman Pendaftaran Ujian dan Pembayaran Otomatis**. Jika add-on belum aktif, label pengaturan ini menampilkan "(Add-on Tidak Aktif)" dan tombolnya tidak dapat diaktifkan.
-    2. **Tipe Pembayaran**<br />Pilih **Gratis** jika peserta tidak perlu membayar. Jika ujian berbayar, pilih jenis pembayaran yang sesuai. Tipe pembayaran berbayar juga memerlukan add-on tersebut; tanpa add-on, ujian berbayar tidak dapat disimpan.
+### Pengaturan Ujian
 
-    <Frame>
-      <img
-        src="/images/tipe-pembayaran.png"
-        alt="Pilihan Tipe Pembayaran pada detail ujian"
-        className="mr-auto"
-      />
-    </Frame>
+<Frame>
+  ![Kolom bernomor pada tab Pengaturan Ujian](/images/data-ujian/membuat-ujian/12-tab-pengaturan-ujian.png)
+</Frame>
 
-    - **Gratis**: Peserta tidak perlu membayar.
+Tab ini menentukan aturan umum pengerjaan dan penghitungan skor akhir.
 
-      > Contoh:
-      >
-      > Tryout SNBT gratis yang terdiri dari Tes Matematika dan Tes Bahasa Indonesia. Peserta dapat mengikuti semuanya tanpa biaya.
+1. **Apakah Ujian Multi-Level?**<br />Pilih **Ya (Multi-Level)** jika ujian dilaksanakan dalam beberapa babak, misalnya Penyisihan, Semifinal, dan Final. Pilih **Tidak** jika ujian hanya memiliki satu tahap, seperti tryout pada contoh ini. Pengaturan ini tidak dapat diubah setelah ujian memiliki peserta. Panduan lengkapnya ada di [Membuat Ujian Berjenjang](/data-ujian/membuat-ujian-berjenjang).
+2. **Apakah Tes Ujian Harus Dikerjakan Secara Berurutan?**<br />Jika diaktifkan, peserta harus mengerjakan tes sesuai urutan yang Anda tentukan. Urutan diatur dengan tombol **Ubah Urutan Tes Ujian** pada bagian **Daftar Tes Ujian**. Jika dinonaktifkan, peserta bebas memilih tes yang dikerjakan lebih dulu.
+3. **Apakah Tes Ujian Harus Dikerjakan Secara Langsung?**<br />Jika diaktifkan, peserta harus menyelesaikan tes tanpa jeda sebelum melanjutkan ke tes berikutnya. Jika dinonaktifkan, peserta boleh berhenti setelah satu tes dan melanjutkan tes lain selama jadwalnya masih berlaku.
+4. **Jenis Skor Akhir**<br />Cara skor akhir dihitung dari skor seluruh tes:
+   - **Akumulasi Tes Ujian**: skor setiap tes dijumlahkan.
+   - **Rata-Rata Tes Ujian** (bawaan): jumlah skor dibagi jumlah tes yang sudah dinilai.
 
-    - **Sekali Bayar**: Peserta membayar satu kali, lalu dapat mengikuti seluruh tes yang ada dalam satu acara ujian.
+   Contoh: skor Penalaran Matematika 80 dan Literasi Bahasa Indonesia 70 menghasilkan skor akhir 150 dengan akumulasi, atau 75 dengan rata-rata. Jika ujian sudah memiliki peserta, skor akhir seluruh peserta dihitung ulang setelah perubahan disimpan.
+5. **Apakah Tampilkan Skor Akhir Ujian?**<br />Aktifkan agar peserta dapat melihat skor akhir ujian. Aktifkan hanya jika skor akhir sudah dihitung dengan benar. Nonaktifkan jika nilai masih perlu diperiksa atau akan diumumkan kemudian.
+6. Klik **Simpan**.
 
-      > Contoh:
-      >
-      > Biaya Tryout SNBT adalah Rp50.000. Setelah membayar, peserta dapat mengikuti Tes Penalaran Matematika, Tes Literasi Bahasa Indonesia, dan Tes Literasi Bahasa Inggris.
-      >
-      > Peserta tidak perlu membayar lagi untuk setiap tes.
+<Note>
+  Jika ujian diatur sebagai **Ya (Multi-Level)**, pengaturan nomor 2 dan 3 tidak ditampilkan karena urutan pengerjaan dan penyelesaian langsung diatur pada setiap level.
+</Note>
 
-    - **Berbayar per Tes Ujian**: Peserta membayar setiap tes yang ingin diikuti.
+### Informasi Tambahan
 
-      > Contoh:
-      >
-      > Tes Matematika: Rp20.000
-      >
-      > Tes Bahasa Indonesia: Rp15.000
-      >
-      > Tes Bahasa Inggris: Rp15.000
-      >
-      > Peserta yang hanya ingin mengikuti Tes Matematika cukup membayar Rp20.000.
+<Frame>
+  ![Kolom bernomor pada tab Informasi Tambahan](/images/data-ujian/membuat-ujian/13-tab-informasi-tambahan.png)
+</Frame>
 
-    - **Berbayar per Level (Multi-Level)**: Digunakan untuk ujian yang terdiri dari beberapa babak. Peserta membayar pada setiap babak yang diikuti.
+Tab opsional ini menampilkan informasi khusus di dasbor peserta yang sudah terdaftar pada ujian ini, misalnya tautan grup WhatsApp, panduan teknis, atau kontak panitia. Peserta ujian lain tidak melihat informasi ini.
 
-      > Contoh:
-      >
-      > Babak Penyisihan: Rp25.000
-      >
-      > Babak Semifinal: Rp30.000
-      >
-      > Babak Final: Rp40.000
-      >
-      > Peserta membayar biaya babak berikutnya hanya jika berhasil lolos.
+1. **Apakah Tampilkan Informasi Tambahan untuk Peserta?**<br />Aktifkan untuk menampilkan kolom lainnya.
+2. **Judul Informasi**<br />Maksimal 100 karakter. Contoh: **Gabung Grup WhatsApp Peserta Gelombang 2**.
+3. **Isi Informasi**<br />Maksimal 1.000 karakter. Anda dapat memakai huruf tebal, miring, tautan, dan daftar.
+4. **Label Tombol (Opsional)**<br />Teks tombol, maksimal 50 karakter. Contoh: **Gabung Grup**.
+5. **Tautan Tombol (Opsional)**<br />Tautan lengkap yang diawali `http://` atau `https://`. Tombol hanya muncul jika label dan tautan sama-sama diisi.
+6. Klik **Simpan**.
 
-    3. **Biaya Ujian Sekali Bayar (IDR)**<br />Biaya yang harus dibayar oleh peserta untuk mengikuti ujian. Kolom ini muncul jika Anda memilih **Sekali Bayar**.
-    4. **Set Sesi Otomatis Setelah Pendaftaran**<br />Aktifkan jika Anda ingin peserta yang berhasil mendaftar langsung dimasukkan ke sesi ujian secara otomatis. Pada tipe **Sekali Bayar** dan **Berbayar per Tes Ujian**, pengaturan ini bernama **Set Sesi Otomatis Setelah Pembayaran** dan berjalan setelah peserta membayar. Pada tipe **Berbayar per Level (Multi-Level)**, pengaturan ini tidak ditampilkan. Pengaturan ini juga memerlukan add-on **Halaman Pendaftaran Ujian dan Pembayaran Otomatis**.
-    5. Setelah pengaturan selesai, klik **Simpan**.
+Peserta melihat informasi tersebut di bagian atas halaman **Daftar Tes**:
 
-    <Tip>
-      Apabila Anda **sering terlewat** menghubungkan peserta ke dalam sesi ujian, kami sarankan untuk mengaktifkan fitur **Set Sesi Otomatis Setelah Pendaftaran**.
-    </Tip>
-  </Step>
-  <Step title="Lengkapi Pengaturan Ujian">
-    <Frame>
-      ![Kolom bernomor pada tab Pengaturan Ujian](/images/2026-07-19_18-25.png)
-    </Frame>
+<Frame>
+  ![Kartu informasi tambahan dengan tombol Gabung Grup di dasbor peserta](/images/data-ujian/membuat-ujian/14-informasi-tambahan-peserta.png)
+</Frame>
 
-    Bagian **Pengaturan Ujian** digunakan untuk menentukan aturan umum saat peserta mengerjakan ujian.
+## Bagian lain pada halaman Detail Ujian
 
-    1. **Apakah Ujian Multi-Level?**
+Di bawah tab pengaturan terdapat tiga bagian untuk melengkapi ujian:
 
-       Pilih **Ya (Multi-Level)** jika ujian dilaksanakan dalam beberapa tahap atau babak. Panduan lengkapnya ada di [Membuat Ujian Berjenjang](/data-ujian/membuat-ujian-berjenjang).
+<Frame>
+  ![Bagian Daftar Tes Ujian, Formulir Pendaftaran, dan Daftar Peserta Ujian](/images/data-ujian/membuat-ujian/15-bagian-tes-formulir-peserta.png)
+</Frame>
 
-       > Contoh:
-       >
-       > 1. Babak Penyisihan
-       > 2. Babak Semifinal
-       > 3. Babak Final
+1. **Daftar Tes Ujian**: menambahkan dan mengatur tes. Lihat [Membuat Tes Ujian](/data-ujian/membuat-tes-ujian).
+2. **Formulir Pendaftaran**: menyusun isian formulir pendaftaran mandiri. Lihat [Formulir Pendaftaran Peserta](/data-ujian/membuat-formulir-pendaftaran).
+3. **Daftar Peserta Ujian**: menambahkan dan mengelola peserta. Lihat [Menambahkan Peserta Ujian](/data-ujian/menambahkan-peserta-ujian).
 
-       Pilih **Tidak** jika ujian hanya memiliki satu tahap.
+Di kanan atas halaman terdapat tiga tombol:
 
-       > Contoh: Tryout SNBT dilaksanakan satu kali tanpa babak lanjutan.
+<Frame>
+  ![Tombol Ekspor Data, Kode Peserta, dan Hitung Skor di kanan atas Detail Ujian](/images/data-ujian/membuat-ujian/16-tombol-header-detail-ujian.png)
+</Frame>
 
-    2. **Apakah Tes Ujian Harus Dikerjakan Secara Berurutan?**
+1. **Ekspor Data**: mengekspor hasil tes, link jawaban esai, analisis butir soal, dan template leaderboard ke Excel. Lihat [Hasil dan Ekspor Ujian](/data-ujian/hasil-dan-ekspor-ujian).
+2. **Kode Peserta**: mengatur format kode peserta dan kode bidang per sesi. Lihat [Kode Peserta dan Kode Bidang](/data-ujian/kode-peserta).
+3. **Hitung Skor**: menghitung ulang skor peserta, termasuk skor IRT. Lihat [Hasil dan Ekspor Ujian](/data-ujian/hasil-dan-ekspor-ujian#menghitung-ulang-skor).
 
-       Aktifkan jika peserta harus mengerjakan tes sesuai urutan yang sudah ditetapkan.
+Pada ujian multi-level, tombol **Atur Struktur Level Ujian** juga muncul di bagian ini.
 
-       > Contoh: Peserta harus menyelesaikan Tes Matematika terlebih dahulu sebelum dapat membuka Tes Bahasa Indonesia.
+## Mengelola ujian pada daftar Data Ujian
 
-       Jika dinonaktifkan, peserta dapat memilih tes yang ingin dikerjakan terlebih dahulu.
+Klik **Lainnya** pada baris ujian untuk membuka tindakan tambahan:
 
-    3. **Apakah Tes Ujian Harus Dikerjakan Secara Langsung?**
+<Frame>
+  ![Menu Lainnya berisi Arsipkan Ujian, Duplikat Ujian, dan Hapus](/images/data-ujian/membuat-ujian/17-menu-lainnya-ujian.png)
+</Frame>
 
-       Aktifkan jika peserta harus melanjutkan ke tes berikutnya tanpa jeda.
+- **Arsipkan Ujian**: menyembunyikan ujian dari daftar dan mengunci seluruh datanya. Ujian yang diarsipkan dapat dilihat melalui tombol ikon arsip di samping **Template Ujian** (halaman **Arsip Ujian**) dan dikeluarkan dengan **Keluarkan dari Arsip**, tetapi datanya tetap terkunci dan tidak dapat diubah lagi.
+- **Duplikat Ujian**: menyalin ujian beserta tes ujian, struktur level, formulir pendaftaran, kupon, dan berkas medianya. Proses berjalan di latar belakang dan Anda menerima notifikasi setelah selesai.
+- **Hapus**: menghapus ujian. Ujian yang sudah mulai dikerjakan peserta tidak dapat dihapus.
 
-       > Contoh: Setelah menyelesaikan Tes Matematika, peserta harus langsung melanjutkan ke Tes Bahasa Indonesia.
+<Warning>
+  Mengarsipkan ujian mengunci seluruh datanya secara permanen, meskipun ujian dikeluarkan lagi dari arsip. Pastikan ujian sudah benar-benar selesai sebelum mengarsipkannya.
+</Warning>
 
-       Jika dinonaktifkan, peserta dapat berhenti setelah menyelesaikan satu tes dan kembali mengerjakan tes berikutnya selama jadwal masih tersedia.
-
-    4. **Jenis Skor Akhir**
-
-       Tentukan cara skor akhir peserta dihitung dari skor seluruh tes ujian:
-
-       - **Akumulasi Tes Ujian**: skor setiap tes dijumlahkan.
-       - **Rata-Rata Tes Ujian**: jumlah skor dibagi dengan jumlah tes yang sudah dinilai. Pilihan ini terpilih secara bawaan.
-
-       > Contoh: Peserta mendapat skor 80 pada Tes Matematika dan 70 pada Tes Bahasa Indonesia. Dengan **Akumulasi Tes Ujian**, skor akhirnya 150; dengan **Rata-Rata Tes Ujian**, skor akhirnya 75.
-
-       Jika ujian sudah memiliki peserta, skor akhir seluruh peserta dihitung ulang setelah perubahan disimpan.
-
-    5. **Apakah Tampilkan Skor Akhir Ujian?**
-
-       Aktifkan jika peserta boleh melihat hasil akhir setelah selesai mengerjakan.
-
-       > Contoh: Pada tryout latihan, peserta dapat langsung melihat skor untuk mengetahui hasil belajarnya.
-
-       Nonaktifkan jika nilai masih perlu diperiksa atau akan diumumkan pada waktu lain.
-
-       > Contoh: Nilai seleksi akan diperiksa terlebih dahulu dan diumumkan oleh panitia pada hari berikutnya.
-
-    6. Setelah pengaturan selesai, klik **Simpan**.
-  </Step>
-  <Step title="Atur Informasi Tambahan">
-    Bagian **Informasi Tambahan** bersifat opsional. Gunakan bagian ini untuk menampilkan informasi khusus di dashboard peserta yang sudah terdaftar pada ujian ini, misalnya tautan grup WhatsApp, panduan teknis, atau kontak panitia. Peserta ujian lain tidak melihat informasi ini.
-
-    1. **Apakah Tampilkan Informasi Tambahan untuk Peserta?**<br />Aktifkan agar informasi tambahan muncul di dashboard peserta.
-    2. **Judul Informasi**<br />Tuliskan judul informasi, maksimal 100 karakter.<br />Contoh: **Gabung Grup WhatsApp Peserta**
-    3. **Isi Informasi**<br />Tuliskan isi informasi, maksimal 1.000 karakter.
-    4. **Label Tombol (Opsional)** dan **Tautan Tombol (Opsional)**<br />Isi keduanya jika Anda ingin menampilkan tombol, misalnya **Gabung Grup**. Gunakan tautan lengkap yang diawali `http://` atau `https://`. Tombol hanya muncul jika label dan tautan tombol sama-sama diisi.
-    5. Setelah pengaturan selesai, klik **Simpan**.
-  </Step>
-</Steps>
-
-## 4. Periksa Ujian yang Sudah Dibuat
-
-Sebelum melanjutkan ke pembuatan tes ujian, periksa kembali beberapa hal berikut:
+## Periksa kembali ujian Anda
 
 <Check>
-  - Nama dan kode ujian sudah benar.
-  - Tanggal mulai dan selesai sudah sesuai.
-  - Tipe ujian sudah sesuai kebutuhan.
-  - Pendaftaran mandiri sudah diaktifkan atau dinonaktifkan.
-  - Tipe pembayaran sudah tepat.
-  - Aturan pengerjaan sudah sesuai.
-  - Pengumuman skor sudah diperiksa.
+  - Nama, kode, dan jadwal ujian sudah benar.
+  - Tipe ujian sesuai dengan jumlah tes, jumlah peserta serentak, dan fitur yang dibutuhkan.
+  - Pendaftaran mandiri dan tipe pembayaran sudah sesuai.
+  - Aturan pengerjaan dan jenis skor akhir sudah tepat.
+  - Pengaturan tampilan skor akhir sudah diperiksa.
 </Check>
 
-Setelah seluruh pengaturan sesuai, ujian siap diisi dengan tes. Lanjutkan ke panduan berikut:
+Setelah pengaturan selesai, tambahkan tes ke dalam ujian:
 
 <Card title="Membuat Tes Ujian" icon="arrow-right" horizontal href="/data-ujian/membuat-tes-ujian">
   Tambahkan tes ke dalam ujian yang sudah Anda buat.

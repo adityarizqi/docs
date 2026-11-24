@@ -1,669 +1,399 @@
 ---
 title: "Participant Registration Form"
-description: "How to build an exam registration form, set up payments and voucher codes, verify participants and limit the number of registrations."
+description: "How to open self-registration, build the registration form, set up payment and voucher codes, and verify participants and limit the registration quota."
 ---
 
-This guide explains how to build an **exam registration form** that is ready for participants to use. You will learn how to add registration questions, choose answer types, see the form from the participant's side, set up payments, add voucher codes and verify participants.
+The registration form contains the questions participants answer when they register for an exam themselves in the participant app. This page explains how to open registration, build the form questions, charge a registration fee, offer voucher codes, verify registrants, and limit the quota.
 
-💡 For example, say you are the **admin organising the SNBT 2027 Grand Tryout** (SNBT is Indonesia's national university entrance test).
+<Info>
+  Menu location: **Portal** → **Platform Ujian (CBT)** → **Manajemen Ujian** → **Data Ujian** (Exam Data) → **Detail** on the exam → **Formulir Pendaftaran** (Registration Form) tab.
 
-Before participants can take the tryout (practice exam), you want to collect some details about them:
+  This feature requires the **Halaman Pendaftaran Ujian dan Pembayaran Otomatis** (Exam Registration Page and Automatic Payment) add-on. If the add-on is not active, the **Formulir Pendaftaran** tab only shows the **Aktifkan Add-on Formulir Pendaftaran** button, which leads to **Administrasi Aplikasi** → **Keuangan** → **Langganan & Tagihan** (Subscription & Billing).
+</Info>
 
-- School
-- WhatsApp number
-- Home city
+As an example, you are the admin of **Bimbel Prestasi Nusantara** opening registration for **Tryout Persiapan SNBT 2027 Batch Desember** (code **TPS-DES27**) with a fee of Rp50,000. When registering, participants are asked for:
 
-With a registration form, you can collect all of this neatly before participants move on to the exam.
+- **Asal Cabang Lembaga** (Branch: Surabaya or Jakarta)
+- **Nomor WhatsApp** (WhatsApp number)
+- **Asal Sekolah** (School)
 
-## 1. Create the Registration Form
+Participants from the Jakarta branch pay the registration fee, while participants from the Surabaya branch do not.
+
+## 1. Open registration and set the fee
+
+The exam and its exam tests must already exist. If not, follow [Create an Exam](/en/data-ujian/membuat-ujian).
 
 <Steps>
-  <Step title="Open the exam you created">
-    <Frame>
-      ![Details button in the exam list on the Exam Data menu](/images/2026-07-20_22-49.png)
-    </Frame>
+  <Step title="Open the exam detail">
+    Open **Data Ujian**, find the exam, then click **Detail**.
 
-    1. Open the **Exam Data** menu and choose the exam you want to add a registration form to.
-    2. Then click **Details**.
+    <Frame>
+      ![Detail button on the Tryout Persiapan SNBT 2027 Batch Desember exam](/images/data-ujian/membuat-formulir-pendaftaran/01-tombol-detail-ujian.png)
+    </Frame>
   </Step>
-  <Step title="Make sure the payment type and registration fee are set">
+  <Step title="Set the Pendaftaran & Pembayaran tab">
     <Frame>
-      ![Payment Type and One-time Exam Fee on the Registration & Payment tab](/images/2026-07-20_23-05.png)
+      ![Pendaftaran & Pembayaran tab with Sekali Bayar and a fee of 50000](/images/data-ujian/membuat-formulir-pendaftaran/02-tab-pendaftaran-pembayaran.png)
     </Frame>
 
-    If you skipped this, follow the guide [Create an Exam](/en/data-ujian/membuat-ujian).
+    1. **Apakah Pendaftaran Ujian Dibuka?** (Is Registration Open?): turn on so the exam appears on the participant registration page.
+    2. **Tipe Pembayaran** (Payment Type): choose **Sekali Bayar** (One-Time Payment) if participants pay when registering. The **Metode Pembayaran** (Payment Method) question, which triggers the payment, is only available for this type. The other payment types are explained in [Create a Multi-Level Exam](/en/data-ujian/membuat-ujian-berjenjang).
+    3. **Biaya Ujian Sekali Bayar (IDR)** (One-Time Exam Fee): the registration fee, minimum Rp5,000. Example: **50000**.
+    4. **Set Sesi Otomatis Setelah Pembayaran** (Assign Session Automatically After Payment, optional): when on, participants are automatically placed in the first exam session of each test after the payment succeeds. It can only be turned on once the fee is filled in. For **Gratis** (Free) exams, this setting is called **Set Sesi Otomatis Setelah Pendaftaran** (after registration). Make sure every test already has an exam session.
+    5. Click **Simpan** (Save).
 
-    The **Payment Method** question template can only be chosen when **Payment Type** is set to **One-time Payment**.
+    The exam appears on the participant registration page while registration is open and the current time is between the exam's **Tanggal Mulai** and **Tanggal Selesai**.
+
+    <Tip>
+      Click the **di sini** (here) link in the helper text of **Apakah Pendaftaran Ujian Dibuka?** to copy the exam registration URL. Share it with participants; after signing in to their account, they go straight to this exam's registration form.
+    </Tip>
   </Step>
-  <Step title="Open Registration Form and click Add Registration Form">
+</Steps>
+
+## 2. Build the registration form
+
+Form questions are created one by one in the **Formulir Pendaftaran** tab at the bottom of the exam detail page. The tab has three buttons: the gear icon (form settings, see section 6), **Kode Voucher** (Voucher Code, see section 4), and **Tambah Formulir Pendaftaran** (Add Registration Form).
+
+<Frame>
+  ![Tambah Formulir Pendaftaran button on the Formulir Pendaftaran tab](/images/data-ujian/membuat-formulir-pendaftaran/03-tombol-tambah-formulir.png)
+</Frame>
+
+Click **Tambah Formulir Pendaftaran** to open the question window. The **Template Pertanyaan (Opsional)** (Question Template) field lists the templates provided by the system, namely **Metode Pembayaran**. Each template can be used only once per exam.
+
+<Frame>
+  ![Template Pertanyaan options containing Metode Pembayaran](/images/data-ujian/membuat-formulir-pendaftaran/04-pilihan-template-pertanyaan.png)
+</Frame>
+
+<AccordionGroup>
+  <Accordion title="Adding the Metode Pembayaran question for all participants">
+    Use this when every registrant must pay.
+
     <Frame>
-      ![Add Registration Form button in the Registration Form section](/images/2026-07-20_22-52.png)
+      ![Metode Pembayaran template with the Ya, selalu ditampilkan option](/images/data-ujian/membuat-formulir-pendaftaran/05-template-metode-pembayaran.png)
     </Frame>
+
+    1. **Template Pertanyaan (Opsional)**: choose **Metode Pembayaran**. The label, type, answer option (**QRIS**), and instructions are filled in automatically, and the question is always required.
+    2. **Apakah selalu ditampilkan pada formulir pendaftaran?** (Always show on the registration form?): choose **Ya, selalu ditampilkan** (Yes, always show).
+    3. Click **Buat** (Create).
 
     <Note>
-      The **Add Registration Form** and **Voucher Code** buttons and the ⚙️ icon only appear when the **Exam Registration Page and Automatic Payment** add-on is active. If it isn't, this section shows an **Enable the Registration Form Add-on** button instead.
+      The **Metode Pembayaran** template can only be chosen when **Tipe Pembayaran** is **Sekali Bayar**. If the payment type is later changed to another type, the **Metode Pembayaran** question is removed from the form automatically.
     </Note>
+  </Accordion>
 
-    Here you create the questions that will appear on the participant registration page. Think of this form as the **sign-up sheet participants fill in at an event**.
+  <Accordion title="Creating your own question">
+    Example: the question **Asal Cabang Lembaga** with the options **Surabaya** and **Jakarta**.
 
-    If your paper form usually asks for:
-
-    > Institution Branch: \_\_\_\_\_\_\_\_\_<br />WhatsApp Number: \_\_\_\_\_\_\_\_\_
-
-    In the system, you create those questions with the **Add Registration Form** button.
-  </Step>
-</Steps>
-
-## 2. Fill In the Registration Form Details
-
-When you create the form, you decide what information to collect from participants.
-
-<AccordionGroup>
-  <Accordion title="Use a Question Template">
     <Frame>
-      ![Payment Method question template in the Add Registration Form form](/images/2026-07-23_19-52.png)
+      ![Tambah Formulir Pendaftaran window for the Asal Cabang Lembaga question](/images/data-ujian/membuat-formulir-pendaftaran/06-formulir-asal-cabang-lembaga.png)
     </Frame>
 
-    1. **Question Template (Optional)**<br />If you want to build a payment form quickly without setting up every part by hand, and you don't need any extra data from participants, use the **Payment Method** question template.
+    1. **Template Pertanyaan (Opsional)**: leave empty.
+    2. **Apakah selalu ditampilkan pada formulir pendaftaran?**: choose **Ya, selalu ditampilkan**.
+    3. **Apakah Wajib Diisi?** (Required?): turn on so participants cannot register without answering.
+    4. **Label Pertanyaan** (Question Label): the question text participants see. Example: **Asal Cabang Lembaga**.
+    5. **Tipe Pertanyaan** (Question Type): how participants answer. The options are:
+       - **Text (Input Biasa)**: a short answer, such as a WhatsApp number or school.
+       - **Textarea (Paragraf)**: a long answer, such as a full address.
+       - **Select (Dropdown)**: one answer from a list opened like a menu.
+       - **Radio (Pilihan Tunggal)**: one answer, with all options shown at once.
+       - **Checkbox (Pilihan Ganda)**: more than one answer allowed.
+       - **File (Berkas)**: the participant uploads a JPG, JPEG, PNG, PDF, DOC, or DOCX file of up to about 4 MB.
+       - **Date (Tanggal)**: a date only, such as a date of birth.
+       - **Datetime (Tanggal & Waktu)**: a date and time.
+    6. **Opsi Pilihan** (Options): appears for Select, Radio, and Checkbox. Fill in each option, for example **Surabaya** and **Jakarta**, and click **Tambah Opsi** (Add Option) for another row. Options must be different from each other, and their order can be changed with the arrow icon.
+    7. **Petunjuk Pengisian** (Instructions, optional): a short hint below the answer field, up to 1,000 characters. Example: _Pilih cabang tempat Anda terdaftar._
+    8. Click **Buat**, or **Buat & buat lainnya** (Create & create another) to create the next question right away.
 
-       Here's how that form looks to participants:
+    In the same way, create the questions **Nomor WhatsApp** and **Asal Sekolah** of type **Text (Input Biasa)**, both required.
+
+    <Note>
+      When a question is edited, **Template Pertanyaan (Opsional)** and **Tipe Pertanyaan** cannot be changed. Delete the question and create it again if its type needs to change.
+    </Note>
+  </Accordion>
+
+  <Accordion title="Showing a question based on a condition">
+    A question can be set to appear only when the participant gives a specific answer to another question. In this example, **Metode Pembayaran** only appears for Jakarta participants, so Surabaya participants are not charged a registration fee.
+
+    <Frame>
+      ![Metode Pembayaran template shown with the condition Asal Cabang Lembaga Sama Dengan Jakarta](/images/data-ujian/membuat-formulir-pendaftaran/07-metode-pembayaran-dengan-kondisi.png)
+    </Frame>
+
+    1. **Template Pertanyaan (Opsional)**: choose **Metode Pembayaran** (or create your own question as above).
+    2. **Apakah selalu ditampilkan pada formulir pendaftaran?**: choose **Tampilkan berdasarkan kondisi tertentu** (Show based on a condition).
+    3. **Opsi Pertanyaan** (Question): the question the condition is based on. This list contains the other questions on the same form, except **Metode Pembayaran**.
 
        <Frame>
-         ![Payment Method field on the participant's registration form](/images/2026-07-20_23-20-3.png)
+         ![Opsi Pertanyaan options](/images/data-ujian/membuat-formulir-pendaftaran/08-pilihan-opsi-pertanyaan.png)
        </Frame>
-    2. **Is it always shown on the registration form?**<br />This setting decides whether the question always appears on the participant's form. Choose **Yes, always shown**.
-    3. Click **Create** to save.
-  </Accordion>
+    4. **Aturan atau Syarat** (Rule): how the answer is compared.
+       - **Sama Dengan** (Equals) and **Bukan** (Not): the answer equals or does not equal the reference.
+       - **Kurang Dari**, **Lebih Dari**, **Kurang Dari Sama Dengan**, and **Lebih Dari Sama Dengan** (less than, greater than, less than or equal, greater than or equal): for numeric answers.
+       - **Salah Satu dari** (One of) and **Bukan Salah Satu dari** (None of): the answer is or is not among several references. References for these rules are chosen from the project's reference list; if a reference does not exist yet, create it directly from the field.
+    5. **Acuan** (Reference): the answer that makes the question appear. If the **Opsi Pertanyaan** question is a Select or Radio, the reference is chosen from its options. Example: **Jakarta**.
 
-  <Accordion title="Customise the Question Template">
-    If you need extra data from participants, and you have payment rules for the registration form, follow the steps below.
+       <Frame>
+         ![Acuan options containing Surabaya and Jakarta](/images/data-ujian/membuat-formulir-pendaftaran/09-pilihan-acuan.png)
+       </Frame>
+    6. Click **Buat**.
 
-    <Steps>
-      <Step title="Create the input field first">
-        <Frame>
-          ![Setting up the Institution Branch question as Select (Dropdown)](/images/2026-07-23_19-56.png)
-        </Frame>
-
-        Here you are creating a question that participants answer when they register for the exam. Example: **Institution Branch**. The goal is for participants to choose one of the available branches: **Surabaya** or **Jakarta**.
-
-        1. **Question Template (Optional)**<br />Leave it empty, because you are creating your own question. If you pick one of the templates from the list, the form settings fill in automatically and the **Question Label** and **Question Type** fields are hidden.
-        2. **Is it always shown on the registration form?**<br />Choose **Yes, always shown** so every participant sees this question.
-        3. **Is It Required?**<br />Switch it on so participants can't continue registering until they choose a branch.
-        4. **Question Label**<br />Enter the question name participants will see.<br />Example: **Institution Branch**.
-        5. **Question Type**: **Select (Dropdown)**<br />Decides how participants answer on the registration form. For the **Institution Branch** question, use **Select (Dropdown)**, because participants only need to choose one branch from a list.
-
-           <Info>
-             <Frame>
-               ![Question Type options in the Add Registration Form form](/images/2026-07-23_19-57.png)
-             </Frame>
-
-             **Question Type** decides how participants answer on the registration form. The type names appear in the app exactly as shown below.
-
-             - **Text (Input Biasa)** (plain input)<br />For short answers.<br />Example: full name, WhatsApp number or school.
-             - **Textarea (Paragraf)** (paragraph)<br />For longer answers.<br />Example: reason for taking the exam or full address.
-             - **Select (Dropdown)**<br />When participants may choose only one answer from a list. The options appear when the field is opened.<br />Example: choosing the **Surabaya** or **Jakarta** branch.
-             - **Radio (Pilihan Tunggal)** (single choice)<br />When participants may choose only one answer and you want every option shown at once.<br />Example: **Male** or **Female**.
-             - **Checkbox (Pilihan Ganda)** (multiple choice)<br />When participants may choose more than one answer.<br />Example: choosing several subjects they are interested in.
-             - **File (Berkas)**<br />When participants need to upload a document.<br />Example: proof of payment, student card or photo.
-             - **Date (Tanggal)**<br />For choosing a date only.<br />Example: date of birth.
-             - **Datetime (Tanggal & Waktu)**<br />For choosing a date and a time.<br />Example: a consultation slot on **25 July 2026 at 10:00**.
-           </Info>
-        6. **Choice Options**<br />Enter the branches participants can choose from, for example:
-           - Surabaya
-           - Jakarta
-
-           Click **Add Option** to add more branches.
-        7. **How to Fill It In**<br />Add a short instruction so participants aren't confused.<br />Example:
-
-           > Choose the branch where you are registered.
-        8. When you're done, click **Create** to save the question.
-
-        Here's how the question looks to participants:
-
-        <Frame>
-          ![Institution Branch question on the participant's registration form](/images/2026-07-22_19-52.png)
-        </Frame>
-      </Step>
-      <Step title="Show the form based on a condition">
-        💡 Example: your institution has two branches:
-
-        - Surabaya → Free
-        - Jakarta → Paid
-
-        You want participants from Jakarta to pay, while participants from Surabaya don't have to.
-
-        <Frame>
-          ![Show it under certain conditions option in the Add Registration Form form](/images/2026-07-23_19-38.png)
-        </Frame>
-
-        Besides showing a question to every participant, you can also make a question **appear only when the participant chooses a particular answer**.
-
-        1. **Question Template (Optional)**: choose **Payment Method**.
-        2. **Is it always shown on the registration form?**<br />Choose **Show it under certain conditions**.
-        3. **Question Option** lists the questions you created earlier; the one you choose is what the condition is based on.
-           <Frame>
-             ![Choosing the Question Option the condition is based on](/images/2026-07-23_19-39.png)
-           </Frame>
-        4. **Rules or Terms** sets how the answer is checked.
-           <Frame>
-             ![Rules or Terms options for the form condition](/images/2026-07-23_19-40.png)
-           </Frame>
-
-        <Info>
-          Available options:
-
-          - **Equals**<br />Use it when the answer must match a particular option. Example:
-
-            > Institution Branch **Equals** Jakarta
-
-            This means the form only appears when the participant chooses Jakarta.
-          - **Not**<br />Use it when the answer must not be a particular option. Example:
-
-            > Institution Branch **Not** Jakarta
-
-            This means the form appears for every branch except Jakarta.
-          - **Less Than**, **Greater Than**, **Less Than or Equal To** and **Greater Than or Equal To**<br />Use them for numeric values. Example:
-
-            > Number of Participants **Greater Than** 100
-          - **One Of**<br />Use it when the answer can be any of several options. Example:
-
-            > City **One Of** Jakarta, Surabaya
-          - **Not One Of**<br />Use it when the answer must not be any of the given options.
-        </Info>
-
-        5. **Reference** sets the answer that makes the form appear.
-           <Frame>
-             ![Choosing the Reference that makes the form appear](/images/2026-07-23_19-41.png)
-           </Frame>
-        6. When you're done, click **Create** to save the question.
-
-        With conditions, you can set things up like this:
-
-        > If the participant chooses **Institution Branch = Jakarta**, the payment method is shown.
-
-        Here's what the participant sees:
-
-        <Frame>
-          ![Payment method shown to a participant from the Jakarta branch](/images/2026-07-22_19-48.png)
-        </Frame>
-
-        Whereas:
-
-        > If the participant chooses **Institution Branch = Surabaya**, the payment method is not shown.
-
-        Here's what the participant sees:
-
-        <Frame>
-          ![No payment method for a participant from the Surabaya branch](/images/2026-07-22_19-48_1.png)
-        </Frame>
-      </Step>
-    </Steps>
-  </Accordion>
-
-  <Accordion title="Monitor Participants' Registration Form Answers">
-    If your registration form has several questions, you can see participants' answers under **Exam Data** → click **Details** on the exam → open the **Exam Participant List** section.
-
-    <Frame>
-      ![Exam Participant List section on the exam details page](/images/2026-07-22_22-11.png)
-    </Frame>
-
-    The registration form answers are shown when you verify a participant with **Verify Participant**.
-
-    <Frame>
-      ![Registration form answers in the Verify Participant window](/images/2026-07-22_22-00.png)
-    </Frame>
-
-    Once a participant has been verified, you can see their registration form answers again by clicking **View**.
-
-    <Frame>
-      ![View button for a verified participant](/images/2026-07-22_22-01.png)
-    </Frame>
-
-    <Frame>
-      ![Registration form answers on the participant details page](/images/2026-07-22_22-01_1.png)
-    </Frame>
+    Result: if a participant chooses **Asal Cabang Lembaga** = **Jakarta**, the **Metode Pembayaran** question appears and the participant must pay. If they choose **Surabaya**, the question does not appear and they register without a fee.
   </Accordion>
 </AccordionGroup>
 
-## 3. Participants Pay for the Registration Form
+All questions appear in the **Formulir Pendaftaran** table with their type, required status, and **Selalu Ditampilkan** (Always shown) or **Kondisi Tertentu** (Conditional). Click **Ubah Urutan Formulir Pendaftaran** (Reorder Registration Form) to change the question order, then click **Selesai Mengurutkan** (Done Reordering). Use **Ubah** (Edit) or **Hapus** (Delete) on each row to manage a question.
 
-Once the registration form is ready, participants can start registering for the exam.
+<Frame>
+  ![Formulir Pendaftaran table with four questions](/images/data-ujian/membuat-formulir-pendaftaran/10-daftar-formulir-pendaftaran.png)
+</Frame>
 
-💡 For example, a participant wants to take the **SNBT 2027 Mathematics Prep Tryout**.
+## 3. Registration from the participant's side
 
-Participants fill in the form first, then complete the payment before they can take the exam.
+This is the flow participants follow in the participant app, for example `https://prestasi.indolat.web.id`.
 
 <Steps>
-  <Step title="Participant logs in to the CBT">
-    <Frame>
-      ![CBT login page on the participant side](/images/2026-07-22_20-29.png)
-    </Frame>
+  <Step title="The participant signs in to the participant app">
+    The participant signs in with their account. Sign-in settings are explained in [Participant Login Settings](/en/lainnya/login-peserta).
 
-    Participants log in through the exam link you shared. To set up the exam link, see the guide [Participant Login](/en/lainnya/login-peserta).
-  </Step>
-  <Step title="Participant chooses New Exam Registration">
     <Frame>
-      ![New Exam Registration button on the Exam List page](/images/2026-07-22_20-29_1.png)
+      ![Sign-in page of the Bimbel Prestasi Nusantara participant app](/images/data-ujian/membuat-formulir-pendaftaran/11-halaman-login-peserta.png)
     </Frame>
   </Step>
-  <Step title="Participant chooses an exam and clicks Next">
+  <Step title="The participant clicks Pendaftaran Tes Baru">
+    The **Pendaftaran Tes Baru** (New Test Registration) button is on the **Daftar Tes** (Test List) page. If the participant opens the registration URL you shared, this step and the next are skipped.
+
     <Frame>
-      ![Choosing an exam and the Next button](/images/2026-07-22_20-30.png)
+      ![Pendaftaran Tes Baru button on the participant's Daftar Tes page](/images/data-ujian/membuat-formulir-pendaftaran/12-tombol-pendaftaran-tes-baru.png)
     </Frame>
   </Step>
-  <Step title="Participant fills in the registration form">
+  <Step title="The participant chooses the exam">
     <Frame>
-      ![Registration form with the QRIS payment method](/images/2026-07-22_20-31.png)
+      ![Pilih Tes page with the Tryout Persiapan SNBT 2027 Batch Desember exam selected](/images/data-ujian/membuat-formulir-pendaftaran/13-pilih-ujian.png)
     </Frame>
 
-    1. On the participant's side, the registration page shows the exam information and the questions the admin created. Example:
-
-       > **SNBT 2027 Mathematics Prep Tryout**<br />Please fill out the registration form below to continue.
-
-       The participant then fills in the requested details.
-    2. Next, choose **QRIS** (Indonesia's standard payment QR code) under **Payment Method**.
-    3. Then click **Register Exam**.
+    1. The participant chooses the exam. Each exam is labeled **Gratis**, its fee (for example **Rp50.000**), or **Kuota Penuh** (Quota Full). Exams already registered for are labeled **Terdaftar** (Registered), **Menunggu Pembayaran** (Awaiting Payment), or **Sedang Verifikasi** (Under Verification).
+    2. The participant clicks **Selanjutnya** (Next).
   </Step>
-  <Step title="Participant confirms with Yes, Register">
+  <Step title="The participant fills in the form">
+    The registration page shows the exam name and the form questions. Example for a Jakarta participant:
+
     <Frame>
-      ![Registration confirmation with the Yes, Register button](/images/2026-07-22_20-31_1.png)
+      ![Registration form with the Jakarta branch and Metode Pembayaran QRIS](/images/data-ujian/membuat-formulir-pendaftaran/14-formulir-cabang-jakarta.png)
     </Frame>
 
-    The participant checks that the details are correct, then clicks the confirmation button **Yes, Register**.
+    1. The participant chooses **Jakarta** for **Asal Cabang Lembaga**, then fills in the other questions.
+    2. The **Metode Pembayaran** question appears; the participant chooses **QRIS**.
+    3. The participant clicks **Daftar Tes** (Register).
+
+    For a Surabaya participant, the **Metode Pembayaran** question does not appear:
+
+    <Frame>
+      ![Registration form with the Surabaya branch and no Metode Pembayaran question](/images/data-ujian/membuat-formulir-pendaftaran/15-formulir-cabang-surabaya.png)
+    </Frame>
+
+    If the exam has no form questions, this page states that no registration form is required and the participant can register right away.
   </Step>
-  <Step title="The system shows the QRIS code">
+  <Step title="The participant confirms the registration">
+    The participant checks the data, then clicks **Ya, Daftar** (Yes, Register) in the **Konfirmasi Pendaftaran** (Registration Confirmation) window.
+
     <Frame>
-      ![Payment Details page with the QRIS code](/images/2026-07-22_20-31_2.png)
+      ![Konfirmasi Pendaftaran window with the Ya, Daftar button](/images/data-ujian/membuat-formulir-pendaftaran/16-konfirmasi-pendaftaran.png)
     </Frame>
 
-    Once the participant confirms the registration, the system creates a payment bill and takes the participant to the **Payment Details** page.
-
-    On this page, the participant can see:
-
-    - Payment deadline
-    - Payment method
-    - Payment code
-    - Total payment
-
-    Example:
-
-    > Payment Method: QRIS<br />Total Payment: Rp50,000
-
-    <Tip>
-      Click **Download QR Code** to save the QR code.
-    </Tip>
+    Participants who do not need to pay are taken to the **Daftar Tes** page. Participants who must pay are taken to the **Detail Pembayaran** (Payment Details) page.
   </Step>
-  <Step title="Participant makes the payment">
-    What the participant does:
-
-    1. Open a payment app (_mobile banking_) that supports QRIS.
-    2. Choose the QR payment menu.
-    3. Scan the downloaded QR code.
-    4. Pay the amount shown.
-
-    Here's an example of paying through the Mandiri _mobile banking_ app.
-
+  <Step title="The participant pays by QRIS">
     <Frame>
-      <img
-        src="/images/2026-07-22_21-07.png"
-        alt="Paying a QRIS code in the Mandiri mobile banking app"
-        className="mx-auto"
-        style={{ width:"56%" }}
-      />
+      ![Detail Pembayaran page with the QRIS code](/images/data-ujian/membuat-formulir-pendaftaran/17-detail-pembayaran-qris.png)
     </Frame>
 
-    <Tip>
-      Participants can pay with whichever payment app they have.
-    </Tip>
+    1. The payment deadline, which is 2 hours after registration.
+    2. The QR code, scanned with any payment app that supports QRIS. The participant can click **Unduh Kode QR** (Download QR Code) to save it.
+    3. **Kode Pembayaran** (Payment Code) and **Total Pembayaran** (Total Payment).
 
-    After paying, the participant can check the payment page again.
-  </Step>
-  <Step title="Payment successful">
+    <Note>
+      If **Bebankan Biaya Transaksi ke Admin** (Charge Transaction Fees to Admin) in **Platform Ujian (CBT)** → **Lainnya** → **Pengaturan Aplikasi** is off, this page also shows a **Biaya Transaksi** (Transaction Fee) row, and the total the participant pays includes that fee.
+    </Note>
+
+    After paying, the participant reloads this page. If the payment succeeded, the page shows that the payment has been received and **Status Pembayaran** (Payment Status) **Sudah Dibayar** (Paid).
+
     <Frame>
-      ![Payment page showing a successful payment](/images/2026-07-22_20-32.png)
+      ![Detail Pembayaran page with the status Sudah Dibayar](/images/data-ujian/membuat-formulir-pendaftaran/18-pembayaran-berhasil.png)
     </Frame>
 
-    Once the payment has gone through, the payment page changes to a success status.
-
-    Example of the message shown:
-
-    > Your payment has been received successfully. Thank you!
-
-    The participant can wait for verification or check the exam status straight away in the **Exam List** menu.
+    Participants who have not paid by the deadline cannot take the exam. Payment history can be monitored in **Riwayat Transaksi** (Transaction History; see [Transactions and Balance Withdrawals](/en/lainnya/transaksi-dan-penarikan-saldo)).
   </Step>
 </Steps>
 
-## 4. Add a Voucher Code
+## 4. Create voucher codes
 
-Voucher codes give **special discounts** to selected participants.
-
-💡 Example: you run an SNBT tryout with a fee of Rp50,000. But you want to give a 10% discount to participants who received a promo code from your institution.
-
-> You can create a voucher code such as `REFF-INDOLAT`.
-
-Participants who enter that code when they register get the discount set in the voucher.
-
-<Tip>
-  With voucher codes you can run promotions, give special discounts or offer free access to selected participants without changing the registration form fee.
-</Tip>
+A voucher code gives selected participants a discount on the registration fee without changing the exam fee. Example: the voucher **PROMO-PRESTASI** gives a 10% discount to the first 100 participants.
 
 <Steps>
-  <Step title="Open the exam you created">
-    <Frame>
-      ![Details button in the exam list on the Exam Data menu](/images/2026-07-20_22-49.png)
-    </Frame>
+  <Step title="Click Kode Voucher">
+    On the **Formulir Pendaftaran** tab, click **Kode Voucher**.
 
-    1. Open the **Exam Data** menu and choose the exam you want to add a voucher code to.
-    2. Then click **Details**.
-  </Step>
-  <Step title="Make sure you have added a registration fee">
     <Frame>
-      ![Payment Type and One-time Exam Fee on the Registration & Payment tab](/images/2026-07-20_23-05.png)
-    </Frame>
-
-    If you skipped this, follow the guide [Create an Exam](/en/data-ujian/membuat-ujian).
-  </Step>
-  <Step title="Open Registration Form and click Voucher Code">
-    <Frame>
-      ![Voucher Code button in the Registration Form section](/images/2026-07-22_21-26.png)
+      ![Kode Voucher button on the Formulir Pendaftaran tab](/images/data-ujian/membuat-formulir-pendaftaran/19-tombol-kode-voucher.png)
     </Frame>
   </Step>
-  <Step title="Click Add Voucher">
+  <Step title="Click Tambah Voucher">
     <Frame>
-      ![Add Voucher button in the Registration Voucher Code window](/images/2026-07-22_21-26_1.png)
+      ![Kode Voucher Pendaftaran window with the Tambah Voucher button](/images/data-ujian/membuat-formulir-pendaftaran/20-tombol-tambah-voucher.png)
     </Frame>
   </Step>
-  <Step title="Fill in the voucher details">
+  <Step title="Fill in the voucher information">
     <Frame>
-      ![The Add Voucher Code form](/images/2026-07-22_21-29.png)
+      ![Completed Tambah Kode Voucher window](/images/data-ujian/membuat-formulir-pendaftaran/21-formulir-tambah-voucher.png)
     </Frame>
 
-    Fill in the voucher details to suit your needs.
-
-    1. **Voucher Code**: Enter the code participants will use.
-
-       Example: `REFF-INDOLAT`
-
-       You give this code to the participants who are entitled to the discount.
-    2. **Is the Voucher Active?**
-       - Switch it on if participants can use the voucher straight away.
-       - If it is switched off, the voucher can't be used, even if participants know the code.
-    3. **Deduction Type**: Choose what kind of discount to give.
-
-       <Info>
-         There are two **Deduction Type** options:
-
-         <Frame>
-           ![Deduction Type options Flat / Fixed Amount and Percent](/images/2026-07-22_21-29_1-2.png)
-         </Frame>
-
-         - **Flat / Fixed Amount**: A fixed amount of money off. Example:
-
-           > Exam fee Rp50,000<br />Voucher Rp5,000
-           >
-           > The total payment becomes Rp45,000
-         - **Percent**: A percentage off. Example:
-
-           > Exam fee Rp50,000<br />10% discount voucher
-           >
-           > The participant gets Rp5,000 off
-       </Info>
-    4. **Deduction Amount** or **Discount Percentage**: Enter how much to take off. The **Deduction Amount** field (in Rp) appears when you choose **Flat / Fixed Amount**; the **Discount Percentage** field (1–100%) appears when you choose **Percent**.
-    5. **Maximum Voucher Recipients**: Limits how many participants can use the voucher.
-
-       Example: the voucher is only for the first 100 participants.
-
-       <Tip>
-         If **Maximum Voucher Recipients** is left empty, any number of participants can use the voucher.
-       </Tip>
-    6. **Active From** and **Active Until**: Set the period when the voucher can be used.
-
-       Example: the voucher is valid from 22 July 2026 to 31 July 2026.
-
-       Outside that period, the voucher can't be used.
-    7. **Voucher Notes**: Add a note to help admins recognise what the voucher is for.
-
-       Example: Indolat referral voucher.
-    8. When everything is filled in, click **Save Voucher**.
+    1. **Kode Voucher** (Voucher Code): the code participants enter, up to 100 characters and converted to uppercase automatically. It cannot match another voucher on the same exam. Example: **PROMO-PRESTASI**.
+    2. **Apakah Voucher Aktif?** (Is the Voucher Active?): the voucher can only be used while active.
+    3. **Jenis Potongan** (Discount Type): **Flat / Nominal** (a rupiah amount) or **Persen** (percentage).
+    4. **Nominal Potongan** (Discount Amount, in Rp) for **Flat / Nominal**, or **Persentase Potongan** (Discount Percentage, 1–100%) for **Persen**. Example: **10**%.
+    5. **Maksimal Penerima Voucher** (Maximum Voucher Recipients, optional): how many participants can use the voucher. Leave empty for no limit.
+    6. **Tanggal Mulai Aktif** and **Tanggal Selesai Aktif** (Active From and Active Until, optional): the voucher's validity period.
+    7. **Catatan Voucher** (Voucher Notes, optional): a note for admins.
+    8. Click **Simpan Voucher** (Save Voucher).
+  </Step>
+  <Step title="Check the voucher list">
+    The voucher appears with its discount, usage (for example **0 / 100**), status, and active period. Use **Ubah** or **Hapus** to manage it, then click **Tutup** (Close).
 
     <Frame>
-      ![The REFF-INDOLAT voucher saved in the Registration Voucher Code list](/images/2026-07-22_21-30.png)
+      ![PROMO-PRESTASI voucher in the Kode Voucher Pendaftaran list](/images/data-ujian/membuat-formulir-pendaftaran/22-daftar-kode-voucher.png)
     </Frame>
   </Step>
 </Steps>
 
-## 5. Participants Use a Voucher for Payment
+## 5. Participants use a voucher code
 
-Once the voucher has been created, participants see a **Coupon Code** field on the registration page, as long as the **Payment Method** question is shown on the form.
+The **Kode Voucher** field appears on the participant form when the exam has at least one voucher and the **Metode Pembayaran** question is showing.
 
 <Steps>
-  <Step title="Participant logs in to the CBT">
+  <Step title="The participant sees the Kode Voucher field">
     <Frame>
-      ![CBT login page on the participant side](/images/2026-07-22_21-51.png)
-    </Frame>
-
-    Participants log in through the exam link you shared. To set up the exam link, see the guide [Participant Login](/en/lainnya/login-peserta).
-  </Step>
-  <Step title="Participant chooses New Exam Registration">
-    <Frame>
-      ![New Exam Registration button on the Exam List page](/images/2026-07-22_21-52.png)
+      ![Kode Voucher field on the participant registration form](/images/data-ujian/membuat-formulir-pendaftaran/23-kolom-kode-voucher.png)
     </Frame>
   </Step>
-  <Step title="Participant chooses an exam and clicks Next">
+  <Step title="The participant enters the code and clicks Terapkan">
     <Frame>
-      ![Choosing an exam and the Next button](/images/2026-07-22_21-52_1.png)
+      ![PROMO-PRESTASI entered in the Kode Voucher field](/images/data-ujian/membuat-formulir-pendaftaran/24-isi-kode-voucher.png)
     </Frame>
+
+    1. The participant types the voucher code.
+    2. The participant clicks **Terapkan** (Apply). The **Hapus** button removes the entered voucher.
   </Step>
-  <Step title="The system shows the Coupon Code field">
+  <Step title="The system recalculates the fee">
+    If the voucher is valid, the system shows **Voucher berhasil diterapkan.** (Voucher applied) with **Biaya ujian** (Exam fee), **Potongan voucher** (Voucher discount), and **Total pembayaran** (Total payment).
+
     <Frame>
-      ![Coupon Code field on the participant's registration form](/images/2026-07-22_21-31.png)
-    </Frame>
-  </Step>
-  <Step title="Participant enters the code and clicks Apply">
-    <Frame>
-      ![Code entered in the Coupon Code field next to the Apply button](/images/2026-07-22_21-31_1.png)
-    </Frame>
-  </Step>
-  <Step title="The system recalculates the payment">
-    <Frame>
-      ![Total payment after the coupon discount](/images/2026-07-22_21-32.png)
+      ![Fee breakdown after the voucher is applied: Rp50,000 minus Rp5,000 is Rp45,000](/images/data-ujian/membuat-formulir-pendaftaran/25-potongan-voucher-diterapkan.png)
     </Frame>
 
-    Example:
-
-    Before using the voucher:
-
-    > Exam fee: Rp50,000
-
-    After using the voucher:
-
-    > Coupon discount: Rp5,000<br />Payment total: Rp45,000
-
-    If the code is wrong or no longer valid, the system doesn't apply a discount.
+    A voucher is rejected if the code is invalid, inactive, not yet started or already expired, its quota is used up, or it has already been used by the same account. The discount is recalculated when the participant clicks **Daftar Tes**. If the total becomes Rp0 (for example with a 100% discount), the participant is registered without payment.
   </Step>
 </Steps>
 
-## 6. Set Up Participant Registration Verification
+## 6. Registration verification and quota
 
-Once the registration form is ready, you can decide whether registrants need to be checked first or are accepted as exam participants straight away.
+### Opening the registration form settings
 
-This verification setting is **optional**. You can switch it on or off to suit how you run the exam.
+Click the gear icon on the **Formulir Pendaftaran** tab to open **Pengaturan Formulir Pendaftaran** (Registration Form Settings).
 
-In short:
+<Frame>
+  ![Settings icon on the Formulir Pendaftaran tab](/images/data-ujian/membuat-formulir-pendaftaran/26-ikon-pengaturan-formulir.png)
+</Frame>
 
-- **Turn verification on** → if you still want to verify participants before they can take the exam
-- **Turn verification off** → if participants can take the exam as soon as they register (and, for paid exams, once their payment succeeds)
+<Frame>
+  ![Pengaturan Formulir Pendaftaran window](/images/data-ujian/membuat-formulir-pendaftaran/27-pengaturan-formulir-pendaftaran.png)
+</Frame>
+
+1. **Apakah Formulir Pendaftaran Perlu Diverifikasi?** (Does the Registration Form Need Verification?): when on, every registrant waits for admin verification before being registered for the exam. This setting is on by default.
+2. **Kuota Maksimal Pendaftaran** (Maximum Registration Quota): the maximum number of exam participants. Leave empty for no limit.
+3. Click **Perbarui Pengaturan** (Update Settings) to save.
 
 <Note>
-  Participant verification only applies when the exam has a **registration form** that participants fill in when they register, whether the exam is free or paid. The setting is on by default.
-
-  If the exam **has no** registration form, the verification setting **has no effect** and participants become active as soon as they register.
+  Verification only applies to participants who fill in a registration form. If the exam has no form questions, participants become active right after registering (and after paying, for paid exams).
 </Note>
 
-<AccordionGroup>
-  <Accordion title="Turn On Participant Verification">
-    Turn this setting on if you want to check participants before they officially become active participants.
+### Verifying participants
 
-    <Steps>
-      <Step title="Open the exam you created">
-        <Frame>
-          ![Details button in the exam list on the Exam Data menu](/images/2026-07-20_22-49.png)
-        </Frame>
+Until verified, the exam shows a **Proses Verifikasi** (Verification in Progress) button on the participant's **Daftar Tes** page and cannot be taken yet.
 
-        1. Open the **Exam Data** menu.
-        2. Choose the exam that has a registration form.
-        3. Then click **Details**.
-      </Step>
-      <Step title="Check the payment type and fee for a paid exam">
-        <Frame>
-          ![Payment Type and One-time Exam Fee on the Registration & Payment tab](/images/2026-07-20_23-05.png)
-        </Frame>
-
-        If the exam is paid, make sure the payment type and registration fee are set. If you skipped this, follow the guide [Create an Exam](/en/data-ujian/membuat-ujian). For a free exam you can skip this step, because verification still applies as long as the exam has a registration form.
-      </Step>
-      <Step title="Click the ⚙️ icon in the Registration Form section">
-        <Frame>
-          ![Settings icon in the Registration Form section](/images/2026-07-22_22-14.png)
-        </Frame>
-      </Step>
-      <Step title="Turn verification on and click Update Settings">
-        <Frame>
-          ![Does the Registration Form Need Verification switched on](/images/2026-07-22_22-16.png)
-        </Frame>
-
-        Switch on **Does the Registration Form Need Verification?**, then click **Update Settings**.
-      </Step>
-      <Step title="Verify participants">
-        You need to **verify participants** whenever a participant has submitted the registration form (and, for a paid exam, completed the payment).
-
-        <Frame>
-          ![Participant with Awaiting Verification status in the Exam Participant List](/images/2026-07-22_22-30-1.png)
-        </Frame>
-
-        <Info>
-          Flow:
-
-          Participant registers → Participant waits for verification → Admin checks → Participant is active
-        </Info>
-      </Step>
-    </Steps>
-  </Accordion>
-
-  <Accordion title="Turn Off Participant Verification">
-    Turn this setting off if you want participants to take the exam as soon as they have completed the registration form payment.
-
-    <Steps>
-      <Step title="Open the exam you created">
-        <Frame>
-          ![Details button in the exam list on the Exam Data menu](/images/2026-07-20_22-49.png)
-        </Frame>
-
-        1. Open the **Exam Data** menu.
-        2. Choose the exam that has a registration form.
-        3. Then click **Details**.
-      </Step>
-      <Step title="Click the ⚙️ icon in the Registration Form section">
-        <Frame>
-          ![Settings icon in the Registration Form section](/images/2026-07-22_23-02.png)
-        </Frame>
-      </Step>
-      <Step title="Turn verification off and click Update Settings">
-        <Frame>
-          ![Does the Registration Form Need Verification switched off](/images/2026-07-22_23-04.png)
-        </Frame>
-
-        Switch off **Does the Registration Form Need Verification?**, then click **Update Settings**.
-      </Step>
-      <Step title="No need to verify participants">
-        Participants who complete the registration form payment become **Active** automatically.
-
-        <Frame>
-          ![Participants Active straight away in the Exam Participant List](/images/2026-07-22_23-08.png)
-        </Frame>
-
-        <Info>
-          Flow:
-
-          Participant registers → System processes the registration → Participant is active
-        </Info>
-      </Step>
-    </Steps>
-  </Accordion>
-
-  <Accordion title="How to Verify a Participant">
-    <Steps>
-      <Step title="Open the exam you created">
-        <Frame>
-          ![Details button in the exam list on the Exam Data menu](/images/2026-07-20_22-49.png)
-        </Frame>
-
-        1. Open the **Exam Data** menu.
-        2. Choose the exam that has a registration form.
-        3. Then click **Details**.
-      </Step>
-      <Step title="Open Exam Participant List and click Verify Participant">
-        <Frame>
-          ![Verify Participant button in the Exam Participant List](/images/2026-07-22_22-30-2.png)
-        </Frame>
-      </Step>
-      <Step title="Click Verify">
-        <Frame>
-          ![Verify button in the Verify Participant window](/images/2026-07-22_22-30_1.png)
-        </Frame>
-      </Step>
-      <Step title="The participant is now active">
-        <Frame>
-          ![Participant Verified notification and Active participant status](/images/2026-07-22_22-31.png)
-        </Frame>
-
-        <Warning>
-          If you haven't verified the participant, their status stays **Awaiting Verification**:
-
-          <Frame>
-            ![Participant with Awaiting Verification status in the Exam Participant List](/images/2026-07-22_23-21.png)
-          </Frame>
-
-          On the participant's side, the exam is marked **Verification in Progress** and can't be taken yet:
-
-          <Frame>
-            ![Exam marked Verification in Progress on the participant's Exam List page](/images/2026-07-22_23-20.png)
-          </Frame>
-        </Warning>
-      </Step>
-    </Steps>
-  </Accordion>
-</AccordionGroup>
-
-## 7. Set the Participant Quota
-
-Enter how many participants may register for the exam.
-
-💡 For example, you only have **200 places** for the 2027 Mathematics Competition. Once 200 participants have registered, anyone after that can't complete their registration.
+<Frame>
+  ![Exam marked Proses Verifikasi on the participant's Daftar Tes page](/images/data-ujian/membuat-formulir-pendaftaran/28-peserta-proses-verifikasi.png)
+</Frame>
 
 <Steps>
-  <Step title="Open Exam Data and click Details">
+  <Step title="Click Verifikasi Peserta">
+    Open the **Daftar Peserta Ujian** (Exam Participant List) tab on the exam detail page. Waiting registrants have the status **Menunggu Verifikasi** (Awaiting Verification); click **Verifikasi Peserta** (Verify Participant) on their row.
+
     <Frame>
-      ![Details button in the exam list on the Exam Data menu](/images/2026-07-27_20-42.png)
+      ![Participants with status Menunggu Verifikasi and the Verifikasi Peserta button](/images/data-ujian/membuat-formulir-pendaftaran/29-daftar-peserta-menunggu-verifikasi.png)
     </Frame>
 
-    Choose the exam you created.
+    Participants who have not paid have the status **Menunggu Pembayaran** (Awaiting Payment) and cannot be verified yet.
   </Step>
-  <Step title="Click the ⚙️ icon in the Registration Form section">
+  <Step title="Review the form answers and click Verifikasi">
+    The **Verifikasi Peserta** window shows the participant's form answers. Click **Verifikasi** (Verify) if the data is correct.
+
     <Frame>
-      ![Settings icon in the Registration Form section](/images/2026-07-27_20-34.png)
+      ![Verifikasi Peserta window with Dimas Prasetyo's form answers](/images/data-ujian/membuat-formulir-pendaftaran/30-modal-verifikasi-peserta.png)
     </Frame>
   </Step>
-  <Step title="Fill in Maximum Registration Quota">
+  <Step title="The participant becomes Aktif">
+    The system shows the notification **Berhasil Verifikasi Peserta** (Participant verified) and the participant's status changes to **Aktif** (Active).
+
     <Frame>
-      ![Maximum Registration Quota field in Registration Form Settings](/images/2026-07-27_20-35.png)
+      ![Participant Dimas Prasetyo with status Aktif after verification](/images/data-ujian/membuat-formulir-pendaftaran/31-peserta-aktif-setelah-verifikasi.png)
     </Frame>
-
-    Set the number to suit your needs. Once registrations reach the maximum quota, no further participants can complete their registration.
-
-    <Tip>
-      Leave this field empty if you don't want to limit the number of participants.
-    </Tip>
-
-    Once the settings are right, click **Update Settings**.
   </Step>
 </Steps>
+
+<Tip>
+  To verify many participants at once, tick them in the table, then choose **Tindakan** (Actions) → **Verifikasi Peserta**. To reject a registrant, click **Tolak & Hapus** (Reject & Delete) on their row.
+</Tip>
+
+### Viewing the form answers of verified participants
+
+Click **Lihat** (View) on the participant in the **Daftar Peserta Ujian** tab.
+
+<Frame>
+  ![Lihat button on participant Salsabila Putri](/images/data-ujian/membuat-formulir-pendaftaran/32-tombol-lihat-peserta.png)
+</Frame>
+
+The form answers appear in the **Formulir Pendaftaran** section of the **Detail Peserta** (Participant Detail) page.
+
+<Frame>
+  ![Formulir Pendaftaran section on the Detail Peserta page](/images/data-ujian/membuat-formulir-pendaftaran/33-isian-formulir-detail-peserta.png)
+</Frame>
+
+### Turning off verification
+
+If registrants do not need to be checked, open the registration form settings, then:
+
+<Frame>
+  ![Apakah Formulir Pendaftaran Perlu Diverifikasi turned off](/images/data-ujian/membuat-formulir-pendaftaran/34-nonaktifkan-verifikasi.png)
+</Frame>
+
+1. Turn off **Apakah Formulir Pendaftaran Perlu Diverifikasi?**.
+2. Click **Perbarui Pengaturan**.
+
+New registrants become **Aktif** right after registering (and after paying, for paid exams). Registrants who already have the status **Menunggu Verifikasi** still need to be verified.
+
+<Frame>
+  ![Participant Wulan Anggraini active right away without verification](/images/data-ujian/membuat-formulir-pendaftaran/35-peserta-langsung-aktif.png)
+</Frame>
+
+### Limiting the registration quota
+
+Example: you only have 200 places.
+
+<Frame>
+  ![Kuota Maksimal Pendaftaran set to 200](/images/data-ujian/membuat-formulir-pendaftaran/36-kuota-maksimal-pendaftaran.png)
+</Frame>
+
+1. Fill in **Kuota Maksimal Pendaftaran**, for example **200**.
+2. Click **Perbarui Pengaturan**.
+
+The quota counts all exam participants, including those added by admins. Once the quota is reached, the exam is labeled **Kuota Penuh** on the registration page and further participants cannot register.

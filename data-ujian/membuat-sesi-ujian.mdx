@@ -1,220 +1,220 @@
 ---
 title: "Membuat Sesi Ujian"
-description: "Cara membuat sesi ujian, menghubungkan peserta ke sesi ujian, dan memindahkan peserta ke sesi lain."
+description: "Cara membuat sesi ujian, memasangkan peserta ke sesi satu per satu, secara kolektif, atau otomatis, serta memindahkan peserta ke sesi lain."
 ---
 
-Setelah tes ujian selesai dibuat, langkah berikutnya adalah membuat **Sesi Ujian**.
+**Sesi ujian** menentukan **kapan** sebuah tes dapat dikerjakan dan **paket soal** yang dipakai. Setiap peserta juga harus dipasangkan ke salah satu sesi. Halaman ini menjelaskan cara membuat sesi, memasangkan peserta ke sesi, dan memindahkan peserta ke sesi lain.
 
-Sesi Ujian digunakan untuk menentukan **kapan tes dapat dikerjakan** dan **paket soal yang digunakan**. Pengaturan skor, hasil, dan pengawasan diatur pada tes ujian, bukan pada sesi.
-
-💡 **Sebagai contoh**, Anda adalah admin bimbingan belajar yang akan menyelenggarakan:
-
-> **Tryout Akbar Persiapan SNBT 2027**
-
-Tes Matematika sudah dibuat. Selanjutnya, Anda ingin membagi peserta ke dalam **Sesi Pagi** dan **Sesi Siang** agar pelaksanaan ujian lebih teratur.
+<Info>
+  **Lokasi menu:** **Portal** → **Platform Ujian (CBT)** → **Manajemen Ujian** → **Data Ujian** → **Detail** pada ujian → **Daftar Tes Ujian** → **Ubah** pada tes. Sesi diatur di bagian **Daftar Sesi Ujian**, sedangkan pemasangan peserta di bagian **Sesi Peserta Ujian**.
+</Info>
 
 Secara sederhana:
 
-- **Tes Ujian** menentukan kegiatan yang dikerjakan peserta.
-- **Sesi Ujian** menentukan jadwal pelaksanaan dan paket soal yang digunakan.
-- **Sesi Peserta Ujian** menentukan peserta yang mengikuti jadwal tersebut.
+- **Tes ujian** menentukan materi yang dikerjakan peserta.
+- **Sesi ujian** menentukan jadwal pelaksanaan dan paket soal yang dipakai.
+- **Sesi peserta ujian** menentukan peserta yang mengikuti setiap jadwal.
+
+Sebagai contoh, tes **Penalaran Matematika** pada **Tryout Akbar SNBT 2027 – Gelombang 2** dibagi menjadi dua sesi pada 13 Desember 2026:
+
+- **Sesi Pagi**, pukul 08.00–10.00 WIB
+- **Sesi Siang**, pukul 13.00–15.00 WIB
+
+Kedua sesi memakai paket soal **Penalaran Matematika – Gelombang 2**.
 
 <Warning>
-  Peserta tidak dapat mulai mengerjakan tes jika sesi ujian belum dibuat, paket soal belum dipilih, atau peserta belum dimasukkan ke dalam sesi.
+  Peserta tidak dapat mulai mengerjakan tes jika tes belum memiliki sesi, sesi belum memiliki paket soal, atau peserta belum dipasangkan ke sesi.
 </Warning>
 
-## 1. Membuat Sesi Ujian
+## Membuat sesi ujian
 
 <Steps>
-  <Step title="Buka Tes Ujian yang Sudah Dibuat">
-    <Frame>
-      ![Tes ujian baru dengan keterangan belum memiliki sesi ujian](/images/buka-tes-ujian.png)
-    </Frame>
-
-    Setelah tes ujian berhasil dibuat, tes ujian tersebut akan tampil pada bagian **Daftar Tes Ujian**.
-
-    <Info>
-      Perhatikan keterangan **Tes belum memiliki sesi ujian**.
-
-      Artinya, tes sudah tersimpan, tetapi belum memiliki jadwal pelaksanaan sehingga belum dapat dikerjakan oleh peserta. Pilih tombol **Ubah** pada tes yang ingin dilanjutkan.
-    </Info>
+  <Step title="Buka detail tes ujian">
+    Pada halaman **Detail Ujian**, buka bagian **Daftar Tes Ujian**, lalu klik **Ubah** pada tes yang berketerangan **Tes belum memiliki sesi ujian**. Langkah ini dijelaskan juga di [Membuat Tes Ujian](/data-ujian/membuat-tes-ujian).
   </Step>
   <Step title="Klik Tambah Sesi Ujian">
+    Gulir ke bagian **Daftar Sesi Ujian**, lalu klik **Tambah Sesi Ujian**.
+
     <Frame>
-      ![Tombol Tambah Sesi Ujian pada bagian Daftar Sesi Ujian](/images/tambah-sesi-ujian.png)
+      ![Tombol Tambah Sesi Ujian pada bagian Daftar Sesi Ujian](/images/data-ujian/membuat-sesi-ujian/01-tombol-tambah-sesi-ujian.png)
     </Frame>
-
-    Setelah pengaturan tes ujian selesai ditambahkan, _scroll_ / geser halaman ke bawah ke tombol **Tambah Sesi Ujian**.
-
-    Sesi ujian adalah jadwal pelaksanaan tes. Di dalam sesi ini, Anda akan menentukan paket soal yang digunakan serta waktu mulai dan selesai ujian.
-
-    <Warning>
-      Tes tidak dapat dikerjakan peserta sebelum sesi ujian dibuat dan paket soal dipilih. Pastikan setiap tes ujian telah ditambahkan sesi ujian.
-    </Warning>
   </Step>
-  <Step title="Isikan Informasi Sesi Ujian">
+  <Step title="Isi informasi sesi">
     <Frame>
-      ![Formulir Tambah Sesi Ujian dengan kolom isian bernomor](/images/Informasi-sesi-ujian.png)
+      ![Formulir Tambah Sesi Ujian dengan kolom bernomor](/images/data-ujian/membuat-sesi-ujian/02-formulir-tambah-sesi-ujian.png)
     </Frame>
 
-    Pada tahap ini, Anda akan menentukan **jadwal tes** sekaligus memilih **paket soal** yang akan dikerjakan peserta.
+    Kotak informasi di bagian atas formulir menampilkan rentang tanggal ujian. Tanggal sesi harus berada di dalam rentang tersebut.
 
-    1. **Nama Sesi**: isi nama yang mudah dikenali.<br />Contoh: **Sesi Pagi** atau **Sesi 1**.
-    2. **Paket Soal**: pilih paket soal yang sudah dibuat.<br />Pastikan paket soal dipilih, **karena sesi tanpa paket soal tidak dapat dimulai oleh peserta**.
-    3. **Tanggal Mulai Sesi**: tentukan tanggal dan waktu peserta mulai dapat mengerjakan tes.
-    4. **Tanggal Selesai Sesi**: tentukan batas akhir peserta dapat mengerjakan tes.
-    5. Setelah semua data terisi, klik **Buat**. Pilih **Buat & buat lainnya** jika ingin langsung menambahkan sesi berikutnya.
-
-    <Tip>
-      **Satu paket soal dapat digunakan pada lebih dari satu sesi.** Anda tidak perlu membuat paket soal baru jika isi soal yang dikerjakan peserta tetap sama dan hanya jadwalnya yang berbeda.
-
-      💡 **Sebagai contoh:**
-
-      Anda memiliki satu paket soal bernama **Paket Penalaran Matematika**. Karena jumlah peserta cukup banyak, ujian dibagi menjadi dua sesi:
-
-      - **Sesi Pagi**, pukul 08.00–10.00 WIB
-      - **Sesi Siang**, pukul 13.00–15.00 WIB
-
-      Kedua sesi tersebut dapat menggunakan **Paket Penalaran Matematika** yang sama. Dengan begitu, peserta mengerjakan soal yang sama, tetapi pada waktu pelaksanaan yang berbeda.
-    </Tip>
+    1. **Nama Sesi**: nama yang mudah dikenali. Contoh: **Sesi Pagi**.
+    2. **Paket Soal**: paket soal yang dikerjakan pada sesi ini. Daftar hanya menampilkan paket soal yang sesuai dengan jenis tes (paket CBT/CAT untuk tes CBT dan CAT, paket esai untuk tes esai). Contoh: **Penalaran Matematika – Gelombang 2**.
+    3. **Tanggal Mulai Sesi**: waktu peserta mulai dapat mengerjakan tes. Contoh: 13 Desember 2026 pukul 08.00.
+    4. **Tanggal Selesai Sesi**: batas akhir pengerjaan tes. Contoh: 13 Desember 2026 pukul 10.00.
+    5. Klik **Buat**, atau **Buat & buat lainnya** untuk langsung menambahkan sesi berikutnya, misalnya **Sesi Siang**.
 
     <Note>
-      Perhatikan bahwa tanggal sesi **harus berada di dalam rentang tanggal ujian utama** yang sudah ditentukan.
-
-      Contoh:
-
-      > Ujian berlangsung pada 18–25 Juli 2026. Maka sesi tidak dapat dijadwalkan sebelum 18 Juli atau setelah 25 Juli 2026.
-
-      Selain itu, rentang waktu sesi (dari **Tanggal Mulai Sesi** sampai **Tanggal Selesai Sesi**) tidak boleh lebih pendek dari **Durasi Pengerjaan (menit)** tes ujian.
+      - Rentang **Tanggal Mulai Sesi** sampai **Tanggal Selesai Sesi** harus berada di antara **Tanggal Mulai** dan **Tanggal Selesai** ujian. Contoh: ujian berlangsung 24 November–20 Desember 2026, sehingga sesi tidak dapat dijadwalkan sebelum atau sesudah rentang tersebut. Tautan **di sini** pada kotak informasi membuka pengaturan ujian jika Anda perlu mengubah tanggalnya.
+      - Lama sesi tidak boleh lebih pendek dari **Durasi Pengerjaan (menit)** tes. Contoh: tes 60 menit memerlukan sesi minimal 60 menit.
+      - Untuk tes CAT, semua soal pada paket soal yang dipilih harus memiliki tingkat kesulitan.
+      - **Paket Soal** boleh dikosongkan saat membuat sesi, tetapi sesi tanpa paket soal tidak dapat dimulai peserta.
     </Note>
+
+    <Tip>
+      Satu paket soal dapat dipakai di beberapa sesi. Anda tidak perlu membuat paket soal baru jika soalnya sama dan hanya jadwalnya yang berbeda.
+    </Tip>
+  </Step>
+  <Step title="Periksa daftar sesi">
+    Sesi yang dibuat tampil pada **Daftar Sesi Ujian** beserta paket soal dan jadwalnya.
+
+    <Frame>
+      ![Sesi Pagi dan Sesi Siang pada Daftar Sesi Ujian](/images/data-ujian/membuat-sesi-ujian/03-daftar-sesi-ujian.png)
+    </Frame>
+
+    Ulangi langkah ini untuk setiap tes pada ujian. Keterangan **Tes belum memiliki sesi ujian** pada **Daftar Tes Ujian** hilang setelah tes memiliki sesi.
   </Step>
 </Steps>
 
-## 2. Menghubungkan Peserta pada Sesi Ujian
+### Mengubah atau menghapus sesi
 
-<Steps>
-  <Step title="Buka Sesi Peserta Ujian">
-    <Frame>
-      ![Menu Data Ujian dan tombol Detail pada daftar ujian](/images/1-2-1.png)
-    </Frame>
+Klik **Ubah** pada baris sesi untuk mengubah nama, paket soal, atau jadwal, dan klik **Hapus** untuk menghapus sesi.
 
-    <Frame>
-      ![Bagian Daftar Tes Ujian dan tombol Ubah pada tes ujian](/images/sesi-3-4.png)
-    </Frame>
+- Sesi tidak dapat diubah selama ada peserta yang sedang mengerjakan tes pada sesi tersebut.
+- Paket soal tidak dapat diganti jika sudah ada peserta yang memulai tes pada sesi tersebut.
+- Tombol **Hapus** hanya muncul pada sesi yang belum memiliki peserta.
 
-    <Frame>
-      ![Bagian Sesi Peserta Ujian pada halaman tes ujian](/images/sesi-5.png)
-    </Frame>
+Saat waktu sesi berakhir, sistem otomatis menyelesaikan pengerjaan peserta yang masih berjalan.
 
-    Peserta yang sudah terdaftar pada ujian tetap harus dipasangkan ke **sesi ujian**. Jika belum memiliki sesi, peserta tidak dapat mulai mengerjakan.
+## Memasangkan peserta ke sesi ujian
 
-    1. Buka menu **Data Ujian**.
-    2. Pilih ujian yang akan diikuti peserta.
-    3. Lalu pilih tombol **Detail**.
-    4. Sistem akan membuka halaman detail, kemudian pilih bagian **Daftar Tes Ujian**.
-    5. Pilih tombol **Ubah** pada tes ujian.
-    6. Sistem akan membuka halaman detail tes ujian.
-    7. Kemudian pilih **Sesi Peserta Ujian**.
-  </Step>
-  <Step title="Tambahkan Peserta ke Sesi Ujian">
-    <Frame>
-      ![Mengatur sesi satu peserta melalui tombol Ubah](/images/mapping-sesi-1.png)
-    </Frame>
+Peserta yang sudah terdaftar di ujian harus dipasangkan ke sesi pada **setiap tes**. Cara menambahkan peserta ke ujian dijelaskan di [Menambahkan Peserta Ujian](/data-ujian/menambahkan-peserta-ujian).
 
-    Untuk satu peserta, pilih tombol **Ubah** pada baris peserta yang masih berketerangan **Tidak ada sesi ujian**, pilih **Sesi Ujian**, pastikan **Status Peserta** bernilai **Aktif**, lalu klik **Simpan**.
+Buka detail tes, lalu pilih bagian **Sesi Peserta Ujian**. Peserta yang belum memiliki sesi berketerangan **Tidak ada sesi ujian** pada kolom **Sesi Ujian**.
 
-    <Tip>
-      Penambahan sesi ujian pada peserta ujian juga dapat dilakukan secara kolektif maupun otomatis.
-    </Tip>
+<Frame>
+  ![Bagian Sesi Peserta Ujian dengan peserta tanpa sesi dan tombol Ubah](/images/data-ujian/membuat-sesi-ujian/04-sesi-peserta-ujian.png)
+</Frame>
 
-    **Menambahkan peserta ke sesi ujian secara kolektif**
+Tabel ini juga menampilkan **Kode Peserta**, **Status Peserta**, **Status Ujian** (**Belum Mengerjakan**, **Sedang Mengerjakan**, atau **Selesai Mengerjakan**), dan **Skor Ujian**. Gunakan **Filter** untuk menyaring peserta berdasarkan **Sesi Ujian** (termasuk **Tidak ada Sesi Ujian**) atau **Label** akun.
 
-    <Frame>
-      ![Peserta tanpa sesi dicentang dan tombol Tindakan](/images/kolektif.png)
-    </Frame>
+Ada tiga cara memasangkan peserta ke sesi:
 
-    <Frame>
-      ![Pilihan Set Sesi Ujian Kolektif pada menu Tindakan](/images/set.png)
-    </Frame>
+<AccordionGroup>
+  <Accordion title="Satu per satu">
+    <Steps>
+      <Step title="Klik Ubah pada peserta">
+        Klik **Ubah** pada baris peserta, misalnya **Aditya Pratama**.
+      </Step>
+      <Step title="Pilih sesi dan status">
+        <Frame>
+          ![Jendela Ubah Peserta Ujian dengan Sesi Pagi dan status Aktif](/images/data-ujian/membuat-sesi-ujian/05-ubah-peserta-ujian.png)
+        </Frame>
 
-    1. Centang peserta yang masih memiliki keterangan **Tidak ada sesi ujian**.<br />Untuk memilih seluruh peserta, klik **Pilih semua**.
-    2. Pilih tombol **Tindakan**, kemudian pilih **Set Sesi Ujian Kolektif**.
-    3. Pilih sesi yang akan diikuti peserta, misalnya **Sesi Pagi**.
-    4. Klik **Set Sesi Ujian Kolektif** untuk menyimpan perubahan.
+        1. **Sesi Ujian**: pilih sesi, misalnya **Sesi Pagi**.
+        2. **Status Peserta**: pastikan bernilai **Aktif**. Pilihan lainnya adalah **Pending** dan **Ditolak**; peserta berstatus selain **Aktif** tidak dapat mengerjakan tes.
+        3. Klik **Simpan**.
+      </Step>
+    </Steps>
 
-    **Menambahkan peserta ke sesi ujian secara otomatis**
+    Tombol **Ubah** tidak tersedia untuk peserta yang sudah mulai mengerjakan tes.
+  </Accordion>
 
-    <Frame>
-      ![Tombol Set Sesi Ujian Otomatis pada bagian Sesi Peserta Ujian](/images/2026-07-30_23-41.png)
-    </Frame>
+  <Accordion title="Secara kolektif">
+    <Steps>
+      <Step title="Pilih peserta dan Set Sesi Ujian Kolektif">
+        Centang peserta yang akan dipasangkan ke sesi yang sama, klik **Tindakan**, lalu pilih **Set Sesi Ujian Kolektif**. Untuk memilih semua peserta, klik **Pilih semua**.
 
-    <Frame>
-      ![Jendela konfirmasi Set Sesi Ujian Otomatis](/images/2026-07-30_23-42.png)
-    </Frame>
+        <Frame>
+          ![Tiga peserta dicentang dan pilihan Set Sesi Ujian Kolektif pada menu Tindakan](/images/data-ujian/membuat-sesi-ujian/06-kolektif-pilih-peserta.png)
+        </Frame>
+      </Step>
+      <Step title="Pilih sesi">
+        <Frame>
+          ![Jendela Set Sesi Ujian Kolektif dengan Sesi Pagi terpilih](/images/data-ujian/membuat-sesi-ujian/07-kolektif-pilih-sesi.png)
+        </Frame>
 
-    <Frame>
-      ![Notifikasi berhasil dan nama sesi tampil pada peserta berstatus Aktif](/images/2026-07-30_23-36.png)
-    </Frame>
+        1. Pada **Pilih Sesi Ujian**, pilih sesi, misalnya **Sesi Pagi**.
+        2. Klik **Set Sesi Ujian Kolektif**.
 
-    1. Pilih tombol **Set Sesi Ujian Otomatis**.
-    2. Sistem akan menampilkan jendela konfirmasi, lalu pilih tombol **Set Sesi Ujian Otomatis**.
-    3. Tunggu hingga muncul informasi bahwa pengaturan sesi berhasil. Setelah proses selesai, nama sesi akan tampil pada setiap peserta berstatus **Aktif**.
+        Sistem menampilkan notifikasi **Sesi Ujian Berhasil Diperbarui**.
+      </Step>
+    </Steps>
+  </Accordion>
+
+  <Accordion title="Secara otomatis">
+    <Steps>
+      <Step title="Klik Set Sesi Ujian Otomatis">
+        <Frame>
+          ![Tombol Set Sesi Ujian Otomatis pada bagian Sesi Peserta Ujian](/images/data-ujian/membuat-sesi-ujian/08-tombol-set-sesi-otomatis.png)
+        </Frame>
+      </Step>
+      <Step title="Konfirmasi">
+        Pada jendela konfirmasi, klik **Set Sesi Ujian Otomatis**.
+
+        <Frame>
+          ![Jendela konfirmasi Set Sesi Ujian Otomatis](/images/data-ujian/membuat-sesi-ujian/09-konfirmasi-set-sesi-otomatis.png)
+        </Frame>
+      </Step>
+      <Step title="Periksa hasilnya">
+        Sistem menampilkan notifikasi **Berhasil Mengatur Sesi Ujian** dan membagi peserta ke sesi-sesi yang tersedia. Pada contoh ini, sembilan peserta dibagi ke **Sesi Pagi** dan **Sesi Siang**.
+
+        <Frame>
+          ![Peserta terbagi ke Sesi Pagi dan Sesi Siang setelah Set Sesi Ujian Otomatis](/images/data-ujian/membuat-sesi-ujian/10-hasil-set-sesi-otomatis.png)
+        </Frame>
+      </Step>
+    </Steps>
 
     <Info>
-      Sistem membagi rata semua peserta yang masih berstatus **Aktif** (belum mulai mengerjakan) ke sesi-sesi ujian pada tes ini, sesuai urutan waktu mulai sesi. Peserta berstatus **Aktif** yang sudah memiliki sesi juga ikut dibagi, sehingga sesi yang sebelumnya Anda atur untuk peserta tersebut akan diganti. Peserta yang sedang mengerjakan atau sudah selesai mengerjakan tes tidak pernah dipindahkan, dan peserta dengan status lain (misalnya **Pending**) tidak dimasukkan ke sesi. Untuk menempatkan peserta tertentu di sesi tertentu, gunakan cara kolektif.
-
-      Tombol **Set Sesi Ujian Otomatis** hanya muncul jika tes sudah memiliki minimal satu sesi ujian, masih ada minimal satu peserta tanpa sesi, dan tidak ada peserta yang sedang mengerjakan tes.
+      - Sistem membagi rata **semua** peserta berstatus **Aktif** yang belum selesai mengerjakan ke sesi-sesi pada tes ini, sesuai urutan waktu mulai sesi. Peserta yang sebelumnya sudah Anda pasangkan ke sesi juga ikut dibagi ulang, sehingga sesinya dapat berubah. Peserta dengan status lain (misalnya **Pending**) tidak dimasukkan ke sesi. Untuk menempatkan peserta tertentu di sesi tertentu, gunakan cara kolektif.
+      - Tombol **Set Sesi Ujian Otomatis** hanya muncul jika tes sudah memiliki minimal satu sesi, masih ada peserta tanpa sesi, dan tidak ada peserta yang sedang mengerjakan tes.
     </Info>
-  </Step>
-  <Step title="Periksa Sesi Peserta">
-    Pastikan tidak ada lagi peserta berketerangan **Tidak ada sesi ujian**. Setelah peserta dipasangkan ke sesi, peserta dapat mulai mengerjakan sesuai jadwal sesi yang telah ditentukan.
-  </Step>
-</Steps>
+  </Accordion>
+</AccordionGroup>
 
-## 3. (Opsional) Mengganti atau Memindahkan Peserta ke Sesi Lain
+<Check>
+  Pastikan tidak ada lagi peserta berketerangan **Tidak ada sesi ujian**. Setelah dipasangkan ke sesi, peserta dapat mulai mengerjakan sesuai jadwal sesinya.
+</Check>
 
-Peserta yang sudah memiliki sesi dapat dipindahkan ke sesi lain apabila terdapat perubahan jadwal atau kebutuhan pembagian peserta.
+## Memindahkan peserta ke sesi lain
 
-💡 **Sebagai contoh**, beberapa peserta awalnya terdaftar pada **Sesi Pagi**, tetapi perlu dipindahkan ke **Sesi Sore** karena tidak dapat mengikuti jadwal sebelumnya.
+Peserta yang sudah memiliki sesi dapat dipindahkan, misalnya karena tidak dapat mengikuti jadwal semula. Pada contoh ini, **Fitri Handayani** dan **Galih Ramadhan** dipindahkan dari **Sesi Pagi** ke **Sesi Siang**.
 
 <Steps>
-  <Step title="Buka Sesi Peserta Ujian">
+  <Step title="Pilih peserta">
     <Frame>
-      ![Peserta dicentang dan pilihan Set Sesi Ujian Kolektif pada menu Tindakan](/images/2026-07-30_23-49.png)
+      ![Dua peserta dicentang, menu Tindakan, dan pilihan Set Sesi Ujian Kolektif](/images/data-ujian/membuat-sesi-ujian/11-pindah-pilih-peserta.png)
     </Frame>
 
-    1. Centang peserta yang ingin dipindahkan ke sesi lain. Anda dapat memilih satu peserta atau beberapa peserta sekaligus.
-    2. Pilih tombol **Tindakan**.
+    1. Centang peserta yang akan dipindahkan.
+    2. Klik **Tindakan**.
     3. Pilih **Set Sesi Ujian Kolektif**.
   </Step>
-  <Step title="Pilih Sesi Ujian">
-    <Frame>
-      ![Jendela Set Sesi Ujian Kolektif dengan kolom Pilih Sesi Ujian](/images/2026-07-30_23-49_1.png)
-    </Frame>
+  <Step title="Pilih sesi tujuan">
+    Pada **Pilih Sesi Ujian**, pilih sesi tujuan, misalnya **Sesi Siang**, lalu klik **Set Sesi Ujian Kolektif**.
 
     <Frame>
-      ![Daftar sesi pada kolom Pilih Sesi Ujian](/images/2026-07-30_23-49_2.png)
+      ![Daftar sesi pada kolom Pilih Sesi Ujian](/images/data-ujian/membuat-sesi-ujian/12-pindah-pilih-sesi.png)
     </Frame>
-
-    Pada kolom **Pilih Sesi Ujian**, pilih sesi pengganti.
-
-    Contoh:
-
-    > Anda ingin memindahkan peserta dari **Sesi Pagi** ke **Sesi Sore**.
   </Step>
-  <Step title="Klik Set Sesi Ujian Kolektif">
-    <Frame>
-      ![Tombol Set Sesi Ujian Kolektif dengan Sesi Sore terpilih](/images/2026-07-30_23-50.png)
-    </Frame>
-
-    Tunggu hingga muncul pemberitahuan bahwa sesi ujian berhasil diperbarui. Setelah proses selesai, nama sesi peserta akan berubah dari **Sesi Pagi** menjadi **Sesi Sore**.
+  <Step title="Periksa hasilnya">
+    Setelah notifikasi **Sesi Ujian Berhasil Diperbarui** muncul, kolom **Sesi Ujian** peserta berubah menjadi sesi tujuan.
 
     <Frame>
-      ![Notifikasi berhasil dan peserta pindah ke Sesi Sore](/images/2026-07-30_23-50_1.png)
+      ![Fitri Handayani dan Galih Ramadhan pindah ke Sesi Siang](/images/data-ujian/membuat-sesi-ujian/13-pindah-hasil.png)
     </Frame>
-
-    <Note>
-      Pastikan sesi tujuan masih tersedia dan jadwalnya belum berakhir sebelum memindahkan peserta. Peserta yang sudah mulai mengerjakan tes tidak dapat dipindahkan ke sesi lain, kecuali ujiannya di-reset terlebih dahulu melalui tombol **Reset Ujian** (jawaban peserta yang sudah tersimpan akan terhapus).
-    </Note>
   </Step>
 </Steps>
+
+<Note>
+  - Pastikan sesi tujuan memiliki paket soal dan jadwalnya belum berakhir.
+  - Peserta yang sedang mengerjakan tes tidak dapat dicentang. Jika ada peserta terpilih yang sudah mulai mengerjakan, pemindahan dibatalkan dengan pesan **Gagal Mengatur Sesi Ujian Kolektif**.
+  - Untuk memindahkan peserta yang sudah mulai mengerjakan, klik **Reset Ujian** pada baris peserta terlebih dahulu.
+</Note>
+
+<Warning>
+  **Reset Ujian** menghapus semua jawaban peserta pada tes tersebut dan peserta harus mengulang dari awal. Tindakan ini tidak dapat dibatalkan.
+</Warning>
+
+## Tombol lain pada Sesi Peserta Ujian
+
+- **Hitung Ulang Skor**: menghitung ulang skor peserta tes ini yang sudah selesai. Lihat [Hasil dan Ekspor Ujian](/data-ujian/hasil-dan-ekspor-ujian#menghitung-ulang-skor-satu-tes).
+- **Format Kode Peserta**, **Generate Kode Bidang**, dan **Daftar Peserta per Bidang**: mengatur dan membuat kode bidang per sesi. Jika kode bidang aktif, tabel menampilkan kolom **Kode Bidang** dan peserta yang dipindahkan ke sesi lain mendapat kode bidang baru. Lihat [Kode Peserta dan Kode Bidang](/data-ujian/kode-peserta).

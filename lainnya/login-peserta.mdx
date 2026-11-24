@@ -1,238 +1,187 @@
 ---
 title: "Login Peserta"
-description: "Cara mengatur informasi sistem CBT dan pilihan login peserta, serta langkah peserta membuat akun dan masuk ke sistem."
+description: "Cara melihat tautan login peserta, mengatur pilihan login dengan Google dan pendaftaran mandiri, serta langkah peserta mendaftar dan masuk."
 ---
 
-Sebelum peserta dapat masuk ke sistem CBT Indolat, Anda perlu menyiapkan tampilan awal sistem terlebih dahulu. Pada bagian ini, Anda dapat menentukan:
-
-- Nama penyelenggara ujian yang akan dilihat peserta
-- Tautan (_link_) untuk membuka halaman _login_ peserta
-- Apakah peserta diperbolehkan masuk menggunakan Google atau membuat akun sendiri
+Halaman ini menjelaskan pengaturan yang menentukan cara peserta masuk ke aplikasi ujian: tautan login yang dibagikan kepada peserta, tombol login dengan Google, dan pendaftaran akun mandiri. Di bagian akhir terdapat langkah pendaftaran dan verifikasi email dari sisi peserta.
 
 <Info>
-  Pengaturan ini dilakukan melalui menu **Pengaturan Aplikasi**.
+  **Lokasi menu:** **Portal** → **Platform Ujian (CBT)** → **Lainnya** → **Pengaturan Aplikasi**
+
+  **Peran yang dibutuhkan:** pemilik projek, atau admin dengan peran yang diberi akses ke modul **Pengaturan Aplikasi**.
 </Info>
 
-💡 Sebagai contoh, Anda adalah **Admin Bimbingan Belajar Indolat** yang akan membagikan akses kepada peserta:
+Sebagai contoh, Anda adalah admin **Bimbel Prestasi Nusantara** yang akan membagikan tautan **Tryout Akbar SNBT 2027** kepada peserta melalui WhatsApp atau media sosial. Peserta membuka tautan tersebut, lalu masuk dengan akun yang sudah disiapkan atau membuat akun sendiri.
 
-> **Tryout Akbar Persiapan SNBT 2027**
+<Note>
+  Nama lembaga, kode projek, dan bahasa aplikasi peserta sekarang diatur di **Administrasi Aplikasi** → **Pengaturan Projek** → **Profil Projek**. Lihat [Profil Projek](/administrasi/profil-projek). Logo, warna, dan banner login diatur di **Branding & Warna**; lihat [Kustomisasi Tampilan Website](/lainnya/kustomisasi-tampilan-website).
+</Note>
 
-Agar peserta dapat membuka halaman login, Anda perlu menyiapkan alamat sistem CBT terlebih dahulu. Setelah itu, tautan tersebut dapat dibagikan melalui WhatsApp, media sosial, atau saluran informasi lainnya.
+<Frame>
+  ![Menu Pengaturan Aplikasi pada sidebar Platform Ujian (CBT)](/images/lainnya/login-peserta/01-menu-pengaturan-aplikasi.png)
+</Frame>
 
-## 1. Mengatur Informasi Umum Sistem CBT
+## Informasi Aplikasi
 
-<Steps>
-  <Step title="Buka menu Pengaturan Aplikasi, kemudian pilih Informasi Umum">
-    <Frame caption="Pada bagian ini, Anda dapat mengatur nama, alamat website, dan bahasa yang nantinya dilihat oleh peserta.">
-      ![Tab Informasi Umum pada menu Pengaturan Aplikasi](/images/2026-07-25_02-51.png)
-    </Frame>
-  </Step>
-  <Step title="Isikan Informasi Dasar untuk Sistem CBT Anda">
-    <Frame>
-      ![Kolom Nama, Kode, dan Bahasa Sistem CBT pada tab Informasi Umum](/images/2026-07-25_02-55.png)
-    </Frame>
+Kartu **Informasi Aplikasi** hanya menampilkan informasi dan tidak dapat diubah dari halaman ini.
 
-    1. **Nama Sistem CBT**<br />Isi nama lembaga yang akan tampil pada halaman peserta, tanpa kata **CBT**. Sistem menambahkannya secara otomatis, misalnya **CBT Try Out Indolat**.<br />Contoh: **Try Out Indolat**
+<Frame>
+  ![Kartu Informasi Aplikasi berisi Nama Lembaga, Kode Projek, dan Tautan Login Peserta](/images/lainnya/login-peserta/02-kartu-informasi-aplikasi.png)
+</Frame>
 
-       <Tip>
-         Gunakan nama yang mudah dikenali agar peserta mengetahui bahwa mereka sudah membuka halaman yang benar.
-       </Tip>
+1. **Nama Lembaga**: nama yang tampil pada halaman login peserta, misalnya **Bimbel Prestasi Nusantara**. Sistem menambahkan kata **CBT** secara otomatis sehingga judul halaman login menjadi **Masuk ke CBT Bimbel Prestasi Nusantara**.
+2. **Kode Projek**: kode singkat projek Anda, misalnya `prestasi`. Kode ini menjadi bagian alamat aplikasi peserta.
+3. **Tautan Login Peserta**: alamat halaman login yang dibagikan kepada peserta, dengan format `https://<kode-projek>.indolat.web.id/auth/login`. Contohnya, `https://prestasi.indolat.web.id/auth/login`. Klik tautan ini untuk membukanya di tab baru.
 
-       Berikut hasil tampilan **Nama Sistem CBT** dari sisi peserta ujian:
+Untuk mengganti nama lembaga, kode projek, atau bahasa aplikasi peserta, klik **Ubah di Profil Projek**. Anda akan diarahkan ke halaman [Profil Projek](/administrasi/profil-projek) di **Administrasi Aplikasi**.
 
-       <Frame>
-         <img
-           src="/images/2026-07-25_02-57.png"
-           alt="Nama Sistem CBT tampil pada halaman login peserta"
-           className="mx-auto"
-           style={{ width:"69%" }}
-         />
-       </Frame>
-    2. **Kode Sistem CBT**<br />Isi kode singkat yang akan digunakan sebagai alamat website sistem CBT Anda. Gunakan huruf kecil, angka, atau tanda hubung (-), minimal 4 karakter, dan kode yang belum dipakai sistem lain.<br />Contoh: `tryout-lembaga-indolat`
+<Frame>
+  ![Tautan Ubah di Profil Projek pada kartu Informasi Aplikasi](/images/lainnya/login-peserta/03-tautan-ubah-di-profil-projek.png)
+</Frame>
 
-       Setelah kode disimpan, sistem akan membuat tautan login seperti berikut:
+<Warning>
+  Mengganti kode projek juga mengganti tautan login peserta. Tautan lama yang sudah dibagikan tidak lagi mengarah ke projek Anda, sehingga Anda perlu membagikan tautan yang baru.
+</Warning>
 
-       > `https://tryout-lembaga-indolat.indolat.web.id/auth/login`
+## Pengaturan Lainnya
 
-       Tautan tersebut merupakan alamat yang nantinya dibuka oleh peserta untuk masuk ke sistem CBT.
+Kartu **Pengaturan Lainnya** berisi tiga pilihan yang dapat diaktifkan atau dinonaktifkan, lalu disimpan dengan tombol **Simpan**.
 
-       <Frame>
-         <img
-           src="/images/2026-07-25_03-01.png"
-           alt="Tautan login sistem CBT pada address bar browser"
-           className="mx-auto"
-           style={{ width:"81%" }}
-         />
-       </Frame>
-    3. **Bahasa Sistem CBT**<br />Pilih bahasa yang akan digunakan pada tampilan sistem.<br />Contoh: **Bahasa Indonesia**
-  </Step>
-  <Step title="Klik Simpan">
-    Setelah seluruh informasi diperiksa, klik **Simpan**.
+<Frame>
+  ![Kartu Pengaturan Lainnya dengan tiga pilihan dan tombol Simpan](/images/lainnya/login-peserta/04-kartu-pengaturan-lainnya.png)
+</Frame>
 
-    <Frame>
-      ![Tombol Simpan pada tab Informasi Umum](/images/2026-07-25_03-42.png)
-    </Frame>
-  </Step>
-</Steps>
-
-## 2. Mengatur Cara Peserta Membuat Akun
-
-Pada bagian ini, Anda dapat menentukan pilihan cara masuk yang tersedia bagi peserta ujian, serta pihak yang menanggung biaya transaksi pembayaran ujian.
+1. **Bebankan Biaya Transaksi ke Admin**
+2. **Autentikasi dengan Google**
+3. **Izinkan pendaftaran akun mandiri**
+4. **Simpan**
 
 <Steps>
-  <Step title="Buka menu Pengaturan Aplikasi, kemudian pilih Pengaturan Lainnya">
+  <Step title="Tentukan pihak yang menanggung biaya transaksi (opsional)">
     <Frame>
-      ![Tab Pengaturan Lainnya pada menu Pengaturan Aplikasi](/images/2026-07-25_03-07.png)
+      ![Pilihan Bebankan Biaya Transaksi ke Admin](/images/lainnya/login-peserta/05-bebankan-biaya-transaksi.png)
     </Frame>
+
+    Pilihan **Bebankan Biaya Transaksi ke Admin** hanya berlaku untuk ujian berbayar.
+
+    - Jika diaktifkan, biaya transaksi pembayaran ditanggung oleh Anda sebagai penyelenggara dan dipotong dari pembayaran peserta.
+    - Jika dinonaktifkan, biaya transaksi ditambahkan ke tagihan peserta.
+
+    Contohnya, biaya ujian **Rp50.000** dan biaya transaksi **Rp2.000**:
+
+    | Pengaturan | Dibayar peserta | Diterima admin |
+    | --- | --- | --- |
+    | Diaktifkan | Rp50.000 | Rp48.000 |
+    | Dinonaktifkan | Rp52.000 | Rp50.000 |
   </Step>
-  <Step title="Tentukan Siapa yang Menanggung Biaya Transaksi (Opsional)">
+  <Step title="Atur Autentikasi dengan Google (opsional)">
     <Frame>
-      ![Pilihan Bebankan Biaya Transaksi ke Admin pada tab Pengaturan Lainnya](/images/2026-07-25_03-24.png)
+      ![Pilihan Autentikasi dengan Google](/images/lainnya/login-peserta/06-autentikasi-dengan-google.png)
     </Frame>
 
-    Atur pilihan **Bebankan Biaya Transaksi ke Admin**. Pengaturan ini hanya berlaku untuk ujian berbayar.
-
-    - Aktifkan pilihan ini jika _biaya admin_ transaksi pembayaran ingin ditanggung oleh Anda sebagai penyelenggara.
-    - Jika dinonaktifkan, _biaya admin_ transaksi akan ditambahkan ke tagihan peserta.
-
-    💡 Contoh: biaya ujian ditetapkan sebesar **Rp50.000** dan _biaya admin_ transaksi sebesar **Rp2.000**.
-
-    **Jika Bebankan Biaya Transaksi ke Admin diaktifkan:**
-
-    - Peserta membayar **Rp50.000**
-    - Biaya transaksi **Rp2.000** dipotong dari pembayaran
-    - Uang yang diterima admin menjadi **Rp48.000**
-
-    **Jika pengaturan tersebut dinonaktifkan:**
-
-    - Peserta membayar **Rp52.000**
-    - Terdiri dari biaya ujian **Rp50.000** dan biaya transaksi **Rp2.000**
-    - Uang yang diterima admin tetap **Rp50.000**
-
-    <Frame>
-      ![Tabel perbandingan jumlah yang dibayar peserta dan diterima admin](/images/2026-07-25_03-28.png)
-    </Frame>
-  </Step>
-  <Step title="Atur Autentikasi dengan Google (Opsional)">
-    <Frame>
-      ![Pilihan Autentikasi dengan Google pada tab Pengaturan Lainnya](/images/2026-07-25_03-25.png)
-    </Frame>
-
-    - Aktifkan pilihan ini jika peserta diperbolehkan masuk menggunakan akun Google atau Gmail yang sudah dimiliki. Setelah diaktifkan, tombol **Lanjutkan dengan Google** akan tampil pada halaman login peserta.
+    - Jika diaktifkan, tombol **Lanjutkan dengan Google** tampil pada halaman login peserta, dan tombol **Daftar dengan Google** tampil pada halaman pendaftaran. Peserta dapat masuk dengan akun Google tanpa perlu mengingat kata sandi baru.
 
       <Frame>
-        ![Tombol Lanjutkan dengan Google pada halaman login peserta](/images/2026-07-25_03-33-1.png)
+        ![Halaman login peserta dengan tombol Lanjutkan dengan Google](/images/lainnya/login-peserta/07-login-dengan-tombol-google.png)
       </Frame>
 
-      <Tip>
-        Cara ini **memudahkan** peserta karena tidak perlu membuat dan mengingat kata sandi baru.
-      </Tip>
-
-    - Jika dinonaktifkan, tombol **Lanjutkan dengan Google** tidak akan tampil pada halaman login peserta.
+    - Jika dinonaktifkan, tombol tersebut tidak tampil, dan peserta masuk dengan alamat email dan kata sandi.
 
       <Frame>
-        ![Halaman login peserta tanpa tombol Lanjutkan dengan Google](/images/2026-07-25_03-36.png)
+        ![Halaman login peserta tanpa tombol Lanjutkan dengan Google](/images/lainnya/login-peserta/08-login-tanpa-tombol-google.png)
       </Frame>
+
+    <Note>
+      Tombol login dengan Google tidak ditampilkan saat halaman login dibuka melalui aplikasi seluler (native) Indolat, meskipun pilihan ini aktif.
+    </Note>
   </Step>
-  <Step title="Izinkan Pendaftaran Akun Mandiri (Opsional)">
+  <Step title="Atur Izinkan pendaftaran akun mandiri (opsional)">
     <Frame>
-      ![Pilihan Izinkan pendaftaran akun mandiri pada tab Pengaturan Lainnya](/images/2026-07-25_03-25_1.png)
+      ![Pilihan Izinkan pendaftaran akun mandiri](/images/lainnya/login-peserta/09-izinkan-pendaftaran-akun-mandiri.png)
     </Frame>
 
-    - Aktifkan pilihan ini jika peserta diperbolehkan membuat akun sendiri melalui halaman login. Setelah diaktifkan, tombol **Daftar** akan tampil pada halaman login peserta.
+    - Jika diaktifkan, tautan **Daftar** tampil di bawah tombol **Masuk** pada halaman login peserta, sehingga peserta dapat membuat akun sendiri.
 
       <Frame>
-        ![Tombol Daftar tampil pada halaman login peserta](/images/2026-07-25_03-39.png)
+        ![Halaman login peserta dengan tautan Daftar](/images/lainnya/login-peserta/10-login-dengan-tautan-daftar.png)
       </Frame>
 
-    - Jika dinonaktifkan, peserta hanya dapat masuk menggunakan akun yang sudah disiapkan oleh admin.
+    - Jika dinonaktifkan, tautan **Daftar** tidak tampil. Peserta hanya dapat masuk dengan akun yang sudah disiapkan admin melalui **Tambah Akun** atau **Import Akun** (lihat [Menambahkan Akun Peserta](/data-akun/menambahkan-akun-peserta)).
 
       <Frame>
-        ![Halaman login peserta tanpa tombol Daftar](/images/2026-07-25_03-40.png)
+        ![Halaman login peserta tanpa tautan Daftar](/images/lainnya/login-peserta/11-login-tanpa-tautan-daftar.png)
       </Frame>
   </Step>
   <Step title="Klik Simpan">
-    Setelah seluruh pilihan sesuai, klik **Simpan**.
-
     <Frame>
-      ![Tombol Simpan pada tab Pengaturan Lainnya](/images/2026-07-25_03-43.png)
+      ![Tombol Simpan pada kartu Pengaturan Lainnya](/images/lainnya/login-peserta/12-tombol-simpan.png)
     </Frame>
+
+    Setelah disimpan, muncul notifikasi **Berhasil Menyimpan Pengaturan**. Perubahan langsung berlaku pada halaman login peserta.
   </Step>
 </Steps>
 
-## 3. Cara Peserta Masuk ke Sistem
+## Cara peserta mendaftar dan masuk
+
+Langkah berikut berlaku jika **Izinkan pendaftaran akun mandiri** diaktifkan. Peserta yang sudah memiliki akun cukup mengisi **Alamat Email** dan **Kata Sandi** pada halaman login, lalu mengeklik **Masuk**.
 
 <Steps>
-  <Step title="Peserta Membuka Link Ujian">
+  <Step title="Peserta membuka tautan login, lalu klik Daftar">
     <Frame>
-      ![Halaman login sistem CBT yang dibuka peserta](/images/2026-07-25_02-09.png)
-    </Frame>
-
-    Peserta dapat masuk atau membuat akun dengan dua cara, yaitu memilih **Lanjutkan dengan Google** atau menekan tombol **Daftar**. Pilihan cara masuk tersebut dapat Anda atur sebagai penyelenggara ujian.
-
-    Untuk langkah pengaturannya, lihat bagian **2. Mengatur Cara Peserta Membuat Akun** di atas.
-  </Step>
-  <Step title="Klik Daftar">
-    <Frame>
-      ![Tombol Daftar pada halaman login peserta](/images/2026-07-25_02-14.png)
+      ![Tautan Daftar pada halaman login peserta](/images/lainnya/login-peserta/13-peserta-klik-daftar.png)
     </Frame>
   </Step>
-  <Step title="Peserta Mengisi Data Akun Pribadi">
+  <Step title="Peserta mengisi formulir pendaftaran">
     <Frame>
-      ![Formulir pendaftaran akun peserta](/images/2026-07-25_02-16.png)
+      ![Formulir Daftar CBT Bimbel Prestasi Nusantara yang sudah diisi](/images/lainnya/login-peserta/14-formulir-pendaftaran.png)
     </Frame>
 
-    1. **Nama Lengkap**<br />Isi dengan nama peserta yang akan digunakan di dalam sistem.
-    2. **Alamat Email**<br />Isi dengan alamat email yang masih aktif. Email ini akan digunakan untuk sistem mengirimkan kode verifikasi.
-    3. **Kata Sandi**<br />Buat kata sandi yang mudah diingat, tetapi tidak mudah ditebak oleh orang lain.
-    4. **Konfirmasi Kata Sandi**<br />Masukkan kembali kata sandi yang sama untuk memastikan tidak ada kesalahan penulisan.
-    5. **Persetujuan Ketentuan Layanan dan Kebijakan Privasi**<br />Centang bagian ini sebagai tanda bahwa peserta telah membaca dan menyetujui ketentuan yang berlaku.
-    6. **Daftar**<br />Setelah seluruh data terisi, klik **Daftar** untuk membuat akun.
+    1. **Nama Lengkap**: nama peserta yang akan dipakai di dalam sistem, misalnya **Sinta Maharani**.
+    2. **Alamat Email**: alamat email aktif milik peserta, misalnya `sinta.maharani@contoh.id`. Kode verifikasi dikirim ke alamat ini.
+    3. **Kata Sandi**: minimal 8 karakter.
+    4. **Konfirmasi Kata Sandi**: kata sandi yang sama dengan kolom sebelumnya.
+    5. **Persetujuan**: centang pernyataan bahwa peserta menyetujui **Ketentuan Layanan** dan **Kebijakan Privasi**.
+    6. **Daftar**: klik untuk membuat akun.
+
+    <Note>
+      Pendaftaran ditolak jika alamat email sudah terdaftar di projek yang sama, atau jika alamat email berasal dari layanan email sementara (_disposable_) atau email anonim.
+    </Note>
   </Step>
-  <Step title="Peserta Melakukan Verifikasi Email">
+  <Step title="Peserta membuka email verifikasi">
+    Setelah pendaftaran berhasil, peserta diarahkan ke halaman **Verifikasi Email Anda**.
+
     <Frame>
-      ![Halaman Verifikasi Email Anda setelah pendaftaran berhasil](/images/2026-07-25_02-19.png)
+      ![Halaman Verifikasi Email Anda dengan enam kotak kode](/images/lainnya/login-peserta/15-halaman-verifikasi-email.png)
     </Frame>
 
-    Setelah peserta berhasil membuat akun, sistem akan mengirimkan kode verifikasi ke alamat email yang didaftarkan.
-
-    Verifikasi ini diperlukan untuk memastikan bahwa alamat email tersebut benar dan dapat digunakan oleh peserta.
-
-    💡 Sebagai contoh, peserta mendaftarkan akun menggunakan email `sintamhs0215@yopmail.com`.
-
-    Langkah yang perlu dilakukan peserta:
-
-    1. Buka kotak masuk pada email yang didaftarkan.
-    2. Cari email dari **CBT Indolat**.
-    3. Salin kode verifikasi yang berisi 6 angka.
-    4. Masukkan kode tersebut pada halaman verifikasi.
-    5. Klik **Verifikasi Akun**.
+    Sistem mengirimkan email dari **CBT Indolat** dengan subjek **Kode OTP Anda: [kode]**. Email berisi kode verifikasi 6 angka.
 
     <Frame>
-      ![Email dari CBT Indolat berisi kode verifikasi 6 angka](/images/2026-07-25_02-20.png)
+      ![Email Kode Verifikasi Anda berisi kode 6 angka](/images/lainnya/login-peserta/16-email-kode-verifikasi.png)
     </Frame>
-
+  </Step>
+  <Step title="Peserta memasukkan kode, lalu klik Verifikasi Akun">
     <Frame>
-      ![Kode verifikasi diisi lalu tombol Verifikasi Akun diklik](/images/2026-07-25_02-20_1.png)
+      ![Kode verifikasi diisi lalu tombol Verifikasi Akun diklik](/images/lainnya/login-peserta/17-kode-verifikasi-diisi.png)
     </Frame>
 
     <Note>
-      Kode verifikasi hanya berlaku selama **5 menit**. Apabila kode belum diterima atau sudah tidak dapat digunakan, pilih **Kirim Ulang Kode** untuk mendapatkan kode baru.
+      Kode verifikasi hanya berlaku selama **5 menit**. Jika kode belum diterima atau sudah kedaluwarsa, klik **Kirim Ulang Kode** untuk mendapatkan kode baru. Periksa juga folder spam.
+
+      <Frame>
+        ![Tautan Kirim Ulang Kode pada halaman verifikasi email](/images/lainnya/login-peserta/18-kirim-ulang-kode.png)
+      </Frame>
     </Note>
-
-    <Frame>
-      ![Tautan Kirim Ulang Kode pada halaman verifikasi email](/images/2026-07-25_02-26.png)
-    </Frame>
   </Step>
-  <Step title="Peserta Berhasil Masuk ke Halaman CBT">
+  <Step title="Peserta masuk ke halaman Daftar Tes">
     <Frame>
-      ![Halaman Daftar Tes dengan tombol Pendaftaran Tes Baru](/images/2026-07-25_02-21.png)
+      ![Halaman Daftar Tes peserta dengan tombol Pendaftaran Tes Baru](/images/lainnya/login-peserta/19-halaman-utama-peserta.png)
     </Frame>
 
-    Setelah verifikasi berhasil, peserta akan masuk ke halaman utama dan dapat melanjutkan dengan memilih **Pendaftaran Tes Baru** untuk mencari ujian yang akan diikuti.
+    Setelah verifikasi berhasil, peserta masuk ke halaman **Daftar Tes**. Tombol **Pendaftaran Tes Baru** tampil jika ada ujian aktif yang sedang dalam masa berlangsung, sehingga peserta dapat mencari dan mendaftar ujian.
 
     <Info>
-      Verifikasi email hanya diperlukan bagi peserta yang membuat akun secara mandiri. Akun yang ditambahkan oleh admin melalui **Import Akun** tidak perlu melalui proses ini.
+      Verifikasi email hanya diperlukan bagi peserta yang mendaftar sendiri. Akun yang ditambahkan admin melalui **Tambah Akun** atau **Import Akun** langsung terverifikasi. Jika peserta tidak menerima kode, admin dapat memverifikasi akun secara manual dengan tombol **Verifikasi Email** di daftar akun peserta.
     </Info>
   </Step>
 </Steps>

@@ -1,184 +1,176 @@
 ---
 title: "Impor Soal dari Excel"
-description: "Cara mengimpor soal dan jawaban ke dalam paket soal melalui template Excel."
+description: "Cara mengimpor soal, pilihan jawaban, dan wacana ke paket soal CBT/CAT melalui template Excel."
 ---
 
-Gunakan fitur **Import Soal (Excel)** jika Anda sudah memiliki banyak soal dan ingin memasukkannya sekaligus ke dalam paket soal.
+Gunakan **Import Soal (Excel)** jika soal sudah disiapkan di Excel dan ingin dimasukkan sekaligus ke paket soal. Anda mengunduh template dari aplikasi, mengisinya, lalu mengunggahnya kembali. Cara ini lebih cepat daripada menambahkan soal satu per satu melalui [formulir soal](/paket-soal/membuat-paket-soal).
 
-Cara ini lebih cepat dibandingkan menambahkan soal satu per satu. Anda cukup mengunduh template, mengisi data soal dan jawabannya, lalu mengunggah kembali file tersebut ke sistem.
+<Info>
+  **Lokasi menu:** **Portal** → **Platform Ujian (CBT)** → **Manajemen Ujian** → **Data Paket Soal** → **Ubah** pada paket soal → **Daftar Soal** → **Import Soal (Excel)**.
 
-> 💡 **Sebagai contoh**, Anda akan membuat **tryout** yang berisi beberapa jenis soal. Soal sudah disiapkan oleh tim pengajar dalam Excel. Agar tidak perlu memasukkannya satu per satu, seluruh soal dapat diimpor menggunakan template.
+  Impor hanya tersedia untuk paket soal jenis **CBT/CAT** dan tidak dapat dilakukan selama ada peserta yang sedang mengerjakan ujian yang memakai paket tersebut.
+</Info>
+
+Sebagai contoh, tim pengajar menyiapkan lima soal **Pengetahuan Kuantitatif** untuk **Tryout Akbar SNBT 2027**: dua soal pilihan ganda, dua soal jawaban singkat, dan satu soal majemuk kompleks, dengan satu wacana berisi data nilai rata-rata kelas. Soal tersebut diimpor ke paket baru **Pengetahuan Kuantitatif – Tryout Akbar SNBT 2027** (kode **PK-TA27**).
+
+<Warning>
+  Impor soal ke paket soal yang **masih kosong**. Pada sheet **Data Jawaban**, nomor soal dicocokkan dengan urutan soal di seluruh paket, bukan hanya soal yang sedang diimpor. Jika paket sudah berisi soal, pilihan jawaban dapat masuk ke soal lama dan menggantikan jawabannya, sementara soal baru tidak memiliki pilihan jawaban. Untuk menggabungkan soal, impor ke paket kosong terlebih dahulu.
+</Warning>
 
 <Steps>
   <Step title="Klik Ubah pada paket soal">
-    <Frame>
-      ![Kolom Jumlah Soal dan tombol Ubah pada halaman Data Paket Soal](/images/2026-07-31_02-58.png)
-    </Frame>
+    Buka **Data Paket Soal**, lalu klik **Ubah** pada paket yang ingin diisi. Kolom **Jumlah Soal** menunjukkan apakah paket masih kosong. Jika belum ada paket, buat dulu paket jenis **CBT/CAT** seperti dijelaskan di [Membuat Paket Soal](/paket-soal/membuat-paket-soal).
 
-    Buka menu **Data Paket Soal**, lalu klik **Ubah** pada paket soal yang ingin diisi. Anda dapat mengetahui apakah paket soal sudah terisi butir soal atau masih kosong melalui kolom **Jumlah Soal**.
+    <Frame>
+      ![Paket PK-TA27 dengan Jumlah Soal 0 dan tombol Ubah](/images/paket-soal/import-paket-soal/01-ubah-paket-soal.png)
+    </Frame>
   </Step>
   <Step title="Klik Import Soal (Excel)">
     <Frame>
-      ![Tombol Import Soal (Excel) pada bagian Daftar Soal](/images/2026-07-31_02-59.png)
+      ![Tombol Import Soal (Excel) pada bagian Daftar Soal](/images/paket-soal/import-paket-soal/02-tombol-import-soal.png)
     </Frame>
   </Step>
   <Step title="Klik Unduh Template">
+    Pada jendela **Import Soal (Excel)**, klik tautan **Unduh Template**. Berkas **template-import-soal-….xlsx** terunduh.
+
     <Frame>
-      ![Tautan Unduh Template pada jendela Import Soal (Excel)](/images/2026-07-31_02-59_1.png)
+      ![Tautan Unduh Template pada jendela Import Soal (Excel)](/images/paket-soal/import-paket-soal/03-unduh-template.png)
     </Frame>
+
+    Selalu gunakan template terbaru dari aplikasi. Versi template saat ini adalah **1.3.0**; berkas dari template versi 1.0.0, 1.1.0, dan 1.2.0 masih dapat diimpor, tetapi kolom yang belum ada di versi tersebut dianggap kosong.
   </Step>
-  <Step title="Buka file template yang sudah diunduh">
-    Template Excel terdiri dari empat sheet:
+  <Step title="Pelajari isi template">
+    Template berisi empat sheet: **Panduan**, **Data Soal**, **Data Jawaban**, dan **Data Wacana**.
 
-    - **Panduan**
-    - **Data Soal**
-    - **Data Jawaban**
-    - **Data Wacana** (opsional)
+    Sheet **Panduan** berisi petunjuk pengisian, informasi versi template, dan **Referensi Data Master** (kode jenis soal, kode media, nilai tingkat kesulitan, dan nilai **Jawaban Lebih dari Satu**). Sheet ini dikunci dan tidak perlu diubah.
 
     <Frame>
-      ![Sheet Panduan pada template Excel](/images/2026-07-31_03-00.png)
+      ![Sheet Panduan pada template Excel versi 1.3.0](/images/paket-soal/import-paket-soal/04-sheet-panduan.png)
     </Frame>
-
-    Sheet **Panduan** berisi petunjuk pengisian, kode yang dapat digunakan, dan kolom yang wajib atau opsional.
 
     <Note>
-      Perhatikan beberapa ketentuan berikut:
-
-      - Impor hanya tersedia untuk paket soal **CBT/CAT**.
-      - Jangan mengubah nama kolom atau susunan template.
-      - Gambar soal dan gambar pilihan jawaban dapat dimasukkan melalui **link gambar** (lihat **Ketentuan link gambar** di bawah). Audio dan video tetap ditambahkan setelah proses impor.
-      - Gunakan kode yang tersedia pada panduan untuk mengisi jenis dan tipe soal.
-      - Gunakan template terbaru (versi 1.2.0) agar kolom link gambar dan sheet wacana tersedia. File dari template versi sebelumnya tetap dapat diimpor.
+      - Jangan mengubah nama sheet, judul kolom, atau isi kolom informasi template pada sheet **Panduan**. Sheet **Data Soal** dan **Data Jawaban** wajib ada.
+      - Template yang baru diunduh sudah berisi **baris contoh** pada sheet **Data Soal**, **Data Jawaban**, dan **Data Wacana**. Hapus atau timpa baris contoh tersebut; baris yang tertinggal ikut diimpor.
+      - Setiap sel memiliki petunjuk singkat dan beberapa kolom memiliki pilihan dropdown. Catatan di sisi kanan setiap sheet merangkum aturan pengisiannya.
     </Note>
   </Step>
   <Step title="Isi sheet Data Soal">
+    Setiap baris adalah satu soal. Kolom bertanda bintang wajib diisi.
+
     <Frame>
-      ![Sheet Data Soal pada template Excel](/images/2026-07-31_03-00_1.png)
+      ![Sheet Data Soal berisi lima soal Pengetahuan Kuantitatif](/images/paket-soal/import-paket-soal/05-sheet-data-soal.png)
     </Frame>
 
-    Sheet **Data Soal** digunakan untuk mengisi pertanyaan dan pengaturan setiap soal. Isian utamanya meliputi:
+    | Kolom | Isi |
+    | --- | --- |
+    | **No Soal \*** | Nomor urut soal: 1, 2, 3, dan seterusnya. Soal disimpan sesuai urutan baris. |
+    | **Jenis Soal \*** | **PG** (Pilihan Ganda), **MK** (Majemuk Kompleks), atau **IN** (Jawaban Singkat). Soal menjodohkan belum dapat diimpor; tambahkan melalui formulir soal. |
+    | **Tipe Soal \*** | Media soal: **T** (Teks), **G** (Gambar), **A** (Audio). Gabungkan dengan koma, misalnya **T,G**. |
+    | **Soal Uraian \*** | Teks soal, maksimal 5.000 karakter. Boleh kosong jika soal hanya berupa gambar dari **Link Gambar Soal**. |
+    | **Kelompok Soal** | Nama kelompok soal, maksimal 255 karakter. Kelompok yang belum ada di paket dibuat otomatis. |
+    | **Tingkat Kesulitan** | **Sangat Mudah**, **Mudah**, **Sedang**, **Sulit**, atau **Sangat Sulit**. Wajib diisi jika paket soal dipakai tes CAT. |
+    | **Jawaban Lebih dari Satu** | **Ya** atau **Tidak**. Isi **Ya** untuk soal pilihan ganda yang memiliki lebih dari satu jawaban benar. |
+    | **Jawaban Benar hanya untuk IN** | Wajib untuk soal **IN** dan harus kosong untuk jenis lain. Isi angka atau teks; pisahkan beberapa jawaban benar dengan **\|**, misalnya `x + 6 \| 6 + x` atau `0,5 \| 1/2` (maksimal 21 jawaban, masing-masing maksimal 255 karakter). Jawaban pertama menjadi kunci utama. |
+    | **Skor Benar CBT**, **Skor Salah CBT**, **Skor Tidak Dijawab CBT** | Skor untuk metode penilaian **Perhitungan Skor Soal (Akumulasi Benar/Salah)**, misalnya 4, -1, dan 0. |
+    | **Skor Benar CAT**, **Skor Salah CAT** | Skor untuk ujian berjenis CAT. |
+    | **Pembahasan** | Penjelasan jawaban (opsional). |
+    | **Link Gambar Soal** | Link gambar soal (opsional). Beberapa gambar ditulis satu link per baris di dalam sel yang sama, maksimal 10 gambar. Lihat **Ketentuan link gambar** di bawah. |
+    | **Kode Wacana** | Kode wacana dari sheet **Data Wacana**, misalnya **W1**, jika soal memakai bacaan bersama (opsional). |
 
-    - **No Soal**<br />Isi nomor urut soal, misalnya 1, 2, 3, dan seterusnya.
-    - **Jenis Soal**<br />Isi bentuk soal menggunakan kode:
-      - **PG** untuk Pilihan Ganda
-      - **MK** untuk Majemuk Kompleks
-      - **IN** untuk Jawaban Singkat
-    - **Tipe Soal**<br />Isi jenis tampilan soal menggunakan kode berikut. Jika menggunakan lebih dari satu tipe, pisahkan dengan koma, misalnya **T,G**.
-      - **T** untuk Teks
-      - **G** untuk Gambar
-      - **A** untuk Audio
-    - **Soal Uraian**<br />Isi pertanyaan yang akan dikerjakan peserta, maksimal 5.000 karakter. Kolom ini boleh kosong jika soal hanya berupa gambar dari **Link Gambar Soal**.
-    - **Kelompok Soal**<br />Isi nama kelompok soal. Jika kelompok soal dengan nama tersebut belum ada di sistem, kelompok soal akan dibuat otomatis. Kosongkan jika soal tidak perlu dikelompokkan. Contoh:
-      - Geografi Dasar
-      - Biologi
-      - Matematika
-    - **Tingkat Kesulitan**<br />Isi tingkat kesulitan soal, misalnya:
-      - Sangat Mudah
-      - Mudah
-      - Sedang
-      - Sulit
-      - Sangat Sulit
-    - **Jawaban Lebih dari Satu**<br />Isi **Ya** jika soal memiliki lebih dari satu jawaban benar. Isi **Tidak** jika hanya memiliki satu jawaban benar.
-    - **Jawaban Benar hanya untuk IN**<br />Khusus soal jenis **IN** (Jawaban Singkat), isi jawaban yang benar berupa angka atau teks. Jika ada beberapa jawaban yang dianggap benar, pisahkan dengan tanda **|**, misalnya `DKI Jakarta | Jakarta` atau `0,5 | 1/2`. Jika semua jawaban berupa angka, peserta hanya dapat mengetik angka saat ujian. Kosongkan kolom ini untuk jenis soal lain.
-    - **Skor CBT dan CAT**<br />Isi nilai untuk jawaban benar, salah, atau tidak dijawab pada kolom **Skor Benar CBT**, **Skor Salah CBT**, **Skor Tidak Dijawab CBT**, **Skor Benar CAT**, dan **Skor Salah CAT** sesuai aturan penilaian yang digunakan.
-    - **Pembahasan**<br />Isi penjelasan jawaban jika diperlukan.
-    - **Link Gambar Soal**<br />Opsional. Isi link gambar untuk soal ini. Jika soal memiliki beberapa gambar, tulis satu link per baris di dalam sel yang sama (maksimal 10 gambar).
-    - **Kode Wacana**<br />Opsional. Isi kode wacana dari sheet **Data Wacana** (misalnya `W1`) jika soal memakai bacaan bersama.
+    Untuk soal **IN**, format jawaban ditentukan otomatis: jika semua jawaban benar berupa angka, peserta hanya dapat mengetik angka; jika ada jawaban berupa teks, peserta dapat mengetik teks bebas.
 
     <Tip>
-      **Contoh:**
-
-      Untuk soal:
-
-      > Berapa hasil dari 10 + 15?
-
-      Isian sederhananya:
-
-      - No Soal: 4
-      - Jenis Soal: IN
-      - Tipe Soal: T
-      - Kelompok Soal: Matematika
-      - Jawaban Benar: 25
+      Teks soal, jawaban, dan pembahasan dapat memakai HTML sederhana (misalnya `<b>`, `<i>`, `<u>`, `<sup>`, `<sub>`, `<table>`, dan daftar) serta rumus LaTeX di antara tanda dolar, misalnya `$\frac{1}{2}$`. Pisahkan paragraf dengan baris baru di dalam sel (**Alt+Enter**).
     </Tip>
   </Step>
   <Step title="Isi sheet Data Jawaban">
+    Sheet ini berisi pilihan jawaban untuk soal **PG** dan **MK** saja. Soal **IN** tidak perlu diisi di sheet ini.
+
     <Frame>
-      ![Sheet Data Jawaban pada template Excel](/images/2026-07-31_03-01.png)
+      ![Sheet Data Jawaban berisi pilihan jawaban soal nomor 1, 2, dan 4](/images/paket-soal/import-paket-soal/06-sheet-data-jawaban.png)
     </Frame>
 
-    Sheet **Data Jawaban** digunakan untuk mengisi pilihan jawaban bagi soal Pilihan Ganda dan Majemuk Kompleks. Isian utamanya meliputi:
+    | Kolom | Isi |
+    | --- | --- |
+    | **No Soal \*** | Nomor urut soal pada sheet **Data Soal**. Pada contoh, soal nomor 3 dan 5 (IN) dilewati. |
+    | **Jawaban A \*** sampai **Jawaban F** | Teks setiap pilihan. Minimal **Jawaban A** dan **Jawaban B**, maksimal enam pilihan (A sampai F). Pilihan yang tidak dipakai dikosongkan. |
+    | **Kunci Jawaban \*** | Huruf pilihan yang benar, A sampai F. Untuk beberapa jawaban, pisahkan dengan koma tanpa spasi, misalnya **A,C,D**. |
+    | **Link Gambar A** sampai **Link Gambar F** | Satu link gambar untuk setiap pilihan (opsional). Pilihan boleh berupa teks, gambar, atau keduanya. |
+    | **Skor A** sampai **Skor F** | Skor setiap pilihan (opsional), antara -1.000 dan 1.000, boleh desimal atau negatif. Hanya dipakai pada metode penilaian **Perhitungan Skor Jawaban (Akumulasi Skor Jawaban)**; kosongkan untuk skor 0. |
 
-    - **No Soal**<br />Isi nomor yang sama dengan nomor pada sheet **Data Soal**.
-    - **Jawaban A sampai Jawaban E**<br />Isi pilihan jawaban yang akan ditampilkan kepada peserta. Minimal **harus ada** dua pilihan jawaban (Jawaban A dan Jawaban B), berupa teks atau link gambar.
-    - **Kunci Jawaban**<br />Isi huruf jawaban yang benar. Contoh:
-      - Isi **A** jika hanya Jawaban A yang benar.
-      - Isi **B,C,D** (dipisahkan koma tanpa spasi) jika terdapat lebih dari satu jawaban benar.
-    - **Link Gambar A sampai Link Gambar E**<br />Opsional. Isi satu link gambar untuk pilihan jawaban yang bersangkutan. Pilihan jawaban boleh berupa teks, gambar, atau keduanya.
-
-    <Note>
-      **Ketentuan link gambar**
-
-      - Gunakan link lengkap yang diawali `https://` dan langsung mengarah ke file gambar **JPG, PNG, GIF, atau WebP** dengan ukuran maksimal **5 MB**. Cara mudah memeriksanya: saat link dibuka di browser, yang tampil hanya gambarnya.
-      - Link halaman, misalnya halaman berbagi Google Drive atau halaman web yang memuat gambar, bukan link gambar dan akan ditolak.
-      - Gambar **diunduh dan disimpan di penyimpanan projek Anda**, bukan ditautkan ke link aslinya. Soal tetap utuh walaupun link aslinya nanti berubah atau dihapus, dan ukuran gambar dihitung dalam kuota penyimpanan.
-      - Demi keamanan, sistem hanya mengunduh dari server publik di internet dan memeriksa bahwa isi file benar-benar gambar.
-      - Jika satu gambar gagal diunduh, **seluruh impor dibatalkan** dan notifikasi menyebutkan baris yang perlu diperbaiki. Maksimal 300 link gambar per file.
-    </Note>
-
-    <Tip>
-      **Contoh:**
-
-      Untuk soal:
-
-      > Apa ibu kota Indonesia?
-
-      Isi jawabannya:
-
-      - Jawaban A: Jakarta
-      - Jawaban B: Bandung
-      - Jawaban C: Surabaya
-      - Jawaban D: Medan
-      - Jawaban E: Yogyakarta
-      - Kunci Jawaban: A
-    </Tip>
+    Untuk soal **MK**, setiap pilihan menjadi satu pernyataan dengan label **Benar/Salah**: pilihan yang tercantum di **Kunci Jawaban** dianggap **Benar**, sisanya **Salah**. Pada contoh, soal nomor 4 berisi empat pernyataan tentang bilangan 36 dengan kunci **A,C,D**. Untuk memakai pasangan label lain, misalnya **Fakta/Opini**, ubah soal setelah impor.
   </Step>
   <Step title="Isi sheet Data Wacana (opsional)">
-    Sheet **Data Wacana** diisi hanya jika beberapa soal memakai bacaan yang sama. Isiannya:
+    Isi sheet ini hanya jika beberapa soal memakai bacaan yang sama.
 
-    - **Kode Wacana**<br />Kode unik untuk setiap wacana, misalnya `W1`, `W2`. Kode ini ditulis di kolom **Kode Wacana** sheet **Data Soal** untuk setiap soal yang memakai wacana tersebut.
-    - **Judul Wacana**<br />Opsional, hanya terlihat oleh admin. Jika kosong, judulnya diambil dari kode.
-    - **Teks Wacana**<br />Teks bacaan, maksimal 20.000 karakter. Pisahkan paragraf dengan baris baru di dalam sel (**Alt+Enter**). Boleh kosong jika wacana diisi dengan **Link Gambar Wacana**.
-    - **Link Gambar Wacana**<br />Opsional. Link gambar dengan ketentuan yang sama seperti link gambar soal; beberapa gambar ditulis satu link per baris.
+    <Frame>
+      ![Sheet Data Wacana berisi wacana W1 Nilai Rata-rata Tryout per Kelas](/images/paket-soal/import-paket-soal/07-sheet-data-wacana.png)
+    </Frame>
 
-    <Tip>
-      **Contoh:** wacana `W1` berisi data kehadiran klub membaca. Soal nomor 6 dan 7 di sheet **Data Soal** diisi `W1` pada kolom **Kode Wacana**, sehingga saat ujian keduanya menampilkan bacaan yang sama.
-    </Tip>
+    | Kolom | Isi |
+    | --- | --- |
+    | **Kode Wacana \*** | Kode unik setiap wacana, misalnya **W1**, **W2**. Tulis kode yang sama di kolom **Kode Wacana** sheet **Data Soal** untuk setiap soal yang memakai wacana tersebut. |
+    | **Judul Wacana** | Judul yang hanya terlihat oleh admin, maksimal 255 karakter. Jika kosong, judulnya **Wacana** diikuti kode. |
+    | **Teks Wacana** | Teks bacaan, maksimal 20.000 karakter. Pisahkan paragraf dengan **Alt+Enter**. Boleh kosong jika wacana berupa gambar. |
+    | **Link Gambar Wacana** | Link gambar wacana (opsional), satu link per baris, maksimal 10 gambar. |
+
+    Pada contoh, soal nomor 2 dan 3 memakai wacana **W1**, sehingga saat ujian keduanya menampilkan data nilai rata-rata yang sama di atas teks soal.
   </Step>
-  <Step title="Unggah template">
-    <Frame>
-      ![File terunggah dan tombol Import pada jendela Import Soal (Excel)](/images/2026-07-31_03-01_1.png)
-    </Frame>
-
-    Setelah seluruh soal dan jawaban selesai diisi:
-
-    1. Simpan file Excel.
-    2. Klik kembali **Import Soal (Excel)** pada paket soal tersebut.
-    3. Unggah file yang sudah diisi.
-    4. Klik **Import**.
-    5. Tunggu hingga proses selesai. Impor diproses di latar belakang, dan Anda akan menerima notifikasi saat prosesnya selesai.
+  <Step title="Unggah berkas lalu klik Import">
+    Simpan berkas Excel (format .xlsx). Kembali ke paket soal, klik **Import Soal (Excel)**, seret berkas ke kolom **File Excel** atau klik **Jelajahi**, tunggu hingga tertulis **Pengunggahan selesai**, lalu klik **Import**.
 
     <Frame>
-      ![Notifikasi Impor Soal Sedang Diproses](/images/2026-07-31_03-02.png)
+      ![Berkas Excel terunggah dan tombol Import pada jendela Import Soal (Excel)](/images/paket-soal/import-paket-soal/08-file-terunggah.png)
     </Frame>
 
-    Setelah impor berhasil, soal akan tampil pada bagian **Daftar Soal** beserta kelompok soal, isi pertanyaan, dan jenis soalnya.
+    Muncul notifikasi **Impor Soal Sedang Diproses**. Impor berjalan di latar belakang, dan progresnya tampil sebagai kotak **Mengimpor Soal & Jawaban** di bagian atas halaman.
 
     <Frame>
-      ![Soal hasil impor pada bagian Daftar Soal](/images/2026-07-31_03-02_1.png)
+      ![Notifikasi Impor Soal Sedang Diproses](/images/paket-soal/import-paket-soal/09-notifikasi-impor-diproses.png)
     </Frame>
 
-    <Tip>
-      Periksa kembali hasil impor sebelum paket digunakan. Pastikan nomor soal pada sheet **Data Soal** dan **Data Jawaban** sesuai agar jawaban tidak masuk ke soal yang salah.
-    </Tip>
+    <Frame>
+      ![Kotak progres Mengimpor Soal & Jawaban yang sudah selesai](/images/paket-soal/import-paket-soal/10-progres-impor.png)
+    </Frame>
+  </Step>
+  <Step title="Periksa hasil impor">
+    Setelah selesai, Anda menerima notifikasi **Berhasil Mengimpor Soal dan Jawaban** beserta jumlah soal yang diimpor (klik ikon lonceng untuk melihatnya). Muat ulang halaman paket untuk melihat soal pada **Daftar Soal**.
+
+    <Frame>
+      ![Notifikasi Berhasil Mengimpor Soal dan Jawaban](/images/paket-soal/import-paket-soal/12-notifikasi-impor-berhasil.png)
+    </Frame>
+
+    <Frame>
+      ![Daftar Soal berisi lima soal hasil impor lengkap dengan kelompok soal dan wacana](/images/paket-soal/import-paket-soal/11-hasil-impor.png)
+    </Frame>
+
+    Soal ditambahkan di akhir daftar. Kelompok soal dan wacana baru tampil di tab **Kelompok Soal** dan **Wacana**. Periksa setiap soal dengan **Ubah** atau **Preview Soal**, lalu tambahkan audio jika diperlukan karena audio dan video tidak dapat diimpor.
   </Step>
 </Steps>
+
+## Ketentuan link gambar
+
+- Gunakan link lengkap yang diawali `https://` dan langsung mengarah ke file gambar **JPG, PNG, GIF, atau WebP** dengan ukuran maksimal **5 MB**. Cara mudah memeriksanya: saat link dibuka di browser, yang tampil hanya gambarnya.
+- Link halaman, misalnya halaman berbagi Google Drive atau halaman web yang memuat gambar, bukan link gambar dan akan ditolak.
+- Gambar **diunduh dan disimpan di penyimpanan projek Anda**, bukan ditautkan ke link aslinya. Soal tetap utuh walaupun link aslinya berubah atau dihapus, dan ukuran gambar dihitung dalam kuota penyimpanan. Jika kuota penyimpanan penuh, impor dibatalkan.
+- Demi keamanan, sistem hanya mengunduh dari server publik di internet dan memeriksa bahwa isi file benar-benar gambar.
+- Maksimal 300 link gambar per berkas. Jika satu gambar gagal diunduh, **seluruh impor dibatalkan** dan notifikasi menyebutkan baris yang perlu diperbaiki.
+
+## Jika impor gagal
+
+Seluruh isi berkas diperiksa sebelum ada data yang disimpan. Jika ditemukan satu kesalahan, tidak ada soal yang diimpor dan Anda menerima notifikasi **Gagal Mengimpor Soal** yang menyebutkan sheet dan baris yang bermasalah. Perbaiki berkas, lalu impor ulang. Penyebab yang sering terjadi:
+
+| Pesan | Perbaikan |
+| --- | --- |
+| Berkas tidak memiliki sheet yang diperlukan | Gunakan template dari aplikasi dan jangan mengganti nama sheet **Data Soal** dan **Data Jawaban**. |
+| Versi template tidak sesuai | Unduh template terbaru melalui **Unduh Template**, lalu salin isinya ke template tersebut. |
+| Kode "Jenis Soal" atau "Tipe Soal" tidak valid | Gunakan kode **PG**, **MK**, **IN** dan **T**, **G**, **A** sesuai **Referensi Data Master**. |
+| Kolom "Jawaban Benar" wajib diisi untuk jenis soal "IN" / harus kosong untuk jenis soal selain "IN" | Isi kolom **Jawaban Benar hanya untuk IN** hanya pada soal **IN**. |
+| Kode Wacana tidak ada di sheet "Data Wacana" | Pastikan kode pada **Data Soal** sama persis dengan kode di **Data Wacana**. |
+| Nomor soal tidak ditemukan di sheet "Data Soal" / bukan jenis Pilihan Ganda atau Majemuk Kompleks | Periksa kolom **No Soal** pada **Data Jawaban** dan pastikan soalnya berjenis **PG** atau **MK**. |
+| Kunci jawaban tidak valid | Isi huruf A sampai F, dipisahkan koma tanpa spasi. |
+| Kolom "Tingkat Kesulitan" wajib diisi | Paket dipakai tes CAT; isi tingkat kesulitan setiap soal. |
+
+<Tip>
+  Setelah impor, nilai **Skor CBT** dan **Skor CAT** dapat diubah sekaligus untuk banyak soal melalui **Tindakan** → **Ubah Skor Massal** pada **Daftar Soal**. Lihat [Membuat Paket Soal](/paket-soal/membuat-paket-soal).
+</Tip>

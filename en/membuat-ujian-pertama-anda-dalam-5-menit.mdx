@@ -1,1170 +1,516 @@
 ---
 title: "Create Your First Exam in 5 Minutes"
-description: "A quick-start guide to creating your first exam in CBT Indolat, from setting up a question package to participants taking it and downloading the results."
+description: "A quick-start guide to creating your first exam in CBT Indolat, from the question package to participants taking the exam and downloading the results."
 ---
 
-Hi! Welcome to the Indolat Quick Start guide.
+This quick-start guide walks you through one exam from start to finish: preparing a question package, creating the exam, its test and session, adding participants, trying the exam as a participant, then monitoring and downloading the results. Advanced settings are left out; every section links to the full guide for that topic.
 
-In this guide, you will create an exam and get it ready for participants to take. Advanced settings are left out for now. We'll focus on **the main steps you'll use most often**.
+The UI is in Indonesian, so menu and button names are written exactly as they appear on screen, with an English gloss in parentheses the first time they are mentioned.
 
-## Parts of an Exam
+<Info>
+  **Menu location:** **Portal** → **Platform Ujian (CBT)** (Exam Platform). All admin steps on this page take place in the Platform Ujian (CBT) module.
 
-Put simply, creating an exam involves four parts:
+  **Role:** the project owner, or an admin who has access to **Data Paket Soal**, **Data Ujian**, and the other **Ujian** menus (see [Admin Access Management](/en/lainnya/manajemen-akses-admin)).
+</Info>
 
-1. **Question Package**: where a set of questions is stored, often called a question bank.
-2. **Exam**: the main event that participants take part in.
-3. **Test**: a part or subject inside an exam.
-4. **Exam Session**: the schedule on which participants take the exam.
+## How the pieces fit together
 
-💡 For example, say you are the **owner of Indolat Tutoring Centre** and you are running a **Grand Tryout to prepare for SNBT 2027** (a tryout is a practice exam; SNBT is Indonesia's national university entrance test):
+An exam in CBT Indolat is made of the following parts.
 
-- Question package: **Mathematical Reasoning Package**
-- Exam: **SNBT 2027 Grand Tryout**
-- Test: **Mathematics**
-- Exam session: **Morning Session, 10:00–12:00**
+| Part | Purpose | Example in this guide |
+| --- | --- | --- |
+| **Paket Soal** (question package) | A question bank holding the questions and their answer keys. | **Paket Penalaran Matematika** (code **PM-TOAKBAR27**), 3 multiple-choice questions |
+| **Ujian** (exam) | The main event participants take part in. | **Tryout Akbar SNBT 2027 – Gelombang 1** (code **TOAKBAR27-G1**), a practice exam for Indonesia's national university entrance test |
+| **Tes Ujian** (test) | A subject (subtest) inside the exam, with its own duration and scoring method. | **Penalaran Matematika**, 30 minutes |
+| **Sesi Ujian** (exam session) | The schedule for a test, plus the question package it uses. | **Sesi 1**, 24 November 2026 at 13:00 to 30 November 2026 at 21:00 |
+| **Peserta** (participants) | Accounts registered for the exam and assigned to a session. | 5 students imported from Excel, for example **Dimas Pratama** |
 
-Once you understand this structure, you can start by preparing a question package! 🚀
+The order is: create the question package, create the exam, add a test, create a session for that test, add participants, then assign the participants to the session. Participants can only take the test once all four are in place.
 
-## 1. Create a Question Package
+## 1. Open Platform Ujian (CBT)
 
-Before running an exam, first set up a **container** for the questions participants will answer.
+<Steps>
+  <Step title="Sign in and open the Platform Ujian (CBT) module">
+    <Frame>
+      ![Platform Ujian (CBT) tile in the Daftar Modul list on the Portal page](/images/mulai-cepat/membuat-ujian-pertama/01-portal-platform-ujian.png)
+    </Frame>
 
-**A question package stores all the questions together with their answers**; you could also call it a question bank. Next, choose the package type: **CBT/CAT** or **Essay/File Upload**.
+    After signing in to the admin panel you land on the **Portal** page. Under **Daftar Modul** (module list), click **Platform Ujian (CBT)**. Every menu used in this guide is in that module's sidebar.
+  </Step>
+</Steps>
 
-<Note>
-  **CBT/CAT** and **Essay/File Upload** question packages **can't be combined** in one question package. If your exam needs both kinds of questions, create two separate question packages and add them as separate tests.
+## 2. Create a question package
 
-  Example:
+<Steps>
+  <Step title="Open Data Paket Soal, then click Tambah Paket Soal">
+    <Frame>
+      ![Data Paket Soal menu in the sidebar and the Tambah Paket Soal button](/images/mulai-cepat/membuat-ujian-pertama/02-menu-data-paket-soal.png)
+    </Frame>
 
-  - Question package 1: **Mathematics Multiple Choice** — CBT/CAT type
-  - Question package 2: **Mathematics Essay** — Essay/File Upload type
+    1. In the sidebar, click **Manajemen Ujian** → **Data Paket Soal** (question packages).
+    2. Click **Tambah Paket Soal** (add question package).
+  </Step>
+  <Step title="Fill in the package details">
+    <Frame>
+      ![Completed Informasi Umum form for the question package](/images/mulai-cepat/membuat-ujian-pertama/03-formulir-paket-soal.png)
+    </Frame>
 
-  This way, each question package has a clear way of answering and grading.
-</Note>
+    1. **Nama Paket Soal** (package name): an easy-to-recognize name, for example **Paket Penalaran Matematika**.
+    2. **Kode Paket Soal** (package code): a code that is unique in your project, for example **PM-TOAKBAR27**. A code already used by another package is rejected.
+    3. **Deskripsi Paket Soal** (description): a short description of the package (up to 1,000 characters).
+    4. **Jenis Paket Soal** (package type): choose **CBT/CAT** so participants answer on screen and are scored automatically. The type cannot be changed after the package is saved.
+    5. **Acak Soal** (shuffle questions): turn on to give each participant a different question order.
+    6. **Acak Jawaban (Pilihan Ganda)** (shuffle answers): turn on to give each participant a different answer order.
+    7. Click **Buat** (create). The package page opens so you can add questions straight away.
+
+    <Note>
+      Choose **Esai/Upload File (Jawaban Manual)** when participants write essays or upload answer files that are graded by hand. Packages of this type cannot be used for CBT/CAT tests, and vice versa. See [Create a Question Package](/en/paket-soal/membuat-paket-soal).
+    </Note>
+  </Step>
+</Steps>
+
+<Tip>
+  Instead of entering questions one by one, you can use **Template Paket Soal** (package template), [import questions from Excel](/en/paket-soal/import-paket-soal), or [generate questions with Jasper AI](/en/paket-soal/generate-soal-ai).
+</Tip>
+
+## 3. Add questions
+
+<Steps>
+  <Step title="Click Tambah Soal">
+    <Frame>
+      ![Tambah Soal button in the Daftar Soal section of the package page](/images/mulai-cepat/membuat-ujian-pertama/04-tombol-tambah-soal.png)
+    </Frame>
+
+    Scroll to the **Daftar Soal** (question list) section and click **Tambah Soal** (add question). The **Tambah Soal** window opens with the tabs **Soal** (question), **Jawaban** (answers), **Pembahasan** (explanation), and **Penilaian** (scoring).
+
+    To open this package again later, go to **Data Paket Soal** and click **Ubah** (edit) on the package.
+  </Step>
+  <Step title="Fill in the Soal tab">
+    <Frame>
+      ![Soal tab in the Tambah Soal window with Jenis Soal, Media Soal, and Teks Soal filled in](/images/mulai-cepat/membuat-ujian-pertama/05-formulir-soal.png)
+    </Frame>
+
+    1. **Jenis Soal** (question type): choose **Pilihan Ganda** (multiple choice).
+    2. **Media Soal** (question media): choose **Teks** (text). You can pick more than one medium, for example text and an image.
+    3. **Teks Soal** (question text): write the question, for example _Sebuah toko memberikan diskon 20% untuk sebuah tas. Setelah diskon, harga tas menjadi Rp240.000. Harga tas sebelum diskon adalah ...._ (A shop gives a 20% discount on a bag; after the discount the bag costs Rp240,000; what was the price before the discount?)
+
+    **Kelompok Soal** (question group), **Wacana** (reading passage), and **Jawaban Lebih dari Satu** (multiple correct answers) can stay empty for stand-alone questions. The other question types (**Jawaban Singkat**, **Majemuk Kompleks**, **Menjodohkan**) are covered in [Create a Question Package](/en/paket-soal/membuat-paket-soal).
+  </Step>
+  <Step title="Fill in the answer options on the Jawaban tab">
+    <Frame>
+      ![Isi 5 opsi (A–E) button on the Jawaban tab](/images/mulai-cepat/membuat-ujian-pertama/06-tab-jawaban.png)
+    </Frame>
+
+    Open the **Jawaban** tab and click **Isi 5 opsi (A–E)** (fill 5 options) to create five answer options at once, each with **Teks** media. Use **+ Tambah Jawaban** (add answer) if you need more options.
+
+    <Frame>
+      ![Answer option D with Kunci Jawaban turned on and Teks Jawaban Rp300.000](/images/mulai-cepat/membuat-ujian-pertama/07-jawaban-dan-kunci.png)
+    </Frame>
+
+    For each answer option:
+
+    1. **Kunci Jawaban** (answer key): turn on only for the correct option, option D in this example.
+    2. **Teks Jawaban** (answer text): write the option participants see, for example **Rp300.000**.
+
+    **Skor Jawaban** (answer score) and **Kelompok Jawaban** (answer group) are only used by specific scoring methods and can be left as they are. Click **Buat** to save the question, or **Buat & buat lainnya** (create and add another) to go straight to the next one.
+  </Step>
+  <Step title="Check the question list">
+    <Frame>
+      ![Daftar Soal containing three multiple-choice questions](/images/mulai-cepat/membuat-ujian-pertama/08-daftar-soal-terisi.png)
+    </Frame>
+
+    Repeat the steps above until all questions are in. This example uses three Penalaran Matematika (mathematical reasoning) questions.
+  </Step>
+  <Step title="Set the question scores">
+    <Frame>
+      ![All questions selected, the Tindakan menu open, and the Ubah Skor Massal option](/images/mulai-cepat/membuat-ujian-pertama/09-ubah-skor-massal.png)
+    </Frame>
+
+    Decide how many points each question is worth:
+
+    1. Tick the checkbox in the table header to select all questions.
+    2. Click **Tindakan** (actions).
+    3. Choose **Ubah Skor Massal** (bulk change score).
+
+    <Frame>
+      ![Ubah Skor Soal window with Skor Benar 10, Skor Salah 0, and Skor Tidak Dijawab 0 in the Skor CBT section](/images/mulai-cepat/membuat-ujian-pertama/10-formulir-skor-soal.png)
+    </Frame>
+
+    In the **Skor CBT** section, enter:
+
+    1. **Skor Benar** (correct score): for example **10**.
+    2. **Skor Salah** (incorrect score): for example **0** (use a negative number to deduct points for wrong answers).
+    3. **Skor Tidak Dijawab** (unanswered score): for example **0**.
+    4. Click **Simpan Perubahan** (save changes).
+
+    With these settings, a participant who answers all three questions correctly scores **30**. You can also set scores per question on the **Penilaian** tab of the question window.
+
+    <Warning>
+      With the **Perhitungan Skor Soal (Akumulasi Benar/Salah)** scoring method, a participant's score is the sum of the question scores. If **Skor Benar** is left empty, every participant scores **0** even with correct answers. Question scores cannot be changed while a participant is taking a test that uses this package.
+    </Warning>
+  </Step>
+</Steps>
+
+## 4. Create the exam
+
+<Steps>
+  <Step title="Open Data Ujian, then click Tambah Ujian">
+    <Frame>
+      ![Data Ujian menu in the sidebar and the Tambah Ujian button](/images/mulai-cepat/membuat-ujian-pertama/11-menu-data-ujian.png)
+    </Frame>
+
+    1. In the sidebar, click **Manajemen Ujian** → **Data Ujian** (exams).
+    2. Click **Tambah Ujian** (add exam).
+  </Step>
+  <Step title="Fill in the exam details">
+    <Frame>
+      ![Completed Informasi Umum form for the exam](/images/mulai-cepat/membuat-ujian-pertama/12-formulir-ujian.png)
+    </Frame>
+
+    1. **Kode Ujian** (exam code): a unique code made of letters, numbers, hyphens (-), or hash signs (#), for example **TOAKBAR27-G1**. It is converted to upper case and becomes the prefix of each **Kode Peserta** (participant code).
+    2. **Nama Ujian** (exam name): the name participants see, for example **Tryout Akbar SNBT 2027 – Gelombang 1**.
+    3. **Tanggal Mulai** (start date): the start of the exam period, for example 24 November 2026 at 08:00.
+    4. **Tanggal Selesai** (end date): the end of the exam period, for example 6 December 2026 at 21:00. It can be at most one year from today.
+    5. **Deskripsi Ujian** (description): a short description of the exam.
+    6. **Gambar/Sampul Ujian** (cover image, optional): a PNG file of up to 1 MB.
+    7. **Tipe Ujian** (exam type): choose **Ujian Standard (Paket Gratis)** (free standard exam) for a simple exam. The box below it shows the remaining credit and the limits: up to 4 tests per exam, up to 50 participants testing at the same time, no camera, screen, or dual-monitor proctoring, and no CAT. **Ujian Professional (Paket Berbayar)** (paid professional exam) raises the limits to 30 tests and 1,000 concurrent participants and includes those features.
+    8. Click **Buat**.
+
+    <Note>
+      Exam credit is used when participants take the exam. If you choose **Ujian Professional (Paket Berbayar)** without professional exam credit, a warning appears and participants cannot start the exam until credit is available.
+    </Note>
+  </Step>
+  <Step title="Get to know the exam detail page">
+    <Frame>
+      ![Exam settings tabs and the Ekspor Data, Kode Peserta, and Hitung Skor buttons on the exam detail page](/images/mulai-cepat/membuat-ujian-pertama/13-halaman-detail-ujian.png)
+    </Frame>
+
+    Once the exam is created, its detail page opens. The settings are split into the tabs **Informasi Umum** (general), **Tipe & Paket Ujian** (type and plan), **Pendaftaran & Pembayaran** (registration and payment), **Pengaturan Ujian** (exam settings), and **Informasi Tambahan** (additional information). Below them are the **Daftar Tes Ujian** (tests), **Formulir Pendaftaran** (registration form), and **Daftar Peserta Ujian** (participants) tabs.
+
+    For this quick start the default settings are enough: a free, single-stage (not multi-level) exam that participants do not register for themselves. Each tab is explained in [Create an Exam](/en/data-ujian/membuat-ujian).
+
+    To open this page again later, go to **Data Ujian** and click **Detail** on the exam.
+  </Step>
+</Steps>
+
+## 5. Add a test
+
+<Steps>
+  <Step title="Click Tambah Tes Ujian">
+    <Frame>
+      ![Tambah Tes Ujian button on the Daftar Tes Ujian tab](/images/mulai-cepat/membuat-ujian-pertama/14-tombol-tambah-tes-ujian.png)
+    </Frame>
+
+    Scroll to the **Daftar Tes Ujian** tab and click **Tambah Tes Ujian** (add test).
+  </Step>
+  <Step title="Fill in the test details">
+    <Frame>
+      ![Completed Tambah Tes Ujian window](/images/mulai-cepat/membuat-ujian-pertama/15-formulir-tes-ujian.png)
+    </Frame>
+
+    1. **Jenis Ujian** (test type): keep **Computer Based Test (CBT)**.
+    2. **Metode Penilaian** (scoring method): choose **Perhitungan Skor Soal (Akumulasi Benar/Salah)** (question score, sum of right and wrong), which totals the question scores you set earlier.
+    3. **Nama Tes** (test name): for example **Penalaran Matematika**.
+    4. **Durasi Pengerjaan (menit)** (duration in minutes): for example **30**.
+    5. **Instruksi Pengerjaan Tes Ujian** (instructions): pre-filled with default text. The placeholders `{{NAMA_TES}}`, `{{JUMLAH_SOAL}}`, and `{{DURASI_TES}}` are replaced with the test name, number of questions, and duration.
+    6. Click **Buat**.
+
+    Other scoring methods (psychometric, IRT, and so on) are covered in [Create a Test](/en/data-ujian/membuat-tes-ujian).
+  </Step>
+  <Step title="Open the new test">
+    <Frame>
+      ![The Penalaran Matematika test with the note Tes belum memiliki sesi ujian and the Ubah button](/images/mulai-cepat/membuat-ujian-pertama/16-daftar-tes-ujian.png)
+    </Frame>
+
+    The new test shows the note **\*Tes belum memiliki sesi ujian** (the test has no session yet), which means it cannot be taken yet. Click **Ubah** to open the test page.
+  </Step>
+  <Step title="Show the score to participants">
+    <Frame>
+      ![Skor & Hasil tab with Tampilkan Skor and Tampilkan Ringkasan turned on](/images/mulai-cepat/membuat-ujian-pertama/17-skor-dan-hasil.png)
+    </Frame>
+
+    Open the **Skor & Hasil** (score and results) tab, then:
+
+    1. Turn on **Tampilkan Skor** (show score) so participants see their score when they finish.
+    2. Turn on **Tampilkan Ringkasan** (show summary) so participants see how many answers were right and wrong.
+    3. Click **Simpan** (save).
+
+    The **Pengawasan** (proctoring) tab holds settings such as **Deteksi Pindah Tab** (tab-switch detection); see [Create a Test](/en/data-ujian/membuat-tes-ujian).
+  </Step>
+</Steps>
+
+## 6. Create an exam session
+
+<Steps>
+  <Step title="Click Tambah Sesi Ujian">
+    <Frame>
+      ![Tambah Sesi Ujian button on the Daftar Sesi Ujian tab of the test page](/images/mulai-cepat/membuat-ujian-pertama/18-tombol-tambah-sesi.png)
+    </Frame>
+
+    Still on the test page, scroll to the **Daftar Sesi Ujian** (sessions) tab and click **Tambah Sesi Ujian** (add session).
+  </Step>
+  <Step title="Set the schedule and question package">
+    <Frame>
+      ![Completed Tambah Sesi Ujian window](/images/mulai-cepat/membuat-ujian-pertama/19-formulir-sesi-ujian.png)
+    </Frame>
+
+    1. **Nama Sesi** (session name): for example **Sesi 1**.
+    2. **Paket Soal**: choose **Paket Penalaran Matematika**. Only **CBT/CAT** packages are listed for a CBT test.
+    3. **Tanggal Mulai Sesi** (session start): for example 24 November 2026 at 13:00.
+    4. **Tanggal Selesai Sesi** (session end): for example 30 November 2026 at 21:00.
+    5. Click **Buat**.
+
+    The information box above the form shows the exam's date range. Session dates must fall within it.
+
+    <Warning>
+      Participants cannot start a session that has no question package. Make sure **Paket Soal** is selected.
+    </Warning>
+
+    If participants are split across several time slots, create several sessions. See [Create an Exam Session](/en/data-ujian/membuat-sesi-ujian).
+  </Step>
+</Steps>
+
+## 7. Add participants
+
+In this example the admin prepares the participant accounts by importing an Excel file. Other options are described at the end of this section.
+
+<Steps>
+  <Step title="Open Daftar Peserta Ujian, then click Import Peserta">
+    <Frame>
+      ![Daftar Peserta Ujian tab and the Import Peserta button on the exam detail page](/images/mulai-cepat/membuat-ujian-pertama/20-tab-daftar-peserta.png)
+    </Frame>
+
+    Go back to the exam detail page (click **Kembali ke Detail Ujian**, back to exam detail, on the test page).
+
+    1. Click the **Daftar Peserta Ujian** tab.
+    2. Click **Import Peserta** (import participants).
+  </Step>
+  <Step title="Download the template and fill in the participants">
+    <Frame>
+      ![Unduh Template link in the Import Peserta window](/images/mulai-cepat/membuat-ujian-pertama/21-unduh-template.png)
+    </Frame>
+
+    Click **Unduh Template** (download template) to get the Excel file, then fill in one row per participant:
+
+    | Nama | Alamat Email | Kata Sandi | Label |
+    | --- | --- | --- | --- |
+    | Dimas Pratama | dimas.pratama@contoh.id | (participant's password) | Gelombang 1 |
+    | Siti Rahmawati | siti.rahmawati@contoh.id | (participant's password) | Gelombang 1 |
+
+    - **Nama** (name), **Alamat Email** (email address), and **Kata Sandi** (password) are required. Incomplete rows are skipped.
+    - **Label** is optional; use it to group participants, for example **Gelombang 1** or **Kelas 12 IPA**.
+    - Participants sign in with the email address. The system does not check whether the address actually exists, so you can use exam-only addresses as long as each participant has a different one.
+  </Step>
+  <Step title="Upload the file and click Import">
+    <Frame>
+      ![Uploaded Excel file showing Pengunggahan selesai and the Import button](/images/mulai-cepat/membuat-ujian-pertama/22-unggah-file-impor.png)
+    </Frame>
+
+    Drag the file into the **File Excel** field or click **Jelajahi** (browse). When **Pengunggahan selesai** (upload complete) appears, click **Import**.
+
+    <Frame>
+      ![Five imported participants in Daftar Peserta Ujian with the status Aktif](/images/mulai-cepat/membuat-ujian-pertama/23-peserta-hasil-impor.png)
+    </Frame>
+
+    The import runs in the background and its progress is shown at the top of the page. Accounts that do not exist yet are created automatically, and every participant is added to the exam with a **Kode Peserta** such as **TOAKBAR27-G10000001**. Participants already registered for this exam are not duplicated.
+  </Step>
+</Steps>
 
 <AccordionGroup>
-  <Accordion title="CBT / CAT" icon="sparkles">
-    <Steps>
-      <Step title="Open the Question Package Data menu">
-        <Frame>
-          ![Question Package Data menu in the admin panel](/images/data-paket-ujian.png)
-        </Frame>
-      </Step>
-      <Step title="Click Add Question Package">
-        <Frame>
-          ![Add Question Package button on the Question Package Data page](/images/tambah-paket-soal.png)
-        </Frame>
-      </Step>
-      <Step title="Fill In the Question Package Details">
-        <Frame>
-          ![Details form for a CBT/CAT question package](/images/informasi-paket-soal.png)
-        </Frame>
-
-        At this stage, you fill in the basic details and settings of the question package.
-
-        1. **Question Package Name**<br />Enter a name that's easy to recognise, for example **Mathematical Reasoning**.
-        2. **Question Package Code**<br />Enter a unique code to tell question packages apart, for example **MTK-UJIAN**.
-        3. **Question Package Description**<br />Add a short description of the package's content or purpose.
-        4. **Question Package Type**<br />Choose **CBT/CAT** if participants will work through and answer the questions directly in the system.
-        5. **Shuffle Questions**<br />Turn this on if you want the question order to differ for each participant.
-        6. **Shuffle Answers (Multiple Choice)**<br />Turn this on if you want the order of the answer options to differ for each participant. This setting applies to multiple-choice questions.
-        7. **Save the question package**<br />Click **Create** to save the question package and move on to adding questions.
-
-        <Tip>
-          <Frame>
-            ![Question Package Type options](/images/jenis-paket-soal.png)
-          </Frame>
-
-          - Choose **CBT/CAT** if participants will see the questions on screen and enter their answers directly on the exam platform. This type is **well suited to UTBK-SNBT tryouts, olympiads** and other computer-based exams.
-          - Choose **Essay/File Upload (Manual Grading)** if the questions are already in a single file, such as a PDF. Participants open the file to read the questions, then submit their answers as the exam instructions say.
-        </Tip>
-      </Step>
-      <Step title="Save the Question Package">
-        <Frame>
-          ![Create button on the question package form](/images/download-1.png)
-        </Frame>
-
-        Click **Create** after filling in the question package details. You can then add questions to the package.
-      </Step>
-    </Steps>
+  <Accordion title="Adding existing accounts">
+    If the participant accounts already exist under **Manajemen Akun** → **Data Akun** (accounts), click **Tambah Peserta** (add participants) on the **Daftar Peserta Ujian** tab, tick the accounts you want, and click **Tambahkan Peserta**. Creating accounts is covered in [Add Participant Accounts](/en/data-akun/menambahkan-akun-peserta).
   </Accordion>
+  <Accordion title="Participants register themselves">
+    For an exam that is open to the public, participants can create an account and register for the exam themselves:
 
-  <Accordion title="Essay/File Questions" icon="sparkles">
-    <Steps>
-      <Step title="Open the Question Package Data menu">
-        <Frame>
-          ![Question Package Data menu in the admin panel](/images/data-paket-ujian.png)
-        </Frame>
-      </Step>
-      <Step title="Click Add Question Package">
-        <Frame>
-          ![Add Question Package button on the Question Package Data page](/images/tambah-paket-soal.png)
-        </Frame>
-      </Step>
-      <Step title="Fill In the Question Package Details">
-        <Frame>
-          ![Details form for an Essay/File Upload question package](/images/esai-1.png)
-        </Frame>
+    1. Turn on **Izinkan pendaftaran akun mandiri** (allow self-registration) in **Lainnya** → **Pengaturan Aplikasi** so the **Daftar** (register) button appears on the participant login page.
+    2. Turn on **Apakah Pendaftaran Ujian Dibuka?** (is exam registration open?) on the **Pendaftaran & Pembayaran** tab of the exam (requires the registration page add-on). Participants then register through the **Pendaftaran Tes Baru** (new test registration) button in the participant app.
+    3. Set the **Tipe Pembayaran** (payment type), registration form, and participant verification as needed.
 
-        Use this package type if participants will **write extended answers or upload answer files**.
-
-        1. **Question Package Name**: Enter a name that's easy to recognise.<br />Example: **Indonesian Language Literacy**.
-        2. **Question Package Code**: Enter a short, unique code.<br />Example: **LBI-UJIAN**.
-        3. **Question Package Description**: Write a short description of the package's content.<br />Example: _A set of Indonesian Language Literacy questions to prepare for SNBT 2027._
-        4. **Question Package Type**: Choose **Essay/File Upload (Manual Grading)**. Use this option if participants:
-           - write long answers directly in the system, or
-           - upload answer files, such as a PDF, a Word document or a photo of an answer sheet. Participants' answers then need to be checked and graded manually by a grader.
-        5. **Create**<br />Once everything is filled in, click **Create** to save the question package.
-
-        <Note>
-          This package type can't be used for CBT or CAT exams, because the system doesn't check the answers automatically.
-        </Note>
-
-        <Tip>
-          <Frame>
-            ![Essay/File Upload (Manual Grading) selected as the Question Package Type](/images/esai-2.png)
-          </Frame>
-
-          - Choose **CBT/CAT** if participants will see the questions on screen and enter their answers directly on the exam platform. This type is **well suited to UTBK-SNBT tryouts, olympiads** and other computer-based exams.
-          - Choose **Essay/File Upload (Manual Grading)** if the questions are already in a single file, such as a PDF. Participants open the file to read the questions, then submit their answers as the exam instructions say.
-        </Tip>
-      </Step>
-      <Step title="Save the Question Package">
-        <Frame>
-          ![Create button on the essay question package form](/images/simpan-paket-esai.png)
-        </Frame>
-
-        Click **Create** after filling in the question package details. You can then add questions to the package.
-      </Step>
-    </Steps>
+    The full steps are in [Create a Registration Form](/en/data-ujian/membuat-formulir-pendaftaran) and [Add Exam Participants](/en/data-ujian/menambahkan-peserta-ujian). Self-registered participants must also be assigned to a session unless **Set Sesi Otomatis Setelah Pendaftaran** (assign session after registration) is turned on.
   </Accordion>
 </AccordionGroup>
 
-## 2. Create the Questions and Answers
+## 8. Assign participants to the session
 
-Once the question package is created, the next step is to add questions to it.
+Participants registered for the exam cannot take a test until they are assigned to one of its sessions.
 
 <Steps>
-  <Step title="Click Add Question">
+  <Step title="Open Sesi Peserta Ujian on the test page">
     <Frame>
-      ![Add Question button in the Question List section](/images/tambah-soal.png)
+      ![Sesi Peserta Ujian tab with participants marked Tidak ada sesi ujian and the Set Sesi Ujian Otomatis button](/images/mulai-cepat/membuat-ujian-pertama/24-sesi-peserta-ujian.png)
     </Frame>
 
-    In the **Question List** section, click **Add Question** to enter questions one at a time. You can also use **Import Questions (Excel)** if you already have many questions and want to add them all at once.
+    Open the test page (**Daftar Tes Ujian** tab → **Ubah** on **Penalaran Matematika**), then:
 
-    <Tip>
-      If some questions haven't been added to the question package yet, you can add them later with these steps:
-
-      1. Open the **Question Package Data** menu.
-      2. Choose the question package whose questions haven't been added yet.
-      3. Click **Edit** on that question package.
-      4. Add the questions in the **Question List** section with the **Add Question** button.
-
-      <Frame>
-        ![Edit button on a question package on the Question Package Data page](/images/image-17.png)
-      </Frame>
-
-      <Frame>
-        ![Add Question button in the question package's Question List](/images/image-18.png)
-      </Frame>
-    </Tip>
+    1. Click the **Sesi Peserta Ujian** (participant sessions) tab. Participants without a session are marked **Tidak ada sesi ujian** (no session).
+    2. Click **Set Sesi Ujian Otomatis** (assign sessions automatically).
   </Step>
-  <Step title="Fill In the Question Details">
+  <Step title="Confirm the assignment">
     <Frame>
-      ![Question details form](/images/Lengkapi-informasi-soal.png)
+      ![Confirmation window for Set Sesi Ujian Otomatis](/images/mulai-cepat/membuat-ujian-pertama/25-konfirmasi-set-sesi.png)
     </Frame>
 
-    After you click **Add Question**, the system shows the fields for adding a question to the package.
-
-    Start with the **Question** section, then set:
-
-    - **Question Type**: decides what kind of question participants will answer:
-      <Frame>
-        <img
-          src="/images/image-19.png"
-          alt="Question Type options"
-          style={{ width:"62%" }}
-        />
-      </Frame>
-      1. **Multiple Choice**<br />Participants choose the one correct answer.<br />Example: _The capital of Indonesia is ..._<br />A. Bandung<br />B. Jakarta<br />C. Surabaya
-      2. **Short Answer**<br />Participants type a short answer, either a number or text. You can set more than one answer that counts as correct. Set the key in the **Answer Key** section that appears when you choose this type: **Answer Format** (**Text** or **Number**), **Main Answer Key** and **Other Accepted Answers**.<br />Example: _The capital of Indonesia is ..._<br />Correct answers: **DKI Jakarta** or **Jakarta**
-      3. **Complex Multiple Response (True/False, Fact/Opinion, etc.)**<br />For each statement, participants choose one of two labels. The labels can be True/False, Fact/Opinion, Matches/Does Not Match, Agree/Disagree, Yes/No or any other labels you set. Choose them in **Label Pair** under **Statement Column Labels**; choose **Other labels (type your own)** to write your own.<br />Example:
-         - The sun rises in the east — **True**
-         - Water freezes at 100°C — **False**
-      4. **Matching (Drag & Drop)**<br />Participants pair up the options that belong together. Fill in the pairs in the **Matching Pairs** section (**Statement (Left)** and **Answer (Right)**); the right-hand side is shuffled during the exam.<br />Example:
-         - Indonesia → Jakarta
-         - Japan → Tokyo
-    - **Question Group**: groups several questions that share the same material or topic.
-      <Frame>
-        <img
-          src="/images/image-21.png"
-          alt="Question Group field"
-          style={{ width:"61%" }}
-        />
-      </Frame>
-      Example: there is one reading passage called **“School Environment”**, and 3 questions are written about it. All three questions can go into the **School Environment** question group. Participants read the same material, then answer several related questions. Another example:
-      - Question group: **Reading Text 1**
-      - Question 1: What is the main idea of the text?
-      - Question 2: Who are the characters in the text?
-      - Question 3: What is the conclusion of the text?
-      > If each question stands on its own and doesn't use shared material, you can leave **Question Group** empty.
-    - **Passages**: choose a shared reading text to show above the question text. The list of passages comes from the **Passages** tab of the question package (see the **Create Passages (Shared Reading Texts)** section on the [Create a Question Package](/en/paket-soal/membuat-paket-soal) page). Leave it empty if the question doesn't use a reading text.
-    - **More Than One Answer**: use this when a question has more than one correct answer. This setting only appears for **Multiple Choice** questions.
-      <Frame>
-        <img
-          src="/images/image-23.png"
-          alt="More Than One Answer setting"
-          style={{ width:"58%" }}
-        />
-      </Frame>
-      Example: **Select the animals that are mammals:**
-      - Cat ✅
-      - Cow ✅
-      - Chicken
-      - Fish
-
-      In this example, participants must select **Cat** and **Cow**.
-      > Only turn this setting on if participants are really allowed to select several answers. If there is only one correct answer, leave it off.
-    - **Question Media**: decides what form the question takes for participants to see or hear.
-      <Frame>
-        <img
-          src="/images/image-24.png"
-          alt="Question Media options"
-          style={{ width:"61%" }}
-        />
-      </Frame>
-      You can choose more than one **Question Media** for a single question.
-      <Frame>
-        <img
-          src="/images/image-25.png"
-          alt="Text, image and audio question media selected together"
-          style={{ width:"94%" }}
-        />
-      </Frame>
-      This means one question can combine **text, images and audio**. For example:
-      - **Text** to write the question.
-      - **Image** to show a chart or an illustration.
-      - **Audio** for listening material.
-      > Choose the media you need for the kind of question you are creating.
-  </Step>
-  <Step title="Enter the Question">
-    <Frame>
-      ![Question Text field on the question form](/images/isikan-soal.png)
-    </Frame>
-
-    In the **Question Text** section, write the question participants will read.
-
-    Example:
-
-    > A shop gives a 20% discount on a bag. After the discount, the bag costs Rp240,000. The price of the bag before the discount is ....
-
-    Use the buttons at the top of the field to format text, create lists, add tables or write maths formulas. The question text can be up to 5,000 characters.
-
-    <Tip>
-      LaTeX is used to write maths formulas so they display neatly. To use it:
-
-      1. Click **Show LaTeX Input**.
-      2. Type the formula in the field provided.
-      3. Click **Copy**.
-      4. Paste the formula into the **Question Text** section.
-
-      <Frame>
-        ![Show LaTeX Input button in the question editor](/images/latex-1-2.png)
-
-        ![LaTeX input field and Copy button](/images/latex-2.png)
-
-        ![LaTeX formula pasted into the Question Text](/images/Latex-3.png)
-      </Frame>
-    </Tip>
-  </Step>
-  <Step title="Add the Answer Options">
-    <Frame>
-      ![Add Answer button in the Answer section](/images/image-7.png)
-    </Frame>
-
-    Once the question is written, open the **Answer** section, then click **Add Answer** to add answer options and set the correct answer.
-
-    The system shows the fields for the list of answers.
+    Click **Set Sesi Ujian Otomatis** in the confirmation window. The system spreads participants evenly across the available sessions; with one session, everyone goes into **Sesi 1**.
 
     <Frame>
-      ![Answer option fields](/images/image-9.png)
-    </Frame>
-
-    Fill in each answer option as follows:
-
-    1. **Answer Media**: Choose the form of the answer, for example text, image or audio.
-    2. **Answer Key**: Turn this on only for the correct option. If **More Than One Answer** is on, turn it on for every correct option.<br />For example, if the correct answer is **Rp300,000**, turn on **Answer Key** only for that option. Leave it off for the other options.
-       <Frame>
-         <img
-           src="/images/image-11.png"
-           alt="Answer Key turned on for the correct answer option"
-           className="mx-auto"
-           style={{ width:"52%" }}
-         />
-       </Frame>
-    3. **Answer Score**: Enter the score for that option. This field is only used by the **Answer Score Calculation (Sum of Answer Scores)** scoring method.<br />For example, a wrong answer can be given a score of **0**.
-    4. **Answer Group**: Used only by the **Psychometric (Answer Grouping)** scoring method. If you don't use it, you can leave this empty.
-    5. **Answer Text**: Write the answer option participants will see.
-    6. **Add Answer**: Click **Add Answer** to create the next answer option.
-
-    <Note>
-      The **Answer** tab only appears for **Multiple Choice** and **Complex Multiple Response** questions. For **Complex Multiple Response**, each answer holds one statement, and the **Answer Key** toggle is replaced by a **Correct Answer** field where you choose the right label. The key for **Short Answer** and the pairs for **Matching** are filled in on the **Question** tab.
-    </Note>
-
-    Repeat these steps until all the questions and answers have been added.
-
-    <Frame>
-      ![Question List containing the questions that have been added](/images/image-13.png)
+      ![All five participants now in Sesi 1 with the status Belum Mengerjakan](/images/mulai-cepat/membuat-ujian-pertama/26-peserta-sudah-bersesi.png)
     </Frame>
   </Step>
 </Steps>
-
-## 3. Create the Exam
-
-Once the questions and answers are created, the next step is to prepare the exam.
-
-💡 **Exam**: This is the **main container** for the whole exam event.
-
-> Example: SNBT 2027 Grand Tryout
->
-> This exam will hold several tests, participants, a registration form and payment settings.
-
-💡 **Test**: This is a **test section** inside the exam.
-
-> For example, the **SNBT 2027 Grand Tryout** contains:
->
-> - Mathematical Reasoning
-> - Indonesian Language Literacy
-> - English Language Literacy
->
-> Each test has its own duration, scoring method and settings.
-
-💡 **Exam Session**: This is the **schedule** for a test.
-
-> Example:
->
-> Mathematical Reasoning — Morning Session, 20 July 2026, 08:00–09:00<br />Mathematical Reasoning — Afternoon Session, 20 July 2026, 15:00–16:00
->
-> In the session, you choose the question package and decide when participants can start and must finish.
-
-### Create an Exam
-
-<Steps>
-  <Step title="Open the Exam Data menu">
-    <Frame>
-      ![Exam Data menu in the admin panel](/images/image-14.png)
-    </Frame>
-  </Step>
-  <Step title="Click Add Exam">
-    <Frame>
-      ![Add Exam button on the Exam Data page](/images/tambah-ujian.png)
-    </Frame>
-  </Step>
-  <Step title="Fill In the Exam Details">
-    <Frame>
-      ![Exam details form](/images/Isian-data-ujian-1.png)
-    </Frame>
-
-    At this stage, you fill in the basic details of the exam you are running.
-
-    1. **Exam Code**<br />Enter a short, unique code so the exam is easy to identify.<br />Example: **TO-JULI-26**
-    2. **Exam Name**<br />Write the exam name that admins and participants will see.<br />Example: **SNBT 2027 Grand Mathematics Tryout**
-    3. **Start Date**<br />Set the date and time the exam starts.
-    4. **End Date**<br />Set the date and time the exam ends.
-    5. **Exam Description**<br />Give a short description of the exam's purpose or content.<br />Example: _A tryout with a set of Mathematics questions to help participants prepare for SNBT 2027._
-    6. **Exam Image/Cover**<br />Upload an image to use as the exam cover (PNG format, up to 1 MB). This helps participants recognise the exam.
-    7. **Exam Type**<br />Choose the exam type you need. This example uses **Standard Exam (Free Plan)**. Check the limits the system shows before you continue.
-       <Frame>
-         ![Exam Type options](/images/tipe-ujian.png)
-       </Frame>
-    8. **Create**<br />Once you've checked that all the details are correct, click **Create** to save the exam.
-  </Step>
-  <Step title="Choose the Exam Type & Plan">
-    <Frame>
-      <img
-        src="/images/2026-07-19_18-12.png"
-        alt="Exam Type & Plan section with Professional Exam selected"
-        style={{ width:"85%" }}
-      />
-    </Frame>
-
-    The **Exam Type & Plan** section shows the service type or plan the exam uses.
-
-    <Frame>
-      ![Standard Exam and Professional Exam options](/images/image-30.png)
-    </Frame>
-
-    Exam credits are consumed when a participant takes an exam.
-
-    **A. Standard Exam (Free Plan)**
-
-    Suitable for simple exams or regular practice.
-
-    **Main terms:**
-
-    1. Credits are reset automatically every month.
-    2. Up to **4 Tests (Subtests)** per exam.
-    3. Up to **50 participants taking the exam at once** (at the same time).
-    4. Camera, screen and dual monitor proctoring is not available.
-    5. **Computer Adaptive Test (CAT)** is not available.
-
-    **B. Professional Exam (Paid Plan) — Rp500 per Exam Credit**
-
-    Suitable for exams with more participants and more complete requirements.
-
-    **Main terms:**
-
-    1. Credits are reset every month according to your subscription period.
-    2. Up to **30 Tests (Subtests)** per exam.
-    3. Up to **1,000 participants taking the exam at once**.
-    4. Camera, screen and dual monitor proctoring is available.
-    5. **Computer Adaptive Test (CAT)** is available.
-
-    With either exam type, CBT tests can use every scoring method, including IRT, and the **Tab Switch Detection** setting is still available.
-
-    <Warning>
-      If you choose **Professional Exam (Paid Plan)** but have no professional exam credits, the system shows a warning and participants can't start the exam until credits are available.
-    </Warning>
-
-    <Tip>
-      Choose **Standard Exam (Free Plan)** if the exam is simple, needs no more than 4 tests and no more than 50 participants take it at the same time.
-
-      Choose **Professional Exam (Paid Plan)** if you need more tests or more participants at once, CAT, or camera, screen and dual monitor proctoring.
-    </Tip>
-  </Step>
-  <Step title="Open the Registration & Payment section">
-    <Frame>
-      ![Registration & Payment section on the exam details](/images/pendaftaran-dan-pembayaran.png)
-    </Frame>
-
-    Once the exam is created, the system shows extra sections such as **Registration & Payment**. Here you decide whether participants can register themselves and whether the exam is free or paid.
-
-    1. **Is Exam Registration Open?**<br />When this is on, participants can register for the exam themselves. This setting needs the **Exam Registration Page and Automatic Payment** add-on. If the add-on isn't active, the setting's label shows **(Add-on Inactive)** and the setting can't be turned on.
-    2. **Payment Type**<br />Choose **Free** if participants don't need to pay. If the exam is paid, choose the matching payment type.
-
-       <Frame>
-         <img
-           src="/images/tipe-pembayaran.png"
-           alt="Payment Type options"
-           className="mr-auto"
-         />
-       </Frame>
-
-       - **Free**: Participants don't need to pay.
-
-         > Example:
-         >
-         > A free SNBT tryout made up of a Mathematics Test and an Indonesian Language Test. Participants can take all of them **at no cost**.
-       - **One-time Payment**: Participants pay once and can then take every test in the exam.
-
-         > Example:
-         >
-         > The SNBT tryout fee is Rp50,000. After paying, participants can take the Mathematical Reasoning Test, the Indonesian Language Literacy Test and the English Language Literacy Test.
-         >
-         > Participants don't need to pay again for each test.
-       - **Paid per Test**: Participants pay for each test they want to take.
-
-         > Example:
-         >
-         > Mathematics Test: Rp20,000
-         >
-         > Indonesian Language Test: Rp15,000
-         >
-         > English Language Test: Rp15,000
-         >
-         > Participants who only want to take the Mathematics Test pay just Rp20,000.
-       - **Paid per Level (Multi-Level)**: Used for exams made up of several rounds. Participants pay for each round they take part in.
-
-         > Example:
-         >
-         > Preliminary Round: Rp25,000
-         >
-         > Semifinal: Rp30,000
-         >
-         > Final: Rp40,000
-         >
-         > Participants pay the fee for the next round **only if they qualify**.
-    3. **One-time Exam Fee (IDR)**<br />The fee participants pay to take the exam. This field appears when the **One-time Payment** payment type is selected.
-    4. **Assign the Session Automatically After Registration**<br />Turn this on if participants who register successfully should be put into an exam session automatically. If the **Payment Type** is **One-time Payment** or **Paid per Test**, this setting is called **Assign the Session Automatically After Payment**.
-    5. When you're done, click **Save changes**.
-  </Step>
-  <Step title="Open the Exam Settings section">
-    <Frame>
-      ![Exam Settings section on the exam details](/images/pengaturan-ujian.png)
-    </Frame>
-
-    In the **Exam Settings** section, you decide the order in which tests are taken and how results are shown.
-
-    1. **Is This a Multi-Level Exam?**
-       - Choose **Yes (Multi-Level)** if the exam has several rounds, for example **Preliminary Round, Semifinal and Final**.
-       - Choose **No** if the exam has only one stage.
-    2. **Must the Tests Be Taken in Order?**<br />Turn this on if participants must take the tests in the set order.<br />Example: participants must finish the **Mathematics Test** before they can open the **Indonesian Language Test**.
-    3. **Must the Tests Be Taken in One Sitting?**
-       - Turn this on if participants must finish all the tests without stopping or taking a break.
-       - If it's off, participants can leave and continue with the next test later, according to the schedule.
-    4. **Final Score Type**<br />Choose how a participant's final score is derived from the scores of every test:
-       - **Accumulated Exam Test Scores**: adds up the score of each test.
-       - **Averaged Exam Test Scores**: divides the total by the number of tests already scored. This option is used by default.
-    5. **Show the Final Exam Score?**
-       - Turn this on if participants may see their score after finishing the exam.
-       - Turn it off if the scores still need checking or will be announced later.
-
-    The **Must the Tests Be Taken in Order?** and **Must the Tests Be Taken in One Sitting?** settings only appear when the exam isn't a multi-level exam. In a multi-level exam, you set both of them for each exam level.
-  </Step>
-  <Step title="Save the Exam">
-    <Frame>
-      ![Save button on the exam details](/images/simpan-data-ujiannn-1.png)
-    </Frame>
-
-    Once you've checked all the settings in **General Information**, **Exam Type & Plan**, **Registration & Payment** and **Exam Settings**, click **Save changes**.
-
-    The **Additional Information** section is optional. Use it if you want to show exam-specific information, such as a WhatsApp group link, on the dashboard of participants who have registered.
-
-    If the **Saved** notification appears, your exam settings have been saved.
-  </Step>
-</Steps>
-
-### Create a Test
-
-<Steps>
-  <Step title="Click Add Test">
-    <Frame>
-      ![Add Test button in the Test List section](/images/tambah-tes-ujian.png)
-    </Frame>
-
-    In the **Test List** section, click **Add Test**.
-
-    <Tip>
-      If some tests haven't been added to the exam yet, you can add them later with these steps:
-
-      1. Open the **Exam Data** menu.
-      2. Choose the exam whose tests haven't been added yet.
-      3. Click **Details** on that exam.
-      4. Add the tests in the **Test List** section with the **Add Test** button.
-
-      <Frame>
-        ![Test List section on the exam details](/images/sub-data-ujian.png)
-      </Frame>
-    </Tip>
-  </Step>
-  <Step title="Fill In the Test Details">
-    <Frame>
-      ![Test details form](/images/isi-tes-ujian.png)
-    </Frame>
-
-    After you click **Add Test**, the system shows the fields for the test participants will take.
-
-    - **Exam Type**: Choose the type of test you are running.
-      <Frame>
-        ![Exam Type options for a test](/images/jenis-ujian.png)
-      </Frame>
-      1. **Computer Based Test (CBT)**<br />Participants see the questions on screen, then choose or type their answers directly in the system.
-         > Example:<br />A participant sees the question: 10 × 5 = ...
-         >
-         > Then selects the answer **50** on screen.
-      2. **Computer Adaptive Test (CAT)**<br />The next question adapts to the participant's ability. You can only choose this option for a **Professional Exam (Paid Plan)**.
-         > Example:<br />A participant answers the first question correctly. The system then gives a slightly harder question. If the participant answers incorrectly, the system can give an easier or similar question.<br />**CAT is like an exam that “follows the participant's ability”. The more correct answers, the harder the next questions can get.**
-      3. **Essay / File Upload (Manual Grading)**<br />Participants don't choose an answer as they would in a multiple-choice question. They write a long answer or upload a file.
-         > Examples:
-         >
-         > - Writing an essay answer directly in the system.
-         > - Uploading a photo of an answer sheet.
-         > - Uploading a PDF or Word file.
-      <Tip>
-        For a regular SNBT tryout, choose **Computer Based Test (CBT)**.
-      </Tip>
-    - **Scoring Method**: Decide how the system calculates participants' scores. Every method below is available for **Computer Based Test (CBT)**. A **Computer Adaptive Test (CAT)** test can only use **Question Score Calculation (Sum of Correct/Wrong)**, and an **Essay / File Upload (Manual Grading)** test uses **Manual Scoring**.
-      <Frame>
-        ![Scoring Method options](/images/Metode-Penilaian.png)
-      </Frame>
-      1. **Question Score Calculation (Sum of Correct/Wrong)**<br />The score is calculated from the number of questions answered correctly.
-         > Example:
-         >
-         > - Correct answer: 10 points
-         > - Wrong answer: 0 points
-         > - The participant answers 8 out of 10 questions correctly
-         > - Participant's score: **80**
-
-         Suitable for tryouts or regular multiple-choice exams.
-      2. **Answer Score Calculation (Sum of Answer Scores)**<br />Each answer option can carry a different score.
-         > Example:
-         >
-         > Question: _How often do you study in a week?_
-         >
-         > - Every day: 4 points
-         > - 3–4 times: 3 points
-         > - 1–2 times: 2 points
-         > - Never: 1 point
-
-         The final score is the sum of the scores of all the participant's answers.
-      3. **Psychometric (Answer Grouping)**<br />The participant's answers are grouped to reveal certain tendencies or traits.
-         > Example:
-         >
-         > Question: _When working in a group, you prefer to..._
-         >
-         > - Organise how the tasks are shared → **Leadership** group
-         > - Help the other members → **Teamwork** group
-         > - Work on your own part → **Independent** group
-
-         The result isn't simply right or wrong; it shows which trait group the participant belongs to.
-      4. **Item Response Theory (IRT)**<br />The score doesn't just count correct answers; it also takes the difficulty of each question into account.
-         > Example:
-         >
-         > - Many participants answer the easy questions correctly.
-         > - Only a few participants answer the hard questions correctly.
-         > - Participants who can answer the hard questions can get a higher ability score.
-
-         This method suits large-scale exams or a deeper analysis of participants' ability. IRT comes in three options:
-         - **IRT (UTBK reference, 0-1000)**
-         - **IRT TKA for SMA/SMK (200-800)**
-         - **IRT TKA for SD/SMP (0-100)**
-
-         All three use the same estimate of the participant's ability; only the reported score range differs. The UTBK and TKA ranges are reference scales, not official equating.
-      <Tip>
-        For a simple SNBT tryout, choose **Question Score Calculation (Sum of Correct/Wrong)**.
-      </Tip>
-    - **Test Name**: Enter a test name that's easy to recognise.<br />Example: **Mathematical Reasoning**.
-    - **Working Time (minutes)**: Enter how long participants have, in minutes.<br />Example: **60 minutes**. This field doesn't appear for an **Essay / File Upload (Manual Grading)** test.
-    - **Test Instructions**: Write the instructions participants read before they start.
-
-    In the instructions, you can use these placeholders:
-
-    - `{{NAMA_TES}}` to show the test name.
-    - `{{JUMLAH_SOAL}}` to show the number of questions.
-    - `{{DURASI_TES}}` to show the working time.
-
-    Once everything is filled in, click **Create**. Choose **Create & create another** if you want to add the next test straight away.
-  </Step>
-  <Step title="Open the Test You Created">
-    <Frame>
-      ![New test in the Test List section](/images/buka-tes-ujian.png)
-    </Frame>
-
-    Once the test is created, it appears in the **Test List** section.
-
-    💡 Look out for the note **This test has no exam session yet**. It means the test is saved but has no schedule yet, so participants can't take it. Click **Edit** on the test you want to continue with.
-  </Step>
-  <Step title="Set Up Scores and Results">
-    <Frame>
-      ![Score & Results section in the test settings](/images/skor-dan-hasil.png)
-    </Frame>
-
-    Open the **Score & Results** section, then decide what participants may see after finishing the test.
-
-    1. **Show Score**<br />Turn this on if participants may see their score as soon as they finish.
-    2. **Show Summary**<br />Turn this on if participants may see how many answers they got right and wrong.
-    3. **Show the Test Explanation (PDF)**<br />Turn this on if you want to share one PDF file with explanations for all the questions. Once it's on, upload the file in the **Test Explanation File (PDF)** field.
-    4. **Show the Explanation per Question**<br />Turn this on if participants may see the explanation for each question. Make sure the explanation has been filled in for each question in the question package. This setting can't be on at the same time as **Show the Test Explanation (PDF)**.
-    5. **Save changes**<br />When you're done, click **Save changes**.
-
-    <Tip>
-      For a tryout where participants should see their results straight away, turn on **Show Score**.
-    </Tip>
-  </Step>
-  <Step title="Set Up Participant Proctoring">
-    <Frame>
-      ![Proctoring section in the test settings](/images/pengawasan.png)
-    </Frame>
-
-    In the **Proctoring** section, you decide how the system monitors participants during the exam.
-
-    1. **Camera Proctoring**<br />Turn this on if participants must keep their camera on while taking the exam.<br />Example: so proctors can make sure participants are doing the exam themselves.
-    2. **Screen Proctoring (Screen Share)**<br />Turn this on if participants must share their screen during the exam.<br />Example: proctors can see which apps or pages participants have open.
-    3. **Tab Switch Detection**<br />Turn this on if the system should record when participants open another tab or page during the exam.<br />Example: a participant switches from the exam page to a search engine.
-    4. **Allow Only One Screen**<br />Turn this on if participants may only use one monitor.<br />This setting suits exams that need stricter proctoring.
-    5. **Play the Audio Question Once**<br />Turn this on if the audio in a question may only be played once.<br />Example: English listening questions.
-    6. **Play the Audio Answer Once**<br />Turn this on if the audio in the answer options may only be played once.
-
-    When you're done, click **Save changes**.
-
-    <Note>
-      The note **(Feature inactive)** means the feature isn't available for the exam type you are using. For a **Standard Exam (Free Plan)**, it appears on **Camera Proctoring**, **Screen Proctoring (Screen Share)** and **Allow Only One Screen**.
-
-      <Frame>
-        ![Feature inactive notes in the Proctoring settings](/images/fitur-standar.png)
-      </Frame>
-    </Note>
-  </Step>
-</Steps>
-
-### Create an Exam Session
-
-<Steps>
-  <Step title="Click Add Exam Session">
-    <Frame>
-      ![Add Exam Session button on the test page](/images/tambah-sesi-ujian.png)
-    </Frame>
-
-    Once the test settings are done, scroll down the page and click **Add Exam Session**.
-
-    An exam session is the schedule for a test. In the session, you set the question package to use and the exam's start and end times.
-
-    <Warning>
-      Participants can't take a test until an exam session has been created and a question package chosen. Make sure every test has an exam session.
-    </Warning>
-  </Step>
-  <Step title="Fill In the Exam Session Details">
-    <Frame>
-      ![Exam session details form](/images/Informasi-sesi-ujian.png)
-    </Frame>
-
-    At this stage, you set the **test schedule** and choose the **question package** participants will answer.
-
-    - **Session Name**: Enter a name that's easy to recognise.<br />Example: **Morning Session** or **Session 1**.
-    - **Question Package**: Choose a question package you've created.<br />Make sure you choose one, because participants can't start a session that has no question package.
-    - **Session Start Date**: Set the date and time participants can start the test.
-    - **Session End Date**: Set the deadline for participants to finish the test.
-
-    <Note>
-      The session dates must fall within the date range you set for the main exam.
-    </Note>
-
-    Example:
-
-    > The exam runs from 18 to 25 July 2026.<br />The session can then be scheduled on 20 July 2026, 08:00–10:00.
-
-    Once everything is filled in, click **Create**. Choose **Create & create another** if you want to add the next session straight away.
-  </Step>
-</Steps>
-
-## 4. (Optional) Create Registration Form Rules
-
-You can add registration form rules to both a **Standard Exam (Free Plan)** and a **Professional Exam (Paid Plan)**, as long as the **Exam Registration Page and Automatic Payment** add-on is active. If the add-on isn't active, the **Registration Form** section shows the **Enable the Registration Form Add-on** button instead of **Add Registration Form**.
-
-<Steps>
-  <Step title="Click Add Registration Form">
-    <Frame>
-      ![Add Registration Form button on the exam details](/images/tambah-formulir.png)
-    </Frame>
-
-    Open the **Registration Form** section, then click **Add Registration Form**.
-  </Step>
-  <Step title="Fill In the Registration Form Rules">
-    <Frame>
-      ![Registration question rule form](/images/2026-07-23_19-56.png)
-    </Frame>
-
-    1. **Question Template (Optional)**: Choose a template if you want to use a ready-made question.<br />Example: **Payment Method** (only available when the **Payment Type** is **One-time Payment**).<br />If you don't use a template, you can leave this empty.
-    2. **Is it always shown on the registration form?**<br />Choose **Yes, always shown** if the question must always appear on the registration form.<br />Choose **Show it under certain conditions** if the question should only appear in certain situations.
-    3. **Is It Required?**<br />Turn this on if participants can't continue registering until they answer the question.
-    4. **Question Label**<br />Write the name of the information you are asking participants for.<br />Example: **School**, **WhatsApp Number** or **Full Name**.
-    5. **Question Type**<br />Choose the form of answer participants must give.<br />Examples:
-       - **Text (Input Biasa)** (plain text input) for a name, school or phone number.
-       - **Select (Dropdown)** or **Radio (Pilihan Tunggal)** (single choice) for answers chosen from a set list.
-       - **File (Berkas)** (file upload) for uploading proof of payment or a document.
-    6. **How to Fill It In**<br />Add guidance so participants know how to answer.<br />Example: _Enter the full name of your school._
-    7. **Create**<br />Click **Create** to save the question. Click **Create & create another** if you want to add the next question.
-  </Step>
-  <Step title="Click Create">
-    <Frame>
-      ![Create button on the registration question form](/images/buat-formulir-1.png)
-    </Frame>
-
-    <Frame>
-      ![New question in the Registration Form section](/images/simpan-formulir.png)
-    </Frame>
-
-    The form rule is saved.
-
-    <Tip>
-      You **may** skip this registration form step for any exam type. If the exam has a registration form, participants who register themselves get the **Awaiting Verification** status until an admin verifies them, unless you turn off **Does the Registration Form Need Verification?** under the settings (cog) icon in the **Registration Form** section. Without a registration form, participants are registered straight away without verification.
-    </Tip>
-  </Step>
-</Steps>
-
-## 5. Set the Participant Quota
-
-Enter how many participants may register for the exam.
-
-💡 **For example:**
-
-You only have **200 places** for the 2027 Mathematics Competition. Once 200 participants have registered, anyone else can't continue registering.
-
-<Steps>
-  <Step title="Open the exam details">
-    <Frame>
-      ![Details button on an exam on the Exam Data page](/images/2026-07-27_20-42.png)
-    </Frame>
-
-    Open the **Exam Data** menu, then click **Details** on the exam you created.
-  </Step>
-  <Step title="Open the Registration Form settings">
-    <Frame>
-      ![Settings icon in the Registration Form section](/images/2026-07-27_20-34.png)
-    </Frame>
-
-    Open the **Registration Form** section, then click the settings (cog) icon.
-  </Step>
-  <Step title="Fill In the Maximum Registration Quota">
-    <Frame>
-      ![Maximum Registration Quota field in the registration form settings](/images/2026-07-27_20-35.png)
-    </Frame>
-
-    You can set the number to suit your needs. Once the number of registrations reaches the maximum quota, anyone else can't continue registering.
-
-    <Tip>
-      Leave this field empty if you don't want to limit the number of participants.
-    </Tip>
-
-    When the setting is right, click **Update Settings**.
-  </Step>
-</Steps>
-
-## 6. Manage Participant Accounts
-
-The next step is to make sure participants have accounts and are registered for the exam.
-
-There are two ways to add participants:
-
-1. **Participants register themselves (self-registration)**, which suits exams open to the public.
-2. **You (the organiser) add the participants**, which suits internal exams at a school, institution or tutoring centre.
-
-<Warning>
-  Every exam participant, whether they registered themselves or were added by an admin, **must be connected to an exam session** before they can start answering questions.
-</Warning>
-
-On the participant's side, a test that has no exam session yet shows a **Locked** button, so it can't be taken yet. If the participant's registration is still awaiting admin verification, the exam shows a **Verification in Progress** button, as in the example below.
-
-<Frame>
-  ![Verification in Progress status on the participant's exam list](/images/verifikasi.png)
-</Frame>
-
-<AccordionGroup>
-  <Accordion title="Participants Register Themselves" icon="sparkles">
-    Use these steps if participants are allowed to create an account and register for the exam themselves.
-
-    <Steps>
-      <Step title="Open the Application Settings menu">
-        <Frame>
-          ![Application Settings menu in the admin panel](/images/Pengaturan-Aplikasi.png)
-        </Frame>
-      </Step>
-      <Step title="Open the General Information tab">
-        <Frame>
-          ![General Information tab in Application Settings](/images/informasi-umum.png)
-        </Frame>
-
-        Here you set the name and web address of the CBT system that participants will open.
-
-        1. **CBT System Name**<br />Enter the system name participants will see. Enter just the institution name, without the word **CBT**, because the system adds it automatically.<br />Example: **Try Out Indolat** appears as **CBT Try Out Indolat** in the participant app.
-        2. **CBT System Code**<br />Enter a short code that becomes your CBT system's address. It must be at least 4 characters long and contain only lowercase letters, numbers or hyphens (-).<br />Example: **tryout-lembaga-indolat**.
-           <Info>
-             Once the code is filled in, the system creates a login link such as `https://tryout-lembaga-indolat.indolat.web.id/auth/login`. This is the link **you share with participants** so they can open the login page.
-           </Info>
-        3. **CBT System Language**<br />Choose the language of the system's interface.<br />Example: **Bahasa Indonesia**.
-        4. **Save**<br />Once you've checked everything, click **Save**.
-      </Step>
-      <Step title="Open the Other Settings tab">
-        <Frame>
-          ![Authenticate with Google and self-service account registration settings](/images/mandiri.png)
-        </Frame>
-
-        - **(Optional) Authenticate with Google**<br />**Turn this on** if participants may log in with their existing Google or Gmail account. That way, participants don't need to create and remember a new password.
-        - **(Required) Allow self-service account registration**<br />**Turn this on** so participants can create their own accounts from the login page.
-        - **Save**<br />Once you've checked everything, click **Save**.
-      </Step>
-      <Step title="Share the CBT System Link with Participants">
-        <Frame>
-          ![Participant login page with the Register button](/images/login-mandiri.png)
-        </Frame>
-
-        1. You can share the link with exam participants through WhatsApp groups or your social media.
-        2. Once the CBT system link is shared, participants can open it in a browser, for example `https://tryout-lembaga-indolat.indolat.web.id/auth/login`.
-        3. On this page, participants have two ways to log in:
-           1. Click **Continue with Google** to use a Google or Gmail account. This button only appears if **Authenticate with Google** is turned on.
-           2. Enter their **Email Address** and **Password**, then click **Login** if they already have an account.
-        4. If participants don't have an account yet, they click **Register** at the bottom of the page.
-        5. Once logged in, participants register for the exam with the **New Exam Registration** button.
-
-        <Note>
-          The **Register** button only appears if the admin has turned on **Allow self-service account registration**. An exam only appears under **New Exam Registration** if **Is Exam Registration Open?** is turned on in the **Registration & Payment** section and the exam is between its **Start Date** and **End Date**.
-        </Note>
-      </Step>
-      <Step title="Connect Participants to an Exam Session">
-        Once participants have registered, connect them to an exam session. Follow the steps in the **How to Connect Participants to an Exam Session** section below.
-      </Step>
-      <Step title="Verify Participants">
-        <Frame>
-          ![Verify Participant button in the Exam Participant List](/images/veri.png)
-        </Frame>
-
-        In the **Exam Participant List** section, click **Verify Participant** for participants with the **Awaiting Verification** status, then click **Verify** in the window that opens.
-
-        <Warning>
-          Participants who **registered themselves** through a registration form get the **Awaiting Verification** status while **Does the Registration Form Need Verification?** is on (the default). You, as the exam organiser's admin, **must** verify them to confirm they are allowed to take the exam. Until they are verified, they can't take the exam.
-        </Warning>
-      </Step>
-    </Steps>
-  </Accordion>
-
-  <Accordion title="Participants Added by the Exam Organiser" icon="sparkles">
-    Use these steps if the exam organiser prepares the participant accounts. With the **Excel import** feature, you don't need to add participants one by one.
-
-    <Steps>
-      <Step title="Open the Application Settings menu">
-        <Frame>
-          ![Application Settings menu in the admin panel](/images/Pengaturan-Aplikasi.png)
-        </Frame>
-      </Step>
-      <Step title="Open the Other Settings tab">
-        <Frame>
-          ![Allow self-service account registration turned off](/images/nonaktif.png)
-        </Frame>
-
-        Make sure **Allow self-service account registration** is turned off.
-
-        Then click **Save**.
-      </Step>
-      <Step title="Click Import Participants">
-        <Frame>
-          ![Exam Data menu and the Details button on an exam](/images/1-2.png)
-        </Frame>
-
-        <Frame>
-          ![Exam Participant List section and the Import Participants button](/images/3-4.png)
-        </Frame>
-
-        1. Open the **Exam Data** menu.
-        2. Choose the exam participants will take.
-        3. Click **Details**.
-        4. The system opens the details page. Go to the **Exam Participant List** section.
-        5. Click **Import Participants**.
-      </Step>
-      <Step title="Download the Template">
-        <Frame>
-          ![Download Template button in the Import Participants window](/images/unduh-template.png)
-        </Frame>
-
-        Click **Download Template** to get the ready-made Excel format.
-      </Step>
-      <Step title="Enter Participant Data in the Import Template">
-        <Frame>
-          ![Participant import template with Name, Email Address, Password and Label columns](/images/template-impor.png)
-        </Frame>
-
-        1. **Name**: Enter the name of the participant taking the exam.
-        2. **Email Address**: Enter the email the participant will use to log in.
-        3. **Password**: Enter a password for each participant.
-
-        <Note>
-          **About email addresses**
-
-          During the import, the system **doesn't check** whether an email address is actually active and valid. So admins can use special email addresses created just for the exam, for example:
-
-          - `peserta001@indolat.com`
-          - `peserta002@indolat.com`
-
-          Make sure each participant has a different email address and password so accounts don't get mixed up.
-        </Note>
-
-        4. **Label**: a tag for grouping participants. You **can leave this column empty** if you don't need groups.
-
-        <Info>
-          **What the Label column is for**
-
-          The **Label** column groups participants so they are easier to find and select. Example labels:
-
-          - **Year 2026**
-          - **Grade 12 IPA** (science stream)
-          - **Batch 1**
-          - **Surabaya Branch**
-        </Info>
-      </Step>
-      <Step title="Upload the Import File">
-        <Frame>
-          ![Import file showing the Upload complete note](/images/impor.png)
-        </Frame>
-
-        1. Make sure the file name is shown along with the note **Upload complete**.
-        2. Click **Import**.
-        3. The system creates the participant accounts and adds them to the **Exam Participant List**. The import runs in the background, and you get a notification when it's finished.
-
-        <Frame>
-          ![Imported participants in the Exam Participant List](/images/berhasil-impor.png)
-        </Frame>
-      </Step>
-      <Step title="Connect Participants to an Exam Session">
-        Once the import is finished, participants still need to be added to an exam session. Without a session, they can't start the exam. Follow the steps in the **How to Connect Participants to an Exam Session** section below.
-      </Step>
-    </Steps>
-  </Accordion>
-</AccordionGroup>
-
-### How to Connect Participants to an Exam Session
-
-<Steps>
-  <Step title="Open Participant Exam Session">
-    <Frame>
-      ![Exam Data menu and the Details button on an exam](/images/1-2-1.png)
-    </Frame>
-
-    <Frame>
-      ![Test List section and the Edit button on a test](/images/sesi-3-4.png)
-    </Frame>
-
-    <Frame>
-      ![Participant Exam Session tab on the test page](/images/sesi-5.png)
-    </Frame>
-
-    Participants who are registered for the exam still have to be assigned to an **exam session**. Without a session, they can't start the exam.
-
-    1. Open the **Exam Data** menu.
-    2. Choose the exam participants will take.
-    3. Click **Details**.
-    4. The system opens the details page. Go to the **Test List** section.
-    5. Click **Edit** on the test.
-    6. The system opens the test's details page.
-    7. Then choose **Participant Exam Session**.
-  </Step>
-  <Step title="Add Participants to the Exam Session">
-    <Frame>
-      ![Setting one participant's exam session in the Edit Exam Participant window](/images/mapping-sesi-1.png)
-    </Frame>
-
-    💡 You can assign exam sessions to participants one at a time or in bulk.
-
-    <Frame>
-      ![Participants without a session ticked and the Bulk actions button](/images/kolektif.png)
-    </Frame>
-
-    <Frame>
-      ![Assign Exam Sessions in Bulk option in the bulk actions menu](/images/set.png)
-    </Frame>
-
-    1. Tick the participants who still show **No exam sessions**.<br />To select every participant, click **Select all**.
-    2. Click **Bulk actions**, then choose **Assign Exam Sessions in Bulk**.
-    3. In the **Select an Exam Session** field, choose the session participants will take, for example **Morning Session**.
-    4. Click **Assign Exam Sessions in Bulk** to save your changes.
-  </Step>
-  <Step title="Participants Are Ready to Take the Exam">
-    Once participants are assigned to a session, they can start the exam according to the session's schedule.
-  </Step>
-</Steps>
-
-## 7. Reports and Evaluation
-
-Everything is ready. The questions are created, the exam is scheduled and participants are in their sessions. Your exam is ready to go! 🚀
-
-### Monitor the Exam While It Runs
-
-Open the **Exam Monitoring** menu.
-
-<Frame>
-  ![Exam Monitoring page](/images/monitoring-ujian.png)
-</Frame>
-
-On this page, you can check:
-
-- who is currently taking the exam,
-- who hasn't started yet,
-- how much time is left,
-- and each participant's exam status.
-
-This way, you don't need to check participants one by one.
-
-### View the Results After the Exam
-
-Open the **Test History** menu.
-
-<Frame>
-  ![Test History page](/images/riwayat-tes-ujian.png)
-</Frame>
-
-This page lists the tests participants have finished. On that page, you can see:
-
-- participants' scores (**Test Score**),
-- when they started and finished,
-- and the answers each participant chose, by clicking **View**.
-  <Frame>
-    <img
-      src="/images/lihat-riwayat-1.png"
-      alt="View button in Test History"
-      style={{ width:"83%" }}
-    />
-  </Frame>
-  <Frame>
-    <img
-      src="/images/detail-riwayat-1.png"
-      alt="Participant's answer details in the test history"
-      style={{ width:"82%" }}
-    />
-  </Frame>
 
 <Tip>
-  Use this data to review the exam results and see which participants have finished their tests.
+  To choose the session yourself, tick the participants, click **Tindakan**, and choose **Set Sesi Ujian Kolektif** (bulk assign session). For a single participant, click **Ubah** on their row. The **Set Sesi Ujian Otomatis** button only appears while some participants have no session and nobody is currently taking the test.
 </Tip>
 
-### Calculate IRT Scores
-
-You only need this section if you chose one of the **IRT** scoring methods.
-
-With IRT, participants' scores **don't appear straight away** after the exam ends. The system has to run a calculation first.
-
-<Frame>
-  <img
-    src="/images/perhitungan-irt.png"
-    alt="Calculate Score button with the IRT Calculation option"
-    style={{ width:"69%" }}
-  />
-</Frame>
-
-Once all participants have finished:
-
-1. Open the **Exam Data** menu.
-2. Choose the exam to calculate, then click **Details**.
-3. Click **Calculate Score** → **IRT Calculation**, then confirm.
-4. Wait until the calculation is finished. The system sends a notification when it's done.
-
-<Note>
-  You can only click **IRT Calculation** once at least one participant has finished a test, nobody is still taking it and no other IRT calculation is running. This option isn't available for multi-level exams.
-</Note>
-
-<Tip>
-  If you don't use an IRT scoring method, you can skip this step.
-</Tip>
-
-### Download the Exam Results Report
-
-Once the exam is over, you can save participants' results as an Excel file.
+## 9. Share the participant login link
 
 <Steps>
-  <Step title="Open the Exam Data menu">
+  <Step title="Copy Tautan Login Peserta">
     <Frame>
-      ![Exam Data menu and the Details button on an exam](/images/2026-07-19_10-43.png)
+      ![Pengaturan Aplikasi menu and the Tautan Login Peserta on the Informasi Aplikasi card](/images/mulai-cepat/membuat-ujian-pertama/27-tautan-login-peserta.png)
     </Frame>
 
-    <Frame>
-      ![Export Data menu with the Test Results option](/images/2026-07-19_10-44-1.png)
-    </Frame>
+    1. In the sidebar, click **Lainnya** → **Pengaturan Aplikasi** (application settings).
+    2. Copy **Tautan Login Peserta** (participant login link) from the **Informasi Aplikasi** card, for example `https://prestasi.indolat.web.id/auth/login`, and share it with participants together with their email and password.
 
-    1. Choose the exam whose results you want to export.
-    2. Click **Details**.
-    3. In the top-right corner, click **Export Data**, then choose **Test Results** and confirm.
-    4. The system prepares the Excel file in the background and sends a notification when it's ready.
+    The address is based on the project code. The institution name, code, and domain are changed under **Administrasi Aplikasi** → **Pengaturan Projek**. See also [Participant Login](/en/lainnya/login-peserta).
   </Step>
-  <Step title="Open the Download Export Results menu">
+</Steps>
+
+## 10. Participants take the exam
+
+This section shows the participant's side. Try it yourself with one of the participant accounts before opening the exam to everyone.
+
+<Steps>
+  <Step title="Sign in to the participant app">
     <Frame>
-      ![Download File button on the Download Export Results page](/images/2026-07-19_10-45_1.png)
+      ![Participant login page with email and password filled in](/images/mulai-cepat/membuat-ujian-pertama/28-login-peserta.png)
     </Frame>
 
+    1. Open the login link and enter the **Alamat Email**.
+    2. Enter the **Kata Sandi**.
+    3. Click **Masuk** (sign in).
+  </Step>
+  <Step title="Choose the test on Daftar Tes">
     <Frame>
-      <img
-        src="/images/2026-07-19_10-46-1.png"
-        alt="Example Excel file of participants' exam results"
-        className="mx-auto"
-        style={{ width:"69%" }}
-      />
+      ![Test card Tryout Akbar SNBT 2027 – Gelombang 1 - Penalaran Matematika with the Kerjakan Tes button](/images/mulai-cepat/membuat-ujian-pertama/29-daftar-tes-peserta.png)
     </Frame>
 
-    Once the file is ready, open the **Download Export Results** menu, then click **Download File** next to the export to download the report as an Excel file. You can use the downloaded file to:
+    The **Daftar Tes** (test list) page shows the tests the participant can take, with the session window, duration, and number of questions. Click **Kerjakan Tes** (take test).
+  </Step>
+  <Step title="Read the instructions and start">
+    <Frame>
+      ![Test instruction window with the Kerjakan Tes button](/images/mulai-cepat/membuat-ujian-pertama/30-instruksi-tes.png)
+    </Frame>
 
-    - compile a score summary,
-    - keep an archive of the exam,
-    - share the results with the people involved,
-    - or carry out further data processing.
+    The instruction window shows the **Instruksi Pengerjaan Tes Ujian** you wrote, the test type, number of questions, and duration. Click **Kerjakan Tes**.
+
+    <Frame>
+      ![Tes Diagnostik Sistem page with the Mulai Tes button](/images/mulai-cepat/membuat-ujian-pertama/31-tes-diagnostik.png)
+    </Frame>
+
+    The **Tes Diagnostik Sistem** (system check) page checks the participant's connection and browser. When the check finishes, click **Mulai Tes** (start test). The timer starts.
+  </Step>
+  <Step title="Answer the questions">
+    <Frame>
+      ![Question page with a selected answer, the Soal Selanjutnya button, and the Daftar Soal panel](/images/mulai-cepat/membuat-ujian-pertama/32-halaman-soal.png)
+    </Frame>
+
+    1. Click an answer option. Use **Hapus Jawaban** (clear answer) to undo the choice.
+    2. Click **Soal Selanjutnya** (next question) to move on. **Tandai Ragu-ragu** (mark as unsure) flags a question to review later.
+    3. The **Daftar Soal** panel shows which questions are answered; click a number to jump to that question.
+
+    The remaining time is shown at the top. Because **Acak Soal** is on, each participant sees the questions in a different order.
+  </Step>
+  <Step title="Finish the test">
+    <Frame>
+      ![Last question with the Selesai Tes button](/images/mulai-cepat/membuat-ujian-pertama/33-selesaikan-tes.png)
+    </Frame>
+
+    On the last question, click **Selesai Tes** (finish test).
+
+    <Frame>
+      ![Confirmation window Apakah Anda yakin ingin mengakhiri tes? with the Ya, Selesai button](/images/mulai-cepat/membuat-ujian-pertama/34-konfirmasi-selesai.png)
+    </Frame>
+
+    Click **Ya, Selesai** (yes, finish). Once the test ends, the participant cannot return to the exam page or change answers.
+
+    <Frame>
+      ![Tes Selesai page with the Kembali ke Daftar Tes button](/images/mulai-cepat/membuat-ujian-pertama/35-tes-selesai.png)
+    </Frame>
+  </Step>
+  <Step title="See the score in Riwayat Tes">
+    <Frame>
+      ![Participant Riwayat Tes page with a score of 30 and the Lihat Hasil Tes link](/images/mulai-cepat/membuat-ujian-pertama/36-riwayat-tes-peserta.png)
+    </Frame>
+
+    On the **Riwayat Tes** (test history) menu, participants see the **Nilai** (score) for the test because **Tampilkan Skor** is on. Clicking **Lihat Hasil Tes** (view test result) opens the answer sheet and the right/wrong summary (shown because **Tampilkan Ringkasan** is on).
+  </Step>
+</Steps>
+
+## 11. Monitor and review results
+
+### Monitor participants who are testing
+
+<Frame>
+  ![Monitoring Ujian page with an exam filter applied and one participant testing](/images/mulai-cepat/membuat-ujian-pertama/37-monitoring-ujian.png)
+</Frame>
+
+1. In the sidebar, click **Ujian** → **Monitoring Ujian** (live exam monitoring). The page refreshes automatically every 10 seconds.
+2. Click the filter icon to choose an **Ujian** (exam), **Status Ujian** (testing or not started), or **Terdeteksi Kecurangan** (cheating detected), then click **Terapkan filter** (apply filter).
+
+The list shows participants who have not finished their exam yet, with the test in progress, start time, remaining time, and warnings such as **Peserta mencoba login dengan device yang berbeda** (participant tried to sign in from another device). Participants who finish move to **Riwayat Tes Ujian**.
+
+### Review participant results
+
+<Frame>
+  ![Riwayat Tes Ujian page searched for TOAKBAR27 with the Lihat button](/images/mulai-cepat/membuat-ujian-pertama/38-riwayat-tes-ujian.png)
+</Frame>
+
+1. In the sidebar, click **Ujian** → **Riwayat Tes Ujian** (test history).
+2. Search by participant name or code. Because participant codes start with the exam code, typing **TOAKBAR27** lists every participant of this exam. You can also use the **Tes Ujian** (test) or **Tanggal Pengerjaan** (test date) filters. The table shows each participant's **Skor Tes Ujian** (test score), **Waktu Mulai** (start), and **Waktu Selesai** (finish); a **Terdeteksi kecurangan** label appears when the system logged a violation.
+3. Click **Lihat** (view) to open a participant's result.
+
+<Frame>
+  ![Test result summary for Bagus Setiawan with a Skor Tes Ujian of 10](/images/mulai-cepat/membuat-ujian-pertama/39-detail-hasil-peserta.png)
+</Frame>
+
+<Frame>
+  ![Jawaban Peserta section showing whether each question was right or wrong](/images/mulai-cepat/membuat-ujian-pertama/40-jawaban-peserta.png)
+</Frame>
+
+The detail page contains the participant summary, **Log Peserta & Ujian** (participant and exam log: when the test started, finished, and other events), and **Jawaban Peserta** (participant answers) with the right/wrong status per question. The **Soal** link opens the question and the **Link** link opens the answer option the participant chose, each in a new tab.
+
+<Tip>
+  If you change question scores after participants have finished, recalculate them with **Hitung Skor** → **Perhitungan Skor Ujian** (recalculate exam scores) on the exam detail page, or **Hitung Ulang Skor** (recalculate scores) on the **Sesi Peserta Ujian** tab of the test page. Tests that use an IRT method are scored with **Hitung Skor** → **Perhitungan IRT** once all participants have finished.
+</Tip>
+
+### Download the results report
+
+<Steps>
+  <Step title="Export the test results">
+    <Frame>
+      ![Ekspor Data menu with the Hasil Tes Ujian option on the exam detail page](/images/mulai-cepat/membuat-ujian-pertama/41-ekspor-data.png)
+    </Frame>
+
+    On the exam detail page:
+
+    1. Click **Ekspor Data** (export data).
+    2. Choose **Hasil Tes Ujian** (test results), then click **Konfirmasi** (confirm).
+
+    The Excel file is generated in the background, and you get a notification when it is ready. It contains two worksheets: a score summary per participant, and participant details with timing and cheating data.
+  </Step>
+  <Step title="Download the file">
+    <Frame>
+      ![Unduh Hasil Ekspor page with the file hasil_ujian_tryout_akbar_snbt_2027_gelombang_1.xlsx and the Unduh File button](/images/mulai-cepat/membuat-ujian-pertama/42-unduh-hasil-ekspor.png)
+    </Frame>
+
+    1. In the sidebar, click **Lainnya** → **Unduh Hasil Ekspor** (download exports).
+    2. Click **Unduh File** (download file) on the export, for example **hasil_ujian_tryout_akbar_snbt_2027_gelombang_1.xlsx**.
 
     <Check>
-      That's it: you've completed the whole exam process, from preparing the questions to viewing and downloading participants' results.
+      Done. You have created a question package, an exam, a test, and a session, added participants, tried the exam as a participant, and monitored and downloaded the results.
     </Check>
   </Step>
 </Steps>

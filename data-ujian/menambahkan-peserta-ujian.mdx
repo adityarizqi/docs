@@ -1,231 +1,177 @@
 ---
 title: "Menambahkan Peserta Ujian"
-description: "Cara menambahkan peserta ke dalam ujian, melalui impor akun di menu Data Akun atau impor peserta langsung di menu Data Ujian."
+description: "Cara memasukkan peserta ke ujian dengan memilih akun dari Data Akun, mengimpor file Excel, atau melalui pendaftaran mandiri, lalu mengelola daftar peserta ujian."
 ---
 
-Setelah ujian selesai dibuat, langkah berikutnya adalah menentukan peserta yang akan mengikuti ujian tersebut. Peserta yang **sudah** maupun **belum memiliki akun** dapat dimasukkan ke dalam ujian melalui beberapa cara, sesuai kebutuhan penyelenggaraan ujian.
+Setelah ujian dan tesnya siap, langkah berikutnya adalah memasukkan peserta ke ujian. Halaman ini menjelaskan cara menambahkan peserta yang sudah memiliki akun maupun yang belum, serta cara mengelola daftar peserta ujian.
 
-💡 Sebagai contoh, Anda adalah admin **Bimbingan Belajar Indolat** yang akan menyelenggarakan:
+<Info>
+  **Lokasi menu:** **Portal** → **Platform Ujian (CBT)** → **Manajemen Ujian** → **Data Ujian** → **Detail** pada ujian → bagian **Daftar Peserta Ujian**.
+</Info>
 
-> **Tryout Akbar Persiapan SNBT 2027**
+Ada tiga cara memasukkan peserta ke ujian:
 
-Data peserta sudah tersedia, kemudian Anda ingin memasukkan peserta tersebut ke dalam ujian agar mereka dapat mengikuti tryout.
+| Cara | Kapan dipakai |
+| --- | --- |
+| **Tambah Peserta** | Akun peserta sudah ada di **Data Akun**, misalnya dibuat melalui **Tambah Akun**, **Import Akun**, atau pendaftaran akun mandiri. |
+| **Import Peserta** | Anda memiliki daftar peserta khusus untuk ujian ini. Akun dibuat sekaligus dimasukkan ke ujian. |
+| Pendaftaran mandiri | Peserta mendaftar sendiri melalui tautan pendaftaran ujian. |
 
-Anda dapat memilih salah satu dari dua cara berikut:
-
-1. Impor akun melalui menu **Data Akun** (tombol **Import Akun**), lalu tambahkan peserta ke ujian secara manual.
-2. Impor peserta melalui menu **Data Ujian** (tombol **Import Peserta**), agar akun peserta langsung dimasukkan ke ujian yang dipilih.
-
-<AccordionGroup>
-  <Accordion title="Cara Menambahkan Peserta melalui Impor Data Akun">
-    Gunakan cara ini jika Anda ingin menyiapkan data peserta terlebih dahulu.
-
-    💡 Sebagai contoh, Anda memiliki daftar peserta dari **Cabang Surabaya**. Peserta tersebut nantinya dapat mengikuti beberapa ujian yang berbeda, sehingga datanya dimasukkan terlebih dahulu ke menu **Data Akun**.
-
-    <Steps>
-      <Step title="Buka Data Akun dan Klik Import Akun">
-        <Frame>
-          ![Menu Data Akun dan tombol Import Akun](/images/2026-07-22_23-53.png)
-        </Frame>
-
-        Buka menu **Data Akun**, lalu pada tab **Akun** pilih tombol **Import Akun**.
-      </Step>
-      <Step title="Unduh Template Excel">
-        <Frame>
-          ![Tautan Unduh Template pada jendela Import Akun](/images/2026-07-22_23-53_1.png)
-        </Frame>
-
-        Pilih **Unduh Template** untuk mendapatkan format Excel yang sesuai.
-      </Step>
-      <Step title="Isi Data Peserta pada File Excel">
-        <Frame>
-          ![Template Excel berisi kolom Nama, Alamat Email, Kata Sandi, dan Label](/images/2026-07-22_23-56-1.png)
-        </Frame>
-
-        1. **Nama**: isikan nama peserta yang akan mengikuti ujian.
-        2. **Alamat Email**: isikan email yang akan digunakan peserta untuk masuk.
-        3. **Kata Sandi**: isikan kata sandi untuk masing-masing peserta ujian.
-        4. **Label**: penanda untuk mengelompokkan peserta. Kolom ini **boleh dikosongkan** jika pengelompokan tidak diperlukan.
-
-        <Note>
-          **Tentang Alamat Email**
-
-          Pada proses impor, sistem **tidak memeriksa** apakah alamat email tersebut benar-benar aktif dan valid. Karena itu, admin dapat menggunakan email khusus yang dibuat untuk kebutuhan ujian, misalnya:
-
-          - `peserta001@indolat.com`
-          - `peserta002@indolat.com`
-
-          Pastikan setiap peserta menggunakan alamat email dan kata sandi yang berbeda agar akun tidak tertukar.
-        </Note>
-
-        <Tip>
-          **Fungsi Kolom Label**
-
-          Kolom **Label** digunakan untuk mengelompokkan peserta agar lebih mudah dicari dan dipilih. Contoh label:
-
-          - **Tahun 2026**
-          - **Kelas 12 IPA**
-          - **Gelombang 1**
-          - **Cabang Surabaya**
-        </Tip>
-      </Step>
-      <Step title="Unggah File dan Klik Import">
-        <Frame>
-          ![File Excel terunggah dan tombol Import pada jendela Import Akun](/images/2026-07-22_23-57.png)
-        </Frame>
-
-        Unggah kembali file Excel yang sudah diisi, kemudian pilih tombol **Import**.
-
-        Impor diproses di latar belakang dan Anda akan menerima notifikasi setelah selesai. Setelah proses impor berhasil, data peserta akan tampil pada menu **Data Akun**.
-
-        <Frame>
-          ![Akun peserta hasil impor tampil di Data Akun sesuai labelnya](/images/2026-07-23_21-15.png)
-        </Frame>
-
-        <Note>
-          Pada tahap ini, peserta baru tersimpan sebagai akun dan **belum masuk ke ujian tertentu**. Untuk memasukkannya ke ujian, buka **Data Ujian**, pilih **Daftar Peserta Ujian**, lalu gunakan tombol **Tambah Peserta**.
-        </Note>
-      </Step>
-      <Step title="Buka Detail Ujian">
-        Apabila akun peserta sudah tersedia pada menu **Data Akun**, langkah selanjutnya Anda dapat menambahkan peserta pada ujian yang akan diikuti.
-
-        💡 Sebagai contoh, Anda sudah mengimpor data peserta dari **Indolat Cabang Surabaya**. Selanjutnya, peserta tersebut perlu dimasukkan ke **Tryout Akbar Persiapan SNBT 2027** agar dapat mengikuti ujian.
-
-        <Frame>
-          ![Menu Data Ujian dan tombol Detail pada ujian](/images/2026-07-23_21-22.png)
-        </Frame>
-
-        Buka menu **Data Ujian**, lalu pilih tombol **Detail** pada ujian yang akan Anda tambahkan peserta.
-      </Step>
-      <Step title="Klik Tambah Peserta">
-        <Frame>
-          ![Bagian Daftar Peserta Ujian dan tombol Tambah Peserta](/images/2026-07-23_21-23.png)
-        </Frame>
-
-        Buka bagian **Daftar Peserta Ujian**, kemudian pilih tombol **Tambah Peserta**.
-      </Step>
-      <Step title="Pilih Peserta dari Daftar yang Tersedia">
-        <Frame>
-          ![Peserta dicentang pada jendela Tambah Peserta](/images/2026-07-23_21-24.png)
-        </Frame>
-
-        Centang peserta yang akan dimasukkan ke ujian. Hanya akun dengan **Status Akun** bernilai **Aktif** dan **Status Ujian** bernilai **Belum Terdaftar** yang dapat dicentang. Apabila jumlah peserta cukup banyak, gunakan tombol **Filter** agar pencarian lebih mudah.
-
-        <Frame>
-          ![Tombol Filter pada jendela Tambah Peserta](/images/2026-07-23_21-24_1.png)
-        </Frame>
-
-        <Tip>
-          Melalui filter, Anda dapat menyaring peserta berdasarkan:
-
-          - **Label**, misalnya _Indolat Cabang Surabaya_; dan
-          - **Status Ujian**, pilih **Belum Terdaftar** agar hanya peserta yang belum masuk ke ujian tersebut yang ditampilkan.
-
-          <Frame>
-            ![Filter Label dan Status Ujian dengan tombol Terapkan filter](/images/2026-07-23_21-26.png)
-          </Frame>
-        </Tip>
-      </Step>
-      <Step title="Klik Tambahkan Peserta">
-        <Frame>
-          ![Peserta terpilih dan tombol Tambahkan Peserta](/images/2026-07-23_21-26_1.png)
-        </Frame>
-
-        Klik **Tambahkan Peserta**. Penambahan peserta diproses di latar belakang dan Anda akan menerima notifikasi setelah selesai. Peserta yang berhasil ditambahkan akan muncul pada **Daftar Peserta Ujian** dengan status **Aktif**.
-
-        <Frame>
-          ![Peserta baru berstatus Aktif pada Daftar Peserta Ujian](/images/image-2.png)
-        </Frame>
-      </Step>
-    </Steps>
-  </Accordion>
-
-  <Accordion title="Cara Menambahkan Peserta melalui Impor Peserta Ujian">
-    Gunakan cara ini jika Anda sudah mengetahui ujian yang akan diikuti oleh peserta.
-
-    Sebagai contoh, Anda memiliki daftar peserta yang khusus akan mengikuti **Tryout Akbar Persiapan SNBT 2027**.
-
-    <Tip>
-      Dengan cara ini, Anda tidak perlu menambahkan peserta lagi melalui tombol **Tambah Peserta**.
-    </Tip>
-
-    <Steps>
-      <Step title="Klik Import Peserta">
-        <Frame>
-          ![Menu Data Ujian dan tombol Detail pada daftar ujian](/images/1-2.png)
-        </Frame>
-
-        <Frame>
-          ![Bagian Daftar Peserta Ujian dan tombol Import Peserta](/images/3-4.png)
-        </Frame>
-
-        1. Buka menu **Data Ujian**, pilih ujian yang akan diikuti peserta.
-        2. Lalu pilih tombol **Detail**.
-        3. Sistem akan membuka halaman detail, kemudian pilih bagian **Daftar Peserta Ujian**.
-        4. Pilih tombol **Import Peserta**.
-      </Step>
-      <Step title="Unduh Template Excel">
-        <Frame>
-          ![Tautan Unduh Template pada jendela Import Peserta](/images/unduh-template.png)
-        </Frame>
-
-        Pilih **Unduh Template** untuk mendapatkan format Excel yang sudah disediakan.
-      </Step>
-      <Step title="Isikan Data Peserta pada Template Impor">
-        <Frame>
-          ![Template impor berisi kolom Nama, Alamat Email, Kata Sandi, dan Label](/images/template-impor.png)
-        </Frame>
-
-        1. **Nama**: isikan nama peserta yang akan mengikuti ujian.
-        2. **Alamat Email**: isikan email yang akan digunakan peserta untuk masuk.
-        3. **Kata Sandi**: isikan kata sandi untuk masing-masing peserta ujian.
-        4. **Label**: penanda untuk mengelompokkan peserta. Kolom ini **boleh dikosongkan** jika pengelompokan tidak diperlukan.
-
-        <Note>
-          **Tentang Alamat Email**
-
-          Pada proses impor, sistem **tidak memeriksa** apakah alamat email tersebut benar-benar aktif dan valid. Karena itu, admin dapat menggunakan email khusus yang dibuat untuk kebutuhan ujian, misalnya:
-
-          - `peserta001@indolat.com`
-          - `peserta002@indolat.com`
-
-          Pastikan setiap peserta menggunakan alamat email dan kata sandi yang berbeda agar akun tidak tertukar.
-        </Note>
-
-        <Tip>
-          **Fungsi Kolom Label**
-
-          Kolom **Label** digunakan untuk mengelompokkan peserta agar lebih mudah dicari dan dipilih. Contoh label:
-
-          - **Tahun 2026**
-          - **Kelas 12 IPA**
-          - **Gelombang 1**
-          - **Cabang Surabaya**
-        </Tip>
-      </Step>
-      <Step title="Unggah File Impor">
-        <Frame>
-          ![File terunggah dan tombol Import pada jendela Import Peserta](/images/impor.png)
-        </Frame>
-
-        1. Pastikan nama file sudah muncul dan terdapat keterangan **Pengunggahan selesai**.
-        2. Pilih tombol **Import**.
-        3. Sistem secara otomatis akan membuat akun peserta dan menambahkannya pada **Daftar Peserta Ujian**. Proses ini berjalan di latar belakang dan Anda akan menerima notifikasi setelah impor selesai.
-
-        <Frame>
-          ![Peserta hasil impor tampil pada Daftar Peserta Ujian](/images/berhasil-impor.png)
-        </Frame>
-      </Step>
-    </Steps>
-  </Accordion>
-</AccordionGroup>
-
-<Warning>
-  Seluruh peserta ujian yang terdaftar **wajib dihubungkan ke dalam sesi ujian** agar dapat mulai mengerjakan soal. Ikuti [cara membuat sesi ujian dan menghubungkan peserta pada sesi ujian](/data-ujian/membuat-sesi-ujian).
-</Warning>
-
-Berikut tampilan dari sisi peserta apabila belum dihubungkan ke dalam sesi ujian: tes ditampilkan dengan status **Terkunci**.
+Sebagai contoh, admin **Bimbel Prestasi Nusantara** memasukkan peserta ke **Tryout Akbar SNBT 2027 – Gelombang 2**: lima siswa berlabel **Gelombang 2** yang akunnya sudah ada di **Data Akun**, ditambah empat siswa **Kelas Intensif** dari file Excel.
 
 <Frame>
-  ![Tes berstatus Terkunci pada halaman Daftar Tes peserta](/images/2026-07-22_23-41.png)
+  ![Tombol Tambah Peserta dan Import Peserta pada bagian Daftar Peserta Ujian](/images/data-ujian/menambahkan-peserta-ujian/01-daftar-peserta-ujian.png)
+</Frame>
+
+1. **Tambah Peserta**: memilih akun yang sudah ada.
+2. **Import Peserta**: mengimpor peserta dari file Excel.
+
+<Note>
+  Peserta hanya dapat ditambahkan jika ujian sudah memiliki minimal satu tes. Pada ujian multi-level, semua tes harus sudah dipetakan ke struktur level.
+</Note>
+
+## Cara 1: Memilih akun dari Data Akun
+
+Gunakan cara ini jika akun peserta sudah tersedia di **Platform Ujian (CBT)** → **Manajemen Akun** → **Data Akun** (data induknya ada di **Administrasi Aplikasi** → **Pengguna** → **Pengguna**). Cara membuat akun, baik satu per satu maupun melalui **Import Akun**, dijelaskan di [Menambahkan Akun Peserta](/data-akun/menambahkan-akun-peserta).
+
+<Steps>
+  <Step title="Klik Tambah Peserta">
+    Pada bagian **Daftar Peserta Ujian**, klik **Tambah Peserta**. Jendela **Tambah Peserta** menampilkan semua akun di projek Anda beserta **Label**, **Status Ujian**, dan **Status Akun**.
+
+    <Frame>
+      ![Jendela Tambah Peserta dan tombol Filter](/images/data-ujian/menambahkan-peserta-ujian/02-jendela-tambah-peserta.png)
+    </Frame>
+
+    Hanya akun dengan **Status Akun** **Aktif** dan **Status Ujian** **Belum Terdaftar** yang memiliki kotak centang. Akun **Belum Terverifikasi** (peserta yang belum memverifikasi email) atau **Tidak Aktif** tidak dapat dipilih.
+  </Step>
+  <Step title="Saring akun dengan Filter">
+    Jika akunnya banyak, klik ikon **Filter**, lalu atur:
+
+    - **Label**: misalnya **Gelombang 2**. Pilih **Tanpa Label** untuk akun yang belum berlabel.
+    - **Status Ujian**: pilih **Belum Terdaftar** agar hanya akun yang belum masuk ke ujian ini yang ditampilkan.
+
+    Klik **Terapkan filter**. Anda juga dapat mencari nama peserta melalui kolom **Cari**.
+
+    <Frame>
+      ![Filter Label Gelombang 2 dan Status Ujian Belum Terdaftar dengan tombol Terapkan filter](/images/data-ujian/menambahkan-peserta-ujian/03-filter-tambah-peserta.png)
+    </Frame>
+  </Step>
+  <Step title="Pilih peserta lalu klik Tambahkan Peserta">
+    <Frame>
+      ![Lima akun berlabel Gelombang 2 dicentang dan tombol Tambahkan Peserta](/images/data-ujian/menambahkan-peserta-ujian/04-pilih-peserta.png)
+    </Frame>
+
+    1. Centang akun yang akan dimasukkan. Centang kotak di judul kolom untuk memilih semua akun yang tampil, atau klik baris akun untuk memilihnya satu per satu.
+    2. Klik **Tambahkan Peserta**.
+
+    Penambahan diproses di latar belakang. Anda menerima notifikasi setelah proses selesai.
+  </Step>
+  <Step title="Periksa Daftar Peserta Ujian">
+    Peserta yang berhasil ditambahkan muncul dengan **Status Peserta** **Aktif**. Sistem memberi setiap peserta **Kode Peserta**, secara bawaan berupa **Kode Ujian** diikuti 7 digit nomor urut. Formatnya dapat diatur, lihat [Kode Peserta dan Kode Bidang](/data-ujian/kode-peserta).
+
+    <Frame>
+      ![Lima peserta baru berstatus Aktif pada Daftar Peserta Ujian](/images/data-ujian/menambahkan-peserta-ujian/05-hasil-tambah-peserta.png)
+    </Frame>
+  </Step>
+</Steps>
+
+## Cara 2: Mengimpor peserta dari file Excel
+
+Gunakan cara ini jika Anda memiliki daftar peserta khusus untuk ujian ini. Sistem membuat akun peserta di **Data Akun** dan langsung memasukkannya ke ujian, sehingga Anda tidak perlu memakai **Tambah Peserta** lagi.
+
+<Steps>
+  <Step title="Klik Import Peserta dan unduh template">
+    Pada bagian **Daftar Peserta Ujian**, klik **Import Peserta**, lalu klik **Unduh Template** untuk mendapatkan format Excel yang benar.
+
+    <Frame>
+      ![Jendela Import Peserta dan tautan Unduh Template](/images/data-ujian/menambahkan-peserta-ujian/06-jendela-import-peserta.png)
+    </Frame>
+  </Step>
+  <Step title="Isi data peserta pada template">
+    <Frame>
+      ![Contoh template impor berisi kolom Nama, Alamat Email, Kata Sandi, dan Label](/images/template-impor.png)
+    </Frame>
+
+    Template berisi empat kolom. Jangan mengubah judul kolom pada baris pertama.
+
+    1. **Nama**: nama peserta.
+    2. **Alamat Email**: email yang dipakai peserta untuk masuk. Setiap peserta harus memakai email yang berbeda.
+    3. **Kata Sandi**: kata sandi untuk masuk.
+    4. **Label** (opsional): penanda untuk mengelompokkan peserta, misalnya **Kelas Intensif**, **Gelombang 2**, atau **Cabang Surabaya**. Label yang belum ada akan dibuat otomatis.
+
+    <Note>
+      - Sistem tidak memeriksa apakah email benar-benar aktif, sehingga Anda dapat memakai email khusus ujian. Namun, formatnya harus berupa alamat email yang valid.
+      - Baris yang tidak lengkap atau emailnya tidak valid dilewati, sedangkan baris lain tetap diimpor.
+      - Akun hasil impor langsung aktif dan terverifikasi.
+    </Note>
+
+    <Warning>
+      Jika email pada file sudah dipakai oleh akun di projek Anda, akun tersebut **tidak diduplikasi**, tetapi **nama, kata sandi, dan labelnya diperbarui** sesuai isi file, lalu akun dimasukkan ke ujian. Periksa kembali file Anda agar tidak mengubah akun peserta lain tanpa sengaja.
+    </Warning>
+  </Step>
+  <Step title="Unggah file lalu klik Import">
+    <Frame>
+      ![File Excel terunggah dan tombol Import pada jendela Import Peserta](/images/data-ujian/menambahkan-peserta-ujian/07-unggah-file-import-peserta.png)
+    </Frame>
+
+    1. Unggah file `.xlsx` yang sudah diisi. Tunggu hingga muncul keterangan **Pengunggahan selesai**.
+    2. Klik **Import**.
+
+    Impor berjalan di latar belakang. Selama proses berjalan, kotak **Mengimpor Akun Peserta** di bagian atas halaman menampilkan kemajuannya. Setelah selesai, Anda menerima notifikasi berisi jumlah akun baru dan akun yang sudah terdaftar sebelumnya.
+  </Step>
+  <Step title="Periksa hasil impor">
+    Peserta hasil impor muncul pada **Daftar Peserta Ujian** dengan status **Aktif**. Peserta yang sudah terdaftar di ujian ini tidak ditambahkan dua kali.
+
+    <Frame>
+      ![Empat peserta hasil impor pada Daftar Peserta Ujian](/images/data-ujian/menambahkan-peserta-ujian/08-hasil-import-peserta.png)
+    </Frame>
+  </Step>
+</Steps>
+
+## Cara 3: Pendaftaran mandiri oleh peserta
+
+Peserta juga dapat mendaftar sendiri melalui tautan pendaftaran ujian:
+
+1. Aktifkan **Apakah Pendaftaran Ujian Dibuka?** pada tab **Pendaftaran & Pembayaran** di halaman **Detail Ujian**, lalu salin URL pendaftaran ujian dari teks bantuannya. Lihat [Membuat Ujian](/data-ujian/membuat-ujian).
+2. Susun isian formulir pendaftaran dan atur verifikasinya. Lihat [Formulir Pendaftaran Peserta](/data-ujian/membuat-formulir-pendaftaran).
+3. Pendaftar yang perlu diverifikasi muncul di **Daftar Peserta Ujian** dengan status **Menunggu Verifikasi** (atau **Menunggu Pembayaran** pada ujian berbayar yang belum dibayar). Klik **Verifikasi Peserta** pada baris peserta untuk memeriksa isian formulirnya dan menyetujuinya, atau **Tolak & Hapus** untuk menolaknya.
+
+<Note>
+  Ujian yang dibuat dari kelas di modul **Learning Management System (LMS)** otomatis ditautkan ke kelas tersebut, dan peserta kelas langsung didaftarkan ke ujian.
+</Note>
+
+## Mengelola daftar peserta ujian
+
+Tabel **Daftar Peserta Ujian** menampilkan **Kode Peserta**, **Nama/Email Peserta**, **Status Peserta**, **Skor Akhir**, dan **Terdaftar Pada**. Gunakan **Filter** untuk menyaring berdasarkan **Status Peserta** atau peserta yang **Memiliki Skor Akhir**.
+
+Tombol pada setiap baris:
+
+- **Lihat**: membuka detail akun dan hasil ujian peserta.
+- **Unduh Laporan**: mengunduh laporan hasil peserta dalam format PDF setelah peserta menyelesaikan tes. Lihat [Hasil dan Ekspor Ujian](/data-ujian/hasil-dan-ekspor-ujian#mengunduh-laporan-hasil-peserta).
+- **Verifikasi Peserta**: muncul untuk peserta berstatus **Menunggu Verifikasi**.
+- **Hapus** (atau **Tolak & Hapus** untuk peserta yang menunggu verifikasi): mengeluarkan peserta dari ujian. Peserta yang sudah mulai mengerjakan tidak dapat dihapus.
+
+Untuk mengelola beberapa peserta sekaligus, centang pesertanya lalu klik **Tindakan**:
+
+<Frame>
+  ![Menu Tindakan berisi Verifikasi Peserta, Unduh Laporan (ZIP), Ubah Status Peserta, dan Hapus Peserta](/images/data-ujian/menambahkan-peserta-ujian/09-tindakan-peserta.png)
+</Frame>
+
+- **Verifikasi Peserta**: memverifikasi semua peserta terpilih yang menunggu verifikasi. Peserta yang masih menunggu pembayaran dilewati.
+- **Unduh Laporan (ZIP)**: membuat arsip ZIP berisi laporan peserta terpilih.
+- **Ubah Status Peserta**: mengubah status menjadi **Aktif**, **Ditangguhkan**, **Perlu Ditinjau**, atau **Selesai**.
+- **Hapus Peserta**: mengeluarkan peserta terpilih dari ujian. Peserta yang sudah mulai mengerjakan dilewati.
+
+<Warning>
+  Menghapus peserta dari ujian juga menghapus pemasangan sesinya dan membatalkan transaksi pembayaran yang masih tertunda. Tindakan ini tidak dapat dibatalkan.
+</Warning>
+
+## Memasangkan peserta ke sesi ujian
+
+Peserta yang sudah terdaftar **wajib dipasangkan ke sesi ujian** pada setiap tes agar dapat mulai mengerjakan. Ikuti panduan [Membuat Sesi Ujian](/data-ujian/membuat-sesi-ujian), atau aktifkan **Set Sesi Otomatis Setelah Pendaftaran** untuk peserta yang mendaftar mandiri.
+
+Jika peserta belum memiliki sesi pada sebuah tes, tes tersebut tampil dengan status **Terkunci** di halaman **Daftar Tes** peserta:
+
+<Frame>
+  ![Tes Literasi Bahasa Indonesia berstatus Terkunci di halaman Daftar Tes peserta](/images/data-ujian/menambahkan-peserta-ujian/10-tes-terkunci-peserta.png)
 </Frame>

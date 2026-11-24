@@ -271,7 +271,7 @@ Every request on this page requires a [Bearer API key](/en/api/autentikasi).
   | `return_url` | Body | No | string | Full URL the **Continue** button opens after the test is finished, up to 2,048 characters. Must use `https://`, and its domain must be registered (see below). Any path and query string are allowed. |
 
   <Note>
-    Register the `return_url` domains in the **Post-Exam Redirect Domains** field under **Application Settings → API Integration**. Enter the domain name only, without `https://` or a path, separated by commas, for example `portal.smanusantara.example.com, ujian.smanusantara.example.com`. Domains are matched exactly: registering `smanusantara.example.com` does not allow its subdomains, so register every subdomain you use. The port of a `return_url` is not part of the match.
+    Register the `return_url` domains in the **Post-Exam Redirect Domains** field under **Portal** → **Administrasi Aplikasi** → **Pengaturan Projek** → **Integrasi & API** (Integrations & API). Enter the domain name only, without `https://` or a path, separated by commas, for example `portal.smanusantara.example.com, ujian.smanusantara.example.com`. Domains are matched exactly: registering `smanusantara.example.com` does not allow its subdomains, so register every subdomain you use. The port of a `return_url` is not part of the match.
   </Note>
 
   ### Response fields per link

@@ -1,184 +1,176 @@
 ---
 title: "Import Questions from Excel"
-description: "How to import questions and answers into a question package using the Excel template."
+description: "How to import questions, answer options, and reading passages into a CBT/CAT question package using the Excel template."
 ---
 
-Use **Import Questions (Excel)** when you already have many questions and want to add them to a question package in one go.
+Use **Import Soal (Excel)** (Import Questions) when your questions are already prepared in Excel and you want to add them to a question package in one go. You download the template from the app, fill it in, and upload it again. This is faster than adding questions one by one through the [question form](/en/paket-soal/membuat-paket-soal).
 
-This is faster than adding questions one by one. Download the template, fill in the questions and their answers, then upload the file back to the system.
+<Info>
+  **Menu location:** **Portal** → **Platform Ujian (CBT)** → **Manajemen Ujian** → **Data Paket Soal** → **Ubah** (Edit) on the package → **Daftar Soal** → **Import Soal (Excel)**.
 
-> 💡 **For example**, you're preparing a **tryout** (practice exam) with several question types. The teaching team has already written the questions in Excel. Instead of entering them one by one, you can import all of them using the template.
+  Import is only available for **CBT/CAT** packages and cannot be used while a participant is taking an exam that uses the package.
+</Info>
+
+As an example, the teaching team prepares five **Pengetahuan Kuantitatif** (quantitative knowledge) questions for the **Tryout Akbar SNBT 2027**: two multiple-choice, two short-answer, and one complex multiple-statement question, with one reading passage containing class average scores. They are imported into the new package **Pengetahuan Kuantitatif – Tryout Akbar SNBT 2027** (code **PK-TA27**).
+
+<Warning>
+  Import questions into an **empty** package. In the **Data Jawaban** sheet, question numbers are matched against the order of all questions in the package, not only the questions being imported. If the package already contains questions, answer options can land on existing questions and replace their answers, while the new questions get no options. To combine questions, import into an empty package first.
+</Warning>
 
 <Steps>
-  <Step title="Click Edit on the question package">
-    <Frame>
-      ![Number of Questions column and Edit button on the Question Package Data page](/images/2026-07-31_02-58.png)
-    </Frame>
+  <Step title="Click Ubah on the package">
+    Open **Data Paket Soal**, then click **Ubah** on the package you want to fill. The **Jumlah Soal** (number of questions) column shows whether the package is still empty. If there is no package yet, create a **CBT/CAT** package first as described in [Create a Question Package](/en/paket-soal/membuat-paket-soal).
 
-    Open the **Question Package Data** menu, then click **Edit** on the question package you want to fill. The **Number of Questions** column shows whether a question package already contains questions or is still empty.
-  </Step>
-  <Step title="Click Import Questions (Excel)">
     <Frame>
-      ![Import Questions (Excel) button in the Question List section](/images/2026-07-31_02-59.png)
+      ![Package PK-TA27 with Jumlah Soal 0 and the Ubah button](/images/paket-soal/import-paket-soal/01-ubah-paket-soal.png)
     </Frame>
   </Step>
-  <Step title="Click Download Template">
+  <Step title="Click Import Soal (Excel)">
     <Frame>
-      ![Download Template link in the Import Questions (Excel) window](/images/2026-07-31_02-59_1.png)
+      ![Import Soal (Excel) button in the Daftar Soal section](/images/paket-soal/import-paket-soal/02-tombol-import-soal.png)
     </Frame>
   </Step>
-  <Step title="Open the downloaded template">
-    The Excel template has four sheets:
-
-    - **Panduan** (the instructions sheet; its name is not translated)
-    - **Question Data**
-    - **Answer Data**
-    - **Passage Data** (optional)
+  <Step title="Click Unduh Template">
+    In the **Import Soal (Excel)** window, click the **Unduh Template** (Download Template) link. The file **template-import-soal-….xlsx** is downloaded.
 
     <Frame>
-      ![Panduan sheet in the Excel template](/images/2026-07-31_03-00.png)
+      ![Unduh Template link in the Import Soal (Excel) window](/images/paket-soal/import-paket-soal/03-unduh-template.png)
     </Frame>
 
-    The **Panduan** sheet explains how to fill in the template, which codes you can use and which columns are required or optional.
+    Always use the latest template from the app. The current template version is **1.3.0**; files from template versions 1.0.0, 1.1.0, and 1.2.0 can still be imported, but columns that did not exist in those versions are treated as empty.
+  </Step>
+  <Step title="Get to know the template">
+    The template has four sheets: **Panduan** (guide), **Data Soal** (questions), **Data Jawaban** (answers), and **Data Wacana** (reading passages).
+
+    The **Panduan** sheet contains filling instructions, the template version, and the **Referensi Data Master** (codes for question types and media, difficulty values, and **Jawaban Lebih dari Satu** values). The sheet is locked and does not need to be changed.
+
+    <Frame>
+      ![Panduan sheet of template version 1.3.0](/images/paket-soal/import-paket-soal/04-sheet-panduan.png)
+    </Frame>
 
     <Note>
-      Keep the following rules in mind:
-
-      - Import is only available for **CBT/CAT** question packages.
-      - Don't change the column names or the layout of the template.
-      - Question images and answer images can be added through **image links** (see **Image link rules** below). Audio and video are still added after the import.
-      - Use the codes listed in the instructions to fill in the question type and content type.
-      - Use the latest template (version 1.2.0) so that the image link columns and the passage sheet are available. Files made from earlier template versions can still be imported.
+      - Do not change the sheet names, column headers, or the template information on the **Panduan** sheet. The **Data Soal** and **Data Jawaban** sheets are required.
+      - A freshly downloaded template already contains **sample rows** in **Data Soal**, **Data Jawaban**, and **Data Wacana**. Delete or overwrite them; any sample row left in the file is imported too.
+      - Every cell has a short hint and some columns have dropdowns. The notes on the right of each sheet summarize the filling rules.
     </Note>
   </Step>
-  <Step title="Fill in the Question Data sheet">
+  <Step title="Fill in the Data Soal sheet">
+    Each row is one question. Columns marked with an asterisk are required.
+
     <Frame>
-      ![Question Data sheet in the Excel template](/images/2026-07-31_03-00_1.png)
+      ![Data Soal sheet with five Pengetahuan Kuantitatif questions](/images/paket-soal/import-paket-soal/05-sheet-data-soal.png)
     </Frame>
 
-    Use the **Question Data** sheet to enter each question and its settings. The main columns are:
+    | Column | Content |
+    | --- | --- |
+    | **No Soal \*** | Question number: 1, 2, 3, and so on. Questions are saved in row order. |
+    | **Jenis Soal \*** | **PG** (Pilihan Ganda, multiple choice), **MK** (Majemuk Kompleks, complex multiple-statement), or **IN** (Jawaban Singkat, short answer). Matching questions cannot be imported yet; add them through the question form. |
+    | **Tipe Soal \*** | Question media: **T** (Teks), **G** (Gambar, image), **A** (Audio). Combine with commas, for example **T,G**. |
+    | **Soal Uraian \*** | Question text, at most 5,000 characters. May be empty if the question is only an image from **Link Gambar Soal**. |
+    | **Kelompok Soal** | Question group name, at most 255 characters. Groups that do not exist in the package are created automatically. |
+    | **Tingkat Kesulitan** | **Sangat Mudah**, **Mudah**, **Sedang**, **Sulit**, or **Sangat Sulit**. Required if the package is used by a CAT test. |
+    | **Jawaban Lebih dari Satu** | **Ya** (yes) or **Tidak** (no). Use **Ya** for multiple-choice questions with more than one correct answer. |
+    | **Jawaban Benar hanya untuk IN** | Required for **IN** questions and must be empty for other types. Enter a number or text; separate several correct answers with **\|**, for example `x + 6 \| 6 + x` or `0,5 \| 1/2` (up to 21 answers of at most 255 characters each). The first answer becomes the main key. |
+    | **Skor Benar CBT**, **Skor Salah CBT**, **Skor Tidak Dijawab CBT** | Scores for the scoring method **Perhitungan Skor Soal (Akumulasi Benar/Salah)**, for example 4, -1, and 0. |
+    | **Skor Benar CAT**, **Skor Salah CAT** | Scores for CAT exams. |
+    | **Pembahasan** | Explanation (optional). |
+    | **Link Gambar Soal** | Question image links (optional). Put several images one link per line in the same cell, up to 10 images. See **Image link rules** below. |
+    | **Kode Wacana** | Passage code from the **Data Wacana** sheet, for example **W1**, if the question uses a shared reading passage (optional). |
 
-    - **Question No**<br />Enter the question's sequence number, for example 1, 2, 3 and so on.
-    - **Question Type**<br />Enter the question type using a code:
-      - **PG** for Multiple Choice
-      - **MK** for Complex Multiple Response
-      - **IN** for Short Answer
-    - **Content Type**<br />Enter how the question is presented using the codes below. To use more than one type, separate them with commas, for example **T,G**.
-      - **T** for Text
-      - **G** for Image
-      - **A** for Audio
-    - **Essay Question**<br />Enter the question participants will answer, up to 5,000 characters. You can leave it empty if the question is only an image from **Question Image Links**.
-    - **Question Group**<br />Enter the name of the question group. If no question group with that name exists yet, it is created automatically. Leave it empty if the question doesn't need to be grouped. Examples:
-      - Basic Geography
-      - Biology
-      - Mathematics
-    - **Difficulty Level**<br />Enter the question's difficulty level (the Indonesian values, such as Mudah or Sulit, are also accepted), for example:
-      - Very Easy
-      - Easy
-      - Medium
-      - Hard
-      - Very Hard
-    - **More Than One Answer**<br />Enter **Yes** if the question has more than one correct answer, or **No** if it has only one correct answer. **Ya** and **Tidak** are also accepted.
-    - **Correct Answer applies to IN only**<br />For **IN** (Short Answer) questions only, enter the correct answer as a number or text. If several answers count as correct, separate them with **|**, for example `DKI Jakarta | Jakarta` or `0.5 | 1/2`. If all the answers are numbers, participants can only type numbers during the exam. Leave this column empty for other question types.
-    - **CBT and CAT scores**<br />Enter the score for a correct, wrong or unanswered question in the **CBT Score for Correct**, **CBT Score for Wrong**, **CBT Score for Unanswered**, **CAT Score for Correct** and **CAT Score for Wrong** columns, according to the scoring rules you use.
-    - **Explanation**<br />Enter an explanation of the answer if needed.
-    - **Question Image Links**<br />Optional. Enter the image link(s) for this question. If the question has several images, put one link per line in the same cell (up to 10 images).
-    - **Passage Code**<br />Optional. Enter a passage code from the **Passage Data** sheet (for example `W1`) if the question uses a shared reading text.
+    For **IN** questions the answer format is set automatically: if all correct answers are numbers, participants can only type numbers; if any answer is text, participants can type free text.
 
     <Tip>
-      **Example:**
-
-      For the question:
-
-      > What is 10 + 15?
-
-      A simple entry looks like this:
-
-      - Question No: 4
-      - Question Type: IN
-      - Content Type: T
-      - Question Group: Mathematics
-      - Correct Answer: 25
+      Question, answer, and explanation text may use simple HTML (for example `<b>`, `<i>`, `<u>`, `<sup>`, `<sub>`, `<table>`, and lists) and LaTeX formulas between dollar signs, for example `$\frac{1}{2}$`. Separate paragraphs with a line break inside the cell (**Alt+Enter**).
     </Tip>
   </Step>
-  <Step title="Fill in the Answer Data sheet">
+  <Step title="Fill in the Data Jawaban sheet">
+    This sheet holds answer options for **PG** and **MK** questions only. **IN** questions are not entered here.
+
     <Frame>
-      ![Answer Data sheet in the Excel template](/images/2026-07-31_03-01.png)
+      ![Data Jawaban sheet with answer options for questions 1, 2, and 4](/images/paket-soal/import-paket-soal/06-sheet-data-jawaban.png)
     </Frame>
 
-    Use the **Answer Data** sheet to enter the answer options for Multiple Choice and Complex Multiple Response questions. The main columns are:
+    | Column | Content |
+    | --- | --- |
+    | **No Soal \*** | The question's number in the **Data Soal** sheet. In the example, questions 3 and 5 (IN) are skipped. |
+    | **Jawaban A \*** to **Jawaban F** | Text of each option. At least **Jawaban A** and **Jawaban B**, at most six options (A to F). Leave unused options empty. |
+    | **Kunci Jawaban \*** | Letter of the correct option, A to F. For several answers, separate them with commas without spaces, for example **A,C,D**. |
+    | **Link Gambar A** to **Link Gambar F** | One image link per option (optional). An option may be text, an image, or both. |
+    | **Skor A** to **Skor F** | Score of each option (optional), between -1,000 and 1,000, decimals and negatives allowed. Only used by the scoring method **Perhitungan Skor Jawaban (Akumulasi Skor Jawaban)**; leave empty for a score of 0. |
 
-    - **Question No**<br />Enter the same number as in the **Question Data** sheet.
-    - **Answer A to Answer E**<br />Enter the answer options participants will see. There **must be** at least two answer options (Answer A and Answer B), as text or as an image link.
-    - **Answer Key**<br />Enter the letter of the correct answer. For example:
-      - Enter **A** if only Answer A is correct.
-      - Enter **B,C,D** (separated by commas, without spaces) if there is more than one correct answer.
-    - **Image Link A to Image Link E**<br />Optional. Enter one image link for the matching answer option. An answer option can be text, an image or both.
-
-    <Note>
-      **Image link rules**
-
-      - Use a full link that starts with `https://` and points directly at a **JPG, PNG, GIF or WebP** image file of up to **5 MB**. An easy check: when you open the link in a browser, only the image is shown.
-      - Page links, such as a Google Drive sharing page or a web page that contains the image, are not image links and will be rejected.
-      - Images are **downloaded and stored in your project's storage**, not linked to the original address. The question stays intact even if the original link later changes or is deleted, and the image size counts towards your storage quota.
-      - For security, the system only downloads from public servers on the internet and checks that the file really is an image.
-      - If one image fails to download, **the whole import is cancelled** and the notification names the rows to fix. A file can contain up to 300 image links.
-    </Note>
-
-    <Tip>
-      **Example:**
-
-      For the question:
-
-      > What is the capital of Indonesia?
-
-      Fill in the answers:
-
-      - Answer A: Jakarta
-      - Answer B: Bandung
-      - Answer C: Surabaya
-      - Answer D: Medan
-      - Answer E: Yogyakarta
-      - Answer Key: A
-    </Tip>
+    For **MK** questions, each option becomes one statement with the labels **Benar/Salah** (True/False): options listed in **Kunci Jawaban** are **Benar**, the rest are **Salah**. In the example, question 4 has four statements about the number 36 with the key **A,C,D**. To use another label pair, such as **Fakta/Opini**, edit the question after the import.
   </Step>
-  <Step title="Fill in the Passage Data sheet (optional)">
-    Fill in the **Passage Data** sheet only if several questions share the same reading text. Its columns are:
+  <Step title="Fill in the Data Wacana sheet (optional)">
+    Fill in this sheet only if several questions share the same reading text.
 
-    - **Passage Code**<br />A unique code for each passage, for example `W1`, `W2`. Write this code in the **Passage Code** column of the **Question Data** sheet for every question that uses the passage.
-    - **Passage Title**<br />Optional and only visible to admins. If left empty, the code is used as the title.
-    - **Passage Text**<br />The reading text, up to 20,000 characters. Separate paragraphs with a line break inside the cell (**Alt+Enter**). It can be left empty if the passage uses **Passage Image Links** instead.
-    - **Passage Image Links**<br />Optional. Image links follow the same rules as question image links; put one link per line for several images.
+    <Frame>
+      ![Data Wacana sheet with passage W1 Nilai Rata-rata Tryout per Kelas](/images/paket-soal/import-paket-soal/07-sheet-data-wacana.png)
+    </Frame>
 
-    <Tip>
-      **Example:** passage `W1` contains attendance data for a reading club. Questions 6 and 7 in the **Question Data** sheet have `W1` in the **Passage Code** column, so both show the same reading text during the exam.
-    </Tip>
+    | Column | Content |
+    | --- | --- |
+    | **Kode Wacana \*** | A unique code per passage, for example **W1**, **W2**. Write the same code in the **Kode Wacana** column of **Data Soal** for every question that uses the passage. |
+    | **Judul Wacana** | Title visible only to admins, at most 255 characters. If empty, the title is **Wacana** followed by the code. |
+    | **Teks Wacana** | Passage text, at most 20,000 characters. Separate paragraphs with **Alt+Enter**. May be empty if the passage is an image. |
+    | **Link Gambar Wacana** | Passage image links (optional), one link per line, up to 10 images. |
+
+    In the example, questions 2 and 3 use passage **W1**, so during the exam both show the same class average data above the question text.
   </Step>
-  <Step title="Upload the template">
-    <Frame>
-      ![Uploaded file and Import button in the Import Questions (Excel) window](/images/2026-07-31_03-01_1.png)
-    </Frame>
-
-    Once all the questions and answers are filled in:
-
-    1. Save the Excel file.
-    2. Click **Import Questions (Excel)** again on the question package.
-    3. Upload the completed file.
-    4. Click **Import**.
-    5. Wait until the process is finished. The import runs in the background, and you'll get a notification when it's done.
+  <Step title="Upload the file and click Import">
+    Save the Excel file (.xlsx). Go back to the package, click **Import Soal (Excel)**, drag the file into **File Excel** or click **Jelajahi** (Browse), wait until it says **Pengunggahan selesai** (upload complete), then click **Import**.
 
     <Frame>
-      ![Question Import In Progress notification](/images/2026-07-31_03-02.png)
+      ![Uploaded Excel file and the Import button in the Import Soal (Excel) window](/images/paket-soal/import-paket-soal/08-file-terunggah.png)
     </Frame>
 
-    After a successful import, the questions appear in the **Question List** section with their question group, question text and question type.
+    The notification **Impor Soal Sedang Diproses** (import in progress) appears. The import runs in the background, and its progress is shown in the **Mengimpor Soal & Jawaban** box at the top of the page.
 
     <Frame>
-      ![Imported questions in the Question List section](/images/2026-07-31_03-02_1.png)
+      ![Impor Soal Sedang Diproses notification](/images/paket-soal/import-paket-soal/09-notifikasi-impor-diproses.png)
     </Frame>
 
-    <Tip>
-      Check the import results before using the package. Make sure the question numbers in the **Question Data** and **Answer Data** sheets match, so answers don't end up on the wrong question.
-    </Tip>
+    <Frame>
+      ![Completed Mengimpor Soal & Jawaban progress box](/images/paket-soal/import-paket-soal/10-progres-impor.png)
+    </Frame>
+  </Step>
+  <Step title="Check the result">
+    When the import finishes, you receive the notification **Berhasil Mengimpor Soal dan Jawaban** (questions and answers imported) with the number of imported questions (click the bell icon to see it). Reload the package page to see the questions in **Daftar Soal**.
+
+    <Frame>
+      ![Berhasil Mengimpor Soal dan Jawaban notification](/images/paket-soal/import-paket-soal/12-notifikasi-impor-berhasil.png)
+    </Frame>
+
+    <Frame>
+      ![Daftar Soal with five imported questions including question groups and passages](/images/paket-soal/import-paket-soal/11-hasil-impor.png)
+    </Frame>
+
+    Questions are added at the end of the list. New question groups and passages appear in the **Kelompok Soal** and **Wacana** tabs. Check every question with **Ubah** or **Preview Soal**, and add audio where needed, because audio and video cannot be imported.
   </Step>
 </Steps>
+
+## Image link rules
+
+- Use a full link that starts with `https://` and points directly to a **JPG, PNG, GIF, or WebP** image of at most **5 MB**. An easy check: when you open the link in a browser, only the image is shown.
+- Page links, such as a Google Drive sharing page or a web page containing the image, are not image links and are rejected.
+- Images are **downloaded and stored in your project's storage**, not linked to the original. Questions stay intact even if the original link changes or is removed, and the image size counts toward your storage quota. If the storage quota is full, the import is cancelled.
+- For security, the system only downloads from public internet servers and checks that the file really is an image.
+- Up to 300 image links per file. If one image fails to download, **the whole import is cancelled** and the notification names the row to fix.
+
+## If the import fails
+
+The whole file is checked before anything is saved. If a single error is found, no questions are imported and you receive the notification **Gagal Mengimpor Soal** (import failed) naming the sheet and row with the problem. Fix the file and import it again. Common causes:
+
+| Message | Fix |
+| --- | --- |
+| Berkas tidak memiliki sheet yang diperlukan (required sheet missing) | Use the template from the app and do not rename the **Data Soal** and **Data Jawaban** sheets. |
+| Versi template tidak sesuai (template version mismatch) | Download the latest template with **Unduh Template** and copy your content into it. |
+| Kode "Jenis Soal" atau "Tipe Soal" tidak valid (invalid code) | Use the codes **PG**, **MK**, **IN** and **T**, **G**, **A** from the **Referensi Data Master**. |
+| Kolom "Jawaban Benar" wajib diisi untuk jenis soal "IN" / harus kosong untuk jenis soal selain "IN" | Fill in **Jawaban Benar hanya untuk IN** only for **IN** questions. |
+| Kode Wacana tidak ada di sheet "Data Wacana" (unknown passage code) | Make sure the code in **Data Soal** exactly matches a code in **Data Wacana**. |
+| Nomor soal tidak ditemukan di sheet "Data Soal" / bukan jenis Pilihan Ganda atau Majemuk Kompleks | Check the **No Soal** column in **Data Jawaban** and make sure the question type is **PG** or **MK**. |
+| Kunci jawaban tidak valid (invalid answer key) | Use the letters A to F, separated by commas without spaces. |
+| Kolom "Tingkat Kesulitan" wajib diisi (difficulty required) | The package is used by a CAT test; fill in the difficulty of every question. |
+
+<Tip>
+  After the import, you can change **Skor CBT** and **Skor CAT** for many questions at once with **Tindakan** → **Ubah Skor Massal** in **Daftar Soal**. See [Create a Question Package](/en/paket-soal/membuat-paket-soal).
+</Tip>

@@ -1,274 +1,200 @@
 ---
 title: "Transaksi & Penarikan Saldo"
-description: "Cara memantau transaksi keuangan yang masuk dan melakukan penarikan saldo ke rekening lembaga."
+description: "Cara memantau pembayaran ujian dari peserta, mengisi rekening tujuan, dan menarik saldo projek ke rekening pemilik."
 ---
 
-Menu **Keuangan** digunakan untuk melihat pembayaran yang masuk dari peserta serta melakukan penarikan saldo ke rekening milik lembaga.
-
-> 💡 **Contoh:**
->
-> Peserta **Rosa Adinda** melakukan pembayaran sebesar **Rp50.000** untuk mengikuti **Try Out Matematika Persiapan SNBT 2027**. Setelah pembayaran berhasil, transaksi tersebut tercatat pada menu **Riwayat Transaksi**.
+Pembayaran ujian berbayar dari peserta tercatat di **Riwayat Transaksi** dan menambah saldo projek. Saldo tersebut dapat dicairkan ke rekening pemilik projek melalui **Penarikan Saldo**. Kedua menu berada di modul yang berbeda:
 
 <Info>
-  Secara sederhana, alurnya adalah:
+  **Lokasi menu:**
 
-  **Peserta melakukan pembayaran → transaksi tercatat di Riwayat Transaksi → saldo masuk ke akun lembaga → saldo yang sudah dapat ditarik dapat diajukan ke rekening lembaga.**
+  - **Riwayat Transaksi**: **Portal** → **Platform Ujian (CBT)** → **Keuangan** → **Riwayat Transaksi**.
+  - **Penarikan Saldo**: **Portal** → **Administrasi Aplikasi** → **Keuangan** → **Penarikan Saldo**.
+
+  **Peran yang dibutuhkan:** pemilik projek, atau anggota tim yang role-nya mencakup modul **Riwayat Transaksi** atau **Penarikan Saldo**.
 </Info>
 
-## 1. Melihat Transaksi Keuangan yang Masuk
+Alurnya sebagai berikut:
 
-Buka menu **Riwayat Transaksi** untuk melihat pembayaran peserta.
+**Peserta membayar ujian → transaksi tercatat di Riwayat Transaksi → saldo masuk sebagai Saldo Tertunda → setelah 2 hari kerja menjadi Saldo Dapat Ditarik → admin mengajukan penarikan ke rekening pemilik projek.**
 
-<Frame>
-  ![Daftar pembayaran peserta pada halaman Riwayat Transaksi](/images/2026-08-10_20-00.png)
-</Frame>
+Sebagai contoh, **Bimbel Prestasi Nusantara** menjual **Try Out Intensif SNBT 2027** seharga **Rp150.000**. Pembayaran peserta seperti **Rosa Adinda** dan **Bagas Pratama** tercatat di **Riwayat Transaksi**, lalu Rina Wulandari, pemilik projek, mencairkan **Rp500.000** ke rekening BCA miliknya.
 
-Melalui halaman ini, admin dapat mengetahui siapa yang melakukan pembayaran, ujian yang dibayar, jumlah pembayaran, serta status transaksi. Berikut penjelasan setiap kolomnya.
+## 1. Memantau Riwayat Transaksi
 
-### No. Transaksi
-
-Menampilkan nomor transaksi sebagai tanda pengenal setiap pembayaran.
-
-Contoh: `TO-MAT-SNBT-271784392462258`
-
-### Status
-
-Menampilkan kondisi pembayaran peserta.
-
-Contoh pada halaman: `Sukses (Verifikasi Manual)`
-
-Artinya, transaksi ditandai lunas secara manual oleh admin melalui tombol **Tandai Lunas** (tersedia pada transaksi berstatus **Pending**). Akses ujian peserta diaktifkan, tetapi saldo lembaga tidak bertambah. Pembayaran yang berhasil melalui sistem pembayaran ditampilkan dengan status `Sukses`.
-
-Di bawah status juga ditampilkan nama ujian yang dibayar.
-
-Contoh: `Try Out Matematika Persiapan SNBT 2027`
-
-### Total Pembayaran
-
-Menampilkan jumlah yang dibayarkan peserta.
-
-Contoh: `Rp50.000`
-
-### Tanggal Pembayaran
-
-Menampilkan tanggal dan waktu saat pembayaran berhasil diterima.
-
-### Tanggal Transaksi
-
-Menampilkan tanggal dan waktu saat transaksi dibuat.
-
-### Tanggal Kedaluwarsa
-
-- Menampilkan batas waktu pembayaran.
-- Jika pembayaran belum diselesaikan sampai waktu tersebut, transaksi dapat menjadi kedaluwarsa.
-
-Contoh:
+Buka **Platform Ujian (CBT)** → **Keuangan** → **Riwayat Transaksi**. Transaksi terbaru tampil paling atas.
 
 <Frame>
-  ![Transaksi berstatus Kedaluwarsa pada Riwayat Transaksi](/images/2026-08-10_20-06.png)
+  ![Daftar pembayaran peserta pada halaman Riwayat Transaksi](/images/lainnya/transaksi-dan-penarikan-saldo/01-riwayat-transaksi.png)
 </Frame>
 
-<Info>
-  Pada bagian bawah tabel tersedia **Rangkuman** untuk kolom **Total Pembayaran**. Nilai **Total Dibayar** hanya menjumlahkan transaksi yang sudah lunas, yaitu yang berstatus **Sukses** atau **Sukses (Verifikasi Manual)**. Transaksi berstatus **Pending**, **Gagal**, dan **Kedaluwarsa** tidak ikut dijumlahkan.
+| Kolom | Isi |
+| --- | --- |
+| **No. Transaksi** | Nomor transaksi, misalnya `TO-SNBT1793756460174`, dengan nama dan email peserta di bawahnya. |
+| **Status** | Status pembayaran, dengan nama ujian yang dibayar di bawahnya. |
+| **Total Pembayaran** | Jumlah yang dibayar peserta. Jika peserta memakai voucher, kode voucher dan besar diskonnya tampil di bawah nominal. |
+| **Tanggal Pembayaran** | Waktu pembayaran diterima. Kosong (`-`) bila belum dibayar. |
+| **Tanggal Transaksi** | Waktu transaksi dibuat saat peserta mendaftar atau memilih bayar. |
+| **Tanggal Kedaluwarsa** | Batas waktu pembayaran, yaitu 2 jam setelah transaksi dibuat. |
 
-  - **Halaman ini** menunjukkan **Total Dibayar** dari transaksi yang sedang tampil pada halaman. Baris ini hanya muncul jika data terbagi ke lebih dari satu halaman.
-  - **Semua transaksi** menunjukkan **Total Dibayar** dari seluruh transaksi yang sesuai dengan filter dan pencarian yang sedang aktif, termasuk data pada halaman lainnya.
+Status yang mungkin tampil:
 
-  💡 **Contoh:**
+- **Pending**: peserta belum menyelesaikan pembayaran.
+- **Sukses**: pembayaran berhasil melalui sistem pembayaran dan saldo projek bertambah.
+- **Sukses (Verifikasi Manual)**: transaksi ditandai lunas oleh admin melalui **Tandai Lunas**. Akses ujian peserta aktif, tetapi saldo projek tidak bertambah.
+- **Gagal**: pembayaran ditolak.
+- **Kedaluwarsa**: pembayaran tidak diselesaikan sampai batas waktunya.
 
-  Pada halaman tampil 10 transaksi berstatus **Sukses**, masing-masing sebesar **Rp50.000**.
+Gunakan kolom **Cari** untuk mencari nomor transaksi atau email peserta, dan ikon filter untuk menyaring berdasarkan **Nama Ujian**. Tabel cukup lebar; geser ke kanan untuk melihat kolom tanggal dan tombol aksi.
 
-  Maka **Total Dibayar** pada **Halaman ini** adalah:
+### Menandai transaksi lunas secara manual
 
-  > **Rp500.000**
+Jika peserta membayar di luar sistem, misalnya tunai di kantor bimbel, Anda dapat mengaktifkan aksesnya tanpa menunggu pembayaran otomatis.
 
-  Sedangkan **Semua transaksi** menampilkan jumlah seluruh transaksi yang sudah lunas, termasuk yang tampil di halaman lain.
-</Info>
+<Steps>
+  <Step title="Klik Tandai Lunas">
+    Tombol **Tandai Lunas** hanya tampil pada transaksi berstatus **Pending**.
 
-Gunakan menu **Riwayat Transaksi** untuk memeriksa pembayaran yang masuk. Untuk mencairkan dana yang sudah dapat ditarik, lanjutkan melalui menu **Penarikan Saldo**.
+    <Frame>
+      ![Tombol Tandai Lunas pada transaksi berstatus Pending](/images/lainnya/transaksi-dan-penarikan-saldo/02-tombol-tandai-lunas.png)
+    </Frame>
+  </Step>
+  <Step title="Konfirmasi">
+    Baca peringatan pada jendela **Konfirmasi Flagging Lunas Manual**, lalu klik **Ya, Flagging Lunas**.
 
-## 2. Mengisi Data Rekening untuk Proses Penarikan Saldo
+    <Frame>
+      ![Jendela Konfirmasi Flagging Lunas Manual](/images/lainnya/transaksi-dan-penarikan-saldo/03-konfirmasi-tandai-lunas.png)
+    </Frame>
 
-Sebelum melakukan penarikan saldo untuk pertama kali, pemilik projek perlu melengkapi **Informasi Rekening** pada profil akunnya. Saldo selalu ditarik ke rekening pemilik projek; jika Anda anggota **Tim Admin**, minta pemilik projek untuk mengisinya.
+    Status berubah menjadi **Sukses (Verifikasi Manual)** dan akses ujian peserta diproses.
+  </Step>
+</Steps>
 
 <Warning>
-  Apabila informasi data rekening belum diisikan, penarikan saldo **tidak dapat dilakukan**.
+  Transaksi yang ditandai lunas secara manual tidak menambah saldo projek dan tidak dapat dikembalikan ke status **Pending**.
 </Warning>
 
+### Rangkuman Total Dibayar
+
+Di bagian bawah tabel tersedia **Rangkuman** untuk kolom **Total Pembayaran**. **Total Dibayar** menjumlahkan transaksi yang sudah lunas, yaitu **Sukses** dan **Sukses (Verifikasi Manual)**; transaksi **Pending**, **Gagal**, dan **Kedaluwarsa** tidak dihitung.
+
 <Frame>
-  ![Notifikasi Informasi Rekening Diperlukan saat membuat penarikan saldo](/images/2026-08-11_14-48_1.png)
+  ![Baris Rangkuman dengan Total Dibayar untuk Halaman ini dan Semua transaksi](/images/lainnya/transaksi-dan-penarikan-saldo/04-rangkuman-total-dibayar.png)
 </Frame>
 
-<Steps>
-  <Step title="Klik nama akun Anda di pojok kiri bawah">
-    Klik nama/profil akun Anda yang berada di pojok kiri bawah.
+- **Halaman ini**: total dari transaksi yang sedang tampil. Baris ini hanya muncul bila data terbagi ke lebih dari satu halaman.
+- **Semua transaksi**: total dari seluruh transaksi yang sesuai dengan pencarian dan filter aktif, termasuk di halaman lain.
 
-    <Frame>
-      ![Nama akun di pojok kiri bawah panel admin](/images/2026-08-10_20-31.png)
-    </Frame>
+Pada contoh, halaman pertama memuat tujuh transaksi lunas senilai Rp150.000, sehingga **Halaman ini** menunjukkan **Rp1.050.000**. **Semua transaksi** menunjukkan **Rp1.800.000** dari dua belas transaksi lunas.
 
-    Sistem akan menampilkan menu akun, antara lain:
+<Note>
+  **Total Dibayar** adalah total pembayaran peserta, bukan saldo yang dapat ditarik. Transaksi **Sukses (Verifikasi Manual)** ikut dijumlahkan, tetapi tidak menambah saldo. Untuk melihat saldo, buka **Penarikan Saldo**.
+</Note>
 
-    - Profil
-    - Changelog
-    - pilihan bahasa (misalnya Bahasa Indonesia)
-    - Keluar
+## 2. Melihat saldo projek
 
-    <Frame>
-      ![Menu akun yang terbuka di pojok kiri bawah](/images/2026-08-10_20-31_1.png)
-    </Frame>
-  </Step>
-  <Step title="Pilih Profil">
-    Pilih **Profil** untuk membuka halaman pengaturan akun.
+Buka **Administrasi Aplikasi** → **Keuangan** → **Penarikan Saldo**. Saldo projek tampil di atas tabel riwayat penarikan.
 
-    <Frame>
-      ![Menu Profil pada menu akun](/images/2026-08-10_20-32.png)
-    </Frame>
-  </Step>
-  <Step title="Isi Informasi Rekening">
-    Gulir (scroll) ke bagian **Informasi Rekening**, kemudian isikan informasi rekening.
+<Frame>
+  ![Halaman Penarikan Saldo dengan kartu Saldo Dapat Ditarik, Saldo Tertunda, dan tombol Penarikan Saldo](/images/lainnya/transaksi-dan-penarikan-saldo/05-halaman-penarikan-saldo.png)
+</Frame>
 
-    <Frame>
-      ![Bagian Informasi Rekening pada halaman Profil](/images/2026-08-10_203614-1.png)
-    </Frame>
+1. **Saldo Dapat Ditarik**: saldo yang sudah dapat dicairkan. Saldo ini berasal dari pembayaran peserta ujian dan dari pengembalian dana pembelian yang gagal, misalnya pembelian domain yang ditolak registrar.
+2. **Saldo Tertunda**: pembayaran baru yang belum dapat ditarik. Pembayaran dapat ditarik setelah 2 hari kerja sejak diterima.
+3. **Penarikan Saldo**: tombol untuk mengajukan penarikan.
 
-    1. **Nama Bank**
+> **Contoh:** Saldo Dapat Ditarik **Rp750.000** dan Saldo Tertunda **Rp300.000**. Saat ini Rina hanya dapat menarik paling banyak **Rp750.000**. Saldo Rp300.000 berasal dari dua pembayaran yang masuk kemarin dan hari ini.
 
-       <Frame>
-         ![Daftar pilihan bank pada kolom Nama Bank](/images/2026-08-10_20-32_1-1.png)
-       </Frame>
+## 3. Mengisi informasi rekening
 
-       Pilih nama bank tempat rekening Anda terdaftar.
+Saldo selalu ditarik ke rekening **pemilik projek**. Sebelum penarikan pertama, pemilik projek perlu mengisi **Informasi Rekening** di profil akunnya. Jika rekening belum lengkap, penarikan ditolak dengan notifikasi **Informasi Rekening Diperlukan**.
 
-       Contoh: `Bank Central Asia (BCA)`
+<Frame>
+  ![Notifikasi Informasi Rekening Diperlukan saat membuat penarikan saldo](/images/lainnya/transaksi-dan-penarikan-saldo/06-informasi-rekening-diperlukan.png)
+</Frame>
 
-    2. **Nomor Rekening**
-
-       Isi nomor rekening yang akan digunakan untuk menerima hasil penarikan saldo.
-
-       Contoh: `123456789000`
-
-       Pastikan nomor rekening **sudah benar** agar dana tidak terkirim ke rekening yang salah.
-
-    3. **Nama Pemilik Rekening**
-
-       Isi nama pemilik rekening sesuai dengan nama yang terdaftar di bank.
-
-       Contoh: `Iqbal Hamzah`
-
-       Sebaiknya gunakan nama yang sama persis dengan data rekening untuk membantu menghindari kendala saat proses pencairan saldo.
-
-    4. Pilih tombol **Simpan** untuk menyimpan data rekening.
-  </Step>
-</Steps>
-
-## 3. Melakukan Penarikan Saldo
-
-Sebagai contoh, Lembaga Indolat memiliki **Saldo Dapat Ditarik Rp6.215.003** dan ingin mencairkan **Rp3.000.000** ke rekening BCA.
-
-Admin sudah mengisi informasi rekening pada profil, kemudian membuka menu **Penarikan Saldo**, memasukkan Rp3.000.000, dan memeriksa kembali rekening tujuan.
-
-Setelah memilih **Buat Penarikan**, status awal menjadi **Pending**. Setelah proses selesai, status berubah menjadi **Disetujui** dan admin dapat melihat bukti pembayarannya.
+<Note>
+  Jika Anda anggota **Tim Admin**, notifikasi meminta pemilik projek melengkapi rekeningnya. Rekening tidak dapat diisi dari akun anggota tim.
+</Note>
 
 <Steps>
-  <Step title="Buka menu Penarikan Saldo">
-    Buka menu **Penarikan Saldo**, kemudian pilih tombol **Penarikan Saldo**.
+  <Step title="Buka Profil dari menu akun">
+    Klik nama akun Anda di pojok kiri bawah sidebar, lalu pilih **Profil**. Anda juga dapat mengklik tautan **Halaman Profil** pada jendela **Buat Penarikan Saldo**.
 
     <Frame>
-      ![Tombol Penarikan Saldo pada halaman Penarikan Saldo](/images/2026-08-11_14-46.png)
+      ![Menu Profil pada menu akun di pojok kiri bawah sidebar](/images/lainnya/transaksi-dan-penarikan-saldo/07-menu-profil.png)
     </Frame>
-  </Step>
-  <Step title="Isikan jumlah saldo yang akan ditarik">
-    <Frame>
-      ![Formulir Buat Penarikan Saldo berisi saldo dan jumlah penarikan](/images/2026-08-11_14-48.png)
-    </Frame>
-
-    Lengkapi kolom isian saldo penarikan.
-
-    1. **Saldo Dapat Ditarik**
-
-       Menampilkan saldo yang sudah dapat diajukan untuk ditransfer ke rekening lembaga.
-
-    2. **Saldo Tertunda**
-
-       Menampilkan saldo yang belum dapat ditarik.
-
-       Sesuai keterangan pada sistem, saldo yang baru masuk dapat ditarik setelah melewati **2 hari kerja sejak saldo diterima**.
-
-       > 💡 **Contoh:**
-       >
-       > Saldo lembaga:
-       >
-       > - Saldo Dapat Ditarik: **Rp6.215.003**
-       > - Saldo Tertunda: **Rp945.000**
-       >
-       > Artinya, saat ini admin hanya dapat melakukan penarikan dari saldo sebesar **Rp6.215.003**. Saldo Rp945.000 masih menunggu sampai dapat ditarik.
-
-    3. **Jumlah Penarikan**
-
-       Masukkan nominal yang ingin ditransfer ke rekening.
-
-       Contoh: **Rp3.000.000**
-
-       <Note>
-         Minimal penarikan saldo yang ditampilkan pada sistem adalah **Rp10.000**.
-       </Note>
-
-    4. Pilih tombol **Selanjutnya**.
-  </Step>
-  <Step title="Periksa dan konfirmasi penarikan">
-    Setelah klik **Selanjutnya**, sistem menampilkan kembali:
-
-    - **Jenis Bank**
-    - **Rekening Tujuan**
-    - **Atas Nama**
-    - **Jumlah Penarikan**
-
-    <Frame>
-      ![Konfirmasi rekening tujuan dan jumlah penarikan](/images/2026-08-11_15-39.png)
-    </Frame>
-
-    Periksa seluruh informasi tersebut dengan teliti.
-
-    Jika sudah benar, pilih **Buat Penarikan**.
 
     <Warning>
-      Setelah penarikan dibuat, admin tidak dapat membatalkannya secara mandiri.
-
-      Oleh sebab itu, pastikan rekening dan jumlah penarikan sudah benar sebelum melanjutkan.
+      Tombol **Halaman Profil** pada Portal membuka halaman **Profil** ringkas (nama, email, kata sandi, dan autentikasi dua faktor) yang tidak memuat **Informasi Rekening**. Gunakan menu **Profil** di sidebar.
     </Warning>
   </Step>
-  <Step title="Lihat status penarikan">
-    Setelah pengajuan dibuat, data akan muncul pada halaman **Penarikan Saldo**. Status dapat berubah sesuai prosesnya.
+  <Step title="Isi Informasi Rekening">
+    Gulir ke bagian **Informasi Rekening**, lalu isi data rekening.
 
-    - **Pending**: permintaan penarikan sudah dibuat dan masih dalam proses.
+    <Frame>
+      ![Bagian Informasi Rekening berisi Nama Bank, Nomor Rekening, dan Nama Pemilik Rekening](/images/lainnya/transaksi-dan-penarikan-saldo/08-informasi-rekening.png)
+    </Frame>
 
-      <Frame>
-        ![Penarikan saldo berstatus Pending](/images/2026-08-11_15-39_1.png)
-      </Frame>
+    1. **Nama Bank**: pilih bank rekening Anda, misalnya **Bank Central Asia (BCA)**.
+    2. **Nomor Rekening**: nomor rekening tujuan, hanya angka, misalnya `8730412256`.
+    3. **Nama Pemilik Rekening**: nama sesuai buku tabungan, misalnya `Rina Wulandari`.
+    4. Klik **Simpan** di bawah bagian **Informasi Rekening**. Notifikasi *Informasi profil Anda telah berhasil disimpan.* muncul.
 
-    - **Disetujui**: penarikan sudah diproses. Pilih **Lihat Bukti Pembayaran** untuk melihat bukti transfernya.
-
-      <Frame>
-        ![Penarikan saldo berstatus Disetujui dengan tautan Lihat Bukti Pembayaran](/images/2026-08-11_15-39_2.png)
-      </Frame>
-
-    <Note>
-      **Ketentuan Penarikan Saldo**
-
-      Berdasarkan informasi yang tampil pada sistem:
-
-      - Penarikan diproses pada **hari kerja pukul 09.00–16.00 WIB**.
-      - Penarikan di luar jam tersebut akan diproses pada **hari kerja berikutnya**.
-      - Penarikan ke bank selain **BNI** dikenakan biaya admin **Rp3.000**.
-      - Minimal penarikan adalah **Rp10.000**.
-      - Penarikan baru tidak dapat dibuat selama masih ada penarikan berstatus **Pending**.
-
-      💡 **Contoh biaya admin:**
-
-      Admin melakukan penarikan **Rp1.000.000** ke bank selain BNI. Setelah biaya admin Rp3.000, jumlah yang diterima menjadi:
-
-      > **Rp997.000**
-    </Note>
+    <Tip>
+      Pastikan nama pemilik rekening sama persis dengan data bank. Nama yang berbeda dapat membuat penarikan ditolak.
+    </Tip>
   </Step>
 </Steps>
+
+## 4. Mengajukan penarikan saldo
+
+<Steps>
+  <Step title="Buka formulir penarikan">
+    Pada halaman **Penarikan Saldo**, klik tombol **Penarikan Saldo**.
+  </Step>
+  <Step title="Isi jumlah penarikan">
+    <Frame>
+      ![Formulir Buat Penarikan Saldo berisi Saldo Dapat Ditarik, Saldo Tertunda, dan Jumlah Penarikan](/images/lainnya/transaksi-dan-penarikan-saldo/09-formulir-penarikan.png)
+    </Frame>
+
+    1. **Saldo Dapat Ditarik**: saldo yang dapat dicairkan (hanya baca).
+    2. **Saldo Tertunda**: saldo yang masih tertahan (hanya baca).
+    3. **Jumlah Penarikan**: nominal yang ingin dicairkan, tanpa titik, misalnya `500000`. Minimal **Rp10.000** dan tidak boleh melebihi **Saldo Dapat Ditarik**.
+    4. Klik **Selanjutnya**.
+
+    Ketentuan penarikan yang tampil di formulir:
+
+    - Penarikan diproses pada hari kerja pukul **09.00–16.00 WIB**; penarikan di luar jam tersebut diproses pada hari kerja berikutnya.
+    - Penarikan ke bank selain **BNI** dikenakan biaya admin **Rp3.000**. Contoh: penarikan Rp1.000.000 diterima Rp997.000.
+  </Step>
+  <Step title="Periksa dan buat penarikan">
+    Sistem menampilkan **Jenis Bank**, **Rekening Tujuan**, **Atas Nama**, dan **Jumlah Penarikan**. Periksa kembali, lalu klik **Buat Penarikan**. Klik **Sebelumnya** bila perlu mengubah jumlah.
+
+    <Frame>
+      ![Konfirmasi rekening tujuan dan jumlah penarikan dengan tombol Buat Penarikan](/images/lainnya/transaksi-dan-penarikan-saldo/10-konfirmasi-penarikan.png)
+    </Frame>
+
+    Notifikasi **Penarikan Saldo Berhasil** muncul dan jumlah penarikan langsung dikurangkan dari saldo.
+
+    <Warning>
+      Penarikan yang sudah dibuat tidak dapat dibatalkan sendiri. Pastikan rekening dan jumlahnya benar sebelum mengklik **Buat Penarikan**.
+    </Warning>
+  </Step>
+</Steps>
+
+<Note>
+  Penarikan baru tidak dapat dibuat selama masih ada penarikan berstatus **Pending**. Sistem menampilkan pesan *Anda masih memiliki penarikan saldo yang sedang diproses.*
+</Note>
+
+## 5. Memantau status penarikan
+
+Setiap pengajuan tercatat pada tabel di halaman **Penarikan Saldo**, lengkap dengan **No. Penarikan**, **Status Penarikan**, **Jumlah Penarikan** beserta **Saldo Terakhir** sebelum penarikan, **Tanggal Pembayaran**, dan **Tanggal Penarikan**. Gunakan filter **Tanggal Penarikan** untuk menyaring berdasarkan periode.
+
+<Frame>
+  ![Riwayat penarikan dengan status Pending, Ditolak, dan Disetujui](/images/lainnya/transaksi-dan-penarikan-saldo/11-riwayat-penarikan.png)
+</Frame>
+
+- **Pending**: penarikan sudah diajukan dan sedang diproses.
+- **Disetujui**: dana sudah ditransfer. Klik **Lihat Bukti Pembayaran** untuk membuka bukti transfer; **Tanggal Pembayaran** menunjukkan waktu transfer.
+- **Ditolak**: penarikan dibatalkan dan jumlahnya dikembalikan ke saldo. Alasan penolakan tampil sebagai **Catatan**, misalnya nama pemilik rekening tidak sesuai. Perbaiki data yang diminta, lalu ajukan penarikan baru.
