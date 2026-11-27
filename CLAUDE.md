@@ -200,6 +200,22 @@ Pakai data fiktif yang sudah dipakai di halaman lain agar contoh antarhalaman sa
 - Peserta: nama Indonesia, misalnya **Aditya Pratama**, **Fitri Handayani**, **Galih Ramadhan**, **Dewi Lestari**.
 - Email: `nama.belakang@contoh.id`. Jangan memakai data pelanggan, orang sungguhan, atau domain nyata milik pihak lain.
 - Tanggal contoh di sekitar periode ujian contoh (November–Desember 2026).
+- Panduan Peserta (`peserta/`): peserta **Sinta Maharani** (`sinta.maharani@contoh.id`) di Bimbel Prestasi Nusantara,
+  ujian **Tryout Mingguan Penalaran – Pekan 4** (kode **TMP-P4**, tes **Penalaran Umum** dan **Esai Penalaran**) dan
+  ujian berbayar **Tryout Akbar SNBT 2027 – Kelas Intensif** (Rp150.000, voucher **PRESTASI20**).
+
+## Panduan Peserta (`peserta/`)
+
+Tab **Panduan Peserta** ditulis untuk peserta ujian, bukan admin.
+
+- Sapaan **Anda** berarti peserta. Admin disebut **penyelenggara** (sekolah, bimbel, atau lembaga yang mengadakan ujian).
+- Jelaskan apa yang dilihat dan dilakukan peserta di aplikasi peserta. Jangan menjelaskan cara mengatur panel; cukup
+  katakan bahwa sesuatu bergantung pada pengaturan penyelenggara, lalu arahkan peserta untuk menghubungi penyelenggara.
+- Blok lokasi menunjuk aplikasi peserta: `**Lokasi menu:** aplikasi peserta → **Daftar Tes** → **Pendaftaran Tes Baru**.`
+- Screenshot diambil dari aplikasi peserta, bukan panel. Tampilan ponsel diambil dengan lebar 390 px.
+- Fakta perilaku aplikasi peserta harus sama dengan halaman admin yang membahas hal yang sama, terutama
+  `konsep/alur-peserta`, `konsep/pengawasan-dan-kecurangan`, dan `konsep/pertanyaan-umum`. Jika salah satu berubah,
+  perbarui yang lain.
 
 ## Halaman bahasa Inggris (`en/`)
 
