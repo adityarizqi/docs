@@ -206,6 +206,10 @@ Pakai data fiktif yang sudah dipakai di halaman lain agar contoh antarhalaman sa
 - Path dan nama file sama dengan halaman ID, di bawah `en/`. Gambar memakai path `/images/...` yang sama (tidak
   diduplikasi).
 - Struktur, urutan bagian, komponen, dan gambar sama persis dengan halaman ID. Hanya teksnya yang diterjemahkan.
+- **Data contoh tidak diterjemahkan.** Nama orang, lembaga, ujian, tes, sesi, dan email `@contoh.id` ditulis sama persis
+  dengan halaman ID, karena data yang sama tampil di screenshot yang dipakai kedua bahasa. Jangan menggantinya dengan
+  `@example.com` atau nama berbahasa Inggris. Terjemahan dalam kurung boleh ditambahkan pada penyebutan pertama, misalnya
+  **Sesi Siang** (Afternoon Session).
 - Ejaan British English (*summarise*, *colour*, *organise*). Judul bagian sentence case.
 - `title` halaman diterjemahkan ("Create Exam Sessions"); teks tautan memakai judul halaman EN tujuan:
   `[Create a Test](/en/data-ujian/membuat-tes-ujian#exam-type)`.
