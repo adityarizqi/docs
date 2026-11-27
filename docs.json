@@ -124,6 +124,38 @@
             ]
           },
           {
+            "tab": "Panduan Peserta",
+            "pages": [
+              {
+                "group": "Memulai",
+                "pages": [
+                  "peserta/memulai",
+                  "peserta/membuat-akun-dan-masuk"
+                ]
+              },
+              {
+                "group": "Mengikuti Ujian",
+                "pages": [
+                  "peserta/mendaftar-tes",
+                  "peserta/mengerjakan-tes",
+                  "peserta/menjawab-soal"
+                ]
+              },
+              {
+                "group": "Setelah Ujian",
+                "pages": [
+                  "peserta/melihat-hasil"
+                ]
+              },
+              {
+                "group": "Bantuan",
+                "pages": [
+                  "peserta/mengatasi-masalah"
+                ]
+              }
+            ]
+          },
+          {
             "tab": "Dokumentasi API",
             "pages": [
               "api/dokumentasi",
@@ -247,6 +279,38 @@
                 "group": "Website Builder",
                 "pages": [
                   "en/web-builder/membuat-website"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Participant Guide",
+            "pages": [
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "en/peserta/memulai",
+                  "en/peserta/membuat-akun-dan-masuk"
+                ]
+              },
+              {
+                "group": "Taking an Exam",
+                "pages": [
+                  "en/peserta/mendaftar-tes",
+                  "en/peserta/mengerjakan-tes",
+                  "en/peserta/menjawab-soal"
+                ]
+              },
+              {
+                "group": "After the Exam",
+                "pages": [
+                  "en/peserta/melihat-hasil"
+                ]
+              },
+              {
+                "group": "Help",
+                "pages": [
+                  "en/peserta/mengatasi-masalah"
                 ]
               }
             ]
