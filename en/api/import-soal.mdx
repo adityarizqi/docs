@@ -48,7 +48,7 @@ The endpoints on this page return `errors` as a **list**, not as the per-field o
 | `duplicate_source_id` | `422` | A question or passage `source_id` is used more than once. |
 | `unknown_option` | `422` | The answer key names an option or statement that does not exist. |
 | `missing_answer_key` | `422` | The answer key is missing. |
-| `too_many_categories` | `422` | A categorization question has more than 2 categories. |
+| `too_many_categories` | `422` | A `categorization` question has more than 2 categories. |
 | `unknown_stimulus` | `422` | `stimulus_id` is not in `stimuli`. |
 | `unused_stimulus` | `422` | No question uses the passage. |
 | `unknown_asset` | `422` | The `asset_id` does not exist, belongs to another project or has expired. |

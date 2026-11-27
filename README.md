@@ -20,6 +20,7 @@ Folder halaman panduan mengikuti modul di aplikasi:
 - `administrasi/`, `lainnya/manajemen-akses-admin`, `lainnya/transaksi-dan-penarikan-saldo`,
   `lainnya/kustomisasi-tampilan-website`: modul **Administrasi Aplikasi**
 - `lms/`, `web-builder/`: modul **LMS** dan **Pembuat Website**
+- `peserta/`: tab **Panduan Peserta**, panduan untuk peserta ujian di aplikasi peserta
 
 ## Pratinjau lokal
 
